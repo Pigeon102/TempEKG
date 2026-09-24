@@ -182,6 +182,23 @@ khác (`experiments/rules_full/rule_cover.py`). Script: `compress_timex.py`, `co
 cho 30,83% thay vì 30,84% (207 / 981.319 dự đoán khác nhau): bước này không tái lập từng bit, vì thứ tự duyệt
 set phụ thuộc hash seed.
 
+**Ablation: cách dùng dữ liệu train để tìm và chấm luật.**
+
+| Cách (luật EV–EV, cùng valid giấu nhãn) | Tìm luật | Chấm độ tin cậy | Chọn ngưỡng | Luật hoạt động | Valid macro-F1 | Accuracy | SIMU P / R |
+|---|---|---|---|---|---|---|---|
+| **A (pipeline chính)** | DISCOVERY 60% | CONF-1 20% | CONF-2 20% | 2.794 | **26,99%** | **87,90%** | 17,2 / 15,1 |
+| A, cách chia train khác (seed 1) | 60% | 20% | 20% | — | 26,51% | 87,66% | — |
+| C: K-fold (K = 5), hợp luật mọi fold | 4/5 train, 5 lần | fold còn lại (ngoài fold) | dự đoán ngoài fold của toàn bộ train | 6.787 | 26,32% | 87,00% | 10,7 / 29,3 |
+| C + lọc ổn định (luật được cả 5 fold chọn) | như trên | như trên | như trên | 4.975 | 26,39% | 87,48% | 11,3 / 28,7 |
+
+Hướng C dùng **toàn bộ** train cho cả tìm luật lẫn chấm luật, mà không luật nào tự chấm chính mình
+(K-fold cross-fitting). Macro-F1 ngoài fold trên train là 27,37–27,44%, nhưng trên valid không hơn A. Lọc ổn
+định chỉ thêm +0,07. Lý giải khả dĩ (suy luận, chưa kiểm chứng riêng): độ tin cậy gộp từ 5 fold sát precision thô
+hơn, nên ở cùng ngưỡng 0,15 có nhiều luật SIMULTANEOUS vượt ngưỡng hơn, recall gấp đôi nhưng precision tụt 17 → 11%.
+Chênh lệch A − C (0,6) cỡ bằng dao động của chính A khi đổi cách chia train (26,99 → 26,51), nên không kết luận A
+tốt hơn C một cách có ý nghĩa. Pipeline chính giữ A. Script: `experiments/rules_full/kfold_mine.py`,
+`kfold_stab.py`; log `kfold_mine.log`, `kfold_stab.log`.
+
 > **Bộ cũ (257 luật)** chọn trên 400 document train đầu: 155.467 luật thô (beam search 8 view) →
 > 1.453 họ trừu tượng (không qua subsumption) → 4.380 (gộp với nhánh vét cạn độ sâu 2 chỉ ở view `global`) → 861 (bốn cổng) → 257 (top
 > 30% theo Wilson trên CONFIRMATION), 25,60%; thêm 719 luật từ trigger (ví dụ `trigger_a = "wars"` →

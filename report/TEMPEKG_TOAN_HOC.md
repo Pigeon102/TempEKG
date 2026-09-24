@@ -141,6 +141,12 @@ Số luật qua từng bước (EV–EV): 106.242 (qua bốn cổng) → 92.773 
 Motion_directional)` đúng 11/32 trên DISCOVERY nhưng 12/12 trên CONF-1, cho $w = 0{,}758$. Đây là điểm yếu còn
 mở (§13).
 
+**Ablation (K-fold cross-fitting).** Thay 60/20/20 bằng $K = 5$ fold: với mỗi fold $j$, tìm luật trên
+$\bigcup_{i \ne j} F_i$ và đếm trên $F_j$; trọng số là cận Wilson của bằng chứng ngoài fold gộp lại; ngưỡng chọn trên dự đoán
+ngoài fold của toàn bộ train. Valid: 26,32% (hợp luật) và 26,39% (chỉ luật được cả 5 fold chọn), so với 26,99% của
+cách tách 60/20/20. Cách tách 60/20/20 với một cách chia khác cho 26,51%, nên chênh lệch nằm trong dao động do cách
+chia. Pipeline giữ cách tách 60/20/20.
+
 ## 5. Combiner
 
 Gọi $\mathcal{R}$ là tập luật, $\theta : \mathcal{L} \to [0, 1] \cup \{\infty\}$ là ngưỡng theo nhãn, $A(x) = \{\rho \in \mathcal{R} :

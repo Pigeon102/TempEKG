@@ -154,6 +154,23 @@ Ngưỡng chọn bằng coordinate ascent trên macro-F1 của CONF-2 (26,36%), 
 (25,88%). `max-norm` chia `wlb` cho prior của nhãn, nên với 54 nghìn luật, một luật BEGINS-ON có `wlb`
 0,01 đã được 23 điểm (prior 0,044%) và lấn hết nhãn khác.
 
+### 3.6 Ablation: tách 60/20/20 hay dùng toàn bộ train (K-fold)
+
+| Cách (luật EV–EV, cùng valid giấu nhãn) | Tìm luật | Chấm độ tin cậy | Chọn ngưỡng | Luật hoạt động | Valid macro-F1 | Accuracy | SIMU P / R |
+|---|---|---|---|---|---|---|---|
+| **A (pipeline chính)** | DISCOVERY 60% | CONF-1 20% | CONF-2 20% | 2.794 | **26,99%** | **87,90%** | 17,2 / 15,1 |
+| A, cách chia train khác (seed 1) | 60% | 20% | 20% | — | 26,51% | 87,66% | — |
+| C: K-fold (K = 5), hợp luật mọi fold | 4/5 train, 5 lần | fold còn lại (ngoài fold) | dự đoán ngoài fold của toàn bộ train | 6.787 | 26,32% | 87,00% | 10,7 / 29,3 |
+| C + lọc ổn định (luật được cả 5 fold chọn) | như trên | như trên | như trên | 4.975 | 26,39% | 87,48% | 11,3 / 28,7 |
+
+Hướng C dùng **toàn bộ** train cho cả tìm luật lẫn chấm luật, mà không luật nào tự chấm chính mình
+(K-fold cross-fitting). Macro-F1 ngoài fold trên train là 27,37–27,44%, nhưng trên valid không hơn A. Lọc ổn
+định chỉ thêm +0,07. Lý giải khả dĩ (suy luận, chưa kiểm chứng riêng): độ tin cậy gộp từ 5 fold sát precision thô
+hơn, nên ở cùng ngưỡng 0,15 có nhiều luật SIMULTANEOUS vượt ngưỡng hơn, recall gấp đôi nhưng precision tụt 17 → 11%.
+Chênh lệch A − C (0,6) cỡ bằng dao động của chính A khi đổi cách chia train (26,99 → 26,51), nên không kết luận A
+tốt hơn C một cách có ý nghĩa. Pipeline chính giữ A. Script: `experiments/rules_full/kfold_mine.py`,
+`kfold_stab.py`; log `kfold_mine.log`, `kfold_stab.log`.
+
 ## 4. Luật thật
 
 Cột *Bộ 378* cho biết luật (hoặc một luật cùng phần mở rộng, tức cùng phát biểu) có nằm trong bộ gọn đang

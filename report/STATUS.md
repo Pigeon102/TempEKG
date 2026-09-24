@@ -1283,3 +1283,12 @@ ICM chế độ `sum` giảm năng lượng đơn điệu; chế độ `mean` (�
   Ghi đè lên classifier 2.2: macro 30,84 → 31,65% (cổng chặt) / 32,36% (cổng nới); sửa đúng 6–7 cạnh, làm hỏng
   163–216 cạnh đúng. Chưa đưa vào pipeline.
 - **Luật đáng giữ nhất:** TT "ngày = điểm đầu của khoảng" → BEGINS-ON (CONF-1 7/9, valid 3/10).
+
+## §36 — Ablation hướng C: K-fold trên toàn bộ train (2026-09-25)
+
+`experiments/rules_full/kfold_mine.py`, `kfold_stab.py` (log cùng tên). Tìm luật trên 4/5 train, chấm trên fold còn
+lại, trọng số = Wilson của bằng chứng ngoài fold gộp, ngưỡng chọn trên dự đoán ngoài fold của toàn bộ train.
+- Hợp luật: 110.259 luật, 6.787 hoạt động → valid 26,32% (acc 87,00%).
+- Lọc ổn định (m chọn ngoài fold = 5): 43.670 luật, 4.975 hoạt động → valid 26,39% (acc 87,48%).
+- A (60/20/20) 26,99%; A với cách chia khác (seed 1) 26,51% → chênh A − C nằm trong dao động do cách chia.
+- **Quyết định:** pipeline chính giữ A; C ghi làm ablation.

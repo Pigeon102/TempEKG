@@ -1,0 +1,23 @@
+[    50s] fold 0 ban xong
+[   101s] fold 1 ban xong
+[   175s] fold 2 ban xong
+[   234s] fold 3 ban xong
+[   284s] fold 4 ban xong
+[   756s] m = 1 (luat duoc >= 1 fold chon): macro ngoai fold 27.37%, nguong {'CONT': 0.5, 'SIMU': 0.15, 'OVER': 0.15}
+[  1280s] m = 2 (luat duoc >= 2 fold chon): macro ngoai fold 27.37%, nguong {'CONT': 0.5, 'SIMU': 0.15, 'OVER': 0.15}
+[  1827s] m = 3 (luat duoc >= 3 fold chon): macro ngoai fold 27.39%, nguong {'CONT': 0.5, 'SIMU': 0.15, 'OVER': 0.15}
+[  2283s] m = 4 (luat duoc >= 4 fold chon): macro ngoai fold 27.40%, nguong {'CONT': 0.5, 'SIMU': 0.15, 'OVER': 0.15}
+[  2602s] m = 5 (luat duoc >= 5 fold chon): macro ngoai fold 27.44%, nguong {'CONT': 0.5, 'SIMU': 0.15, 'OVER': 0.15}
+
+====================================================================================================
+HUONG C + LOC ON DINH -- m chon tren du doan ngoai fold, valid mo mot lan
+====================================================================================================
+  m = 5; 43670 luat, 4975 hoat dong; nguong {'CONT': 0.5, 'SIMU': 0.15, 'OVER': 0.15}
+  valid macro-F1 26.39%  accuracy 87.48%   (huong A 26,99% / 87,90%; huong C khong loc 26,32% / 87,00%)
+    BEFORE        P  93.45%  R  93.36%  F1  93.41%
+    CONTAINS      P  43.96%  R  37.39%  F1  40.41%
+    SIMULTANEOUS  P  11.27%  R  28.72%  F1  16.19%
+    OVERLAP       P   9.25%  R   7.54%  F1   8.31%
+    BEGINS-ON     P   0.00%  R   0.00%  F1   0.00%
+    ENDS-ON       P   0.00%  R   0.00%  F1   0.00%
+[  2628s] xong
