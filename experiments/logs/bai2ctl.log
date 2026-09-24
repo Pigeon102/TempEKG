@@ -1,0 +1,40 @@
+[    0s] nap train/valid ...
+[    8s] train 400 doc (disc 229 / conf 171), valid 705 doc
+[   13s]   257 luat EV-EV tren disc (in-sample)  acc 91.47%  loi 8.53%
+[   13s]   257 luat EV-EV tren valid             acc 87.87%  loi 12.13%
+[   13s]   classifier EV-TX (273 luat) tren valid: 79.84%
+[   13s]   TX-TX theo lich tren valid: 12464 canh, UNK 65.1%, dung 95.8% trong so da quyet dinh
+[   13s] dung motif ...
+[  233s]   do phu motif tren valid (109,929 cap): 3E 99.7%  3T 92.2%  4EE 99.4%  4ET 95.4%  4TE 96.1%  4TT 90.3%
+[  233s] BASE 257 luat: macro-F1 25.60%  acc 87.87%
+[  233s] do tin cay classifier tren confirmation: {'BEFORE': '94.6%', 'CONTAINS': '40.6%', 'SIMULTANEOUS': '16.3%', 'OVERLAP': '41.7%'}
+[  233s] chu ky gold tren train ...
+[  236s] chu ky boi canh B tren confirmation va valid ...
+
+CHON (margin, dong thuan) tren CONFIRMATION theo giam loi rong:
+  margin 0.00  dong thuan >=1   gan co  2664  sua  1462  lam hong  1055  giam rong  +407
+  margin 0.00  dong thuan >=2   gan co  2429  sua  1406  lam hong   891  giam rong  +515
+  margin 0.00  dong thuan >=3   gan co  2347  sua  1373  lam hong   849  giam rong  +524
+  margin 0.02  dong thuan >=1   gan co  1195  sua   847  lam hong   234  giam rong  +613
+  margin 0.02  dong thuan >=2   gan co  1137  sua   816  lam hong   217  giam rong  +599
+  margin 0.02  dong thuan >=3   gan co  1121  sua   813  lam hong   205  giam rong  +608
+  margin 0.05  dong thuan >=1   gan co  1072  sua   796  lam hong   179  giam rong  +617
+  margin 0.05  dong thuan >=2   gan co  1057  sua   790  lam hong   176  giam rong  +614
+  margin 0.05  dong thuan >=3   gan co  1050  sua   787  lam hong   173  giam rong  +614
+  margin 0.10  dong thuan >=1   gan co  1046  sua   778  lam hong   171  giam rong  +607
+  margin 0.10  dong thuan >=2   gan co  1031  sua   772  lam hong   168  giam rong  +604
+  margin 0.10  dong thuan >=3   gan co  1026  sua   770  lam hong   166  giam rong  +604
+  -> chon margin 0.05, dong thuan >=1
+
+====================================================================================================
+BOI CANH B (tat ca du doan) -- VALID, mo mot lan
+====================================================================================================
+  OLD stack                                gan co  5,797  P@k  73.23%  repair@k  91.99%  R_all  29.29%  lam hong  1544  loi 12.13% -> 9.98%
+  NEW stack (khong kiem soat)              gan co 10,345  P@k  60.49%  repair@k  93.37%  R_all  43.83%  lam hong  4079  loi 12.13% -> 10.52%
+  NEW stack (margin 0.05, dong thuan >=1)  gan co  4,038  P@k  78.53%  repair@k  91.61%  R_all  21.79%  lam hong   859  loi 12.13% -> 10.27%
+  NEW-ctl -> OLD -> closure -> date        gan co  6,174  P@k  73.13%  repair@k  92.60%  R_all  31.36%  lam hong  1651  loi 12.13% -> 9.83%
+
+BOI CANH A -- cung chi so loi rong de doi chieu
+  OLD stack                                gan co  5,797  P@k  73.23%  repair@k  91.99%  R_all  29.29%  lam hong  1544  loi 12.13% -> 9.98%
+  NEW stack                                gan co  7,468  P@k  81.41%  repair@k  95.16%  R_all  43.40%  lam hong  1380  loi 12.13% -> 8.12%
+[  389s] xong

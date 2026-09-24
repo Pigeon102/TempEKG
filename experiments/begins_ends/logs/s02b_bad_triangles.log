@@ -1,0 +1,8 @@
+train cb776b54 Barbary Wars | ENDS-ON(('Wars', 0, 'early 19th centuries', 0)) but BEFORE(a,('culminating', 0)) and BEFORE(('culminating', 0),c)
+train cb776b54 Barbary Wars | ENDS-ON(('Wars', 0, 'early 19th centuries', 0)) but BEFORE(a,('wars', 0)) and BEFORE(('wars', 0),c)
+train cb776b54 Barbary Wars | ENDS-ON(('Wars', 0, 'early 19th centuries', 0)) but BEFORE(a,('fought', 0)) and BEFORE(('fought', 0),c)
+train 6b13e7ec 11 April 2007 Algiers bombings | ENDS-ON(('attack', 5, 'exploded', 0)) but BEFORE(a,('explosion', 1)) and BEFORE(('explosion', 1),c)
+train 6b13e7ec 11 April 2007 Algiers bombings | ENDS-ON(('attack', 5, 'occurred', 0)) but BEFORE(a,('explosion', 1)) and BEFORE(('explosion', 1),c)
+train 2950b444 Fulani War | ENDS-ON(('exiled', 1, 'War', 0)) but BEFORE(a,('began', 1)) and BEFORE(('began', 1),c)
+train 2950b444 Fulani War | ENDS-ON(('exiled', 1, 'contest', 0)) but BEFORE(a,('began', 1)) and BEFORE(('began', 1),c)
+total 7 violating (a,x,c) chains in 3 documents

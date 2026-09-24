@@ -1,0 +1,82 @@
+[    2s] pass 1 done; DISC positives: {'TT': 140, 'ET': 85, 'EE': 175, 'TE': 4}
+[    2s]   TT: universe 117 atoms, 4211 candidate (conj,label) with k>=3, docs>=3
+[    2s]   ET: universe 89 atoms, 1003 candidate (conj,label) with k>=3, docs>=3
+[    2s]   EE: universe 189 atoms, 925 candidate (conj,label) with k>=3, docs>=3
+[    2s]   TE: universe 1 atoms, 1 candidate (conj,label) with k>=3, docs>=3
+[   11s] pass 2 done; 1513 atom bitsets
+[   11s] gate funnel: {'cand': 6140, 'n_ok': 6076, 'disc_ok': 4528, 'cn_ok': 4351, 'confirmed': 2000}
+rules confirmed per (edge type, label): {('TT', 'BEGINS-ON'): 244, ('TT', 'ENDS-ON'): 1175, ('ET', 'ENDS-ON'): 35, ('ET', 'BEGINS-ON'): 292, ('EE', 'BEGINS-ON'): 166, ('EE', 'ENDS-ON'): 88}
+[   12s] predictions loaded for 345293 edges
+
+CONF-2: classifier macro-F1 29.88% -> with rules 33.21%
+floors chosen on CONF-2 (9 = switched off): {'EE/BEGINS-ON': 9, 'EE/ENDS-ON': 9, 'ET/BEGINS-ON': 0.0199, 'ET/ENDS-ON': 9, 'TT/BEGINS-ON': 0.4526, 'TT/ENDS-ON': 0.0434}
+
+=== VALID (188924 edges), gates=relaxed ===
+pooled 6-label macro-F1: classifier 30.84%  ->  with rules 32.36%  (+1.52)
+  BEGINS-ON classifier P/R/F1 0.000/0.000/0.000   with rules 0.075/0.072/0.074
+  ENDS-ON   classifier P/R/F1 0.000/0.000/0.000   with rules 0.013/0.059/0.022
+  edges relabelled 219: fixed 7, broke 163 previously-correct labels
+  per edge type (BEGINS-ON / ENDS-ON, with rules):
+    EE BEGINS-ON tp   0 fp    0 fn  25  P/R/F1 0.000/0.000/0.000
+    EE ENDS-ON   tp   0 fp    0 fn  15  P/R/F1 0.000/0.000/0.000
+    ET BEGINS-ON tp   2 fp   55 fn  12  P/R/F1 0.035/0.143/0.056
+    ET ENDS-ON   tp   0 fp    0 fn   4  P/R/F1 0.000/0.000/0.000
+    TT BEGINS-ON tp   3 fp    7 fn  27  P/R/F1 0.300/0.100/0.150
+    TT ENDS-ON   tp   2 fp  150 fn  13  P/R/F1 0.013/0.133/0.024
+
+Best confirmed rules per (edge type, label), by CONF-1 Wilson bound (top 8); valid k/n shown after the fact
+  EE BEGINS-ON (floor 9)
+     A.et:Catastrophe & A.tc:none & ORD:B1                                          DISC   3/1829  (3 docs)  CONF-1 10/575  cwlb 0.009  VALID  2/809
+     A.et:Catastrophe & ORD:B1                                                      DISC   3/1856  (3 docs)  CONF-1 10/578  cwlb 0.009  VALID  2/809
+     A.p2:of_the & ORD:B1                                                           DISC   4/709   (4 docs)  CONF-1  5/296  cwlb 0.007  VALID  0/332
+     A.p1:the & A.p2:of_the & ORD:B1                                                DISC   4/709   (4 docs)  CONF-1  5/296  cwlb 0.007  VALID  0/332
+     A.tc:none & B.et:Coming_to_be                                                  DISC   4/2677  (3 docs)  CONF-1 11/1047 cwlb 0.006  VALID  2/1485
+     B.et:Coming_to_be                                                              DISC   4/3109  (3 docs)  CONF-1 11/1213 cwlb 0.005  VALID  3/1767
+     B.p1:the & B.tc:none & ORD:B1                                                  DISC   4/2490  (4 docs)  CONF-1  8/879  cwlb 0.005  VALID  0/1038
+     B.et:Attack & ORD:B1 & SD:2-3                                                  DISC   3/352   (3 docs)  CONF-1  2/131  cwlb 0.004  VALID  0/172
+  EE ENDS-ON (floor 9)
+     B.tc:none & ORD:B1 & SD:0                                                      DISC   7/6566  (7 docs)  CONF-1  6/2102 cwlb 0.001  VALID  0/2529
+     ORD:B1 & SD:0                                                                  DISC   7/7463  (7 docs)  CONF-1  6/2413 cwlb 0.001  VALID  0/2884
+     BW:a                                                                           DISC   3/1425  (3 docs)  CONF-1  2/502  cwlb 0.001  VALID  1/550
+     BW:a & SD:0                                                                    DISC   3/1425  (3 docs)  CONF-1  2/502  cwlb 0.001  VALID  1/550
+     A.tc:none & ORD:B1 & SD:0                                                      DISC   6/6481  (6 docs)  CONF-1  5/2110 cwlb 0.001  VALID  0/2439
+     B.tc:none & BW:the & TG:4-8                                                    DISC   5/3221  (5 docs)  CONF-1  3/1017 cwlb 0.001  VALID  1/1316
+     A.tc:DUR & SD:0                                                                DISC   3/1775  (3 docs)  CONF-1  2/559  cwlb 0.001  VALID  2/689
+     TG:4-8                                                                         DISC  12/8205  (10 docs)  CONF-1  6/2857 cwlb 0.001  VALID  4/3300
+  ET BEGINS-ON (floor 0.019890887631951095)
+     B.n1:to & BW:from                                                              DISC   4/18    (4 docs)  CONF-1  1/6    cwlb 0.030  VALID  1/8
+     B.n1:to & B.p1:from & BW:from                                                  DISC   4/16    (4 docs)  CONF-1  1/6    cwlb 0.030  VALID  1/8
+     B.n1:to & B.tt:DATE & BW:from                                                  DISC   4/17    (4 docs)  CONF-1  1/6    cwlb 0.030  VALID  1/6
+     B.n1:to & BW:from & ORD:A1                                                     DISC   4/18    (4 docs)  CONF-1  1/6    cwlb 0.030  VALID  1/8
+     B.n1:to & BW:from & PAT:SINCE_B                                                DISC   4/17    (4 docs)  CONF-1  1/6    cwlb 0.030  VALID  1/8
+     B.n1:to & BW:from & SD:0                                                       DISC   4/18    (4 docs)  CONF-1  1/6    cwlb 0.030  VALID  1/8
+     A.tc:none & B.p1:from & BW:from                                                DISC   4/14    (4 docs)  CONF-1  1/7    cwlb 0.026  VALID  1/8
+     A.n1:in & A.tc:none & BW:in                                                    DISC   4/81    (4 docs)  CONF-1  2/22   cwlb 0.025  VALID  1/21
+  ET ENDS-ON (floor 9)
+     B.dur & ORD:A1 & SD:0                                                          DISC   3/751   (3 docs)  CONF-1  2/291  cwlb 0.002  VALID  0/321
+     B.dur & SD:0                                                                   DISC   3/972   (3 docs)  CONF-1  2/367  cwlb 0.001  VALID  0/405
+     ORD:A1 & PAT:UNTIL_B & PAT:XTOY                                                DISC   3/290   (3 docs)  CONF-1  1/122  cwlb 0.001  VALID  0/157
+     PAT:UNTIL_B & PAT:XTOY                                                         DISC   3/303   (3 docs)  CONF-1  1/124  cwlb 0.001  VALID  0/161
+     PAT:UNTIL_B & PAT:XTOY & SD:0                                                  DISC   3/303   (3 docs)  CONF-1  1/124  cwlb 0.001  VALID  0/161
+     B.n1:. & ORD:A1 & SD:0                                                         DISC   5/1413  (4 docs)  CONF-1  2/513  cwlb 0.001  VALID  0/617
+     B.n1:. & SD:0                                                                  DISC   5/1416  (4 docs)  CONF-1  2/514  cwlb 0.001  VALID  0/617
+     ORD:A1 & PAT:XTOY                                                              DISC   7/431   (4 docs)  CONF-1  1/183  cwlb 0.001  VALID  0/223
+  TT BEGINS-ON (floor 0.45258896903514745)
+     CAL:B_contains_A & CAL:same_start                                              DISC   4/43    (3 docs)  CONF-1  7/9    cwlb 0.453  VALID  3/10
+     A.n1:, & CAL:B_contains_A & CAL:same_start                                     DISC   3/16    (3 docs)  CONF-1  4/5    cwlb 0.376  VALID  2/4
+     A.n1:, & CAL:same_start & ORD:B1                                               DISC   3/86    (3 docs)  CONF-1  4/30   cwlb 0.053  VALID  4/50
+     A.sh:QTY & ORD:B1 & SD:0                                                       DISC   3/46    (3 docs)  CONF-1  3/20   cwlb 0.052  VALID  0/23
+     A.sh:QTY & B.tt:DATE & SD:0                                                    DISC   4/104   (4 docs)  CONF-1  5/50   cwlb 0.043  VALID  2/47
+     A.sh:QTY & A.tt:DURATION & SD:0                                                DISC   5/118   (5 docs)  CONF-1  5/52   cwlb 0.042  VALID  2/52
+     A.n1:, & CAL:same_start                                                        DISC   4/221   (4 docs)  CONF-1  5/63   cwlb 0.034  VALID  4/91
+     A.sh:QTY & SD:0                                                                DISC   6/133   (6 docs)  CONF-1  5/63   cwlb 0.034  VALID  2/57
+  TT ENDS-ON (floor 0.043443340791140185)
+     A.n1:and & B.sh:MONTH_YEAR & TG:1                                              DISC   3/31    (3 docs)  CONF-1  3/12   cwlb 0.089  VALID  0/6
+     B.p1:and & B.sh:MONTH_YEAR & TG:1                                              DISC   3/32    (3 docs)  CONF-1  3/12   cwlb 0.089  VALID  0/6
+     B.sh:MONTH_YEAR & BW:and & TG:1                                                DISC   3/31    (3 docs)  CONF-1  3/12   cwlb 0.089  VALID  0/6
+     B.p1:and & B.sh:MONTH_YEAR & BW:and                                            DISC   3/34    (3 docs)  CONF-1  3/13   cwlb 0.082  VALID  0/7
+     B.p1:and & B.sh:MONTH_YEAR & SD:0                                              DISC   3/40    (3 docs)  CONF-1  3/14   cwlb 0.076  VALID  0/8
+     B.sh:MONTH_YEAR & PAT:BETWEENAND                                               DISC   3/11    (3 docs)  CONF-1  2/8    cwlb 0.071  VALID  0/4
+     A.n1:and & B.sh:MONTH_YEAR & PAT:BETWEENAND                                    DISC   3/11    (3 docs)  CONF-1  2/8    cwlb 0.071  VALID  0/4
+     A.p1:between & B.sh:MONTH_YEAR & BW:and                                        DISC   3/11    (3 docs)  CONF-1  2/8    cwlb 0.071  VALID  0/4
+[  111s] done

@@ -1,0 +1,29 @@
+[    1s] nap du lieu ...
+[    3s] mine tren conf2: 499 doc, chon tren conf1: 523 doc, valid 710 doc; canh: 129211 / 121440 / 188924
+[  221s] cau truc motif xong
+
+
+==================================================================================================================================
+BAI 2 -- KIEM TOAN CA BON LOAI CANH TREN DO THI HOP NHAT (valid mo mot lan)
+==================================================================================================================================
+
+N1 -- nhieu classifier (ca do thi do giai doan 1 du doan)
+  chon theo giam loi, margin 0.10          P  72.25%  R  28.59%  F1  40.97%  sua   7662  hong  3157  rong  +4505  loi 15.22% -> 12.83%  macro-F1  29.87% ->  27.46%
+  chon theo macro-F1, margin 0.70          P  97.76%  R   0.46%  F1   0.91%  sua    113  hong     3  rong   +110  loi 15.22% -> 15.16%  macro-F1  29.87% ->  30.05%
+
+N2 -- nhieu bom tren CA BON loai canh (quy trinh fake_data mo rong sang canh TIMEX)
+  rho 5%, margin 0.00                      P  89.04%  R  48.97%  F1  63.19%  sua   4642  hong   572  rong  +4070  loi  5.02% ->  2.87%  macro-F1  82.82% ->  86.76%
+      loi theo loai: EV-EV 5.04%->2.16%   EV>TX 5.11%->2.01%   TX>EV 4.95%->4.89%   TX-TX 4.91%->4.53%
+  rho 10%, margin 0.00                     P  82.79%  R  59.25%  F1  69.07%  sua  11200  hong  2332  rong  +8868  loi 10.02% ->  5.33%  macro-F1  69.26% ->  73.51%
+      loi theo loai: EV-EV 10.01%->3.79%   EV>TX 9.69%->3.69%   TX>EV 10.33%->9.91%   TX-TX 9.84%->7.69%
+  rho 15%, margin 0.00                     P  77.85%  R  67.94%  F1  72.56%  sua  19261  hong  5500  rong +13761  loi 15.06% ->  7.78%  macro-F1  60.94% ->  64.60%
+      loi theo loai: EV-EV 15.07%->5.87%   EV>TX 14.73%->6.28%   TX>EV 15.24%->13.33%   TX-TX 15.14%->10.02%
+  rho 20%, margin 0.10                     P  79.86%  R  67.46%  F1  73.13%  sua  25376  hong  6427  rong +18949  loi 19.99% ->  9.96%  macro-F1  51.79% ->  56.44%
+      loi theo loai: EV-EV 20.06%->7.21%   EV>TX 20.13%->7.26%   TX>EV 19.83%->18.29%   TX-TX 19.60%->13.29%
+
+N3 -- fake_data cua ban (chi EV-EV bi doi, canh TIMEX gold); luat mine duoi cung loai nhieu
+  fake r05, margin 0.00                    P  92.71%  R  75.41%  F1  83.17%  sua   4131  hong   325  rong  +3806  loi  2.90% ->  0.89%  macro-F1  90.32% ->  94.19%
+  fake r10, margin 0.00                    P  84.31%  R  84.66%  F1  84.49%  sua   9329  hong  1740  rong  +7589  loi  5.85% ->  1.83%  macro-F1  83.76% ->  89.20%
+  fake r15, margin 0.10                    P  86.94%  R  84.66%  F1  85.78%  sua  13973  hong  2105  rong +11868  loi  8.76% ->  2.48%  macro-F1  77.30% ->  84.38%
+  fake r20, margin 0.10                    P  86.22%  R  87.21%  F1  86.72%  sua  19136  hong  3067  rong +16069  loi 11.65% ->  3.15%  macro-F1  71.35% ->  79.56%
+[  303s] xong

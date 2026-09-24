@@ -1,0 +1,38 @@
+[     6s] 3623 document; neighbour labels = gold
+[    30s] bo 3: 382 chu ky, 233 qua cong dem
+[    30s] bo 4: 4104 chu ky, 1111 qua cong dem
+[    30s] bo 4K: 5920 chu ky, 1435 qua cong dem
+[    30s] bo 5: 15649 chu ky, 2292 qua cong dem
+[    51s] bo 3: 228 ung vien (>= 5 document)
+[    51s] bo 4: 1095 ung vien (>= 5 document)
+[    51s] bo 4K: 1398 ung vien (>= 5 document)
+[    51s] bo 5: 2254 ung vien (>= 5 document)
+[    58s] bo 3: 186 luat sau xac nhan ({'BEFORE': 57, 'BEGINS-ON': 6, 'OVERLAP': 40, 'CONTAINS': 65, 'SIMULTANEOUS': 17, 'ENDS-ON': 1})
+[    58s] bo 4: 872 luat sau xac nhan ({'BEFORE': 400, 'CONTAINS': 318, 'BEGINS-ON': 11, 'OVERLAP': 100, 'SIMULTANEOUS': 42, 'ENDS-ON': 1})
+[    58s] bo 4K: 1079 luat sau xac nhan ({'BEFORE': 490, 'CONTAINS': 415, 'OVERLAP': 110, 'BEGINS-ON': 8, 'SIMULTANEOUS': 56})
+[    58s] bo 5: 1596 luat sau xac nhan ({'BEFORE': 825, 'SIMULTANEOUS': 59, 'OVERLAP': 102, 'BEGINS-ON': 4, 'CONTAINS': 606})
+[    73s] ban luat: CONF-2 156369 canh, valid 188924 canh
+
+==============================================================================================================
+BO 3 / 4 / 5 -- hang xom GOLD (tran), ca bon loai canh, valid mo mot lan
+==============================================================================================================
+  classifier hien tai (buoc 2.2): macro-F1 30.84%  acc 84.69%
+
+  che do: GHI DE len classifier
+    bo 3                 CONF-2 50.60%  VALID macro-F1 46.47% (+15.63)  acc 95.07%  | EE 46.90  ET 43.93  TE 37.67  TT 40.99 | F1 BEFO 97.4 CONT 86.1 SIMU 48.8 OVER 41.0 | 15 nguong bat
+    bo 4                 CONF-2 46.44%  VALID macro-F1 45.98% (+15.14)  acc 95.07%  | EE 44.50  ET 42.97  TE 38.23  TT 40.94 | F1 BEFO 97.5 CONT 85.8 SIMU 52.5 OVER 40.0 | 14 nguong bat
+    bo 4K (du 6 canh)    CONF-2 45.94%  VALID macro-F1 45.49% (+14.65)  acc 94.99%  | EE 44.13  ET 41.45  TE 37.91  TT 40.82 | F1 BEFO 97.4 CONT 85.6 SIMU 52.4 OVER 37.4 | 14 nguong bat
+    bo 5                 CONF-2 44.45%  VALID macro-F1 44.47% (+13.64)  acc 94.73%  | EE 43.08  ET 39.13  TE 36.90  TT 41.74 | F1 BEFO 97.2 CONT 84.7 SIMU 52.0 OVER 32.9 | 13 nguong bat
+    bo 3 + 4             CONF-2 51.62%  VALID macro-F1 47.34% (+16.50)  acc 95.16%  | EE 47.85  ET 44.17  TE 37.77  TT 41.10 | F1 BEFO 97.5 CONT 86.0 SIMU 53.2 OVER 41.6 | 15 nguong bat
+    bo 3 + 4K            CONF-2 51.65%  VALID macro-F1 47.13% (+16.29)  acc 95.18%  | EE 47.85  ET 42.93  TE 38.09  TT 41.68 | F1 BEFO 97.5 CONT 86.5 SIMU 52.5 OVER 40.7 | 15 nguong bat
+    bo 3 + 4 + 5         CONF-2 51.80%  VALID macro-F1 47.21% (+16.37)  acc 95.25%  | EE 47.92  ET 42.79  TE 37.73  TT 42.09 | F1 BEFO 97.5 CONT 86.4 SIMU 53.9 OVER 39.7 | 15 nguong bat
+
+  che do: DUNG MOT MINH (khong co luat -> BEFORE)
+    bo 3                 CONF-2 49.27%  VALID macro-F1 44.53% (+13.69)  acc 94.78%  | EE 48.54  ET 41.60  TE 36.30  TT 33.19 | F1 BEFO 97.1 CONT 82.2 SIMU 36.0 OVER 46.2 | 13 nguong bat
+    bo 4                 CONF-2 47.13%  VALID macro-F1 45.67% (+14.83)  acc 94.72%  | EE 46.15  ET 39.70  TE 36.63  TT 40.10 | F1 BEFO 97.2 CONT 82.5 SIMU 51.0 OVER 43.3 | 13 nguong bat
+    bo 4K (du 6 canh)    CONF-2 45.49%  VALID macro-F1 44.70% (+13.87)  acc 94.79%  | EE 44.45  ET 39.24  TE 36.65  TT 39.91 | F1 BEFO 97.2 CONT 83.3 SIMU 46.2 OVER 41.6 | 13 nguong bat
+    bo 5                 CONF-2 43.95%  VALID macro-F1 43.07% (+12.23)  acc 94.52%  | EE 44.23  ET 34.05  TE 34.54  TT 39.47 | F1 BEFO 97.1 CONT 80.7 SIMU 49.7 OVER 30.9 | 11 nguong bat
+    bo 3 + 4             CONF-2 52.61%  VALID macro-F1 47.30% (+16.46)  acc 94.97%  | EE 49.96  ET 41.74  TE 36.51  TT 40.26 | F1 BEFO 97.3 CONT 82.5 SIMU 51.4 OVER 46.9 | 13 nguong bat
+    bo 3 + 4K            CONF-2 51.50%  VALID macro-F1 46.66% (+15.83)  acc 94.96%  | EE 48.44  ET 41.74  TE 36.91  TT 40.17 | F1 BEFO 97.3 CONT 83.7 SIMU 46.8 OVER 46.5 | 14 nguong bat
+    bo 3 + 4 + 5         CONF-2 52.68%  VALID macro-F1 47.36% (+16.52)  acc 94.93%  | EE 50.02  ET 41.74  TE 36.54  TT 40.26 | F1 BEFO 97.3 CONT 83.0 SIMU 51.4 OVER 46.8 | 13 nguong bat
+[   619s] xong

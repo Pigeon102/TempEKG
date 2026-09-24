@@ -1,0 +1,14621 @@
+{
+"floors": {
+"CONTAINS": 0.5,
+"SIMULTANEOUS": 0.15,
+"OVERLAP": 0.1
+},
+"variants": {
+"A: giu moi du doan": [
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"CNT",
+"roleset_shared",
+3
+]
+],
+"k": 1565,
+"n": 3349,
+"ck": 669,
+"cn": 1191,
+"wlb": 0.5333798662623338
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"EQ",
+"type_a",
+"Competition"
+]
+],
+"k": 738,
+"n": 1268,
+"ck": 296,
+"cn": 405,
+"wlb": 0.6856495965056207
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"EQ",
+"type_a",
+"Hostile_encounter"
+]
+],
+"k": 947,
+"n": 2066,
+"ck": 405,
+"cn": 745,
+"wlb": 0.5077246839146039
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"EQ",
+"type_a",
+"Hostile_encounter"
+]
+],
+"k": 709,
+"n": 1502,
+"ck": 279,
+"cn": 489,
+"wlb": 0.5262971652027228
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"EQ",
+"multi_mention_a",
+true
+]
+],
+"k": 616,
+"n": 1123,
+"ck": 242,
+"cn": 388,
+"wlb": 0.5745158918029171
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Location"
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 707,
+"n": 1490,
+"ck": 217,
+"cn": 389,
+"wlb": 0.5081601751899937
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"HAS",
+"roleset_a",
+"Event"
+]
+],
+"k": 560,
+"n": 963,
+"ck": 228,
+"cn": 400,
+"wlb": 0.5210443194259947
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_a",
+"Winner"
+]
+],
+"k": 530,
+"n": 917,
+"ck": 194,
+"cn": 264,
+"wlb": 0.6785096157629502
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"bucket_b",
+"early"
+]
+],
+"k": 594,
+"n": 1176,
+"ck": 221,
+"cn": 391,
+"wlb": 0.5156819535779896
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Hostile_encounter"
+],
+[
+"EQ",
+"bucket_b",
+"early"
+]
+],
+"k": 462,
+"n": 831,
+"ck": 183,
+"cn": 284,
+"wlb": 0.5871041655291739
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 591,
+"n": 1311,
+"ck": 280,
+"cn": 510,
+"wlb": 0.5056280249260753
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"roleset_a",
+"Name"
+]
+],
+"k": 509,
+"n": 913,
+"ck": 196,
+"cn": 335,
+"wlb": 0.5316397980921291
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"roleset_a",
+"Host"
+]
+],
+"k": 463,
+"n": 915,
+"ck": 139,
+"cn": 240,
+"wlb": 0.5159412597331803
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 422,
+"n": 789,
+"ck": 172,
+"cn": 305,
+"wlb": 0.5078276974754269
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"REL",
+"same_type",
+true
+]
+],
+"k": 284,
+"n": 1231,
+"ck": 81,
+"cn": 424,
+"wlb": 0.1564583116133757
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Competition"
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 355,
+"n": 696,
+"ck": 192,
+"cn": 324,
+"wlb": 0.5383091854898541
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_a",
+"Host"
+]
+],
+"k": 331,
+"n": 628,
+"ck": 127,
+"cn": 201,
+"wlb": 0.5632739063500701
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"EQ",
+"type_a",
+"Catastrophe"
+]
+],
+"k": 291,
+"n": 606,
+"ck": 130,
+"cn": 208,
+"wlb": 0.5575013068118495
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"EQ",
+"nrole_a",
+5
+]
+],
+"k": 357,
+"n": 722,
+"ck": 139,
+"cn": 199,
+"wlb": 0.6314677610041481
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Catastrophe"
+],
+[
+"EQ",
+"bucket_b",
+"early"
+]
+],
+"k": 292,
+"n": 670,
+"ck": 157,
+"cn": 275,
+"wlb": 0.511830497571279
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_a",
+"Loss"
+]
+],
+"k": 220,
+"n": 398,
+"ck": 110,
+"cn": 190,
+"wlb": 0.5078607891051027
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"EQ",
+"type_a",
+"Competition"
+]
+],
+"k": 238,
+"n": 416,
+"ck": 105,
+"cn": 176,
+"wlb": 0.522798819078153
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"CNT",
+"anchor_roles",
+2
+]
+],
+"k": 279,
+"n": 552,
+"ck": 121,
+"cn": 186,
+"wlb": 0.5795982510202655
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+5
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 320,
+"n": 753,
+"ck": 165,
+"cn": 294,
+"wlb": 0.5040726753622923
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '8+')",
+"rel": "CONTAINS",
+"conds": [
+[
+"MIX",
+"etypeset_a",
+null
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 201,
+"n": 352,
+"ck": 95,
+"cn": 161,
+"wlb": 0.5128542381700195
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+]
+],
+"k": 290,
+"n": 595,
+"ck": 123,
+"cn": 202,
+"wlb": 0.5401826228646031
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_a",
+"Host"
+]
+],
+"k": 532,
+"n": 1050,
+"ck": 217,
+"cn": 341,
+"wlb": 0.5840498072943588
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"HAS",
+"roleset_a",
+"Event"
+]
+],
+"k": 230,
+"n": 409,
+"ck": 113,
+"cn": 194,
+"wlb": 0.5121363495527723
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_a",
+"Competition"
+]
+],
+"k": 206,
+"n": 362,
+"ck": 73,
+"cn": 108,
+"wlb": 0.5829333238244067
+},
+{
+"view": "sdist",
+"sig": "2-3",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_a",
+"Hostile_encounter"
+]
+],
+"k": 238,
+"n": 472,
+"ck": 103,
+"cn": 168,
+"wlb": 0.5377032490719462
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"roleset_b",
+"Name"
+]
+],
+"k": 206,
+"n": 338,
+"ck": 96,
+"cn": 152,
+"wlb": 0.552531832795388
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"EQ",
+"type_a",
+"Competition"
+]
+],
+"k": 236,
+"n": 467,
+"ck": 117,
+"cn": 191,
+"wlb": 0.5419059231068181
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"REL",
+"same_type",
+true
+]
+],
+"k": 179,
+"n": 342,
+"ck": 76,
+"cn": 125,
+"wlb": 0.5204208805798638
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Hostile_encounter"
+]
+]
+],
+"k": 180,
+"n": 292,
+"ck": 61,
+"cn": 92,
+"wlb": 0.5616529840440677
+},
+{
+"view": "bucket_a",
+"sig": "early",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+]
+],
+"k": 27,
+"n": 123,
+"ck": 8,
+"cn": 31,
+"wlb": 0.137017059043227
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"EQ",
+"type_b",
+"Competition"
+]
+],
+"k": 232,
+"n": 521,
+"ck": 136,
+"cn": 230,
+"wlb": 0.5267789925120664
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 214,
+"n": 442,
+"ck": 76,
+"cn": 112,
+"wlb": 0.5873974162496977
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 387,
+"n": 765,
+"ck": 127,
+"cn": 177,
+"wlb": 0.6471147395968949
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_a",
+"Host"
+]
+],
+"k": 159,
+"n": 309,
+"ck": 65,
+"cn": 89,
+"wlb": 0.6300335779669944
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Killing",
+"Bodily_harm"
+]
+]
+],
+"k": 40,
+"n": 228,
+"ck": 14,
+"cn": 77,
+"wlb": 0.11151253280927241
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 162,
+"n": 298,
+"ck": 65,
+"cn": 103,
+"wlb": 0.5347408308450488
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Catastrophe"
+]
+]
+],
+"k": 37,
+"n": 134,
+"ck": 11,
+"cn": 38,
+"wlb": 0.17003277826292032
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Hostile_encounter"
+]
+],
+"k": 2587,
+"n": 4694,
+"ck": 904,
+"cn": 1478,
+"wlb": 0.5865313327172405
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_b",
+"Name"
+]
+],
+"k": 132,
+"n": 255,
+"ck": 58,
+"cn": 89,
+"wlb": 0.548293179638881
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"EQ",
+"type_b",
+"Competition"
+]
+],
+"k": 134,
+"n": 220,
+"ck": 76,
+"cn": 113,
+"wlb": 0.5816138187739373
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"type_b",
+"Cause_change_of_strength"
+]
+],
+"k": 131,
+"n": 215,
+"ck": 50,
+"cn": 78,
+"wlb": 0.5302680321159395
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Military_operation"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Patient",
+"Patient"
+]
+]
+],
+"k": 153,
+"n": 297,
+"ck": 72,
+"cn": 122,
+"wlb": 0.5014409020425913
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"nrole_b",
+5
+]
+],
+"k": 161,
+"n": 325,
+"ck": 69,
+"cn": 114,
+"wlb": 0.5135129604736478
+},
+{
+"view": "sdist",
+"sig": "2-3",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_a",
+"Catastrophe"
+]
+],
+"k": 139,
+"n": 281,
+"ck": 78,
+"cn": 133,
+"wlb": 0.5014913278290222
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+2
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 106,
+"n": 172,
+"ck": 48,
+"cn": 75,
+"wlb": 0.527006613164133
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+2
+],
+[
+"HAS",
+"roleset_shared",
+"Event"
+]
+],
+"k": 122,
+"n": 229,
+"ck": 74,
+"cn": 125,
+"wlb": 0.5043510648083519
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Participant"
+]
+]
+],
+"k": 23,
+"n": 69,
+"ck": 10,
+"cn": 31,
+"wlb": 0.18569426563858402
+},
+{
+"view": "sdist_ord",
+"sig": "('8+', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"HAS",
+"roleset_a",
+"Host"
+]
+],
+"k": 138,
+"n": 271,
+"ck": 40,
+"cn": 63,
+"wlb": 0.5114870969861469
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"lead"
+],
+[
+"HAS",
+"roleset_shared",
+"Host"
+]
+],
+"k": 24,
+"n": 76,
+"ck": 9,
+"cn": 33,
+"wlb": 0.15067440883272212
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"HAS",
+"roleset_b",
+"Location_final"
+]
+],
+"k": 124,
+"n": 270,
+"ck": 47,
+"cn": 67,
+"wlb": 0.5834478625346905
+},
+{
+"view": "sdist_ord",
+"sig": "('8+', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Location"
+],
+[
+"HAS",
+"roleset_a",
+"Event"
+]
+],
+"k": 92,
+"n": 135,
+"ck": 37,
+"cn": 57,
+"wlb": 0.5194189535257541
+},
+{
+"view": "etype_a",
+"sig": "Killing",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"EQ",
+"order",
+"same"
+]
+],
+"k": 57,
+"n": 211,
+"ck": 16,
+"cn": 67,
+"wlb": 0.15268139046851392
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"order",
+"rev"
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Catastrophe"
+]
+]
+],
+"k": 15,
+"n": 71,
+"ck": 10,
+"cn": 31,
+"wlb": 0.18569426563858402
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 145,
+"n": 310,
+"ck": 86,
+"cn": 148,
+"wlb": 0.5005271022705953
+},
+{
+"view": "sdist",
+"sig": "1",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_a",
+"Catastrophe"
+]
+],
+"k": 145,
+"n": 339,
+"ck": 91,
+"cn": 157,
+"wlb": 0.5014070665629105
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"EQ",
+"type_pair",
+[
+"Hostile_encounter",
+"Attack"
+]
+]
+],
+"k": 94,
+"n": 155,
+"ck": 21,
+"cn": 30,
+"wlb": 0.521242125370253
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"EQ",
+"type_a",
+"Traveling"
+]
+],
+"k": 165,
+"n": 263,
+"ck": 46,
+"cn": 75,
+"wlb": 0.5001747668116652
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Participant"
+],
+[
+"HAS",
+"roleset_a",
+"Score"
+]
+],
+"k": 95,
+"n": 156,
+"ck": 14,
+"cn": 19,
+"wlb": 0.5120844909685253
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Name"
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 141,
+"n": 329,
+"ck": 105,
+"cn": 179,
+"wlb": 0.5133710814639503
+},
+{
+"view": "bucket_a",
+"sig": "early",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"EQ",
+"type_a",
+"Killing"
+]
+],
+"k": 19,
+"n": 115,
+"ck": 7,
+"cn": 32,
+"wlb": 0.11023836250824938
+},
+{
+"view": "etype_a",
+"sig": "Killing",
+"rel": "OVERLAP",
+"conds": [
+[
+"CNT",
+"roleset_shared",
+1
+],
+[
+"EQ",
+"order",
+"same"
+]
+],
+"k": 60,
+"n": 269,
+"ck": 17,
+"cn": 82,
+"wlb": 0.13366390371342307
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"roleset_b",
+"Winner"
+]
+],
+"k": 73,
+"n": 110,
+"ck": 27,
+"cn": 39,
+"wlb": 0.53578745622093
+},
+{
+"view": "sdist",
+"sig": "1",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 112,
+"n": 237,
+"ck": 59,
+"cn": 80,
+"wlb": 0.6318104033293361
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '1')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"HAS",
+"roleset_a",
+"Loss"
+]
+],
+"k": 71,
+"n": 135,
+"ck": 47,
+"cn": 75,
+"wlb": 0.5135496511178579
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Motion"
+]
+]
+],
+"k": 100,
+"n": 182,
+"ck": 59,
+"cn": 85,
+"wlb": 0.5895420487529129
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Agent"
+]
+]
+],
+"k": 57,
+"n": 73,
+"ck": 12,
+"cn": 15,
+"wlb": 0.5481455127861612
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 1055,
+"n": 1757,
+"ck": 473,
+"cn": 614,
+"wlb": 0.7354696672180353
+},
+{
+"view": "sdist_ord",
+"sig": "('8+', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 72,
+"n": 107,
+"ck": 21,
+"cn": 31,
+"wlb": 0.5014100930395112
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Victim"
+],
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+]
+],
+"k": 41,
+"n": 195,
+"ck": 14,
+"cn": 82,
+"wlb": 0.10451594665844671
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Military_operation"
+],
+[
+"EQ",
+"nrole_a",
+1
+]
+],
+"k": 88,
+"n": 155,
+"ck": 26,
+"cn": 37,
+"wlb": 0.5421686408499147
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Arriving"
+]
+]
+],
+"k": 73,
+"n": 107,
+"ck": 21,
+"cn": 29,
+"wlb": 0.5428286757874182
+},
+{
+"view": "sdist_ord",
+"sig": "('8+', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Location"
+],
+[
+"HAS",
+"roleset_a",
+"Winner"
+]
+],
+"k": 78,
+"n": 128,
+"ck": 35,
+"cn": 52,
+"wlb": 0.5375618935872734
+},
+{
+"view": "bucket_a",
+"sig": "early",
+"rel": "OVERLAP",
+"conds": [
+[
+"ALL",
+"roleset_shared",
+"Location"
+],
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+]
+],
+"k": 16,
+"n": 92,
+"ck": 7,
+"cn": 34,
+"wlb": 0.10349526897360506
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"HAS",
+"roleset_shared",
+"Name"
+]
+],
+"k": 71,
+"n": 117,
+"ck": 30,
+"cn": 41,
+"wlb": 0.5806646688919214
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"lead"
+],
+[
+"HAS",
+"roleset_shared",
+"Participant"
+]
+],
+"k": 16,
+"n": 48,
+"ck": 5,
+"cn": 10,
+"wlb": 0.23659309046790553
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"role_subset",
+true
+],
+[
+"EQ",
+"bucket_b",
+"lead"
+]
+],
+"k": 199,
+"n": 401,
+"ck": 78,
+"cn": 133,
+"wlb": 0.5014913278290222
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Winner"
+]
+]
+],
+"k": 73,
+"n": 117,
+"ck": 35,
+"cn": 55,
+"wlb": 0.5042276149673346
+},
+{
+"view": "bucket_a",
+"sig": "early",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+],
+[
+"HAS",
+"roleset_a",
+"Victim"
+]
+],
+"k": 15,
+"n": 88,
+"ck": 7,
+"cn": 30,
+"wlb": 0.11792388142587477
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"EQ",
+"type_b",
+"Arriving"
+]
+],
+"k": 98,
+"n": 220,
+"ck": 44,
+"cn": 70,
+"wlb": 0.5114720115566429
+},
+{
+"view": "sdist",
+"sig": "2-3",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 80,
+"n": 165,
+"ck": 42,
+"cn": 51,
+"wlb": 0.697458574723377
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '2-3')",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"HAS",
+"roleset_a",
+"Host"
+]
+],
+"k": 100,
+"n": 158,
+"ck": 27,
+"cn": 41,
+"wlb": 0.5054983651622621
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Participant"
+],
+[
+"CNT",
+"etypeset_b",
+3
+]
+],
+"k": 86,
+"n": 169,
+"ck": 25,
+"cn": 37,
+"wlb": 0.514636672381571
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Motion"
+]
+]
+],
+"k": 69,
+"n": 121,
+"ck": 40,
+"cn": 59,
+"wlb": 0.5510500442346692
+},
+{
+"view": "bucket_a",
+"sig": "mid",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Location"
+],
+[
+"EQ",
+"type_pair",
+[
+"Social_event",
+"Social_event"
+]
+]
+],
+"k": 13,
+"n": 40,
+"ck": 4,
+"cn": 10,
+"wlb": 0.16818032967113522
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"EQ",
+"type_b",
+"Cause_change_of_strength"
+]
+],
+"k": 61,
+"n": 113,
+"ck": 25,
+"cn": 36,
+"wlb": 0.5314372714558399
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Name"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Agent"
+]
+]
+],
+"k": 63,
+"n": 101,
+"ck": 15,
+"cn": 20,
+"wlb": 0.5312991223284826
+},
+{
+"view": "etype_a",
+"sig": "Killing",
+"rel": "OVERLAP",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+1
+],
+[
+"EQ",
+"order",
+"same"
+]
+],
+"k": 47,
+"n": 233,
+"ck": 14,
+"cn": 70,
+"wlb": 0.12304739246939699
+},
+{
+"view": "bucket_a",
+"sig": "mid",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"EQ",
+"type_pair",
+[
+"Social_event",
+"Social_event"
+]
+]
+],
+"k": 14,
+"n": 48,
+"ck": 4,
+"cn": 10,
+"wlb": 0.16818032967113522
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_shared",
+"Participant"
+]
+],
+"k": 57,
+"n": 97,
+"ck": 24,
+"cn": 33,
+"wlb": 0.5578244099298643
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+2
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 119,
+"n": 203,
+"ck": 58,
+"cn": 95,
+"wlb": 0.5100024053098049
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_b",
+"Building"
+],
+[
+"HAS",
+"roleset_a",
+"Score"
+]
+],
+"k": 58,
+"n": 103,
+"ck": 38,
+"cn": 54,
+"wlb": 0.5717242709562524
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'rev')",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"same_type",
+true
+],
+[
+"EQ",
+"bucket_a",
+"early"
+]
+],
+"k": 21,
+"n": 66,
+"ck": 8,
+"cn": 25,
+"wlb": 0.17205190304318183
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"HAS",
+"roleset_b",
+"Participant"
+]
+],
+"k": 62,
+"n": 117,
+"ck": 37,
+"cn": 58,
+"wlb": 0.5092752370177803
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"EQ",
+"nrole_b",
+5
+]
+],
+"k": 75,
+"n": 160,
+"ck": 45,
+"cn": 73,
+"wlb": 0.5017408347198983
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_b",
+"Person"
+],
+[
+"HAS",
+"roleset_a",
+"Event"
+]
+],
+"k": 104,
+"n": 166,
+"ck": 37,
+"cn": 58,
+"wlb": 0.5092752370177803
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"lead"
+],
+[
+"REL",
+"same_type",
+true
+]
+],
+"k": 114,
+"n": 200,
+"ck": 47,
+"cn": 71,
+"wlb": 0.5461661813997795
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_b",
+2
+],
+[
+"HAS",
+"roleset_shared",
+"Participant"
+]
+],
+"k": 60,
+"n": 116,
+"ck": 37,
+"cn": 57,
+"wlb": 0.5194189535257541
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"roleset_b",
+"Host"
+]
+],
+"k": 41,
+"n": 63,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "bucket_a",
+"sig": "early",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+],
+[
+"HAS",
+"roleset_a",
+"Cause"
+]
+],
+"k": 10,
+"n": 55,
+"ck": 4,
+"cn": 13,
+"wlb": 0.1268070365307339
+},
+{
+"view": "etype_a",
+"sig": "Hostile_encounter",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+]
+],
+"k": 1033,
+"n": 1814,
+"ck": 291,
+"cn": 500,
+"wlb": 0.5383026562259147
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"EQ",
+"type_b",
+"Coming_to_be"
+]
+],
+"k": 73,
+"n": 158,
+"ck": 40,
+"cn": 57,
+"wlb": 0.5733571989340622
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Person"
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 36,
+"n": 77,
+"ck": 10,
+"cn": 12,
+"wlb": 0.5519691376768494
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 97,
+"n": 164,
+"ck": 35,
+"cn": 53,
+"wlb": 0.5259478663434887
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"EQ",
+"type_pair",
+[
+"Bodily_harm",
+"Killing"
+]
+]
+],
+"k": 19,
+"n": 39,
+"ck": 4,
+"cn": 11,
+"wlb": 0.15166471092207018
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Military_operation"
+],
+[
+"HAS",
+"roleset_b",
+"Location_original"
+]
+],
+"k": 24,
+"n": 36,
+"ck": 12,
+"cn": 15,
+"wlb": 0.5481455127861612
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"same_type",
+true
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Victim",
+"Victim"
+]
+]
+],
+"k": 14,
+"n": 57,
+"ck": 5,
+"cn": 15,
+"wlb": 0.15176324436857308
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Location"
+],
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Escaping"
+]
+]
+],
+"k": 49,
+"n": 80,
+"ck": 19,
+"cn": 25,
+"wlb": 0.5657031663976144
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"ALL",
+"roleset_shared",
+"Location"
+],
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+]
+],
+"k": 38,
+"n": 99,
+"ck": 12,
+"cn": 36,
+"wlb": 0.20214618821827127
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"REL",
+"role_subset",
+true
+]
+],
+"k": 645,
+"n": 1108,
+"ck": 230,
+"cn": 387,
+"wlb": 0.5446994262797614
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 127,
+"n": 539,
+"ck": 35,
+"cn": 170,
+"wlb": 0.15192448517950566
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Winner"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Agent"
+]
+]
+],
+"k": 53,
+"n": 95,
+"ck": 15,
+"cn": 19,
+"wlb": 0.5666572155062037
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"REL",
+"same_type",
+true
+]
+],
+"k": 110,
+"n": 427,
+"ck": 30,
+"cn": 143,
+"wlb": 0.1510912698879622
+},
+{
+"view": "etype_a",
+"sig": "Bodily_harm",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"HAS",
+"roleset_b",
+"Victim"
+]
+],
+"k": 16,
+"n": 38,
+"ck": 4,
+"cn": 10,
+"wlb": 0.16818032967113522
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"EQ",
+"type_pair",
+[
+"Competition",
+"Conquering"
+]
+]
+],
+"k": 43,
+"n": 67,
+"ck": 29,
+"cn": 42,
+"wlb": 0.5397400606028617
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Attack"
+]
+]
+],
+"k": 37,
+"n": 51,
+"ck": 15,
+"cn": 16,
+"wlb": 0.7167126242292237
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+5
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 92,
+"n": 160,
+"ck": 71,
+"cn": 119,
+"wlb": 0.5068121916247018
+},
+{
+"view": "etype_a",
+"sig": "Catastrophe",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+]
+],
+"k": 1236,
+"n": 2585,
+"ck": 612,
+"cn": 1052,
+"wlb": 0.5516968425922815
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_b",
+"Original_Location"
+]
+],
+"k": 44,
+"n": 80,
+"ck": 24,
+"cn": 35,
+"wlb": 0.52020236383994
+},
+{
+"view": "sdist",
+"sig": "8+",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Military_operation"
+],
+[
+"HAS",
+"roleset_b",
+"Location_final"
+]
+],
+"k": 49,
+"n": 90,
+"ck": 16,
+"cn": 20,
+"wlb": 0.5839825676933227
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Victim"
+],
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+]
+],
+"k": 36,
+"n": 98,
+"ck": 13,
+"cn": 34,
+"wlb": 0.23900183321718818
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Patient"
+]
+]
+],
+"k": 45,
+"n": 75,
+"ck": 14,
+"cn": 18,
+"wlb": 0.5478541567814095
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Person"
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 76,
+"n": 119,
+"ck": 19,
+"cn": 27,
+"wlb": 0.5151931703137674
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Agent"
+]
+]
+],
+"k": 48,
+"n": 94,
+"ck": 13,
+"cn": 15,
+"wlb": 0.6211801716108313
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"HAS",
+"roleset_a",
+"Victim"
+]
+],
+"k": 67,
+"n": 302,
+"ck": 18,
+"cn": 93,
+"wlb": 0.12608439537675412
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Winner"
+],
+[
+"ALL",
+"etypeset_shared",
+"Building"
+]
+],
+"k": 43,
+"n": 70,
+"ck": 17,
+"cn": 22,
+"wlb": 0.5656004681963309
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"has_loc_a",
+false
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Loser"
+]
+]
+],
+"k": 35,
+"n": 54,
+"ck": 14,
+"cn": 16,
+"wlb": 0.6397717272780264
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Agent"
+]
+]
+],
+"k": 37,
+"n": 56,
+"ck": 14,
+"cn": 18,
+"wlb": 0.5478541567814095
+},
+{
+"view": "etype_a",
+"sig": "Attack",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Consequence",
+"Consequence"
+]
+]
+],
+"k": 18,
+"n": 116,
+"ck": 8,
+"cn": 24,
+"wlb": 0.17972190324594942
+},
+{
+"view": "etype_a",
+"sig": "Statement",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"MIX",
+"roleset_shared",
+null
+]
+],
+"k": 11,
+"n": 44,
+"ck": 4,
+"cn": 11,
+"wlb": 0.15166471092207018
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Score",
+"Score"
+]
+]
+],
+"k": 61,
+"n": 136,
+"ck": 22,
+"cn": 31,
+"wlb": 0.5340767066502771
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"lead"
+],
+[
+"HAS",
+"roleset_b",
+"Participant"
+]
+],
+"k": 15,
+"n": 57,
+"ck": 6,
+"cn": 18,
+"wlb": 0.1627877474801916
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Participant"
+],
+[
+"HAS",
+"roleset_b",
+"Event"
+]
+],
+"k": 49,
+"n": 102,
+"ck": 35,
+"cn": 55,
+"wlb": 0.5042276149673346
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Name"
+]
+],
+"k": 851,
+"n": 1656,
+"ck": 353,
+"cn": 570,
+"wlb": 0.5787638048636413
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+3
+],
+[
+"CNT",
+"etypeset_a",
+3
+]
+],
+"k": 20,
+"n": 86,
+"ck": 5,
+"cn": 15,
+"wlb": 0.15176324436857308
+},
+{
+"view": "sdist",
+"sig": "8+",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Attack"
+]
+]
+],
+"k": 55,
+"n": 123,
+"ck": 17,
+"cn": 24,
+"wlb": 0.5083230633077824
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_b",
+"Person"
+],
+[
+"HAS",
+"roleset_a",
+"Event"
+]
+],
+"k": 61,
+"n": 91,
+"ck": 15,
+"cn": 21,
+"wlb": 0.5004361927889411
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"EQ",
+"type_b",
+"Cause_change_of_strength"
+]
+],
+"k": 25,
+"n": 50,
+"ck": 13,
+"cn": 16,
+"wlb": 0.5699111903190984
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Self_motion"
+]
+]
+],
+"k": 34,
+"n": 51,
+"ck": 10,
+"cn": 11,
+"wlb": 0.6226415634693653
+},
+{
+"view": "etype_a",
+"sig": "Hold",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"has_org_a",
+false
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Host"
+]
+]
+],
+"k": 12,
+"n": 29,
+"ck": 5,
+"cn": 13,
+"wlb": 0.17709707794426607
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Military_operation"
+]
+]
+],
+"k": 11,
+"n": 46,
+"ck": 5,
+"cn": 15,
+"wlb": 0.15176324436857308
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"ALL",
+"roleset_a",
+"Location"
+]
+],
+"k": 51,
+"n": 119,
+"ck": 16,
+"cn": 22,
+"wlb": 0.51848265982621
+},
+{
+"view": "etype_a",
+"sig": "Competition",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+3
+],
+[
+"EQ",
+"bucket_b",
+"lead"
+]
+],
+"k": 27,
+"n": 87,
+"ck": 12,
+"cn": 43,
+"wlb": 0.16746613784169065
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Host",
+"Host"
+]
+]
+],
+"k": 72,
+"n": 212,
+"ck": 53,
+"cn": 85,
+"wlb": 0.5172990783370757
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"CNT",
+"etypeset_shared",
+2
+]
+],
+"k": 437,
+"n": 728,
+"ck": 161,
+"cn": 278,
+"wlb": 0.520410266181922
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Person"
+],
+[
+"EQ",
+"type_a",
+"Social_event"
+]
+],
+"k": 35,
+"n": 98,
+"ck": 10,
+"cn": 12,
+"wlb": 0.5519691376768494
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"ALL",
+"roleset_shared",
+"Location"
+],
+[
+"HAS",
+"roleset_a",
+"Victim"
+]
+],
+"k": 55,
+"n": 248,
+"ck": 13,
+"cn": 70,
+"wlb": 0.11187300000557135
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+3
+],
+[
+"EQ",
+"type_pair",
+[
+"Competition",
+"Earnings_and_losses"
+]
+]
+],
+"k": 33,
+"n": 51,
+"ck": 12,
+"cn": 16,
+"wlb": 0.5050168345871379
+},
+{
+"view": "etype_a",
+"sig": "Judgment_communication",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"REL",
+"a_before_b",
+false
+]
+],
+"k": 14,
+"n": 50,
+"ck": 6,
+"cn": 19,
+"wlb": 0.15364379085134872
+},
+{
+"view": "etype_a",
+"sig": "Killing",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"HAS",
+"roleset_a",
+"Cause"
+]
+],
+"k": 25,
+"n": 120,
+"ck": 8,
+"cn": 40,
+"wlb": 0.10499989723844508
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_b",
+"Patient"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Patient"
+]
+]
+],
+"k": 28,
+"n": 40,
+"ck": 13,
+"cn": 14,
+"wlb": 0.6853129556863173
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Patient"
+]
+]
+],
+"k": 29,
+"n": 45,
+"ck": 13,
+"cn": 16,
+"wlb": 0.5699111903190984
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+],
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Military_operation"
+]
+]
+],
+"k": 10,
+"n": 42,
+"ck": 7,
+"cn": 17,
+"wlb": 0.2161105678675709
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Agent"
+]
+]
+],
+"k": 22,
+"n": 28,
+"ck": 9,
+"cn": 11,
+"wlb": 0.5230194379679506
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_b",
+5
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Participant"
+]
+]
+],
+"k": 31,
+"n": 53,
+"ck": 25,
+"cn": 34,
+"wlb": 0.5688285871295744
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"roleset_shared",
+"Speaker"
+]
+],
+"k": 10,
+"n": 43,
+"ck": 5,
+"cn": 11,
+"wlb": 0.21271271618448698
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Winner"
+],
+[
+"EQ",
+"type_b",
+"Defending"
+]
+],
+"k": 26,
+"n": 35,
+"ck": 11,
+"cn": 14,
+"wlb": 0.5241076940710132
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Patient"
+]
+]
+],
+"k": 25,
+"n": 34,
+"ck": 12,
+"cn": 13,
+"wlb": 0.6668604907145496
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '8+')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Escaping"
+]
+]
+],
+"k": 29,
+"n": 53,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"has_org_b",
+false
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Patient"
+]
+]
+],
+"k": 28,
+"n": 42,
+"ck": 12,
+"cn": 16,
+"wlb": 0.5050168345871379
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+3
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Arriving"
+]
+]
+],
+"k": 23,
+"n": 35,
+"ck": 14,
+"cn": 19,
+"wlb": 0.5120844909685253
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Motion"
+]
+]
+],
+"k": 35,
+"n": 64,
+"ck": 35,
+"cn": 42,
+"wlb": 0.6939599725160344
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Person"
+],
+[
+"HAS",
+"roleset_a",
+"Score"
+]
+],
+"k": 31,
+"n": 52,
+"ck": 14,
+"cn": 19,
+"wlb": 0.5120844909685253
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+2
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Patient"
+]
+]
+],
+"k": 24,
+"n": 34,
+"ck": 10,
+"cn": 12,
+"wlb": 0.5519691376768494
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"HAS",
+"roleset_a",
+"Victim"
+]
+],
+"k": 56,
+"n": 293,
+"ck": 14,
+"cn": 83,
+"wlb": 0.10322081200909937
+},
+{
+"view": "etype_a",
+"sig": "Competition",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+]
+],
+"k": 450,
+"n": 738,
+"ck": 196,
+"cn": 275,
+"wlb": 0.6566055955905128
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"EQ",
+"type_a",
+"Bodily_harm"
+]
+],
+"k": 17,
+"n": 164,
+"ck": 10,
+"cn": 40,
+"wlb": 0.1418711863717118
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"CNT",
+"etypeset_b",
+3
+]
+],
+"k": 34,
+"n": 69,
+"ck": 16,
+"cn": 21,
+"wlb": 0.5490882631183506
+},
+{
+"view": "etype_a",
+"sig": "Competition",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"roleset_b",
+"Event"
+],
+[
+"EQ",
+"bucket_b",
+"lead"
+]
+],
+"k": 21,
+"n": 69,
+"ck": 8,
+"cn": 28,
+"wlb": 0.15253996054367674
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"EQ",
+"type_pair",
+[
+"Competition",
+"Competition"
+]
+]
+],
+"k": 73,
+"n": 151,
+"ck": 48,
+"cn": 75,
+"wlb": 0.527006613164133
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Participant"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Host"
+]
+]
+],
+"k": 33,
+"n": 62,
+"ck": 49,
+"cn": 78,
+"wlb": 0.5173105377864212
+},
+{
+"view": "sdist_ord",
+"sig": "('8+', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Military_operation"
+],
+[
+"HAS",
+"roleset_b",
+"Location_original"
+]
+],
+"k": 33,
+"n": 65,
+"ck": 18,
+"cn": 24,
+"wlb": 0.551005559899764
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Becoming"
+]
+]
+],
+"k": 41,
+"n": 97,
+"ck": 22,
+"cn": 30,
+"wlb": 0.5555203830046458
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Host",
+"Location"
+]
+]
+],
+"k": 43,
+"n": 113,
+"ck": 32,
+"cn": 47,
+"wlb": 0.5383265689347735
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Cause"
+],
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+]
+],
+"k": 23,
+"n": 66,
+"ck": 5,
+"cn": 16,
+"wlb": 0.14164643852115433
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Host"
+]
+]
+],
+"k": 39,
+"n": 98,
+"ck": 41,
+"cn": 56,
+"wlb": 0.604054440676616
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"role_subset",
+true
+],
+[
+"ALL",
+"etypeset_a",
+"Organization"
+]
+],
+"k": 385,
+"n": 683,
+"ck": 113,
+"cn": 192,
+"wlb": 0.5178627054462979
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+5
+],
+[
+"HAS",
+"roleset_b",
+"Host"
+]
+],
+"k": 43,
+"n": 113,
+"ck": 50,
+"cn": 77,
+"wlb": 0.5379942353712348
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"roleset_shared",
+3
+],
+[
+"HAS",
+"roleset_b",
+"Host"
+]
+],
+"k": 59,
+"n": 193,
+"ck": 55,
+"cn": 89,
+"wlb": 0.5141411985991992
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Name"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Host"
+]
+]
+],
+"k": 33,
+"n": 66,
+"ck": 57,
+"cn": 90,
+"wlb": 0.5302230476153081
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"EQ",
+"type_b",
+"Cause_change_of_strength"
+]
+],
+"k": 34,
+"n": 58,
+"ck": 13,
+"cn": 16,
+"wlb": 0.5699111903190984
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_a",
+"Killing"
+]
+],
+"k": 61,
+"n": 305,
+"ck": 17,
+"cn": 95,
+"wlb": 0.11483574567053756
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Name"
+],
+[
+"HAS",
+"etypeset_b",
+"Building"
+]
+],
+"k": 67,
+"n": 140,
+"ck": 60,
+"cn": 100,
+"wlb": 0.5020025867680465
+},
+{
+"view": "sdist",
+"sig": "8+",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+3
+],
+[
+"HAS",
+"roleset_a",
+"Score"
+]
+],
+"k": 20,
+"n": 28,
+"ck": 10,
+"cn": 11,
+"wlb": 0.6226415634693653
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"roleset_a",
+"Location"
+]
+],
+"k": 245,
+"n": 345,
+"ck": 31,
+"cn": 31,
+"wlb": 0.8897446044935221
+},
+{
+"view": "bucket_a",
+"sig": "mid",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Participant"
+],
+[
+"EQ",
+"type_pair",
+[
+"Social_event",
+"Social_event"
+]
+]
+],
+"k": 9,
+"n": 49,
+"ck": 4,
+"cn": 10,
+"wlb": 0.16818032967113522
+},
+{
+"view": "sdist",
+"sig": "2-3",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"etypeset_shared",
+"Building"
+]
+],
+"k": 24,
+"n": 44,
+"ck": 17,
+"cn": 22,
+"wlb": 0.5656004681963309
+},
+{
+"view": "sdist",
+"sig": "2-3",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"ALL",
+"roleset_a",
+"Location"
+]
+],
+"k": 27,
+"n": 56,
+"ck": 10,
+"cn": 12,
+"wlb": 0.5519691376768494
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"roleset_a",
+"Location"
+]
+],
+"k": 333,
+"n": 586,
+"ck": 73,
+"cn": 121,
+"wlb": 0.5142527156061969
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"same_type",
+true
+],
+[
+"CNT",
+"etypeset_a",
+3
+]
+],
+"k": 12,
+"n": 51,
+"ck": 7,
+"cn": 20,
+"wlb": 0.1811918240720126
+},
+{
+"view": "etype_a",
+"sig": "Killing",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Victim",
+"Patient"
+]
+]
+],
+"k": 12,
+"n": 42,
+"ck": 5,
+"cn": 13,
+"wlb": 0.17709707794426607
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_b",
+"Hostile_encounter"
+]
+],
+"k": 431,
+"n": 812,
+"ck": 164,
+"cn": 290,
+"wlb": 0.5079780433476447
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"sent_gap",
+"4+"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Winner"
+]
+]
+],
+"k": 22,
+"n": 35,
+"ck": 11,
+"cn": 13,
+"wlb": 0.5776536897362775
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Location"
+],
+[
+"HAS",
+"roleset_shared",
+"Event"
+]
+],
+"k": 59,
+"n": 122,
+"ck": 41,
+"cn": 65,
+"wlb": 0.5092381735968518
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+],
+[
+"HAS",
+"roleset_a",
+"Instrument"
+]
+],
+"k": 19,
+"n": 53,
+"ck": 7,
+"cn": 20,
+"wlb": 0.1811918240720126
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"MIX",
+"etypeset_a",
+null
+],
+[
+"EQ",
+"multi_mention_a",
+true
+]
+],
+"k": 151,
+"n": 187,
+"ck": 32,
+"cn": 44,
+"wlb": 0.5815112690395264
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Name"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Patient"
+]
+]
+],
+"k": 25,
+"n": 29,
+"ck": 10,
+"cn": 11,
+"wlb": 0.6226415634693653
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Victim"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Killer"
+]
+]
+],
+"k": 17,
+"n": 45,
+"ck": 4,
+"cn": 11,
+"wlb": 0.15166471092207018
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_b",
+"Participant"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Name",
+"Name"
+]
+]
+],
+"k": 26,
+"n": 52,
+"ck": 25,
+"cn": 36,
+"wlb": 0.5314372714558399
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_shared",
+"Location"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Winner"
+]
+]
+],
+"k": 29,
+"n": 61,
+"ck": 17,
+"cn": 24,
+"wlb": 0.5083230633077824
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_a",
+"Damaging"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Patient",
+"Patient"
+]
+]
+],
+"k": 8,
+"n": 50,
+"ck": 4,
+"cn": 14,
+"wlb": 0.11721378642141067
+},
+{
+"view": "etype_a",
+"sig": "Competition",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+2
+],
+[
+"EQ",
+"bucket_b",
+"lead"
+]
+],
+"k": 18,
+"n": 67,
+"ck": 10,
+"cn": 31,
+"wlb": 0.18569426563858402
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+4
+],
+[
+"EQ",
+"type_pair",
+[
+"Social_event",
+"Social_event"
+]
+]
+],
+"k": 19,
+"n": 87,
+"ck": 4,
+"cn": 10,
+"wlb": 0.16818032967113522
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Arriving"
+]
+]
+],
+"k": 43,
+"n": 123,
+"ck": 18,
+"cn": 26,
+"wlb": 0.5001174167329109
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"shares_anchor",
+true
+],
+[
+"EQ",
+"type_pair",
+[
+"Damaging",
+"Destroying"
+]
+]
+],
+"k": 9,
+"n": 66,
+"ck": 7,
+"cn": 22,
+"wlb": 0.1636059317872766
+},
+{
+"view": "etype_a",
+"sig": "Competition",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Product"
+]
+],
+"k": 173,
+"n": 240,
+"ck": 13,
+"cn": 13,
+"wlb": 0.7719046275631658
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Building"
+],
+[
+"HAS",
+"roleset_shared",
+"Name"
+]
+],
+"k": 20,
+"n": 39,
+"ck": 16,
+"cn": 21,
+"wlb": 0.5490882631183506
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '8+')",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"etypeset_shared",
+"Organization"
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 48,
+"n": 92,
+"ck": 34,
+"cn": 53,
+"wlb": 0.5069114155218905
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Becoming"
+]
+]
+],
+"k": 18,
+"n": 27,
+"ck": 12,
+"cn": 16,
+"wlb": 0.5050168345871379
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"etypeset_shared",
+"Organization"
+],
+[
+"EQ",
+"type_pair",
+[
+"Hostile_encounter",
+"Process_start"
+]
+]
+],
+"k": 18,
+"n": 27,
+"ck": 9,
+"cn": 11,
+"wlb": 0.5230194379679506
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"HAS",
+"roleset_shared",
+"Victim"
+]
+],
+"k": 8,
+"n": 45,
+"ck": 9,
+"cn": 26,
+"wlb": 0.1941223032019031
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"EQ",
+"type_b",
+"Defending"
+]
+],
+"k": 29,
+"n": 43,
+"ck": 14,
+"cn": 16,
+"wlb": 0.6397717272780264
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Person"
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 34,
+"n": 72,
+"ck": 11,
+"cn": 13,
+"wlb": 0.5776536897362775
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"roleset_b",
+"Location"
+],
+[
+"HAS",
+"roleset_a",
+"Killer"
+]
+],
+"k": 36,
+"n": 189,
+"ck": 10,
+"cn": 52,
+"wlb": 0.10796046023260053
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+],
+[
+"EQ",
+"type_a",
+"Damaging"
+]
+],
+"k": 19,
+"n": 293,
+"ck": 12,
+"cn": 63,
+"wlb": 0.11246191870887313
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+5
+],
+[
+"HAS",
+"roleset_b",
+"Participant"
+]
+],
+"k": 31,
+"n": 81,
+"ck": 26,
+"cn": 36,
+"wlb": 0.5600750999864115
+},
+{
+"view": "etype_a",
+"sig": "Social_event",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"etypeset_a",
+"Building"
+]
+],
+"k": 78,
+"n": 124,
+"ck": 19,
+"cn": 19,
+"wlb": 0.8318207758817253
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Competition"
+],
+[
+"HAS",
+"roleset_b",
+"Assailant"
+]
+],
+"k": 19,
+"n": 32,
+"ck": 15,
+"cn": 17,
+"wlb": 0.6566364939883214
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Competition"
+],
+[
+"HAS",
+"roleset_b",
+"Object"
+]
+],
+"k": 18,
+"n": 29,
+"ck": 13,
+"cn": 14,
+"wlb": 0.6853129556863173
+},
+{
+"view": "etype_a",
+"sig": "Influence",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+]
+],
+"k": 32,
+"n": 57,
+"ck": 12,
+"cn": 14,
+"wlb": 0.6005862049628325
+},
+{
+"view": "sdist_ord",
+"sig": "('1', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 18,
+"n": 36,
+"ck": 11,
+"cn": 14,
+"wlb": 0.5241076940710132
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Damaging",
+"Destroying"
+]
+]
+],
+"k": 14,
+"n": 99,
+"ck": 7,
+"cn": 27,
+"wlb": 0.13170374559785447
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Location_original",
+"Location"
+]
+]
+],
+"k": 9,
+"n": 73,
+"ck": 6,
+"cn": 17,
+"wlb": 0.1730972039425212
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"MIX",
+"etypeset_a",
+null
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Host",
+"Location"
+]
+]
+],
+"k": 26,
+"n": 57,
+"ck": 33,
+"cn": 43,
+"wlb": 0.62255479698513
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"sent_gap",
+"4+"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Host",
+"Location"
+]
+]
+],
+"k": 27,
+"n": 61,
+"ck": 27,
+"cn": 37,
+"wlb": 0.570218316713632
+},
+{
+"view": "etype_a",
+"sig": "Catastrophe",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Patient",
+"Location"
+]
+],
+[
+"EQ",
+"multi_mention_b",
+true
+]
+],
+"k": 12,
+"n": 56,
+"ck": 5,
+"cn": 10,
+"wlb": 0.23659309046790553
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"has_person_b",
+false
+],
+[
+"EQ",
+"type_pair",
+[
+"Bodily_harm",
+"Death"
+]
+]
+],
+"k": 9,
+"n": 43,
+"ck": 3,
+"cn": 10,
+"wlb": 0.10779126738101565
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_b",
+"Conquering"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Patient"
+]
+]
+],
+"k": 17,
+"n": 27,
+"ck": 9,
+"cn": 10,
+"wlb": 0.5958499731235556
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+],
+[
+"EQ",
+"type_b",
+"Destroying"
+]
+],
+"k": 16,
+"n": 228,
+"ck": 14,
+"cn": 77,
+"wlb": 0.11151253280927241
+},
+{
+"view": "etype_a",
+"sig": "Damaging",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+]
+],
+"k": 37,
+"n": 280,
+"ck": 19,
+"cn": 119,
+"wlb": 0.10466351992598916
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '0')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Hostile_encounter",
+"Hostile_encounter"
+]
+]
+],
+"k": 23,
+"n": 34,
+"ck": 10,
+"cn": 12,
+"wlb": 0.5519691376768494
+},
+{
+"view": "sdist",
+"sig": "8+",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Motion"
+]
+]
+],
+"k": 23,
+"n": 49,
+"ck": 11,
+"cn": 14,
+"wlb": 0.5241076940710132
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_b",
+"Hostile_encounter"
+],
+[
+"EQ",
+"multi_mention_b",
+true
+]
+],
+"k": 36,
+"n": 66,
+"ck": 15,
+"cn": 21,
+"wlb": 0.5004361927889411
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_b",
+"Building"
+],
+[
+"EQ",
+"type_pair",
+[
+"Competition",
+"Competition"
+]
+]
+],
+"k": 16,
+"n": 30,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"EQ",
+"type_b",
+"Conquering"
+]
+],
+"k": 23,
+"n": 31,
+"ck": 10,
+"cn": 12,
+"wlb": 0.5519691376768494
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Cause"
+]
+]
+],
+"k": 23,
+"n": 97,
+"ck": 5,
+"cn": 21,
+"wlb": 0.10628013020636118
+},
+{
+"view": "etype_a",
+"sig": "Supply",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"REL",
+"a_before_b",
+false
+]
+],
+"k": 9,
+"n": 52,
+"ck": 7,
+"cn": 22,
+"wlb": 0.1636059317872766
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"EQ",
+"type_b",
+"Conquering"
+]
+],
+"k": 23,
+"n": 32,
+"ck": 9,
+"cn": 11,
+"wlb": 0.5230194379679506
+},
+{
+"view": "etype_a",
+"sig": "Hold",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"has_org_a",
+false
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 11,
+"n": 55,
+"ck": 10,
+"cn": 36,
+"wlb": 0.158483379379902
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Arranging"
+]
+]
+],
+"k": 23,
+"n": 57,
+"ck": 9,
+"cn": 11,
+"wlb": 0.5230194379679506
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"nrole_b",
+3
+],
+[
+"HAS",
+"roleset_a",
+"Killer"
+]
+],
+"k": 29,
+"n": 152,
+"ck": 10,
+"cn": 46,
+"wlb": 0.12260905322893323
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Competition",
+"Conquering"
+]
+]
+],
+"k": 25,
+"n": 38,
+"ck": 14,
+"cn": 19,
+"wlb": 0.5120844909685253
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Score"
+],
+[
+"CNT",
+"etypeset_b",
+3
+]
+],
+"k": 15,
+"n": 25,
+"ck": 10,
+"cn": 11,
+"wlb": 0.6226415634693653
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Location"
+],
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Control"
+]
+]
+],
+"k": 19,
+"n": 37,
+"ck": 14,
+"cn": 19,
+"wlb": 0.5120844909685253
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_b",
+2
+],
+[
+"REL",
+"a_before_b",
+false
+]
+],
+"k": 149,
+"n": 210,
+"ck": 54,
+"cn": 88,
+"wlb": 0.5091875700415198
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_b",
+4
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Winner",
+"Agent"
+]
+]
+],
+"k": 20,
+"n": 26,
+"ck": 9,
+"cn": 11,
+"wlb": 0.5230194379679506
+},
+{
+"view": "etype_a",
+"sig": "Social_event",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"CNT",
+"etypeset_b",
+3
+]
+],
+"k": 66,
+"n": 107,
+"ck": 14,
+"cn": 18,
+"wlb": 0.5478541567814095
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Location"
+],
+[
+"HAS",
+"roleset_b",
+"Score"
+]
+],
+"k": 38,
+"n": 128,
+"ck": 30,
+"cn": 45,
+"wlb": 0.5207048830643314
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"early"
+],
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+]
+],
+"k": 26,
+"n": 104,
+"ck": 8,
+"cn": 23,
+"wlb": 0.1881127593597152
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Loser"
+]
+]
+],
+"k": 25,
+"n": 61,
+"ck": 16,
+"cn": 21,
+"wlb": 0.5490882631183506
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_b",
+2
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 209,
+"n": 367,
+"ck": 64,
+"cn": 94,
+"wlb": 0.5811125325309124
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Host",
+"Location"
+]
+]
+],
+"k": 19,
+"n": 38,
+"ck": 14,
+"cn": 14,
+"wlb": 0.7846891971830681
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Motion_directional"
+]
+]
+],
+"k": 19,
+"n": 47,
+"ck": 12,
+"cn": 13,
+"wlb": 0.6668604907145496
+},
+{
+"view": "etype_a",
+"sig": "Damaging",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"CNT",
+"roleset_shared",
+3
+],
+[
+"EQ",
+"order",
+"same"
+]
+],
+"k": 17,
+"n": 98,
+"ck": 8,
+"cn": 27,
+"wlb": 0.15853040467389667
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"roleset_shared",
+0
+],
+[
+"ALL",
+"etypeset_a",
+"Location"
+]
+],
+"k": 172,
+"n": 258,
+"ck": 18,
+"cn": 20,
+"wlb": 0.698966354713263
+},
+{
+"view": "etype_a",
+"sig": "Damaging",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Patient",
+"Patient"
+]
+]
+],
+"k": 12,
+"n": 52,
+"ck": 5,
+"cn": 15,
+"wlb": 0.15176324436857308
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"type_b",
+"Attack"
+],
+[
+"HAS",
+"roleset_a",
+"Consequence"
+]
+],
+"k": 13,
+"n": 91,
+"ck": 7,
+"cn": 18,
+"wlb": 0.2030524656891159
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Process_start"
+]
+]
+],
+"k": 17,
+"n": 40,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Host"
+]
+]
+],
+"k": 21,
+"n": 50,
+"ck": 28,
+"cn": 39,
+"wlb": 0.5622468051317554
+},
+{
+"view": "etype_a",
+"sig": "Attack",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"roleset_b",
+"Consequence"
+]
+],
+"k": 11,
+"n": 125,
+"ck": 5,
+"cn": 12,
+"wlb": 0.19326031362233714
+},
+{
+"view": "etype_a",
+"sig": "Damaging",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 14,
+"n": 73,
+"ck": 6,
+"cn": 19,
+"wlb": 0.15364379085134872
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+2
+],
+[
+"EQ",
+"nrole_a",
+5
+]
+],
+"k": 194,
+"n": 344,
+"ck": 111,
+"cn": 154,
+"wlb": 0.645213834918674
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Damaging",
+"Destroying"
+]
+]
+],
+"k": 10,
+"n": 120,
+"ck": 9,
+"cn": 34,
+"wlb": 0.14601190675128364
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Process_start"
+]
+]
+],
+"k": 19,
+"n": 47,
+"ck": 15,
+"cn": 21,
+"wlb": 0.5004361927889411
+},
+{
+"view": "sdist",
+"sig": "8+",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"has_loc_b",
+true
+],
+[
+"HAS",
+"roleset_a",
+"Loser"
+]
+],
+"k": 27,
+"n": 81,
+"ck": 31,
+"cn": 48,
+"wlb": 0.5043905700701559
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"same_type",
+true
+],
+[
+"EQ",
+"multi_mention_b",
+true
+]
+],
+"k": 38,
+"n": 88,
+"ck": 18,
+"cn": 25,
+"wlb": 0.5242339480495529
+},
+{
+"view": "etype_a",
+"sig": "Use_firearm",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+1
+],
+[
+"EQ",
+"bucket_b",
+"early"
+]
+],
+"k": 17,
+"n": 105,
+"ck": 28,
+"cn": 42,
+"wlb": 0.515525073732533
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"EQ",
+"type_pair",
+[
+"Hostile_encounter",
+"Bodily_harm"
+]
+]
+],
+"k": 19,
+"n": 46,
+"ck": 10,
+"cn": 12,
+"wlb": 0.5519691376768494
+},
+{
+"view": "etype_a",
+"sig": "Damaging",
+"rel": "OVERLAP",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"HAS",
+"roleset_b",
+"Cause"
+]
+],
+"k": 13,
+"n": 58,
+"ck": 6,
+"cn": 18,
+"wlb": 0.1627877474801916
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+],
+[
+"HAS",
+"roleset_b",
+"Loss"
+]
+],
+"k": 15,
+"n": 274,
+"ck": 16,
+"cn": 80,
+"wlb": 0.12702844042585823
+},
+{
+"view": "sdist",
+"sig": "8+",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"HAS",
+"roleset_a",
+"Loser"
+]
+],
+"k": 24,
+"n": 69,
+"ck": 22,
+"cn": 28,
+"wlb": 0.6046141434166244
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Location"
+],
+[
+"EQ",
+"type_a",
+"Damaging"
+]
+],
+"k": 23,
+"n": 101,
+"ck": 9,
+"cn": 32,
+"wlb": 0.1556458049552508
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"roleset_shared",
+"Victim"
+]
+],
+"k": 11,
+"n": 51,
+"ck": 9,
+"cn": 28,
+"wlb": 0.17933246919948717
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Location"
+],
+[
+"HAS",
+"roleset_b",
+"Score"
+]
+],
+"k": 26,
+"n": 82,
+"ck": 22,
+"cn": 32,
+"wlb": 0.5143332169494009
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"EQ",
+"type_a",
+"Bodily_harm"
+]
+],
+"k": 28,
+"n": 91,
+"ck": 7,
+"cn": 18,
+"wlb": 0.2030524656891159
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Winner"
+]
+]
+],
+"k": 62,
+"n": 79,
+"ck": 23,
+"cn": 29,
+"wlb": 0.6160990959158309
+},
+{
+"view": "etype_a",
+"sig": "Damaging",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"EQ",
+"order",
+"same"
+]
+],
+"k": 11,
+"n": 54,
+"ck": 8,
+"cn": 18,
+"wlb": 0.24559518123340066
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Defending"
+]
+]
+],
+"k": 25,
+"n": 75,
+"ck": 19,
+"cn": 24,
+"wlb": 0.5952954674181499
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"same_type",
+false
+],
+[
+"HAS",
+"roleset_shared",
+"Name"
+]
+],
+"k": 17,
+"n": 25,
+"ck": 12,
+"cn": 16,
+"wlb": 0.5050168345871379
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '2-3')",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"roleset_shared",
+0
+],
+[
+"EQ",
+"type_a",
+"Catastrophe"
+]
+],
+"k": 23,
+"n": 48,
+"ck": 18,
+"cn": 26,
+"wlb": 0.5001174167329109
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Event",
+"Event"
+]
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Host"
+]
+]
+],
+"k": 13,
+"n": 25,
+"ck": 30,
+"cn": 40,
+"wlb": 0.598060385754308
+},
+{
+"view": "sdist",
+"sig": "2-3",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Coming_to_be"
+]
+]
+],
+"k": 19,
+"n": 55,
+"ck": 15,
+"cn": 18,
+"wlb": 0.6077796189019011
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"ALL",
+"etypeset_b",
+"Location"
+],
+[
+"EQ",
+"type_pair",
+[
+"Damaging",
+"Destroying"
+]
+]
+],
+"k": 9,
+"n": 25,
+"ck": 4,
+"cn": 10,
+"wlb": 0.16818032967113522
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+2
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Host"
+]
+]
+],
+"k": 14,
+"n": 29,
+"ck": 25,
+"cn": 37,
+"wlb": 0.514636672381571
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"EQ",
+"type_b",
+"Motion_directional"
+]
+],
+"k": 21,
+"n": 39,
+"ck": 24,
+"cn": 32,
+"wlb": 0.578934410015057
+},
+{
+"view": "sdist_ord",
+"sig": "('8+', 'rev')",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"HAS",
+"roleset_a",
+"Loss"
+]
+],
+"k": 16,
+"n": 36,
+"ck": 12,
+"cn": 12,
+"wlb": 0.7575059932585454
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"roleset_shared",
+"Location"
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 172,
+"n": 319,
+"ck": 54,
+"cn": 76,
+"wlb": 0.600404448201711
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Participant"
+],
+[
+"HAS",
+"roleset_b",
+"Name"
+]
+],
+"k": 98,
+"n": 155,
+"ck": 33,
+"cn": 44,
+"wlb": 0.6055943363742098
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"ALL",
+"roleset_shared",
+"Location"
+],
+[
+"HAS",
+"roleset_a",
+"Instrument"
+]
+],
+"k": 17,
+"n": 67,
+"ck": 5,
+"cn": 22,
+"wlb": 0.10123039983343217
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Motion"
+]
+]
+],
+"k": 25,
+"n": 68,
+"ck": 14,
+"cn": 19,
+"wlb": 0.5120844909685253
+},
+{
+"view": "etype_a",
+"sig": "Damaging",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"HAS",
+"roleset_b",
+"Cause"
+]
+],
+"k": 13,
+"n": 69,
+"ck": 6,
+"cn": 25,
+"wlb": 0.11496313691409656
+},
+{
+"view": "etype_a",
+"sig": "Traveling",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"ALL",
+"etypeset_a",
+"Location"
+]
+],
+"k": 36,
+"n": 51,
+"ck": 13,
+"cn": 13,
+"wlb": 0.7719046275631658
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"lead"
+]
+],
+"k": 137,
+"n": 216,
+"ck": 49,
+"cn": 76,
+"wlb": 0.5325638551147776
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_b",
+"Use_firearm"
+]
+],
+"k": 41,
+"n": 120,
+"ck": 20,
+"cn": 29,
+"wlb": 0.5076986576261279
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"EQ",
+"type_b",
+"Arriving"
+]
+],
+"k": 52,
+"n": 67,
+"ck": 26,
+"cn": 32,
+"wlb": 0.646908447942749
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"EQ",
+"nrole_b",
+5
+]
+],
+"k": 100,
+"n": 164,
+"ck": 53,
+"cn": 76,
+"wlb": 0.5866579842247619
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_b",
+"Organization"
+],
+[
+"ALL",
+"etypeset_a",
+"Location"
+]
+],
+"k": 145,
+"n": 235,
+"ck": 36,
+"cn": 43,
+"wlb": 0.7002759410255643
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Achieve"
+]
+]
+],
+"k": 14,
+"n": 32,
+"ck": 21,
+"cn": 24,
+"wlb": 0.6899611872430379
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"ALL",
+"roleset_b",
+"Patient"
+]
+],
+"k": 83,
+"n": 129,
+"ck": 30,
+"cn": 45,
+"wlb": 0.5207048830643314
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"type_b",
+"Arriving"
+]
+],
+"k": 87,
+"n": 138,
+"ck": 27,
+"cn": 37,
+"wlb": 0.570218316713632
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+1
+],
+[
+"EQ",
+"bucket_b",
+"early"
+]
+],
+"k": 163,
+"n": 277,
+"ck": 62,
+"cn": 87,
+"wlb": 0.6101602906546457
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Attack",
+"Attack"
+]
+]
+],
+"k": 15,
+"n": 178,
+"ck": 11,
+"cn": 29,
+"wlb": 0.22688022097918908
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"HAS",
+"roleset_b",
+"Location_final"
+]
+],
+"k": 71,
+"n": 107,
+"ck": 34,
+"cn": 50,
+"wlb": 0.5418970268853772
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Patient",
+"Patient"
+]
+],
+[
+"EQ",
+"type_b",
+"Military_operation"
+]
+],
+"k": 12,
+"n": 33,
+"ck": 6,
+"cn": 16,
+"wlb": 0.18481232555670857
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"roleset_shared",
+"Content"
+]
+],
+"k": 23,
+"n": 101,
+"ck": 10,
+"cn": 31,
+"wlb": 0.18569426563858402
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"roleset_shared",
+"Agent"
+],
+[
+"HAS",
+"roleset_shared",
+"Victim"
+]
+],
+"k": 8,
+"n": 37,
+"ck": 6,
+"cn": 13,
+"wlb": 0.23206067805534528
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"ALL",
+"etypeset_b",
+"Location"
+],
+[
+"EQ",
+"type_b",
+"Destroying"
+]
+],
+"k": 23,
+"n": 132,
+"ck": 10,
+"cn": 53,
+"wlb": 0.10585325106240703
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"type_b",
+"Self_motion"
+]
+],
+"k": 73,
+"n": 115,
+"ck": 26,
+"cn": 34,
+"wlb": 0.6000386207331455
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+5
+],
+[
+"HAS",
+"etypeset_shared",
+"Person"
+]
+],
+"k": 97,
+"n": 167,
+"ck": 37,
+"cn": 53,
+"wlb": 0.5646316732790353
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"roleset_shared",
+3
+],
+[
+"EQ",
+"multi_mention_b",
+true
+]
+],
+"k": 38,
+"n": 115,
+"ck": 18,
+"cn": 26,
+"wlb": 0.5001174167329109
+},
+{
+"view": "etype_a",
+"sig": "Social_event",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"etypeset_b",
+"Building"
+]
+],
+"k": 45,
+"n": 86,
+"ck": 17,
+"cn": 20,
+"wlb": 0.6395811352026538
+},
+{
+"view": "etype_a",
+"sig": "Catastrophe",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"roleset_b",
+"Location_original"
+]
+],
+"k": 72,
+"n": 118,
+"ck": 36,
+"cn": 47,
+"wlb": 0.6277574244633618
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+4
+],
+[
+"HAS",
+"roleset_b",
+"Event"
+]
+],
+"k": 45,
+"n": 61,
+"ck": 20,
+"cn": 29,
+"wlb": 0.5076986576261279
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Competition",
+"Action"
+]
+]
+],
+"k": 15,
+"n": 44,
+"ck": 10,
+"cn": 11,
+"wlb": 0.6226415634693653
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Organization"
+],
+[
+"HAS",
+"etypeset_shared",
+"Building"
+]
+],
+"k": 58,
+"n": 88,
+"ck": 46,
+"cn": 71,
+"wlb": 0.5318206220883968
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"HAS",
+"roleset_b",
+"State"
+]
+],
+"k": 49,
+"n": 70,
+"ck": 22,
+"cn": 32,
+"wlb": 0.5143332169494009
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '0')",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"roleset_a",
+"Name"
+]
+],
+"k": 23,
+"n": 64,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Traveling",
+"Social_event"
+]
+]
+],
+"k": 39,
+"n": 51,
+"ck": 9,
+"cn": 10,
+"wlb": 0.5958499731235556
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+5
+],
+[
+"HAS",
+"etypeset_shared",
+"Building"
+]
+],
+"k": 66,
+"n": 105,
+"ck": 66,
+"cn": 87,
+"wlb": 0.6590101624417697
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Motion",
+"Damaging"
+]
+]
+],
+"k": 8,
+"n": 29,
+"ck": 5,
+"cn": 18,
+"wlb": 0.12499753377201173
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_a",
+"Bodily_harm"
+]
+],
+"k": 33,
+"n": 257,
+"ck": 14,
+"cn": 83,
+"wlb": 0.10322081200909937
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_b",
+2
+],
+[
+"EQ",
+"bucket_b",
+"early"
+]
+],
+"k": 112,
+"n": 187,
+"ck": 38,
+"cn": 52,
+"wlb": 0.5974778016306627
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"HAS",
+"roleset_b",
+"Location_original"
+]
+],
+"k": 62,
+"n": 99,
+"ck": 33,
+"cn": 47,
+"wlb": 0.5602232607750418
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"EQ",
+"type_b",
+"Military_operation"
+]
+],
+"k": 15,
+"n": 61,
+"ck": 8,
+"cn": 26,
+"wlb": 0.1650131559297784
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Arriving"
+]
+]
+],
+"k": 15,
+"n": 40,
+"ck": 12,
+"cn": 14,
+"wlb": 0.6005862049628325
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Damaging"
+]
+]
+],
+"k": 19,
+"n": 60,
+"ck": 11,
+"cn": 13,
+"wlb": 0.5776536897362775
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"same_type",
+true
+],
+[
+"EQ",
+"multi_mention_b",
+true
+]
+],
+"k": 74,
+"n": 128,
+"ck": 27,
+"cn": 34,
+"wlb": 0.6320161194464685
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"roleset_shared",
+"Participant"
+]
+],
+"k": 15,
+"n": 64,
+"ck": 7,
+"cn": 22,
+"wlb": 0.1636059317872766
+},
+{
+"view": "etype_a",
+"sig": "Damaging",
+"rel": "OVERLAP",
+"conds": [
+[
+"REL",
+"role_subset",
+true
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+]
+],
+"k": 20,
+"n": 210,
+"ck": 10,
+"cn": 50,
+"wlb": 0.11243750014242715
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"EQ",
+"type_b",
+"Self_motion"
+]
+],
+"k": 38,
+"n": 53,
+"ck": 15,
+"cn": 21,
+"wlb": 0.5004361927889411
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Temporary_stay"
+]
+]
+],
+"k": 10,
+"n": 31,
+"ck": 9,
+"cn": 10,
+"wlb": 0.5958499731235556
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"type_b",
+"Motion_directional"
+]
+],
+"k": 44,
+"n": 65,
+"ck": 25,
+"cn": 32,
+"wlb": 0.612450063464509
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"roleset_shared",
+"Location"
+],
+[
+"EQ",
+"type_b",
+"Arriving"
+]
+],
+"k": 74,
+"n": 130,
+"ck": 35,
+"cn": 54,
+"wlb": 0.5148483071708317
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Person"
+],
+[
+"ALL",
+"roleset_a",
+"Agent"
+]
+],
+"k": 40,
+"n": 191,
+"ck": 47,
+"cn": 71,
+"wlb": 0.5461661813997795
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"roleset_b",
+"Final_Location"
+]
+],
+"k": 11,
+"n": 54,
+"ck": 20,
+"cn": 27,
+"wlb": 0.5532142868086107
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"CNT",
+"roleset_shared",
+0
+],
+[
+"EQ",
+"type_b",
+"Damaging"
+]
+],
+"k": 8,
+"n": 48,
+"ck": 5,
+"cn": 20,
+"wlb": 0.11186170138661135
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_b",
+"Passby"
+]
+],
+"k": 75,
+"n": 134,
+"ck": 53,
+"cn": 83,
+"wlb": 0.5311967999098244
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"roleset_shared",
+3
+],
+[
+"EQ",
+"bucket_b",
+"early"
+]
+],
+"k": 90,
+"n": 152,
+"ck": 40,
+"cn": 54,
+"wlb": 0.6106910949246973
+},
+{
+"view": "etype_a",
+"sig": "Hostile_encounter",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+0
+],
+[
+"EQ",
+"bucket_b",
+"lead"
+]
+],
+"k": 25,
+"n": 29,
+"ck": 9,
+"cn": 10,
+"wlb": 0.5958499731235556
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Bodily_harm",
+"Death"
+]
+]
+],
+"k": 8,
+"n": 37,
+"ck": 4,
+"cn": 14,
+"wlb": 0.11721378642141067
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"EQ",
+"type_b",
+"Escaping"
+]
+],
+"k": 60,
+"n": 103,
+"ck": 14,
+"cn": 17,
+"wlb": 0.5897054142515786
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"roleset_shared",
+"Location"
+],
+[
+"EQ",
+"type_b",
+"Getting"
+]
+],
+"k": 54,
+"n": 90,
+"ck": 24,
+"cn": 34,
+"wlb": 0.5383109020124889
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"CNT",
+"roleset_shared",
+3
+],
+[
+"EQ",
+"type_b",
+"Military_operation"
+]
+],
+"k": 13,
+"n": 46,
+"ck": 7,
+"cn": 21,
+"wlb": 0.17194752602322766
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Organization"
+],
+[
+"EQ",
+"type_b",
+"Motion_directional"
+]
+],
+"k": 52,
+"n": 87,
+"ck": 24,
+"cn": 36,
+"wlb": 0.5033399786731534
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+5
+],
+[
+"EQ",
+"type_b",
+"Process_end"
+]
+],
+"k": 46,
+"n": 75,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"EQ",
+"type_b",
+"Use_firearm"
+]
+],
+"k": 16,
+"n": 54,
+"ck": 22,
+"cn": 31,
+"wlb": 0.5340767066502771
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"EQ",
+"type_b",
+"Getting"
+]
+],
+"k": 59,
+"n": 104,
+"ck": 29,
+"cn": 42,
+"wlb": 0.5397400606028617
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+2
+],
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+]
+],
+"k": 13,
+"n": 39,
+"ck": 21,
+"cn": 28,
+"wlb": 0.5664432967646841
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Coming_to_be"
+]
+]
+],
+"k": 17,
+"n": 47,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Person"
+],
+[
+"EQ",
+"type_b",
+"Social_event"
+]
+],
+"k": 14,
+"n": 70,
+"ck": 5,
+"cn": 15,
+"wlb": 0.15176324436857308
+},
+{
+"view": "etype_a",
+"sig": "Social_event",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_b",
+2
+],
+[
+"ALL",
+"etypeset_a",
+"Building"
+]
+],
+"k": 19,
+"n": 32,
+"ck": 11,
+"cn": 14,
+"wlb": 0.5241076940710132
+},
+{
+"view": "etype_a",
+"sig": "Competition",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Winner"
+]
+]
+],
+"k": 28,
+"n": 37,
+"ck": 18,
+"cn": 26,
+"wlb": 0.5001174167329109
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"same_type",
+true
+],
+[
+"HAS",
+"etypeset_b",
+"Building"
+]
+],
+"k": 50,
+"n": 87,
+"ck": 36,
+"cn": 54,
+"wlb": 0.5336096359794976
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Motion_directional"
+]
+]
+],
+"k": 11,
+"n": 32,
+"ck": 12,
+"cn": 12,
+"wlb": 0.7575059932585454
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"same_type",
+true
+],
+[
+"HAS",
+"etypeset_a",
+"Building"
+]
+],
+"k": 48,
+"n": 83,
+"ck": 41,
+"cn": 62,
+"wlb": 0.5371769954639053
+},
+{
+"view": "etype_a",
+"sig": "Catastrophe",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"HAS",
+"roleset_b",
+"Location_original"
+]
+],
+"k": 31,
+"n": 48,
+"ck": 34,
+"cn": 39,
+"wlb": 0.7329425661635107
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"roleset_b",
+"Original_Location"
+]
+],
+"k": 9,
+"n": 50,
+"ck": 18,
+"cn": 18,
+"wlb": 0.8241207762853134
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_b",
+3
+],
+[
+"HAS",
+"roleset_b",
+"Event"
+]
+],
+"k": 35,
+"n": 56,
+"ck": 12,
+"cn": 15,
+"wlb": 0.5481455127861612
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"EQ",
+"type_b",
+"Request"
+]
+],
+"k": 13,
+"n": 68,
+"ck": 9,
+"cn": 21,
+"wlb": 0.24469968921934987
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Organization"
+],
+[
+"EQ",
+"type_b",
+"Military_operation"
+]
+],
+"k": 13,
+"n": 69,
+"ck": 7,
+"cn": 22,
+"wlb": 0.1636059317872766
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"roleset_b",
+"Cause"
+],
+[
+"HAS",
+"etypeset_b",
+"Product"
+]
+],
+"k": 8,
+"n": 39,
+"ck": 3,
+"cn": 10,
+"wlb": 0.10779126738101565
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_b",
+5
+],
+[
+"HAS",
+"roleset_b",
+"Participant"
+]
+],
+"k": 44,
+"n": 79,
+"ck": 51,
+"cn": 80,
+"wlb": 0.5281079449962297
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"EQ",
+"type_b",
+"Military_operation"
+]
+],
+"k": 11,
+"n": 57,
+"ck": 8,
+"cn": 20,
+"wlb": 0.21880653234006037
+},
+{
+"view": "etype_a",
+"sig": "Competition",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_b",
+"Person"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Patient"
+]
+]
+],
+"k": 25,
+"n": 35,
+"ck": 12,
+"cn": 14,
+"wlb": 0.6005862049628325
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"EQ",
+"type_b",
+"Motion_directional"
+]
+],
+"k": 30,
+"n": 49,
+"ck": 25,
+"cn": 33,
+"wlb": 0.5897538016624289
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"roleset_b",
+"Action"
+]
+],
+"k": 10,
+"n": 41,
+"ck": 5,
+"cn": 11,
+"wlb": 0.21271271618448698
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Location_original",
+"Location"
+]
+]
+],
+"k": 22,
+"n": 34,
+"ck": 11,
+"cn": 13,
+"wlb": 0.5776536897362775
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Participant"
+],
+[
+"EQ",
+"type_b",
+"Hold"
+]
+],
+"k": 33,
+"n": 58,
+"ck": 11,
+"cn": 13,
+"wlb": 0.5776536897362775
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+3
+],
+[
+"ALL",
+"anchor_roles",
+[
+"Location_original",
+"Location"
+]
+]
+],
+"k": 20,
+"n": 31,
+"ck": 14,
+"cn": 16,
+"wlb": 0.6397717272780264
+},
+{
+"view": "etype_a",
+"sig": "Catastrophe",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_b",
+"Passby"
+],
+[
+"HAS",
+"roleset_b",
+"Original_Location"
+]
+],
+"k": 20,
+"n": 32,
+"ck": 29,
+"cn": 43,
+"wlb": 0.5251621096397331
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"etypeset_shared",
+"Organization"
+],
+[
+"EQ",
+"type_b",
+"Defending"
+]
+],
+"k": 22,
+"n": 36,
+"ck": 9,
+"cn": 11,
+"wlb": 0.5230194379679506
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_b",
+"Person"
+],
+[
+"ALL",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+]
+],
+"k": 24,
+"n": 36,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_b",
+"Passby"
+]
+],
+"k": 22,
+"n": 123,
+"ck": 33,
+"cn": 51,
+"wlb": 0.5098605845126807
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"EQ",
+"type_b",
+"Use_firearm"
+]
+],
+"k": 10,
+"n": 64,
+"ck": 5,
+"cn": 15,
+"wlb": 0.15176324436857308
+}
+],
+"B: giu moi du doan dung": [
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"CNT",
+"roleset_shared",
+3
+]
+],
+"k": 1565,
+"n": 3349,
+"ck": 669,
+"cn": 1191,
+"wlb": 0.5333798662623338
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"EQ",
+"type_a",
+"Competition"
+]
+],
+"k": 738,
+"n": 1268,
+"ck": 296,
+"cn": 405,
+"wlb": 0.6856495965056207
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"EQ",
+"type_a",
+"Hostile_encounter"
+]
+],
+"k": 947,
+"n": 2066,
+"ck": 405,
+"cn": 745,
+"wlb": 0.5077246839146039
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"EQ",
+"type_a",
+"Hostile_encounter"
+]
+],
+"k": 709,
+"n": 1502,
+"ck": 279,
+"cn": 489,
+"wlb": 0.5262971652027228
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"EQ",
+"multi_mention_a",
+true
+]
+],
+"k": 616,
+"n": 1123,
+"ck": 242,
+"cn": 388,
+"wlb": 0.5745158918029171
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Location"
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 707,
+"n": 1490,
+"ck": 217,
+"cn": 389,
+"wlb": 0.5081601751899937
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"HAS",
+"roleset_a",
+"Event"
+]
+],
+"k": 560,
+"n": 963,
+"ck": 228,
+"cn": 400,
+"wlb": 0.5210443194259947
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"bucket_b",
+"early"
+]
+],
+"k": 594,
+"n": 1176,
+"ck": 221,
+"cn": 391,
+"wlb": 0.5156819535779896
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Hostile_encounter"
+],
+[
+"EQ",
+"bucket_b",
+"early"
+]
+],
+"k": 462,
+"n": 831,
+"ck": 183,
+"cn": 284,
+"wlb": 0.5871041655291739
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 591,
+"n": 1311,
+"ck": 280,
+"cn": 510,
+"wlb": 0.5056280249260753
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"roleset_a",
+"Name"
+]
+],
+"k": 509,
+"n": 913,
+"ck": 196,
+"cn": 335,
+"wlb": 0.5316397980921291
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"roleset_a",
+"Host"
+]
+],
+"k": 463,
+"n": 915,
+"ck": 139,
+"cn": 240,
+"wlb": 0.5159412597331803
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 422,
+"n": 789,
+"ck": 172,
+"cn": 305,
+"wlb": 0.5078276974754269
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"REL",
+"same_type",
+true
+]
+],
+"k": 284,
+"n": 1231,
+"ck": 81,
+"cn": 424,
+"wlb": 0.1564583116133757
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Competition"
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 355,
+"n": 696,
+"ck": 192,
+"cn": 324,
+"wlb": 0.5383091854898541
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_a",
+"Host"
+]
+],
+"k": 331,
+"n": 628,
+"ck": 127,
+"cn": 201,
+"wlb": 0.5632739063500701
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"EQ",
+"nrole_a",
+5
+]
+],
+"k": 330,
+"n": 660,
+"ck": 130,
+"cn": 179,
+"wlb": 0.6566997900384435
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"EQ",
+"type_a",
+"Catastrophe"
+]
+],
+"k": 291,
+"n": 606,
+"ck": 130,
+"cn": 208,
+"wlb": 0.5575013068118495
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Catastrophe"
+],
+[
+"EQ",
+"bucket_b",
+"early"
+]
+],
+"k": 292,
+"n": 670,
+"ck": 157,
+"cn": 275,
+"wlb": 0.511830497571279
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_a",
+"Loss"
+]
+],
+"k": 220,
+"n": 398,
+"ck": 110,
+"cn": 190,
+"wlb": 0.5078607891051027
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"CNT",
+"anchor_roles",
+2
+]
+],
+"k": 279,
+"n": 552,
+"ck": 121,
+"cn": 186,
+"wlb": 0.5795982510202655
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+5
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 320,
+"n": 753,
+"ck": 165,
+"cn": 294,
+"wlb": 0.5040726753622923
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '8+')",
+"rel": "CONTAINS",
+"conds": [
+[
+"MIX",
+"etypeset_a",
+null
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 201,
+"n": 352,
+"ck": 95,
+"cn": 161,
+"wlb": 0.5128542381700195
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+]
+],
+"k": 290,
+"n": 595,
+"ck": 123,
+"cn": 202,
+"wlb": 0.5401826228646031
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_a",
+"Host"
+]
+],
+"k": 532,
+"n": 1050,
+"ck": 217,
+"cn": 341,
+"wlb": 0.5840498072943588
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"HAS",
+"roleset_a",
+"Event"
+]
+],
+"k": 230,
+"n": 409,
+"ck": 113,
+"cn": 194,
+"wlb": 0.5121363495527723
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_a",
+"Competition"
+]
+],
+"k": 206,
+"n": 362,
+"ck": 73,
+"cn": 108,
+"wlb": 0.5829333238244067
+},
+{
+"view": "sdist",
+"sig": "2-3",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_a",
+"Hostile_encounter"
+]
+],
+"k": 238,
+"n": 472,
+"ck": 103,
+"cn": 168,
+"wlb": 0.5377032490719462
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"EQ",
+"type_a",
+"Competition"
+]
+],
+"k": 236,
+"n": 467,
+"ck": 117,
+"cn": 191,
+"wlb": 0.5419059231068181
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"HAS",
+"roleset_b",
+"Name"
+]
+],
+"k": 198,
+"n": 327,
+"ck": 95,
+"cn": 148,
+"wlb": 0.5619587362460137
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"REL",
+"same_type",
+true
+]
+],
+"k": 179,
+"n": 342,
+"ck": 76,
+"cn": 125,
+"wlb": 0.5204208805798638
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Hostile_encounter"
+]
+]
+],
+"k": 180,
+"n": 292,
+"ck": 61,
+"cn": 92,
+"wlb": 0.5616529840440677
+},
+{
+"view": "bucket_a",
+"sig": "early",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+]
+],
+"k": 27,
+"n": 123,
+"ck": 8,
+"cn": 31,
+"wlb": 0.137017059043227
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"EQ",
+"type_b",
+"Competition"
+]
+],
+"k": 232,
+"n": 521,
+"ck": 136,
+"cn": 230,
+"wlb": 0.5267789925120664
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 214,
+"n": 442,
+"ck": 76,
+"cn": 112,
+"wlb": 0.5873974162496977
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 387,
+"n": 765,
+"ck": 127,
+"cn": 177,
+"wlb": 0.6471147395968949
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_a",
+"Host"
+]
+],
+"k": 159,
+"n": 309,
+"ck": 65,
+"cn": 89,
+"wlb": 0.6300335779669944
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Killing",
+"Bodily_harm"
+]
+]
+],
+"k": 40,
+"n": 228,
+"ck": 14,
+"cn": 77,
+"wlb": 0.11151253280927241
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 162,
+"n": 298,
+"ck": 65,
+"cn": 103,
+"wlb": 0.5347408308450488
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Catastrophe"
+]
+]
+],
+"k": 37,
+"n": 134,
+"ck": 11,
+"cn": 38,
+"wlb": 0.17003277826292032
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Hostile_encounter"
+]
+],
+"k": 2587,
+"n": 4694,
+"ck": 904,
+"cn": 1478,
+"wlb": 0.5865313327172405
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_b",
+"Name"
+]
+],
+"k": 132,
+"n": 255,
+"ck": 58,
+"cn": 89,
+"wlb": 0.548293179638881
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"type_b",
+"Cause_change_of_strength"
+]
+],
+"k": 131,
+"n": 215,
+"ck": 50,
+"cn": 78,
+"wlb": 0.5302680321159395
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Military_operation"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Patient",
+"Patient"
+]
+]
+],
+"k": 153,
+"n": 297,
+"ck": 72,
+"cn": 122,
+"wlb": 0.5014409020425913
+},
+{
+"view": "sdist",
+"sig": "2-3",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_a",
+"Catastrophe"
+]
+],
+"k": 139,
+"n": 281,
+"ck": 78,
+"cn": 133,
+"wlb": 0.5014913278290222
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"EQ",
+"nrole_b",
+5
+]
+],
+"k": 156,
+"n": 317,
+"ck": 69,
+"cn": 112,
+"wlb": 0.5235748200509723
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Participant"
+]
+]
+],
+"k": 23,
+"n": 69,
+"ck": 10,
+"cn": 31,
+"wlb": 0.18569426563858402
+},
+{
+"view": "sdist_ord",
+"sig": "('8+', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"HAS",
+"roleset_a",
+"Host"
+]
+],
+"k": 138,
+"n": 271,
+"ck": 40,
+"cn": 63,
+"wlb": 0.5114870969861469
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"HAS",
+"roleset_b",
+"Location_final"
+]
+],
+"k": 124,
+"n": 270,
+"ck": 47,
+"cn": 67,
+"wlb": 0.5834478625346905
+},
+{
+"view": "etype_a",
+"sig": "Killing",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"EQ",
+"order",
+"same"
+]
+],
+"k": 57,
+"n": 211,
+"ck": 16,
+"cn": 67,
+"wlb": 0.15268139046851392
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"order",
+"rev"
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Catastrophe"
+]
+]
+],
+"k": 15,
+"n": 71,
+"ck": 10,
+"cn": 31,
+"wlb": 0.18569426563858402
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 145,
+"n": 310,
+"ck": 86,
+"cn": 148,
+"wlb": 0.5005271022705953
+},
+{
+"view": "sdist",
+"sig": "1",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_a",
+"Catastrophe"
+]
+],
+"k": 145,
+"n": 339,
+"ck": 91,
+"cn": 157,
+"wlb": 0.5014070665629105
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"lead"
+],
+[
+"HAS",
+"roleset_shared",
+"Event"
+]
+],
+"k": 21,
+"n": 66,
+"ck": 8,
+"cn": 27,
+"wlb": 0.15853040467389667
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"EQ",
+"type_pair",
+[
+"Hostile_encounter",
+"Attack"
+]
+]
+],
+"k": 94,
+"n": 155,
+"ck": 21,
+"cn": 30,
+"wlb": 0.521242125370253
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"EQ",
+"type_a",
+"Traveling"
+]
+],
+"k": 165,
+"n": 263,
+"ck": 46,
+"cn": 75,
+"wlb": 0.5001747668116652
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Participant"
+],
+[
+"HAS",
+"roleset_a",
+"Score"
+]
+],
+"k": 95,
+"n": 156,
+"ck": 14,
+"cn": 19,
+"wlb": 0.5120844909685253
+},
+{
+"view": "bucket_a",
+"sig": "early",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"EQ",
+"type_a",
+"Killing"
+]
+],
+"k": 19,
+"n": 115,
+"ck": 7,
+"cn": 32,
+"wlb": 0.11023836250824938
+},
+{
+"view": "sdist",
+"sig": "1",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 112,
+"n": 237,
+"ck": 59,
+"cn": 80,
+"wlb": 0.6318104033293361
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 1055,
+"n": 1757,
+"ck": 473,
+"cn": 614,
+"wlb": 0.7354696672180353
+},
+{
+"view": "sdist_ord",
+"sig": "('8+', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 72,
+"n": 107,
+"ck": 21,
+"cn": 31,
+"wlb": 0.5014100930395112
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Motion"
+]
+]
+],
+"k": 89,
+"n": 168,
+"ck": 57,
+"cn": 81,
+"wlb": 0.5968803504662806
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Military_operation"
+],
+[
+"EQ",
+"nrole_a",
+1
+]
+],
+"k": 88,
+"n": 155,
+"ck": 26,
+"cn": 37,
+"wlb": 0.5421686408499147
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Arriving"
+]
+]
+],
+"k": 73,
+"n": 107,
+"ck": 21,
+"cn": 29,
+"wlb": 0.5428286757874182
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"role_subset",
+true
+],
+[
+"EQ",
+"bucket_b",
+"lead"
+]
+],
+"k": 199,
+"n": 401,
+"ck": 78,
+"cn": 133,
+"wlb": 0.5014913278290222
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_b",
+"Passby"
+]
+],
+"k": 74,
+"n": 133,
+"ck": 52,
+"cn": 81,
+"wlb": 0.5333306214463718
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Winner"
+]
+]
+],
+"k": 73,
+"n": 117,
+"ck": 35,
+"cn": 55,
+"wlb": 0.5042276149673346
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"EQ",
+"type_b",
+"Arriving"
+]
+],
+"k": 98,
+"n": 220,
+"ck": 44,
+"cn": 70,
+"wlb": 0.5114720115566429
+},
+{
+"view": "sdist",
+"sig": "2-3",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 80,
+"n": 165,
+"ck": 42,
+"cn": 51,
+"wlb": 0.697458574723377
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '2-3')",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"HAS",
+"roleset_a",
+"Host"
+]
+],
+"k": 100,
+"n": 158,
+"ck": 27,
+"cn": 41,
+"wlb": 0.5054983651622621
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Participant"
+],
+[
+"CNT",
+"etypeset_b",
+3
+]
+],
+"k": 86,
+"n": 169,
+"ck": 25,
+"cn": 37,
+"wlb": 0.514636672381571
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Motion"
+]
+]
+],
+"k": 69,
+"n": 121,
+"ck": 40,
+"cn": 59,
+"wlb": 0.5510500442346692
+},
+{
+"view": "bucket_a",
+"sig": "mid",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Location"
+],
+[
+"EQ",
+"type_pair",
+[
+"Social_event",
+"Social_event"
+]
+]
+],
+"k": 13,
+"n": 40,
+"ck": 4,
+"cn": 10,
+"wlb": 0.16818032967113522
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"EQ",
+"type_b",
+"Cause_change_of_strength"
+]
+],
+"k": 61,
+"n": 113,
+"ck": 25,
+"cn": 36,
+"wlb": 0.5314372714558399
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+2
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 119,
+"n": 203,
+"ck": 58,
+"cn": 95,
+"wlb": 0.5100024053098049
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_b",
+"Building"
+],
+[
+"HAS",
+"roleset_a",
+"Score"
+]
+],
+"k": 58,
+"n": 103,
+"ck": 38,
+"cn": 54,
+"wlb": 0.5717242709562524
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'rev')",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"same_type",
+true
+],
+[
+"EQ",
+"bucket_a",
+"early"
+]
+],
+"k": 21,
+"n": 66,
+"ck": 8,
+"cn": 25,
+"wlb": 0.17205190304318183
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"HAS",
+"roleset_b",
+"Participant"
+]
+],
+"k": 62,
+"n": 117,
+"ck": 37,
+"cn": 58,
+"wlb": 0.5092752370177803
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"EQ",
+"nrole_b",
+5
+]
+],
+"k": 75,
+"n": 160,
+"ck": 45,
+"cn": 73,
+"wlb": 0.5017408347198983
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_b",
+"Person"
+],
+[
+"HAS",
+"roleset_a",
+"Event"
+]
+],
+"k": 104,
+"n": 166,
+"ck": 37,
+"cn": 58,
+"wlb": 0.5092752370177803
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"lead"
+],
+[
+"REL",
+"same_type",
+true
+]
+],
+"k": 114,
+"n": 200,
+"ck": 47,
+"cn": 71,
+"wlb": 0.5461661813997795
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_b",
+2
+],
+[
+"HAS",
+"roleset_shared",
+"Participant"
+]
+],
+"k": 60,
+"n": 116,
+"ck": 37,
+"cn": 57,
+"wlb": 0.5194189535257541
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"roleset_b",
+"Host"
+]
+],
+"k": 41,
+"n": 63,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Winner"
+]
+]
+],
+"k": 31,
+"n": 35,
+"ck": 13,
+"cn": 14,
+"wlb": 0.6853129556863173
+},
+{
+"view": "bucket_a",
+"sig": "early",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+],
+[
+"HAS",
+"roleset_a",
+"Cause"
+]
+],
+"k": 10,
+"n": 55,
+"ck": 4,
+"cn": 13,
+"wlb": 0.1268070365307339
+},
+{
+"view": "etype_a",
+"sig": "Hostile_encounter",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+]
+],
+"k": 1033,
+"n": 1814,
+"ck": 291,
+"cn": 500,
+"wlb": 0.5383026562259147
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"EQ",
+"type_b",
+"Coming_to_be"
+]
+],
+"k": 73,
+"n": 158,
+"ck": 40,
+"cn": 57,
+"wlb": 0.5733571989340622
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 97,
+"n": 164,
+"ck": 35,
+"cn": 53,
+"wlb": 0.5259478663434887
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"EQ",
+"type_pair",
+[
+"Bodily_harm",
+"Killing"
+]
+]
+],
+"k": 19,
+"n": 39,
+"ck": 4,
+"cn": 11,
+"wlb": 0.15166471092207018
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Location"
+],
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Escaping"
+]
+]
+],
+"k": 49,
+"n": 80,
+"ck": 19,
+"cn": 25,
+"wlb": 0.5657031663976144
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"ALL",
+"roleset_shared",
+"Location"
+],
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+]
+],
+"k": 38,
+"n": 99,
+"ck": 12,
+"cn": 36,
+"wlb": 0.20214618821827127
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"REL",
+"role_subset",
+true
+]
+],
+"k": 645,
+"n": 1108,
+"ck": 230,
+"cn": 387,
+"wlb": 0.5446994262797614
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 127,
+"n": 539,
+"ck": 35,
+"cn": 170,
+"wlb": 0.15192448517950566
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"REL",
+"same_type",
+true
+]
+],
+"k": 110,
+"n": 427,
+"ck": 30,
+"cn": 143,
+"wlb": 0.1510912698879622
+},
+{
+"view": "etype_a",
+"sig": "Bodily_harm",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"HAS",
+"roleset_b",
+"Victim"
+]
+],
+"k": 16,
+"n": 38,
+"ck": 4,
+"cn": 10,
+"wlb": 0.16818032967113522
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"EQ",
+"type_pair",
+[
+"Competition",
+"Conquering"
+]
+]
+],
+"k": 43,
+"n": 67,
+"ck": 29,
+"cn": 42,
+"wlb": 0.5397400606028617
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Attack"
+]
+]
+],
+"k": 37,
+"n": 51,
+"ck": 15,
+"cn": 16,
+"wlb": 0.7167126242292237
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+5
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 92,
+"n": 160,
+"ck": 71,
+"cn": 119,
+"wlb": 0.5068121916247018
+},
+{
+"view": "etype_a",
+"sig": "Catastrophe",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+]
+],
+"k": 1236,
+"n": 2585,
+"ck": 612,
+"cn": 1052,
+"wlb": 0.5516968425922815
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_b",
+"Original_Location"
+]
+],
+"k": 44,
+"n": 80,
+"ck": 24,
+"cn": 35,
+"wlb": 0.52020236383994
+},
+{
+"view": "sdist",
+"sig": "8+",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Military_operation"
+],
+[
+"HAS",
+"roleset_b",
+"Location_final"
+]
+],
+"k": 49,
+"n": 90,
+"ck": 16,
+"cn": 20,
+"wlb": 0.5839825676933227
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Winner"
+],
+[
+"ALL",
+"etypeset_shared",
+"Building"
+]
+],
+"k": 43,
+"n": 70,
+"ck": 17,
+"cn": 22,
+"wlb": 0.5656004681963309
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Agent"
+]
+]
+],
+"k": 37,
+"n": 56,
+"ck": 14,
+"cn": 18,
+"wlb": 0.5478541567814095
+},
+{
+"view": "etype_a",
+"sig": "Attack",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Consequence",
+"Consequence"
+]
+]
+],
+"k": 18,
+"n": 116,
+"ck": 8,
+"cn": 24,
+"wlb": 0.17972190324594942
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Score",
+"Score"
+]
+]
+],
+"k": 61,
+"n": 136,
+"ck": 22,
+"cn": 31,
+"wlb": 0.5340767066502771
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"lead"
+],
+[
+"HAS",
+"roleset_b",
+"Participant"
+]
+],
+"k": 15,
+"n": 57,
+"ck": 6,
+"cn": 18,
+"wlb": 0.1627877474801916
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Name"
+]
+],
+"k": 851,
+"n": 1656,
+"ck": 353,
+"cn": 570,
+"wlb": 0.5787638048636413
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+3
+],
+[
+"CNT",
+"etypeset_a",
+3
+]
+],
+"k": 20,
+"n": 86,
+"ck": 5,
+"cn": 15,
+"wlb": 0.15176324436857308
+},
+{
+"view": "sdist",
+"sig": "8+",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Attack"
+]
+]
+],
+"k": 55,
+"n": 123,
+"ck": 17,
+"cn": 24,
+"wlb": 0.5083230633077824
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_b",
+"Person"
+],
+[
+"HAS",
+"roleset_a",
+"Event"
+]
+],
+"k": 61,
+"n": 91,
+"ck": 15,
+"cn": 21,
+"wlb": 0.5004361927889411
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"EQ",
+"type_b",
+"Cause_change_of_strength"
+]
+],
+"k": 25,
+"n": 50,
+"ck": 13,
+"cn": 16,
+"wlb": 0.5699111903190984
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Self_motion"
+]
+]
+],
+"k": 34,
+"n": 51,
+"ck": 10,
+"cn": 11,
+"wlb": 0.6226415634693653
+},
+{
+"view": "etype_a",
+"sig": "Hold",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"has_org_a",
+false
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Host"
+]
+]
+],
+"k": 12,
+"n": 29,
+"ck": 5,
+"cn": 13,
+"wlb": 0.17709707794426607
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"ALL",
+"roleset_a",
+"Location"
+]
+],
+"k": 51,
+"n": 119,
+"ck": 16,
+"cn": 22,
+"wlb": 0.51848265982621
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Patient"
+]
+]
+],
+"k": 25,
+"n": 32,
+"ck": 12,
+"cn": 12,
+"wlb": 0.7575059932585454
+},
+{
+"view": "sdist_ord",
+"sig": "('4-7', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Host",
+"Host"
+]
+]
+],
+"k": 72,
+"n": 212,
+"ck": 53,
+"cn": 85,
+"wlb": 0.5172990783370757
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"CNT",
+"etypeset_shared",
+2
+]
+],
+"k": 437,
+"n": 728,
+"ck": 161,
+"cn": 278,
+"wlb": 0.520410266181922
+},
+{
+"view": "sdist",
+"sig": "8+",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"HAS",
+"roleset_a",
+"Score"
+]
+],
+"k": 36,
+"n": 61,
+"ck": 17,
+"cn": 17,
+"wlb": 0.815681864920585
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Person"
+],
+[
+"EQ",
+"type_a",
+"Social_event"
+]
+],
+"k": 35,
+"n": 98,
+"ck": 10,
+"cn": 12,
+"wlb": 0.5519691376768494
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+3
+],
+[
+"EQ",
+"type_pair",
+[
+"Competition",
+"Earnings_and_losses"
+]
+]
+],
+"k": 33,
+"n": 51,
+"ck": 12,
+"cn": 16,
+"wlb": 0.5050168345871379
+},
+{
+"view": "etype_a",
+"sig": "Judgment_communication",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"REL",
+"a_before_b",
+false
+]
+],
+"k": 14,
+"n": 50,
+"ck": 6,
+"cn": 19,
+"wlb": 0.15364379085134872
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+false
+],
+[
+"ALL",
+"roleset_a",
+"Location"
+]
+],
+"k": 236,
+"n": 294,
+"ck": 31,
+"cn": 31,
+"wlb": 0.8897446044935221
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"roleset_shared",
+"Speaker"
+]
+],
+"k": 10,
+"n": 43,
+"ck": 5,
+"cn": 11,
+"wlb": 0.21271271618448698
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Winner"
+],
+[
+"EQ",
+"type_b",
+"Defending"
+]
+],
+"k": 26,
+"n": 35,
+"ck": 11,
+"cn": 14,
+"wlb": 0.5241076940710132
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"ALL",
+"roleset_shared",
+"Location"
+],
+[
+"HAS",
+"roleset_a",
+"Victim"
+]
+],
+"k": 54,
+"n": 213,
+"ck": 13,
+"cn": 60,
+"wlb": 0.13123044046619467
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+3
+],
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Arriving"
+]
+]
+],
+"k": 23,
+"n": 35,
+"ck": 14,
+"cn": 19,
+"wlb": 0.5120844909685253
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Person"
+],
+[
+"HAS",
+"roleset_a",
+"Score"
+]
+],
+"k": 31,
+"n": 52,
+"ck": 14,
+"cn": 19,
+"wlb": 0.5120844909685253
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"HAS",
+"roleset_a",
+"Victim"
+]
+],
+"k": 56,
+"n": 293,
+"ck": 14,
+"cn": 83,
+"wlb": 0.10322081200909937
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"EQ",
+"type_a",
+"Bodily_harm"
+]
+],
+"k": 17,
+"n": 164,
+"ck": 10,
+"cn": 40,
+"wlb": 0.1418711863717118
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '4-7')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"EQ",
+"type_pair",
+[
+"Competition",
+"Competition"
+]
+]
+],
+"k": 73,
+"n": 151,
+"ck": 48,
+"cn": 75,
+"wlb": 0.527006613164133
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Participant"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Host"
+]
+]
+],
+"k": 33,
+"n": 62,
+"ck": 49,
+"cn": 78,
+"wlb": 0.5173105377864212
+},
+{
+"view": "sdist_ord",
+"sig": "('8+', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Military_operation"
+],
+[
+"HAS",
+"roleset_b",
+"Location_original"
+]
+],
+"k": 33,
+"n": 65,
+"ck": 18,
+"cn": 24,
+"wlb": 0.551005559899764
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"etypeset_shared",
+"Building"
+]
+],
+"k": 24,
+"n": 42,
+"ck": 17,
+"cn": 20,
+"wlb": 0.6395811352026538
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Becoming"
+]
+]
+],
+"k": 41,
+"n": 97,
+"ck": 22,
+"cn": 30,
+"wlb": 0.5555203830046458
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Host",
+"Location"
+]
+]
+],
+"k": 43,
+"n": 113,
+"ck": 32,
+"cn": 47,
+"wlb": 0.5383265689347735
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+5
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Host"
+]
+]
+],
+"k": 27,
+"n": 45,
+"ck": 56,
+"cn": 85,
+"wlb": 0.5531313859093088
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Cause"
+],
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+]
+],
+"k": 23,
+"n": 66,
+"ck": 5,
+"cn": 16,
+"wlb": 0.14164643852115433
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Host"
+]
+]
+],
+"k": 39,
+"n": 98,
+"ck": 41,
+"cn": 56,
+"wlb": 0.604054440676616
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"role_subset",
+true
+],
+[
+"ALL",
+"etypeset_a",
+"Organization"
+]
+],
+"k": 385,
+"n": 683,
+"ck": 113,
+"cn": 192,
+"wlb": 0.5178627054462979
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"EQ",
+"type_b",
+"Cause_change_of_strength"
+]
+],
+"k": 34,
+"n": 58,
+"ck": 13,
+"cn": 16,
+"wlb": 0.5699111903190984
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"roleset_shared",
+"Agent"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Victim",
+"Victim"
+]
+]
+],
+"k": 8,
+"n": 35,
+"ck": 6,
+"cn": 10,
+"wlb": 0.312673769679736
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"roleset_a",
+"Location"
+]
+],
+"k": 333,
+"n": 586,
+"ck": 73,
+"cn": 121,
+"wlb": 0.5142527156061969
+},
+{
+"view": "etype_a",
+"sig": "Killing",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Victim",
+"Patient"
+]
+]
+],
+"k": 12,
+"n": 42,
+"ck": 5,
+"cn": 13,
+"wlb": 0.17709707794426607
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_b",
+"Hostile_encounter"
+]
+],
+"k": 431,
+"n": 812,
+"ck": 164,
+"cn": 290,
+"wlb": 0.5079780433476447
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+],
+[
+"HAS",
+"roleset_a",
+"Instrument"
+]
+],
+"k": 19,
+"n": 53,
+"ck": 7,
+"cn": 20,
+"wlb": 0.1811918240720126
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"MIX",
+"etypeset_a",
+null
+],
+[
+"EQ",
+"multi_mention_a",
+true
+]
+],
+"k": 151,
+"n": 187,
+"ck": 32,
+"cn": 44,
+"wlb": 0.5815112690395264
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Name"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Patient"
+]
+]
+],
+"k": 25,
+"n": 29,
+"ck": 10,
+"cn": 11,
+"wlb": 0.6226415634693653
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_b",
+"Participant"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Name",
+"Name"
+]
+]
+],
+"k": 26,
+"n": 52,
+"ck": 25,
+"cn": 36,
+"wlb": 0.5314372714558399
+},
+{
+"view": "etype_a",
+"sig": "Competition",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+2
+],
+[
+"EQ",
+"bucket_b",
+"lead"
+]
+],
+"k": 18,
+"n": 67,
+"ck": 10,
+"cn": 31,
+"wlb": 0.18569426563858402
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Arriving"
+]
+]
+],
+"k": 43,
+"n": 123,
+"ck": 18,
+"cn": 26,
+"wlb": 0.5001174167329109
+},
+{
+"view": "etype_a",
+"sig": "Competition",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Product"
+]
+],
+"k": 173,
+"n": 240,
+"ck": 13,
+"cn": 13,
+"wlb": 0.7719046275631658
+},
+{
+"view": "sdist_ord",
+"sig": "('2-3', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Building"
+],
+[
+"HAS",
+"roleset_shared",
+"Name"
+]
+],
+"k": 20,
+"n": 39,
+"ck": 16,
+"cn": 21,
+"wlb": 0.5490882631183506
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '8+')",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"etypeset_shared",
+"Organization"
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 48,
+"n": 92,
+"ck": 34,
+"cn": 53,
+"wlb": 0.5069114155218905
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"etypeset_shared",
+"Organization"
+],
+[
+"EQ",
+"type_pair",
+[
+"Hostile_encounter",
+"Process_start"
+]
+]
+],
+"k": 18,
+"n": 27,
+"ck": 9,
+"cn": 11,
+"wlb": 0.5230194379679506
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_a",
+"Military_operation"
+],
+[
+"HAS",
+"roleset_b",
+"Location_original"
+]
+],
+"k": 19,
+"n": 25,
+"ck": 12,
+"cn": 12,
+"wlb": 0.7575059932585454
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"HAS",
+"roleset_shared",
+"Victim"
+]
+],
+"k": 8,
+"n": 45,
+"ck": 9,
+"cn": 26,
+"wlb": 0.1941223032019031
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"EQ",
+"type_b",
+"Defending"
+]
+],
+"k": 29,
+"n": 43,
+"ck": 14,
+"cn": 16,
+"wlb": 0.6397717272780264
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Person"
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 34,
+"n": 72,
+"ck": 11,
+"cn": 13,
+"wlb": 0.5776536897362775
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+],
+[
+"EQ",
+"type_a",
+"Damaging"
+]
+],
+"k": 19,
+"n": 293,
+"ck": 12,
+"cn": 63,
+"wlb": 0.11246191870887313
+},
+{
+"view": "etype_a",
+"sig": "Social_event",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"etypeset_a",
+"Building"
+]
+],
+"k": 78,
+"n": 124,
+"ck": 19,
+"cn": 19,
+"wlb": 0.8318207758817253
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+],
+[
+"EQ",
+"type_pair",
+[
+"Damaging",
+"Destroying"
+]
+]
+],
+"k": 8,
+"n": 57,
+"ck": 7,
+"cn": 21,
+"wlb": 0.17194752602322766
+},
+{
+"view": "etype_a",
+"sig": "Influence",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+]
+],
+"k": 32,
+"n": 57,
+"ck": 12,
+"cn": 14,
+"wlb": 0.6005862049628325
+},
+{
+"view": "sdist_ord",
+"sig": "('1', 'fwd')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"type_a",
+"Military_operation"
+]
+],
+"k": 18,
+"n": 36,
+"ck": 11,
+"cn": 14,
+"wlb": 0.5241076940710132
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Damaging",
+"Destroying"
+]
+]
+],
+"k": 14,
+"n": 99,
+"ck": 7,
+"cn": 27,
+"wlb": 0.13170374559785447
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Location_original",
+"Location"
+]
+]
+],
+"k": 9,
+"n": 73,
+"ck": 6,
+"cn": 17,
+"wlb": 0.1730972039425212
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"MIX",
+"etypeset_a",
+null
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Host",
+"Location"
+]
+]
+],
+"k": 26,
+"n": 57,
+"ck": 33,
+"cn": 43,
+"wlb": 0.62255479698513
+},
+{
+"view": "etype_a",
+"sig": "Catastrophe",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Patient",
+"Location"
+]
+],
+[
+"EQ",
+"multi_mention_b",
+true
+]
+],
+"k": 12,
+"n": 56,
+"ck": 5,
+"cn": 10,
+"wlb": 0.23659309046790553
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"has_person_b",
+false
+],
+[
+"EQ",
+"type_pair",
+[
+"Bodily_harm",
+"Death"
+]
+]
+],
+"k": 9,
+"n": 43,
+"ck": 3,
+"cn": 10,
+"wlb": 0.10779126738101565
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_b",
+"Conquering"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Patient"
+]
+]
+],
+"k": 17,
+"n": 27,
+"ck": 9,
+"cn": 10,
+"wlb": 0.5958499731235556
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+],
+[
+"EQ",
+"type_b",
+"Destroying"
+]
+],
+"k": 16,
+"n": 228,
+"ck": 14,
+"cn": 77,
+"wlb": 0.11151253280927241
+},
+{
+"view": "etype_a",
+"sig": "Damaging",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+]
+],
+"k": 37,
+"n": 280,
+"ck": 19,
+"cn": 119,
+"wlb": 0.10466351992598916
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Location"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Participant",
+"Winner"
+]
+]
+],
+"k": 24,
+"n": 51,
+"ck": 15,
+"cn": 19,
+"wlb": 0.5666572155062037
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '0')",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Hostile_encounter",
+"Hostile_encounter"
+]
+]
+],
+"k": 23,
+"n": 34,
+"ck": 10,
+"cn": 12,
+"wlb": 0.5519691376768494
+},
+{
+"view": "sdist",
+"sig": "8+",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Motion"
+]
+]
+],
+"k": 23,
+"n": 49,
+"ck": 11,
+"cn": 14,
+"wlb": 0.5241076940710132
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Event"
+],
+[
+"EQ",
+"type_b",
+"Conquering"
+]
+],
+"k": 21,
+"n": 26,
+"ck": 14,
+"cn": 18,
+"wlb": 0.5478541567814095
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_b",
+"Hostile_encounter"
+],
+[
+"EQ",
+"multi_mention_b",
+true
+]
+],
+"k": 36,
+"n": 66,
+"ck": 15,
+"cn": 21,
+"wlb": 0.5004361927889411
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Cause"
+]
+]
+],
+"k": 23,
+"n": 97,
+"ck": 5,
+"cn": 21,
+"wlb": 0.10628013020636118
+},
+{
+"view": "etype_a",
+"sig": "Supply",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"order",
+"same"
+],
+[
+"REL",
+"a_before_b",
+false
+]
+],
+"k": 9,
+"n": 52,
+"ck": 7,
+"cn": 22,
+"wlb": 0.1636059317872766
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Host"
+],
+[
+"EQ",
+"type_b",
+"Conquering"
+]
+],
+"k": 23,
+"n": 32,
+"ck": 9,
+"cn": 11,
+"wlb": 0.5230194379679506
+},
+{
+"view": "etype_a",
+"sig": "Hold",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"has_org_a",
+false
+],
+[
+"CNT",
+"anchor_roles",
+3
+]
+],
+"k": 11,
+"n": 55,
+"ck": 10,
+"cn": 36,
+"wlb": 0.158483379379902
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Arranging"
+]
+]
+],
+"k": 23,
+"n": 57,
+"ck": 9,
+"cn": 11,
+"wlb": 0.5230194379679506
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Score"
+],
+[
+"CNT",
+"etypeset_b",
+3
+]
+],
+"k": 15,
+"n": 25,
+"ck": 10,
+"cn": 11,
+"wlb": 0.6226415634693653
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Location"
+],
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Control"
+]
+]
+],
+"k": 19,
+"n": 37,
+"ck": 14,
+"cn": 19,
+"wlb": 0.5120844909685253
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_b",
+2
+],
+[
+"REL",
+"a_before_b",
+false
+]
+],
+"k": 149,
+"n": 210,
+"ck": 54,
+"cn": 88,
+"wlb": 0.5091875700415198
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_b",
+4
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Winner",
+"Agent"
+]
+]
+],
+"k": 20,
+"n": 26,
+"ck": 9,
+"cn": 11,
+"wlb": 0.5230194379679506
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Location"
+],
+[
+"HAS",
+"roleset_b",
+"Score"
+]
+],
+"k": 38,
+"n": 128,
+"ck": 30,
+"cn": 45,
+"wlb": 0.5207048830643314
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_b",
+2
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 209,
+"n": 367,
+"ck": 64,
+"cn": 94,
+"wlb": 0.5811125325309124
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Motion_directional"
+]
+]
+],
+"k": 19,
+"n": 47,
+"ck": 12,
+"cn": 13,
+"wlb": 0.6668604907145496
+},
+{
+"view": "etype_a",
+"sig": "Damaging",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"CNT",
+"roleset_shared",
+3
+],
+[
+"EQ",
+"order",
+"same"
+]
+],
+"k": 17,
+"n": 98,
+"ck": 8,
+"cn": 27,
+"wlb": 0.15853040467389667
+},
+{
+"view": "etype_a",
+"sig": "Damaging",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Patient",
+"Patient"
+]
+]
+],
+"k": 12,
+"n": 52,
+"ck": 5,
+"cn": 15,
+"wlb": 0.15176324436857308
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Victim"
+],
+[
+"HAS",
+"roleset_a",
+"Cause"
+]
+],
+"k": 24,
+"n": 118,
+"ck": 8,
+"cn": 39,
+"wlb": 0.1077971822907529
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Process_start"
+]
+]
+],
+"k": 17,
+"n": 40,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+2
+],
+[
+"EQ",
+"nrole_a",
+5
+]
+],
+"k": 194,
+"n": 344,
+"ck": 111,
+"cn": 154,
+"wlb": 0.645213834918674
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Damaging",
+"Destroying"
+]
+]
+],
+"k": 10,
+"n": 120,
+"ck": 9,
+"cn": 34,
+"wlb": 0.14601190675128364
+},
+{
+"view": "order",
+"sig": "fwd",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Process_start"
+]
+]
+],
+"k": 19,
+"n": 47,
+"ck": 15,
+"cn": 21,
+"wlb": 0.5004361927889411
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"shares_anchor",
+true
+],
+[
+"HAS",
+"roleset_shared",
+"Victim"
+]
+],
+"k": 8,
+"n": 39,
+"ck": 9,
+"cn": 27,
+"wlb": 0.1864326149607137
+},
+{
+"view": "sdist",
+"sig": "8+",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Location"
+],
+[
+"HAS",
+"roleset_a",
+"Loser"
+]
+],
+"k": 25,
+"n": 72,
+"ck": 31,
+"cn": 37,
+"wlb": 0.6886351629503464
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"same_type",
+true
+],
+[
+"EQ",
+"multi_mention_b",
+true
+]
+],
+"k": 38,
+"n": 88,
+"ck": 18,
+"cn": 25,
+"wlb": 0.5242339480495529
+},
+{
+"view": "etype_a",
+"sig": "Use_firearm",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+1
+],
+[
+"EQ",
+"bucket_b",
+"early"
+]
+],
+"k": 17,
+"n": 105,
+"ck": 28,
+"cn": 42,
+"wlb": 0.515525073732533
+},
+{
+"view": "sdist",
+"sig": "4-7",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"mid"
+],
+[
+"EQ",
+"type_pair",
+[
+"Hostile_encounter",
+"Bodily_harm"
+]
+]
+],
+"k": 19,
+"n": 46,
+"ck": 10,
+"cn": 12,
+"wlb": 0.5519691376768494
+},
+{
+"view": "etype_a",
+"sig": "Damaging",
+"rel": "OVERLAP",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"HAS",
+"roleset_b",
+"Cause"
+]
+],
+"k": 13,
+"n": 58,
+"ck": 6,
+"cn": 18,
+"wlb": 0.1627877474801916
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+],
+[
+"HAS",
+"roleset_b",
+"Loss"
+]
+],
+"k": 15,
+"n": 274,
+"ck": 16,
+"cn": 80,
+"wlb": 0.12702844042585823
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Location"
+],
+[
+"EQ",
+"type_a",
+"Damaging"
+]
+],
+"k": 23,
+"n": 101,
+"ck": 9,
+"cn": 32,
+"wlb": 0.1556458049552508
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"EQ",
+"type_a",
+"Bodily_harm"
+]
+],
+"k": 28,
+"n": 91,
+"ck": 7,
+"cn": 18,
+"wlb": 0.2030524656891159
+},
+{
+"view": "etype_a",
+"sig": "Damaging",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"EQ",
+"order",
+"same"
+]
+],
+"k": 11,
+"n": 54,
+"ck": 8,
+"cn": 18,
+"wlb": 0.24559518123340066
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Military_operation",
+"Defending"
+]
+]
+],
+"k": 25,
+"n": 75,
+"ck": 19,
+"cn": 24,
+"wlb": 0.5952954674181499
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '2-3')",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"roleset_shared",
+0
+],
+[
+"EQ",
+"type_a",
+"Catastrophe"
+]
+],
+"k": 23,
+"n": 48,
+"ck": 18,
+"cn": 26,
+"wlb": 0.5001174167329109
+},
+{
+"view": "sdist",
+"sig": "2-3",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Coming_to_be"
+]
+]
+],
+"k": 19,
+"n": 55,
+"ck": 15,
+"cn": 18,
+"wlb": 0.6077796189019011
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"ALL",
+"etypeset_b",
+"Location"
+],
+[
+"EQ",
+"type_pair",
+[
+"Damaging",
+"Destroying"
+]
+]
+],
+"k": 9,
+"n": 25,
+"ck": 4,
+"cn": 10,
+"wlb": 0.16818032967113522
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"EQ",
+"type_b",
+"Motion_directional"
+]
+],
+"k": 21,
+"n": 39,
+"ck": 24,
+"cn": 32,
+"wlb": 0.578934410015057
+},
+{
+"view": "sdist_ord",
+"sig": "('8+', 'rev')",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"HAS",
+"roleset_a",
+"Loss"
+]
+],
+"k": 16,
+"n": 36,
+"ck": 12,
+"cn": 12,
+"wlb": 0.7575059932585454
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"roleset_shared",
+"Location"
+],
+[
+"HAS",
+"roleset_a",
+"Participant"
+]
+],
+"k": 172,
+"n": 319,
+"ck": 54,
+"cn": 76,
+"wlb": 0.600404448201711
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Motion"
+]
+]
+],
+"k": 25,
+"n": 68,
+"ck": 14,
+"cn": 19,
+"wlb": 0.5120844909685253
+},
+{
+"view": "etype_a",
+"sig": "Traveling",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"ALL",
+"etypeset_a",
+"Location"
+]
+],
+"k": 36,
+"n": 51,
+"ck": 13,
+"cn": 13,
+"wlb": 0.7719046275631658
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"lead"
+]
+],
+"k": 137,
+"n": 216,
+"ck": 49,
+"cn": 76,
+"wlb": 0.5325638551147776
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"EQ",
+"type_b",
+"Use_firearm"
+]
+],
+"k": 41,
+"n": 120,
+"ck": 20,
+"cn": 29,
+"wlb": 0.5076986576261279
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"EQ",
+"type_b",
+"Arriving"
+]
+],
+"k": 52,
+"n": 67,
+"ck": 26,
+"cn": 32,
+"wlb": 0.646908447942749
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Achieve"
+]
+]
+],
+"k": 14,
+"n": 32,
+"ck": 21,
+"cn": 24,
+"wlb": 0.6899611872430379
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"ALL",
+"roleset_b",
+"Patient"
+]
+],
+"k": 83,
+"n": 129,
+"ck": 30,
+"cn": 45,
+"wlb": 0.5207048830643314
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"roleset_b",
+"Winner"
+]
+],
+"k": 65,
+"n": 93,
+"ck": 26,
+"cn": 31,
+"wlb": 0.6736564603675272
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"type_b",
+"Arriving"
+]
+],
+"k": 87,
+"n": 138,
+"ck": 27,
+"cn": 37,
+"wlb": 0.570218316713632
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+1
+],
+[
+"EQ",
+"bucket_b",
+"early"
+]
+],
+"k": 163,
+"n": 277,
+"ck": 62,
+"cn": 87,
+"wlb": 0.6101602906546457
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Attack",
+"Attack"
+]
+]
+],
+"k": 15,
+"n": 178,
+"ck": 11,
+"cn": 29,
+"wlb": 0.22688022097918908
+},
+{
+"view": "etype_a",
+"sig": "Social_event",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"roleset_b",
+"Name"
+]
+],
+"k": 36,
+"n": 58,
+"ck": 11,
+"cn": 13,
+"wlb": 0.5776536897362775
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"ALL",
+"etypeset_b",
+"Location"
+],
+[
+"EQ",
+"type_b",
+"Destroying"
+]
+],
+"k": 23,
+"n": 132,
+"ck": 10,
+"cn": 53,
+"wlb": 0.10585325106240703
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"EQ",
+"type_b",
+"Self_motion"
+]
+],
+"k": 73,
+"n": 115,
+"ck": 26,
+"cn": 34,
+"wlb": 0.6000386207331455
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+5
+],
+[
+"HAS",
+"etypeset_shared",
+"Person"
+]
+],
+"k": 97,
+"n": 167,
+"ck": 37,
+"cn": 53,
+"wlb": 0.5646316732790353
+},
+{
+"view": "etype_a",
+"sig": "Social_event",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_a",
+"lead"
+],
+[
+"HAS",
+"etypeset_b",
+"Building"
+]
+],
+"k": 45,
+"n": 86,
+"ck": 17,
+"cn": 20,
+"wlb": 0.6395811352026538
+},
+{
+"view": "etype_a",
+"sig": "Catastrophe",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"multi_mention_a",
+true
+],
+[
+"HAS",
+"roleset_b",
+"Location_original"
+]
+],
+"k": 72,
+"n": 118,
+"ck": 36,
+"cn": 47,
+"wlb": 0.6277574244633618
+},
+{
+"view": "global",
+"sig": "*",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Competition",
+"Action"
+]
+]
+],
+"k": 15,
+"n": 44,
+"ck": 10,
+"cn": 11,
+"wlb": 0.6226415634693653
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Organization"
+],
+[
+"HAS",
+"etypeset_shared",
+"Building"
+]
+],
+"k": 58,
+"n": 88,
+"ck": 46,
+"cn": 71,
+"wlb": 0.5318206220883968
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"HAS",
+"roleset_b",
+"State"
+]
+],
+"k": 49,
+"n": 70,
+"ck": 22,
+"cn": 32,
+"wlb": 0.5143332169494009
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '0')",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"roleset_a",
+"Name"
+]
+],
+"k": 23,
+"n": 64,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Traveling",
+"Social_event"
+]
+]
+],
+"k": 39,
+"n": 51,
+"ck": 9,
+"cn": 10,
+"wlb": 0.5958499731235556
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Motion",
+"Damaging"
+]
+]
+],
+"k": 8,
+"n": 29,
+"ck": 5,
+"cn": 18,
+"wlb": 0.12499753377201173
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_a",
+"Bodily_harm"
+]
+],
+"k": 33,
+"n": 257,
+"ck": 14,
+"cn": 83,
+"wlb": 0.10322081200909937
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"roleset_shared",
+"Content"
+]
+],
+"k": 19,
+"n": 70,
+"ck": 10,
+"cn": 25,
+"wlb": 0.23403302374622767
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"HAS",
+"roleset_b",
+"Location_original"
+]
+],
+"k": 62,
+"n": 99,
+"ck": 33,
+"cn": 47,
+"wlb": 0.5602232607750418
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"EQ",
+"type_b",
+"Military_operation"
+]
+],
+"k": 15,
+"n": 61,
+"ck": 8,
+"cn": 26,
+"wlb": 0.1650131559297784
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Arriving"
+]
+]
+],
+"k": 15,
+"n": 40,
+"ck": 12,
+"cn": 14,
+"wlb": 0.6005862049628325
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Damaging"
+]
+]
+],
+"k": 19,
+"n": 60,
+"ck": 11,
+"cn": 13,
+"wlb": 0.5776536897362775
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"same_type",
+true
+],
+[
+"EQ",
+"multi_mention_b",
+true
+]
+],
+"k": 74,
+"n": 128,
+"ck": 27,
+"cn": 34,
+"wlb": 0.6320161194464685
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"roleset_shared",
+"Participant"
+]
+],
+"k": 15,
+"n": 64,
+"ck": 7,
+"cn": 22,
+"wlb": 0.1636059317872766
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"etypeset_a",
+"Person"
+],
+[
+"ALL",
+"roleset_a",
+"Agent"
+]
+],
+"k": 40,
+"n": 188,
+"ck": 47,
+"cn": 71,
+"wlb": 0.5461661813997795
+},
+{
+"view": "anchor",
+"sig": "False",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Temporary_stay"
+]
+]
+],
+"k": 10,
+"n": 31,
+"ck": 9,
+"cn": 10,
+"wlb": 0.5958499731235556
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"roleset_shared",
+"Location"
+],
+[
+"EQ",
+"type_b",
+"Arriving"
+]
+],
+"k": 74,
+"n": 130,
+"ck": 35,
+"cn": 54,
+"wlb": 0.5148483071708317
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"roleset_b",
+"Final_Location"
+]
+],
+"k": 11,
+"n": 54,
+"ck": 20,
+"cn": 27,
+"wlb": 0.5532142868086107
+},
+{
+"view": "anchor_sd",
+"sig": "(False, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"CNT",
+"roleset_shared",
+0
+],
+[
+"EQ",
+"type_b",
+"Damaging"
+]
+],
+"k": 8,
+"n": 48,
+"ck": 5,
+"cn": 20,
+"wlb": 0.11186170138661135
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"roleset_shared",
+3
+],
+[
+"EQ",
+"bucket_b",
+"early"
+]
+],
+"k": 90,
+"n": 152,
+"ck": 40,
+"cn": 54,
+"wlb": 0.6106910949246973
+},
+{
+"view": "etype_a",
+"sig": "Hostile_encounter",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+0
+],
+[
+"EQ",
+"bucket_b",
+"lead"
+]
+],
+"k": 25,
+"n": 29,
+"ck": 9,
+"cn": 10,
+"wlb": 0.5958499731235556
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "OVERLAP",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Bodily_harm",
+"Death"
+]
+]
+],
+"k": 8,
+"n": 37,
+"ck": 4,
+"cn": 14,
+"wlb": 0.11721378642141067
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"mention_cmp",
+"a>b"
+],
+[
+"EQ",
+"type_b",
+"Escaping"
+]
+],
+"k": 60,
+"n": 103,
+"ck": 14,
+"cn": 17,
+"wlb": 0.5897054142515786
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"roleset_shared",
+"Location"
+],
+[
+"EQ",
+"type_b",
+"Getting"
+]
+],
+"k": 54,
+"n": 90,
+"ck": 24,
+"cn": 34,
+"wlb": 0.5383109020124889
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Organization"
+],
+[
+"EQ",
+"type_b",
+"Motion_directional"
+]
+],
+"k": 52,
+"n": 87,
+"ck": 24,
+"cn": 36,
+"wlb": 0.5033399786731534
+},
+{
+"view": "etype_a",
+"sig": "Competition",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"has_org_b",
+false
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Patient"
+]
+]
+],
+"k": 28,
+"n": 35,
+"ck": 12,
+"cn": 15,
+"wlb": 0.5481455127861612
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+5
+],
+[
+"EQ",
+"type_b",
+"Process_end"
+]
+],
+"k": 46,
+"n": 75,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"EQ",
+"type_b",
+"Use_firearm"
+]
+],
+"k": 16,
+"n": 54,
+"ck": 22,
+"cn": 31,
+"wlb": 0.5340767066502771
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"anchor_roles",
+2
+],
+[
+"EQ",
+"type_b",
+"Getting"
+]
+],
+"k": 59,
+"n": 104,
+"ck": 29,
+"cn": 42,
+"wlb": 0.5397400606028617
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"CNT",
+"etypeset_shared",
+2
+],
+[
+"EQ",
+"type_b",
+"Bodily_harm"
+]
+],
+"k": 13,
+"n": 39,
+"ck": 21,
+"cn": 28,
+"wlb": 0.5664432967646841
+},
+{
+"view": "anchor",
+"sig": "True",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Coming_to_be"
+]
+]
+],
+"k": 17,
+"n": 47,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"etypeset_a",
+"Person"
+],
+[
+"EQ",
+"type_b",
+"Social_event"
+]
+],
+"k": 14,
+"n": 70,
+"ck": 5,
+"cn": 15,
+"wlb": 0.15176324436857308
+},
+{
+"view": "etype_a",
+"sig": "Social_event",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_b",
+2
+],
+[
+"ALL",
+"etypeset_a",
+"Building"
+]
+],
+"k": 19,
+"n": 32,
+"ck": 11,
+"cn": 14,
+"wlb": 0.5241076940710132
+},
+{
+"view": "etype_a",
+"sig": "Competition",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Agent"
+]
+]
+],
+"k": 66,
+"n": 113,
+"ck": 15,
+"cn": 19,
+"wlb": 0.5666572155062037
+},
+{
+"view": "etype_a",
+"sig": "Competition",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Agent",
+"Winner"
+]
+]
+],
+"k": 28,
+"n": 37,
+"ck": 18,
+"cn": 26,
+"wlb": 0.5001174167329109
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"type_pair",
+[
+"Catastrophe",
+"Motion_directional"
+]
+]
+],
+"k": 11,
+"n": 32,
+"ck": 12,
+"cn": 12,
+"wlb": 0.7575059932585454
+},
+{
+"view": "bucket_a",
+"sig": "late",
+"rel": "CONTAINS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"HAS",
+"roleset_b",
+"Original_Location"
+]
+],
+"k": 9,
+"n": 50,
+"ck": 18,
+"cn": 18,
+"wlb": 0.8241207762853134
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"REL",
+"a_before_b",
+false
+],
+[
+"EQ",
+"type_b",
+"Request"
+]
+],
+"k": 13,
+"n": 68,
+"ck": 9,
+"cn": 21,
+"wlb": 0.24469968921934987
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"etypeset_shared",
+"Organization"
+],
+[
+"EQ",
+"type_b",
+"Military_operation"
+]
+],
+"k": 13,
+"n": 69,
+"ck": 7,
+"cn": 22,
+"wlb": 0.1636059317872766
+},
+{
+"view": "anchor_sd",
+"sig": "(True, '0')",
+"rel": "OVERLAP",
+"conds": [
+[
+"HAS",
+"roleset_b",
+"Cause"
+],
+[
+"HAS",
+"etypeset_b",
+"Product"
+]
+],
+"k": 8,
+"n": 39,
+"ck": 3,
+"cn": 10,
+"wlb": 0.10779126738101565
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_b",
+5
+],
+[
+"HAS",
+"roleset_b",
+"Participant"
+]
+],
+"k": 44,
+"n": 79,
+"ck": 51,
+"cn": 80,
+"wlb": 0.5281079449962297
+},
+{
+"view": "etype_a",
+"sig": "Catastrophe",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"bucket_b",
+"early"
+],
+[
+"HAS",
+"roleset_b",
+"Location_final"
+]
+],
+"k": 32,
+"n": 54,
+"ck": 26,
+"cn": 31,
+"wlb": 0.6736564603675272
+},
+{
+"view": "etype_a",
+"sig": "Competition",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_b",
+"Person"
+],
+[
+"HAS",
+"anchor_roles",
+[
+"Loser",
+"Patient"
+]
+]
+],
+"k": 25,
+"n": 35,
+"ck": 12,
+"cn": 14,
+"wlb": 0.6005862049628325
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_a",
+"Loss"
+],
+[
+"EQ",
+"type_b",
+"Motion_directional"
+]
+],
+"k": 30,
+"n": 49,
+"ck": 25,
+"cn": 33,
+"wlb": 0.5897538016624289
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"ALL",
+"etypeset_shared",
+"Organization"
+],
+[
+"HAS",
+"roleset_b",
+"Assailant"
+]
+],
+"k": 22,
+"n": 35,
+"ck": 9,
+"cn": 11,
+"wlb": 0.5230194379679506
+},
+{
+"view": "bucket_a",
+"sig": "lead",
+"rel": "CONTAINS",
+"conds": [
+[
+"EQ",
+"nrole_a",
+3
+],
+[
+"ALL",
+"anchor_roles",
+[
+"Location_original",
+"Location"
+]
+]
+],
+"k": 20,
+"n": 31,
+"ck": 14,
+"cn": 16,
+"wlb": 0.6397717272780264
+},
+{
+"view": "etype_a",
+"sig": "Catastrophe",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_b",
+"Passby"
+],
+[
+"HAS",
+"roleset_b",
+"Original_Location"
+]
+],
+"k": 20,
+"n": 32,
+"ck": 29,
+"cn": 43,
+"wlb": 0.5251621096397331
+},
+{
+"view": "etype_a",
+"sig": "Military_operation",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"etypeset_b",
+"Person"
+],
+[
+"ALL",
+"anchor_roles",
+[
+"Agent",
+"Agent"
+]
+]
+],
+"k": 24,
+"n": 36,
+"ck": 13,
+"cn": 17,
+"wlb": 0.5273820187471664
+},
+{
+"view": "order",
+"sig": "rev",
+"rel": "CONTAINS",
+"conds": [
+[
+"HAS",
+"roleset_b",
+"Passby"
+]
+],
+"k": 22,
+"n": 123,
+"ck": 33,
+"cn": 51,
+"wlb": 0.5098605845126807
+},
+{
+"view": "sdist",
+"sig": "0",
+"rel": "SIMULTANEOUS",
+"conds": [
+[
+"HAS",
+"anchor_roles",
+[
+"Location",
+"Location"
+]
+],
+[
+"EQ",
+"type_b",
+"Use_firearm"
+]
+],
+"k": 10,
+"n": 64,
+"ck": 5,
+"cn": 15,
+"wlb": 0.15176324436857308
+}
+]
+}
+}

@@ -1,0 +1,400 @@
+BEGINS-ON ET: 118 instances (train+valid). Head=A (stored s), tail=B (stored t)
+
+[VALID] 17342759 | Gulf War  A='assault'  B='100 hours [DATE]'  sent-dist=2
+   s10: This was followed by a ground [A assault A] on 24 February .
+   s12: The coalition ceased its advance and declared a ceasefire [B 100 hours B] after the ground campaign started .
+
+[VALID] 17342759 | Gulf War  A='conflict'  B='five weeks [DURATION]'  sent-dist=0
+   s9: The initial [A conflict A] to expel Iraqi troops from Kuwait began with an aerial and naval bombardment on 17 January 1991 , continuing for [B five weeks B] .
+
+[VALID] 221564dc | Jin–Song Wars  A='control'  B='938 [DURATION]'  sent-dist=0
+   s2: Allying with the Song against their common enemy the Liao dynasty , the Jin promised to return to the Song the Sixteen Prefectures that had fallen under Liao [A control A] since [B 938 B] .
+
+[VALID] 251c106a | 1968 Thule Air Base B-52 crash  A='launched'  B='the years [DURATION]'  sent-dist=4
+   s4: The United States and Denmark [A launched A] an intensive clean-up and recovery operation , but the secondary stage of one of the nuclear weapons could not be accounted for after the operation was completed .
+   s8: Workers involved in the clean-up program have been campaigning for compensation for radiation-related illnesses they experienced in [B the years B] after the accident .
+
+[VALID] 278aaf2b | Operation Mascot  A='raid'  B='17 July 1944 [DATE]'  sent-dist=0
+   s0: Operation Mascot was an unsuccessful British carrier air [A raid A] conducted against the German battleship `` Tirpitz '' at her anchorage in Kaafjord , Norway , on [B 17 July 1944 B] .
+
+[VALID] 490646c2 | Avianca Flight 011  A='disaster'  B='2019 [DATE]'  sent-dist=0
+   s6: As of [B 2019 B] , Avianca Flight 011 remains the second-deadliest aviation accident in Spanish territory behind the Tenerife airport [A disaster A] .
+
+[VALID] 533b0ef4 | CMLL International Gran Prix  A='changed'  B='2002 [DATE]'  sent-dist=0
+   s3: From [B 2002 B] and on the format was [A changed A] to a `` torneo cibernetico '' , a 16-man match with one side representing Mexico and the other side being composed of `` international '' wrestlers .
+
+[VALID] e3c477d7 | Jewish–Roman wars  A='regained'  B='the mid-20th century [DATE]'  sent-dist=0
+   s6: although having a sort of autonomy in galilee until the 4th century and later a limited success in establishing the short-lived sasanian jewish autonomy in jerusalem in unk ce , jewish dominance in parts of the southern levant was [A regained A] only in [B the mid-20th century B] , with the founding of the modern state of israel in 1948 ce .
+
+[VALID] e8f610c3 | Woodford Folk Festival  A='takes place'  B='27 December [DATE]'  sent-dist=0
+   s4: The festival [A takes place A] over six days and nights from [B 27 December B] to 1 January each year .
+
+[VALID] e8f610c3 | Woodford Folk Festival  A='offers'  B='27 December [DATE]'  sent-dist=2
+   s4: The festival takes place over six days and nights from [B 27 December B] to 1 January each year .
+   s6: Along with musical acts , the festival [A offers A] a wide spectrum of entertainment such as circus , cabaret , comedy , street performance , workshops , debate , a Children 's Festival and more .
+
+[VALID] e8f610c3 | Woodford Folk Festival  A='supplies'  B='27 December [DATE]'  sent-dist=4
+   s4: The festival takes place over six days and nights from [B 27 December B] to 1 January each year .
+   s8: The festival [A supplies A] both Season and Overnight camping ground to patrons , with most attendees staying for the entire week of festivities .
+
+[VALID] e8f610c3 | Woodford Folk Festival  A='programmed'  B='27 December [DATE]'  sent-dist=1
+   s3: Approximately 2000 performers and 438 events are [A programmed A] featuring local , national and international guests .
+   s4: The festival takes place over six days and nights from [B 27 December B] to 1 January each year .
+
+[VALID] f02f85a0 | List of Macanese Chief Executive elections  A='elections'  B='1999 [DURATION]'  sent-dist=0
+   s2: There are total of five Chief Executive [A elections A] in Macau since [B 1999 B] .
+
+[VALID] feeabdcf | 2012 Homs offensive  A='launched'  B='a matter of hours [DATE]'  sent-dist=1
+   s4: Heavy shelling continued on 29 February , as the Syrian armed forces [A launched A] a ground operation to restore control of the Baba Amr neighbourhood .
+   s5: The Syrian government announced that the army was being sent into the area and were `` cleaning '' it from rebel fighters , and that the operation would be over in [B a matter of hours B] .
+
+[DISC] 00cb5962 | El Loco-Motion Tour  A='tour'  B='1981 [DATE]'  sent-dist=0
+   s1: The [A tour A] took place in North America and Europe from [B 1981 B] through 1983 .
+
+[DISC] 0f761601 | 1989 Southeast Asian Games  A='host'  B='1977 [DURATION]'  sent-dist=0
+   s5: This was the fourth time Malaysia [A host A] the games , and its first time since [B 1977 B] .
+
+[DISC] 166e11f6 | Yorktown campaign  A='sent'  B='January [DATE]'  sent-dist=0
+   s4: British forces were [A sent A] to Virginia between [B January B] and April 1781 and joined with Cornwallis 's army in May , which came north from an extended campaign through the southern states .
+
+[DISC] 174416ca | Hurricane Doreen (1977)  A='storm'  B='August 13 [DATE]'  sent-dist=0
+   s1: The tenth tropical cyclone , fourth named [A storm A] , and second hurricane of the otherwise inactive 1977 Pacific hurricane season , it developed on [B August 13 B] .
+
+[DISC] 174416ca | Hurricane Doreen (1977)  A='cyclone'  B='August 13 [DATE]'  sent-dist=1
+   s0: Hurricane Doreen was considered the worst tropical [A cyclone A] to affect California in 32 years .
+   s1: The tenth tropical cyclone , fourth named storm , and second hurricane of the otherwise inactive 1977 Pacific hurricane season , it developed on [B August 13 B] .
+
+[DISC] 174416ca | Hurricane Doreen (1977)  A='hurricane'  B='August 13 [DATE]'  sent-dist=0
+   s1: The tenth tropical cyclone , fourth named storm , and second [A hurricane A] of the otherwise inactive 1977 Pacific hurricane season , it developed on [B August 13 B] .
+
+[DISC] 26e44d1f | Gwangju Uprising  A='coming'  B='December 12 , 1979 [DATE]'  sent-dist=0
+   s7: One of such arguments point to the fact that it occurred before Chun Doo-hwan officially took office , and so contend that it could not really have been a simple student protest against him that started it ; however , Chun Doo-hwan had become the `` de facto '' leader of South Korea at that time since [A coming A] into power on [B December 12 , 1979 B] , after leading a successful military coup of the previous South Korean government .
+
+[CONF2] 2782ed95 | 1960 U-2 incident  A='sentenced'  B='two years later [DATE]'  sent-dist=0
+   s6: Powers was convicted of espionage and [A sentenced A] to three years of imprisonment plus seven years of hard labor but was released [B two years later B] on 10 February 1962 during a prisoner exchange for Soviet officer Rudolf Abel .
+
+[CONF1] 3087b67f | Hurricane Marie (2014)  A='trekked'  B='several days [DURATION]'  sent-dist=0
+   s4: The wave [A trekked A] westward across the Atlantic and Caribbean for [B several days B] .
+
+[CONF1] 34c92ea4 | Eritrean–Ethiopian War  A='conflicts'  B='twenty years [DATE]'  sent-dist=0
+   s0: The Eritrean–Ethiopian War , one of the [A conflicts A] in the Horn of Africa , took place between Ethiopia and Eritrea from May 1998 to June 2000 , with the final peace only agreed to in 2018 , [B twenty years B] after the initial confrontation .
+
+[CONF1] 34c92ea4 | Eritrean–Ethiopian War  A='confrontation'  B='twenty years [DATE]'  sent-dist=0
+   s0: The Eritrean–Ethiopian War , one of the conflicts in the Horn of Africa , took place between Ethiopia and Eritrea from May 1998 to June 2000 , with the final peace only agreed to in 2018 , [B twenty years B] after the initial [A confrontation A] .
+
+[CONF1] 365e6bdd | Third Crusade  A='departed'  B='9 October 1192 [DATE]'  sent-dist=0
+   s10: Richard [A departed A] the Holy Land on [B 9 October 1192 B] .
+
+[CONF1] 365e6bdd | Third Crusade  A='drowned'  B='10 June 1190 [DATE]'  sent-dist=0
+   s6: The elderly German Emperor Frederick Barbarossa also responded to the call to arms , leading a massive army across Anatolia , but he [A drowned A] in a river in Asia Minor on [B 10 June 1190 B] before reaching the Holy Land .
+
+[DISC] 398011c9 | Fishing Creek Confederacy  A='began'  B='1941 [DATE]'  sent-dist=0
+   s17: Professional historians [A began A] to do significant study on the confederacy in [B 1941 B] , and it was mentioned in academic writings as late as 2009 .
+
+[DISC] 398011c9 | Fishing Creek Confederacy  A='study'  B='1941 [DATE]'  sent-dist=0
+   s17: Professional historians began to do significant [A study A] on the confederacy in [B 1941 B] , and it was mentioned in academic writings as late as 2009 .
+
+[DISC] 398011c9 | Fishing Creek Confederacy  A='reported'  B='1960s [DURATION]'  sent-dist=0
+   s16: In addition to contemporary coverage , the event was later [A reported A] by newspapers in the [B 1960s B] and 1970s .
+
+[DISC] 398011c9 | Fishing Creek Confederacy  A='researched'  B='the 1950s [DURATION]'  sent-dist=0
+   s18: Amateur historians have [A researched A] the event since [B the 1950s B] .
+
+[DISC] 3a4344a1 | Nordic Game  A='held'  B='2013 [DATE]'  sent-dist=2
+   s0: Nordic Game is a video game conference [A held A] annually in Malmö , Sweden .
+   s2: In [B 2013 B] , 1,500 developers , businesspeople , and enthusiasts were expected to participate .
+
+[CONF2] 3b07fb12 | The Great Blue Heron Music Festival  A='held'  B='1992 [DATE]'  sent-dist=5
+   s0: The Great Blue Heron Music Festival is an annual music festival [A held A] the first or second weekend of July in Sherman , New York , a small town in the Amish country side of Western New York , United States .
+   s5: The first Blue Heron was held in [B 1992 B] Originally , the festival was conceived to be a small single-day gathering , featuring music from Donna The Buffalo .
+
+[CONF2] 3b07fb12 | The Great Blue Heron Music Festival  A='festival'  B='1992 [DATE]'  sent-dist=5
+   s0: The Great Blue Heron Music Festival is an annual music [A festival A] held the first or second weekend of July in Sherman , New York , a small town in the Amish country side of Western New York , United States .
+   s5: The first Blue Heron was held in [B 1992 B] Originally , the festival was conceived to be a small single-day gathering , featuring music from Donna The Buffalo .
+
+[DISC] 3d645248 | Saarang  A='extending'  B='Wednesday [DATE]'  sent-dist=0
+   s1: It is a 5 day long festival usually [A extending A] from [B Wednesday B] to the second Sunday of the year which receives a footfall of over 60,000+ people from over 500 colleges all across the country .
+
+[CONF2] 40834e51 | 2012 Loreto floods  A='damage'  B='November 2011 [DURATION]'  sent-dist=0
+   s4: Wet weather in Loreto brought downpours and lots of drizzle , causing [A damage A] and flooding to the Loreto Region since [B November 2011 B] .
+
+[DISC] 48c5bf4e | Third Battle of Panipat  A='revival'  B='ten years [DURATION]'  sent-dist=1
+   s11: The result of the battle was the halting of further Maratha advances in the north , and destabilization of their territories , for roughly [B ten years B] .
+   s12: This period is marked by the rule of Peshwa Madhavrao , who is credited with the [A revival A] of Maratha domination following the defeat at Panipat .
+
+[DISC] 48c5bf4e | Third Battle of Panipat  A='credited'  B='ten years [DURATION]'  sent-dist=1
+   s11: The result of the battle was the halting of further Maratha advances in the north , and destabilization of their territories , for roughly [B ten years B] .
+   s12: This period is marked by the rule of Peshwa Madhavrao , who is [A credited A] with the revival of Maratha domination following the defeat at Panipat .
+
+[DISC] 514b84cc | Operation Opera  A='carried out'  B='three weeks [DURATION]'  sent-dist=8
+   s0: Operation Opera ( ) , also known as Operation Babylon , was a surprise Israeli air strike [A carried out A] on 7 June 1981 , which destroyed an Iraqi nuclear reactor under construction 17 kilometers ( 10.5 miles ) southeast of Baghdad .
+   s8: The attack took place about [B three weeks B] before the elections for the Knesset .
+
+[DISC] 514b84cc | Operation Opera  A='strike'  B='three weeks [DURATION]'  sent-dist=8
+   s0: Operation Opera ( ) , also known as Operation Babylon , was a surprise Israeli air [A strike A] carried out on 7 June 1981 , which destroyed an Iraqi nuclear reactor under construction 17 kilometers ( 10.5 miles ) southeast of Baghdad .
+   s8: The attack took place about [B three weeks B] before the elections for the Knesset .
+
+[DISC] 514b84cc | Operation Opera  A='bombed'  B='three weeks [DURATION]'  sent-dist=3
+   s5: on 7 june 1981 , a flight of israeli air force f-16a fighter aircraft , with an escort of unk , [A bombed A] and heavily damaged the `` osirak '' reactor .
+   s8: The attack took place about [B three weeks B] before the elections for the Knesset .
+
+[DISC] 514b84cc | Operation Opera  A='terrorism'  B='three weeks [DURATION]'  sent-dist=2
+   s8: The attack took place about [B three weeks B] before the elections for the Knesset .
+   s10: Media reactions were also negative : `` Israel 's sneak attack ... was an act of inexcusable and short-sighted aggression '' , wrote the `` New York Times '' , while the `` Los Angeles Times '' called it `` state-sponsored [A terrorism A] '' .
+
+[DISC] 514b84cc | Operation Opera  A='took place'  B='three weeks [DURATION]'  sent-dist=0
+   s8: The attack [A took place A] about [B three weeks B] before the elections for the Knesset .
+
+[DISC] 514b84cc | Operation Opera  A='damaged'  B='three weeks [DURATION]'  sent-dist=3
+   s5: on 7 june 1981 , a flight of israeli air force f-16a fighter aircraft , with an escort of unk , bombed and heavily [A damaged A] the `` osirak '' reactor .
+   s8: The attack took place about [B three weeks B] before the elections for the Knesset .
+
+[DISC] 56de7d06 | Hurricane Carla  A='developed'  B='September 3 [DATE]'  sent-dist=0
+   s1: The third named storm and first Category 5 hurricane of the 1961 Atlantic hurricane season , Carla [A developed A] from an area of squally weather in the southwestern Caribbean Sea on [B September 3 B] .
+
+[DISC] 56de7d06 | Hurricane Carla  A='passing'  B='September 7 [DATE]'  sent-dist=0
+   s5: Late on [B September 7 B] , Carla entered the Gulf of Mexico while [A passing A] just northeast of the Yucatán Peninsula .
+
+[DISC] 56de7d06 | Hurricane Carla  A='entered'  B='September 7 [DATE]'  sent-dist=0
+   s5: Late on [B September 7 B] , Carla [A entered A] the Gulf of Mexico while passing just northeast of the Yucatán Peninsula .
+
+[CONF2] 5f1889eb | Battle of Salamanca  A='firing'  B='the first few minutes [TIME]'  sent-dist=0
+   s4: Marmont and his deputy commander , General Bonet , received shrapnel wounds in [B the first few minutes B] of [A firing A] .
+
+[DISC] 60d67473 | Sino-Vietnamese War  A='fought'  B='early 1979 [DATE]'  sent-dist=0
+   s0: The Sino-Vietnamese War ( ; ) , also known as the Third Indochina War , was a brief border war [A fought A] between China and Vietnam in [B early 1979 B] .
+
+[CONF2] 62ba358e | 2012 Ingleside, San Francisco homicide  A='serving'  B='March 2018 [DATE]'  sent-dist=0
+   s7: Luc was subsequently sentenced to five consecutive life terms and began [A serving A] his sentence at San Quentin State Prison in [B March 2018 B] .
+
+[DISC] 62ea6ce6 | The Big Reunion (concerts)  A='show'  B='a decade [DURATION]'  sent-dist=0
+   s1: The groups , who were big names in the UK pop music scene in the late 1990s and early 2000s , reunited for the ITV2 reality-documentary series `` The Big Reunion '' ( apart from Blue , who had already been reunited since 2011 ) , a [A show A] which follows them meeting again for the first time in [B a decade B] and rehearsing ahead of their comeback performance .
+
+[DISC] 62ea6ce6 | The Big Reunion (concerts)  A='reunited'  B='2011 [DURATION]'  sent-dist=0
+   s1: The groups , who were big names in the UK pop music scene in the late 1990s and early 2000s , reunited for the ITV2 reality-documentary series `` The Big Reunion '' ( apart from Blue , who had already been [A reunited A] since [B 2011 B] ) , a show which follows them meeting again for the first time in a decade and rehearsing ahead of their comeback performance .
+
+[DISC] 67a3218d | 2015–16 Sheffield Shield season  A='began'  B='2015–16 [DURATION]'  sent-dist=1
+   s0: The [B 2015–16 B] Sheffield Shield season was the 114th season of the Sheffield Shield , the domestic first-class cricket competition in Australia .
+   s1: The season [A began A] after the conclusion of the Matador BBQs One-Day Cup , and included a break halfway through to allow for the Big Bash League .
+
+[CONF1] 6bac34bf | Hurricane Emily (2005)  A='struck'  B='24 hours [DURATION]'  sent-dist=0
+   s5: On July 20 , the storm [A struck A] Tamaulipas as a major hurricane and rapidly dissipated within [B 24 hours B] .
+
+[DISC] 6d36f060 | Third attack on Anzac Cove  A='conducted'  B='19 May 1915 [DATE]'  sent-dist=1
+   s0: The third attack on Anzac Cove ( [B 19 May 1915 B] ) was an engagement during the Gallipoli Campaign of the First World War .
+   s1: The attack was [A conducted A] by the forces of the Ottoman Turkish Empire , against the forces of the British Empire defending the cove .
+
+[DISC] 6d8ef3be | Chinese Civil War  A='lasting'  B='1927 [DATE]'  sent-dist=2
+   s0: the chinese civil war was a civil war in china fought between the kuomintang ( kmt ) unk government of the republic of china ( roc ) and the communist party of china ( cpc ) [A lasting A] intermittently between 1927 and 1949 .
+   s2: The conflict took place in two stages , the first between [B 1927 B] and 1937 , and the second from 1946 to 1950 ; the Second Sino-Japanese War from 1937 to 1945 was an interlude in which the two sides were united against the forces of Japan .
+
+[DISC] 6d8ef3be | Chinese Civil War  A='lasting'  B='1927 [DATE]'  sent-dist=0
+   s0: the chinese civil war was a civil war in china fought between the kuomintang ( kmt ) unk government of the republic of china ( roc ) and the communist party of china ( cpc ) [A lasting A] intermittently between [B 1927 B] and 1949 .
+
+[CONF2] 6e8b4536 | Beslan school siege  A='lasted'  B='1 September 2004 [DATE]'  sent-dist=1
+   s0: The Beslan school siege ( also referred to as the Beslan school hostage crisis or Beslan massacre ) started on 1 September 2004 , [A lasted A] three days , involved the illegal imprisonment of over 1,100 people as hostages ( including 777 children ) , and ended with the deaths of at least 334 people .
+   s1: The crisis began when a group of armed Islamic militants , mostly Ingush and Chechen , occupied School Number One ( SNO ) in the town of Beslan , North Ossetia ( an autonomous republic in the North Caucasus region of the Russian Federation ) on [B 1 September 2004 B] .
+
+[CONF2] 6e8b4536 | Beslan school siege  A='lasted'  B='1 September 2004 [DATE]'  sent-dist=0
+   s0: The Beslan school siege ( also referred to as the Beslan school hostage crisis or Beslan massacre ) started on [B 1 September 2004 B] , [A lasted A] three days , involved the illegal imprisonment of over 1,100 people as hostages ( including 777 children ) , and ended with the deaths of at least 334 people .
+
+[DISC] 6f30bc5a | TWA Flight 847  A='hostage'  B='three-day [DURATION]'  sent-dist=4
+   s4: The passengers and crew endured a [B three-day B] intercontinental ordeal .
+   s8: Dozens of passengers were held [A hostage A] over the next two weeks until released by their captors after some of their demands were met .
+
+[DISC] 6f30bc5a | TWA Flight 847  A='held'  B='three-day [DURATION]'  sent-dist=4
+   s4: The passengers and crew endured a [B three-day B] intercontinental ordeal .
+   s8: Dozens of passengers were [A held A] hostage over the next two weeks until released by their captors after some of their demands were met .
+
+[CONF1] 7ddeac5c | Members of the 1st Dáil  A='lasted'  B='21 january 1919 [DATE]'  sent-dist=2
+   s4: it met for the first time on [B 21 january 1919 B] in mansion house in dublin .
+   s6: The First Dáil [A lasted A] 892 days .
+
+[DISC] 7f6ae782 | Bangerz Tour  A='spanned'  B='February 14 [DATE]'  sent-dist=0
+   s3: It [A spanned A] from [B February 14 B] to October 23 , 2014 .
+
+[CONF1] 8bfc94b9 | Operation Dominic  A='tests'  B='September 1 [DATE]'  sent-dist=0
+   s6: Nikita Khrushchev announced the end of a three-year moratorium on nuclear testing on August 30 , 1961 , and Soviet tests recommenced on [B September 1 B] , initiating a series of [A tests A] that included the detonation of Tsar Bomba .
+
+[DISC] 8d87cc83 | Livonian War  A='offensive'  B='1558–1578 [DURATION]'  sent-dist=4
+   s1: During the period [B 1558–1578 B] , Russia dominated the region with early military successes at Dorpat ( Tartu ) and Narva .
+   s5: In 1576 , Stefan Batory became King of Poland as well as Grand Duke of Lithuania and turned the tide of the war with his successes between 1578 and 1581 , including the joint Swedish–Polish–Lithuanian [A offensive A] at the Battle of Wenden .
+
+[DISC] 8d87cc83 | Livonian War  A='War'  B='1558–1578 [DURATION]'  sent-dist=1
+   s0: The Livonian [A War A] ( 1558–1583 ) was fought for control of Old Livonia ( in the territory of present-day Estonia and Latvia ) , when the Tsardom of Russia faced a varying coalition of Denmark–Norway , the Kingdom of Sweden , and the Union ( later Commonwealth ) of the Grand Duchy of Lithuania and the Kingdom of Poland .
+   s1: During the period [B 1558–1578 B] , Russia dominated the region with early military successes at Dorpat ( Tartu ) and Narva .
+
+[DISC] 8d87cc83 | Livonian War  A='offensive'  B='1558–1583 [DURATION]'  sent-dist=5
+   s0: The Livonian War ( [B 1558–1583 B] ) was fought for control of Old Livonia ( in the territory of present-day Estonia and Latvia ) , when the Tsardom of Russia faced a varying coalition of Denmark–Norway , the Kingdom of Sweden , and the Union ( later Commonwealth ) of the Grand Duchy of Lithuania and the Kingdom of Poland .
+   s5: In 1576 , Stefan Batory became King of Poland as well as Grand Duke of Lithuania and turned the tide of the war with his successes between 1578 and 1581 , including the joint Swedish–Polish–Lithuanian [A offensive A] at the Battle of Wenden .
+
+[DISC] 8d87cc83 | Livonian War  A='Battle'  B='1558–1583 [DURATION]'  sent-dist=5
+   s0: The Livonian War ( [B 1558–1583 B] ) was fought for control of Old Livonia ( in the territory of present-day Estonia and Latvia ) , when the Tsardom of Russia faced a varying coalition of Denmark–Norway , the Kingdom of Sweden , and the Union ( later Commonwealth ) of the Grand Duchy of Lithuania and the Kingdom of Poland .
+   s5: In 1576 , Stefan Batory became King of Poland as well as Grand Duke of Lithuania and turned the tide of the war with his successes between 1578 and 1581 , including the joint Swedish–Polish–Lithuanian offensive at the [A Battle A] of Wenden .
+
+[DISC] 8d87cc83 | Livonian War  A='Battle'  B='1558–1578 [DURATION]'  sent-dist=4
+   s1: During the period [B 1558–1578 B] , Russia dominated the region with early military successes at Dorpat ( Tartu ) and Narva .
+   s5: In 1576 , Stefan Batory became King of Poland as well as Grand Duke of Lithuania and turned the tide of the war with his successes between 1578 and 1581 , including the joint Swedish–Polish–Lithuanian offensive at the [A Battle A] of Wenden .
+
+[DISC] 8d87cc83 | Livonian War  A='War'  B='1558–1583 [DURATION]'  sent-dist=0
+   s0: The Livonian [A War A] ( [B 1558–1583 B] ) was fought for control of Old Livonia ( in the territory of present-day Estonia and Latvia ) , when the Tsardom of Russia faced a varying coalition of Denmark–Norway , the Kingdom of Sweden , and the Union ( later Commonwealth ) of the Grand Duchy of Lithuania and the Kingdom of Poland .
+
+[DISC] 8ffc0bee | Ozark Air Lines Flight 650  A='injured'  B='December 20 , 1983 [DATE]'  sent-dist=5
+   s1: While landing on runway 3 in a snow storm on [B December 20 , 1983 B] , it struck a snow plow on the runway .
+   s6: No passengers were [A injured A] in the evacuation but two flight attendants suffered minor injuries .
+
+[CONF1] 9468afae | Action of 6 November 1794  A='sailed'  B='October [DATE]'  sent-dist=0
+   s2: The French squadron had [A sailed A] from Brest in search of an inward bound British convoy in [B October B] , but instead encountered the two British ships returning from escorting an outward-bound convoy .
+
+[DISC] 9b88ed5b | Wildflower! Arts and Music Festival  A='celebration'  B='the March [DATE]'  sent-dist=0
+   s2: It began in 1993 as a small community event held in a local park in northeast Richardson , Texas , and got its name from [B the March B] through May [A celebration A] season when wildflowers blossom throughout the city .
+
+[DISC] a0bd5eaf | Siege of Inabayama Castle  A='campaign'  B='the previous six years [DATE]'  sent-dist=0
+   s3: This victory was the culmination of Nobunaga 's Mino [A campaign A] , waged intermittently over [B the previous six years B] , and brought an end to a rivalry between the Oda clan of Owari Province and the Saitō clan of Mino , which began over twenty years earlier between Nobunaga 's father , Oda Nobuhide and Saitō Dōsan .
+
+[DISC] a1d521f3 | Portuguese Colonial War  A='called'  B='1951 [DURATION]'  sent-dist=0
+   s5: Unlike other European nations during the 1950s and 1960s , the Portuguese Estado Novo regime did not withdraw from its African colonies , or the overseas provinces ( `` províncias ultramarinas '' ) as those territories had been officially [A called A] since [B 1951 B] .
+
+[DISC] a2276c89 | Mahon Tribunal  A='reach'  B='November 1997 [DATE]'  sent-dist=0
+   s5: The tribunal ran from [B November 1997 B] to March 2012 and was the longest running and most expensive public inquiry held in the Republic of Ireland , with costs forecast to [A reach A] between €250 million and €300 million .
+
+[DISC] a3e12d55 | December 1960 nor'easter  A='storm'  B='December 10 [DATE]'  sent-dist=0
+   s3: The [A storm A] originated in a weak low pressure area which formed over the western Gulf of Mexico on [B December 10 B] .
+
+[DISC] a649377d | Fourth Siege of Gibraltar  A='fought'  B='June [DATE]'  sent-dist=0
+   s0: The Fourth Siege of Gibraltar , [A fought A] from [B June B] until August 1333 , pitted a Christian army under King Alfonso XI of Castile against a large Moorish army led by Muhammed IV of Granada and Abd al-Malik Abd al-Wahid of Fes .
+
+[CONF2] a763f1a6 | 2015 Pro Bowl  A='held'  B='2010 [DURATION]'  sent-dist=0
+   s1: It began at 6 pm local time on January 25 at University of Phoenix Stadium in Glendale , Arizona , and it was the first Pro Bowl to be [A held A] outside Hawaii since [B 2010 B] .
+
+[CONF2] a763f1a6 | 2015 Pro Bowl  A='held'  B='2010 [DATE]'  sent-dist=7
+   s1: It began at 6 pm local time on January 25 at University of Phoenix Stadium in Glendale , Arizona , and it was the first Pro Bowl to be [A held A] outside Hawaii since 2010 .
+   s8: The coaches were to come from the higher seeded teams in each conference to lose in the Divisional Round of the 2014–15 NFL playoffs , which has been the convention since the [B 2010 B] Pro Bowl .
+
+[DISC] a767d301 | Tuscarora War  A='fought'  B='September 22 , 1711 [DATE]'  sent-dist=0
+   s0: The Tuscarora War was [A fought A] in North Carolina from [B September 22 , 1711 B] until February 11 , 1715 between the Tuscarora people and their allies on one side and European American settlers , the Yamassee , and other allies on the other .
+
+[CONF1] a98f2a9b | 2013 Grand National  A='broadcast'  B='6 April 2013 [DATE]'  sent-dist=5
+   s1: The showpiece steeplechase , which concluded a three-day meeting ( one of only four held at Aintree throughout the year ) , took place on [B 6 April 2013 B] .
+   s6: The race was [A broadcast A] on Channel 4 for the first time as it took over the broadcasting rights for a four-year period to 2016 .
+
+[CONF2] ade62e97 | Climatic Research Unit email controversy  A='negotiations'  B='7 December 2009 [DATE]'  sent-dist=0
+   s4: The mainstream media picked up the story , as [A negotiations A] over climate change mitigation began in Copenhagen on [B 7 December 2009 B] .
+
+[CONF2] ade62e97 | Climatic Research Unit email controversy  A='mitigation'  B='7 December 2009 [DATE]'  sent-dist=0
+   s4: The mainstream media picked up the story , as negotiations over climate change [A mitigation A] began in Copenhagen on [B 7 December 2009 B] .
+
+[CONF2] ade62e97 | Climatic Research Unit email controversy  A='controversy'  B='november 2009 [DATE]'  sent-dist=0
+   s0: the climatic research unit email [A controversy A] ( also known as `` climategate '' ) began in [B november 2009 B] with the hacking of a server at the climatic research unit ( cru ) at the university of east anglia ( uea ) by an external attacker , copying thousands of emails and computer files , the climatic research unit documents , to various internet locations several weeks before the copenhagen summit on climate change .
+
+[DISC] ae652539 | 2006–07 Southeast Asian floods  A='affected'  B='18 December 2006 [DATE]'  sent-dist=0
+   s0: The 2006–2007 Southeast Asian floods were a series of floods that mostly [A affected A] Malaysia from [B 18 December 2006 B] to 13 January 2007 .
+
+[DISC] ae652539 | 2006–07 Southeast Asian floods  A='affected'  B='Sunday [DURATION]'  sent-dist=8
+   s0: The 2006–2007 Southeast Asian floods were a series of floods that mostly [A affected A] Malaysia from 18 December 2006 to 13 January 2007 .
+   s8: The flooding began when torrential downpours since [B Sunday B] caused rivers and dams to overflow .
+
+[DISC] b0efcbf4 | Operation Grapple  A='tests'  B='1957 [DATE]'  sent-dist=0
+   s0: Operation Grapple was the name of four series of British nuclear weapons [A tests A] of early atomic bombs and hydrogen bombs carried out in [B 1957 B] and 1958 at Malden Island and Kiritimati ( Christmas Island ) in the Pacific Ocean as part of the British hydrogen bomb programme .
+
+[DISC] b0efcbf4 | Operation Grapple  A='carried out'  B='1957 [DATE]'  sent-dist=0
+   s0: Operation Grapple was the name of four series of British nuclear weapons tests of early atomic bombs and hydrogen bombs [A carried out A] in [B 1957 B] and 1958 at Malden Island and Kiritimati ( Christmas Island ) in the Pacific Ocean as part of the British hydrogen bomb programme .
+
+[CONF2] b4720e01 | Siege of Kijevo (1991)  A='confirmed'  B='2008 [DATE]'  sent-dist=0
+   s8: The trial resulted in a guilty verdict , and the findings of the Trial Chamber regarding Kijevo , made in 2007 , were [A confirmed A] by the ICTY Appeals Chamber in [B 2008 B] , based on witness testimonies about it being ethnic cleansing .
+
+[CONF2] b4720e01 | Siege of Kijevo (1991)  A='besieged'  B='late April [DATE]'  sent-dist=0
+   s1: The 9th Corps of the Yugoslav People 's Army ( `` Jugoslovenska Narodna Armija '' – JNA ) led by Colonel Ratko Mladić and the forces of the Serbian Autonomous Oblast ( region ) of Krajina ( SAO Krajina ) under Knin police chief Milan Martić [A besieged A] the Croat-inhabited village of Kijevo in [B late April B] and early May 1991 .
+
+[CONF2] b4720e01 | Siege of Kijevo (1991)  A='conflicts'  B='1991 [DATE]'  sent-dist=0
+   s0: The [B 1991 B] siege of Kijevo was one of the earliest [A conflicts A] in the Croatian War of Independence .
+
+[DISC] b872688f | Second Battle of Fallujah  A='Battle'  B='November [DATE]'  sent-dist=0
+   s0: The Second [A Battle A] of Fallujah—code-named Operation `` Al-Fajr '' ( Arabic : الفجر `` the dawn '' ) and Operation Phantom Fury—was a joint American , Iraqi government , and British offensive in [B November B] and December 2004 , considered the highest point of conflict in Fallujah during the Iraq War .
+
+[CONF2] b99963d6 | Landing at Anzac Cove  A='commemorated'  B='25 april [DATE]'  sent-dist=0
+   s11: since 1916 the anniversary of the landings on [B 25 april B] has been [A commemorated A] as anzac day , becoming one of the most important national celebrations in australia and new zealand .
+
+[DISC] bd1da8f8 | 1959 Escuminac disaster  A='wave'  B='June 18 [DATE]'  sent-dist=0
+   s2: The storm was the third tropical cyclone and first hurricane of the 1959 Atlantic hurricane season , and developed from a tropical [A wave A] in the central Gulf of Mexico on [B June 18 B] .
+
+[DISC] bd1da8f8 | 1959 Escuminac disaster  A='wave'  B='later that day [DATE]'  sent-dist=1
+   s2: The storm was the third tropical cyclone and first hurricane of the 1959 Atlantic hurricane season , and developed from a tropical [A wave A] in the central Gulf of Mexico on June 18 .
+   s3: It headed rapidly northeastward and struck Florida [B later that day B] .
+
+[DISC] bd1da8f8 | 1959 Escuminac disaster  A='wave'  B='June 18 [DATE]'  sent-dist=2
+   s2: The storm was the third tropical cyclone and first hurricane of the 1959 Atlantic hurricane season , and developed from a tropical [A wave A] in the central Gulf of Mexico on June 18 .
+   s4: Shortly after entering the Atlantic Ocean , it strengthened into a tropical storm later on [B June 18 B] .
+
+[CONF1] c32a92e3 | Kosovo Operation (1944)  A='Operation'  B='October 15–November 22 , 1944 [DURATION]'  sent-dist=0
+   s0: The Kosovo [A Operation A] ( [B October 15–November 22 , 1944 B] ) was a series of military operations leading up to one final push during World War II , launched by the Bulgarian army ( commanded by Major General Kiril Stanchev ) with the assistance of Yugoslav and Albanian Partisans to expel German forces from Kosovo and prevent the retreat of German forces from Greece .
+
+[DISC] cccbe7db | Capital Airlines Flight 75  A='flying'  B='3:29 [TIME]'  sent-dist=2
+   s1: A Vickers Viscount [A flying A] the route crashed in Chase , Maryland , on May 12 , 1959 , with the loss of all on board .
+   s3: The flight left the terminal at La Guardia at 3:20 in the afternoon , 20 minutes after it was scheduled to begin , and took off at [B 3:29 B] .
+
+[DISC] cf723149 | 1923 Imperial Conference  A='affirmed'  B='1926 [DATE]'  sent-dist=0
+   s15: The conference 's final report [A affirmed A] the Canadian and South African position and thus was a step away from the concept of a centralised British Empire in favour of a more decentralised British Commonwealth without central authority , subsequently affirmed by the Balfour Declaration of [B 1926 B] and the Statute of Westminster 1931 .
+
+[CONF2] d119e20f | British airborne operations in North Africa  A='conducted'  B='November 1942 [DATE]'  sent-dist=0
+   s0: The British airborne operations in North Africa were [A conducted A] by British paratroopers of the 1st Parachute Brigade , commanded by Brigadier Edwin Flavell , as part of the Tunisian Campaign of World War II , over the period between [B November 1942 B] and April 1943 .
+
+[CONF2] d119e20f | British airborne operations in North Africa  A='operations'  B='November 1942 [DATE]'  sent-dist=0
+   s0: The British airborne [A operations A] in North Africa were conducted by British paratroopers of the 1st Parachute Brigade , commanded by Brigadier Edwin Flavell , as part of the Tunisian Campaign of World War II , over the period between [B November 1942 B] and April 1943 .
+
+[CONF2] d119e20f | British airborne operations in North Africa  A='commanded'  B='November 1942 [DATE]'  sent-dist=0
+   s0: The British airborne operations in North Africa were conducted by British paratroopers of the 1st Parachute Brigade , [A commanded A] by Brigadier Edwin Flavell , as part of the Tunisian Campaign of World War II , over the period between [B November 1942 B] and April 1943 .
+
+[CONF2] d119e20f | British airborne operations in North Africa  A='transferred'  B='mid-April 1943 [DATE]'  sent-dist=0
+   s6: The brigade was [A transferred A] out of the front in [B mid-April 1943 B] and left to rejoin the rest of the 1st Airborne Division to train for Operation Husky , the Allied invasion of Sicily .
+
+[DISC] d410ec66 | Bahrain Tamarod  A='protest'  B='14 August [DATE]'  sent-dist=14
+   s0: Bahrain Tamarod ( also spelled Bahrain Tamarrod ; ; literally `` Bahrain Rebellion '' ) , also known as August 14 Rebellion , was a three-day [A protest A] campaign in Bahrain that began on 14 August 2013 , the forty-second anniversary of Bahrain Independence Day and the two-and-a-half-year anniversary of the Bahraini uprising .
+   s14: The day of [B 14 August B] witnessed heavy deployment of security forces , which used tear gas and birdshot against hundreds-to-thousands of protesters who gathered in several locations throughout the country .
+
+[DISC] d410ec66 | Bahrain Tamarod  A='campaign'  B='14 August [DATE]'  sent-dist=14
+   s0: Bahrain Tamarod ( also spelled Bahrain Tamarrod ; ; literally `` Bahrain Rebellion '' ) , also known as August 14 Rebellion , was a three-day protest [A campaign A] in Bahrain that began on 14 August 2013 , the forty-second anniversary of Bahrain Independence Day and the two-and-a-half-year anniversary of the Bahraini uprising .
+   s14: The day of [B 14 August B] witnessed heavy deployment of security forces , which used tear gas and birdshot against hundreds-to-thousands of protesters who gathered in several locations throughout the country .
+
+[DISC] d410ec66 | Bahrain Tamarod  A='Rebellion'  B='14 August [DATE]'  sent-dist=14
+   s0: Bahrain Tamarod ( also spelled Bahrain Tamarrod ; ; literally `` Bahrain Rebellion '' ) , also known as August 14 [A Rebellion A] , was a three-day protest campaign in Bahrain that began on 14 August 2013 , the forty-second anniversary of Bahrain Independence Day and the two-and-a-half-year anniversary of the Bahraini uprising .
+   s14: The day of [B 14 August B] witnessed heavy deployment of security forces , which used tear gas and birdshot against hundreds-to-thousands of protesters who gathered in several locations throughout the country .
+
+[CONF1] d47baae1 | 1951 Asian Games  A='celebrated'  B='4 [DATE]'  sent-dist=0
+   s0: The 1951 Asian Games ( ) , officially known as the First Asian Games , was a multi-sport event [A celebrated A] in New Delhi , India from [B 4 B] to 11 March 1951 .
+
+[CONF1] d47baae1 | 1951 Asian Games  A='Asiad'  B='4 [DATE]'  sent-dist=4
+   s0: The 1951 Asian Games ( ) , officially known as the First Asian Games , was a multi-sport event celebrated in New Delhi , India from [B 4 B] to 11 March 1951 .
+   s4: The 1951 [A Asiad A] were originally scheduled to be held in 1950 , but postponed until 1951 due to delays in preparations .
+
+[CONF1] d47baae1 | 1951 Asian Games  A='representing'  B='4 [DATE]'  sent-dist=2
+   s0: The 1951 Asian Games ( ) , officially known as the First Asian Games , was a multi-sport event celebrated in New Delhi , India from [B 4 B] to 11 March 1951 .
+   s2: A total of 489 athletes [A representing A] 11 Asian National Olympic Committees ( NOCs ) participated in 57 events from eight sports and discipline .
+
+[CONF2] d9e953ca | 1906 San Francisco earthquake  A='earthquake'  B='5:12 a.m. [TIME]'  sent-dist=0
+   s0: The 1906 San Francisco [A earthquake A] struck the coast of Northern California at [B 5:12 a.m. B] on Wednesday , April 18 with an estimated moment magnitude of 7.9 and a maximum Mercalli intensity of XI ( `` Extreme '' ) .
+
+[DISC] dd40e62a | Siege of Gaeta (1806)  A='tied up'  B='nearly five months [DURATION]'  sent-dist=0
+   s4: The garrison put up such fierce resistance that a large part of Masséna 's `` Army of Naples '' was [A tied up A] in the siege for [B nearly five months B] .
+
+[DISC] e3cac71a | Western Sahara conflict  A='Beginning'  B='1975 [DATE]'  sent-dist=0
+   s4: [A Beginning A] in [B 1975 B] , the Polisario Front , backed and supported by Algeria , waged a 16-year-long war for independence against Mauritania and Morocco .
+
+[DISC] e3cac71a | Western Sahara conflict  A='Beginning'  B='1975 [DATE]'  sent-dist=3
+   s1: The conflict originated from an insurgency by the Polisario Front against Spanish colonial forces from 1973 to [B 1975 B] and the subsequent Western Sahara War against Morocco between 1975 and 1991 .
+   s4: [A Beginning A] in 1975 , the Polisario Front , backed and supported by Algeria , waged a 16-year-long war for independence against Mauritania and Morocco .
+
+[DISC] e3cac71a | Western Sahara conflict  A='Beginning'  B='1975 [DATE]'  sent-dist=3
+   s1: The conflict originated from an insurgency by the Polisario Front against Spanish colonial forces from 1973 to 1975 and the subsequent Western Sahara War against Morocco between [B 1975 B] and 1991 .
+   s4: [A Beginning A] in 1975 , the Polisario Front , backed and supported by Algeria , waged a 16-year-long war for independence against Mauritania and Morocco .
+
+[DISC] f036e6c6 | Orange Revolution  A='took place'  B='late November 2004 [DATE]'  sent-dist=0
+   s0: The Orange Revolution ( ) was a series of protests and political events that [A took place A] in Ukraine from [B late November 2004 B] to January 2005 , in the immediate aftermath of the run-off vote of the 2004 Ukrainian presidential election , which was claimed to be marred by massive corruption , voter intimidation and electoral fraud .
+
+[CONF2] f0742272 | Alter Channel  A='negotiations'  B='April 2012 [DATE]'  sent-dist=0
+   s15: In [B April 2012 B] , the major shareholder of ALTER George Kouris started [A negotiations A] with Israeli investors , who wanted to financially support the channel .
+
+[DISC] f0f22af2 | Third Transjordan attack  A='battle'  B='21 [DATE]'  sent-dist=10
+   s0: The Third Transjordan attack by Chaytor 's Force , part of the British Empire 's Egyptian Expeditionary Force ( EEF ) , took place between [B 21 B] and 25 September 1918 , against the Ottoman Empire 's Fourth Army and other Yildirim Army Group units .
+   s10: Fighting extended from the Mediterranean Sea during these seven days of [A battle A] , resulting in the capture of many thousands of prisoners , and extensive territory .
+

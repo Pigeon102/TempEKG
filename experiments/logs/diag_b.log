@@ -1,0 +1,54 @@
+[    0s] nap train/valid ...
+[    9s] train 400 doc (disc 229 / conf 171), valid 705 doc
+[   13s]   257 luat EV-EV tren disc (in-sample)  acc 91.47%  loi 8.53%
+[   13s]   257 luat EV-EV tren valid             acc 87.87%  loi 12.13%
+[   14s]   classifier EV-TX (273 luat) tren valid: 79.84%
+[   14s]   TX-TX theo lich tren valid: 12464 canh, UNK 65.1%, dung 95.8% trong so da quyet dinh
+[   14s] dung motif ...
+[  209s]   do phu motif tren valid (109,929 cap): 3E 99.7%  3T 92.2%  4EE 99.4%  4ET 95.4%  4TE 96.1%  4TT 90.3%
+[  209s] BASE 257 luat: macro-F1 25.60%  acc 87.87%
+[  209s] do tin cay classifier tren confirmation: {'BEFORE': '94.6%', 'CONTAINS': '40.6%', 'SIMULTANEOUS': '16.3%', 'OVERLAP': '41.7%'}
+[  209s] chu ky gold tren train ...
+[  213s] OLD 21 luat, NEW(rel=clf) 175 luat
+
+======================================================================================================================
+[  214s] Bayes: 518 chu ky co phan phoi (disc, gold)
+
+======================================================================================================================
+B3 -- BOI CANH B, CROSS-FIT tren valid (2 fold theo hash doc; moi thu hoc tu fold kia)
+======================================================================================================================
+
+====================================================================================================
+1. LOAI LOI VA TY LE SUA
+====================================================================================================
+  B (classifier), B1 cross-fit: 13331 canh sai, sua dung 5451 (40.9%), lam hong 2534
+    gold -> dang co                   so   % loi   da sua
+    BEFORE -> CONTAINS              5658   42.4%    84.6%
+    CONTAINS -> BEFORE              5293   39.7%     0.0%
+    SIMULTANEOUS -> BEFORE           738    5.5%     0.0%
+    BEFORE -> SIMULTANEOUS           661    5.0%    99.8%
+    OVERLAP -> BEFORE                464    3.5%     0.0%
+    CONTAINS -> SIMULTANEOUS         202    1.5%     0.5%
+    SIMULTANEOUS -> CONTAINS         151    1.1%     0.0%
+    OVERLAP -> CONTAINS               77    0.6%     0.0%
+  fake r10, Bayes: 11044 canh sai, sua dung 8328 (75.4%), lam hong 539
+    gold -> dang co                   so   % loi   da sua
+    BEFORE -> CONTAINS              8380   75.9%    83.8%
+    BEFORE -> SIMULTANEOUS           987    8.9%    84.5%
+    CONTAINS -> BEFORE               952    8.6%     3.7%
+    BEFORE -> OVERLAP                501    4.5%    79.4%
+    SIMULTANEOUS -> BEFORE            94    0.9%     0.0%
+    OVERLAP -> BEFORE                 57    0.5%     0.0%
+    BEFORE -> BEGINS-ON               29    0.3%    96.6%
+    CONTAINS -> SIMULTANEOUS          11    0.1%     0.0%
+
+====================================================================================================
+2. LOI CO TU CUM KHONG
+====================================================================================================
+  B (classifier): ty le loi chung 12.13%
+    quanh canh sai : canh tam giac lan can sai 32.90%   tam giac ung ho dung nhan hien tai (bac cau) 10.08%
+    quanh canh dung: canh tam giac lan can sai  7.61%   tam giac ung ho dung nhan hien tai (bac cau) 30.18%
+  fake r10: ty le loi chung 10.05%
+    quanh canh sai : canh tam giac lan can sai 10.13%   tam giac ung ho dung nhan hien tai (bac cau)  0.48%
+    quanh canh dung: canh tam giac lan can sai 10.04%   tam giac ung ho dung nhan hien tai (bac cau) 22.85%
+[  240s] xong

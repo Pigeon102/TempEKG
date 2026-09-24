@@ -1,0 +1,417 @@
+ENDS-ON EE: 120 instances (train+valid). Head=A (stored s), tail=B (stored t)
+
+[VALID] 07390aa0 | Capture of Muscat (1552)  A='agreed'  B='surrender'  sent-dist=0
+   s8: Lacking food and water , the 60 Portuguese garrison and its commander , João de Lisboa , [A agreed A] to [B surrender B] , only to be taken as captives .
+
+[VALID] 07390aa0 | Capture of Muscat (1552)  A='allowed'  B='resist'  sent-dist=0
+   s1: These events followed the important Ottoman defeat in the Second Siege of Diu in 1546 , which put a stop to their attempts in India , but also the successful Capture of Aden ( 1548 ) , which [A allowed A] the Ottomans to [B resist B] the Portuguese in the northwestern part of the Indian Ocean .
+
+[VALID] 07390aa0 | Capture of Muscat (1552)  A='occupy'  B='control'  sent-dist=0
+   s11: Ultimately , they managed to [A occupy A] and [B control B] the coasts of Yemen , Aden and Arabia , as far north as Basra , so as to facilitate their trade with India and block the Portuguese from attacking the Hijaz .
+
+[VALID] 1b9d9d5b | Frontier Fiesta  A='transformed'  B='called'  sent-dist=0
+   s6: `` Each year a piece of the University of Houston campus is [A transformed A] into a fully functional town [B called B] 'Fiesta City . '
+
+[VALID] 36f022ac | Battle of Rastatt (1796)  A='Battle'  B='determined'  sent-dist=0
+   s7: The [A Battle A] of Ettlingen on 9 July [B determined B] whether Moreau would continue his invasion of Germany .
+
+[VALID] 36f022ac | Battle of Rastatt (1796)  A='continue'  B='invasion'  sent-dist=0
+   s7: The Battle of Ettlingen on 9 July determined whether Moreau would [A continue A] his [B invasion B] of Germany .
+
+[VALID] 835860f1 | Zealot Temple Siege  A='freeing'  B='control'  sent-dist=1
+   s4: After [A freeing A] the Zealots from the Temple , the Edomites and Zealots massacred the common people .
+   s5: Jerusalem mostly remained in the [B control B] of the Zealots until 70 AD , when it was sacked by Rome and the Temple was destroyed .
+
+[VALID] a46f4043 | Altamira prison brawl  A='attacking'  B='fight'  sent-dist=0
+   s2: The [B fight B] started after a drug gang burst into a section of the prison where they were banned from , [A attacking A] their rival gang housed there , triggering the fight .
+
+[VALID] a46f4043 | Altamira prison brawl  A='burst'  B='attacking'  sent-dist=0
+   s2: The fight started after a drug gang [A burst A] into a section of the prison where they were banned from , [B attacking B] their rival gang housed there , triggering the fight .
+
+[VALID] b3c7e479 | Siege of Syracuse (827–828)  A='marched'  B='conquer'  sent-dist=2
+   s0: The Siege of Syracuse in 827–828 marks the first attempt by the Aghlabids to [B conquer B] the city of Syracuse in Sicily , then a Byzantine province .
+   s2: After defeating local forces and taking the fortress of Mazara , they [A marched A] on Syracuse , which was the capital of the island under Roman and Byzantine rule .
+
+[VALID] b3c7e479 | Siege of Syracuse (827–828)  A='marched'  B='lasted'  sent-dist=1
+   s2: After defeating local forces and taking the fortress of Mazara , they [A marched A] on Syracuse , which was the capital of the island under Roman and Byzantine rule .
+   s3: The siege [B lasted B] through the winter of 827–828 and until summer , during which time the besieging forces suffered greatly from lack of food and an outbreak of an epidemic , which claimed the life of their commander , Asad ibn al-Furat .
+
+[VALID] b3c7e479 | Siege of Syracuse (827–828)  A='marched'  B='siege'  sent-dist=2
+   s2: After defeating local forces and taking the fortress of Mazara , they [A marched A] on Syracuse , which was the capital of the island under Roman and Byzantine rule .
+   s4: In the face of Byzantine reinforcements , the new Arab leader , Muhammad ibn Abi ' l-Jawari , abandoned the [B siege B] and withdrew to the southwestern part of the island , which remained in their hands .
+
+[VALID] df743d0a | Murder of April Jones  A='found'  B='guilty'  sent-dist=0
+   s4: On 30 May 2013 , Bridger was [A found A] [B guilty B] of April 's abduction and murder , in addition to perverting the course of justice .
+
+[VALID] df743d0a | Murder of April Jones  A='ordering'  B='released'  sent-dist=0
+   s5: He was sentenced to life imprisonment , with the trial judge [A ordering A] that he never be [B released B] from prison .
+
+[VALID] f3928d93 | Unification of Hawaii  A='overthrowing'  B='invaded'  sent-dist=2
+   s4: First the big island was consolidated by Kamehameha I after [A overthrowing A] his uncle for control of the Kona Hawaii .
+   s6: With Hawai ' i united under his rule , Kamehameha eventually [B invaded B] Maui and Oahu , culminating in the climatic battle that was the Battle of Nu'uanu .
+
+[CONF2] 0ec4a2ba | Paraguayan War  A='losses'  B='losses'  sent-dist=1
+   s9: Estimates of total Paraguayan [A losses A] range from 21,000 to 200,000 people .
+   s10: It took decades for Paraguay to recover from the chaos and demographic [B losses B] .
+
+[CONF1] 16bb4b3f | Hurricane Danielle (1998)  A='reached'  B='steered'  sent-dist=0
+   s9: As the cyclone [A reached A] the western periphery of the ridge that [B steered B] it across the Atlantic for much of its existence , it began yet another period of intensification , and once again attained a peak intensity as a Category 2 hurricane .
+
+[CONF1] 16bb4b3f | Hurricane Danielle (1998)  A='originated'  B='emerged'  sent-dist=0
+   s1: The fourth named storm and second hurricane of the annual hurricane season , Danielle [A originated A] from a tropical wave that [B emerged B] off the western coast of Africa on August 21 .
+
+[CONF1] 1a546dd3 | British Expedition to Abyssinia  A='return'  B='hailed'  sent-dist=0
+   s4: The expedition was widely [B hailed B] on its [A return A] for achieving all its objectives .
+
+[CONF1] 1d501ad8 | 1943 Surprise Hurricane  A='remained'  B='dissipating'  sent-dist=0
+   s6: After moving inland , the storm initially weakened rapidly , but [A remained A] a tropical cyclone until [B dissipating B] over north-central Texas on July 29 .
+
+[CONF1] 1d501ad8 | 1943 Surprise Hurricane  A='weakened'  B='remained'  sent-dist=0
+   s6: After moving inland , the storm initially [A weakened A] rapidly , but [B remained B] a tropical cyclone until dissipating over north-central Texas on July 29 .
+
+[DISC] 21995a8e | 1902 Colonial Conference  A='implemented'  B='conference'  sent-dist=0
+   s8: however , this plan was not [A implemented A] until the british empire economic [B conference B] in 1932 .
+
+[DISC] 26e44d1f | Gwangju Uprising  A='coming'  B='become'  sent-dist=0
+   s7: One of such arguments point to the fact that it occurred before Chun Doo-hwan officially took office , and so contend that it could not really have been a simple student protest against him that started it ; however , Chun Doo-hwan had [B become B] the `` de facto '' leader of South Korea at that time since [A coming A] into power on December 12 , 1979 , after leading a successful military coup of the previous South Korean government .
+
+[DISC] 2950b444 | Fulani War  A='exiled'  B='War'  sent-dist=1
+   s0: The Fulani [B War B] of 1804–1808 , also known as the Fulani Jihad or Jihad of Usman dan Fodio , was a military contest in present-day Nigeria and Cameroon .
+   s1: The war began when Usman dan Fodio , a prominent Islamic scholar and teacher , was [A exiled A] from Gobir by the King Yunfa , one of his former students .
+
+[DISC] 2950b444 | Fulani War  A='exiled'  B='contest'  sent-dist=1
+   s0: The Fulani War of 1804–1808 , also known as the Fulani Jihad or Jihad of Usman dan Fodio , was a military [B contest B] in present-day Nigeria and Cameroon .
+   s1: The war began when Usman dan Fodio , a prominent Islamic scholar and teacher , was [A exiled A] from Gobir by the King Yunfa , one of his former students .
+
+[DISC] 2a5b37d7 | Battle of Roatán  A='surrendered'  B='successes'  sent-dist=3
+   s2: The British garrison [A surrendered A] the next day .
+   s5: although he met with temporary [B successes B] , the british were able to maintain a colonial presence in the area .
+
+[DISC] 2a5b37d7 | Battle of Roatán  A='fought'  B='successes'  sent-dist=5
+   s0: The Battle of Roatán ( sometimes spelled `` Rattan '' ) was an American War of Independence battle [A fought A] on March 16 , 1782 , between British and Spanish forces for control of Roatán , an island off the Caribbean coast of present-day Honduras .
+   s5: although he met with temporary [B successes B] , the british were able to maintain a colonial presence in the area .
+
+[DISC] 2a5b37d7 | Battle of Roatán  A='Battle'  B='successes'  sent-dist=5
+   s0: The [A Battle A] of Roatán ( sometimes spelled `` Rattan '' ) was an American War of Independence battle fought on March 16 , 1782 , between British and Spanish forces for control of Roatán , an island off the Caribbean coast of present-day Honduras .
+   s5: although he met with temporary [B successes B] , the british were able to maintain a colonial presence in the area .
+
+[DISC] 2a5b37d7 | Battle of Roatán  A='assault'  B='successes'  sent-dist=1
+   s4: The [A assault A] was part of a larger plan by Gálvez to eliminate British influence in Central America .
+   s5: although he met with temporary [B successes B] , the british were able to maintain a colonial presence in the area .
+
+[CONF1] 3087b67f | Hurricane Marie (2014)  A='felt'  B='effects'  sent-dist=0
+   s19: Similar [B effects B] were [A felt A] across Baja California Sur .
+
+[DISC] 30c427d4 | February 2015 Baghdad bombings  A='perpetrated'  B='wounded'  sent-dist=4
+   s5: The first attack was [A perpetrated A] by a suicide bomber in a restaurant in New Baghdad .
+   s9: In addition to those dead , the attack in New Baghdad also [B wounded B] 45 people , the attack in Shorja wounded 26 people , and the attack in Abu Cheer wounded 15 people .
+
+[DISC] 35e9e9c5 | Occupy Wall Street  A='turned'  B='occupying'  sent-dist=0
+   s6: Protesters [A turned A] their focus to [B occupying B] banks , corporate headquarters , board meetings , foreclosed homes , and college and university campuses .
+
+[DISC] 35e9e9c5 | Occupy Wall Street  A='turned'  B='meetings'  sent-dist=0
+   s6: Protesters [A turned A] their focus to occupying banks , corporate headquarters , board [B meetings B] , foreclosed homes , and college and university campuses .
+
+[CONF1] 364ed14f | Expedition of the Thousand  A='ruled'  B='concluded'  sent-dist=2
+   s1: a corps of volunteers led by giuseppe garibaldi sailed from quarto , near genoa ( now quarto dei mille ) and landed in marsala , sicily , in order to conquer the kingdom of the two sicilies , [A ruled A] by the house of bourbon-two sicilies .
+   s3: The expedition was a success and [B concluded B] with a plebiscite that brought Naples and Sicily into the Kingdom of Sardinia , the last territorial conquest before the creation of the Kingdom of Italy on 17 March 1861 .
+
+[CONF1] 365e6bdd | Third Crusade  A='allowed'  B='granted'  sent-dist=0
+   s9: on 2 september 1192 richard and saladin finalized the treaty of jaffa , which [B granted B] muslim control over jerusalem but [A allowed A] unarmed christian pilgrims and merchants to visit the city .
+
+[CONF1] 365e6bdd | Third Crusade  A='visit'  B='granted'  sent-dist=0
+   s9: on 2 september 1192 richard and saladin finalized the treaty of jaffa , which [B granted B] muslim control over jerusalem but allowed unarmed christian pilgrims and merchants to [A visit A] the city .
+
+[CONF1] 365e6bdd | Third Crusade  A='Spurred'  B='ended'  sent-dist=0
+   s4: [A Spurred A] by religious zeal , King Henry II of England and King Philip II of France ( known as `` Philip Augustus '' ) [B ended B] their conflict with each other to lead a new crusade .
+
+[DISC] 3771e20f | First and Second Battles of Wonju  A='allowing'  B='stabilized'  sent-dist=0
+   s5: In the aftermath of the battle , the KPA forces on the central and the eastern fronts were decimated , [A allowing A] the UN front to be [B stabilized B] at the 37th parallel .
+
+[DISC] 4e180500 | European Carnage Tour  A='announced'  B='replacement'  sent-dist=0
+   s5: Gary Holt of Exodus was [A announced A] as Jeff 's temporary [B replacement B] , in Slayer , on March 13 , to April 4 , 2011 .
+
+[DISC] 50e61aa3 | Port Said Stadium riot  A='deaths'  B='killing'  sent-dist=0
+   s2: Many of the [A deaths A] were due to the police 's refusal to open the stadium gates , trapping the Ahly fans inside , leaving some to die , and [B killing B] others in a stampede to escape .
+
+[DISC] 50e61aa3 | Port Said Stadium riot  A='injured'  B='killing'  sent-dist=1
+   s1: 74 people were killed and more than 500 were [A injured A] after thousands of Masry spectators stormed the stadium stands and the pitch , following a 3–1 victory by their team , and violently attacked Ahly fans using clubs , stones , bottles , and fireworks , getting them all trapped in El Ahly partition of the stadium .
+   s2: Many of the deaths were due to the police 's refusal to open the stadium gates , trapping the Ahly fans inside , leaving some to die , and [B killing B] others in a stampede to escape .
+
+[DISC] 50e61aa3 | Port Said Stadium riot  A='killed'  B='killing'  sent-dist=1
+   s1: 74 people were [A killed A] and more than 500 were injured after thousands of Masry spectators stormed the stadium stands and the pitch , following a 3–1 victory by their team , and violently attacked Ahly fans using clubs , stones , bottles , and fireworks , getting them all trapped in El Ahly partition of the stadium .
+   s2: Many of the deaths were due to the police 's refusal to open the stadium gates , trapping the Ahly fans inside , leaving some to die , and [B killing B] others in a stampede to escape .
+
+[DISC] 518a3631 | Battle of Maldon  A='favoured'  B='paying'  sent-dist=0
+   s18: Some [A favoured A] [B paying B] off the Viking invaders with land and wealth , while others favoured fighting to the last man .
+
+[DISC] 518a3631 | Battle of Maldon  A='favoured'  B='paying'  sent-dist=0
+   s18: Some favoured [B paying B] off the Viking invaders with land and wealth , while others [A favoured A] fighting to the last man .
+
+[DISC] 518a3631 | Battle of Maldon  A='favoured'  B='fighting'  sent-dist=0
+   s18: Some [A favoured A] paying off the Viking invaders with land and wealth , while others favoured [B fighting B] to the last man .
+
+[DISC] 518a3631 | Battle of Maldon  A='favoured'  B='fighting'  sent-dist=0
+   s18: Some favoured paying off the Viking invaders with land and wealth , while others [A favoured A] [B fighting B] to the last man .
+
+[DISC] 55ed5656 | Sinking of USS Housatonic  A='made'  B='attack'  sent-dist=0
+   s1: The Confederate States Navy submarine , [A made A] her first and only [B attack B] on a Union Navy warship when she staged a clandestine night attack on in Charleston harbor .
+
+[DISC] 56de7d06 | Hurricane Carla  A='damaged'  B='injuries'  sent-dist=0
+   s15: Additionally , several tornadoes spawned in the state caused notable impacts , with the most destructive twister , an F4 near Galveston , Texas , resulting in 200 buildings severely [A damaged A] , of which at least 60 were destroyed , and 8 deaths and 55 [B injuries B] .
+
+[DISC] 56de7d06 | Hurricane Carla  A='damaged'  B='destroyed'  sent-dist=0
+   s15: Additionally , several tornadoes spawned in the state caused notable impacts , with the most destructive twister , an F4 near Galveston , Texas , resulting in 200 buildings severely [A damaged A] , of which at least 60 were [B destroyed B] , and 8 deaths and 55 injuries .
+
+[DISC] 56de7d06 | Hurricane Carla  A='remains'  B='recorded'  sent-dist=0
+   s16: The aforementioned tornado [A remains A] the strongest hurricane-spawned tornado ever [B recorded B] , with wind speeds in the tornado nearly 50 % greater than Carla 's peak intensity .
+
+[DISC] 5eb3a58f | Battle of the Bogside  A='passing'  B='riots'  sent-dist=4
+   s0: `` `` Derry [B riots B] '' redirects here .
+   s4: The rioting erupted at the end of an Apprentice Boys parade which was [A passing A] along the city walls , past the Catholic Bogside .
+
+[CONF1] 61e42155 | Siege of Fort St. Jean  A='defences'  B='attack'  sent-dist=0
+   s7: General Carleton escaped from Montreal , and made his way to Quebec City to prepare its [A defences A] against an anticipated [B attack B] .
+
+[CONF2] 6b13e7ec | 11 April 2007 Algiers bombings  A='attack'  B='exploded'  sent-dist=5
+   s0: The 2007 Algiers bombings occurred on 11 April 2007 when two suicide car bombs [B exploded B] in the Algerian capital Algiers .
+   s5: The first [A attack A] , which was on the prime minister 's office , killed 12 people and injured 118 , and the second attack on the police station in the Bab Ezzouar district of Algiers killed 11 and injured 44 .
+
+[CONF2] 6b13e7ec | 11 April 2007 Algiers bombings  A='attack'  B='occurred'  sent-dist=5
+   s0: The 2007 Algiers bombings [B occurred B] on 11 April 2007 when two suicide car bombs exploded in the Algerian capital Algiers .
+   s5: The first [A attack A] , which was on the prime minister 's office , killed 12 people and injured 118 , and the second attack on the police station in the Bab Ezzouar district of Algiers killed 11 and injured 44 .
+
+[DISC] 6d8ef3be | Chinese Civil War  A='War'  B='fighting'  sent-dist=1
+   s1: although particular attention is paid to the four years of [B fighting B] from 1945 to 1949 , the war actually started in august 1927 , after the unk alliance collapsed during the northern expedition .
+   s2: The conflict took place in two stages , the first between 1927 and 1937 , and the second from 1946 to 1950 ; the Second Sino-Japanese [A War A] from 1937 to 1945 was an interlude in which the two sides were united against the forces of Japan .
+
+[DISC] 6d8ef3be | Chinese Civil War  A='united'  B='fighting'  sent-dist=1
+   s1: although particular attention is paid to the four years of [B fighting B] from 1945 to 1949 , the war actually started in august 1927 , after the unk alliance collapsed during the northern expedition .
+   s2: The conflict took place in two stages , the first between 1927 and 1937 , and the second from 1946 to 1950 ; the Second Sino-Japanese War from 1937 to 1945 was an interlude in which the two sides were [A united A] against the forces of Japan .
+
+[DISC] 6d8ef3be | Chinese Civil War  A='conflict'  B='fighting'  sent-dist=1
+   s1: although particular attention is paid to the four years of [B fighting B] from 1945 to 1949 , the war actually started in august 1927 , after the unk alliance collapsed during the northern expedition .
+   s2: The [A conflict A] took place in two stages , the first between 1927 and 1937 , and the second from 1946 to 1950 ; the Second Sino-Japanese War from 1937 to 1945 was an interlude in which the two sides were united against the forces of Japan .
+
+[DISC] 6d8ef3be | Chinese Civil War  A='interlude'  B='fighting'  sent-dist=1
+   s1: although particular attention is paid to the four years of [B fighting B] from 1945 to 1949 , the war actually started in august 1927 , after the unk alliance collapsed during the northern expedition .
+   s2: The conflict took place in two stages , the first between 1927 and 1937 , and the second from 1946 to 1950 ; the Second Sino-Japanese War from 1937 to 1945 was an [A interlude A] in which the two sides were united against the forces of Japan .
+
+[DISC] 6d8ef3be | Chinese Civil War  A='united'  B='paid'  sent-dist=1
+   s1: although particular attention is [B paid B] to the four years of fighting from 1945 to 1949 , the war actually started in august 1927 , after the unk alliance collapsed during the northern expedition .
+   s2: The conflict took place in two stages , the first between 1927 and 1937 , and the second from 1946 to 1950 ; the Second Sino-Japanese War from 1937 to 1945 was an interlude in which the two sides were [A united A] against the forces of Japan .
+
+[DISC] 6d8ef3be | Chinese Civil War  A='War'  B='paid'  sent-dist=1
+   s1: although particular attention is [B paid B] to the four years of fighting from 1945 to 1949 , the war actually started in august 1927 , after the unk alliance collapsed during the northern expedition .
+   s2: The conflict took place in two stages , the first between 1927 and 1937 , and the second from 1946 to 1950 ; the Second Sino-Japanese [A War A] from 1937 to 1945 was an interlude in which the two sides were united against the forces of Japan .
+
+[DISC] 6d8ef3be | Chinese Civil War  A='conflict'  B='paid'  sent-dist=1
+   s1: although particular attention is [B paid B] to the four years of fighting from 1945 to 1949 , the war actually started in august 1927 , after the unk alliance collapsed during the northern expedition .
+   s2: The [A conflict A] took place in two stages , the first between 1927 and 1937 , and the second from 1946 to 1950 ; the Second Sino-Japanese War from 1937 to 1945 was an interlude in which the two sides were united against the forces of Japan .
+
+[DISC] 6d8ef3be | Chinese Civil War  A='interlude'  B='paid'  sent-dist=1
+   s1: although particular attention is [B paid B] to the four years of fighting from 1945 to 1949 , the war actually started in august 1927 , after the unk alliance collapsed during the northern expedition .
+   s2: The conflict took place in two stages , the first between 1927 and 1937 , and the second from 1946 to 1950 ; the Second Sino-Japanese War from 1937 to 1945 was an [A interlude A] in which the two sides were united against the forces of Japan .
+
+[CONF2] 7017c77f | Battle of Lund  A='found'  B='supported'  sent-dist=0
+   s7: The Danes invaded via Helsingborg in late June 1676 with an army of 14,000 men , where they [A found A] themselves [B supported B] by the local peasantry .
+
+[CONF2] 7017c77f | Battle of Lund  A='retaining'  B='hold'  sent-dist=0
+   s5: After the Swedish defeat at the Battle of Fehrbellin and a number of Danish triumphs at sea , the Swedish military was occupied [A retaining A] their tenuous [B hold B] on dominions in Brandenburg and Pomerania .
+
+[CONF2] 7017c77f | Battle of Lund  A='forced'  B='camp'  sent-dist=0
+   s15: The Danes controlled all the river crossings , and the Swedish army was [A forced A] to [B camp B] on the north side .
+
+[CONF2] 7017c77f | Battle of Lund  A='occupied'  B='retaining'  sent-dist=0
+   s5: After the Swedish defeat at the Battle of Fehrbellin and a number of Danish triumphs at sea , the Swedish military was [A occupied A] [B retaining B] their tenuous hold on dominions in Brandenburg and Pomerania .
+
+[DISC] 727a9180 | Operation Entebbe  A='issued'  B='retaliate'  sent-dist=0
+   s20: Kenyan sources supported Israel , and in the aftermath of the operation , Idi Amin [A issued A] orders to [B retaliate B] and slaughter several hundred Kenyans then present in Uganda .
+
+[DISC] 7bab9c0e | Live Aid  A='organised'  B='raise'  sent-dist=0
+   s1: the original event was [A organised A] by bob geldof and midge ure to [B raise B] funds for relief of the ongoing ethiopian famine .
+
+[CONF1] 8b51e072 | 2014 Grand National  A='win'  B='become'  sent-dist=0
+   s5: Pineau de Re , a 25/1 shot ridden by Leighton Aspell , won the race for trainer Richard Newland and owner John Provan , to [B become B] the sixth French-bred horse to [A win A] the Grand National .
+
+[CONF1] 8b51e072 | 2014 Grand National  A='held'  B='retains'  sent-dist=0
+   s4: The race was broadcast live on television by Channel 4 for the second time , having won the TV rights from the BBC after 2012 , while the BBC [B retains B] the UK radio coverage rights it has [A held A] since 1927 .
+
+[DISC] 8ffc0bee | Ozark Air Lines Flight 650  A='acquired'  B='retired'  sent-dist=0
+   s18: The aircraft was [A acquired A] by Republic Airlines and flew with Northwest Airlines after their merger until it was [B retired B] in 2006 .
+
+[DISC] 9c9ff871 | Action of 4 August 1800  A='ran'  B='leaving'  sent-dist=0
+   s6: `` Belliqueux '' rapidly out [A ran A] Landolphe 's flagship `` Concorde '' , [B leaving B] Landolphe with no option but to surrender without any serious resistance .
+
+[DISC] 9c9ff871 | Action of 4 August 1800  A='came'  B='giving'  sent-dist=0
+   s8: After an hour and a half in pursuit , with darkness falling , the East Indiaman [A came A] alongside the French `` Médée '' , [B giving B] the impression by use of lights that she was a large ship of the line .
+
+[DISC] a424b743 | Oklahoma City bombing  A='received'  B='prosecution'  sent-dist=0
+   s15: Michael and Lori Fortier testified against McVeigh and Nichols ; Michael was sentenced to 12 years in prison for failing to warn the United States government , and Lori [A received A] immunity from [B prosecution B] in exchange for her testimony .
+
+[DISC] a576a57c | Murder of Leanne Tiernan  A='returning'  B='murder'  sent-dist=0
+   s0: The [B murder B] of Leanne Tiernan was a high-profile English child abduction and murder involving a 16-year-old schoolgirl who was abducted less than one mile from her home on 26 November 2000 while [A returning A] from a Christmas shopping trip in Leeds , West Yorkshire , and subsequently murdered .
+
+[DISC] a576a57c | Murder of Leanne Tiernan  A='end'  B='spoke'  sent-dist=0
+   s7: at the [A end A] of his trial , the police officers who brought him to justice [B spoke B] of their belief that he may have been responsible for other unsolved murders , including the 1992 murder of yvonne fitt , a bradford prostitute .
+
+[DISC] a576a57c | Murder of Leanne Tiernan  A='returning'  B='involving'  sent-dist=0
+   s0: The murder of Leanne Tiernan was a high-profile English child abduction and murder [B involving B] a 16-year-old schoolgirl who was abducted less than one mile from her home on 26 November 2000 while [A returning A] from a Christmas shopping trip in Leeds , West Yorkshire , and subsequently murdered .
+
+[CONF2] ade62e97 | Climatic Research Unit email controversy  A='fraud'  B='allegations'  sent-dist=0
+   s7: Eight committees investigated the [B allegations B] and published reports , finding no evidence of [A fraud A] or scientific misconduct .
+
+[CONF2] ade62e97 | Climatic Research Unit email controversy  A='misconduct'  B='allegations'  sent-dist=0
+   s7: Eight committees investigated the [B allegations B] and published reports , finding no evidence of fraud or scientific [A misconduct A] .
+
+[DISC] afcc0543 | Action of 15 November 1810  A='watch'  B='arrived'  sent-dist=0
+   s6: For two days the British frigates kept [A watch A] , until two ships of the line from the blockade of Cherbourg , HMS `` Donegal '' and HMS `` Revenge '' , [B arrived B] .
+
+[DISC] b60ec847 | Shooting of Oscar Grant  A='settled'  B='settled'  sent-dist=1
+   s27: BART [A settled A] with Grant 's daughter and mother for a total of $ 2.8 million in 2011 .
+   s28: It also [B settled B] with several of Grant 's friends who had sued for damages because of police brutality .
+
+[DISC] b69e38b9 | 1989 Newcastle earthquake  A='strike'  B='earthquake'  sent-dist=0
+   s10: The number of people in the city on the day of the [B earthquake B] was lower than usual , due to a [A strike A] by local bus drivers .
+
+[DISC] b69e38b9 | 1989 Newcastle earthquake  A='strike'  B='occurred'  sent-dist=10
+   s0: The 1989 Newcastle earthquake [B occurred B] in Newcastle , New South Wales on Thursday , 28 December .
+   s10: The number of people in the city on the day of the earthquake was lower than usual , due to a [A strike A] by local bus drivers .
+
+[DISC] bd1da8f8 | 1959 Escuminac disaster  A='strengthened'  B='storm'  sent-dist=0
+   s4: Shortly after entering the Atlantic Ocean , it [A strengthened A] into a tropical [B storm B] later on June 18 .
+
+[DISC] bd1da8f8 | 1959 Escuminac disaster  A='strengthened'  B='storm'  sent-dist=8
+   s4: Shortly after entering the Atlantic Ocean , it [A strengthened A] into a tropical storm later on June 18 .
+   s12: About 45 boats were in the Northumberland Strait between New Brunswick and Prince Edward Island , and they did not have radio to receive warning of the approaching [B storm B] .
+
+[CONF1] bd3ed435 | Symphonic Odysseys  A='held'  B='concerts'  sent-dist=10
+   s0: Symphonic Odysseys : Tribute to Nobuo Uematsu was a symphonic tribute concert [A held A] in Cologne , Germany on July 9 , 2011 at the Cologne Philharmonic Hall .
+   s10: The albums , along with the [B concerts B] themselves , received varied reviews , with some critics giving enthusiastic praise , especially in regards to the quality of the performance , the choice of source material , and the quality of the arrangements , while other critics greatly disliked several of the arrangements .
+
+[DISC] c2cd26a2 | Annexation of Crimea by the Russian Federation  A='reaffirmed'  B='condemned'  sent-dist=0
+   s11: in 2016 , un general assembly [A reaffirmed A] non-recognition of the annexation and [B condemned B] `` the temporary occupation of part of the territory of unk autonomous republic of crimea and the city of sevastopol '' .
+
+[DISC] c2cd26a2 | Annexation of Crimea by the Russian Federation  A='held'  B='demonstrations'  sent-dist=0
+   s4: On 23 February , pro-Russian [B demonstrations B] were [A held A] in the Crimean city of Sevastopol .
+
+[DISC] c73eb8fb | Tropical Storm Alpha (2005)  A='became'  B='storm'  sent-dist=0
+   s3: It [A became A] a tropical [B storm B] on October 23 , and reached its peak intensity but weakened again before making landfall in the Dominican Republic that afternoon .
+
+[DISC] cbd199ec | Cyclone Sam  A='strengthened'  B='storm'  sent-dist=3
+   s2: Tracking generally westward , the initial low-pressure area remained generally weak until it entered the Timor Sea , by which time it had [A strengthened A] into a tropical cyclone on 5 December .
+   s5: Soon afterwards , the [B storm B] made landfall near Lagrange , Western Australia at the same intensity .
+
+[DISC] d0806e6c | 2004 Madrid train bombings  A='carried out'  B='attack'  sent-dist=0
+   s2: The bombings constituted the deadliest terrorist [B attack B] [A carried out A] in the history of Spain and the deadliest in Europe since the 1988 bombing of Pan Am Flight 103 over Lockerbie , Scotland .
+
+[DISC] d0806e6c | 2004 Madrid train bombings  A='investigation'  B='found'  sent-dist=0
+   s3: The official [A investigation A] by the Spanish judiciary [B found B] that the attacks were directed by an al-Qaeda terrorist cell , although no direct al-Qaeda participation has been established .
+
+[DISC] d3defd5e | 2011 Asian Men's Hockey Champions Trophy  A='ended'  B='became'  sent-dist=0
+   s7: The Indians won 4-2 in a penalty shootout after regulation and extra time [A ended A] scoreless , and [B became B] the first champion of the tournament .
+
+[DISC] d43651db | Turkish Airlines Flight 981  A='killing'  B='remained'  sent-dist=3
+   s1: On 3 March 1974 , the McDonnell Douglas DC-10 operating the flight crashed into the Ermenonville Forest , outside Paris , [A killing A] all 346 people on board .
+   s4: It [B remained B] the deadliest single-aircraft accident until the crash of Japan Airlines flight 123 on 12 August 1985 , and the deadliest aviation accident without survivors until the Charkhi Dadri mid-air collision on 12 November 1996 .
+
+[DISC] d43651db | Turkish Airlines Flight 981  A='killing'  B='remains'  sent-dist=4
+   s1: On 3 March 1974 , the McDonnell Douglas DC-10 operating the flight crashed into the Ermenonville Forest , outside Paris , [A killing A] all 346 people on board .
+   s5: It [B remains B] the deadliest single-aircraft accident without survivors .
+
+[CONF2] dcd1fefa | Hurricane Nina (1957)  A='form'  B='hurricanes'  sent-dist=1
+   s1: This storm was named `` Nina '' because during this time , [B hurricanes B] in this basin were given names from the typhoon naming lists .
+   s2: This storm was the last to form during a series of typhoons to [A form A] in the Pacific in November .
+
+[CONF2] dcd1fefa | Hurricane Nina (1957)  A='veered'  B='evacuations'  sent-dist=1
+   s3: Nina never made landfall while active , although some forecasts called for Nina to be the first hurricane to make landfall on Hawaii , but the hurricane [A veered A] west before landing .
+   s4: However , it came close enough to Hawaii to cause light damage and prompt [B evacuations B] .
+
+[CONF2] dcd1fefa | Hurricane Nina (1957)  A='form'  B='hurricane'  sent-dist=0
+   s0: Hurricane Nina was the final tropical storm and hurricane of the 1957 Pacific [B hurricane B] season and the last storm to [A form A] during the active Central Pacific hurricane season this year .
+
+[CONF2] dcd1fefa | Hurricane Nina (1957)  A='form'  B='hurricane'  sent-dist=2
+   s0: Hurricane Nina was the final tropical storm and hurricane of the 1957 Pacific [B hurricane B] season and the last storm to form during the active Central Pacific hurricane season this year .
+   s2: This storm was the last to form during a series of typhoons to [A form A] in the Pacific in November .
+
+[CONF2] dcd1fefa | Hurricane Nina (1957)  A='form'  B='hurricane'  sent-dist=3
+   s2: This storm was the last to form during a series of typhoons to [A form A] in the Pacific in November .
+   s5: Nina was the first [B hurricane B] to affect the island of Kauai at that intensity .
+
+[CONF2] dcd1fefa | Hurricane Nina (1957)  A='form'  B='hurricane'  sent-dist=3
+   s2: This storm was the last to [A form A] during a series of typhoons to form in the Pacific in November .
+   s5: Nina was the first [B hurricane B] to affect the island of Kauai at that intensity .
+
+[CONF2] dcd1fefa | Hurricane Nina (1957)  A='form'  B='hurricanes'  sent-dist=1
+   s0: Hurricane Nina was the final tropical storm and hurricane of the 1957 Pacific hurricane season and the last storm to [A form A] during the active Central Pacific hurricane season this year .
+   s1: This storm was named `` Nina '' because during this time , [B hurricanes B] in this basin were given names from the typhoon naming lists .
+
+[CONF1] e1213979 | 2005 Jaunpur train bombing  A='tore'  B='shook'  sent-dist=9
+   s1: The `` Shramjeevi Express '' train was travelling in the afternoon between Jaunpur and Delhi when , at 5.15pm , a sudden explosion [A tore A] through one of the carriages .
+   s10: A few minutes later , the explosion [B shook B] the carriage .
+
+[CONF2] e4bab5a5 | Declaratio Ferdinandei  A='practiced'  B='signed'  sent-dist=2
+   s0: The Declaratio Ferdinandei ( ) was a clause in the Peace of Augsburg , [B signed B] in 1555 to end conflicts between Catholics and Protestants within the Holy Roman Empire .
+   s2: The `` Declaratio Ferdinandei '' exempted knights and some of the cities under the jurisdiction of an ecclesiastical prince if they had [A practiced A] Lutheranism for some time ( Lutheranism was the only branch of Protestantism recognized under the Peace ) .
+
+[CONF2] eec064b0 | Claudy bombing  A='claimed'  B='found'  sent-dist=0
+   s4: The Provisional Irish Republican Army ( IRA ) issued an immediate denial of responsibility , and later [A claimed A] that `` an internal court of inquiry '' had [B found B] that its local unit did not carry out the attack .
+
+[CONF2] eec064b0 | Claudy bombing  A='found'  B='carry out'  sent-dist=0
+   s4: The Provisional Irish Republican Army ( IRA ) issued an immediate denial of responsibility , and later claimed that `` an internal court of inquiry '' had [A found A] that its local unit did not [B carry out B] the attack .
+
+[DISC] ef451445 | Air Florida Flight 90  A='buildup'  B='seeing'  sent-dist=0
+   s11: The pilots failed to switch on the engines ' internal ice protection systems , used reverse thrust in a snowstorm prior to takeoff , tried to use the jet exhaust of a plane in front of them to melt their ice , and failed to abort the takeoff even after detecting a power problem while taxiing and [B seeing B] ice and snow [A buildup A] on the wings .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='struggle'  B='lost'  sent-dist=17
+   s2: The [A struggle A] began with the incorporation of eastern Bulgaria after the Russo–Byzantine War ( 970–971 ) .
+   s19: Bulgaria [B lost B] its independence and remained subject to Byzantium for more than a century and a half , until 1185 .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='controlled'  B='ruled'  sent-dist=1
+   s6: Emperor Boris II was captured and taken to Constantinople where he abdicated and the Byzantine Emperor John I Tzimiskes announced the annexation of Bulgaria , even though the Eastern Roman Empire only [A controlled A] Eastern Bulgaria at the time , but the lands to the west remained under Bulgarian control .
+   s7: The four brothers David , Moses , Aron and Samuel of the Cometopuli dynasty [B ruled B] in the free territories and in 976 launched a major offensive against the Byzantines to regain the lost lands .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='resistance'  B='lost'  sent-dist=16
+   s3: Bulgarian [A resistance A] was led by the Cometopuli brothers , who based in the unconquered western regions of the Bulgarian Empire led it until its fall under Byzantine rule in 1018 .
+   s19: Bulgaria [B lost B] its independence and remained subject to Byzantium for more than a century and a half , until 1185 .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='collapse'  B='lost'  sent-dist=2
+   s19: Bulgaria [B lost B] its independence and remained subject to Byzantium for more than a century and a half , until 1185 .
+   s21: With the [A collapse A] of the first Bulgarian state , the Bulgarian church fell under the domination of Greek ecclesiastics who took control of the see of Ohrid and attempted to replace the Bulgarian Slavic liturgy with a Greek liturgy .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='rule'  B='lost'  sent-dist=16
+   s3: Bulgarian resistance was led by the Cometopuli brothers , who based in the unconquered western regions of the Bulgarian Empire led it until its fall under Byzantine [A rule A] in 1018 .
+   s19: Bulgaria [B lost B] its independence and remained subject to Byzantium for more than a century and a half , until 1185 .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='struggle'  B='remained'  sent-dist=17
+   s2: The [A struggle A] began with the incorporation of eastern Bulgaria after the Russo–Byzantine War ( 970–971 ) .
+   s19: Bulgaria lost its independence and [B remained B] subject to Byzantium for more than a century and a half , until 1185 .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='rule'  B='remained'  sent-dist=16
+   s3: Bulgarian resistance was led by the Cometopuli brothers , who based in the unconquered western regions of the Bulgarian Empire led it until its fall under Byzantine [A rule A] in 1018 .
+   s19: Bulgaria lost its independence and [B remained B] subject to Byzantium for more than a century and a half , until 1185 .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='resistance'  B='remained'  sent-dist=16
+   s3: Bulgarian [A resistance A] was led by the Cometopuli brothers , who based in the unconquered western regions of the Bulgarian Empire led it until its fall under Byzantine rule in 1018 .
+   s19: Bulgaria lost its independence and [B remained B] subject to Byzantium for more than a century and a half , until 1185 .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='collapse'  B='remained'  sent-dist=2
+   s19: Bulgaria lost its independence and [B remained B] subject to Byzantium for more than a century and a half , until 1185 .
+   s21: With the [A collapse A] of the first Bulgarian state , the Bulgarian church fell under the domination of Greek ecclesiastics who took control of the see of Ohrid and attempted to replace the Bulgarian Slavic liturgy with a Greek liturgy .
+
+[DISC] f2bec487 | 2013 Egyptian coup d'état  A='arrested'  B='announcement'  sent-dist=1
+   s3: The military [A arrested A] Morsi and Muslim Brotherhood leaders , and declared Chief Justice of the Supreme Constitutional Court Adly Mansour as the interim president of Egypt .
+   s4: The [B announcement B] was followed by demonstrations and clashes between supporters and opponents of the move throughout Egypt .
+
+[DISC] f2bec487 | 2013 Egyptian coup d'état  A='declared'  B='announcement'  sent-dist=1
+   s3: The military arrested Morsi and Muslim Brotherhood leaders , and [A declared A] Chief Justice of the Supreme Constitutional Court Adly Mansour as the interim president of Egypt .
+   s4: The [B announcement B] was followed by demonstrations and clashes between supporters and opponents of the move throughout Egypt .
+
+[CONF1] f5b3d128 | Pan Am Flight 281  A='apprehended'  B='captured'  sent-dist=1
+   s3: Two of the hijackers were [A apprehended A] in the 1970s .
+   s4: Jose Rafael Rios Cruz was arrested in 1975 ; Miguel Castro was [B captured B] in 1976 .
+
+[DISC] fc0f9c2d | Inauguration of Joseph Estrada  A='resigned'  B='assumed'  sent-dist=1
+   s5: estrada [A resigned A] amidst the second edsa revolution on january 20 , 2001 , two years , six months , and twenty-one days into his term .
+   s6: The then Vice President Gloria Macapagal-Arroyo [B assumed B] the office of President .
+

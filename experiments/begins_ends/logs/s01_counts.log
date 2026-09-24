@@ -1,0 +1,35 @@
+Counts of rare labels per split x edge type (KG target_edges, symmetric duplicates already removed)
+
+BEGINS-ON
+split           EE          ET          TE          TT     total
+DISC           105          67           0          48       220
+CONF1           67          14           0          17        98
+CONF2           41          23           0          21        85
+VALID           25          14           0          30        69
+TRAIN          213         104           0          86       403
+
+ENDS-ON
+split           EE          ET          TE          TT     total
+DISC            70          18           4          92       184
+CONF1           16           5           4          18        43
+CONF2           19           2           2          31        54
+VALID           15           4           0          15        34
+TRAIN          105          25          10         141       281
+
+All edges per split x edge type
+DISC        292719       62685       95934       27940    479278
+CONF1        95352       19774       31846        9776    156748
+CONF2        95433       20211       31942        8783    156369
+VALID       109929       26573       39935       12487    188924
+
+Distinct documents carrying the label (train / valid)
+  BEGINS-ON EE  train   86 docs   valid  15 docs
+  BEGINS-ON ET  train   61 docs   valid  10 docs
+  BEGINS-ON TE  train    0 docs   valid   0 docs
+  BEGINS-ON TT  train   64 docs   valid  26 docs
+  ENDS-ON   EE  train   52 docs   valid   8 docs
+  ENDS-ON   ET  train   19 docs   valid   3 docs
+  ENDS-ON   TE  train    9 docs   valid   0 docs
+  ENDS-ON   TT  train   93 docs   valid   7 docs
+
+example files written: BEGINS-ON_EE(238), BEGINS-ON_ET(118), BEGINS-ON_TT(116), ENDS-ON_EE(120), ENDS-ON_ET(29), ENDS-ON_TE(10), ENDS-ON_TT(156)

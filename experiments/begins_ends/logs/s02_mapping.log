@@ -1,0 +1,190 @@
+Triangles (3 nodes pairwise labelled in gold) containing >= 1 BEGINS-ON/ENDS-ON edge: 17353 in 358 documents
+Per triangle: satisfiable under the endpoint readings? (exact, brute force over endpoint orders)
+
+=== intervals non-degenerate (s < e), as in constraint_net.py ===
+BEGINS-ON reading                    ENDS-ON reading                           bad train     docs  bad valid     docs
+BO=same-start {s,si,e}               EO={b,m} a.e<=b.s (project)                       0        0          0        0   (rare edges in bad: BO 0, EO 0)
+BO=same-start {s,si,e}               EO={m} a.e=b.s (RED formal)                       7        3          0        0   (rare edges in bad: BO 0, EO 7)
+BO=same-start {s,si,e}               EO=same-end {f,fi,e}                            812       95         67       10   (rare edges in bad: BO 0, EO 910)
+BO=same-start {s,si,e}               EO=same-end, head starts first {fi}             812       95         67       10   (rare edges in bad: BO 0, EO 910)
+BO=same-start {s,si,e}               EO=a ends inside b, a starts first                7        3          0        0   (rare edges in bad: BO 0, EO 7)
+BO=same-start {s,si,e}               EO=any (unconstrained)                            0        0          0        0   (rare edges in bad: BO 0, EO 0)
+BO=RED formal a.s=b.e {mi}           EO={b,m} a.e<=b.s (project)                    2532      140        444       37   (rare edges in bad: BO 3119, EO 20)
+BO=RED formal a.s=b.e {mi}           EO={m} a.e=b.s (RED formal)                    2550      146        445       37   (rare edges in bad: BO 3131, EO 43)
+BO=RED formal a.s=b.e {mi}           EO=same-end {f,fi,e}                           3373      224        512       45   (rare edges in bad: BO 3149, EO 964)
+BO=RED formal a.s=b.e {mi}           EO=same-end, head starts first {fi}            3374      224        512       45   (rare edges in bad: BO 3150, EO 965)
+BO=RED formal a.s=b.e {mi}           EO=a ends inside b, a starts first             2546      146        445       37   (rare edges in bad: BO 3127, EO 35)
+BO=RED formal a.s=b.e {mi}           EO=any (unconstrained)                         2512      136        444       37   (rare edges in bad: BO 3099, EO 0)
+BO=same-start, not equal {s,si}      EO={b,m} a.e<=b.s (project)                       0        0          0        0   (rare edges in bad: BO 0, EO 0)
+BO=same-start, not equal {s,si}      EO={m} a.e=b.s (RED formal)                       7        3          0        0   (rare edges in bad: BO 0, EO 7)
+BO=same-start, not equal {s,si}      EO=same-end {f,fi,e}                            816       95         67       10   (rare edges in bad: BO 4, EO 918)
+BO=same-start, not equal {s,si}      EO=same-end, head starts first {fi}             816       95         67       10   (rare edges in bad: BO 4, EO 918)
+BO=same-start, not equal {s,si}      EO=a ends inside b, a starts first                7        3          0        0   (rare edges in bad: BO 0, EO 7)
+BO=same-start, not equal {s,si}      EO=any (unconstrained)                            0        0          0        0   (rare edges in bad: BO 0, EO 0)
+BO=any (unconstrained)               EO={b,m} a.e<=b.s (project)                       0        0          0        0   (rare edges in bad: BO 0, EO 0)
+BO=any (unconstrained)               EO={m} a.e=b.s (RED formal)                       7        3          0        0   (rare edges in bad: BO 0, EO 7)
+BO=any (unconstrained)               EO=same-end {f,fi,e}                            812       95         67       10   (rare edges in bad: BO 0, EO 910)
+BO=any (unconstrained)               EO=same-end, head starts first {fi}             812       95         67       10   (rare edges in bad: BO 0, EO 910)
+BO=any (unconstrained)               EO=a ends inside b, a starts first                7        3          0        0   (rare edges in bad: BO 0, EO 7)
+BO=any (unconstrained)               EO=any (unconstrained)                            0        0          0        0   (rare edges in bad: BO 0, EO 0)
+
+=== intervals may be POINTS (s <= e) ===
+BEGINS-ON reading                    ENDS-ON reading                           bad train     docs  bad valid     docs
+BO=same-start {s,si,e}               EO={b,m} a.e<=b.s (project)                       0        0          0        0   (rare edges in bad: BO 0, EO 0)
+BO=same-start {s,si,e}               EO={m} a.e=b.s (RED formal)                       7        3          0        0   (rare edges in bad: BO 0, EO 7)
+BO=same-start {s,si,e}               EO=same-end {f,fi,e}                            812       95         67       10   (rare edges in bad: BO 0, EO 910)
+BO=same-start {s,si,e}               EO=same-end, head starts first {fi}             812       95         67       10   (rare edges in bad: BO 0, EO 910)
+BO=same-start {s,si,e}               EO=a ends inside b, a starts first                7        3          0        0   (rare edges in bad: BO 0, EO 7)
+BO=same-start {s,si,e}               EO=any (unconstrained)                            0        0          0        0   (rare edges in bad: BO 0, EO 0)
+BO=RED formal a.s=b.e {mi}           EO={b,m} a.e<=b.s (project)                    1142       99        180       30   (rare edges in bad: BO 1322, EO 1)
+BO=RED formal a.s=b.e {mi}           EO={m} a.e=b.s (RED formal)                    1156      105        181       30   (rare edges in bad: BO 1330, EO 16)
+BO=RED formal a.s=b.e {mi}           EO=same-end {f,fi,e}                           1960      182        248       38   (rare edges in bad: BO 1329, EO 918)
+BO=RED formal a.s=b.e {mi}           EO=same-end, head starts first {fi}            1980      187        248       38   (rare edges in bad: BO 1349, EO 938)
+BO=RED formal a.s=b.e {mi}           EO=a ends inside b, a starts first             1175      110        181       30   (rare edges in bad: BO 1349, EO 35)
+BO=RED formal a.s=b.e {mi}           EO=any (unconstrained)                         1141       98        180       30   (rare edges in bad: BO 1321, EO 0)
+BO=same-start, not equal {s,si}      EO={b,m} a.e<=b.s (project)                       0        0          0        0   (rare edges in bad: BO 0, EO 0)
+BO=same-start, not equal {s,si}      EO={m} a.e=b.s (RED formal)                       7        3          0        0   (rare edges in bad: BO 0, EO 7)
+BO=same-start, not equal {s,si}      EO=same-end {f,fi,e}                            816       95         67       10   (rare edges in bad: BO 4, EO 918)
+BO=same-start, not equal {s,si}      EO=same-end, head starts first {fi}             816       95         67       10   (rare edges in bad: BO 4, EO 918)
+BO=same-start, not equal {s,si}      EO=a ends inside b, a starts first                7        3          0        0   (rare edges in bad: BO 0, EO 7)
+BO=same-start, not equal {s,si}      EO=any (unconstrained)                            0        0          0        0   (rare edges in bad: BO 0, EO 0)
+BO=any (unconstrained)               EO={b,m} a.e<=b.s (project)                       0        0          0        0   (rare edges in bad: BO 0, EO 0)
+BO=any (unconstrained)               EO={m} a.e=b.s (RED formal)                       7        3          0        0   (rare edges in bad: BO 0, EO 7)
+BO=any (unconstrained)               EO=same-end {f,fi,e}                            812       95         67       10   (rare edges in bad: BO 0, EO 910)
+BO=any (unconstrained)               EO=same-end, head starts first {fi}             812       95         67       10   (rare edges in bad: BO 0, EO 910)
+BO=any (unconstrained)               EO=a ends inside b, a starts first                7        3          0        0   (rare edges in bad: BO 0, EO 7)
+BO=any (unconstrained)               EO=any (unconstrained)                            0        0          0        0   (rare edges in bad: BO 0, EO 0)
+
+
+(2) What do the witnesses force on the edge itself?  For an edge (a,c), a witness x forces
+    GAP      : a.e < c.s strictly   (makes 'meets' impossible)   e.g. BEFORE(a,x)+BEFORE(x,c)
+    NOGAP    : a.e >= c.s           (makes 'before with a gap' impossible)
+    SAMEEND  / NOTSAMEEND / SAMESTART / NOTSAMESTART likewise.
+    Each witness is evaluated with only its two edges (the edge itself is left unlabelled);
+    readings of the other labels: BASE above, BEGINS-ON=same-start, ENDS-ON=unconstrained (to avoid circularity).
+    Points allowed (s <= e).
+
+label, edge type              n  witness | GAP forc  MEET forb MEET forc SAMEEND fb SAMEST fb SAMEST fc OVL forc 
+BEFORE EE                 78457   100.0% |  95.8%     95.8%      0.0%     96.3%     96.3%      0.0%      0.0%   
+BEFORE ET                 21324   100.0% |  97.8%     97.8%      0.0%     99.2%     98.2%      0.0%      0.0%   
+BEFORE TE                 21916   100.0% |  97.8%     97.8%      0.0%     98.1%     99.2%      0.0%      0.0%   
+BEFORE TT                  8453   100.0% |  91.1%     91.1%      0.0%     98.3%     98.5%      0.0%      0.0%   
+CONTAINS EE                7802    99.7% |   0.0%     75.6%      0.0%     71.5%     73.6%      0.0%     17.3%   
+CONTAINS ET                1709    99.9% |   0.0%     85.8%      0.0%     82.2%     87.9%      0.0%     26.3%   
+CONTAINS TE                8126    99.7% |   0.0%     72.1%      0.0%     69.5%     70.3%      0.0%     13.2%   
+CONTAINS TT                1540   100.0% |   0.0%     80.5%      0.0%     71.1%     77.4%      0.0%     29.5%   
+SIMULTANEOUS EE            1075    99.9% |   0.0%     28.8%      0.0%      0.0%      0.0%     52.1%     28.8%   
+SIMULTANEOUS ET             103   100.0% |   0.0%     29.1%      0.0%      0.0%      0.0%     40.8%     29.1%   
+SIMULTANEOUS TT             247   100.0% |   0.0%     47.8%      0.0%      0.0%      0.0%     42.1%     47.8%   
+OVERLAP EE                  739    96.2% |   0.0%     60.1%      0.0%     53.6%     54.9%      0.0%     60.1%   
+OVERLAP ET                  516    98.8% |   0.0%     72.5%      0.0%     79.5%     90.5%      0.0%     72.5%   
+OVERLAP TE                  722    99.2% |   0.0%     77.3%      0.0%     89.8%     85.6%      0.0%     77.3%   
+OVERLAP TT                  111    99.1% |   0.0%     75.7%      0.0%     87.4%     91.9%      0.0%     75.7%   
+BEGINS-ON EE                238    99.2% |   0.0%     58.0%      0.0%     74.4%      0.0%     70.2%     33.2%   
+BEGINS-ON ET                118    99.2% |   0.0%     47.5%      0.0%     61.9%      0.0%     53.4%     18.6%   
+BEGINS-ON TT                116   100.0% |   0.0%     71.6%      0.0%     77.6%      0.0%     36.2%     57.8%   
+ENDS-ON EE                  120    98.3% |   3.3%      3.3%      0.0%     42.5%     39.2%      0.0%      0.0%   
+ENDS-ON ET                   29    96.6% |   3.4%      3.4%      0.0%     44.8%     41.4%      0.0%      0.0%   
+ENDS-ON TE                   10   100.0% |   0.0%      0.0%      0.0%     30.0%     60.0%      0.0%      0.0%   
+ENDS-ON TT                  156    99.4% |   0.0%      0.0%      0.0%     73.1%     82.1%      0.0%      0.0%   
+  (BEFORE etc. rows are restricted to the 363 documents that contain a rare edge)
+
+(3) Most frequent witness atoms (kind x, L(a,x), L(x,c)) around rare edges; ^-1 = stored reversed
+
+  BEGINS-ON EE  (5478 witness atoms)
+      1200   21.9%  ('E', 'BEFORE', 'BEFORE^-1')
+       777   14.2%  ('E', 'BEFORE^-1', 'BEFORE')
+       675   12.3%  ('E', 'CONTAINS', 'CONTAINS^-1')
+       348    6.4%  ('E', 'CONTAINS', 'BEFORE^-1')
+       336    6.1%  ('T', 'BEFORE', 'BEFORE^-1')
+       250    4.6%  ('E', 'BEFORE', 'CONTAINS^-1')
+       215    3.9%  ('T', 'BEFORE^-1', 'BEFORE')
+       176    3.2%  ('E', 'CONTAINS^-1', 'CONTAINS')
+       174    3.2%  ('T', 'CONTAINS', 'BEFORE^-1')
+       166    3.0%  ('T', 'CONTAINS', 'CONTAINS^-1')
+       161    2.9%  ('T', 'CONTAINS^-1', 'CONTAINS')
+        72    1.3%  ('E', 'SIMULTANEOUS^-1', 'BEGINS-ON')
+
+  BEGINS-ON ET  (2745 witness atoms)
+       738   26.9%  ('E', 'BEFORE', 'BEFORE^-1')
+       589   21.5%  ('E', 'BEFORE^-1', 'BEFORE')
+       256    9.3%  ('E', 'CONTAINS', 'CONTAINS^-1')
+       213    7.8%  ('T', 'BEFORE', 'BEFORE^-1')
+       194    7.1%  ('E', 'CONTAINS', 'BEFORE^-1')
+       183    6.7%  ('T', 'BEFORE^-1', 'BEFORE')
+       123    4.5%  ('T', 'CONTAINS', 'BEFORE^-1')
+        99    3.6%  ('E', 'BEFORE', 'CONTAINS^-1')
+        59    2.1%  ('T', 'CONTAINS', 'CONTAINS^-1')
+        41    1.5%  ('E', 'SIMULTANEOUS', 'BEGINS-ON')
+        41    1.5%  ('E', 'SIMULTANEOUS^-1', 'BEGINS-ON')
+        38    1.4%  ('T', 'CONTAINS^-1', 'CONTAINS')
+
+  BEGINS-ON TT  (2775 witness atoms)
+       545   19.6%  ('E', 'BEFORE^-1', 'BEFORE')
+       468   16.9%  ('E', 'BEFORE', 'BEFORE^-1')
+       309   11.1%  ('E', 'CONTAINS', 'CONTAINS^-1')
+       228    8.2%  ('E', 'BEFORE', 'CONTAINS^-1')
+       212    7.6%  ('T', 'BEFORE', 'BEFORE^-1')
+       211    7.6%  ('E', 'CONTAINS', 'BEFORE^-1')
+       199    7.2%  ('T', 'BEFORE^-1', 'BEFORE')
+       117    4.2%  ('T', 'BEFORE', 'CONTAINS^-1')
+        88    3.2%  ('T', 'CONTAINS', 'BEFORE^-1')
+        64    2.3%  ('E', 'OVERLAP', 'CONTAINS^-1')
+        58    2.1%  ('T', 'CONTAINS', 'CONTAINS^-1')
+        50    1.8%  ('T', 'CONTAINS^-1', 'CONTAINS')
+
+  ENDS-ON EE  (2998 witness atoms)
+       873   29.1%  ('E', 'BEFORE', 'BEFORE^-1')
+       633   21.1%  ('E', 'BEFORE^-1', 'BEFORE')
+       305   10.2%  ('E', 'CONTAINS', 'BEFORE')
+       180    6.0%  ('E', 'BEFORE', 'CONTAINS^-1')
+       176    5.9%  ('T', 'BEFORE^-1', 'BEFORE')
+       173    5.8%  ('T', 'BEFORE', 'BEFORE^-1')
+        94    3.1%  ('T', 'CONTAINS^-1', 'CONTAINS')
+        81    2.7%  ('T', 'CONTAINS', 'BEFORE')
+        56    1.9%  ('E', 'CONTAINS^-1', 'CONTAINS')
+        45    1.5%  ('T', 'BEFORE', 'OVERLAP^-1')
+        45    1.5%  ('T', 'OVERLAP', 'OVERLAP')
+        41    1.4%  ('T', 'OVERLAP^-1', 'BEFORE')
+
+  ENDS-ON ET  (730 witness atoms)
+       285   39.0%  ('E', 'BEFORE^-1', 'BEFORE')
+       128   17.5%  ('E', 'BEFORE', 'BEFORE^-1')
+        76   10.4%  ('T', 'BEFORE^-1', 'BEFORE')
+        62    8.5%  ('E', 'BEFORE', 'CONTAINS^-1')
+        34    4.7%  ('T', 'BEFORE', 'BEFORE^-1')
+        30    4.1%  ('E', 'CONTAINS', 'BEFORE')
+        24    3.3%  ('T', 'CONTAINS', 'BEFORE')
+        17    2.3%  ('T', 'BEFORE', 'CONTAINS^-1')
+        12    1.6%  ('T', 'CONTAINS^-1', 'CONTAINS')
+        12    1.6%  ('E', 'CONTAINS^-1', 'CONTAINS')
+         7    1.0%  ('T', 'SIMULTANEOUS', 'ENDS-ON')
+         5    0.7%  ('E', 'SIMULTANEOUS^-1', 'ENDS-ON')
+
+  ENDS-ON TE  (279 witness atoms)
+        67   24.0%  ('E', 'BEFORE', 'BEFORE^-1')
+        61   21.9%  ('E', 'BEFORE^-1', 'BEFORE')
+        28   10.0%  ('T', 'BEFORE^-1', 'BEFORE')
+        27    9.7%  ('E', 'CONTAINS', 'BEFORE')
+        27    9.7%  ('E', 'BEFORE', 'CONTAINS^-1')
+        26    9.3%  ('T', 'BEFORE', 'BEFORE^-1')
+         9    3.2%  ('T', 'BEFORE', 'CONTAINS^-1')
+         6    2.2%  ('T', 'CONTAINS^-1', 'CONTAINS')
+         4    1.4%  ('E', 'CONTAINS^-1', 'OVERLAP')
+         3    1.1%  ('E', 'BEFORE', 'OVERLAP^-1')
+         3    1.1%  ('E', 'CONTAINS^-1', 'CONTAINS')
+         3    1.1%  ('T', 'CONTAINS', 'BEFORE')
+
+  ENDS-ON TT  (2907 witness atoms)
+       789   27.1%  ('E', 'BEFORE^-1', 'BEFORE')
+       650   22.4%  ('E', 'BEFORE', 'BEFORE^-1')
+       290   10.0%  ('E', 'CONTAINS', 'BEFORE')
+       260    8.9%  ('T', 'BEFORE^-1', 'BEFORE')
+       243    8.4%  ('T', 'BEFORE', 'BEFORE^-1')
+       157    5.4%  ('E', 'BEFORE', 'CONTAINS^-1')
+       116    4.0%  ('E', 'OVERLAP', 'OVERLAP')
+        40    1.4%  ('T', 'CONTAINS^-1', 'CONTAINS')
+        38    1.3%  ('E', 'CONTAINS^-1', 'CONTAINS')
+        37    1.3%  ('T', 'BEFORE', 'CONTAINS^-1')
+        34    1.2%  ('E', 'OVERLAP^-1', 'BEFORE')
+        31    1.1%  ('T', 'CONTAINS', 'BEFORE')

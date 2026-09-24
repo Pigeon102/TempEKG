@@ -1,0 +1,64 @@
+[    0s] nap du lieu ...
+[   27s] train 2908 doc (disc 1715 / conf 1193), valid 705 doc; cap: disc 292719 conf 190785 valid 109929
+[   40s] BASE 257 luat tren valid: macro-F1 25.60%
+[   41s] do chinh xac classifier tren conf: {'CONTAINS': '40.2%', 'SIMULTANEOUS': '17.1%', 'OVERLAP': '35.4%'}
+[   41s] DUR: 2177 lemma co >=20 canh tren disc
+[   42s] GRP: 168 loai event, 149 chieu khung vai tro
+[   42s]    nhom 0: Commerce_pay, Employment, Legal_rulings
+[   42s]    nhom 1: Achieve, Aiming, Arriving, Becoming, Being_in_operation, Besieging, Breathing, Cause_change_of_position_on_a_scale
+[   42s]    nhom 2: Award, Change_of_leadership, Competition, Exchange
+[   42s]    nhom 3: Education_teaching
+[   51s] dieu kien moi da dung
+
+==============================================================================================================
+
+==============================================================================================================
+CHON (tap track, delta, tau) tren CONFIRMATION; base valid 25.60%
+==============================================================================================================
+  LEX                delta 0.00    922 luat  conf macro (tau 5) 26.89%
+  LEX                delta 0.05    719 luat  conf macro (tau 5) 26.89%
+  LEX                delta 0.10    576 luat  conf macro (tau 5) 26.83%
+  LEX                delta 0.15    446 luat  conf macro (tau 5) 26.80%
+  LEX                delta 0.20    265 luat  conf macro (tau 5) 26.76%
+  LEX                delta 0.30     33 luat  conf macro (tau 5) 26.50%
+  DUR                delta 0.00    174 luat  conf macro (tau 5) 26.19%
+  DUR                delta 0.05    105 luat  conf macro (tau 5) 26.72%
+  DUR                delta 0.10     62 luat  conf macro (tau 5) 26.72%
+  DUR                delta 0.15     34 luat  conf macro (tau 5) 26.44%
+  DUR                delta 0.20     19 luat  conf macro (tau 5) 26.43%
+  DUR                delta 0.30      3 luat  conf macro (tau 5) 26.39%
+  LEX+DUR            delta 0.00   1163 luat  conf macro (tau 5) 26.21%
+  LEX+DUR            delta 0.05    876 luat  conf macro (tau 5) 26.82%
+  LEX+DUR            delta 0.10    680 luat  conf macro (tau 5) 26.83%
+  LEX+DUR            delta 0.15    516 luat  conf macro (tau 5) 26.81%
+  LEX+DUR            delta 0.20    308 luat  conf macro (tau 5) 26.76%
+  LEX+DUR            delta 0.30     38 luat  conf macro (tau 5) 26.50%
+  LEX+DUR+CONN       delta 0.00   1256 luat  conf macro (tau 5) 26.19%
+  LEX+DUR+CONN       delta 0.05    956 luat  conf macro (tau 5) 26.80%
+  LEX+DUR+CONN       delta 0.10    751 luat  conf macro (tau 5) 26.81%
+  LEX+DUR+CONN       delta 0.15    567 luat  conf macro (tau 5) 26.83%
+  LEX+DUR+CONN       delta 0.20    341 luat  conf macro (tau 5) 26.80%
+  LEX+DUR+CONN       delta 0.30     42 luat  conf macro (tau 5) 26.51%
+  LEX+DUR+GRP+CONN   delta 0.00   1488 luat  conf macro (tau 5) 26.02%
+  LEX+DUR+GRP+CONN   delta 0.05   1111 luat  conf macro (tau 5) 26.74%
+  LEX+DUR+GRP+CONN   delta 0.10    844 luat  conf macro (tau 5) 26.79%
+  LEX+DUR+GRP+CONN   delta 0.15    635 luat  conf macro (tau 5) 26.82%
+  LEX+DUR+GRP+CONN   delta 0.20    370 luat  conf macro (tau 5) 26.80%
+  LEX+DUR+GRP+CONN   delta 0.30     43 luat  conf macro (tau 5) 26.51%
+  -> chon: LEX, delta 0.05, tau 5 (conf 26.89%)
+
+VALID (mo mot lan): LEX  719 luat  macro-F1 26.15% (+0.55)  doi 1797 dung 40.7%
+   BEFORE        P  94.07%  R  92.53%  F1  93.29%   (base F1  93.50%)
+   CONTAINS      P  39.93%  R  49.26%  F1  44.11%   (base F1  40.61%)
+   SIMULTANEOUS  P  15.92%  R  15.82%  F1  15.87%   (base F1  15.87%)
+   OVERLAP       P  27.50%  R   1.93%  F1   3.61%   (base F1   3.61%)
+   BEGINS-ON     P   0.00%  R   0.00%  F1   0.00%   (base F1   0.00%)
+   ENDS-ON       P   0.00%  R   0.00%  F1   0.00%   (base F1   0.00%)
+
+Doi chieu tren valid (khong dung de chon), cung delta/tau:
+   LEX                  719 luat  macro 26.15% (+0.55)  doi  1797 dung 40.7%
+   DUR                  105 luat  macro 26.14% (+0.54)  doi  2968 dung 34.4%
+   LEX+DUR              876 luat  macro 26.24% (+0.64)  doi  3687 dung 34.4%
+   LEX+DUR+CONN         956 luat  macro 26.17% (+0.57)  doi  4097 dung 32.4%
+   LEX+DUR+GRP+CONN    1111 luat  macro 26.08% (+0.48)  doi  4399 dung 30.7%
+[  425s] xong

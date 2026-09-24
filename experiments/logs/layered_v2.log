@@ -1,0 +1,36 @@
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+[    9s] train con lai 2513 doc (bo 400 doc dau)
+[   10s] loai su kien keo dai (hoc tu anchor van ban tren disc): 27 loai, vd ['Becoming', 'Bringing', 'Cause_to_be_included', 'Change', 'Change_event_time', 'Change_of_leadership', 'Check', 'Choosing']
+[   10s] dung dieu kien theo tang (v2) ...
+[   88s] instance EV-EV: train 372390, valid 109929
+[  205s] pattern theo tang: {'ONT': 358, 'ARG': 600, 'DISC': 476, 'LEX': 261, 'TIME': 152, 'HULL': 27}
+[  205s] posting cho pattern ...
+[  644s] refinement ...
+[  653s] refinement: 1040 luat ({'CONTAINS': 542, 'SIMULTANEOUS': 330, 'OVERLAP': 168})
+[  653s] BH-FDR q=0.05: 695 / 759 luat giu lai
+
+==============================================================================================================
+BAI 1 v2 -- DO THI THEO TANG + Y TUONG FORMAL.md (EV-EV, valid mo mot lan)
+==============================================================================================================
+  giai doan 1                         macro  26.15%  acc  87.59%   | giau thong tin (89743 cap)  26.34%  | ngheo (20186 cap)  23.94%
+  + pattern tung tang (co HULL)       macro  26.16% (+0.01)  acc  87.55%   | giau  26.36%  | ngheo  23.84%   doi 108 dung 29.6%
+      BEFO 93.3  CONT 44.2  SIMU 15.9  OVER 3.6  BEGI 0.0  ENDS 0.0
+  + pattern + refinement + BH-FDR     macro  26.24% (+0.09)  acc  87.59%   | giau  26.42%  | ngheo  24.04%   doi 224 dung 47.3%
+      BEFO 93.3  CONT 44.6  SIMU 15.9  OVER 3.6  BEGI 0.0  ENDS 0.0
+
+  HULL: phan bo hull_cmp tren valid va ty le nhan:
+    unk         n= 87439  BEFORE 90.1%  CONTAINS 8.6%  SIMU 0.8%  OVER 0.5%
+    a_before    n=  9846  BEFORE 98.1%  CONTAINS 1.6%  SIMU 0.2%  OVER 0.1%
+    equal       n=  6553  BEFORE 78.0%  CONTAINS 15.9%  SIMU 4.5%  OVER 1.6%
+    a_contains  n=  2810  BEFORE 83.0%  CONTAINS 16.2%  SIMU 0.6%  OVER 0.2%
+    b_contains  n=  1605  BEFORE 94.2%  CONTAINS 4.0%  SIMU 1.1%  OVER 0.6%
+    b_before    n=   973  BEFORE 82.5%  CONTAINS 15.9%  SIMU 1.3%  OVER 0.0%
+    overlap     n=   703  BEFORE 93.3%  CONTAINS 5.5%  SIMU 0.9%  OVER 0.3%
+    OVERLAP      cwlb 0.177  DISC:(('EQ', 'bucket_a', 'early'), ('conn_btw', 'and')) & ONT:(('EQ', 'type_b', 'Bodily_harm'),)
+    OVERLAP      cwlb 0.177  DISC:(('EQ', 'bucket_b', 'early'), ('conn_btw', 'and')) & ONT:(('EQ', 'type_b', 'Bodily_harm'),)
+    OVERLAP      cwlb 0.173  DISC:(('REL', 'a_before_b', True), ('conn_btw', 'and')) & LEX:(('dur_tgt_b', 'mid'), ('lem_a', 'kill')) & ONT:(('EQ', 'type_b', 'Bodily_harm
+    OVERLAP      cwlb 0.168  ARG:(('CNT', 'anchor_roles', 2), ('HAS', 'anchor_roles', ('Agent', 'Cause'))) & DISC:(('REL', 'a_before_b', True), ('conn_btw', 'and'))
+    OVERLAP      cwlb 0.168  ARG:(('HAS', 'anchor_roles', ('Agent', 'Cause')), ('MIX', 'anchor_roles', None)) & DISC:(('REL', 'a_before_b', True), ('conn_btw', 'and'))
+    OVERLAP      cwlb 0.168  ARG:(('HAS', 'anchor_roles', ('Agent', 'Cause')), ('REL', 'n_anchor', '2+')) & DISC:(('REL', 'a_before_b', True), ('conn_btw', 'and'))
+[ 1171s] xong

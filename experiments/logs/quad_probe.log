@@ -1,0 +1,12 @@
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+[    5s] thong ke gold: 2014 doc, chinh tham so: 499 doc, valid 710 doc
+[   33s] tam giac: thong ke 4376110, chinh 1196481, valid 1825360
+[   42s] mau quad gold: 525191 quad, 4781 cau hinh
+[   44s] canh 'sach' o muc tam giac: sai 7148, dung 104721
+
+CANH KHONG NAM TRONG TAM GIAC BAT THUONG NAO (classifier tang, valid):
+  canh sai : 71.3% nam trong >=1 quad co cau hinh chua gap (trung binh 106 quad/canh)
+  canh dung: 75.6% (trung binh 145 quad/canh)
+  ti so 0.94x
+[   64s] xong

@@ -1,0 +1,67 @@
+<title>Toán học của TempEKG</title>
+<meta name="description" content="Hình thức hoá pipeline TempEKG: chia tập, Allen, ngôn ngữ luật, thống kê, combiner, rút gọn có chứng minh, mô hình năng lượng tam giác, bộ 3/4/5.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --paper:#f5f6f8; --panel:#ffffff; --ink:#1a1e24; --ink-2:#4a5260; --rule:#d9dde4;
+  --accent:#23449c; --accent-soft:#e6ecfa; --code-bg:#eef0f4; --thead:#eceff5;
+  --f-body:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-head:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12151a; --panel:#1a1e25; --ink:#e4e7ec; --ink-2:#a7afbd; --rule:#2e3440;
+    --accent:#8fb0ff; --accent-soft:#1f2a44; --code-bg:#222834; --thead:#202631;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12151a; --panel:#1a1e25; --ink:#e4e7ec; --ink-2:#a7afbd; --rule:#2e3440;
+  --accent:#8fb0ff; --accent-soft:#1f2a44; --code-bg:#222834; --thead:#202631;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.62;margin:0;padding-inline:16px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:230px minmax(0,1fr);gap:40px;padding-block:32px 64px}
+nav.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px);align-self:start;max-height:calc(100vh - 40px);overflow:auto;font-family:var(--f-head);font-size:13.5px;line-height:1.45}
+nav.toc .brand{font-weight:700;letter-spacing:.02em;color:var(--accent);margin-bottom:12px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+nav.toc a{display:block;color:var(--ink-2);text-decoration:none;padding:4px 8px;border-radius:4px}
+nav.toc a:hover,nav.toc a:focus-visible{background:var(--accent-soft);color:var(--ink);outline:none}
+main{min-width:0}
+h1{font-family:var(--f-head);font-size:34px;line-height:1.2;margin:0 0 14px;text-wrap:balance}
+h2{font-family:var(--f-head);font-size:23px;margin:46px 0 12px;padding-top:14px;border-top:1px solid var(--rule);text-wrap:balance}
+h3{font-family:var(--f-head);font-size:18px;margin:28px 0 8px}
+p,li{max-width:74ch}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 14px;padding-left:24px}
+li{margin:4px 0}
+strong{font-weight:600}
+code{font-family:var(--f-mono);font-size:.86em;background:var(--code-bg);padding:1px 5px;border-radius:3px}
+hr{border:0;border-top:1px solid var(--rule);margin:28px 0}
+.display{overflow-x:auto;margin:12px 0 18px;padding:10px 14px;background:var(--panel);border:1px solid var(--rule);border-radius:6px}
+.tbl{overflow-x:auto;margin:10px 0 20px}
+table{border-collapse:collapse;font-family:var(--f-head);font-size:14px;min-width:100%;background:var(--panel)}
+th,td{border:1px solid var(--rule);padding:6px 10px;text-align:left;vertical-align:top;font-variant-numeric:tabular-nums}
+thead th{background:var(--thead);font-weight:600}
+mjx-container{color:var(--ink)}
+mjx-container[display="true"]{margin:.4em 0!important}
+@media (max-width:860px){
+  .wrap{grid-template-columns:1fr;gap:12px}
+  nav.toc{position:static;max-height:none;border-bottom:1px solid var(--rule);padding-bottom:12px}
+  nav.toc ol{flex-direction:row;flex-wrap:wrap}
+  h1{font-size:27px}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+<script>
+window.MathJax = { tex: { inlineMath: [["$", "$"]], displayMath: [["$$", "$$"]] }, svg: { fontCache: "global" } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg-full.js" async></script>
+<div class="wrap">
+<nav class="toc" aria-label="Mục lục"><div class="brand">TempEKG · Toán học</div><ol>{{TOC}}</ol></nav>
+<main>
+{{BODY}}
+</main>
+</div>

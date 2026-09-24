@@ -1,0 +1,535 @@
+ENDS-ON TT: 156 instances (train+valid). Head=A (stored s), tail=B (stored t)
+
+[VALID] 14db8247 | Battle of Harlaw  A='a day [DATE]'  B='a year [DATE]'  sent-dist=1
+   s9: After [A a day A] of fierce fighting there was no clear victor ; Donald had lost 900 men before retreating back to the Western Isles , and Mar had lost 600 .
+   s10: The latter could claim a strategic victory in that Aberdeen was saved , and within [B a year B] Albany had recaptured Ross and forced Donald to surrender .
+
+[VALID] 1538ace3 | Chilean War of Independence  A='1810–1814 [DURATION]'  B='1814–1817 [DURATION]'  sent-dist=0
+   s7: Traditionally , the process is divided into three stages : the `` Patria Vieja '' , [A 1810–1814 A] ; the `` Reconquista '' , [B 1814–1817 B] ; and the `` Patria Nueva '' , 1817–1823 .
+
+[VALID] 1538ace3 | Chilean War of Independence  A='1814–1817 [DURATION]'  B='1817–1823 [DURATION]'  sent-dist=0
+   s7: Traditionally , the process is divided into three stages : the `` Patria Vieja '' , 1810–1814 ; the `` Reconquista '' , [A 1814–1817 A] ; and the `` Patria Nueva '' , [B 1817–1823 B] .
+
+[VALID] 683da139 | 2015 Sampson Flat bushfires  A='2 january 2015 [DATE]'  B='6 January [DATE]'  sent-dist=4
+   s5: This count had increased to 38 houses , 125 outbuildings and 134 injuries by the evening of [B 6 January B] .
+   s9: at the same time , a smaller fire threat was posed near and in the limestone coast region on [A 2 january 2015 A] .
+
+[VALID] 6bd051cc | Munich air disaster  A='that year [DATE]'  B='ten years [DURATION]'  sent-dist=4
+   s13: Thain was cleared in 1968 , [B ten years B] after the incident .
+   s17: The crash not only derailed their title ambitions [A that year A] but also virtually destroyed the nucleus of what promised to be one of the greatest generations of players in English football history .
+
+[VALID] 6bd051cc | Munich air disaster  A='ten years [DURATION]'  B='1968 [DATE]'  sent-dist=0
+   s13: Thain was cleared in [B 1968 B] , [A ten years A] after the incident .
+
+[VALID] 6bd051cc | Munich air disaster  A='10 years [DURATION]'  B='1968 [DATE]'  sent-dist=5
+   s13: Thain was cleared in [B 1968 B] , ten years after the incident .
+   s18: It took [A 10 years A] for the club to recover , with Busby rebuilding the team and winning the European Cup in 1968 with a new generation of `` Babes '' .
+
+[VALID] 6bd051cc | Munich air disaster  A='10 years [DURATION]'  B='1968 [DATE]'  sent-dist=0
+   s18: It took [A 10 years A] for the club to recover , with Busby rebuilding the team and winning the European Cup in [B 1968 B] with a new generation of `` Babes '' .
+
+[VALID] 6bd051cc | Munich air disaster  A='ten years [DURATION]'  B='1968 [DATE]'  sent-dist=5
+   s13: Thain was cleared in 1968 , [A ten years A] after the incident .
+   s18: It took 10 years for the club to recover , with Busby rebuilding the team and winning the European Cup in [B 1968 B] with a new generation of `` Babes '' .
+
+[VALID] 6bd051cc | Munich air disaster  A='that year [DATE]'  B='10 years [DURATION]'  sent-dist=1
+   s17: The crash not only derailed their title ambitions [A that year A] but also virtually destroyed the nucleus of what promised to be one of the greatest generations of players in English football history .
+   s18: It took [B 10 years B] for the club to recover , with Busby rebuilding the team and winning the European Cup in 1968 with a new generation of `` Babes '' .
+
+[VALID] 84ce009a | 2006 state of emergency in the Philippines  A='the morning of February 24 , 2006 [DATE]'  B='one week [DATE]'  sent-dist=12
+   s0: The Philippines was under a state of emergency , announced by presidential spokesperson Ignacio Bunye on [A the morning of February 24 , 2006 A] , by the virtue of Proclamation No .
+   s12: On March 3 , 2006 ( [B one week B] after the proclamation ) , by the virtue of Proclamation No .
+
+[VALID] 84ce009a | 2006 state of emergency in the Philippines  A='one week [DATE]'  B='March 3 , 2006 [DATE]'  sent-dist=8
+   s4: President Arroyo lifted the state of emergency on [B March 3 , 2006 B] by the virtue of Proclamation No .
+   s12: On March 3 , 2006 ( [A one week A] after the proclamation ) , by the virtue of Proclamation No .
+
+[VALID] 84ce009a | 2006 state of emergency in the Philippines  A='one week [DATE]'  B='March 3 , 2006 [DATE]'  sent-dist=0
+   s12: On [B March 3 , 2006 B] ( [A one week A] after the proclamation ) , by the virtue of Proclamation No .
+
+[VALID] cddcdadb | White House Farm murders  A='2004 [DATE]'  B='2012 [DATE]'  sent-dist=0
+   s10: between [A 2004 A] and [B 2012 B] , his lawyers submitted several unsuccessful applications to the criminal cases review commission .
+
+[VALID] fb7f25b0 | British nuclear tests at Maralinga  A='1956 [DATE]'  B='1963 [DATE]'  sent-dist=0
+   s0: British nuclear tests at Maralinga occurred between [A 1956 A] and [B 1963 B] at the Maralinga site , part of the Woomera Prohibited Area in South Australia and about 800 kilometres north-west of Adelaide .
+
+[DISC] 00cb5962 | El Loco-Motion Tour  A='1981 [DATE]'  B='1983 [DATE]'  sent-dist=0
+   s1: The tour took place in North America and Europe from [A 1981 A] through [B 1983 B] .
+
+[DISC] 04e5c75f | Battle of Remagen  A='18 days [DURATION]'  B='25 march 1945 [DATE]'  sent-dist=1
+   s26: over 25,000 troops crossed into germany before the americans broke out of the bridgehead on [B 25 march 1945 B] .
+   s27: This was [A 18 days A] after the bridge had been captured .
+
+[DISC] 04e5c75f | Battle of Remagen  A='17 March [DATE]'  B='18 days [DURATION]'  sent-dist=3
+   s24: It finally collapsed at 3:00 pm on [A 17 March A] , killing 33 American engineers and wounding 63 .
+   s27: This was [B 18 days B] after the bridge had been captured .
+
+[DISC] 04e5c75f | Battle of Remagen  A='10 days [DURATION]'  B='18 days [DURATION]'  sent-dist=19
+   s8: over the next [A 10 days A] , after its capture on 7 march 1945 and until its failure on 17 march , the germans used virtually every weapon at their disposal to try to destroy the bridge .
+   s27: This was [B 18 days B] after the bridge had been captured .
+
+[DISC] 04e5c75f | Battle of Remagen  A='17 march [DATE]'  B='18 days [DURATION]'  sent-dist=19
+   s8: over the next 10 days , after its capture on 7 march 1945 and until its failure on [A 17 march A] , the germans used virtually every weapon at their disposal to try to destroy the bridge .
+   s27: This was [B 18 days B] after the bridge had been captured .
+
+[DISC] 052e122f | Operation Summer Rains  A='August [DATE]'  B='September 2005 [DATE]'  sent-dist=0
+   s2: This was the first major ground operation in the Gaza Strip since Israel 's unilateral disengagement plan was implemented between [A August A] and [B September 2005 B] .
+
+[DISC] 059b5f91 | Epitaph World Tour  A='June 2011 [DATE]'  B='May 2012 [DATE]'  sent-dist=0
+   s1: The tour commenced in [A June 2011 A] and concluded in [B May 2012 B] .
+
+[DISC] 07503283 | Somali Civil War  A='2008 [DATE]'  B='2013 [DATE]'  sent-dist=0
+   s18: Somalia topped the annual Fragile States Index for six years between [A 2008 A] and [B 2013 B] .
+
+[DISC] 0794edac | November 2014 North American cold wave  A='November 23 [DATE]'  B='November 24 [DATE]'  sent-dist=0
+   s8: On [A November 23 A] , a warming trend primarily in the Eastern United States brought an end to the cold wave ; however , below-average temperatures were forecast to return to the Midwest by [B November 24 B] .
+
+[DISC] 1273db86 | Midburn  A='May [DATE]'  B='June [DATE]'  sent-dist=0
+   s5: The burn is held every year in [A May A] or [B June B] , around the Hebrew holiday of `` Shavuot '' ( Pentecost ) , and culminates in a bonfire of wooden sculptures .
+
+[CONF2] 1326eae9 | Indian Civil Aviation Airshow  A='15 [DATE]'  B='18 October 2008 [DATE]'  sent-dist=0
+   s1: The first show , India Aviation 2008 , was held from [A 15 A] to [B 18 October 2008 B] .
+
+[CONF1] 13aae32a | 2015 Burundian coup d'état attempt  A='13–14 May [DATE]'  B='14 May [DATE]'  sent-dist=3
+   s4: Nevertheless , the head of the armed forces , Prime Niyongabo , said on state radio during the night of [A 13–14 May A] that the coup attempt had been defeated , and he called on rebel soldiers to surrender .
+   s7: Nkurunziza 's office announced the president 's successful return to Burundi on [B 14 May B] , as army and police loyal to Nkurunziza regained control of much of Bujumbura .
+
+[CONF1] 13aae32a | 2015 Burundian coup d'état attempt  A='13 May 2015 [DATE]'  B='13–14 May [DATE]'  sent-dist=4
+   s0: On [A 13 May 2015 A] , army general Godefroid Niyombare said that he was `` dismissing President Pierre Nkurunziza '' following the 2015 Burundian unrest .
+   s4: Nevertheless , the head of the armed forces , Prime Niyongabo , said on state radio during the night of [B 13–14 May B] that the coup attempt had been defeated , and he called on rebel soldiers to surrender .
+
+[CONF2] 14f8d86f | Scotland in the Wars of the Three Kingdoms  A='1639 [DATE]'  B='1653 [DATE]'  sent-dist=0
+   s0: Between [A 1639 A] and [B 1653 B] , Scotland was involved in the Wars of the Three Kingdoms , a series of wars starting with the Bishops Wars ( between Scotland and England ) , the Irish Rebellion of 1641 , the English Civil War ( and its extension in Scotland ) , the Irish Confederate Wars , and finally the subjugation of Ireland and Scotland by the English Roundhead New Model Army .
+
+[CONF2] 14f8d86f | Scotland in the Wars of the Three Kingdoms  A='1639 [DURATION]'  B='1653 [DATE]'  sent-dist=1
+   s0: Between 1639 and [B 1653 B] , Scotland was involved in the Wars of the Three Kingdoms , a series of wars starting with the Bishops Wars ( between Scotland and England ) , the Irish Rebellion of 1641 , the English Civil War ( and its extension in Scotland ) , the Irish Confederate Wars , and finally the subjugation of Ireland and Scotland by the English Roundhead New Model Army .
+   s1: In Scotland itself , from 1644–45 a Scottish civil war was fought between Scottish Royalists—supporters of Charles I under James Graham , 1st Marquis of Montrose—and the Covenanters , who had controlled Scotland since [A 1639 A] and allied with the English Parliament .
+
+[DISC] 1abfbb3c | Musket Wars  A='the following years [DATE]'  B='1835 [DATE]'  sent-dist=2
+   s5: In [A the following years A] he launched equally successful raids on `` iwi '' in Auckland , Thames , Waikato and Lake Rotorua , taking large numbers of his enemies as slaves , who were put to work cultivating and dressing flax to trade with Europeans for more muskets .
+   s7: In [B 1835 B] the fighting went offshore as Ngāti Mutunga and Ngāti Tama launched devastating raids on the pacifist Moriori in the Chatham Islands .
+
+[DISC] 1abfbb3c | Musket Wars  A='1818 [DATE]'  B='the following years [DATE]'  sent-dist=1
+   s4: Ngāpuhi chief Hongi Hika in [A 1818 A] used newly acquired muskets to launch devastating raids from his Northland base into the Bay of Plenty , where local Māori were still relying on traditional weapons of wood and stone .
+   s5: In [B the following years B] he launched equally successful raids on `` iwi '' in Auckland , Thames , Waikato and Lake Rotorua , taking large numbers of his enemies as slaves , who were put to work cultivating and dressing flax to trade with Europeans for more muskets .
+
+[CONF2] 1b6a500e | Texas Revolution  A='october 2 , 1835 [DATE]'  B='april 21 , 1836 [DATE]'  sent-dist=0
+   s0: the texas revolution ( [A october 2 , 1835 A] UNK [B april 21 , 1836 B] ) was a rebellion of colonists from the united states and tejanos ( texas mexicans ) in putting up armed resistance to the centralist government of mexico .
+
+[DISC] 1ce39a03 | War of 1812  A='June 1812 [DATE]'  B='February 1815 [DATE]'  sent-dist=0
+   s0: The War of 1812 was a conflict fought between the United States and the United Kingdom , with their respective allies , from [A June 1812 A] to [B February 1815 B] .
+
+[CONF2] 1f1cf6e0 | Indonesian National Revolution  A='four-year [DURATION]'  B='1949 [DATE]'  sent-dist=2
+   s2: The [A four-year A] struggle involved sporadic but bloody armed conflict , internal Indonesian political and communal upheavals , and two major international diplomatic interventions .
+   s4: By [B 1949 B] , international pressure on the Netherlands and the partial military stalemate became such that it recognised Indonesian independence .
+
+[DISC] 230b73dc | 5 October 1910 revolution  A='3 [DATE]'  B='4 October 1910 [DATE]'  sent-dist=0
+   s5: After a reluctance of the military to combat the nearly two thousand soldiers and sailors that rebelled between [A 3 A] and [B 4 October 1910 B] , the Republic was proclaimed at 9 o'clock a.m of the next day from the balcony of the Lisbon City Hall in Lisbon .
+
+[CONF1] 2605590e | O_ The 2nd Asia Tour  A='2007 [DATE]'  B='2008 [DATE]'  sent-dist=0
+   s3: Selling out almost all shows in arenas and stadiums across Asia throughout [A 2007 A] and [B 2008 B] , the O Tour was TVXQ 's most commercially successful international concert tour with an audience of 390,000 .
+
+[CONF1] 2605590e | O_ The 2nd Asia Tour  A='February 23 [DATE]'  B='25 , 2007 [DATE]'  sent-dist=0
+   s4: The tour commenced with three shows in Seoul , South Korea from [A February 23 A] to [B 25 , 2007 B] at the Olympic Gymnastics Arena .
+
+[DISC] 28231abf | Croatian War of Independence  A='1991 [DATE]'  B='1995 [DATE]'  sent-dist=0
+   s0: The Croatian War of Independence was fought from [A 1991 A] to [B 1995 B] between Croat forces loyal to the government of Croatia—which had declared independence from the Socialist Federal Republic of Yugoslavia ( SFRY ) —and the Serb-controlled Yugoslav People 's Army ( JNA ) and local Serb forces , with the JNA ending its combat operations in Croatia by 1992 .
+
+[DISC] 28231abf | Croatian War of Independence  A='2008 [DATE]'  B='2012 [DATE]'  sent-dist=0
+   s17: between [A 2008 A] and [B 2012 B] , the icty had prosecuted croatian generals ante gotovina , mladen UNK and ivan unk for alleged involvement in the crimes related to operation storm .
+
+[DISC] 2aa24e67 | Operation Brevity  A='15 May [DATE]'  B='16 May [DATE]'  sent-dist=2
+   s10: With limited battle-ready units to draw on in the wake of Rommel 's recent successes , on [A 15 May A] Brigadier William Gott attacked in three columns with a mixed infantry and armoured force .
+   s12: Gott—concerned that his forces were in danger of being caught by German armour in open ground—conducted a staged withdrawal to the Halfaya Pass on [B 16 May B] , and Brevity was closed down .
+
+[DISC] 2d061775 | Battle of Route Coloniale 4  A='February [DATE]'  B='April [DATE]'  sent-dist=0
+   s13: From [A February A] to [B April B] , his operation `` Le Hong Phong I '' developed through the Red River Valley , largely giving the Việt Minh control of northwestern Tonkin , near the Chinese border .
+
+[DISC] 2d061775 | Battle of Route Coloniale 4  A='30 September [DATE]'  B='18 October 1950 [DATE]'  sent-dist=0
+   s5: The battle lasted from [A 30 September A] to [B 18 October 1950 B] and resulted in a French defeat .
+
+[CONF2] 3161821e | Second Northern War  A='1657–58 [DURATION]'  B='1658 [DATE]'  sent-dist=16
+   s0: The Second Northern War ( 1655–60 , also First or Little Northern War ) was fought between Sweden and its adversaries the Polish–Lithuanian Commonwealth ( 1655–60 ) , the Moscow Tsardom ( 1656–58 ) , Brandenburg-Prussia ( 1657–60 ) , the Habsburg Monarchy ( 1657–60 ) and Denmark–Norway ( [A 1657–58 A] and 1658–60 ) .
+   s16: In [B 1658 B] Charles X Gustav decided that instead of returning to the remaining Swedish strongholds in Poland–Lithuania , he would rather attack Denmark again .
+
+[CONF2] 3161821e | Second Northern War  A='1657–58 [DURATION]'  B='1658–60 [DURATION]'  sent-dist=0
+   s0: The Second Northern War ( 1655–60 , also First or Little Northern War ) was fought between Sweden and its adversaries the Polish–Lithuanian Commonwealth ( 1655–60 ) , the Moscow Tsardom ( 1656–58 ) , Brandenburg-Prussia ( 1657–60 ) , the Habsburg Monarchy ( 1657–60 ) and Denmark–Norway ( [A 1657–58 A] and [B 1658–60 B] ) .
+
+[CONF2] 3161821e | Second Northern War  A='1657–58 [DURATION]'  B='1658 [DATE]'  sent-dist=21
+   s0: The Second Northern War ( 1655–60 , also First or Little Northern War ) was fought between Sweden and its adversaries the Polish–Lithuanian Commonwealth ( 1655–60 ) , the Moscow Tsardom ( 1656–58 ) , Brandenburg-Prussia ( 1657–60 ) , the Habsburg Monarchy ( 1657–60 ) and Denmark–Norway ( [A 1657–58 A] and 1658–60 ) .
+   s21: sweden had already concluded a truce with russia in [B 1658 B] , which gave way to a final settlement in the treaty of unk in 1661 .
+
+[DISC] 44fbb2cb | Nivelle Offensive  A='1 [DATE]'  B='4 April [DATE]'  sent-dist=0
+   s4: The Franco-British attacks were tactically successful ; the French Third Army of `` Groupe d'armées du Nord '' ( GAN , Northern Army Group ) captured the German defences west of the Hindenburg Line near St. Quentin from [A 1 A] to [B 4 April B] , before further attacks were repulsed .
+
+[DISC] 459322bd | Jebel Akhdar War  A='1957 [DATE]'  B='1959 [DURATION]'  sent-dist=3
+   s0: The Jebel Akhdar War ( ) or the Jebel Akhdar rebellion broke out in 1954 and again in [A 1957 A] in Oman , as an effort by the local Omanis in the interior of Oman led by their elected Imam , Ghalib Alhinai , to protect the Imamate of Oman from the occupation plans of Sultan Said bin Taimur , backed by the British government , who were eager to gain access to the oil wells in the interior lands of Oman .
+   s3: The war lasted until [B 1959 B] , when the British armed forces decided to take on direct interventions using air and ground attacks on the Imamate , which won the Sultanate the war .
+
+[DISC] 46dce73e | Best of Both Worlds Tour  A='October 2007 [DATE]'  B='January 2008 [DATE]'  sent-dist=0
+   s2: It initiated in [A October 2007 A] and concluded in [B January 2008 B] , visiting cities in the United States and Canada .
+
+[DISC] 47b298e6 | Hundred Years' War (1415–53)  A='1415 [DATE]'  B='1453 [DATE]'  sent-dist=0
+   s1: It lasted from [A 1415 A] , when King Henry V of England invaded Normandy , to [B 1453 B] , when the English lost Bordeaux .
+
+[DISC] 47b298e6 | Hundred Years' War (1415–53)  A='1415 [DATE]'  B='1453 [DATE]'  sent-dist=13
+   s1: It lasted from [A 1415 A] , when King Henry V of England invaded Normandy , to 1453 , when the English lost Bordeaux .
+   s14: the battle of castillon ( [B 1453 B] ) was the final action of the hundred years ' war , but france and england remained formally at war until the treaty of picquigny in 1475 .
+
+[DISC] 48b8765f | Operation Turkey Buzzard  A='March [DATE]'  B='August 1943 [DATE]'  sent-dist=0
+   s0: Operation Turkey Buzzard , also known as Operation Beggar , was a British supply mission to North Africa that took place between [A March A] and [B August 1943 B] , during the Second World War .
+
+[DISC] 4abd6f18 | Kargil War  A='may [DATE]'  B='july 1999 [DATE]'  sent-dist=0
+   s0: the kargil war , also known as the kargil conflict , was an armed conflict between india and pakistan that took place between [A may A] and [B july 1999 B] in the kargil district of kashmir and elsewhere along the line of control ( loc ) .
+
+[CONF1] 4aecc2b4 | Granada War  A='1482 [DATE]'  B='1491 [DATE]'  sent-dist=0
+   s0: The Granada War ( ) was a series of military campaigns between [A 1482 A] and [B 1491 B] , during the reign of the Catholic Monarchs ( ) Isabella I of Castile and Ferdinand II of Aragon , against the Nasrid dynasty 's Emirate of Granada .
+
+[CONF1] 4aecc2b4 | Granada War  A='1475–1479 [DURATION]'  B='1479 [DATE]'  sent-dist=3
+   s36: The war raged from [A 1475–1479 A] , setting Isabella 's supporters and the Crown of Aragon against Joanna 's supporters , Portugal , and France .
+   s39: In [B 1479 B] , the Succession War concluded with Isabella victorious .
+
+[CONF1] 4b388b91 | The Bamboozle  A='2012 [DATE]'  B='2013 [DATE]'  sent-dist=3
+   s0: The Bamboozle was an annual three-day music festival held in New Jersey from 2003 to [A 2012 A] .
+   s3: In 2012 , creator John D left Bamboozle due to creative differences with Live Nation and he will be reviving Skate and Surf Festival in [B 2013 B] .
+
+[CONF1] 4b388b91 | The Bamboozle  A='2012 [DATE]'  B='2013 [DATE]'  sent-dist=6
+   s0: The Bamboozle was an annual three-day music festival held in New Jersey from 2003 to [A 2012 A] .
+   s6: It has also been announced that there will not be a Bamboozle festival in [B 2013 B] and the future of the festival is unknown .
+
+[CONF1] 4b388b91 | The Bamboozle  A='2012 [DATE]'  B='2013 [DATE]'  sent-dist=3
+   s3: In [A 2012 A] , creator John D left Bamboozle due to creative differences with Live Nation and he will be reviving Skate and Surf Festival in 2013 .
+   s6: It has also been announced that there will not be a Bamboozle festival in [B 2013 B] and the future of the festival is unknown .
+
+[CONF1] 4b388b91 | The Bamboozle  A='2012 [DATE]'  B='2013 [DATE]'  sent-dist=0
+   s3: In [A 2012 A] , creator John D left Bamboozle due to creative differences with Live Nation and he will be reviving Skate and Surf Festival in [B 2013 B] .
+
+[DISC] 4f1ad06d | 2015 Southeast Asian Games  A='5 [DATE]'  B='16 June 2015 [DATE]'  sent-dist=0
+   s4: The games were held from [A 5 A] to [B 16 June 2015 B] , although several events had commenced from 29 May 2015 .
+
+[DISC] 57d23a29 | Provisional Irish Republican Army campaign  A='1971–72 [DURATION]'  B='1972 [DATE]'  sent-dist=2
+   s3: From [A 1971–72 A] , the IRA took to the offensive and conducted a relatively high intensity campaign against the British and Northern Ireland security forces and the infrastructure of the state .
+   s5: The IRA declared a brief ceasefire in [B 1972 B] and a more protracted one in 1975 , when there was an internal debate over the feasibility of future operations .
+
+[CONF1] 5d25d35a | Inqilab March  A='august [DATE]'  B='september 2014 [DATE]'  sent-dist=0
+   s0: the inqilab march ( unk unk ) ( english : march for revolution ) was a public protest by the pakistan awami tehrik ( pat ) party occurring in [A august A] and [B september 2014 B] .
+
+[DISC] 5d691ad7 | 2012 Bangladesh Premier League  A='18 [DATE]'  B='19 January [DATE]'  sent-dist=0
+   s6: The franchise auction was held on 10 January and the player auction took place on [A 18 A] and [B 19 January B] .
+
+[DISC] 5e269eb0 | Oxegen 2013  A='2012 [DATE]'  B='April 2013 [DATE]'  sent-dist=0
+   s2: It was confirmed on the official Oxegen website in [B April 2013 B] that the festival would return to the Irish festival line-up this summer , after a one-year hiatus in [A 2012 A] .
+
+[DISC] 5e269eb0 | Oxegen 2013  A='one-year [DURATION]'  B='2013 [DATE]'  sent-dist=2
+   s0: Oxegen [B 2013 B] was the ninth Oxegen festival to take place since 2004 .
+   s2: It was confirmed on the official Oxegen website in April 2013 that the festival would return to the Irish festival line-up this summer , after a [A one-year A] hiatus in 2012 .
+
+[DISC] 5e269eb0 | Oxegen 2013  A='Friday 2 August [DATE]'  B='Sunday [DATE]'  sent-dist=0
+   s1: It took place on the weekend of [A Friday 2 August A] , Saturday , 3 August and [B Sunday B] , 4 August at Punchestown Racecourse near Naas in County Kildare , Ireland .
+
+[DISC] 5e269eb0 | Oxegen 2013  A='Saturday [DATE]'  B='Sunday [DATE]'  sent-dist=0
+   s1: It took place on the weekend of Friday 2 August , [A Saturday A] , 3 August and [B Sunday B] , 4 August at Punchestown Racecourse near Naas in County Kildare , Ireland .
+
+[DISC] 5e269eb0 | Oxegen 2013  A='Saturday [DATE]'  B='3 August [DATE]'  sent-dist=0
+   s1: It took place on the weekend of Friday 2 August , [A Saturday A] , [B 3 August B] and Sunday , 4 August at Punchestown Racecourse near Naas in County Kildare , Ireland .
+
+[DISC] 5e269eb0 | Oxegen 2013  A='3 August [DATE]'  B='4 August [DATE]'  sent-dist=0
+   s1: It took place on the weekend of Friday 2 August , Saturday , [A 3 August A] and Sunday , [B 4 August B] at Punchestown Racecourse near Naas in County Kildare , Ireland .
+
+[DISC] 5e269eb0 | Oxegen 2013  A='Friday 2 August [DATE]'  B='3 August [DATE]'  sent-dist=0
+   s1: It took place on the weekend of [A Friday 2 August A] , Saturday , [B 3 August B] and Sunday , 4 August at Punchestown Racecourse near Naas in County Kildare , Ireland .
+
+[DISC] 5e269eb0 | Oxegen 2013  A='Sunday [DATE]'  B='4 August [DATE]'  sent-dist=0
+   s1: It took place on the weekend of Friday 2 August , Saturday , 3 August and [A Sunday A] , [B 4 August B] at Punchestown Racecourse near Naas in County Kildare , Ireland .
+
+[CONF2] 5e918ba9 | Occupy Melbourne  A='late 2011 [DATE]'  B='mid 2012 [DATE]'  sent-dist=0
+   s0: Occupy Melbourne was a social movement which took place from [A late 2011 A] to [B mid 2012 B] in Melbourne , Australia as part of the global Occupy movement .
+
+[DISC] 6869a168 | 2011 Jerusalem bus stop bombing  A='6 years later [DATE]'  B='22 November 2017 [DATE]'  sent-dist=0
+   s2: The explosion killed 2 people , a British national : 59-year-old Mary Jean Gardner , a Scottish Christian Bible translator who was studying Hebrew at the Hebrew University of Jerusalem 's Rothberg International School and Hodaya Asulin who died [A 6 years later A] on [B 22 November 2017 B] , she was 14 at the time of the bombing .
+
+[DISC] 68b6d851 | Battle of Krasnoi  A='November 15 [DATE]'  B='18 , 1812 [DATE]'  sent-dist=0
+   s0: The Battle of Krasnoi ( `` Krasny '' ) ( [A November 15 A] to [B 18 , 1812 B] ) was a series of skirmishes fought in the final stage of Napoleon 's retreat from Moscow .
+
+[CONF1] 6ebe508d | Watch the Throne Tour  A='October 28 , 2011 [DATE]'  B='June 22 , 2012 [DURATION]'  sent-dist=0
+   s0: The Watch The Throne Tour was a co-headlining concert tour by American rappers Jay-Z and Kanye West that began on [A October 28 , 2011 A] in Atlanta and continued until [B June 22 , 2012 B] with its final show scheduled in Birmingham .
+
+[DISC] 73493da4 | Operation Martyr Yalçın  A='25 july 2015 [DATE]'  B='25 July [TIME]'  sent-dist=6
+   s0: operation martyr UNK ( ) was a military operation conducted by the turkish air force against islamic state of iraq and the levant ( unk ) positions in syria , and kurdistan workers ' party ( pkk ) positions in northern iraq , on 24 and [A 25 july 2015 A] .
+   s6: After [B 25 July B] , Turkey stopped its airstrikes on ISIL but continued with those against the PKK .
+
+[DISC] 73493da4 | Operation Martyr Yalçın  A='25 july [DATE]'  B='25 July [TIME]'  sent-dist=2
+   s4: airstrikes were launched by f-16 fighter jets taking off from UNK and unk air base on 24 july and [A 25 july A] .
+   s6: After [B 25 July B] , Turkey stopped its airstrikes on ISIL but continued with those against the PKK .
+
+[CONF1] 75ef9cd3 | Siege of Porto  A='July 1832 [DATE]'  B='August 1833 [DATE]'  sent-dist=0
+   s0: The Siege of Porto is considered the period between [A July 1832 A] and [B August 1833 B] in which the troops of Dom Pedro remained besieged by the forces of Dom Miguel I of Portugal .
+
+[DISC] 77b4ce30 | Fleetwood Mac Live  A='December 31-January 1 [DURATION]'  B='january 1 [DATE]'  sent-dist=1
+   s9: The last public show was played on December 30 , and the two privates shows were performed from [A December 31-January 1 A] and January 8 .
+   s10: at midnight on [B january 1 B] fleetwood mac performed `` unk lang syne '' to their private audience .
+
+[DISC] 77b4ce30 | Fleetwood Mac Live  A='three days earlier [DATE]'  B='April 18 , 2013 [DATE]'  sent-dist=0
+   s2: The [B April 18 , 2013 B] stop in Boston , Massachusetts was one of the first major performances given in the city following the Boston Marathon bombings [A three days earlier A] .
+
+[DISC] 78be98f1 | Battle of Modena (1799)  A='17 [DATE]'  B='19 June [DATE]'  sent-dist=0
+   s8: The next action would be the Battle of Trebbia from [A 17 A] to [B 19 June B] .
+
+[CONF2] 7aba51d3 | Hussite Wars  A='1419 [DATE]'  B='approximately 1434 [DATE]'  sent-dist=0
+   s2: These wars lasted from [A 1419 A] to [B approximately 1434 B] .
+
+[DISC] 7d4e6002 | Battle of Luding Bridge  A='less than 24 hours [DURATION]'  B='May 29 , 1935 [DATE]'  sent-dist=2
+   s8: The 4th regiment then marched 120 km in [A less than 24 hours A] .
+   s10: On the dawn of [B May 29 , 1935 B] , Lin Biao 's troops reached the bridge , only to discover that local warlords allied with the ruling Kuomintang had removed most of the planks on the bridge .
+
+[CONF1] 80c7ee01 | Warsaw Uprising (1794)  A='17 April 1794 [DATE]'  B='two more days [DURATION]'  sent-dist=8
+   s2: It began on [A 17 April 1794 A] , soon after Tadeusz Kościuszko 's victory at the Battle of Racławice .
+   s10: The isolated Russian forces resisted in several areas for [B two more days B] .
+
+[CONF1] 8270504a | 1993 Men's World Ice Hockey Championships  A='18 April [DATE]'  B='2 May 1994 [DATE]'  sent-dist=0
+   s3: The top Championship Group A tournament took place in Germany from [A 18 April A] to [B 2 May 1994 B] , with games played in Munich and Dortmund .
+
+[DISC] 83cf602a | Quasi-War  A='1798 [DATE]'  B='1800 [DATE]'  sent-dist=0
+   s0: The Quasi-War ( ) was an undeclared war fought almost entirely at sea between the United States and France from [A 1798 A] to [B 1800 B] , which broke out during the beginning of John Adams 's presidency .
+
+[DISC] 83cf602a | Quasi-War  A='1798 [DATE]'  B='1800 [DATE]'  sent-dist=12
+   s0: The Quasi-War ( ) was an undeclared war fought almost entirely at sea between the United States and France from [A 1798 A] to 1800 , which broke out during the beginning of John Adams 's presidency .
+   s12: Hostilities ended with the signing of the Convention of [B 1800 B] .
+
+[DISC] 83cf602a | Quasi-War  A='1798 [DATE]'  B='1800 [DATE]'  sent-dist=11
+   s0: The Quasi-War ( ) was an undeclared war fought almost entirely at sea between the United States and France from [A 1798 A] to 1800 , which broke out during the beginning of John Adams 's presidency .
+   s11: In [B 1800 B] he sent William Vans Murray to France to negotiate peace ; the Federalists cried betrayal .
+
+[DISC] 86893bc9 | Turkish War of Independence  A='13 November 1918 [DATE]'  B='14 November [DATE]'  sent-dist=2
+   s12: On [A 13 November 1918 A] , a French brigade entered the city to begin the Occupation of Constantinople and its immediate dependencies , followed by a fleet consisting of British , French , Italian and Greek ships deploying soldiers on the ground the next day .
+   s14: On [B 14 November B] , joint Franco-Greek troops occupied the town of Uzunköprü in Eastern Thrace as well as the railway axis till the train station of Hadımköy near Çatalca on the outskirts of Constantinople .
+
+[CONF2] 8ab7133e | Siege of Antwerp (1914)  A='late september [DATE]'  B='early october [DATE]'  sent-dist=0
+   s2: the belgian forces in antwerp conducted three sorties in [A late september A] and [B early october B] , which interrupted german plans to send troops to france , where reinforcements were needed to counter the french armies and the british expeditionary force ( bef ) .
+
+[CONF2] 8ab7133e | Siege of Antwerp (1914)  A='October [DATE]'  B='November 1914 [DATE]'  sent-dist=0
+   s7: Belgian troops from Antwerp withdrew to the Yser river , close to the French border and dug in , to begin the defence of the last unoccupied part of Belgium and fought the Battle of the Yser against the German 4th Army in [A October A] and [B November 1914 B] .
+
+[DISC] 96d94b94 | Assassination of John F. Kennedy  A='12:30 p.m. [TIME]'  B='30 minutes [TIME]'  sent-dist=3
+   s0: John Fitzgerald Kennedy , the 35th President of the United States , was assassinated on November 22 , 1963 , at [A 12:30 p.m. A] Central Standard Time in Dallas , Texas , while riding in a presidential motorcade through Dealey Plaza .
+   s3: The motorcade rushed to Parkland Memorial Hospital where President Kennedy was pronounced dead about [B 30 minutes B] after the shooting ; Connally recovered from his injuries .
+
+[DISC] 96d94b94 | Assassination of John F. Kennedy  A='12:30 p.m. [TIME]'  B='70 minutes [TIME]'  sent-dist=4
+   s0: John Fitzgerald Kennedy , the 35th President of the United States , was assassinated on November 22 , 1963 , at [A 12:30 p.m. A] Central Standard Time in Dallas , Texas , while riding in a presidential motorcade through Dealey Plaza .
+   s4: Oswald was arrested by the Dallas Police Department [B 70 minutes B] after the initial shooting .
+
+[DISC] 994a8853 | New Zealand Wars  A='1845 [DATE]'  B='1872 [DATE]'  sent-dist=0
+   s0: The New Zealand Wars were a series of armed conflicts that took place in New Zealand from [A 1845 A] to [B 1872 B] between the Colonial government and allied Māori on one side and Māori and Māori-allied settlers on the other .
+
+[DISC] 9a48a710 | Bình Hòa massacre  A='December 3 [DATE]'  B='December 6 , 1966 [DATE]'  sent-dist=0
+   s0: The Bình Hòa Massacre was a massacre purportedly conducted by South Korean forces between [A December 3 A] and [B December 6 , 1966 B] , of 430 unarmed citizens in Bình Hòa village , Quảng Ngãi Province in South Vietnam .
+
+[DISC] 9a48a710 | Bình Hòa massacre  A='The Bình Hòa Massacre [DATE]'  B='December 6 , 1966 [DATE]'  sent-dist=0
+   s0: [A The Bình Hòa Massacre A] was a massacre purportedly conducted by South Korean forces between December 3 and [B December 6 , 1966 B] , of 430 unarmed citizens in Bình Hòa village , Quảng Ngãi Province in South Vietnam .
+
+[DISC] 9b88ed5b | Wildflower! Arts and Music Festival  A='the March [DATE]'  B='May [DATE]'  sent-dist=0
+   s2: It began in 1993 as a small community event held in a local park in northeast Richardson , Texas , and got its name from [A the March A] through [B May B] celebration season when wildflowers blossom throughout the city .
+
+[CONF1] 9d7593f2 | One-Two-GO Airlines Flight 269  A='2009 [DATE]'  B='2010 [DATE]'  sent-dist=0
+   s11: Between [A 2009 A] and [B 2010 B] One-Two-Go Airlines was prohibited from operating in European Union nations due to safety concerns .
+
+[DISC] a702e2d6 | Dungan Revolt (1862–77)  A='1862 [DATE]'  B='1877 [DATE]'  sent-dist=0
+   s2: However , this article relates specifically to the uprising by members of the Muslim Hui and other Muslim ethnic groups in China 's Shaanxi , Gansu and Ningxia provinces , as well as in Xinjiang , between [A 1862 A] and [B 1877 B] .
+
+[CONF2] a70e703c | Raid on Lorient  A='29 September [DATE]'  B='10 October 1746 [DATE]'  sent-dist=0
+   s0: The Raid on Lorient was a British amphibious operation in the region around the town of Lorient from [A 29 September A] to [B 10 October 1746 B] during the War of the Austrian Succession .
+
+[CONF2] a9a186bf | Grey's raid  A='September 10 [DATE]'  B='15 [DATE]'  sent-dist=0
+   s7: Between [A September 10 A] and [B 15 B] , its residents surrendered 10,000 head of sheep and 300 oxen , as well as most of the island 's weapons .
+
+[CONF2] a9a186bf | Grey's raid  A='September 5 [DATE]'  B='6 [DATE]'  sent-dist=0
+   s4: On [A September 5 A] and [B 6 B] , Grey raided New Bedford and Fairhaven , encountering significant resistance only in Fairhaven .
+
+[DISC] ac33c75c | The Anarchy  A='1142 [DATE]'  B='many more years [DURATION]'  sent-dist=1
+   s9: Stephen then almost seized Matilda in [A 1142 A] during the Siege of Oxford , but the Empress escaped from Oxford Castle across the frozen River Thames to safety .
+   s10: The war dragged on for [B many more years B] .
+
+[DISC] af94894c | Jecheon International Music &amp; Film Festival  A='10 [DATE]'  B='15 August 2017 [DATE]'  sent-dist=0
+   s2: The 13th edition of JIMFF will be held [A 10 A] to [B 15 August 2017 B] .
+
+[CONF2] b3321d93 | Great Offensive  A='31 August [DATE]'  B='9 September [DATE]'  sent-dist=0
+   s3: The Turkish units marched for 10 days ( from [A 31 August A] to [B 9 September B] ) , covering a distance of while fighting Greek troops .
+
+[CONF2] b4720e01 | Siege of Kijevo (1991)  A='late April [DATE]'  B='early May 1991 [DATE]'  sent-dist=0
+   s1: The 9th Corps of the Yugoslav People 's Army ( `` Jugoslovenska Narodna Armija '' – JNA ) led by Colonel Ratko Mladić and the forces of the Serbian Autonomous Oblast ( region ) of Krajina ( SAO Krajina ) under Knin police chief Milan Martić besieged the Croat-inhabited village of Kijevo in [A late April A] and [B early May 1991 B] .
+
+[DISC] b891d1ee | Copa Master de Supercopa  A='1992 [DATE]'  B='1995 [DATE]'  sent-dist=0
+   s1: It was organized by CONMEBOL and only played in [A 1992 A] and [B 1995 B] .
+
+[DISC] bc44fbfd | 2009 ASEAN Para Games  A='15 [DATE]'  B='19 August 2009 [DATE]'  sent-dist=0
+   s0: The 2009 ASEAN Para Games officially known as the 5th ASEAN Para Games , was a Southeast Asian disabled multi-sport event held in Kuala Lumpur , Malaysia from [A 15 A] to [B 19 August 2009 B] .
+
+[DISC] c25d821b | Hurricane Kenna  A='October 25 [DATE]'  B='October 26 [DATE]'  sent-dist=1
+   s3: Moving into an area of favorable upper-level conditions and warm sea surface temperatures , Kenna quickly strengthened to reach peak winds of 165 mph ( 270 km/h ) as a Category 5 hurricane , on [A October 25 A] , while located about 255 mi ( 410 km ) southwest of Puerto Vallarta , Jalisco .
+   s4: Weakening as it turned to the northeast , the hurricane made landfall near San Blas , Nayarit as a Category 4 hurricane , with sustained winds of 140 mph ( 220 km/h ) , before dissipating on [B October 26 B] over the Sierra Madre Occidental mountains .
+
+[CONF2] c33d74bc | Jeff Peterson Memorial Cup  A='2007 [DATE]'  B='2008 [DATE]'  sent-dist=0
+   s7: The [A 2007 A] and [B 2008 B] editions were hosted by Lenny Leonard and Scott Hudson , former commentators for Ring of Honor and World Championship Wrestling respectively .
+
+[CONF2] c33d74bc | Jeff Peterson Memorial Cup  A='October [DATE]'  B='December [DATE]'  sent-dist=0
+   s0: The Jeff Peterson Memorial Cup was an annual professional wrestling memorial show produced by Full Impact Pro ( FIP ) promotion , typically between [A October A] and [B December B] .
+
+[CONF1] c409b2e9 | 1990 Men's World Ice Hockey Championships  A='16 April [DATE]'  B='2 May 1990 [DATE]'  sent-dist=0
+   s3: The top Championship Group A tournament took place in Switzerland from [A 16 April A] to [B 2 May 1990 B] , with games played in Bern and Fribourg .
+
+[DISC] c73eb8fb | Tropical Storm Alpha (2005)  A='October 23 [DATE]'  B='October 24 [DURATION]'  sent-dist=1
+   s3: It became a tropical storm on [A October 23 A] , and reached its peak intensity but weakened again before making landfall in the Dominican Republic that afternoon .
+   s4: Crossing the island of Hispaniola it weakened to a tropical depression , and persisted until [B October 24 B] , when it dissipated .
+
+[DISC] d026ad27 | Wars of the Roses  A='1455 [DATE]'  B='1487 [DATE]'  sent-dist=0
+   s2: The conflict lasted through many sporadic episodes between [A 1455 A] and [B 1487 B] , but there was related fighting before and after this period between the parties .
+
+[DISC] d0806e6c | 2004 Madrid train bombings  A='three days [DURATION]'  B='11 March 2004 [DATE]'  sent-dist=6
+   s0: The 2004 Madrid train bombings ( also known in Spain as 11-M ) were nearly simultaneous , coordinated bombings against the Cercanías commuter train system of Madrid , Spain , on the morning of [B 11 March 2004 B] – three days before Spain 's general elections .
+   s6: The bombings occurred [A three days A] before general elections in which incumbent José María Aznar 's PP was defeated .
+
+[DISC] d215dec8 | Timeline of modern American conservatism  A='the 1980s [DURATION]'  B='the 1980s [DURATION]'  sent-dist=1
+   s11: In [A the 1980s A] , President Ronald Reagan solidified conservative Republican strength with tax cuts , greatly increased defense spending , deregulation , a policy of rolling back communism rather than just containing it , a greatly strengthened military and appeals to family values and conservative Judeo-Christian morality .
+   s12: His impact has led historians to call [B the 1980s B] the Reagan Era .
+
+[DISC] d215dec8 | Timeline of modern American conservatism  A='the 1980s [DURATION]'  B='the 1990s [DURATION]'  sent-dist=2
+   s10: The white South has voted Republican at the presidential level since the mid-1960s and at the state and local level since [B the 1990s B] .
+   s12: His impact has led historians to call [A the 1980s A] the Reagan Era .
+
+[DISC] d31dd91e | 2014 ICC World Twenty20 Knockouts  A='seven years [DURATION]'  B='2014 [DATE]'  sent-dist=2
+   s0: The Knockout stage of the [B 2014 B] ICC World Twenty20 took place from 3 April to 6 April 2014 .
+   s2: Sri Lanka and India had played each other over sixty times in the last [A seven years A] , with India winning the majority of the matches .
+
+[DISC] d3d9bc5a | Bulgarian–Ottoman wars  A='1320s [DURATION]'  B='1330s [DURATION]'  sent-dist=0
+   s9: During the civil war in Byzantium in [A 1320s A] and [B 1330s B] , the Serbs conquered most of the Bulgarian and Aromanian populated Macedonia from the Byzantines .
+
+[CONF2] d4e47ebe | Nazi crimes against the Polish nation  A='1939 [DATE]'  B='1945 [DATE]'  sent-dist=0
+   s6: The genocidal policies of the German government 's colonization plan , `` Generalplan Ost '' , were the blueprint for German war crimes and crimes against humanity committed against the Polish nation from [A 1939 A] to [B 1945 B] .
+
+[DISC] d991b8fb | Race to the Sea  A='19 October [DATE]'  B='22 November [DATE]'  sent-dist=0
+   s4: After the opposing forces had reached the North Sea , both tried to conduct offensives leading to the mutually costly and indecisive Battle of the Yser from 16 October to 2 November and the First Battle of Ypres from [A 19 October A] to [B 22 November B] .
+
+[DISC] d991b8fb | Race to the Sea  A='16 October [DATE]'  B='2 November [DATE]'  sent-dist=0
+   s4: After the opposing forces had reached the North Sea , both tried to conduct offensives leading to the mutually costly and indecisive Battle of the Yser from [A 16 October A] to [B 2 November B] and the First Battle of Ypres from 19 October to 22 November .
+
+[CONF1] d9d9c6ee | 2001–02 Asian Test Championship  A='august 2001 [DATE]'  B='march 2002 [DATE]'  sent-dist=0
+   s0: bangladesh , pakistan and sri lanka competed in the second asian test championship between [A august 2001 A] and [B march 2002 B] .
+
+[DISC] de055ca7 | Myponga Pop Festival  A='30 January [DATE]'  B='1 February 1971 [DATE]'  sent-dist=0
+   s0: The Myponga Pop Festival was a music festival which took place on a farm near Myponga , South Australia from [A 30 January A] to [B 1 February 1971 B] .
+
+[DISC] e0a779a7 | Operation Bribie  A='five-hour [DURATION]'  B='19:00 [TIME]'  sent-dist=0
+   s19: By [B 19:00 B] , after a [A five-hour A] battle , B Company broke contact and withdrew into a night harbour near the landing zone with the remainder of the battalion .
+
+[DISC] e1c6c1d8 | War in Donbass  A='22 [DATE]'  B='25 August 2014 [DATE]'  sent-dist=0
+   s5: Between [A 22 A] and [B 25 August 2014 B] , Russian artillery , personnel , and what Russia called a `` humanitarian convoy '' crossed the border into Ukrainian territory without permission of the Ukrainian government .
+
+[DISC] e1c6c1d8 | War in Donbass  A='22 august [DATE]'  B='25 August 2014 [DATE]'  sent-dist=3
+   s5: Between 22 and [B 25 August 2014 B] , Russian artillery , personnel , and what Russia called a `` humanitarian convoy '' crossed the border into Ukrainian territory without permission of the Ukrainian government .
+   s8: head of the security service of ukraine , valentyn unk characterised the events of [A 22 august A] as a `` direct invasion by russia of ukraine '' , while other western and ukrainian officials described the events as a `` stealth invasion '' of ukraine by russia .
+
+[CONF2] e27866b9 | Invasion of Martinique (1809)  A='9 February [DATE]'  B='15 days [DURATION]'  sent-dist=1
+   s5: By [A 9 February A] , the entire island was in British hands except Fort Desaix , a powerful position intended to protect the capital Fort-de-France , which had been bypassed during the British advance .
+   s6: In a siege lasting [B 15 days B] the Fort was constantly bombarded , the French suffering 200 casualties before finally surrendering .
+
+[DISC] e311e3ac | Zion Square assault  A='the night of 16–17 August 2012 [DATE]'  B='a week [DATE]'  sent-dist=6
+   s0: The Zion Square assault , also described by Israeli police , the judge who passed sentence , Israeli and foreign media as a 'lynch ' or 'attempted lynch ( ing ) ' , was an attack by Israeli youths against four Palestinian teenagers that took place on [A the night of 16–17 August 2012 A] at Zion Square in Jerusalem .
+   s6: He was released from hospital [B a week B] after the attack .
+
+[DISC] e3970aa2 | Greek Civil War  A='1943 [DATE]'  B='1944 [DATE]'  sent-dist=1
+   s4: The civil war resulted from a highly polarized struggle between left and right ideologies that started in [A 1943 A] .
+   s5: From [B 1944 B] each side targeted the power vacuum resulting from the end of Axis occupation ( 1941–1944 ) during World War II .
+
+[DISC] e3970aa2 | Greek Civil War  A='1946 [DATE]'  B='1947 [DATE]'  sent-dist=6
+   s0: unk greek civil war ( , `` o unk '' [ `` unk '' ] , `` the civil war '' ) was a civil war in greece fought between the greek government army ( supported by the united kingdom and the united states ) and the democratic army of greece ( dse ) UNK the military branch of the communist party of greece ( kke ) ( supported by yugoslavia , albania and bulgaria ) from [A 1946 A] to 1949 .
+   s6: The struggle became one of the first conflicts of the Cold War ( [B 1947 B] to 1989 ) and represents the first example of Cold War power postwar involvement in the internal politics of a foreign country .
+
+[DISC] e3970aa2 | Greek Civil War  A='1948 [DATE]'  B='1949 [DATE]'  sent-dist=23
+   s0: unk greek civil war ( , `` o unk '' [ `` unk '' ] , `` the civil war '' ) was a civil war in greece fought between the greek government army ( supported by the united kingdom and the united states ) and the democratic army of greece ( dse ) UNK the military branch of the communist party of greece ( kke ) ( supported by yugoslavia , albania and bulgaria ) from 1946 to [B 1949 B] .
+   s23: Despite setbacks suffered by government forces from 1946 to [A 1948 A] , they eventually won due to increased American aid , the failure of the DSE to attract sufficient recruits , and the side-effects of the Tito–Stalin split of 1948 .
+
+[DISC] e3970aa2 | Greek Civil War  A='1946 [DATE]'  B='1947 [DATE]'  sent-dist=17
+   s6: The struggle became one of the first conflicts of the Cold War ( [B 1947 B] to 1989 ) and represents the first example of Cold War power postwar involvement in the internal politics of a foreign country .
+   s23: Despite setbacks suffered by government forces from [A 1946 A] to 1948 , they eventually won due to increased American aid , the failure of the DSE to attract sufficient recruits , and the side-effects of the Tito–Stalin split of 1948 .
+
+[DISC] e3970aa2 | Greek Civil War  A='1947 [DATE]'  B='1948 [DATE]'  sent-dist=17
+   s6: The struggle became one of the first conflicts of the Cold War ( [A 1947 A] to 1989 ) and represents the first example of Cold War power postwar involvement in the internal politics of a foreign country .
+   s23: Despite setbacks suffered by government forces from 1946 to [B 1948 B] , they eventually won due to increased American aid , the failure of the DSE to attract sufficient recruits , and the side-effects of the Tito–Stalin split of 1948 .
+
+[DISC] e3970aa2 | Greek Civil War  A='1946 [DATE]'  B='1947 [DATE]'  sent-dist=13
+   s6: The struggle became one of the first conflicts of the Cold War ( [B 1947 B] to 1989 ) and represents the first example of Cold War power postwar involvement in the internal politics of a foreign country .
+   s19: The war erupted in [A 1946 A] , when forces of former ELAS partisans who found shelter in their hideouts and were controlled by the KKE organized the DSE and its High Command headquarters .
+
+[DISC] e3970aa2 | Greek Civil War  A='1943 [DATE]'  B='1944 [DATE]'  sent-dist=5
+   s4: The civil war resulted from a highly polarized struggle between left and right ideologies that started in [A 1943 A] .
+   s9: The first signs of the civil war occurred in 1942 to [B 1944 B] , during the German occupation .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='2006 [DATE]'  B='2007 [DATE]'  sent-dist=1
+   s1: it was launched in support of the group 's [A 2006 A] album `` eyes open '' .
+   s2: The band visited numerous international venues from 2006 through [B 2007 B] .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='2006 [DATE]'  B='2007 [DATE]'  sent-dist=0
+   s2: The band visited numerous international venues from [A 2006 A] through [B 2007 B] .
+
+[DISC] e883f9aa | Ravinia Festival  A='June [DATE]'  B='September [DATE]'  sent-dist=0
+   s0: The Ravinia Festival is the oldest outdoor music festival in the United States , with a series of outdoor concerts and performances held every summer from [A June A] to [B September B] .
+
+[DISC] ea9e814f | 2016 Summer Paralympics  A='7 September [DATE]'  B='18 September 2016 [DATE]'  sent-dist=0
+   s0: The 2016 Summer Paralympics ( ) , the 15th Summer Paralympic Games , were a major international multi-sport event for athletes with disabilities governed by the International Paralympic Committee , held in Rio de Janeiro , Brazil , from [A 7 September A] to [B 18 September 2016 B] .
+
+[CONF2] eaf3fde2 | August 2012 Sinai attack  A='5 August 2012 [DATE]'  B='three days [DURATION]'  sent-dist=6
+   s0: The August 2012 Sinai attack occurred on [A 5 August 2012 A] , when armed men ambushed an Egyptian military base in the Sinai Peninsula , killing 16 soldiers and stealing two armored cars , which they used to infiltrate into Israel .
+   s6: israeli defense minister ehud barak warned that the incident should be a `` wake up call '' for egypt in dealing with terrorists in the sinai peninsula , while egyptian president mohamed morsi vowed to retake the sinai peninsula and declared [B three days B] of mourning .
+
+[DISC] ed07e94d | War of the Third Coalition  A='1803 [DATE]'  B='1806 [DATE]'  sent-dist=0
+   s0: The War of the Third Coalition was a European conflict spanning the years [A 1803 A] to [B 1806 B] .
+
+[DISC] ed07e94d | War of the Third Coalition  A='1803 [DATE]'  B='1806 [DATE]'  sent-dist=11
+   s0: The War of the Third Coalition was a European conflict spanning the years [A 1803 A] to 1806 .
+   s11: As a direct consequence of these events , the Holy Roman Empire ceased to exist when , in [B 1806 B] , Holy Roman Emperor Francis II abdicated the Imperial throne , emerging as Francis I , Emperor of Austria .
+
+[DISC] ed07e94d | War of the Third Coalition  A='1803 [DATE]'  B='1806 [DATE]'  sent-dist=14
+   s0: The War of the Third Coalition was a European conflict spanning the years [A 1803 A] to 1806 .
+   s14: Meanwhile , Prussian worries about growing French influence in Central Europe sparked the War of the Fourth Coalition in [B 1806 B] .
+
+[DISC] ed34034e | Death of Eric Garner  A='December 3 , 2014 [DATE]'  B='December 28 , 2014 [DATE]'  sent-dist=2
+   s15: On [A December 3 , 2014 A] , a Richmond County grand jury decided not to indict Officer Pantaleo .
+   s17: By [B December 28 , 2014 B] , at least 50 demonstrations had been held nationwide in response to the Garner case , while hundreds of demonstrations against general police brutality counted Garner as a focal point .
+
+[CONF2] ede8628b | Rescue plans for 2010 Copiapó mining accident  A='16 minutes later [TIME]'  B='Less than 24 hours later [DATE]'  sent-dist=1
+   s7: The retrieval of the first miner , Florencio Ávalos , began on Tuesday , 12 October at 23:55 CLDT , with the rescue capsule reaching the surface [A 16 minutes later A] .
+   s8: [B Less than 24 hours later B] , at 21:55 CLDT on 13 October , all 33 miners had been rescued , almost all in good medical condition , and expected to recover fully .
+
+[CONF2] ede8628b | Rescue plans for 2010 Copiapó mining accident  A='5 August 2010 [DATE]'  B='69 days [DURATION]'  sent-dist=1
+   s0: The 2010 Copiapó mining accident began as a cave-in on [A 5 August 2010 A] at the San José copper-gold mine in the Atacama Desert near Copiapó , Chile .
+   s1: The accident left 33 men trapped below ground who survived underground for a record [B 69 days B] .
+
+[CONF2] ede8628b | Rescue plans for 2010 Copiapó mining accident  A='69 days [DURATION]'  B='13 October [DATE]'  sent-dist=7
+   s1: The accident left 33 men trapped below ground who survived underground for a record [A 69 days A] .
+   s8: Less than 24 hours later , at 21:55 CLDT on [B 13 October B] , all 33 miners had been rescued , almost all in good medical condition , and expected to recover fully .
+
+[CONF2] ede8628b | Rescue plans for 2010 Copiapó mining accident  A='69 days [DURATION]'  B='13 October 2010 [DATE]'  sent-dist=1
+   s1: The accident left 33 men trapped below ground who survived underground for a record [A 69 days A] .
+   s2: All 33 men were rescued and brought to the surface on [B 13 October 2010 B] over a period of almost 24 hours .
+
+[CONF2] eec064b0 | Claudy bombing  A='eight-year [DURATION]'  B='24 August 2010 [DATE]'  sent-dist=0
+   s5: On [B 24 August 2010 B] , following an [A eight-year A] investigation , the Police Ombudsman for Northern Ireland published a report into the bombing , which stated that the Royal Ulster Constabulary believed in the early 1970s that Father James Chesney , a local Roman Catholic priest , was the IRA 's quartermaster and Director of Operations of the South Derry Brigade .
+
+[DISC] f1d71627 | Death and state funeral of Leonid Brezhnev  A='five days [DATE]'  B='15 November 1982 [DATE]'  sent-dist=0
+   s3: Yuri Andropov , Brezhnev 's eventual successor as general secretary , was chairman of the committee in charge of managing Brezhnev 's funeral , held on [B 15 November 1982 B] , [A five days A] after his death .
+
+[DISC] f69dc98e | Siege of Roses (1808)  A='7 November [DATE]'  B='5 December 1808 [DATE]'  sent-dist=0
+   s0: The Siege of Roses or Siege of Rosas from [A 7 November A] to [B 5 December 1808 B] saw an Imperial French corps led by Laurent Gouvion Saint-Cyr invest a Catalan and Spanish garrison commanded by Peter O'Daly .
+
+[DISC] f86e86f6 | Atomic bombings of Hiroshima and Nagasaki  A='six days [DURATION]'  B='August 15 [DATE]'  sent-dist=0
+   s15: Japan surrendered to the Allies on [B August 15 B] , [A six days A] after the Soviet Union 's declaration of war and the bombing of Nagasaki .
+
+[CONF2] fbb16059 | Anglo-Spanish War (1762–63)  A='january 1762 [DATE]'  B='february 1763 [DURATION]'  sent-dist=0
+   s1: it lasted from [A january 1762 A] until [B february 1763 B] when the treaty of paris brought it to an end .
+
+[CONF2] fbb16059 | Anglo-Spanish War (1762–63)  A='May [DATE]'  B='November [DATE]'  sent-dist=0
+   s6: Between [A May A] and [B November B] three major Franco-Spanish invasions of Portugal were defeated and they were forced to withdraw with heavy losses inflicted by the Portuguese with British assistance .
+
+[DISC] fd580b38 | Siege of Shkodra  A='six-month [DATE]'  B='April 1913 [DATE]'  sent-dist=0
+   s9: The Ottomans held the city until Montenegro captured it in [B April 1913 B] , after a [A six-month A] siege .
+

@@ -1,0 +1,431 @@
+[
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.59043
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Traveling"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.6679
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.4336
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Attack"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.46422
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Catastrophe"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.41506
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    2
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.39172
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Patient",
+     "Patient"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.47689
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    2
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Military_operation"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.43412
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.38171
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.39621
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Conquering"
+    ]
+   ],
+   [
+    "REL",
+    "n_anchor",
+    "1"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.42192
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Catastrophe"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Coming_to_be"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.43329
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Earnings_and_losses"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.41218
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    5
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.45586
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Person"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.45504
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_person_b",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.46086
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "etypeset_shared",
+    "Location"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Catastrophe",
+     "Motion"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.38949
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.4072
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Use_firearm"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.39447
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "lead"
+   ],
+   [
+    "EQ",
+    "same_type",
+    true
+   ]
+  ],
+  "rel": "SIMULTANEOUS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.15612
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Killing"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Bodily_harm"
+   ]
+  ],
+  "rel": "OVERLAP",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.18584
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "order",
+    "same"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Agent",
+     "Killer"
+    ]
+   ]
+  ],
+  "rel": "OVERLAP",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.14601
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "same_type",
+    true
+   ],
+   [
+    "REL",
+    "a_before_b",
+    false
+   ]
+  ],
+  "rel": "SIMULTANEOUS",
+  "view": "global",
+  "sig": "*",
+  "wlb": 0.13466
+ }
+]

@@ -1,0 +1,1764 @@
+[
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "lead"
+   ],
+   [
+    "EQ",
+    "same_type",
+    true
+   ]
+  ],
+  "rel": "SIMULTANEOUS",
+  "wlb": 0.15612,
+  "k": 36,
+  "n": 171,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.49932,
+  "k": 181,
+  "n": 327,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.62914,
+  "k": 165,
+  "n": 239,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60502,
+  "k": 181,
+  "n": 273,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60502,
+  "k": 181,
+  "n": 273,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43554,
+  "k": 141,
+  "n": 286,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4336,
+  "k": 55,
+  "n": 104,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.63841,
+  "k": 141,
+  "n": 200,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.65999,
+  "k": 125,
+  "n": 171,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.61215,
+  "k": 123,
+  "n": 180,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58998,
+  "k": 68,
+  "n": 99,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58513,
+  "k": 65,
+  "n": 95,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.50415,
+  "k": 58,
+  "n": 96,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.51,
+  "k": 58,
+  "n": 95,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.5945,
+  "k": 71,
+  "n": 103,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58998,
+  "k": 68,
+  "n": 99,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.5738,
+  "k": 77,
+  "n": 116,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.569,
+  "k": 74,
+  "n": 112,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48449,
+  "k": 92,
+  "n": 164,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_b",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.50193,
+  "k": 90,
+  "n": 155,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60492,
+  "k": 35,
+  "n": 47,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    5
+   ],
+   [
+    "HAS",
+    "etypeset_a",
+    "Building"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.19508,
+  "k": 39,
+  "n": 151,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_b",
+    4
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45189,
+  "k": 139,
+  "n": 272,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "early"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40874,
+  "k": 39,
+  "n": 75,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Agent",
+     "Participant"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.64121,
+  "k": 38,
+  "n": 49,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.59043,
+  "k": 533,
+  "n": 855,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56631,
+  "k": 32,
+  "n": 45,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Military_operation"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58511,
+  "k": 285,
+  "n": 452,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Traveling"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.6679,
+  "k": 66,
+  "n": 86,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54859,
+  "k": 67,
+  "n": 104,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.65307,
+  "k": 62,
+  "n": 82,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48648,
+  "k": 76,
+  "n": 133,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.51487,
+  "k": 92,
+  "n": 155,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48306,
+  "k": 271,
+  "n": 515,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Damaging"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40964,
+  "k": 40,
+  "n": 77,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.55194,
+  "k": 32,
+  "n": 46,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56433,
+  "k": 30,
+  "n": 42,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_shared",
+    "Location"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.59494,
+  "k": 51,
+  "n": 72,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_b",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58402,
+  "k": 56,
+  "n": 81,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.5995,
+  "k": 50,
+  "n": 70,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.37832,
+  "k": 34,
+  "n": 69,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Competition",
+     "Competition"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.30433,
+  "k": 19,
+  "n": 43,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Event",
+     "Event"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.29162,
+  "k": 14,
+  "n": 31,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.28883,
+  "k": 15,
+  "n": 34,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Use_firearm"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.37387,
+  "k": 54,
+  "n": 117,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "early"
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Outcome"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.27155,
+  "k": 44,
+  "n": 126,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Bodily_harm"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54519,
+  "k": 36,
+  "n": 53,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Use_firearm"
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Organization"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.26435,
+  "k": 36,
+  "n": 103,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4725,
+  "k": 89,
+  "n": 162,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Use_firearm"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.28532,
+  "k": 25,
+  "n": 63,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60859,
+  "k": 229,
+  "n": 347,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60801,
+  "k": 225,
+  "n": 341,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    5
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.38867,
+  "k": 64,
+  "n": 136,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.352,
+  "k": 20,
+  "n": 40,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.352,
+  "k": 20,
+  "n": 40,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4498,
+  "k": 33,
+  "n": 57,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_b",
+    "Name"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44138,
+  "k": 32,
+  "n": 56,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    5
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45586,
+  "k": 276,
+  "n": 555,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "EQ",
+    "nrole_a",
+    5
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.38268,
+  "k": 64,
+  "n": 138,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "roleset_b",
+    0
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48648,
+  "k": 52,
+  "n": 88,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_shared",
+    "Location"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.28447,
+  "k": 31,
+  "n": 81,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    5
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48346,
+  "k": 252,
+  "n": 477,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42969,
+  "k": 120,
+  "n": 244,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43665,
+  "k": 125,
+  "n": 251,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_org_a",
+    true
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Use_firearm"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.19614,
+  "k": 41,
+  "n": 159,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_a",
+    "Location"
+   ],
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40823,
+  "k": 50,
+  "n": 99,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.49742,
+  "k": 309,
+  "n": 574,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Patient",
+     "Patient"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.47689,
+  "k": 100,
+  "n": 182,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    1
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.17627,
+  "k": 111,
+  "n": 532,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42413,
+  "k": 31,
+  "n": 56,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_b",
+    4
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.34319,
+  "k": 102,
+  "n": 254,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Hold"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.6851,
+  "k": 24,
+  "n": 28,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_b",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.39454,
+  "k": 19,
+  "n": 34,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_b",
+    4
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60188,
+  "k": 24,
+  "n": 31,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    2
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Use_firearm"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.24999,
+  "k": 62,
+  "n": 200,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    5
+   ],
+   [
+    "HAS",
+    "etypeset_b",
+    "Building"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.25524,
+  "k": 21,
+  "n": 57,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Hostile_encounter"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4729,
+  "k": 45,
+  "n": 77,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Earnings_and_losses"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42452,
+  "k": 32,
+  "n": 58,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_shared",
+    "Location"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44204,
+  "k": 149,
+  "n": 299,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.52301,
+  "k": 149,
+  "n": 255,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44477,
+  "k": 83,
+  "n": 159,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "anchor_roles",
+    [
+     "Patient",
+     "Patient"
+    ]
+   ],
+   [
+    "ALL",
+    "etypeset_shared",
+    "Organization"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.28078,
+  "k": 31,
+  "n": 82,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_a",
+    "Location"
+   ],
+   [
+    "EQ",
+    "has_loc_b",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.27596,
+  "k": 49,
+  "n": 140,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_person_b",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.47685,
+  "k": 58,
+  "n": 101,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45728,
+  "k": 35,
+  "n": 60,
+  "view": "global",
+  "sig": "*"
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Killing",
+     "Bodily_harm"
+    ]
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ]
+  ],
+  "rel": "OVERLAP",
+  "wlb": 0.28754,
+  "k": 21,
+  "n": 51,
+  "view": "global",
+  "sig": "*"
+ }
+]

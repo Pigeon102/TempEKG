@@ -1,0 +1,38 @@
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+[    5s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
+[   47s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+[    8s] train con lai 2913 doc (bo 400 doc dau)
+[    9s] dung dieu kien theo tang ...
+[  130s] instance: train 792395, valid 188924
+[  135s] dung cau truc motif ...
+[  957s] xong cau truc
+
+[ 1027s] fold 0: 8 nhom (loai canh, nhan hien tai), 1409 pattern, 1559 luat (1 pattern: 1409, 2-3 pattern lien tang: 150)
+[ 1057s]   fold 0 net: 211 luat hoat dong / 1559; khop classify_k 100.0000%
+[ 1087s]   fold 0 macro: 111 luat hoat dong / 1559; khop classify_k 100.0000%
+[ 1122s] fold 1: 8 nhom (loai canh, nhan hien tai), 1294 pattern, 1433 luat (1 pattern: 1294, 2-3 pattern lien tang: 139)
+[ 1152s]   fold 1 net: 287 luat hoat dong / 1433; khop classify_k 100.0000%
+[ 1181s]   fold 1 macro: 87 luat hoat dong / 1433; khop classify_k 100.0000%
+
+==============================================================================================================
+BAI 2 -- SO LUAT AUDITOR (buoc 3.1) VA RUT GON CO CHUNG MINH, cross-fit tren valid
+==============================================================================================================
+  fold  muc tieu  bien the | luat mine  hoat dong | vu tru  bat buoc  chan duoi  ket qua
+   0    net       A       |    1559      211     |   6838      71        83       83
+   0    net       B       |    1559      211     |   4813      56        73       73
+   0    macro     A       |    1559      111     |   5630      68        70       70
+   0    macro     B       |    1559      111     |   4173      63        66       67
+   1    net       A       |    1433      287     |   7301      68        76       76
+   1    net       B       |    1433      287     |   5082      58        69       69
+   1    macro     A       |    1433       87     |   4088      39        42       42
+   1    macro     B       |    1433       87     |   2838      32        36       36
+  net    full  loi 12.80%  macro-F1 31.24%  giu nguyen dau ra auditor 100.000%
+  net    A     loi 12.79%  macro-F1 31.24%  giu nguyen dau ra auditor 99.985%
+  net    B     loi 12.79%  macro-F1 31.26%  giu nguyen dau ra auditor 99.909%
+  macro  full  loi 13.47%  macro-F1 31.53%  giu nguyen dau ra auditor 100.000%
+  macro  A     loi 13.47%  macro-F1 31.53%  giu nguyen dau ra auditor 99.993%
+  macro  B     loi 13.48%  macro-F1 31.53%  giu nguyen dau ra auditor 99.963%
+[ 1181s] xong

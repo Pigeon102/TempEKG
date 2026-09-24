@@ -1,0 +1,175 @@
+<title>Toán học của TempEKG</title>
+<meta name="description" content="Hình thức hoá pipeline TempEKG: chia tập, Allen, ngôn ngữ luật, thống kê, combiner, rút gọn có chứng minh, mô hình năng lượng tam giác, bộ 3/4/5.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --paper:#f5f6f8; --panel:#ffffff; --ink:#1a1e24; --ink-2:#4a5260; --rule:#d9dde4;
+  --accent:#23449c; --accent-soft:#e6ecfa; --code-bg:#eef0f4; --thead:#eceff5;
+  --f-body:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-head:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12151a; --panel:#1a1e25; --ink:#e4e7ec; --ink-2:#a7afbd; --rule:#2e3440;
+    --accent:#8fb0ff; --accent-soft:#1f2a44; --code-bg:#222834; --thead:#202631;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12151a; --panel:#1a1e25; --ink:#e4e7ec; --ink-2:#a7afbd; --rule:#2e3440;
+  --accent:#8fb0ff; --accent-soft:#1f2a44; --code-bg:#222834; --thead:#202631;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.62;margin:0;padding-inline:16px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:230px minmax(0,1fr);gap:40px;padding-block:32px 64px}
+nav.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px);align-self:start;max-height:calc(100vh - 40px);overflow:auto;font-family:var(--f-head);font-size:13.5px;line-height:1.45}
+nav.toc .brand{font-weight:700;letter-spacing:.02em;color:var(--accent);margin-bottom:12px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+nav.toc a{display:block;color:var(--ink-2);text-decoration:none;padding:4px 8px;border-radius:4px}
+nav.toc a:hover,nav.toc a:focus-visible{background:var(--accent-soft);color:var(--ink);outline:none}
+main{min-width:0}
+h1{font-family:var(--f-head);font-size:34px;line-height:1.2;margin:0 0 14px;text-wrap:balance}
+h2{font-family:var(--f-head);font-size:23px;margin:46px 0 12px;padding-top:14px;border-top:1px solid var(--rule);text-wrap:balance}
+h3{font-family:var(--f-head);font-size:18px;margin:28px 0 8px}
+p,li{max-width:74ch}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 14px;padding-left:24px}
+li{margin:4px 0}
+strong{font-weight:600}
+code{font-family:var(--f-mono);font-size:.86em;background:var(--code-bg);padding:1px 5px;border-radius:3px}
+hr{border:0;border-top:1px solid var(--rule);margin:28px 0}
+.display{overflow-x:auto;margin:12px 0 18px;padding:10px 14px;background:var(--panel);border:1px solid var(--rule);border-radius:6px}
+.tbl{overflow-x:auto;margin:10px 0 20px}
+table{border-collapse:collapse;font-family:var(--f-head);font-size:14px;min-width:100%;background:var(--panel)}
+th,td{border:1px solid var(--rule);padding:6px 10px;text-align:left;vertical-align:top;font-variant-numeric:tabular-nums}
+thead th{background:var(--thead);font-weight:600}
+mjx-container{color:var(--ink)}
+mjx-container[display="true"]{margin:.4em 0!important}
+@media (max-width:860px){
+  .wrap{grid-template-columns:1fr;gap:12px}
+  nav.toc{position:static;max-height:none;border-bottom:1px solid var(--rule);padding-bottom:12px}
+  nav.toc ol{flex-direction:row;flex-wrap:wrap}
+  h1{font-size:27px}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+<script>
+window.MathJax = { tex: { inlineMath: [["$", "$"]], displayMath: [["$$", "$$"]] }, svg: { fontCache: "global" } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg-full.js" async></script>
+<div class="wrap">
+<nav class="toc" aria-label="Mục lục"><div class="brand">TempEKG · Toán học</div><ol><li><a href="#1-dữ-liệu-ký-hiệu-chia-tập">1. Dữ liệu, ký hiệu, chia tập</a></li><li><a href="#2-tầng-ràng-buộc-allen">2. Tầng ràng buộc Allen</a></li><li><a href="#3-ngôn-ngữ-luật">3. Ngôn ngữ luật</a></li><li><a href="#4-thống-kê-chọn-luật">4. Thống kê chọn luật</a></li><li><a href="#5-combiner">5. Combiner</a></li><li><a href="#6-rút-gọn-luật-có-chứng-minh">6. Rút gọn luật có chứng minh</a></li><li><a href="#7-thiết-kế-theo-tầng-bước-2-2">7. Thiết kế theo tầng (bước 2.2)</a></li><li><a href="#8-auditor-bài-2-bước-3-1">8. Auditor Bài 2 (bước 3.1)</a></li><li><a href="#9-mô-hình-năng-lượng-tam-giác-bước-2-3-v">9. Mô hình năng lượng tam giác (bước 2.3 và 3.2)</a></li><li><a href="#10-cấu-trúc-bậc-cao-bộ-3-bộ-4-bộ-5">10. Cấu trúc bậc cao: bộ 3, bộ 4, bộ 5</a></li><li><a href="#11-thước-đo">11. Thước đo</a></li><li><a href="#12-kết-quả-valid">12. Kết quả (valid)</a></li><li><a href="#13-những-điều-chưa-chứng-minh-hoặc-còn-m">13. Những điều chưa chứng minh hoặc còn mở</a></li></ol></nav>
+<main>
+<h1>TempEKG — Báo cáo toán học</h1>
+<p><em>Cập nhật 24/09/2026. Mọi định nghĩa bám đúng code trong <code>tempekg/</code>; mọi con số là số đo, kèm nguồn log. Ký hiệu toán viết bằng LaTeX (hiển thị trong VS Code / GitHub).</em></p>
+<p>Tài liệu này hình thức hoá toàn bộ pipeline: dữ liệu và cách chia tập (§1), tầng ràng buộc Allen (§2), ngôn ngữ luật (§3), thống kê chọn luật (§4), combiner (§5), rút gọn luật có chứng minh (§6), thiết kế theo tầng (§7), auditor Bài 2 (§8), mô hình năng lượng tam giác (§9), cấu trúc bậc cao bộ 3/4/5 (§10), thước đo (§11), kết quả (§12), và những điều chưa chứng minh được (§13).</p>
+<hr/>
+<h2 id="1-dữ-liệu-ký-hiệu-chia-tập">1. Dữ liệu, ký hiệu, chia tập</h2>
+<p><strong>Document và đồ thị.</strong> Mỗi document $d$ cho một đồ thị $G_d = (V_d, E_d)$. $V_d = V_d^{E} \cup V_d^{T}$ gồm node sự kiện (cụm đồng tham chiếu) và node TIMEX. Cạnh đích $e = (a, b) \in E_d$ mang nhãn</p>
+<div class="display">$$y(e) \in \mathcal{L} = \{\textsf{BEFORE}, \textsf{CONTAINS}, \textsf{SIMULTANEOUS}, \textsf{OVERLAP}, \textsf{BEGINS-ON}, \textsf{ENDS-ON}\}$$</div>
+<p>và loại cạnh $\tau(e) \in \{\textsf{EE}, \textsf{ET}, \textsf{TE}, \textsf{TT}\}$, xác định bởi loại hai node.</p>
+<div class="tbl"><table><thead><tr><th></th><th>Train</th><th>Valid</th></tr></thead><tbody><tr><td>Document</td><td>2.913</td><td>710</td></tr><tr><td>Cạnh đích (4 loại)</td><td>792.395</td><td>188.924 (EE 109.929 · ET 26.573 · TE 39.935 · TT 12.487)</td></tr><tr><td>Cặp EV–EV</td><td>483.504</td><td>109.929</td></tr></tbody></table></div>
+<p>Prior EV–EV trên train: BEFORE 91,04%, CONTAINS 7,43%, SIMULTANEOUS 0,86%, OVERLAP 0,60%, BEGINS-ON 0,04%, ENDS-ON 0,02%. Trên valid, BEFORE chiếm 84,8% của cả bốn loại cạnh.</p>
+<p><strong>Chia tập theo document.</strong> Với $h(s) = \mathrm{md5}(s)$ hiểu như số nguyên:</p>
+<div class="display">$$\mathrm{split}(d) = \begin{cases} \text{DISCOVERY} &amp; h(d) \bmod 10 \ge 4 \\ \text{CONF-1} &amp; h(d) \bmod 10 &lt; 4,\ h(\text{"s2"}\Vert d) \bmod 2 = 0 \\ \text{CONF-2} &amp; \text{còn lại} \end{cases}$$</div>
+<p>Cặp EV–EV: DISCOVERY 292.719 · CONF-1 95.352 · CONF-2 95.433. <strong>Quy tắc phân quyền:</strong> DISCOVERY đề xuất luật; CONF-1 chỉ chấm lại luật; CONF-2 chỉ chọn ngưỡng và tham số; valid mở một lần cho mỗi cấu hình.</p>
+<p><strong>Cross-fit trên valid</strong> (cho những bước phải học từ lỗi <em>out-of-sample</em> của classifier, tức Bài 2 và suy luận tam giác): chia document valid thành hai fold $F_k = \{d : h(\text{"cf"}\Vert d) \bmod 2 = k\}$; trong fold học chia ba theo $h(\text{"in3"}\Vert d) \bmod 3$ (mine / xác nhận / chỉnh); chấm trên fold còn lại, rồi đổi vai. Mỗi document valid được chấm đúng một lần.</p>
+<p><strong>Bất biến chống rò rỉ.</strong> Ở Bài 1, không nhãn thời gian nào (kể cả của cạnh khác) được dùng làm đặc trưng. KG tách ba lớp cạnh: vai trò (quan sát được), nhân quả / sự kiện con (chỉ làm trần), thời gian (đích).</p>
+<h2 id="2-tầng-ràng-buộc-allen">2. Tầng ràng buộc Allen</h2>
+<p>Mỗi sự kiện hay TIMEX là một khoảng $[s, e]$. Mỗi nhãn MAVEN được ánh xạ sang một tập quan hệ Allen $\mu : \mathcal{L} \to 2^{\mathcal{A}_{13}}$:</p>
+<div class="tbl"><table><thead><tr><th>Nhãn</th><th>$\mu$</th><th>Ràng buộc điểm mút</th></tr></thead><tbody><tr><td>BEFORE</td><td>$\{b\}$</td><td>$e_a &lt; s_b$</td></tr><tr><td>CONTAINS</td><td>$\{di\}$</td><td>$s_a &lt; s_b \wedge e_b &lt; e_a$</td></tr><tr><td>OVERLAP</td><td>$\{o\}$</td><td>$s_a &lt; s_b &lt; e_a &lt; e_b$</td></tr><tr><td>SIMULTANEOUS</td><td>$\{e\}$</td><td>$s_a = s_b \wedge e_a = e_b$</td></tr><tr><td>BEGINS-ON</td><td>$\{s, si, e\}$</td><td>$s_a = s_b$</td></tr><tr><td>ENDS-ON</td><td>$\{b, m\}$</td><td>$e_a \le s_b$</td></tr></tbody></table></div>
+<p>Nghịch đảo $\mu(y)^{-1}$ dùng cho chiều ngược. Phép hợp thành $\circ : \mathcal{A}_{13} \times \mathcal{A}_{13} \to 2^{\mathcal{A}_{13}}$ <strong>sinh bằng vét cạn</strong> trên mọi cặp khoảng nguyên trong $[0, 7)$, mở rộng lên tập bằng hợp.</p>
+<p><strong>Định nghĩa (tam giác nhất quán).</strong> Với ba node $a, b, c$ có đủ ba cạnh:</p>
+<div class="display">$$\mu(y(a,b)) \cap \big(\mu(y(a,c)) \circ \mu(y(c,b))\big) \neq \emptyset .$$</div>
+<p><strong>Đo được:</strong> 0 vi phạm trên 585.078 tam giác gold. Ánh xạ của BEGINS-ON / ENDS-ON được chọn bằng dữ liệu: cách đọc "cùng kết thúc" $\{f, fi, e\}$ cho ENDS-ON sinh 812 bộ ba mâu thuẫn trên train; $\{m\}$ sinh 42; $\{b, m\}$ sinh 0.</p>
+<p><strong>Định nghĩa gốc.</strong> MAVEN-ERE theo hướng dẫn RED (O'Gorman et al., 2016). Bảng đại số điểm của RED cho ENDS-ON: $e_a = s_b$ (Allen $m$), tức <strong>meets</strong>. Vì $\{b, m\} \supseteq \{m\}$, đếm mâu thuẫn không bao giờ ưu tiên $\{m\}$. Phép thử phân biệt: một cạnh $(a, b)$ có <strong>nhân chứng khoảng hở</strong> nếu tồn tại $x$ với $\mu(y(a,x)) \circ \mu(y(x,b)) \subseteq \{b\}$. Nhân chứng có ở 91,1–97,8% cạnh BEFORE nhưng chỉ ở 5 / 315 cạnh ENDS-ON. Dữ liệu vì vậy hành xử như $\{m\}$; $\{b, m\}$ là bản nới lỏng hấp thụ 7 tam giác nhiễu trong 3 document. Với BEGINS-ON, cách đọc $\{mi\}$ trong bảng của RED sinh 1.141–3.374 tam giác mâu thuẫn; "cùng bắt đầu" $\{s, si, e\}$ không bị nhân chứng nào bác.</p>
+<h2 id="3-ngôn-ngữ-luật">3. Ngôn ngữ luật</h2>
+<p><strong>Nguyên tử.</strong> Hàm $\phi$ ánh xạ mỗi cặp $x$ sang tập nguyên tử $\mathcal{A}(x)$ (trung bình 40,9 nguyên tử mỗi cặp EV–EV). Hàm này không đọc nhãn của $x$ hay của cạnh nào khác. Có sáu dạng nguyên tử:</p>
+<div class="tbl"><table><thead><tr><th>Dạng</th><th>Ý nghĩa</th><th>Ví dụ</th></tr></thead><tbody><tr><td>$\mathrm{EQ}(f, v)$</td><td>$f(x) = v$</td><td>$\mathrm{EQ}(\texttt{type\_b}, \textsf{Bodily\_harm})$</td></tr><tr><td>$\mathrm{HAS}(F, v)$</td><td>$v \in F(x)$</td><td>$\mathrm{HAS}(\texttt{roleset\_a}, \textsf{Cause})$</td></tr><tr><td>$\mathrm{ALL}(F, v)$</td><td>$F(x) = \{v\}$</td><td>$\mathrm{ALL}(\texttt{roleset\_a}, \textsf{Location})$</td></tr><tr><td>$\mathrm{CNT}(F, k)$</td><td>$|F(x)| = k$</td><td>$\mathrm{CNT}(\texttt{anchor\_roles}, 3)$</td></tr><tr><td>$\mathrm{MIX}(F)$</td><td>$F(x)$ có ≥ 2 loại</td><td></td></tr><tr><td>$\mathrm{REL}(g, v)$</td><td>so sánh giữa hai đầu</td><td>$\mathrm{REL}(\texttt{a\_before\_b}, \textsf{False})$</td></tr></tbody></table></div>
+<p><strong>View.</strong> Một view $v$ là hàm phân lớp $\sigma_v : X \to S_v$. Tám view được dùng: <code>global</code>, <code>sdist</code>, <code>order</code>, <code>anchor</code>, <code>bucket_a</code>, <code>etype_a</code>, <code>sdist×order</code>, <code>anchor×sdist</code>.</p>
+<p><strong>Luật.</strong> Một luật là bộ $\rho = (v, s, B, \ell)$ với $B \subseteq$ nguyên tử, $|B| \le 2$, và $\ell \in \mathcal{L}$. Luật bắn trên $x$ khi</p>
+<div class="display">$$\mathrm{fire}_\rho(x) \iff \sigma_v(x) = s \ \wedge\ B \subseteq \mathcal{A}(x).$$</div>
+<p>Phần mở rộng trên tập $Y$ là $\mathrm{ext}_Y(\rho) = \{x \in Y : \mathrm{fire}_\rho(x)\}$. Số đếm: $n_Y(\rho) = |\mathrm{ext}_Y(\rho)|$, $k_Y(\rho) = |\{x \in \mathrm{ext}_Y(\rho) : y(x) = \ell\}|$. Tỷ lệ nền của lớp: $\pi_{v,s}(\ell) = \Pr[y = \ell \mid \sigma_v = s]$ trên DISCOVERY.</p>
+<p><strong>Tính toán.</strong> Trong mỗi lớp $(v, s)$, mỗi nguyên tử là một bitset (số nguyên Python) $\beta_c$ trên các cặp của lớp. Khi đó $n(\{c, c'\}) = \mathrm{popcount}(\beta_c \wedge \beta_{c'})$ và $k = \mathrm{popcount}(\beta_c \wedge \beta_{c'} \wedge \beta_\ell)$. Nhờ vậy duyệt <strong>mọi</strong> luật độ sâu ≤ 2 trong mọi lớp.</p>
+<h2 id="4-thống-kê-chọn-luật">4. Thống kê chọn luật</h2>
+<p><strong>Cận dưới Wilson</strong> ($z = 1{,}96$, $\hat p = k/n$):</p>
+<div class="display">$$\mathrm{wlb}(k, n) = \frac{\hat p + \frac{z^2}{2n} - z\sqrt{\frac{\hat p(1-\hat p)}{n} + \frac{z^2}{4n^2}}}{1 + \frac{z^2}{n}} .$$</div>
+<p><em>Tính chất dùng đến:</em> $\mathrm{wlb}(k, n) \le k/n$; $\mathrm{wlb}$ tăng theo $k$ khi $n$ cố định; và $\mathrm{wlb}(k, n) \le \mathrm{wlb}(n, n)$. Tính chất cuối là cơ sở cắt tỉa của nhánh vét cạn cũ.</p>
+<p><strong>Bốn cổng trên DISCOVERY</strong> (EV–EV, <code>mine_full.py</code>), với $\pi = \pi_{v,s}(\ell)$:</p>
+<ol><li>$n \ge 25$ và $k \ge 8$.</li><li>Lift trong lớp: $k/n \ge 1{,}5\,\pi$.</li><li>Số document chứa các lần bắn <strong>đúng</strong> $\ge 5$.</li><li>Với luật hai điều kiện: $\Delta\mathrm{logit} = \mathrm{logit}(k, n) - \max_{c \in B}\mathrm{logit}(k_c, n_c) \ge 0{,}5$, trong đó $\mathrm{logit}(k, n) = \log\frac{p}{1-p}$ với $p = \frac{k + 0{,}5}{n + 1}$.</li></ol>
+<p><strong>Kiểm soát FDR.</strong> Với mỗi ứng viên, tính $p$-value một phía $p_j = \Pr[\mathrm{Bin}(n, \pi) \ge k]$. Benjamini–Hochberg ở mức $q = 0{,}05$ giữ $j$ ứng viên đầu, với $j = \max\{i : p_{(i)} \le q\, i / m\}$. Bước này bảo đảm tỷ lệ phát hiện sai kỳ vọng $\le q$ <strong>khi các $p_j$ độc lập hoặc phụ thuộc dương</strong>; các cặp cùng document không độc lập, và cổng 3 chỉ bù một phần. Thiết kế gốc dùng 200 hoán vị theo khối document; ở đây thay bằng kiểm định nhị thức vì chi phí.</p>
+<p><strong>Xác nhận trên CONF-1:</strong> giữ $\rho$ nếu $n_{C1} \ge 10$ và $\mathrm{wlb}(k_{C1}, n_{C1}) &gt; \pi$. Trọng số của luật là $w(\rho) = \mathrm{wlb}(k_{C1}, n_{C1})$.</p>
+<p>Số luật qua từng bước (EV–EV): 106.242 (qua bốn cổng) → 92.773 (qua BH) → <strong>54.719</strong> sau xác nhận (CONTAINS 29.049, SIMULTANEOUS 20.538, OVERLAP 4.583, BEGINS-ON 523, ENDS-ON 26).</p>
+<p><strong>Lời nguyền người thắng.</strong> $w(\rho)$ được đo trên CONF-1 với $n_{C1}$ nhỏ, sau khi đã chọn trong hàng chục nghìn ứng viên, nên $\mathbb{E}[w(\rho) \mid \rho \text{ được chọn}]$ lệch lên. Ví dụ: `type_pair = (Catastrophe, Motion_directional)` đúng 11/32 trên DISCOVERY nhưng 12/12 trên CONF-1, cho $w = 0{,}758$. Đây là điểm yếu còn mở (§13).</p>
+<h2 id="5-combiner">5. Combiner</h2>
+<p>Gọi $\mathcal{R}$ là tập luật, $\theta : \mathcal{L} \to [0, 1] \cup \{\infty\}$ là ngưỡng theo nhãn, $A(x) = \{\rho \in \mathcal{R} : \mathrm{fire}_\rho(x),\ w(\rho) \ge \theta(\ell_\rho)\}$ là tập luật **hoạt động** bắn trên $x$, và $\kappa(\rho) = (w(\rho), -\mathrm{id}(\rho))$ là thứ tự toàn phần. Khi đó</p>
+<div class="display">$$\hat y(x) = \begin{cases} \ell\big(\arg\max_{\rho \in A(x)} \kappa(\rho)\big) &amp; A(x) \neq \emptyset \\ \mathrm{fb}(x) &amp; A(x) = \emptyset \end{cases}$$</div>
+<p>Nhãn dự phòng $\mathrm{fb}$ tuỳ bộ luật:</p>
+<ul><li>BEFORE (EV–EV);</li><li>nhãn đa số (cạnh TIMEX);</li><li>nhãn đang có (luật liên tầng ghi đè, auditor Bài 2).</li></ul>
+<p><strong>Chọn ngưỡng:</strong> leo toạ độ trên lưới $\{0{,}1; 0{,}15; 0{,}2; \dots; 0{,}8; \infty\}$, tối đa hoá macro-F1 trên CONF-2. Với EV–EV được $\theta = (\textsf{CONT}\ 0{,}5;\ \textsf{SIMU}\ 0{,}15;\ \textsf{OVER}\ 0{,}1;\ \text{còn lại } \infty)$, macro-F1 CONF-2 26,36%.</p>
+<p>Combiner cũ <code>max-norm</code> chấm luật bằng $w(\rho)/\pi(\ell_\rho)$ và chỉ được 25,88%. Lý do: với prior BEGINS-ON 0,044%, luật BEGINS-ON tốt nhất chỉ có $w = 0{,}0035$ nhưng vẫn được $\approx 8$ điểm, vượt $\tau = 5$.</p>
+<p><em>Lưu ý cài đặt:</em> combiner gốc <code>pred_floor</code> phá hoà theo thứ tự bắn; các chứng minh ở §6 dùng $\kappa$. Hai bản cho cùng macro-F1 trên CONF-2 (26,36%) và valid (26,99%, accuracy 87,90%).</p>
+<h2 id="6-rút-gọn-luật-có-chứng-minh">6. Rút gọn luật có chứng minh</h2>
+<p>Mọi mệnh đề dưới đây chỉ dùng công thức của §5.</p>
+<p><strong>Mệnh đề 6.1 (luật không bao giờ bỏ phiếu).</strong> Nếu $w(\rho) &lt; \theta(\ell_\rho)$ thì $\rho \notin A(x)$ với mọi $x$, nên xoá $\rho$ không đổi $\hat y$ ở bất kỳ cặp nào, kể cả cặp chưa gặp. $\square$</p>
+<p><strong>Mệnh đề 6.2 (tương đương phần mở rộng).</strong> Giả sử $\ell_\rho = \ell_{\rho'}$ và $\mathrm{ext}_Y(\rho) = \mathrm{ext}_Y(\rho')$, với $Y$ là toàn bộ train. Khi đó $k, n$ trên DISCOVERY và trên CONF-1 của hai luật trùng nhau, nên $w(\rho) = w(\rho')$. Thay $\rho'$ bằng $\rho$ không đổi $\hat y$ trên $Y$: hai luật bắn cùng chỗ, cùng nhãn, cùng trọng số. Trên dữ liệu mới, điều này chỉ chắc chắn nếu hai điều kiện tương đương logic; vì vậy nó được <strong>đo</strong>: 0 / 593.433 dự đoán thay đổi trên train + valid. Quan hệ tương đương được so bằng dấu vân tay $\big(|\mathrm{ext}|, \sum_{x \in \mathrm{ext}} h(x) \bmod (2^{61}-1)\big)$ (EV–EV) hoặc bằng chính tập chỉ số (các bộ khác). $\square$</p>
+<p><strong>Định lý 6.3 (set cover giữ đầu ra).</strong> Với cặp $x$, đặt $o = \hat y(x)$ và $M(x) = \max\{\kappa(\rho) : \rho \in A(x),\ \ell_\rho \ne o\}$ (bằng $-\infty$ nếu rỗng). Định nghĩa</p>
+<div class="display">$$C(x) = \{\rho \in A(x) : \ell_\rho = o,\ \kappa(\rho) &gt; M(x)\},$$</div>
+<p>và $U = \{x : A(x) \ne \emptyset\} \setminus \{x : o = \mathrm{fb}(x) \wedge \forall \rho \in A(x),\ \ell_\rho = o\}$. Nếu $K \subseteq \mathcal{R}$ thoả $K \cap C(x) \ne \emptyset$ với mọi $x \in U$, thì $\hat y_K(x) = \hat y(x)$ với mọi $x$.</p>
+<p><em>Chứng minh.</em> Xét ba trường hợp.</p>
+<ul><li>$A(x) = \emptyset$: xoá luật không làm luật nào bắn thêm, nên $A_K(x) = \emptyset$ và $\hat y_K(x) = \mathrm{fb}(x)$.</li><li>$x \notin U$ và $A(x) \ne \emptyset$: mọi luật bắn đều mang nhãn $o = \mathrm{fb}(x)$. Luật còn lại (nếu có) cho $o$; không còn luật nào thì cho $\mathrm{fb}(x) = o$.</li><li>$x \in U$: có $\rho^\ast \in K \cap C(x)$ vẫn bắn. Mọi luật khác nhãn còn trong $K$ có $\kappa &lt; \kappa(\rho^\ast)$, nên argmax mang nhãn $o$. $\square$</li></ul>
+<p>Bài toán tìm $K$ nhỏ nhất là <strong>set cover</strong>, NP-khó. Cách giải:</p>
+<ol><li>Luật bắt buộc: nếu $|C(x)| = 1$ thì luật duy nhất đó thuộc mọi phủ.</li><li>Greedy lười trên phần còn lại.</li><li>Xoá ngược: bỏ lần lượt luật mà mọi $x$ nó phủ còn luật khác phủ. Kết quả là phủ <strong>tối giản</strong> (không bỏ được luật nào).</li></ol>
+<p><strong>Mệnh đề 6.4 (hai cận).</strong></p>
+<ul><li>Greedy cho $|K| \le H(d)\cdot \mathrm{OPT}$, với $d = \max_\rho |\{x : \rho \in C(x)\}|$ và $H(d) = \sum_{i \le d} 1/i$ (Chvátal, 1979). Bước bắt buộc và bước xoá ngược không làm hỏng cận này.</li><li>Nếu $P \subseteq U$ gồm các cặp có $C(x)$ đôi một rời nhau, thì $\mathrm{OPT} \ge |P|$: mỗi luật thuộc tối đa một $C(x)$ với $x \in P$ (đối ngẫu yếu giữa packing và covering).</li></ul>
+<p>Chặn dưới dùng trong kết quả là $|P|$, với $P$ xếp tham lam theo $|C(x)|$ tăng dần. $\square$</p>
+<p><strong>Mệnh đề 6.5 (biến thể B).</strong> Đặt $U_B = \{x \in U : \hat y(x) = y(x)\}$. Mọi $K$ phủ $U_B$ giữ đúng mọi cặp đã đoán đúng trên dữ liệu dựng phủ. Cặp đúng nằm ngoài $U$ thì rơi vào hai trường hợp đầu của 6.3. Hệ quả: accuracy trên dữ liệu dựng không giảm. Macro-F1 thì không được bảo đảm, vì cặp sai có thể chuyển sang một nhãn sai khác. $\square$</p>
+<p><strong>Kết quả</strong> (phủ dựng trên DISCOVERY + CONF-1; kiểm trên CONF-2; valid mở một lần):</p>
+<div class="tbl"><table><thead><tr><th>Bộ luật</th><th>Sau xác nhận / qua cổng</th><th>Hoạt động</th><th>Phát biểu khác nhau</th><th><strong>Phủ A</strong></th><th>Chặn dưới</th><th>Valid: giữ nguyên / macro-F1</th></tr></thead><tbody><tr><td>EV–EV (2.1)</td><td>54.719</td><td>2.794</td><td>1.621</td><td><strong>378</strong></td><td>377</td><td>99,979% / 26,99%</td></tr><tr><td>EV→TIMEX (2.1)</td><td>1.412</td><td>134</td><td>125</td><td><strong>45</strong></td><td>45</td><td>100% / 29,74%</td></tr><tr><td>TIMEX→EV (2.1)</td><td>1.710</td><td>598</td><td>583</td><td><strong>93</strong></td><td>93</td><td>99,997% / 24,29%</td></tr><tr><td>TIMEX–TIMEX (2.1)</td><td>416</td><td>100</td><td>90</td><td><strong>16</strong></td><td>16</td><td>100% / 32,98%</td></tr><tr><td>Liên tầng EV–EV (2.2)</td><td>7.856</td><td>1.595</td><td>1.015</td><td><strong>152</strong></td><td>152</td><td>99,979% / 27,41%</td></tr><tr><td>Liên tầng EV→TIMEX</td><td>959</td><td>273</td><td>217</td><td><strong>12</strong></td><td>12</td><td>99,989% / 30,58%</td></tr><tr><td>Liên tầng TIMEX→EV</td><td>875</td><td>6</td><td>6</td><td><strong>5</strong></td><td>5</td><td>100% / 26,24%</td></tr><tr><td>Liên tầng TIMEX–TIMEX</td><td>548</td><td>221</td><td>121</td><td><strong>12</strong></td><td>12</td><td>100% / 34,93%</td></tr><tr><td><strong>Bài 1 tổng</strong></td><td><strong>68.495</strong></td><td><strong>5.721</strong></td><td></td><td><strong>713</strong></td><td>712</td><td></td></tr><tr><td>Auditor Bài 2 (mỗi fold · mục tiêu)</td><td>1.433–1.559</td><td>87–287</td><td></td><td><strong>42–83</strong></td><td>42–83</td><td>99,985–99,993%</td></tr></tbody></table></div>
+<p>Tất cả các phủ A, trừ EV–EV, đạt đúng chặn dưới, <strong>tức là tối ưu</strong>; phủ EV–EV cách tối ưu tối đa 1 luật. Biến thể B: EV–EV 279 (chặn dưới 278, valid macro-F1 27,02%, accuracy 88,11%); liên tầng 141; TIMEX 38 / 84 / 16.</p>
+<h2 id="7-thiết-kế-theo-tầng-bước-2-2">7. Thiết kế theo tầng (bước 2.2)</h2>
+<p>Nguyên tử được phân hoạch theo nguồn: $\mathcal{A}(x) = \bigsqcup_{\lambda \in \Lambda} \mathcal{A}_\lambda(x)$, với $\Lambda = \{\textsf{ONT}, \textsf{ARG}, \textsf{DISC}, \textsf{LEX}, \textsf{TIME}\}$.</p>
+<ul><li><strong>Pattern:</strong> luật độ sâu ≤ 2 chỉ dùng nguyên tử của một tầng. Mine trên DISCOVERY với cổng $n \ge 30$, $k \ge 10$, ≥ 5 document, $\frac{k/n}{\pi} \ge 2$, $\frac{\mathrm{wlb}}{\pi} \ge 1{,}5$; xác nhận $\frac{w}{\pi} \ge 1{,}5$ trên CONF-1. Giữ tối đa 150 pattern mỗi (nhãn, tầng).</li><li><strong>Pattern hoạt động của một cặp:</strong> mỗi tầng giữ tối đa 3 pattern có $w$ cao nhất.</li><li><strong>Luật liên tầng:</strong> hội của 2–3 pattern hoạt động thuộc các tầng <strong>khác nhau</strong>, qua cùng cổng và cùng xác nhận.</li><li><strong>Combiner:</strong> như §5 với $\mathrm{fb}(x)$ là nhãn bước 2.1 và ngưỡng theo nhãn chọn trên CONF-2.</li></ul>
+<p>Vì luật có thể đề xuất đúng nhãn đang có (để chặn nhãn khác), $U$ của Định lý 6.3 gồm cả những cặp mà đầu ra không đổi nhưng có luật khác nhãn cùng bắn.</p>
+<h2 id="8-auditor-bài-2-bước-3-1">8. Auditor Bài 2 (bước 3.1)</h2>
+<p>Đồ thị cần kiểm toán gán nhãn $\tilde y(e)$ cho mỗi cạnh. Nhóm $g = (\tau(e), \tilde y(e))$; 8 nhóm có đủ dữ liệu. Trong nhóm $g$, một luật đề xuất nhãn $\ell \ne \tilde y$. Với $\pi_g(\ell)$ là tỷ lệ nền của nhóm:</p>
+<ul><li><strong>Cổng thích ứng:</strong> $n \ge 30$, $k \ge 10$, ≥ 5 document, $k/n \ge \min\big(2\pi_g(\ell), \frac{1 + \pi_g(\ell)}{2}\big)$, và $\mathrm{wlb}(k, n) &gt; \pi_g(\ell)$. Xác nhận: $n_{C} \ge 10$, $\mathrm{wlb} &gt; \pi_g(\ell)$.</li><li><strong>Vì sao cần $\min$:</strong> khi nhãn cần khôi phục là đa số của nhóm (57% cạnh EV–EV bị đoán CONTAINS thật ra là BEFORE), cổng $2\pi$ đòi precision trên 100%.</li><li><strong>Tầng GRAPH:</strong> nguyên tử là chữ ký đường đi $a$–$x$–$b$ và $a$–$x$–$y$–$b$ trên đồ thị đang kiểm toán, gồm (loại node trung gian, các nhãn có hướng trên đường).</li><li><strong>Combiner:</strong> §5 với $\mathrm{fb} = \tilde y$ và ngưỡng theo $(\tau, \ell)$.</li></ul>
+<h2 id="9-mô-hình-năng-lượng-tam-giác-bước-2-3-v">9. Mô hình năng lượng tam giác (bước 2.3 và 3.2)</h2>
+<p><strong>Tam giác và cấu hình.</strong> Tam giác $t = \{a, b, c\}$ có đủ ba cạnh. Cấu hình $\gamma(t)$ = (loại ba node, ba nhãn <em>có hướng</em>); nhãn của cạnh lưu ngược chiều được thay bằng nghịch đảo.</p>
+<p><strong>Tần suất làm trơn</strong> (gold của DISCOVERY + CONF-1, 2.326 document, 6.306.908 tam giác):</p>
+<div class="display">$$\tilde p(\gamma) = \frac{N(\gamma) + \beta \prod_{e \in t} q_{\tau(e)}(l_e)}{N(\text{kinds}) + \beta}, \qquad \beta = 10,$$</div>
+<p>với $q_\tau(l) = \frac{N_\tau(l) + 1}{N_\tau + 6}$ là prior theo loại cạnh.</p>
+<p><strong>PMI của tam giác:</strong></p>
+<div class="display">$$\mathrm{PMI}(\gamma) = \log \tilde p(\gamma) - \sum_{e \in t} \log q_{\tau(e)}(l_e).$$</div>
+<p><strong>Năng lượng</strong> của một cách gán $L$ cho document:</p>
+<div class="display">$$E(L) = \sum_{e} U_e(l_e) + \lambda \sum_{t} W_t\, T_t(L), \qquad T_t = -\mathrm{PMI}(\gamma_t(L)),$$</div>
+<div class="display">$$U_e(l) = -(1 - \alpha)\log q_{\tau(e)}(l) - \log P(\tilde y_e \mid l).$$</div>
+<p><strong>Kênh nhiễu:</strong></p>
+<ul><li>nhiễu bơm: $P(p \mid l) = 1 - \rho$ nếu $p = l$, ngược lại $\rho\, q(p) / (1 - q(l))$;</li><li>nhiễu classifier: $P(p \mid l) = \frac{N(p, l) + 0{,}5}{N(l) + 3}$, ước lượng trên tập chỉnh.</li></ul>
+<p><strong>Vì sao PMI mà không dùng $-\log \tilde p$:</strong> tần suất thô thưởng cho việc đổi mọi cạnh thành BEFORE. PMI trừ đi phần chỉ do prior. <strong>Vai trò của $\alpha$:</strong> $\alpha = 0$ là hậu nghiệm Bayes đầy đủ, tự nó đã kéo nhãn hiếm về BEFORE, vì precision SIMULTANEOUS của classifier chỉ 28,8% (EV–EV 17,9%).</p>
+<p><strong>Tối ưu bằng ICM.</strong> Khởi đầu từ $\tilde y$. Hàng đợi ban đầu gồm các cạnh nằm trong một tam giác có PMI &lt; 0. Với mỗi cạnh, chọn nhãn cực tiểu hoá năng lượng cục bộ; khi một cạnh đổi nhãn thì đẩy hàng xóm vào hàng đợi; tối đa 4 lượt.</p>
+<p><strong>Mệnh đề 9.1.</strong> Ở chế độ <code>sum</code> ($W_t = 1$), năng lượng cục bộ của cạnh $e$ bằng $E(L)$ trừ đi một hằng số không phụ thuộc $l_e$. Vì vậy mỗi bước ICM được chấp nhận giảm $E$ ngặt, và thuật toán dừng tại một cực tiểu địa phương theo từng toạ độ (hoặc khi hết số lượt tối đa). Ở chế độ <code>mean</code> ($W_t = 1/|\{t \ni e\}|$ tính theo <em>từng cạnh</em>), trọng số phụ thuộc cạnh đang xét, nên không tồn tại năng lượng toàn cục nào mà các bước là hạ toạ độ. Chế độ này là một heuristic cục bộ, và chỉ dừng nhờ giới hạn 4 lượt. $\square$</p>
+<p>Tham số $(\text{mode}, \lambda, \alpha)$ được chọn trên lưới $\{\texttt{mean}\} \times \{0{,}2; 0{,}5; 1; 2\} \times \{0; 0{,}5\} \cup \{\texttt{sum}\} \times \{0{,}03; 0{,}1\} \times \{0\}$ ở tập chỉnh của mỗi fold. Cả hai fold đều chọn `mean`: $(0{,}5; 0)$ khi tối ưu theo số lỗi và $(1{,}0; 0{,}5)$ khi tối ưu theo macro-F1 (tam giác một mình).</p>
+<h2 id="10-cấu-trúc-bậc-cao-bộ-3-bộ-4-bộ-5">10. Cấu trúc bậc cao: bộ 3, bộ 4, bộ 5</h2>
+<p>Với cạnh đích $(a, b)$, gọi $N(a, b)$ là tập hàng xóm chung (sự kiện hoặc TIMEX), sắp theo id, bỏ $a, b$, rồi lấy 6 phần tử đầu. Nhãn cạnh $L(x, y) = y(x, y)$ nếu cạnh lưu theo chiều $(x, y)$, ngược lại là nhãn nghịch đảo. Nguyên tử của hàng xóm $c$ là $\alpha(c) = (\text{loại } c, L(a, c), L(c, b))$.</p>
+<div class="tbl"><table><thead><tr><th>Cấu trúc</th><th>Chữ ký (kèm $\tau(a, b)$)</th></tr></thead><tbody><tr><td>Bộ 3</td><td>$\alpha(c)$ — một tam giác</td></tr><tr><td>Bộ 4</td><td>multiset $\{\alpha(c), \alpha(d)\}$ — hai tam giác chung cạnh $ab$</td></tr><tr><td>Bộ 4K</td><td>thêm $L(c, d)$ — đủ 6 cạnh của 4 node</td></tr><tr><td>Bộ 5</td><td>multiset $\{\alpha(c), \alpha(d), \alpha(e)\}$</td></tr></tbody></table></div>
+<p>Protocol như §4–5: cổng thích ứng của §8, xác nhận trên CONF-1, ngưỡng theo (loại cạnh, nhãn) chọn trên CONF-2, valid mở một lần. Nhãn hàng xóm có hai nguồn: gold (trần, không đạt được khi triển khai) hoặc dự đoán của classifier hiện tại (thực tế). Dưới đây là chế độ ghi đè lên classifier bước 2.2 (30,84%), <code>motif345.py</code>:</p>
+<div class="tbl"><table><thead><tr><th>Cấu hình</th><th>Hàng xóm gold</th><th>Hàng xóm dự đoán</th></tr></thead><tbody><tr><td>Bộ 3</td><td>46,47% (+15,63)</td><td>31,53% (+0,69)</td></tr><tr><td>Bộ 4</td><td>45,98%</td><td>31,57%</td></tr><tr><td>Bộ 5</td><td>44,47%</td><td>31,42%</td></tr><tr><td>Bộ 3 + 4</td><td><strong>47,34% (+16,50)</strong></td><td>31,60% (+0,76)</td></tr><tr><td>Bộ 3 + 4 + 5</td><td>47,21%</td><td><strong>31,62% (+0,78)</strong>, cũng là cấu hình tốt nhất trên CONF-2</td></tr></tbody></table></div>
+<p>Khi biết nhãn thật xung quanh, bộ 4 thêm +0,87 so với bộ 3 và bộ 5 không thêm gì. Trong thực tế, cả bộ 4 và bộ 5 chỉ thêm +0,09. Kết luận cũ "bộ 4, 5 làm tệ đi" đến từ <code>quint.py</code>, script có lỗi hướng cạnh; kết luận đó bị bác bỏ.</p>
+<h2 id="11-thước-đo">11. Thước đo</h2>
+<p>Với mỗi nhãn $\ell$: $P_\ell = \frac{TP_\ell}{TP_\ell + FP_\ell}$, $R_\ell = \frac{TP_\ell}{TP_\ell + FN_\ell}$, $F_\ell = \frac{2 P_\ell R_\ell}{P_\ell + R_\ell}$, và $\text{macro-F1} = \frac{1}{6}\sum_{\ell} F_\ell$. Nhãn không xuất hiện trong một loại cạnh vẫn tính $F = 0$.</p>
+<p>Ở Bài 2, với đồ thị trước kiểm toán $\tilde y$ và sau kiểm toán $\hat y$:</p>
+<ul><li>$P = \frac{|\{e : \hat y_e \ne \tilde y_e,\ \tilde y_e \ne y_e\}|}{|\{e : \hat y_e \ne \tilde y_e\}|}$;</li><li>$R = \frac{|\{e : \hat y_e \ne \tilde y_e,\ \tilde y_e \ne y_e\}|}{|\{e : \tilde y_e \ne y_e\}|}$;</li><li>giảm lỗi ròng $= |\{\tilde y \ne y\}| - |\{\hat y \ne y\}|$.</li></ul>
+<h2 id="12-kết-quả-valid">12. Kết quả (valid)</h2>
+<p><strong>Bài 1</strong> (macro-F1, 188.924 cạnh):</p>
+<div class="tbl"><table><thead><tr><th>Bước</th><th>Pipeline hiện tại</th><th>Pipeline cũ (257 luật, 400 document)</th></tr></thead><tbody><tr><td>Luôn BEFORE</td><td>15,30%</td><td>15,30%</td></tr><tr><td>2.1 Luật 4 loại cạnh</td><td>30,09% (EE 26,99)</td><td>29,87% (EE 26,15)</td></tr><tr><td>2.2 Liên tầng</td><td>30,84% (EE 27,44)</td><td>30,83% (EE 26,50)</td></tr><tr><td>2.3 Tam giác (cross-fit)</td><td>31,36%</td><td>31,70%</td></tr><tr><td><em>Ghi đè bộ 3+4+5 lên 2.2 (§10)</em></td><td><em>31,62%</em></td><td>—</td></tr></tbody></table></div>
+<p><strong>Bài 2:</strong></p>
+<div class="tbl"><table><thead><tr><th>Nhiễu</th><th>Trước</th><th>Sau</th></tr></thead><tbody><tr><td>Classifier, tối ưu số lỗi</td><td>lỗi 15,31%</td><td>11,62% (P/R/F1 69,78 / 47,04 / 56,20) — cũ 11,81%</td></tr><tr><td>Classifier, tối ưu macro-F1</td><td>macro-F1 30,84%</td><td>31,89% — cũ 32,25%</td></tr><tr><td>Bơm 10%</td><td>lỗi 9,94%</td><td>1,94%</td></tr><tr><td>Bơm 20%</td><td>lỗi 19,89%</td><td>4,16%</td></tr></tbody></table></div>
+<h2 id="13-những-điều-chưa-chứng-minh-hoặc-còn-m">13. Những điều chưa chứng minh hoặc còn mở</h2>
+<ol><li><strong>BEGINS-ON / ENDS-ON:</strong> $F = 0$ trong pipeline. Mine lại theo định nghĩa RED (<code>experiments/begins_ends/</code>): tín hiệu trong văn bản có ("since/from X" → BEGINS-ON, "from A to B", "until X" → ENDS-ON), nhưng nhãn chỉ được chọn ở 1–10% số lần tín hiệu xuất hiện, vì CONTAINS (với "cùng bắt đầu") và BEFORE (với "meets") cũng tương thích Allen. Thêm luật vào pipeline: macro-F1 30,84% → 31,65% (cổng chặt) hoặc 32,36% (cổng nới, cũng tốt hơn trên CONF-2). Nhưng cái giá là 6–7 cạnh được sửa đúng đổi lấy 163–216 cạnh đúng bị làm hỏng, nên chưa đưa vào pipeline.</li><li><strong>Lời nguyền người thắng</strong> của $w(\rho)$ (§4). Cần gộp bằng chứng hai phần hoặc co về tiên nghiệm.</li><li><strong>Tái lập:</strong> chạy lại bước liên tầng cho 30,83% thay vì 30,84% (207 / 981.319 dự đoán khác nhau), vì thứ tự duyệt set trong Python phụ thuộc hash seed. Chưa đo dao động theo seed; các chênh lệch 0,2–0,4 giữa pipeline cũ và mới chưa được kết luận.</li><li><strong>BH-FDR</strong> giả định độc lập hoặc phụ thuộc dương; các cặp cùng document vi phạm giả định này.</li><li><strong>Chế độ <code>mean</code> của ICM</strong> không có bảo đảm hội tụ theo năng lượng (Mệnh đề 9.1).</li><li><strong>Các bước 2.2, 2.3 và Bài 2</strong> chưa chạy lại với các bộ gọn; các bộ gọn lệch tối đa 0,021% dự đoán trên valid.</li></ol>
+<p><strong>Nguồn số liệu:</strong></p>
+<ul><li><code>experiments/rules_full/mine_full.log</code>, <code>compress.log</code>, <code>compress_timex.log</code>, <code>compress_layered.log</code>;</li><li><code>experiments/logs/layered_rules_full.log</code>, <code>bai2_combo_full.log</code>, <code>bai2_compress.log</code>, <code>motif345_gold.log</code>, <code>motif345_pred.log</code>, <code>real_examples_full.log</code>.</li></ul>
+</main>
+</div>

@@ -1,0 +1,89 @@
+[    0s] nap du lieu ...
+[   27s] train 2908 doc (disc 1715 / conf 1193), valid 705 doc; cap: disc 292719 conf 190785 valid 109929
+[   41s] BASE 257 luat tren valid: macro-F1 25.60%
+[   41s] do chinh xac classifier tren conf: {'CONTAINS': '40.2%', 'SIMULTANEOUS': '17.1%', 'OVERLAP': '35.4%'}
+[   42s] DUR: 2177 lemma co >=20 canh tren disc
+[   42s] GRP: 168 loai event, 149 chieu khung vai tro
+[   42s]    nhom 0: Commerce_pay, Employment, Legal_rulings
+[   42s]    nhom 1: Achieve, Aiming, Arriving, Becoming, Being_in_operation, Besieging, Breathing, Cause_change_of_position_on_a_scale
+[   42s]    nhom 2: Award, Change_of_leadership, Competition, Exchange
+[   42s]    nhom 3: Education_teaching
+[   49s] dieu kien moi da dung
+
+==============================================================================================================
+BAI 1 -- TRACK NGU NGHIA, cong vao 257 luat. Base valid macro-F1 25.60%
+   base: CONT P39.8 R41.5 F40.6  SIMU P15.9 R15.8 F15.9  OVER P27.5 R1.9 F3.6
+==============================================================================================================
+
+ cong strict
+   LEX                         922 luat (C922 S0 O0) tau=5  macro  26.06% (+0.46; base cung tau 25.60%)  doi  2438 dung  34.6%
+      CONT P38.7 R50.4 F43.8  SIMU P15.9 R15.8 F15.9  OVER P27.5 R1.9 F3.6
+        (('LEX', 'a', 'wars'), ('HAS', 'etypeset_b', 'Product'))                         -> CONTAINS     cwlb 0.931
+        (('LEX', 'a', 'wars'), ('EQ', 'nrole_a', 1))                                     -> CONTAINS     cwlb 0.923
+        (('LEX', 'a', 'wars'), ('ALL', 'roleset_a', 'Location'))                         -> CONTAINS     cwlb 0.913
+        (('LEX', 'a', 'championship'), ('EQ', 'sdist', '8+'))                            -> CONTAINS     cwlb 0.855
+        (('LEX', 'a', 'wars'), ('EQ', 'nrole_a', 2))                                     -> CONTAINS     cwlb 0.839
+   DUR                         174 luat (C174 S0 O0) tau=5  macro  25.99% (+0.39; base cung tau 25.60%)  doi  5950 dung  28.4%
+      CONT P35.5 R59.4 F44.4  SIMU P15.9 R15.8 F15.9  OVER P27.5 R1.9 F3.6
+        (('DUR', 'tgt_a', 'lo'), ('HAS', 'roleset_a', 'Winner'))                         -> CONTAINS     cwlb 0.755
+        (('DUR', 'tgt_a', 'lo'), ('EQ', 'type_pair', ('Hostile_encounter', 'Attack')))   -> CONTAINS     cwlb 0.722
+        (('DUR', 'tgt_a', 'lo'), ('HAS', 'roleset_shared', 'Winner'))                    -> CONTAINS     cwlb 0.709
+        (('DUR', 'tgt_a', 'lo'), ('HAS', 'anchor_roles', ('Loser', 'Loser')))            -> CONTAINS     cwlb 0.699
+        (('DUR', 'tgt_a', 'lo'), ('HAS', 'roleset_a', 'Loser'))                          -> CONTAINS     cwlb 0.680
+   GRP                         110 luat (C110 S0 O0) tau=5  macro  25.59% (-0.01; base cung tau 25.60%)  doi  2049 dung  23.0%
+      CONT P36.9 R46.5 F41.1  SIMU P15.9 R15.8 F15.9  OVER P27.5 R1.9 F3.6
+        (('G12', 'b', 5), ('HAS', 'anchor_roles', ('Loser', 'Patient')))                 -> CONTAINS     cwlb 0.605
+        (('G12', 'pair', (2, 5)), ('HAS', 'anchor_roles', ('Loser', 'Patient')))         -> CONTAINS     cwlb 0.605
+        (('G30', 'a', 2), ('REL', 'mention_cmp', 'a>b'))                                 -> CONTAINS     cwlb 0.605
+        (('G30', 'a', 2), ('EQ', 'multi_mention_a', True))                               -> CONTAINS     cwlb 0.601
+        (('G12', 'pair', (2, 2)), ('REL', 'mention_cmp', 'a>b'))                         -> CONTAINS     cwlb 0.591
+   CONN                         71 luat (C71 S0 O0) tau=5  macro  25.60% (-0.00; base cung tau 25.60%)  doi   512 dung  22.9%
+      CONT P38.9 R42.7 F40.7  SIMU P15.9 R15.8 F15.9  OVER P27.5 R1.9 F3.6
+        (('CONN', 'btw', 'during'), ('EQ', 'type_b', 'Hostile_encounter'))               -> CONTAINS     cwlb 0.776
+        (('CONN', 'btw', 'during'), ('EQ', 'type_a', 'Military_operation'))              -> CONTAINS     cwlb 0.770
+        (('CONN', 'pre_a', 'during'), ('EQ', 'type_pair', ('Military_operation', 'Attack -> CONTAINS     cwlb 0.686
+        (('CONN', 'pre_a', 'during'), ('EQ', 'type_a', 'Military_operation'))            -> CONTAINS     cwlb 0.677
+        (('CONN', 'btw', 'during'), ('EQ', 'type_a', 'Hostile_encounter'))               -> CONTAINS     cwlb 0.671
+   SEM = LEX+DUR+GRP+CONN     1488 luat (C1488 S0 O0) tau=5  macro  25.61% (+0.01; base cung tau 25.60%)  doi  8295 dung  24.4%
+      CONT P32.7 R63.0 F43.1  SIMU P15.9 R15.8 F15.9  OVER P27.5 R1.9 F3.6
+        (('LEX', 'a', 'wars'), ('HAS', 'etypeset_b', 'Product'))                         -> CONTAINS     cwlb 0.931
+        (('LEX', 'a', 'wars'), ('EQ', 'nrole_a', 1))                                     -> CONTAINS     cwlb 0.923
+        (('LEX', 'a', 'wars'), ('ALL', 'roleset_a', 'Location'))                         -> CONTAINS     cwlb 0.913
+        (('LEX', 'a', 'championship'), ('EQ', 'sdist', '8+'))                            -> CONTAINS     cwlb 0.855
+        (('CONN', 'sinit', 'during'), ('LEX', 'a', 'war'))                               -> CONTAINS     cwlb 0.843
+   WEAK (gold, tran)           303 luat (C303 S0 O0) tau=5  macro  26.78% (+1.18; base cung tau 25.60%)  doi   880 dung  96.7%
+      CONT P44.5 R50.5 F47.3  SIMU P15.9 R15.8 F15.9  OVER P27.5 R1.9 F3.6
+        (('WEAK', 'SUBEVENT', 'ab'), ('EQ', 'order', 'fwd'))                             -> CONTAINS     cwlb 0.996
+        (('WEAK', 'SUBEVENT', 'ab'), ('CNT', 'anchor_roles', 0))                         -> CONTAINS     cwlb 0.996
+        (('WEAK', 'SUBEVENT', 'ab'), ('REL', 'n_anchor', '0'))                           -> CONTAINS     cwlb 0.996
+        (('WEAK', 'SUBEVENT', 'ab'), ('EQ', 'shares_anchor', False))                     -> CONTAINS     cwlb 0.996
+        (('WEAK', 'SUBEVENT', 'ab'), ('REL', 'sent_gap', '4+'))                          -> CONTAINS     cwlb 0.996
+   SEM + WEAK (gold, tran)    1931 luat (C1931 S0 O0) tau=10 macro  26.65% (+1.06; base cung tau 19.13%)  doi  8580 dung  73.7%
+      CONT P91.0 R29.7 F44.7  SIMU P15.9 R15.8 F15.9  OVER P27.5 R1.9 F3.6
+        (('WEAK', 'SUBEVENT', 'ab'), ('EQ', 'order', 'fwd'))                             -> CONTAINS     cwlb 0.996
+        (('WEAK', 'SUBEVENT', 'ab'), ('EQ', 'shares_anchor', False))                     -> CONTAINS     cwlb 0.996
+        (('WEAK', 'SUBEVENT', 'ab'), ('CNT', 'anchor_roles', 0))                         -> CONTAINS     cwlb 0.996
+        (('WEAK', 'SUBEVENT', 'ab'), ('REL', 'n_anchor', '0'))                           -> CONTAINS     cwlb 0.996
+        (('G30', 'a', 19), ('WEAK', 'SUBEVENT', 'ab'))                                   -> CONTAINS     cwlb 0.996
+
+ cong lift
+   LEX                        6009 luat (C4575 S861 O573) tau=5  macro  25.49% (-0.11; base cung tau 25.60%)  doi 10095 dung  16.1%
+      CONT P37.4 R54.5 F44.4  SIMU P7.5 R26.8 F11.7  OVER P3.9 R20.4 F6.5
+   DUR                        2320 luat (C1508 S673 O139) tau=5  macro  21.19% (-4.41; base cung tau 25.60%)  doi 35236 dung   7.5%
+      CONT P29.0 R52.4 F37.3  SIMU P3.3 R65.1 F6.3  OVER P2.9 R28.4 F5.3
+   GRP                        3880 luat (C2176 S1207 O497) tau=5  macro  22.11% (-3.48; base cung tau 25.60%)  doi 25690 dung   6.1%
+      CONT P32.1 R43.8 F37.1  SIMU P3.7 R41.5 F6.8  OVER P2.9 R47.9 F5.4
+   CONN                       1187 luat (C511 S331 O345) tau=5  macro  24.78% (-0.82; base cung tau 25.60%)  doi 12148 dung   6.1%
+      CONT P38.7 R39.5 F39.1  SIMU P8.2 R51.4 F14.1  OVER P3.4 R34.4 F6.2
+   SEM = LEX+DUR+GRP+CONN     15212 luat (C10116 S3334 O1762) tau=10 macro  21.37% (-4.23; base cung tau 19.13%)  doi 16748 dung  31.5%
+      CONT P72.9 R7.7 F13.9  SIMU P8.6 R49.3 F14.7  OVER P4.3 R31.9 F7.6
+        (('CONN', 'btw', 'and'), ('EQ', 'type_pair', ('Killing', 'Bodily_harm')))        -> OVERLAP      cwlb 0.417
+        (('LEX', 'a', 'kill'), ('LEX', 'b', 'injur'))                                    -> OVERLAP      cwlb 0.306
+        (('CONN', 'pre_b', 'and'), ('EQ', 'type_pair', ('Killing', 'Bodily_harm')))      -> OVERLAP      cwlb 0.293
+        (('LEX', 'b', 'injur'), ('EQ', 'type_pair', ('Killing', 'Bodily_harm')))         -> OVERLAP      cwlb 0.276
+        (('LEX', 'b', 'injur'), ('EQ', 'type_a', 'Killing'))                             -> OVERLAP      cwlb 0.276
+   WEAK (gold, tran)           440 luat (C339 S0 O101) tau=5  macro  26.69% (+1.10; base cung tau 25.60%)  doi  1964 dung  47.0%
+      CONT P44.1 R50.4 F47.0  SIMU P15.9 R15.8 F15.9  OVER P3.0 R4.9 F3.7
+   SEM + WEAK (gold, tran)    15772 luat (C10566 S3334 O1872) tau=10 macro  26.48% (+0.89; base cung tau 19.13%)  doi 16271 dung  37.2%
+      CONT P90.8 R28.3 F43.2  SIMU P9.1 R49.3 F15.3  OVER P4.3 R32.1 F7.6
+[ 1026s] xong

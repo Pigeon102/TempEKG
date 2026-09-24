@@ -1,0 +1,5323 @@
+[
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Military_operation",
+     "Hostile_encounter"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.76427,
+  "k": 30,
+  "n": 33,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.9661,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Military_operation",
+     "Hostile_encounter"
+    ]
+   ],
+   [
+    "REL",
+    "a_before_b",
+    false
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.52423,
+  "k": 18,
+  "n": 25,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 0.608,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Participant",
+     "Agent"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60983,
+  "k": 27,
+  "n": 35,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 1.1592,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Attack"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.62587,
+  "k": 38,
+  "n": 50,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 16,
+  "dlogit": 0.9536,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Military_operation",
+     "Attack"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.51464,
+  "k": 25,
+  "n": 37,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 1.3609,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_b",
+    "Event"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40727,
+  "k": 16,
+  "n": 27,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.4631,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.569,
+  "k": 74,
+  "n": 112,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 10,
+  "dlogit": 0.821,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.5738,
+  "k": 77,
+  "n": 116,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 10,
+  "dlogit": 0.8348,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Military_operation"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58511,
+  "k": 285,
+  "n": 452,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 13,
+  "dlogit": 1.3282,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58998,
+  "k": 68,
+  "n": 99,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 0.8012,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.5945,
+  "k": 71,
+  "n": 103,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 0.8126,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42409,
+  "k": 17,
+  "n": 28,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 1.5199,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.61215,
+  "k": 123,
+  "n": 180,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 11,
+  "dlogit": 0.9792,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Hostile_encounter"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4729,
+  "k": 45,
+  "n": 77,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 15,
+  "dlogit": 0.7333,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Motion"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4878,
+  "k": 20,
+  "n": 30,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 10,
+  "dlogit": 1.204,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Military_operation",
+     "Hostile_encounter"
+    ]
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Organization"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56644,
+  "k": 21,
+  "n": 28,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.7621,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Agent",
+     "Participant"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.64121,
+  "k": 38,
+  "n": 49,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 12,
+  "dlogit": 1.5581,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.51,
+  "k": 58,
+  "n": 95,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.6596,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    1
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Military_operation",
+     "Hostile_encounter"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54945,
+  "k": 25,
+  "n": 35,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.5798,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.50415,
+  "k": 58,
+  "n": 96,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.633,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.65999,
+  "k": 125,
+  "n": 171,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 11,
+  "dlogit": 1.0154,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.63841,
+  "k": 141,
+  "n": 200,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 14,
+  "dlogit": 1.0258,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Self_motion"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.47345,
+  "k": 19,
+  "n": 29,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 0.5392,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Catastrophe",
+     "Motion"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.46221,
+  "k": 17,
+  "n": 26,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 1.1026,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Hostile_encounter"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.52941,
+  "k": 20,
+  "n": 28,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 1.3087,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Hostile_encounter"
+    ]
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.50012,
+  "k": 18,
+  "n": 26,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 1.2033,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58513,
+  "k": 65,
+  "n": 95,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 1.2168,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.59043,
+  "k": 533,
+  "n": 855,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 26,
+  "dlogit": 1.073,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60859,
+  "k": 229,
+  "n": 347,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 12,
+  "dlogit": 1.2321,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Loser",
+     "Agent"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58975,
+  "k": 25,
+  "n": 33,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.9163,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58998,
+  "k": 68,
+  "n": 99,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 1.2291,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60801,
+  "k": 225,
+  "n": 341,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 12,
+  "dlogit": 1.2316,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Participant",
+     "Agent"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.7152,
+  "k": 59,
+  "n": 72,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 1.4554,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Building"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43824,
+  "k": 19,
+  "n": 31,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.6696,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Escaping"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40807,
+  "k": 19,
+  "n": 33,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 1.2728,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Military_operation"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.46808,
+  "k": 42,
+  "n": 72,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 1.1302,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Traveling"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.6679,
+  "k": 66,
+  "n": 86,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 2.1613,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Conquering"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48418,
+  "k": 25,
+  "n": 39,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 11,
+  "dlogit": 0.8469,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Participant",
+     "Agent"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.57452,
+  "k": 54,
+  "n": 79,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.7129,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_b",
+    "Name"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44138,
+  "k": 32,
+  "n": 56,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 13,
+  "dlogit": 1.3761,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4498,
+  "k": 33,
+  "n": 57,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 14,
+  "dlogit": 1.403,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Loser",
+     "Agent"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58975,
+  "k": 25,
+  "n": 33,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.9163,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4336,
+  "k": 55,
+  "n": 104,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.5591,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Participant",
+     "Agent"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54055,
+  "k": 49,
+  "n": 75,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 0.5766,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Destroying"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42535,
+  "k": 16,
+  "n": 26,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 10,
+  "dlogit": 0.8447,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Participant",
+     "Patient"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.59829,
+  "k": 44,
+  "n": 61,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.5916,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Competition",
+     "Process_end"
+    ]
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54625,
+  "k": 23,
+  "n": 32,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 0.6971,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.61751,
+  "k": 259,
+  "n": 389,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.5737,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Participant",
+     "Patient"
+    ]
+   ],
+   [
+    "REL",
+    "sent_gap",
+    "4+"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.64758,
+  "k": 39,
+  "n": 50,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 0.9063,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Building"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43824,
+  "k": 19,
+  "n": 31,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.6141,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Building"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43824,
+  "k": 19,
+  "n": 31,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.9031,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Competition",
+     "Getting"
+    ]
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.64972,
+  "k": 29,
+  "n": 36,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 10,
+  "dlogit": 0.5206,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_b",
+    4
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Participant",
+     "Patient"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56821,
+  "k": 34,
+  "n": 48,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.5279,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Loser",
+     "Agent"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Agent"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58975,
+  "k": 25,
+  "n": 33,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.9163,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Loser",
+     "Agent"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58975,
+  "k": 25,
+  "n": 33,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.9163,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Loser",
+     "Agent"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58975,
+  "k": 25,
+  "n": 33,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.9163,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43773,
+  "k": 79,
+  "n": 153,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 28,
+  "dlogit": 1.0299,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Loser",
+     "Agent"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.51433,
+  "k": 22,
+  "n": 32,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.5653,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44477,
+  "k": 83,
+  "n": 159,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 30,
+  "dlogit": 1.0526,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Loser",
+     "Patient"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4841,
+  "k": 17,
+  "n": 25,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.6931,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Patient",
+     "Participant"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.57892,
+  "k": 22,
+  "n": 29,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 1.49,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.65307,
+  "k": 62,
+  "n": 82,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 1.0969,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.41283,
+  "k": 98,
+  "n": 204,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 31,
+  "dlogit": 0.8889,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Passby"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.50012,
+  "k": 18,
+  "n": 26,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 1.7783,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43554,
+  "k": 141,
+  "n": 286,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 14,
+  "dlogit": 0.9394,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "sdist",
+    "8+"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Self_motion"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.5077,
+  "k": 20,
+  "n": 29,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.6959,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    5
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.65537,
+  "k": 147,
+  "n": 204,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.8317,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.52301,
+  "k": 149,
+  "n": 255,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 14,
+  "dlogit": 0.5506,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Agent",
+     "Participant"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.46181,
+  "k": 30,
+  "n": 50,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.7239,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.5995,
+  "k": 50,
+  "n": 70,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 0.8818,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Competition",
+     "Getting"
+    ]
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.66486,
+  "k": 28,
+  "n": 34,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.6397,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Competition",
+     "Getting"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.68864,
+  "k": 31,
+  "n": 37,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 0.7414,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Attack"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.46422,
+  "k": 72,
+  "n": 131,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 20,
+  "dlogit": 0.7682,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "early"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40874,
+  "k": 39,
+  "n": 75,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 11,
+  "dlogit": 0.5236,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "roleset_shared",
+    3
+   ],
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.404,
+  "k": 296,
+  "n": 671,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 62,
+  "dlogit": 0.7308,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Catastrophe"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.41506,
+  "k": 230,
+  "n": 502,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 18,
+  "dlogit": 0.7997,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42969,
+  "k": 120,
+  "n": 244,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 23,
+  "dlogit": 1.0557,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Winner",
+     "Agent"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40739,
+  "k": 15,
+  "n": 25,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.56,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60502,
+  "k": 181,
+  "n": 273,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.6924,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.51487,
+  "k": 92,
+  "n": 155,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 12,
+  "dlogit": 0.8222,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58251,
+  "k": 124,
+  "n": 190,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 10,
+  "dlogit": 1.515,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_b",
+    "Building"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44864,
+  "k": 22,
+  "n": 36,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.6621,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43665,
+  "k": 125,
+  "n": 251,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 23,
+  "dlogit": 1.0766,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    5
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Competition",
+     "Getting"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.64972,
+  "k": 29,
+  "n": 36,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.5206,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54176,
+  "k": 184,
+  "n": 308,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 16,
+  "dlogit": 1.279,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48648,
+  "k": 76,
+  "n": 133,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 11,
+  "dlogit": 0.7313,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60502,
+  "k": 181,
+  "n": 273,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.8313,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    2
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Competition",
+     "Process_end"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.5457,
+  "k": 28,
+  "n": 40,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 0.6061,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.62914,
+  "k": 165,
+  "n": 239,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 1.012,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Patient",
+     "Participant"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.41315,
+  "k": 27,
+  "n": 49,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.5496,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Consequence"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.49025,
+  "k": 32,
+  "n": 51,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 11,
+  "dlogit": 1.0904,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Participant",
+     "Agent"
+    ]
+   ],
+   [
+    "REL",
+    "sent_gap",
+    "4+"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54589,
+  "k": 53,
+  "n": 81,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.5809,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loss"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.47288,
+  "k": 240,
+  "n": 463,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 14,
+  "dlogit": 1.0409,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Participant",
+     "Agent"
+    ]
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.57596,
+  "k": 56,
+  "n": 82,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.7101,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58918,
+  "k": 29,
+  "n": 39,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 1.2748,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Patient",
+     "Patient"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.47689,
+  "k": 100,
+  "n": 182,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 20,
+  "dlogit": 0.7675,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_b",
+    4
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60188,
+  "k": 24,
+  "n": 31,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 1.1977,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_b",
+    "Building"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43573,
+  "k": 21,
+  "n": 35,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.849,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54859,
+  "k": 67,
+  "n": 104,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 0.5593,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_loc_a",
+    true
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Military_operation"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43791,
+  "k": 314,
+  "n": 660,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 13,
+  "dlogit": 0.6967,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.52848,
+  "k": 161,
+  "n": 274,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 14,
+  "dlogit": 0.8417,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.53771,
+  "k": 220,
+  "n": 374,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 20,
+  "dlogit": 1.241,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "roleset_shared",
+    1
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Competition",
+     "Process_end"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54625,
+  "k": 23,
+  "n": 32,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 0.6971,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Competition",
+     "Process_end"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54625,
+  "k": 23,
+  "n": 32,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 0.6971,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_shared",
+    "Location"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Competition",
+     "Process_end"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54625,
+  "k": 23,
+  "n": 32,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 0.6971,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    2
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Military_operation"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43412,
+  "k": 282,
+  "n": 595,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 11,
+  "dlogit": 0.6894,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Building"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40914,
+  "k": 21,
+  "n": 37,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 1.3604,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56151,
+  "k": 292,
+  "n": 482,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 0.9174,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56631,
+  "k": 32,
+  "n": 45,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 10,
+  "dlogit": 1.0554,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Participant",
+     "Agent"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Agent"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.55658,
+  "k": 66,
+  "n": 101,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 0.5771,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Participant",
+     "Agent"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.55658,
+  "k": 66,
+  "n": 101,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 0.5771,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "order",
+    "fwd"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Loser",
+     "Agent"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.52423,
+  "k": 18,
+  "n": 25,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.7213,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_b",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58402,
+  "k": 56,
+  "n": 81,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 0.772,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_shared",
+    "Location"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.59494,
+  "k": 51,
+  "n": 72,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.8528,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Participant",
+     "Patient"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.71557,
+  "k": 35,
+  "n": 41,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 1.4042,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.52942,
+  "k": 178,
+  "n": 304,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 16,
+  "dlogit": 0.5001,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "roleset_b",
+    0
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48648,
+  "k": 52,
+  "n": 88,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.5778,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60492,
+  "k": 35,
+  "n": 47,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 1.5581,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.60188,
+  "k": 24,
+  "n": 31,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.6757,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    5
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48346,
+  "k": 252,
+  "n": 477,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 11,
+  "dlogit": 0.601,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_org_a",
+    true
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Competition",
+     "Process_end"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.52544,
+  "k": 26,
+  "n": 38,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.532,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Process_end"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.5055,
+  "k": 27,
+  "n": 41,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.8669,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.49742,
+  "k": 309,
+  "n": 574,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 22,
+  "dlogit": 0.6412,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Hold"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.62124,
+  "k": 21,
+  "n": 26,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.6452,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.65612,
+  "k": 27,
+  "n": 33,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 1.5198,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Military_operation"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Arranging"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.63202,
+  "k": 27,
+  "n": 34,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 2.1437,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.50984,
+  "k": 137,
+  "n": 239,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 1.4184,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Bodily_harm"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54519,
+  "k": 36,
+  "n": 53,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 12,
+  "dlogit": 1.3194,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56433,
+  "k": 30,
+  "n": 42,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 0.932,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48449,
+  "k": 92,
+  "n": 164,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 12,
+  "dlogit": 0.6887,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56431,
+  "k": 221,
+  "n": 359,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 15,
+  "dlogit": 0.9585,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45973,
+  "k": 244,
+  "n": 484,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 23,
+  "dlogit": 0.9009,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_person_b",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.47685,
+  "k": 58,
+  "n": 101,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.7428,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Person"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.6716,
+  "k": 129,
+  "n": 174,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 1.5408,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Patient",
+     "Participant"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45798,
+  "k": 34,
+  "n": 58,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.6931,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Conquering"
+    ]
+   ],
+   [
+    "REL",
+    "n_anchor",
+    "1"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42192,
+  "k": 22,
+  "n": 38,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 0.5855,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Patient",
+     "Participant"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Agent"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.49152,
+  "k": 23,
+  "n": 35,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.9954,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Hold"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.71942,
+  "k": 24,
+  "n": 27,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 2.234,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Conquering"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4815,
+  "k": 31,
+  "n": 50,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 13,
+  "dlogit": 0.7566,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_b",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.50193,
+  "k": 90,
+  "n": 155,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 12,
+  "dlogit": 0.769,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.57621,
+  "k": 146,
+  "n": 228,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 0.5926,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Competition",
+     "Process_end"
+    ]
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.52662,
+  "k": 23,
+  "n": 33,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.5917,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.57067,
+  "k": 155,
+  "n": 245,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 1.428,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_b",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54009,
+  "k": 72,
+  "n": 114,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 1.0266,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "anchor_roles",
+    [
+     "Patient",
+     "Patient"
+    ]
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.408,
+  "k": 31,
+  "n": 58,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.7072,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.5046,
+  "k": 280,
+  "n": 511,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 22,
+  "dlogit": 0.68,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40517,
+  "k": 69,
+  "n": 142,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 0.5073,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4725,
+  "k": 89,
+  "n": 162,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.6418,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Catastrophe"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Coming_to_be"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43329,
+  "k": 25,
+  "n": 43,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 12,
+  "dlogit": 1.4866,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_b",
+    4
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Conquering"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.49267,
+  "k": 31,
+  "n": 49,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 10,
+  "dlogit": 0.8107,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48306,
+  "k": 271,
+  "n": 515,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 13,
+  "dlogit": 0.5926,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Loser",
+     "Agent"
+    ]
+   ],
+   [
+    "REL",
+    "a_before_b",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.52662,
+  "k": 23,
+  "n": 33,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.6098,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Conquering"
+    ]
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44518,
+  "k": 16,
+  "n": 25,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.8424,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Earnings_and_losses"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.41218,
+  "k": 55,
+  "n": 109,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 20,
+  "dlogit": 0.9858,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    5
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45586,
+  "k": 276,
+  "n": 555,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 15,
+  "dlogit": 1.0898,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Conquering"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4796,
+  "k": 32,
+  "n": 52,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 11,
+  "dlogit": 0.7371,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.57067,
+  "k": 155,
+  "n": 245,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 0.6982,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Person"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45504,
+  "k": 118,
+  "n": 227,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 0.9637,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Host",
+     "Host"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43278,
+  "k": 32,
+  "n": 57,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.557,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Building"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.54283,
+  "k": 21,
+  "n": 29,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.8494,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.55194,
+  "k": 32,
+  "n": 46,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 10,
+  "dlogit": 0.9812,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    1
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Conquering"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43289,
+  "k": 33,
+  "n": 59,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 12,
+  "dlogit": 0.5055,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.61943,
+  "k": 96,
+  "n": 137,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 1.8153,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Hold"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.6851,
+  "k": 24,
+  "n": 28,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 2.8923,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42581,
+  "k": 65,
+  "n": 127,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.5349,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Self_motion"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.41625,
+  "k": 41,
+  "n": 78,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 15,
+  "dlogit": 0.6717,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_person_b",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.46086,
+  "k": 163,
+  "n": 316,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 16,
+  "dlogit": 0.551,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45337,
+  "k": 229,
+  "n": 459,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 18,
+  "dlogit": 0.88,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Host",
+     "Host"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.50539,
+  "k": 62,
+  "n": 103,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.7237,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_loc_a",
+    true
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Patient",
+     "Participant"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44138,
+  "k": 32,
+  "n": 56,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 0.6325,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Damaging"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40964,
+  "k": 40,
+  "n": 77,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 18,
+  "dlogit": 1.0454,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45728,
+  "k": 35,
+  "n": 60,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 12,
+  "dlogit": 0.9055,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42413,
+  "k": 31,
+  "n": 56,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 10,
+  "dlogit": 1.3157,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    2
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Host",
+     "Host"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48474,
+  "k": 62,
+  "n": 107,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.6306,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Host",
+     "Host"
+    ]
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45688,
+  "k": 61,
+  "n": 111,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.509,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_loc_a",
+    true
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Host",
+     "Host"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.46125,
+  "k": 62,
+  "n": 112,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.5253,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_b",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.46302,
+  "k": 249,
+  "n": 491,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 21,
+  "dlogit": 0.5162,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.50339,
+  "k": 64,
+  "n": 107,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.9614,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.53958,
+  "k": 295,
+  "n": 506,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 15,
+  "dlogit": 0.8228,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_shared",
+    "Location"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44204,
+  "k": 149,
+  "n": 299,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 19,
+  "dlogit": 1.0939,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Outcome"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56644,
+  "k": 21,
+  "n": 28,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 1.5863,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.46101,
+  "k": 64,
+  "n": 116,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.7713,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48176,
+  "k": 139,
+  "n": 256,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 11,
+  "dlogit": 1.1368,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    1
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.41313,
+  "k": 313,
+  "n": 696,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 28,
+  "dlogit": 0.6825,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Loss"
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Location_original"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42275,
+  "k": 27,
+  "n": 48,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 1.303,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_loc_b",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4227,
+  "k": 229,
+  "n": 491,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 18,
+  "dlogit": 0.7497,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.49932,
+  "k": 181,
+  "n": 327,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.3155,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "order",
+    "same"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Killing",
+     "Bodily_harm"
+    ]
+   ]
+  ],
+  "rel": "OVERLAP",
+  "wlb": 0.52941,
+  "k": 20,
+  "n": 28,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 19,
+  "dlogit": 1.8971,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42116,
+  "k": 63,
+  "n": 124,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.5959,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_b",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.41121,
+  "k": 64,
+  "n": 129,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.5482,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    2
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.51116,
+  "k": 166,
+  "n": 292,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 20,
+  "dlogit": 1.3991,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Building"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44518,
+  "k": 16,
+  "n": 25,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 1.6987,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Host",
+     "Agent"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.57892,
+  "k": 22,
+  "n": 29,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 2.0206,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_loc_a",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42533,
+  "k": 64,
+  "n": 125,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.6117,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_loc_b",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.5134,
+  "k": 300,
+  "n": 540,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 17,
+  "dlogit": 0.7108,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Person"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58188,
+  "k": 114,
+  "n": 174,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 1.7652,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_b",
+    4
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45189,
+  "k": 139,
+  "n": 272,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 18,
+  "dlogit": 0.5318,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58275,
+  "k": 137,
+  "n": 211,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 9,
+  "dlogit": 1.7393,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    5
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.52516,
+  "k": 29,
+  "n": 43,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 8,
+  "dlogit": 2.5398,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Earnings_and_losses"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.51433,
+  "k": 22,
+  "n": 32,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.6728,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4072,
+  "k": 183,
+  "n": 402,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 18,
+  "dlogit": 0.9438,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_b",
+    5
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45666,
+  "k": 36,
+  "n": 62,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 1.4488,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.51131,
+  "k": 57,
+  "n": 93,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 1.7172,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_a",
+    "Location"
+   ],
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40823,
+  "k": 50,
+  "n": 99,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 1.3533,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "etypeset_a",
+    "Art"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.51105,
+  "k": 140,
+  "n": 244,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.9773,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_a",
+    "Building"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.49025,
+  "k": 32,
+  "n": 51,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.4057,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    2
+   ],
+   [
+    "HAS",
+    "etypeset_a",
+    "Art"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.53423,
+  "k": 136,
+  "n": 227,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.9054,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    5
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Hold"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.46948,
+  "k": 20,
+  "n": 31,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 2.4094,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_person_a",
+    true
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Art"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44917,
+  "k": 70,
+  "n": 131,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.6589,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "EQ",
+    "nrole_b",
+    5
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.41117,
+  "k": 48,
+  "n": 94,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 1.3002,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "etypeset_a",
+    "Art"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.5114,
+  "k": 139,
+  "n": 242,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 1.83,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40421,
+  "k": 150,
+  "n": 328,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 11,
+  "dlogit": 0.9522,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ],
+   [
+    "HAS",
+    "etypeset_a",
+    "Building"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.47049,
+  "k": 39,
+  "n": 66,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.4911,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    2
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Art"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45671,
+  "k": 73,
+  "n": 135,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 0.6846,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Name",
+     "Patient"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44518,
+  "k": 16,
+  "n": 25,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.2932,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    2
+   ],
+   [
+    "HAS",
+    "etypeset_b",
+    "Art"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4464,
+  "k": 75,
+  "n": 142,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 7,
+  "dlogit": 1.6164,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "etypeset_b",
+    "Art"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42047,
+  "k": 74,
+  "n": 148,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.7796,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "HAS",
+    "etypeset_a",
+    "Art"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44968,
+  "k": 158,
+  "n": 313,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 1.2768,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Earnings_and_losses"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42452,
+  "k": 32,
+  "n": 58,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 6,
+  "dlogit": 1.4653,
+  "q": 0.009222
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    4
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Damaging"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.41787,
+  "k": 90,
+  "n": 184,
+  "view": "global",
+  "sig": "*",
+  "ndoc": 5,
+  "dlogit": 1.6187,
+  "q": 0.009222
+ }
+]

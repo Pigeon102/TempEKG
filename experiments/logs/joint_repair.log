@@ -1,0 +1,99 @@
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+[    5s] thong ke gold: 2014 doc, chinh tham so: 499 doc, valid 710 doc
+[   32s] tam giac: thong ke 4376110, chinh 1196481, valid 1825360
+
+==================================================================================================================================
+BAI 2 -- SUA CHUNG THEO DOCUMENT TREN TAM GIAC (valid mo mot lan)
+==================================================================================================================================
+
+nhieu bom 10% ca bon loai canh (kenh nhieu biet truoc)
+[   69s]   chinh mean lam=0.200 alpha=0.0: rong +6225 macro 79.60%
+[   92s]   chinh mean lam=0.200 alpha=0.5: rong +2004 macro 71.89%
+[  107s]   chinh mean lam=0.200 alpha=1.0: rong +29 macro 71.04%
+[  137s]   chinh mean lam=0.500 alpha=0.0: rong +8435 macro 83.29%
+[  168s]   chinh mean lam=0.500 alpha=0.5: rong +7362 macro 77.58%
+[  195s]   chinh mean lam=0.500 alpha=1.0: rong +4393 macro 72.19%
+[  225s]   chinh mean lam=1.000 alpha=0.0: rong +9764 macro 85.95%
+[  256s]   chinh mean lam=1.000 alpha=0.5: rong +9941 macro 84.13%
+[  287s]   chinh mean lam=1.000 alpha=1.0: rong +7868 macro 73.51%
+[  318s]   chinh mean lam=2.000 alpha=0.0: rong +10167 macro 85.88%
+[  349s]   chinh mean lam=2.000 alpha=0.5: rong +10492 macro 86.67%
+[  383s]   chinh mean lam=2.000 alpha=1.0: rong +8810 macro 69.22%
+[  413s]   chinh sum lam=0.030 alpha=0.0: rong +8721 macro 83.85%
+[  443s]   chinh sum lam=0.030 alpha=0.5: rong +8277 macro 79.79%
+[  474s]   chinh sum lam=0.030 alpha=1.0: rong +5971 macro 74.12%
+[  507s]   chinh sum lam=0.100 alpha=0.0: rong +9738 macro 84.31%
+[  542s]   chinh sum lam=0.100 alpha=0.5: rong +9824 macro 82.07%
+[  581s]   chinh sum lam=0.100 alpha=1.0: rong +7587 macro 67.96%
+[  621s]   chinh sum lam=0.300 alpha=0.0: rong +7141 macro 66.13%
+[  662s]   chinh sum lam=0.300 alpha=0.5: rong +5814 macro 64.79%
+[  705s]   chinh sum lam=0.300 alpha=1.0: rong +2877 macro 52.16%
+[  749s]   chinh sum lam=1.000 alpha=0.0: rong +1816 macro 48.50%
+[  792s]   chinh sum lam=1.000 alpha=0.5: rong +555 macro 46.24%
+[  836s]   chinh sum lam=1.000 alpha=1.0: rong -1449 macro 43.67%
+  tam giac, chon theo giam loi (mean, lam 2.00, a 0.5) P  92.32% R  88.24% F1  90.23%  sua  16492 hong  1379 rong +15113  loi  9.94% ->  1.94%  macro  69.08% ->  85.10%
+      loi theo loai: EE 9.9->2.0   ET 9.6->0.9   TE 10.2->2.5   TT 10.1->1.8
+  tam giac, chon theo macro-F1 (mean, lam 2.00, a 0.5) P  92.32% R  88.24% F1  90.23%  sua  16492 hong  1379 rong +15113  loi  9.94% ->  1.94%  macro  69.08% ->  85.10%
+      loi theo loai: EE 9.9->2.0   ET 9.6->0.9   TE 10.2->2.5   TT 10.1->1.8
+
+nhieu bom 20% ca bon loai canh (kenh nhieu biet truoc)
+[  966s]   chinh mean lam=0.200 alpha=0.0: rong +12579 macro 47.47%
+[ 1002s]   chinh mean lam=0.200 alpha=0.5: rong +13132 macro 59.80%
+[ 1021s]   chinh mean lam=0.200 alpha=1.0: rong +1258 macro 53.83%
+[ 1058s]   chinh mean lam=0.500 alpha=0.0: rong +14776 macro 53.55%
+[ 1096s]   chinh mean lam=0.500 alpha=0.5: rong +18593 macro 67.75%
+[ 1135s]   chinh mean lam=0.500 alpha=1.0: rong +12064 macro 57.07%
+[ 1171s]   chinh mean lam=1.000 alpha=0.0: rong +18343 macro 63.65%
+[ 1207s]   chinh mean lam=1.000 alpha=0.5: rong +20470 macro 75.22%
+[ 1247s]   chinh mean lam=1.000 alpha=1.0: rong +15787 macro 57.78%
+[ 1283s]   chinh mean lam=2.000 alpha=0.0: rong +19397 macro 70.46%
+[ 1320s]   chinh mean lam=2.000 alpha=0.5: rong +20273 macro 76.94%
+[ 1365s]   chinh mean lam=2.000 alpha=1.0: rong +14100 macro 50.84%
+[ 1402s]   chinh sum lam=0.030 alpha=0.0: rong +15894 macro 53.95%
+[ 1438s]   chinh sum lam=0.030 alpha=0.5: rong +18999 macro 70.92%
+[ 1480s]   chinh sum lam=0.030 alpha=1.0: rong +13617 macro 57.91%
+[ 1518s]   chinh sum lam=0.100 alpha=0.0: rong +18796 macro 66.20%
+[ 1559s]   chinh sum lam=0.100 alpha=0.5: rong +19421 macro 70.57%
+[ 1605s]   chinh sum lam=0.100 alpha=1.0: rong +13387 macro 53.99%
+[ 1650s]   chinh sum lam=0.300 alpha=0.0: rong +16044 macro 53.66%
+[ 1696s]   chinh sum lam=0.300 alpha=0.5: rong +13577 macro 52.95%
+[ 1743s]   chinh sum lam=0.300 alpha=1.0: rong +8208 macro 42.89%
+[ 1791s]   chinh sum lam=1.000 alpha=0.0: rong +9258 macro 41.45%
+[ 1837s]   chinh sum lam=1.000 alpha=0.5: rong +7096 macro 39.81%
+[ 1886s]   chinh sum lam=1.000 alpha=1.0: rong +4275 macro 37.67%
+  tam giac, chon theo giam loi (mean, lam 1.00, a 0.5) P  93.52% R  85.31% F1  89.23%  sua  31943 hong  2222 rong +29721  loi 19.89% ->  4.16%  macro  50.98% ->  72.46%
+      loi theo loai: EE 20.0->3.9   ET 20.0->2.1   TE 19.5->6.0   TT 19.9->4.8
+  tam giac, chon theo macro-F1 (mean, lam 2.00, a 0.5) P  89.85% R  88.38% F1  89.11%  sua  32987 hong  3750 rong +29237  loi 19.89% ->  4.42%  macro  50.98% ->  72.63%
+      loi theo loai: EE 20.0->4.2   ET 20.0->2.4   TE 19.5->6.2   TT 19.9->4.8
+
+nhieu classifier tang (kenh = ma tran nham lan tren conf2)
+[ 2031s]   chinh mean lam=0.200 alpha=0.0: rong +3376 macro 26.82%
+[ 2051s]   chinh mean lam=0.200 alpha=0.5: rong +976 macro 30.44%
+[ 2073s]   chinh mean lam=0.200 alpha=1.0: rong -976 macro 29.86%
+[ 2104s]   chinh mean lam=0.500 alpha=0.0: rong +2935 macro 26.99%
+[ 2130s]   chinh mean lam=0.500 alpha=0.5: rong +1708 macro 30.43%
+[ 2163s]   chinh mean lam=0.500 alpha=1.0: rong -3780 macro 28.67%
+[ 2195s]   chinh mean lam=1.000 alpha=0.0: rong +2225 macro 27.37%
+[ 2224s]   chinh mean lam=1.000 alpha=0.5: rong +1664 macro 30.47%
+[ 2261s]   chinh mean lam=1.000 alpha=1.0: rong -5327 macro 27.89%
+[ 2295s]   chinh mean lam=2.000 alpha=0.0: rong +944 macro 28.92%
+[ 2326s]   chinh mean lam=2.000 alpha=0.5: rong +1070 macro 30.64%
+[ 2366s]   chinh mean lam=2.000 alpha=1.0: rong -6619 macro 27.46%
+[ 2398s]   chinh sum lam=0.030 alpha=0.0: rong +2474 macro 26.70%
+[ 2426s]   chinh sum lam=0.030 alpha=0.5: rong +1559 macro 30.38%
+[ 2464s]   chinh sum lam=0.030 alpha=1.0: rong -4101 macro 28.41%
+[ 2499s]   chinh sum lam=0.100 alpha=0.0: rong +1080 macro 28.59%
+[ 2535s]   chinh sum lam=0.100 alpha=0.5: rong -85 macro 29.68%
+[ 2576s]   chinh sum lam=0.100 alpha=1.0: rong -7012 macro 27.42%
+[ 2614s]   chinh sum lam=0.300 alpha=0.0: rong -1904 macro 28.14%
+[ 2655s]   chinh sum lam=0.300 alpha=0.5: rong -4188 macro 27.64%
+[ 2695s]   chinh sum lam=0.300 alpha=1.0: rong -8198 macro 26.64%
+[ 2736s]   chinh sum lam=1.000 alpha=0.0: rong -5963 macro 26.85%
+[ 2778s]   chinh sum lam=1.000 alpha=0.5: rong -7206 macro 26.84%
+[ 2820s]   chinh sum lam=1.000 alpha=1.0: rong -8927 macro 26.20%
+  tam giac, chon theo giam loi (mean, lam 0.20, a 0.0) P  71.09% R  35.20% F1  47.09%  sua   9371 hong  4087 rong  +5284  loi 15.11% -> 12.32%  macro  30.83% ->  27.43%
+      loi theo loai: EE 12.4->9.3   ET 10.5->8.0   TE 25.9->22.7   TT 14.4->14.6
+  tam giac, chon theo macro-F1 (mean, lam 2.00, a 0.5) P  60.27% R  24.29% F1  34.63%  sua   5929 hong  4572 rong  +1357  loi 15.11% -> 14.39%  macro  30.83% ->  31.01%
+      loi theo loai: EE 12.4->11.4   ET 10.5->10.0   TE 25.9->24.2   TT 14.4->19.0
+[ 2918s] xong

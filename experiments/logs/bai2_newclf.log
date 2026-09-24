@@ -1,0 +1,35 @@
+[    0s] nap train/valid ...
+[    9s] train 400 doc (disc 229 / conf 171), valid 705 doc
+[   13s]   257 luat EV-EV tren disc (in-sample)  acc 91.47%  loi 8.53%
+[   13s]   257 luat EV-EV tren valid             acc 87.87%  loi 12.13%
+[   14s]   classifier EV-TX (273 luat) tren valid: 79.84%
+[   14s]   TX-TX theo lich tren valid: 12464 canh, UNK 65.1%, dung 95.8% trong so da quyet dinh
+[   14s] dung motif ...
+[  223s]   do phu motif tren valid (109,929 cap): 3E 99.7%  3T 92.2%  4EE 99.4%  4ET 95.4%  4TE 96.1%  4TT 90.3%
+[  223s] BASE 257 luat: macro-F1 25.60%  acc 87.87%
+[  223s] do tin cay classifier tren confirmation: {'BEFORE': '94.6%', 'CONTAINS': '40.6%', 'SIMULTANEOUS': '16.3%', 'OVERLAP': '41.7%'}
+[  223s] chu ky gold tren train ...
+[  227s] OLD 21 luat, NEW(rel=clf) 175 luat
+
+======================================================================================================================
+[  227s] Bayes: 518 chu ky co phan phoi (disc, gold)
+
+========================================================================================================================
+BAI 2 TREN CLASSIFIER CU vs MOI -- boi canh B, cross-fit tren valid
+========================================================================================================================
+
+CU: 257 luat (25,60%)  (tong hai fold test)
+  khong kiem toan                      P   0.00%  R   0.00%  F1   0.00%  R_all   0.00%  rong    +0  loi 12.13% -> 12.13%  | macro-F1 do thi  25.60%  (CONT 40.6 SIMU 15.9 OVER 3.6)
+  E4: OLD -> closure -> date           P  72.94%  R  31.70%  F1  44.19%  R_all  29.14%  rong +2334  loi 12.13% -> 10.00%  | macro-F1 do thi  22.49%  (CONT 37.5 SIMU 2.8 OVER 0.0)
+  NEW m.05 -> OLD -> closure -> date   P  72.86%  R  33.73%  F1  46.11%  R_all  31.21%  rong +2503  loi 12.13% ->  9.85%  | macro-F1 do thi  22.18%  (CONT 37.3 SIMU 1.1 OVER 0.0)
+  B1 cross-fit                         P  69.66%  R  43.65%  F1  53.67%  R_all  40.89%  rong +2917  loi 12.13% ->  9.47%  | macro-F1 do thi  20.52%  (CONT 25.8 SIMU 0.0 OVER 2.3)
+  Bayes -> OLD -> closure -> date      P  69.68%  R  40.36%  F1  51.12%  R_all  37.63%  rong +2692  loi 12.13% ->  9.68%  | macro-F1 do thi  21.18%  (CONT 31.6 SIMU 0.5 OVER 0.0)
+[  309s] do tin cay classifier moi tren conf: {'BEFORE': '95.1%', 'CONTAINS': '40.5%', 'SIMULTANEOUS': '16.3%', 'OVERLAP': '41.7%'}
+
+MOI: 257 + 719 luat trigger (26,15%)  (tong hai fold test)
+  khong kiem toan                      P   0.00%  R   0.00%  F1   0.00%  R_all   0.00%  rong    +0  loi 12.41% -> 12.41%  | macro-F1 do thi  26.15%  (CONT 44.1 SIMU 15.9 OVER 3.6)
+  E4: OLD -> closure -> date           P  74.47%  R  34.18%  F1  46.85%  R_all  31.68%  rong +2741  loi 12.41% ->  9.92%  | macro-F1 do thi  23.59%  (CONT 43.1 SIMU 3.7 OVER 0.0)
+  NEW m.05 -> OLD -> closure -> date   P  74.33%  R  36.32%  F1  48.80%  R_all  33.85%  rong +2923  loi 12.41% ->  9.75%  | macro-F1 do thi  23.23%  (CONT 42.9 SIMU 1.8 OVER 0.0)
+  B1 cross-fit                         P  70.47%  R  49.40%  F1  58.08%  R_all  46.64%  rong +3539  loi 12.41% ->  9.19%  | macro-F1 do thi  21.52%  (CONT 31.7 SIMU 0.0 OVER 2.3)
+  Bayes -> OLD -> closure -> date      P  70.86%  R  44.58%  F1  54.73%  R_all  41.91%  rong +3233  loi 12.41% ->  9.47%  | macro-F1 do thi  22.25%  (CONT 37.8 SIMU 0.7 OVER 0.0)
+[  392s] xong

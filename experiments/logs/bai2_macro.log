@@ -1,0 +1,34 @@
+[    0s] nap train/valid ...
+[    9s] train 400 doc (disc 229 / conf 171), valid 705 doc
+[   13s]   257 luat EV-EV tren disc (in-sample)  acc 91.47%  loi 8.53%
+[   13s]   257 luat EV-EV tren valid             acc 87.87%  loi 12.13%
+[   14s]   classifier EV-TX (273 luat) tren valid: 79.84%
+[   14s]   TX-TX theo lich tren valid: 12464 canh, UNK 65.1%, dung 95.8% trong so da quyet dinh
+[   14s] dung motif ...
+[  220s]   do phu motif tren valid (109,929 cap): 3E 99.7%  3T 92.2%  4EE 99.4%  4ET 95.4%  4TE 96.1%  4TT 90.3%
+[  220s] BASE 257 luat: macro-F1 25.60%  acc 87.87%
+[  220s] do tin cay classifier tren confirmation: {'BEFORE': '94.6%', 'CONTAINS': '40.6%', 'SIMULTANEOUS': '16.3%', 'OVERLAP': '41.7%'}
+[  220s] chu ky gold tren train ...
+[  224s] OLD 21 luat, NEW(rel=clf) 175 luat
+
+======================================================================================================================
+[  224s] Bayes: 518 chu ky co phan phoi (disc, gold)
+
+========================================================================================================================
+
+========================================================================================================================
+BAI 2 -- MUC TIEU GIAM LOI hay MACRO-F1 (boi canh B, cross-fit)
+========================================================================================================================
+
+CU: 257 luat
+  khong kiem toan                loi 12.13%  macro-F1  25.60%  (CONT 40.6 SIMU 15.9 OVER 3.6)
+  B1 (chon theo giam loi)        margin [0.1, 0.0]   co  8353  sua  5451  hong  2534  loi 12.13% ->  9.47%  macro-F1  20.52% (-5.08)  (CONT 25.8 SIMU 0.0 OVER 2.3)
+  B1 (chon theo macro-F1)        margin [0.5, 1.0]   co   330  sua   258  hong    10  loi 12.13% -> 11.90%  macro-F1  25.92% (+0.32)  (CONT 40.6 SIMU 17.7 OVER 3.6)
+  B1-norm (chon theo macro-F1)   margin [4.0, 4.0]   co  1914  sua   379  hong  1357  loi 12.13% -> 13.02%  macro-F1  25.61% (+0.01)  (CONT 42.2 SIMU 14.8 OVER 3.6)
+
+MOI: 257 + 719 luat trigger
+  khong kiem toan                loi 12.41%  macro-F1  26.15%  (CONT 44.1 SIMU 15.9 OVER 3.6)
+  B1 (chon theo giam loi)        margin [0.1, 0.0]   co  9565  sua  6364  hong  2825  loi 12.41% ->  9.19%  macro-F1  21.52% (-4.63)  (CONT 31.7 SIMU 0.0 OVER 2.3)
+  B1 (chon theo macro-F1)        margin [0.5, 1.0]   co   356  sua   288  hong     9  loi 12.41% -> 12.16%  macro-F1  26.50% (+0.35)  (CONT 44.2 SIMU 17.8 OVER 3.6)
+  B1-norm (chon theo macro-F1)   margin [4.0, 4.0]   co  1357  sua   110  hong  1081  loi 12.41% -> 13.29%  macro-F1  25.91% (-0.23)  (CONT 44.2 SIMU 14.9 OVER 3.6)
+[  252s] xong

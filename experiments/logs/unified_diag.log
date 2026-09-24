@@ -1,0 +1,26 @@
+[    1s] nap du lieu ...
+[    5s] mine tren conf2: 499 doc, chon tren conf1: 523 doc, valid 710 doc; canh: 129211 / 121440 / 188924
+[  318s] cau truc motif xong
+
+
+1. CHAT LUONG GIAI DOAN 1 THEO TAP
+  conf2 (mine)   acc 84.60% macro 29.77%   EE acc 87.7% F 26.6%  ET acc 89.8% F 29.9%  TE acc 73.1% F 24.4%  TT acc 81.9% F 31.5%
+  conf1 (chon)   acc 85.86% macro 31.64%   EE acc 88.6% F 26.8%  ET acc 90.2% F 32.0%  TE acc 75.4% F 25.6%  TT acc 85.9% F 36.3%
+  valid          acc 84.78% macro 29.87%   EE acc 87.6% F 26.1%  ET acc 89.4% F 29.7%  TE acc 74.1% F 24.3%  TT acc 84.4% F 33.0%
+
+2. MOI MARGIN (thuc te, 1 vong): conf1 va valid (valid chi in ra)
+  margin 0.00   conf1 -3.51   valid -3.56
+  margin 0.05   conf1 -2.56   valid -2.82
+  margin 0.10   conf1 -2.00   valid -2.41
+  margin 0.20   conf1 -1.59   valid -2.06
+  margin 0.30   conf1 -1.23   valid -1.52
+  margin 0.50   conf1 -0.10   valid -0.23
+  margin 0.70   conf1 +0.14   valid +0.18
+
+3. CROSS-FIT TREN VALID (luat hoc tu nua valid kia, margin chon trong nua hoc)
+  fold 0: margin 0.50
+  fold 1: margin 9.00
+  cross-fit, do thi hop nhat                   acc  85.01%  macro-F1  30.12%   BEFO 91.5  CONT 51.5  SIMU 27.6  OVER 10.1
+      theo loai (macro-F1): EV-EV 26.47%   EV>TX 29.66%   TX>EV 23.98%   TX-TX 32.98%
+      (giai doan 1: macro-F1 29.87%)
+[  377s] xong

@@ -1,0 +1,66 @@
+[    0s] nap du lieu ...
+[    3s] train 2913 doc, valid 710 doc
+[    7s] train con lai 2513 doc (bo 400 doc dau)
+[    7s] dung dieu kien theo tang ...
+[   57s] instance: train 619027, valid 188924
+[   59s] dung cau truc motif ...
+[  456s] xong cau truc
+
+==================================================================================================================================
+BAI 2 -- KIEM TOAN THEO TANG (+ tang GRAPH) TREN CLASSIFIER TANG 30,83%, CA BON LOAI CANH (valid mo mot lan)
+==================================================================================================================================
+
+N1 -- nhieu classifier (do thi do classifier tang du doan)
+  do thi dang kiem toan              loi 15.11%  macro 30.83%
+[  500s]   A: chi GRAPH: mine ...
+  A: chi GRAPH | giam loi            P  69.95% R  29.86% F1  41.86%  sua   8318 hong  3663 rong  +4655  loi 15.11% -> 12.65%  macro  30.83% ->  31.96%
+      loi theo loai: EV-EV 12.4->9.8   EV>TX 10.5->9.7   TX>EV 25.9->22.0   TX-TX 14.4->14.2
+  A: chi GRAPH | macro-F1            P  70.14% R  24.20% F1  35.98%  sua   6730 hong  2942 rong  +3788  loi 15.11% -> 13.11%  macro  30.83% ->  32.38%
+      loi theo loai: EV-EV 12.4->9.9   EV>TX 10.5->9.7   TX>EV 25.9->23.8   TX-TX 14.4->14.4
+[  644s]   B: moi tang + GRAPH, lien tang: mine ...
+  B: moi tang + GRAPH, lien tang | giam loi P  69.73% R  37.84% F1  49.05%  sua  10431 hong  4690 rong  +5741  loi 15.11% -> 12.07%  macro  30.83% ->  31.97%
+      loi theo loai: EV-EV 12.4->9.1   EV>TX 10.5->9.7   TX>EV 25.9->21.4   TX-TX 14.4->13.6
+  B: moi tang + GRAPH, lien tang | macro-F1 P  70.09% R  26.82% F1  38.80%  sua   7438 hong  3268 rong  +4170  loi 15.11% -> 12.91%  macro  30.83% ->  32.44%
+      loi theo loai: EV-EV 12.4->9.6   EV>TX 10.5->9.7   TX>EV 25.9->23.8   TX-TX 14.4->13.7
+[ 1123s]   C: moi tang, khong GRAPH: mine ...
+  C: moi tang, khong GRAPH | giam loi P  75.63% R  22.73% F1  34.95%  sua   6191 hong  2091 rong  +4100  loi 15.11% -> 12.94%  macro  30.83% ->  31.31%
+      loi theo loai: EV-EV 12.4->9.7   EV>TX 10.5->10.1   TX>EV 25.9->23.4   TX-TX 14.4->14.4
+  C: moi tang, khong GRAPH | macro-F1 P  72.22% R  23.68% F1  35.66%  sua   6458 hong  2601 rong  +3857  loi 15.11% -> 13.07%  macro  30.83% ->  31.58%
+      loi theo loai: EV-EV 12.4->9.7   EV>TX 10.5->10.3   TX>EV 25.9->23.6   TX-TX 14.4->15.1
+
+N2 -- nhieu bom 10% tren ca bon loai canh
+  do thi dang kiem toan              loi 9.94%  macro 69.43%
+[ 1593s]   A: chi GRAPH: mine ...
+  A: chi GRAPH | giam loi            P  82.59% R  64.38% F1  72.36%  sua  12072 hong  2548 rong  +9524  loi  9.94% ->  4.90%  macro  69.43% ->  76.99%
+      loi theo loai: EV-EV 9.9->4.3   EV>TX 9.6->3.9   TX>EV 10.2->6.7   TX-TX 10.1->6.7
+  A: chi GRAPH | macro-F1            P  80.98% R  66.53% F1  73.04%  sua  12472 hong  2935 rong  +9537  loi  9.94% ->  4.89%  macro  69.43% ->  76.98%
+      loi theo loai: EV-EV 9.9->4.3   EV>TX 9.6->3.9   TX>EV 10.2->6.5   TX-TX 10.1->6.7
+[ 1721s]   B: moi tang + GRAPH, lien tang: mine ...
+  B: moi tang + GRAPH, lien tang | giam loi P  79.82% R  69.52% F1  74.32%  sua  13035 hong  3300 rong  +9735  loi  9.94% ->  4.79%  macro  69.43% ->  76.92%
+      loi theo loai: EV-EV 9.9->4.0   EV>TX 9.6->4.6   TX>EV 10.2->6.7   TX-TX 10.1->5.8
+  B: moi tang + GRAPH, lien tang | macro-F1 P  78.44% R  72.29% F1  75.24%  sua  13550 hong  3732 rong  +9818  loi  9.94% ->  4.74%  macro  69.43% ->  77.11%
+      loi theo loai: EV-EV 9.9->4.0   EV>TX 9.6->4.6   TX>EV 10.2->6.5   TX-TX 10.1->5.8
+[ 2877s]   C: moi tang, khong GRAPH: mine ...
+  C: moi tang, khong GRAPH | giam loi P  72.29% R  56.08% F1  63.16%  sua  10507 hong  4038 rong  +6469  loi  9.94% ->  6.52%  macro  69.43% ->  73.30%
+      loi theo loai: EV-EV 9.9->5.4   EV>TX 9.6->5.8   TX>EV 10.2->9.9   TX-TX 10.1->7.0
+  C: moi tang, khong GRAPH | macro-F1 P  72.53% R  55.23% F1  62.71%  sua  10346 hong  3927 rong  +6419  loi  9.94% ->  6.54%  macro  69.43% ->  73.35%
+      loi theo loai: EV-EV 9.9->5.4   EV>TX 9.6->6.0   TX>EV 10.2->9.9   TX-TX 10.1->7.0
+
+N2 -- nhieu bom 20% tren ca bon loai canh
+  do thi dang kiem toan              loi 19.89%  macro 51.25%
+[ 3930s]   A: chi GRAPH: mine ...
+  A: chi GRAPH | giam loi            P  85.51% R  62.82% F1  72.43%  sua  23562 hong  4001 rong +19561  loi 19.89% ->  9.54%  macro  51.25% ->  63.51%
+      loi theo loai: EV-EV 20.0->8.8   EV>TX 20.0->6.8   TX>EV 19.5->12.7   TX-TX 19.9->11.3
+  A: chi GRAPH | macro-F1            P  84.81% R  62.63% F1  72.06%  sua  23486 hong  4214 rong +19272  loi 19.89% ->  9.69%  macro  51.25% ->  63.32%
+      loi theo loai: EV-EV 20.0->9.0   EV>TX 20.0->7.4   TX>EV 19.5->12.7   TX-TX 19.9->11.3
+[ 4212s]   B: moi tang + GRAPH, lien tang: mine ...
+  B: moi tang + GRAPH, lien tang | giam loi P  81.81% R  77.40% F1  79.54%  sua  29010 hong  6468 rong +22542  loi 19.89% ->  7.96%  macro  51.25% ->  62.41%
+      loi theo loai: EV-EV 20.0->6.4   EV>TX 20.0->6.4   TX>EV 19.5->12.6   TX-TX 19.9->10.2
+  B: moi tang + GRAPH, lien tang | macro-F1 P  81.36% R  77.59% F1  79.43%  sua  29076 hong  6680 rong +22396  loi 19.89% ->  8.04%  macro  51.25% ->  62.53%
+      loi theo loai: EV-EV 20.0->6.4   EV>TX 20.0->6.9   TX>EV 19.5->12.6   TX-TX 19.9->10.2
+[ 8065s]   C: moi tang, khong GRAPH: mine ...
+  C: moi tang, khong GRAPH | giam loi P  80.09% R  66.09% F1  72.42%  sua  24743 hong  6175 rong +18568  loi 19.89% -> 10.06%  macro  51.25% ->  56.22%
+      loi theo loai: EV-EV 20.0->7.7   EV>TX 20.0->7.7   TX>EV 19.5->17.8   TX-TX 19.9->11.1
+  C: moi tang, khong GRAPH | macro-F1 P  83.17% R  62.27% F1  71.22%  sua  23313 hong  4736 rong +18577  loi 19.89% -> 10.06%  macro  51.25% ->  59.11%
+      loi theo loai: EV-EV 20.0->7.7   EV>TX 20.0->7.7   TX>EV 19.5->17.7   TX-TX 19.9->11.1
+[11160s] xong

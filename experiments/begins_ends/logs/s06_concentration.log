@@ -1,0 +1,28 @@
+BEGINS-ON train: 403 edges in 188 docs; max 17 in one doc; top-10 docs hold 102 (25.3%); docs with 1 edge: 111
+   edges sharing an endpoint with another BEGINS-ON edge (clique / fan propagation): 249 (61.8%)
+ENDS-ON train: 281 edges in 155 docs; max 10 in one doc; top-10 docs hold 62 (22.1%); docs with 1 edge: 90
+   edges sharing an endpoint with another ENDS-ON edge (clique / fan propagation): 141 (50.2%)
+
+Sentence distance of the closest mention pair, per edge type and label (train)
+  EE BEFORE       n= 440206  same sent   8.6%  adjacent  14.4%  2-3  23.0%  4+  53.9%
+  EE CONTAINS     n=  35923  same sent  18.3%  adjacent  16.1%  2-3  20.8%  4+  44.8%
+  EE SIMULTANEOUS n=   4170  same sent  58.9%  adjacent  14.8%  2-3  10.6%  4+  15.6%
+  EE OVERLAP      n=   2887  same sent  56.7%  adjacent  18.1%  2-3  11.9%  4+  13.3%
+  EE BEGINS-ON    n=    213  same sent  27.7%  adjacent  19.7%  2-3  25.4%  4+  27.2%
+  EE ENDS-ON      n=    105  same sent  52.4%  adjacent  21.9%  2-3   9.5%  4+  16.2%
+  ET BEFORE       n=  94880  same sent   5.4%  adjacent  14.3%  2-3  24.4%  4+  55.8%
+  ET CONTAINS     n=   5928  same sent  13.8%  adjacent  17.2%  2-3  20.4%  4+  48.6%
+  ET SIMULTANEOUS n=    412  same sent  82.0%  adjacent   5.3%  2-3   5.1%  4+   7.5%
+  ET OVERLAP      n=   1321  same sent  41.1%  adjacent  17.9%  2-3  15.4%  4+  25.6%
+  ET BEGINS-ON    n=    104  same sent  63.5%  adjacent   7.7%  2-3  10.6%  4+  18.3%
+  ET ENDS-ON      n=     25  same sent  72.0%  adjacent   0.0%  2-3  16.0%  4+  12.0%
+  TE BEFORE       n= 111375  same sent   4.5%  adjacent  12.3%  2-3  22.4%  4+  60.7%
+  TE CONTAINS     n=  46459  same sent  30.7%  adjacent  12.4%  2-3  17.2%  4+  39.7%
+  TE OVERLAP      n=   1878  same sent  38.8%  adjacent  19.8%  2-3  17.3%  4+  24.2%
+  TE ENDS-ON      n=     10  same sent  50.0%  adjacent  20.0%  2-3   0.0%  4+  30.0%
+  TT BEFORE       n=  37120  same sent   8.1%  adjacent  14.5%  2-3  23.5%  4+  53.9%
+  TT CONTAINS     n=   7623  same sent  14.2%  adjacent  15.6%  2-3  21.7%  4+  48.4%
+  TT SIMULTANEOUS n=   1239  same sent  18.0%  adjacent  18.0%  2-3  21.5%  4+  42.5%
+  TT OVERLAP      n=    290  same sent  31.0%  adjacent  17.2%  2-3  17.9%  4+  33.8%
+  TT BEGINS-ON    n=     86  same sent  30.2%  adjacent  24.4%  2-3  14.0%  4+  31.4%
+  TT ENDS-ON      n=    141  same sent  59.6%  adjacent   9.9%  2-3  13.5%  4+  17.0%

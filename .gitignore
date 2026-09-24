@@ -1,0 +1,39 @@
+# Generated data -- 834 MB, rebuildable from MAVEN-ERE with src/build_kg.py
+graph/
+*.jsonl
+data/
+
+# Mined artifacts -- regenerate with src/export_rules.py (93 min)
+rules.json
+constraints.json
+families.json
+families_dedup.json
+closure_conflicts*.json
+artifact_data.json
+*.pkl
+
+# Kept: minimal_rules.json (24 KB) -- the headline C2 result, small enough to version
+
+# Run logs
+*_out.txt
+detect_tau*.txt
+ceiling*.txt
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+
+# Full-train rule mining outputs (large, regenerate with experiments/rules_full/mine_full.py)
+experiments/rules_full/*.json
+src/artifacts/rules_full.json
+
+# Prediction files and per-seed / K-fold outputs (70-120 MB each, regenerate with the pipeline scripts)
+src/artifacts/pred_*.json
+src/artifacts/rules_full_s*.json
+src/artifacts/rules_kfold.json
+experiments/rules_full/seed_*/
+experiments/begins_ends/features.tsv.gz
+experiments/seeds/logs/
+experiments/seeds/run.log

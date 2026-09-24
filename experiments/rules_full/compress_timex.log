@@ -1,0 +1,28 @@
+[    0s] nap du lieu ...
+[    3s] train 2913 doc, valid 710 doc
+
+==============================================================================================================
+RUT GON BO LUAT CANH TIMEX -- co chung minh (rule_cover.py)
+==============================================================================================================
+
+ EV->TIMEX: 1412 luat qua cong, 134 hoat dong (nguong {'CONT': 0.4, 'OVER': 0.15, 'SIMU': 0.15, 'ENDS': 0.5, 'BEGI': 0.5}), 125 phat bieu khac nhau; khop classify 100.000%
+   day du                134 luat | conf2 giu 100.000% macro 30.10% acc 89.80% | valid giu 100.000% macro 29.74% acc 89.44% | 
+   dai dien              125 luat | conf2 giu 100.000% macro 30.10% acc 89.80% | valid giu 100.000% macro 29.74% acc 89.44% | 
+   A: giu moi dau ra      45 luat | conf2 giu 100.000% macro 30.10% acc 89.80% | valid giu 100.000% macro 29.74% acc 89.44% | vu tru 6661, bat buoc 38, chan duoi 45
+   B: giu dau ra dung     38 luat | conf2 giu 99.931% macro 30.20% acc 89.84% | valid giu 99.812% macro 29.76% acc 89.58% | vu tru 2273, bat buoc 29, chan duoi 38
+
+ TIMEX->EV: 1710 luat qua cong, 598 hoat dong (nguong {'CONT': 0.6, 'OVER': 0.15}), 583 phat bieu khac nhau; khop classify 100.000%
+   day du                598 luat | conf2 giu 100.000% macro 24.43% acc 72.94% | valid giu 100.000% macro 24.29% acc 74.09% | 
+   dai dien              583 luat | conf2 giu 100.000% macro 24.43% acc 72.94% | valid giu 100.000% macro 24.29% acc 74.09% | 
+   A: giu moi dau ra      93 luat | conf2 giu 100.000% macro 24.43% acc 72.94% | valid giu 99.997% macro 24.29% acc 74.09% | vu tru 41738, bat buoc 90, chan duoi 93
+   B: giu dau ra dung     84 luat | conf2 giu 99.966% macro 24.38% acc 72.96% | valid giu 99.950% macro 24.31% acc 74.14% | vu tru 23629, bat buoc 79, chan duoi 84
+
+ TIMEX-TIMEX: 416 luat qua cong, 100 hoat dong (nguong {'CONT': 0.5, 'OVER': 0.5, 'BEGI': 0.5, 'ENDS': 0.5, 'SIMU': 0.5}), 90 phat bieu khac nhau; khop classify 100.000%
+   day du                100 luat | conf2 giu 100.000% macro 31.85% acc 82.30% | valid giu 100.000% macro 32.98% acc 84.35% | 
+   dai dien               90 luat | conf2 giu 100.000% macro 31.85% acc 82.30% | valid giu 100.000% macro 32.98% acc 84.35% | 
+   A: giu moi dau ra      16 luat | conf2 giu 100.000% macro 31.85% acc 82.30% | valid giu 100.000% macro 32.98% acc 84.35% | vu tru 3813, bat buoc 12, chan duoi 16
+   B: giu dau ra dung     16 luat | conf2 giu 100.000% macro 31.85% acc 82.30% | valid giu 100.000% macro 32.98% acc 84.35% | vu tru 2736, bat buoc 12, chan duoi 16
+
+ TOM TAT: EV->TIMEX day du 134; EV->TIMEX dai dien 125; EV->TIMEX A: giu moi dau ra 45; EV->TIMEX B: giu dau ra dung 38; TIMEX->EV day du 598; TIMEX->EV dai dien 583; TIMEX->EV A: giu moi dau ra 93; TIMEX->EV B: giu dau ra dung 84; TIMEX-TIMEX day du 100; TIMEX-TIMEX dai dien 90; TIMEX-TIMEX A: giu moi dau ra 16; TIMEX-TIMEX B: giu dau ra dung 16
+[   62s] xong
+da luu rules_compact_timex.json

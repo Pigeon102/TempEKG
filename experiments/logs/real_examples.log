@@ -1,0 +1,155 @@
+[    0s] nap du lieu ...
+[    3s] train 2913 doc, valid 710 doc
+[    4s] thong ke gold: 2014 doc, chinh tham so: 499 doc, valid 710 doc
+[   35s] tam giac: thong ke 4376110, chinh 1196481, valid 1825360
+====================================================================================================
+1. VI DU THAT: BEGINS-ON va ENDS-ON
+====================================================================================================
+[BEGINS-ON] 2014 California wildfires | TIMEX “the same month”  --BEGINS-ON-->  TIMEX “January 1”
+      câu: The season began unusually early when a wildfire ignited on January 1, followed by 6 more fires igniting later within the same month.
+[BEGINS-ON] Operation Mascot | “raid” (Attack)  --BEGINS-ON-->  TIMEX “17 July 1944”
+      câu: Operation Mascot was an unsuccessful British carrier air raid conducted against the German battleship "Tirpitz" at her anchorage in Kaafjord, Norway, on 17 July 1944.
+[BEGINS-ON] Zaire 74 | TIMEX “September 22”  --BEGINS-ON-->  TIMEX “three-day”
+      câu: Zaire 74 was a three-day live music festival that took place on September 22 to 24, 1974 at the 20th of May Stadium in Kinshasa, Zaire (now Democratic Republic of the Congo).
+[BEGINS-ON] Gulf War | “conflict” (Hostile_encounter)  --BEGINS-ON-->  TIMEX “five weeks”
+      câu: The initial conflict to expel Iraqi troops from Kuwait began with an aerial and naval bombardment on 17 January 1991, continuing for five weeks.
+[BEGINS-ON] Gulf War | “met with” (Come_together)  --BEGINS-ON-->  “brought” (Bringing)
+      câu: On 2 August 1990 the Iraqi Army invaded and occupied Kuwait, which was met with international condemnation and brought immediate economic sanctions against Iraq by members of the UN Security Council.
+[ENDS-ON] 2006 state of emergency in the Philippines | TIMEX “one week”  --ENDS-ON-->  TIMEX “March 3 , 2006”
+      câu: On March 3, 2006 (one week after the proclamation), by the virtue of Proclamation No.
+[ENDS-ON] Munich air disaster | TIMEX “ten years”  --ENDS-ON-->  TIMEX “1968”
+      câu: Thain was cleared in 1968, ten years after the incident.
+[ENDS-ON] Munich air disaster | TIMEX “10 years”  --ENDS-ON-->  TIMEX “1968”
+      câu: It took 10 years for the club to recover, with Busby rebuilding the team and winning the European Cup in 1968 with a new generation of "Babes".
+[ENDS-ON] Frontier Fiesta | “transformed” (Change)  --ENDS-ON-->  “called” (Name_conferral)
+      câu: "Each year a piece of the University of Houston campus is transformed into a fully functional town called 'Fiesta City.'
+[ENDS-ON] Murder of April Jones | “found” (Know)  --ENDS-ON-->  “guilty” (Committing_crime)
+      câu: On 30 May 2013, Bridger was found guilty of April's abduction and murder, in addition to perverting the course of justice.
+
+====================================================================================================
+2. DO THI DOCUMENT THAT: du 4 loai canh + tam giac su kien, cau gan nhau
+====================================================================================================
+
+[f28bce270df5a122c09365002d247e76] United States occupation of Nicaragua
+   node TIMEX “1916”                             câu 3
+   node TIMEX “1929–1933”                        câu 4
+   node “ended” (Process_end)                    câu 5
+   node “assumed” (Choosing)                     câu 3
+   node “opposed” (Agree_or_refuse_to_act)       câu 4
+   TIMEX “1916” --BEFORE--> TIMEX “1929–1933”
+   TIMEX “1916” --BEFORE--> “ended” (Process_end)
+   TIMEX “1929–1933” --CONTAINS--> “opposed” (Agree_or_refuse_to_act)
+   “assumed” (Choosing) --BEFORE--> TIMEX “1929–1933”
+   “assumed” (Choosing) --BEFORE--> “ended” (Process_end)
+   “assumed” (Choosing) --BEFORE--> “opposed” (Agree_or_refuse_to_act)
+   “opposed” (Agree_or_refuse_to_act) --BEFORE--> “ended” (Process_end)
+   câu 3: Nicaragua assumed a quasi-protectorate status under the 1916 Bryan–Chamorro Treaty.
+   câu 4: President Herbert Hoover (1929–1933) opposed the relationship.
+   câu 5: Finally in 1933 President Franklin D Roosevelt, invoking his new Good Neighbor policy ended American intervention.
+
+[f28bce270df5a122c09365002d247e76] United States occupation of Nicaragua
+   node TIMEX “1916”                             câu 3
+   node TIMEX “1929–1933”                        câu 4
+   node “opposed” (Agree_or_refuse_to_act)       câu 4
+   node “assumed” (Choosing)                     câu 3
+   node “ended” (Process_end)                    câu 5
+   TIMEX “1916” --BEFORE--> TIMEX “1929–1933”
+   TIMEX “1916” --BEFORE--> “opposed” (Agree_or_refuse_to_act)
+   TIMEX “1929–1933” --BEFORE--> “ended” (Process_end)
+   “assumed” (Choosing) --BEFORE--> TIMEX “1929–1933”
+   “assumed” (Choosing) --BEFORE--> “opposed” (Agree_or_refuse_to_act)
+   “assumed” (Choosing) --BEFORE--> “ended” (Process_end)
+   “opposed” (Agree_or_refuse_to_act) --BEFORE--> “ended” (Process_end)
+   câu 3: Nicaragua assumed a quasi-protectorate status under the 1916 Bryan–Chamorro Treaty.
+   câu 4: President Herbert Hoover (1929–1933) opposed the relationship.
+   câu 5: Finally in 1933 President Franklin D Roosevelt, invoking his new Good Neighbor policy ended American intervention.
+
+[f28bce270df5a122c09365002d247e76] United States occupation of Nicaragua
+   node TIMEX “1916”                             câu 3
+   node TIMEX “1933”                             câu 5
+   node “opposed” (Agree_or_refuse_to_act)       câu 4
+   node “assumed” (Choosing)                     câu 3
+   node “ended” (Process_end)                    câu 5
+   TIMEX “1916” --BEFORE--> TIMEX “1933”
+   TIMEX “1916” --BEFORE--> “opposed” (Agree_or_refuse_to_act)
+   TIMEX “1933” --CONTAINS--> “ended” (Process_end)
+   “assumed” (Choosing) --BEFORE--> TIMEX “1933”
+   “assumed” (Choosing) --BEFORE--> “opposed” (Agree_or_refuse_to_act)
+   “assumed” (Choosing) --BEFORE--> “ended” (Process_end)
+   “opposed” (Agree_or_refuse_to_act) --BEFORE--> “ended” (Process_end)
+   câu 3: Nicaragua assumed a quasi-protectorate status under the 1916 Bryan–Chamorro Treaty.
+   câu 4: President Herbert Hoover (1929–1933) opposed the relationship.
+   câu 5: Finally in 1933 President Franklin D Roosevelt, invoking his new Good Neighbor policy ended American intervention.
+
+====================================================================================================
+3. TAM GIAC THAT: classifier sai, cau hinh chua tung gap trong gold, sua chung da sua dung
+====================================================================================================
+
+[f28bce270df5a122c09365002d247e76] United States occupation of Nicaragua
+   “began” (Process_start) --[classifier OVERLAP | sau sua BEFORE | gold BEFORE]--> TIMEX “1934”
+   TIMEX “1912” --[classifier BEFORE | sau sua BEFORE | gold BEFORE]--> TIMEX “1934”
+   TIMEX “1912” --[classifier CONTAINS | sau sua CONTAINS | gold CONTAINS]--> “began” (Process_start)
+   tan suat cau hinh trong gold: truoc 0, sau 20549
+   câu 0: The United States occupation of Nicaragua from 1912 to 1933 was part of the Banana Wars, when the US military intervened in various Latin American countries from 1898 to 1934.
+   câu 1: The formal occupation began in 1912, even though there were various other assaults by the U.S. in Nicaragua throughout this period.
+
+[f28bce270df5a122c09365002d247e76] United States occupation of Nicaragua
+   “began” (Process_start) --[classifier OVERLAP | sau sua BEFORE | gold BEFORE]--> TIMEX “1933”
+   TIMEX “1912” --[classifier BEFORE | sau sua BEFORE | gold BEFORE]--> TIMEX “1933”
+   TIMEX “1912” --[classifier CONTAINS | sau sua CONTAINS | gold CONTAINS]--> “began” (Process_start)
+   tan suat cau hinh trong gold: truoc 0, sau 20549
+   câu 0: The United States occupation of Nicaragua from 1912 to 1933 was part of the Banana Wars, when the US military intervened in various Latin American countries from 1898 to 1934.
+   câu 1: The formal occupation began in 1912, even though there were various other assaults by the U.S. in Nicaragua throughout this period.
+
+[f28bce270df5a122c09365002d247e76] United States occupation of Nicaragua
+   TIMEX “1898” --[classifier CONTAINS | sau sua BEFORE | gold BEFORE]--> “began” (Process_start)
+   TIMEX “1898” --[classifier BEFORE | sau sua BEFORE | gold BEFORE]--> TIMEX “1912”
+   TIMEX “1912” --[classifier CONTAINS | sau sua CONTAINS | gold CONTAINS]--> “began” (Process_start)
+   tan suat cau hinh trong gold: truoc 0, sau 19701
+   câu 0: The United States occupation of Nicaragua from 1912 to 1933 was part of the Banana Wars, when the US military intervened in various Latin American countries from 1898 to 1934.
+   câu 1: The formal occupation began in 1912, even though there were various other assaults by the U.S. in Nicaragua throughout this period.
+
+====================================================================================================
+4. LUAT EV-EV MOI (mine tren toan bo train)
+====================================================================================================
+combiner: {'BEFORE': 9, 'CONTAINS': 0.5, 'SIMULTANEOUS': 0.15, 'OVERLAP': 0.1, 'BEGINS-ON': 9, 'ENDS-ON': 9}
+so luat theo nhan: {'CONTAINS': 29049, 'SIMULTANEOUS': 20538, 'OVERLAP': 4583, 'BEGINS-ON': 523, 'ENDS-ON': 26}
+so luat theo view: {'order': 6697, 'global': 6139, 'anchor': 4067, 'sdist_ord': 8585, 'sdist': 8928, 'anchor_sd': 5476, 'bucket_a': 8816, 'etype_a': 6011}
+so luat theo do sau: {1: 6624, 2: 48095}
+luat duoc bat boi nguong (co the phat nhan): 2794, theo nhan {'CONTAINS': 2109, 'SIMULTANEOUS': 278, 'OVERLAP': 407}
+
+  OVERLAP (ngưỡng bật 0.1):
+    view anchor    lớp True                         EQ(order=same) AND EQ(type_pair=('Killing', 'Bodily_harm'))  -> k/n disc 34/84, conf 13/31, cwlb 0.264
+    view anchor    lớp True                         REL(sent_gap=0) AND EQ(type_pair=('Killing', 'Bodily_harm'))  -> k/n disc 34/84, conf 13/31, cwlb 0.264
+    view anchor    lớp True                         EQ(sdist=0) AND EQ(type_pair=('Killing', 'Bodily_harm'))  -> k/n disc 34/84, conf 13/31, cwlb 0.264
+    view anchor_sd lớp (True, '0')                  EQ(type_pair=('Killing', 'Bodily_harm'))  -> k/n disc 34/84, conf 13/31, cwlb 0.264
+    view anchor_sd lớp (True, '0')                  EQ(type_b=Bodily_harm) AND EQ(type_a=Killing)  -> k/n disc 34/84, conf 13/31, cwlb 0.264
+
+  SIMULTANEOUS (ngưỡng bật 0.15):
+    view anchor    lớp True                         REL(a_before_b=False) AND EQ(type_pair=('Attack', 'Attack'))  -> k/n disc 14/99, conf 10/22, cwlb 0.269
+    view order     lớp rev                          CNT(etypeset_shared=0) AND EQ(type_pair=('Catastrophe', 'Catastrophe'))  -> k/n disc 16/47, conf 9/21, cwlb 0.245
+    view sdist     lớp 0                            REL(a_before_b=False) AND EQ(type_b=Request)  -> k/n disc 13/68, conf 9/21, cwlb 0.245
+    view order     lớp same                         REL(a_before_b=False) AND EQ(type_b=Request)  -> k/n disc 13/68, conf 9/21, cwlb 0.245
+    view sdist_ord lớp ('0', 'same')                REL(a_before_b=False) AND EQ(type_b=Request)  -> k/n disc 13/68, conf 9/21, cwlb 0.245
+
+  CONTAINS (ngưỡng bật 0.5):
+    view bucket_a  lớp lead                         EQ(type_a=Hostile_encounter) AND EQ(nrole_a=0)  -> k/n disc 239/254, conf 37/37, cwlb 0.906
+    view bucket_a  lớp lead                         EQ(type_a=Hostile_encounter) AND CNT(roleset_a=0)  -> k/n disc 239/254, conf 37/37, cwlb 0.906
+    view etype_a   lớp Hostile_encounter            EQ(bucket_a=lead) AND EQ(nrole_a=0)  -> k/n disc 239/254, conf 37/37, cwlb 0.906
+    view etype_a   lớp Hostile_encounter            EQ(bucket_a=lead) AND CNT(roleset_a=0)  -> k/n disc 239/254, conf 37/37, cwlb 0.906
+    view anchor    lớp False                        EQ(type_a=Military_operation) AND ALL(roleset_a=Location)  -> k/n disc 231/330, conf 31/31, cwlb 0.890
+
+  BEGINS-ON (ngưỡng bật 9):
+    view anchor    lớp False                        REL(a_before_b=False) AND ALL(etypeset_b=Location)  -> k/n disc 8/5902, conf 12/1968, cwlb 0.003
+    view anchor    lớp False                        EQ(has_loc_b=True) AND REL(a_before_b=False)  -> k/n disc 12/9835, conf 17/3404, cwlb 0.003
+    view anchor    lớp False                        REL(a_before_b=False) AND HAS(etypeset_b=Location)  -> k/n disc 12/9835, conf 17/3404, cwlb 0.003
+    view anchor    lớp False                        EQ(order=rev) AND ALL(etypeset_b=Location)  -> k/n disc 8/5488, conf 10/1835, cwlb 0.003
+    view anchor    lớp False                        EQ(has_loc_b=True) AND EQ(order=rev)  -> k/n disc 12/9163, conf 15/3183, cwlb 0.003
+
+  ENDS-ON (ngưỡng bật 9):
+    view bucket_a  lớp late                         HAS(roleset_b=Patient) AND EQ(order=same)  -> k/n disc 12/4569, conf 4/1412, cwlb 0.001
+    view bucket_a  lớp late                         HAS(roleset_b=Patient) AND REL(sent_gap=0)  -> k/n disc 12/4569, conf 4/1412, cwlb 0.001
+    view bucket_a  lớp late                         HAS(roleset_b=Patient) AND EQ(sdist=0)  -> k/n disc 12/4569, conf 4/1412, cwlb 0.001
+    view bucket_a  lớp mid                          EQ(order=same)  -> k/n disc 13/11393, conf 7/3900, cwlb 0.001
+    view bucket_a  lớp mid                          REL(sent_gap=0)  -> k/n disc 13/11393, conf 7/3900, cwlb 0.001
+[   43s] xong

@@ -1,0 +1,36 @@
+[    0s] nap du lieu ...
+[    5s] train 2913 doc, valid 710 doc
+[    6s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
+[   46s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
+[    0s] nap du lieu ...
+[    3s] train 2913 doc, valid 710 doc
+[    7s] train con lai 2913 doc (bo 400 doc dau)
+[    7s] dung dieu kien theo tang ...
+[  146s] instance: train 792395, valid 188924
+[  149s] dung cau truc motif ...
+[ 1008s] xong cau truc
+
+[ 1038s] fold 0: mine 120, confirm 109, tune 113 doc, test 368 doc
+[ 1280s]   fold 0 net: B->joint ('mean', 0.5, 0.0), joint-only ('mean', 0.5, 0.0)
+[ 1529s]   fold 0 macro: B->joint ('mean', 0.5, 0.5), joint-only ('mean', 1.0, 0.5)
+[ 1530s] fold 1: mine 112, confirm 131, tune 125 doc, test 342 doc
+[ 1841s]   fold 1 net: B->joint ('mean', 0.5, 0.0), joint-only ('mean', 0.5, 0.0)
+[ 2027s]   fold 1 macro: B->joint ('mean', 1.0, 0.5), joint-only ('mean', 1.0, 0.5)
+
+==================================================================================================================================
+BAI 2 -- NHIEU CLASSIFIER, CROSS-FIT TREN VALID: auditor tang B, sua chung tam giac, va ghep ca hai
+==================================================================================================================================
+  do thi classifier tang     loi 15.31%  macro-F1 30.84%
+  B | giam loi               P  66.77% R  34.23% F1  45.26%  sua   9662 hong  4926 rong  +4736  loi 15.31% -> 12.80%  macro-F1  31.24%
+      loi theo loai: EE 12.7->10.1   ET 10.7->10.7   TE 25.9->21.2   TT 14.5->14.3   | F1 nhan: BEFO 92.9  CONT 53.6  SIMU 26.0  OVER 14.8
+  chi tam giac | giam loi    P  72.19% R  33.94% F1  46.17%  sua   9097 hong  3780 rong  +5317  loi 15.31% -> 12.49%  macro-F1  28.13%
+      loi theo loai: EE 12.7->9.6   ET 10.7->8.3   TE 25.9->22.5   TT 14.5->14.4   | F1 nhan: BEFO 93.0  CONT 51.4  SIMU 19.5  OVER 2.1
+  B -> tam giac | giam loi   P  69.78% R  47.04% F1  56.20%  sua  12846 hong  5890 rong  +6956  loi 15.31% -> 11.62%  macro-F1  27.90%
+      loi theo loai: EE 12.7->9.2   ET 10.7->8.0   TE 25.9->20.0   TT 14.5->14.0   | F1 nhan: BEFO 93.6  CONT 53.2  SIMU 19.9  OVER 0.8
+  B | macro-F1               P  68.00% R  23.51% F1  34.94%  sua   6664 hong  3199 rong  +3465  loi 15.31% -> 13.47%  macro-F1  31.53%
+      loi theo loai: EE 12.7->11.2   ET 10.7->10.8   TE 25.9->21.2   TT 14.5->14.1   | F1 nhan: BEFO 92.5  CONT 55.8  SIMU 26.0  OVER 14.8
+  chi tam giac | macro-F1    P  67.89% R  22.33% F1  33.60%  sua   5847 hong  3054 rong  +2793  loi 15.31% -> 13.83%  macro-F1  31.36%
+      loi theo loai: EE 12.7->11.1   ET 10.7->9.7   TE 25.9->23.3   TT 14.5->16.7   | F1 nhan: BEFO 92.3  CONT 53.7  SIMU 25.7  OVER 14.6
+  B -> tam giac | macro-F1   P  70.40% R  34.10% F1  45.94%  sua   9381 hong  4145 rong  +5236  loi 15.31% -> 12.53%  macro-F1  31.89%
+      loi theo loai: EE 12.7->10.3   ET 10.7->9.2   TE 25.9->20.4   TT 14.5->14.6   | F1 nhan: BEFO 93.1  CONT 56.6  SIMU 28.4  OVER 13.4
+[ 2028s] xong

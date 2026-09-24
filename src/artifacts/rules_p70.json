@@ -1,0 +1,2485 @@
+[
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ]
+  ],
+  "rel": "OVERLAP",
+  "wlb": 0.00972,
+  "k": 63,
+  "n": 5070,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.0,
+  "cwlb": 0.0198,
+  "dlb": 0.265,
+  "ndoc": 35
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ]
+  ],
+  "rel": "OVERLAP",
+  "wlb": 0.01359,
+  "k": 19,
+  "n": 898,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.0,
+  "cwlb": 0.0376,
+  "dlb": 0.233,
+  "ndoc": 16
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Killing",
+     "Bodily_harm"
+    ]
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ]
+  ],
+  "rel": "OVERLAP",
+  "wlb": 0.17205,
+  "k": 8,
+  "n": 25,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.0,
+  "cwlb": 0.3206,
+  "dlb": 0.463,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    1
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Killing",
+     "Bodily_harm"
+    ]
+   ]
+  ],
+  "rel": "OVERLAP",
+  "wlb": 0.14699,
+  "k": 8,
+  "n": 29,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.0,
+  "cwlb": 0.3206,
+  "dlb": 0.32,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "roleset_shared",
+    1
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Killing",
+     "Bodily_harm"
+    ]
+   ]
+  ],
+  "rel": "OVERLAP",
+  "wlb": 0.12437,
+  "k": 8,
+  "n": 34,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.01,
+  "cwlb": 0.3206,
+  "dlb": 0.305,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Killing",
+     "Bodily_harm"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "OVERLAP",
+  "wlb": 0.12437,
+  "k": 8,
+  "n": 34,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.01,
+  "cwlb": 0.3206,
+  "dlb": 0.305,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_shared",
+    "Location"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Killing",
+     "Bodily_harm"
+    ]
+   ]
+  ],
+  "rel": "OVERLAP",
+  "wlb": 0.12437,
+  "k": 8,
+  "n": 34,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.01,
+  "cwlb": 0.2563,
+  "dlb": 0.305,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Killing",
+     "Bodily_harm"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Location"
+   ]
+  ],
+  "rel": "OVERLAP",
+  "wlb": 0.11387,
+  "k": 8,
+  "n": 37,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.0,
+  "cwlb": 0.2953,
+  "dlb": 0.193,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Killing",
+     "Bodily_harm"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Location"
+   ]
+  ],
+  "rel": "OVERLAP",
+  "wlb": 0.11387,
+  "k": 8,
+  "n": 37,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.0,
+  "cwlb": 0.3074,
+  "dlb": 0.299,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.46151,
+  "k": 41,
+  "n": 71,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.76,
+  "cwlb": 0.6599,
+  "dlb": 0.419,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.47367,
+  "k": 44,
+  "n": 75,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.75,
+  "cwlb": 0.6599,
+  "dlb": 0.454,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Military_operation"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.57169,
+  "k": 226,
+  "n": 363,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.89,
+  "cwlb": 0.5598,
+  "dlb": 0.636,
+  "ndoc": 9
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.47493,
+  "k": 35,
+  "n": 58,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.57,
+  "cwlb": 0.6599,
+  "dlb": 0.438,
+  "ndoc": 6
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48848,
+  "k": 38,
+  "n": 62,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.57,
+  "cwlb": 0.6599,
+  "dlb": 0.48,
+  "ndoc": 6
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Hostile_encounter"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.4327,
+  "k": 28,
+  "n": 49,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.53,
+  "cwlb": 0.4241,
+  "dlb": 0.578,
+  "ndoc": 9
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Agent",
+     "Participant"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56754,
+  "k": 23,
+  "n": 31,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.44,
+  "cwlb": 0.6078,
+  "dlb": 0.478,
+  "ndoc": 6
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45967,
+  "k": 32,
+  "n": 54,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.39,
+  "cwlb": 0.6599,
+  "dlb": 0.501,
+  "ndoc": 5
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.57162,
+  "k": 362,
+  "n": 592,
+  "view": "global",
+  "sig": "*",
+  "pi": 1.0,
+  "cwlb": 0.5908,
+  "dlb": 0.597,
+  "ndoc": 18
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.63637,
+  "k": 164,
+  "n": 235,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.94,
+  "cwlb": 0.4878,
+  "dlb": 0.995,
+  "ndoc": 9
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.47493,
+  "k": 35,
+  "n": 58,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.39,
+  "cwlb": 0.6599,
+  "dlb": 0.54,
+  "ndoc": 5
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.63789,
+  "k": 161,
+  "n": 230,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.94,
+  "cwlb": 0.4836,
+  "dlb": 1.001,
+  "ndoc": 9
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.41492,
+  "k": 53,
+  "n": 104,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.84,
+  "cwlb": 0.4152,
+  "dlb": 0.42,
+  "ndoc": 19
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "roleset_shared",
+    3
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Attack"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56795,
+  "k": 46,
+  "n": 67,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.93,
+  "cwlb": 0.2993,
+  "dlb": 0.451,
+  "ndoc": 11
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.62974,
+  "k": 52,
+  "n": 70,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.64,
+  "cwlb": 0.552,
+  "dlb": 0.818,
+  "ndoc": 6
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40605,
+  "k": 66,
+  "n": 135,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.6,
+  "cwlb": 0.3511,
+  "dlb": 0.459,
+  "ndoc": 18
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Name",
+     "Name"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.29375,
+  "k": 21,
+  "n": 50,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.37,
+  "cwlb": 0.3318,
+  "dlb": 0.472,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.50359,
+  "k": 75,
+  "n": 127,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.83,
+  "cwlb": 0.3724,
+  "dlb": 0.485,
+  "ndoc": 9
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.53671,
+  "k": 108,
+  "n": 177,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.81,
+  "cwlb": 0.4162,
+  "dlb": 0.473,
+  "ndoc": 9
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56854,
+  "k": 41,
+  "n": 59,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.71,
+  "cwlb": 0.523,
+  "dlb": 0.855,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "roleset_shared",
+    3
+   ],
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44766,
+  "k": 232,
+  "n": 471,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.99,
+  "cwlb": 0.2593,
+  "dlb": 0.586,
+  "ndoc": 40
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.38235,
+  "k": 77,
+  "n": 169,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.8,
+  "cwlb": 0.4605,
+  "dlb": 0.456,
+  "ndoc": 14
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45252,
+  "k": 53,
+  "n": 96,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.69,
+  "cwlb": 0.5337,
+  "dlb": 0.556,
+  "ndoc": 8
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.39295,
+  "k": 81,
+  "n": 174,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.85,
+  "cwlb": 0.4601,
+  "dlb": 0.48,
+  "ndoc": 14
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58413,
+  "k": 149,
+  "n": 230,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.69,
+  "cwlb": 0.3433,
+  "dlb": 0.583,
+  "ndoc": 8
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.43325,
+  "k": 54,
+  "n": 102,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.77,
+  "cwlb": 0.5341,
+  "dlb": 0.535,
+  "ndoc": 8
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loss"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58445,
+  "k": 154,
+  "n": 238,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.94,
+  "cwlb": 0.3212,
+  "dlb": 0.625,
+  "ndoc": 9
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Patient",
+     "Patient"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44738,
+  "k": 43,
+  "n": 77,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.84,
+  "cwlb": 0.4477,
+  "dlb": 0.426,
+  "ndoc": 11
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_b",
+    "Location_final"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.28972,
+  "k": 26,
+  "n": 65,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.44,
+  "cwlb": 0.2406,
+  "dlb": 0.413,
+  "ndoc": 10
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.51746,
+  "k": 57,
+  "n": 92,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.71,
+  "cwlb": 0.552,
+  "dlb": 0.587,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Location_final"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.28972,
+  "k": 26,
+  "n": 65,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.44,
+  "cwlb": 0.2274,
+  "dlb": 0.413,
+  "ndoc": 10
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.5621,
+  "k": 147,
+  "n": 235,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.85,
+  "cwlb": 0.2274,
+  "dlb": 0.592,
+  "ndoc": 11
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58347,
+  "k": 193,
+  "n": 302,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.81,
+  "cwlb": 0.2722,
+  "dlb": 0.499,
+  "ndoc": 11
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.3553,
+  "k": 199,
+  "n": 501,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.94,
+  "cwlb": 0.3172,
+  "dlb": 0.437,
+  "ndoc": 31
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.36029,
+  "k": 205,
+  "n": 510,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.95,
+  "cwlb": 0.3185,
+  "dlb": 0.446,
+  "ndoc": 31
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_person_b",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Winner"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.3625,
+  "k": 32,
+  "n": 67,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.59,
+  "cwlb": 0.3336,
+  "dlb": 0.444,
+  "ndoc": 6
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "same_type",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.27833,
+  "k": 85,
+  "n": 255,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.45,
+  "cwlb": 0.3006,
+  "dlb": 0.496,
+  "ndoc": 39
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_b",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.55501,
+  "k": 47,
+  "n": 70,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.75,
+  "cwlb": 0.523,
+  "dlb": 0.775,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_shared",
+    "Location"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56409,
+  "k": 42,
+  "n": 61,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.5,
+  "cwlb": 0.523,
+  "dlb": 0.528,
+  "ndoc": 6
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "roleset_shared",
+    1
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Score"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.46599,
+  "k": 61,
+  "n": 109,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.76,
+  "cwlb": 0.552,
+  "dlb": 0.424,
+  "ndoc": 8
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Organization"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.34409,
+  "k": 85,
+  "n": 208,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.83,
+  "cwlb": 0.3153,
+  "dlb": 0.437,
+  "ndoc": 15
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.49339,
+  "k": 19,
+  "n": 28,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.5,
+  "cwlb": 0.6243,
+  "dlb": 0.506,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Organization"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.34633,
+  "k": 87,
+  "n": 212,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.81,
+  "cwlb": 0.3178,
+  "dlb": 0.452,
+  "ndoc": 15
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Hostile_encounter"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.32294,
+  "k": 28,
+  "n": 64,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.41,
+  "cwlb": 0.2314,
+  "dlb": 0.432,
+  "ndoc": 9
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.3317,
+  "k": 29,
+  "n": 65,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.43,
+  "cwlb": 0.2582,
+  "dlb": 0.456,
+  "ndoc": 10
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "REL",
+    "role_subset",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40919,
+  "k": 332,
+  "n": 747,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.99,
+  "cwlb": 0.2256,
+  "dlb": 0.549,
+  "ndoc": 55
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.30433,
+  "k": 19,
+  "n": 43,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.46,
+  "cwlb": 0.392,
+  "dlb": 0.566,
+  "ndoc": 13
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.61631,
+  "k": 184,
+  "n": 273,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.88,
+  "cwlb": 0.3308,
+  "dlb": 0.624,
+  "ndoc": 10
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Conquering"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.46221,
+  "k": 17,
+  "n": 26,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.45,
+  "cwlb": 0.3883,
+  "dlb": 0.597,
+  "ndoc": 8
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_b",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.41822,
+  "k": 58,
+  "n": 114,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.82,
+  "cwlb": 0.6329,
+  "dlb": 0.456,
+  "ndoc": 8
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Arriving"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.30169,
+  "k": 29,
+  "n": 71,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.6,
+  "cwlb": 0.2375,
+  "dlb": 0.81,
+  "ndoc": 18
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loser"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.42221,
+  "k": 58,
+  "n": 113,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.57,
+  "cwlb": 0.4927,
+  "dlb": 0.417,
+  "ndoc": 6
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    1
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.33185,
+  "k": 263,
+  "n": 718,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.91,
+  "cwlb": 0.3206,
+  "dlb": 0.419,
+  "ndoc": 40
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    1
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.33608,
+  "k": 270,
+  "n": 729,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.92,
+  "cwlb": 0.3205,
+  "dlb": 0.428,
+  "ndoc": 40
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    1
+   ],
+   [
+    "EQ",
+    "type_pair",
+    [
+     "Hostile_encounter",
+     "Conquering"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.50012,
+  "k": 18,
+  "n": 26,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.48,
+  "cwlb": 0.2984,
+  "dlb": 0.708,
+  "ndoc": 8
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_person_b",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.48285,
+  "k": 148,
+  "n": 273,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.66,
+  "cwlb": 0.2242,
+  "dlb": 0.494,
+  "ndoc": 11
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_b",
+    2
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.27301,
+  "k": 111,
+  "n": 347,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.54,
+  "cwlb": 0.3801,
+  "dlb": 0.415,
+  "ndoc": 29
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.30917,
+  "k": 209,
+  "n": 604,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.82,
+  "cwlb": 0.2846,
+  "dlb": 0.439,
+  "ndoc": 38
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.30708,
+  "k": 209,
+  "n": 608,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.82,
+  "cwlb": 0.2839,
+  "dlb": 0.437,
+  "ndoc": 38
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_org_a",
+    true
+   ],
+   [
+    "REL",
+    "mention_cmp",
+    "a>b"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.37946,
+  "k": 239,
+  "n": 570,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.67,
+  "cwlb": 0.2513,
+  "dlb": 0.512,
+  "ndoc": 17
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_org_a",
+    true
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.38015,
+  "k": 241,
+  "n": 574,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.68,
+  "cwlb": 0.2519,
+  "dlb": 0.517,
+  "ndoc": 17
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40727,
+  "k": 16,
+  "n": 27,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.42,
+  "cwlb": 0.4081,
+  "dlb": 0.412,
+  "ndoc": 8
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.40847,
+  "k": 458,
+  "n": 1045,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.99,
+  "cwlb": 0.2182,
+  "dlb": 0.469,
+  "ndoc": 56
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "roleset_shared",
+    2
+   ],
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.37567,
+  "k": 615,
+  "n": 1538,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.98,
+  "cwlb": 0.2371,
+  "dlb": 0.439,
+  "ndoc": 76
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Destroying"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.31317,
+  "k": 35,
+  "n": 85,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.57,
+  "cwlb": 0.3215,
+  "dlb": 0.5,
+  "ndoc": 21
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.36556,
+  "k": 660,
+  "n": 1699,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.98,
+  "cwlb": 0.2638,
+  "dlb": 0.423,
+  "ndoc": 79
+ },
+ {
+  "conds": [
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.58979,
+  "k": 222,
+  "n": 346,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.72,
+  "cwlb": 0.381,
+  "dlb": 0.476,
+  "ndoc": 8
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "nrole_a",
+    3
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.34998,
+  "k": 821,
+  "n": 2220,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.91,
+  "cwlb": 0.2686,
+  "dlb": 0.426,
+  "ndoc": 49
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "has_loc_b",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.34363,
+  "k": 533,
+  "n": 1448,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.97,
+  "cwlb": 0.253,
+  "dlb": 0.423,
+  "ndoc": 68
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_org_b",
+    false
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Participant",
+     "Agent"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.45798,
+  "k": 34,
+  "n": 58,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.51,
+  "cwlb": 0.2481,
+  "dlb": 0.454,
+  "ndoc": 5
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "nrole_b",
+    4
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.28185,
+  "k": 200,
+  "n": 631,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.62,
+  "cwlb": 0.2283,
+  "dlb": 0.544,
+  "ndoc": 49
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    2
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.53765,
+  "k": 151,
+  "n": 252,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.72,
+  "cwlb": 0.2422,
+  "dlb": 0.632,
+  "ndoc": 14
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_loc_b",
+    true
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.56297,
+  "k": 227,
+  "n": 370,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.78,
+  "cwlb": 0.3574,
+  "dlb": 0.417,
+  "ndoc": 10
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.28473,
+  "k": 36,
+  "n": 96,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.36,
+  "cwlb": 0.2718,
+  "dlb": 0.682,
+  "ndoc": 5
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.39652,
+  "k": 147,
+  "n": 327,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.58,
+  "cwlb": 0.3707,
+  "dlb": 0.459,
+  "ndoc": 12
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_a",
+    "Location"
+   ],
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.30769,
+  "k": 24,
+  "n": 56,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.43,
+  "cwlb": 0.4558,
+  "dlb": 1.01,
+  "ndoc": 5
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_a",
+    "Location"
+   ],
+   [
+    "EQ",
+    "has_loc_b",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.23072,
+  "k": 37,
+  "n": 121,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.33,
+  "cwlb": 0.4104,
+  "dlb": 0.558,
+  "ndoc": 6
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "REL",
+    "sent_gap",
+    "4+"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.34566,
+  "k": 131,
+  "n": 330,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.66,
+  "cwlb": 0.2479,
+  "dlb": 0.536,
+  "ndoc": 17
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "EQ",
+    "sdist",
+    "8+"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44727,
+  "k": 80,
+  "n": 152,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.79,
+  "cwlb": 0.2448,
+  "dlb": 0.699,
+  "ndoc": 9
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.36787,
+  "k": 193,
+  "n": 469,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.7,
+  "cwlb": 0.2746,
+  "dlb": 0.537,
+  "ndoc": 27
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "CNT",
+    "etypeset_a",
+    2
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.35806,
+  "k": 208,
+  "n": 521,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.72,
+  "cwlb": 0.2736,
+  "dlb": 0.485,
+  "ndoc": 28
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Use_firearm"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.33986,
+  "k": 14,
+  "n": 27,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.41,
+  "cwlb": 0.3557,
+  "dlb": 0.427,
+  "ndoc": 5
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "CNT",
+    "etypeset_b",
+    2
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.3452,
+  "k": 196,
+  "n": 507,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.68,
+  "cwlb": 0.2801,
+  "dlb": 0.502,
+  "ndoc": 27
+ },
+ {
+  "conds": [
+   [
+    "ALL",
+    "roleset_shared",
+    "Location"
+   ],
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.324,
+  "k": 62,
+  "n": 156,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.68,
+  "cwlb": 0.2683,
+  "dlb": 0.478,
+  "ndoc": 17
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.47992,
+  "k": 116,
+  "n": 212,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.45,
+  "cwlb": 0.218,
+  "dlb": 0.61,
+  "ndoc": 7
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.35668,
+  "k": 65,
+  "n": 150,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.41,
+  "cwlb": 0.2454,
+  "dlb": 0.607,
+  "ndoc": 6
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "CNT",
+    "etypeset_b",
+    3
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.3488,
+  "k": 78,
+  "n": 187,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.42,
+  "cwlb": 0.3528,
+  "dlb": 0.472,
+  "ndoc": 6
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    2
+   ],
+   [
+    "HAS",
+    "etypeset_b",
+    "Art"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.44533,
+  "k": 69,
+  "n": 130,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.36,
+  "cwlb": 0.2538,
+  "dlb": 0.662,
+  "ndoc": 5
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Person"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "wlb": 0.31367,
+  "k": 145,
+  "n": 404,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.41,
+  "cwlb": 0.2654,
+  "dlb": 0.439,
+  "ndoc": 6
+ },
+ {
+  "conds": [
+   [
+    "CNT",
+    "anchor_roles",
+    3
+   ],
+   [
+    "EQ",
+    "bucket_b",
+    "lead"
+   ]
+  ],
+  "rel": "SIMULTANEOUS",
+  "wlb": 0.15507,
+  "k": 15,
+  "n": 61,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.02,
+  "cwlb": 0.0915,
+  "dlb": 0.26,
+  "ndoc": 12
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_person_b",
+    true
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Victim",
+     "Victim"
+    ]
+   ]
+  ],
+  "rel": "SIMULTANEOUS",
+  "wlb": 0.05323,
+  "k": 5,
+  "n": 41,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.0,
+  "cwlb": 0.1682,
+  "dlb": 0.251,
+  "ndoc": 2
+ },
+ {
+  "conds": [
+   [
+    "EQ",
+    "has_org_a",
+    false
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Victim",
+     "Victim"
+    ]
+   ]
+  ],
+  "rel": "SIMULTANEOUS",
+  "wlb": 0.0507,
+  "k": 5,
+  "n": 43,
+  "view": "global",
+  "sig": "*",
+  "pi": 0.0,
+  "cwlb": 0.2127,
+  "dlb": 0.249,
+  "ndoc": 2
+ }
+]

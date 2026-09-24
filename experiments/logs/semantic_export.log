@@ -1,0 +1,15 @@
+[    0s] nap du lieu ...
+[   26s] train 2908 doc (disc 1715 / conf 1193), valid 705 doc; cap: disc 292719 conf 190785 valid 109929
+[   39s] BASE 257 luat tren valid: macro-F1 25.60%
+[   39s] do chinh xac classifier tren conf: {'CONTAINS': '40.2%', 'SIMULTANEOUS': '17.1%', 'OVERLAP': '35.4%'}
+[   40s] DUR: 2177 lemma co >=20 canh tren disc
+[   41s] GRP: 168 loai event, 149 chieu khung vai tro
+[   41s]    nhom 0: Commerce_pay, Employment, Legal_rulings
+[   41s]    nhom 1: Achieve, Aiming, Arriving, Becoming, Being_in_operation, Besieging, Breathing, Cause_change_of_position_on_a_scale
+[   41s]    nhom 2: Award, Change_of_leadership, Competition, Exchange
+[   41s]    nhom 3: Education_teaching
+[   48s] dieu kien moi da dung
+
+==============================================================================================================
+[   58s] LEX delta 0.05: 719 luat
+[   61s] valid macro-F1 26.15% -- da luu 593433 du doan

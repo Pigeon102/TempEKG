@@ -1,0 +1,74 @@
+[    0s] nap train/valid ...
+[    9s] train 400 doc (disc 229 / conf 171), valid 705 doc
+[   14s]   257 luat EV-EV tren disc (in-sample)  acc 91.47%  loi 8.53%
+[   14s]   257 luat EV-EV tren valid             acc 87.87%  loi 12.13%
+[   14s]   classifier EV-TX (273 luat) tren valid: 79.84%
+[   14s]   TX-TX theo lich tren valid: 12464 canh, UNK 65.1%, dung 95.8% trong so da quyet dinh
+[   14s] dung motif ...
+[  225s]   do phu motif tren valid (109,929 cap): 3E 99.7%  3T 92.2%  4EE 99.4%  4ET 95.4%  4TE 96.1%  4TT 90.3%
+[  225s] BASE 257 luat: macro-F1 25.60%  acc 87.87%
+[  225s] do tin cay classifier tren confirmation: {'BEFORE': '94.6%', 'CONTAINS': '40.6%', 'SIMULTANEOUS': '16.3%', 'OVERLAP': '41.7%'}
+[  225s] chu ky gold tren train ...
+[  229s] OLD 21 luat, NEW(rel=clf) 175 luat
+
+======================================================================================================================
+[  229s] Bayes: 518 chu ky co phan phoi (disc, gold)
+
+======================================================================================================================
+F2 -- FAKE_DATA, BOI CANH A: auditor Bayes voi kenh nhieu; margin chon tren CONFIRMATION mo phong cung ty le
+======================================================================================================================
+
+do thi SACH (0% nhieu) -- nen bao dong gia:
+  OLD (21 luat)                                co  5,789  P@k   0.00%  rep   0.00%  R_all   0.00%  hong  5789  rong  -5789  loi  0.00% ->  5.27%
+  NEW rel=clf                                  co  3,205  P@k   0.00%  rep   0.00%  R_all   0.00%  hong  3205  rong  -3205  loi  0.00% ->  2.92%
+  closure                                      co      0  P@k   0.00%  rep   0.00%  R_all   0.00%  hong     0  rong     +0  loi  0.00% ->  0.00%
+  Bayes gia dinh rho=0.05, margin 0            co    427  P@k   0.00%  rep   0.00%  R_all   0.00%  hong   427  rong   -427  loi  0.00% ->  0.39%
+  Bayes gia dinh rho=0.20, margin 0            co  3,136  P@k   0.00%  rep   0.00%  R_all   0.00%  hong  3136  rong  -3136  loi  0.00% ->  2.85%
+
+muc r05 -- margin chon tren conf mo phong: -1.0
+  OLD (21 luat)                                co 11,029  P@k  46.66%  rep  99.77%  R_all  93.65%  hong  5883  rong   -749  loi  4.99% ->  5.67%
+  NEW rel=sim                                  co  7,464  P@k  61.96%  rep  99.26%  R_all  83.75%  hong  2839  rong  +1752  loi  4.99% ->  3.39%
+  closure                                      co  3,970  P@k  69.75%  rep  99.35%  R_all  50.18%  hong  1201  rong  +1550  loi  4.99% ->  3.58%
+  Bayes margin 0 (khong tune)                  co  5,149  P@k  87.14%  rep  99.87%  R_all  81.74%  hong   662  rong  +3819  loi  4.99% ->  1.51%
+  Bayes margin -1.0 (chon tren conf)           co  5,149  P@k  87.14%  rep  99.87%  R_all  81.74%  hong   662  rong  +3819  loi  4.99% ->  1.51%
+  Bayes m-1.0 -> closure                       co  6,150  P@k  81.69%  rep  99.70%  R_all  91.37%  hong  1126  rong  +3883  loi  4.99% ->  1.45%
+
+muc r10 -- margin chon tren conf mo phong: 1.0
+  OLD (21 luat)                                co 16,471  P@k  62.61%  rep  99.64%  R_all  93.04%  hong  6159  rong  +4116  loi 10.05% ->  6.30%
+  NEW rel=sim                                  co 14,778  P@k  65.01%  rep  98.89%  R_all  86.02%  hong  5171  rong  +4329  loi 10.05% ->  6.11%
+  closure                                      co  4,593  P@k  77.01%  rep  98.76%  R_all  31.63%  hong  1056  rong  +2437  loi 10.05% ->  7.83%
+  Bayes margin 0 (khong tune)                  co 11,807  P@k  81.85%  rep  99.73%  R_all  87.27%  hong  2143  rong  +7495  loi 10.05% ->  3.23%
+  Bayes margin 1.0 (chon tren conf)            co  8,876  P@k  93.93%  rep  99.89%  R_all  75.41%  hong   539  rong  +7789  loi 10.05% ->  2.96%
+  Bayes m1.0 -> closure                        co 10,782  P@k  87.71%  rep  99.57%  R_all  85.26%  hong  1325  rong  +8091  loi 10.05% ->  2.69%
+
+muc r15 -- margin chon tren conf mo phong: 1.0
+  OLD (21 luat)                                co 21,765  P@k  70.96%  rep  99.49%  R_all  92.81%  hong  6321  rong  +9044  loi 15.06% ->  6.83%
+  NEW rel=sim                                  co 21,443  P@k  68.84%  rep  98.81%  R_all  88.11%  hong  6681  rong  +7905  loi 15.06% ->  7.87%
+  closure                                      co  4,671  P@k  80.22%  rep  98.35%  R_all  22.26%  hong   924  rong  +2761  loi 15.06% -> 12.55%
+  Bayes margin 0 (khong tune)                  co 17,613  P@k  83.77%  rep  99.65%  R_all  88.81%  hong  2859  rong +11843  loi 15.06% ->  4.29%
+  Bayes margin 1.0 (chon tren conf)            co 14,753  P@k  91.29%  rep  99.84%  R_all  81.22%  hong  1285  rong +12161  loi 15.06% ->  4.00%
+  Bayes m1.0 -> closure                        co 16,480  P@k  88.08%  rep  99.64%  R_all  87.36%  hong  1965  rong +12498  loi 15.06% ->  3.69%
+
+muc r20 -- margin chon tren conf mo phong: 1.0
+  OLD (21 luat)                                co 27,043  P@k  74.95%  rep  99.43%  R_all  91.55%  hong  6774  rong +13379  loi 20.02% ->  7.85%
+  NEW rel=sim                                  co 27,278  P@k  72.22%  rep  98.81%  R_all  88.43%  hong  7578  rong +11887  loi 20.02% ->  9.21%
+  closure                                      co  4,391  P@k  81.55%  rep  98.32%  R_all  16.00%  hong   810  rong  +2711  loi 20.02% -> 17.56%
+  Bayes margin 0 (khong tune)                  co 23,045  P@k  85.21%  rep  99.66%  R_all  88.91%  hong  3408  rong +16162  loi 20.02% ->  5.32%
+  Bayes margin 1.0 (chon tren conf)            co 20,335  P@k  90.17%  rep  99.79%  R_all  83.12%  hong  1999  rong +16298  loi 20.02% ->  5.20%
+  Bayes m1.0 -> closure                        co 22,031  P@k  87.79%  rep  99.59%  R_all  87.51%  hong  2689  rong +16573  loi 20.02% ->  4.95%
+
+Do nhay voi ty le nhieu GIA DINH (margin 0), giam rong:
+  that \ gia    rho=0.02    rho=0.05    rho=0.10    rho=0.20    rho=0.30
+  5%               +3383       +3819       +2792       +1747       +1167
+  10%              +6598       +7944       +7495       +6673       +6055
+  15%              +9510      +12017      +12099      +11571      +11087
+  20%             +12204      +15739      +16365      +16162      +15820
+
+======================================================================================================================
+B3 -- BOI CANH B, CROSS-FIT tren valid (2 fold theo hash doc; moi thu hoc tu fold kia)
+======================================================================================================================
+Traceback (most recent call last):
+  File "C:\Reseach_Quang\tempekg\experiments\higher_order\bayes_audit.py", line 168, in <module>
+    r = sub_net(tB, [("b1", ho_cond(RA, m))])
+                            ^^^^^^^
+NameError: name 'ho_cond' is not defined. Did you mean: 'ho_old'?

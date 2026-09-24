@@ -1,0 +1,1504 @@
+[
+ {
+  "rank": 1,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 5369,
+  "wlb": 0.4500683389963997,
+  "lift": 6.179034938120045,
+  "n": 11695
+ },
+ {
+  "rank": 2,
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    false
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "bucket_a",
+  "sig": "lead",
+  "gain": 2925,
+  "wlb": 0.5292465664229354,
+  "lift": 1.6660103942758666,
+  "n": 5391
+ },
+ {
+  "rank": 3,
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    1
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Military_operation"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 2185,
+  "wlb": 0.40875029940043245,
+  "lift": 5.671390979351961,
+  "n": 5831
+ },
+ {
+  "rank": 4,
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 2111,
+  "wlb": 0.40725958945746255,
+  "lift": 5.642283051861542,
+  "n": 6498
+ },
+ {
+  "rank": 5,
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 1258,
+  "wlb": 0.40181960302136654,
+  "lift": 5.553510287644453,
+  "n": 7930
+ },
+ {
+  "rank": 6,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "MIX",
+    "anchor_roles",
+    null
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 964,
+  "wlb": 0.4143897747812552,
+  "lift": 5.727389519515911,
+  "n": 7513
+ },
+ {
+  "rank": 7,
+  "conds": [
+   [
+    "EQ",
+    "shares_anchor",
+    true
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 662,
+  "wlb": 0.40198257195988224,
+  "lift": 5.565750394647557,
+  "n": 6938
+ },
+ {
+  "rank": 8,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Catastrophe"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 619,
+  "wlb": 0.4685479229931323,
+  "lift": 6.503938372576692,
+  "n": 4441
+ },
+ {
+  "rank": 9,
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Catastrophe"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 485,
+  "wlb": 0.44834742137359185,
+  "lift": 6.2410508556767486,
+  "n": 4035
+ },
+ {
+  "rank": 10,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "etypeset_a",
+    "Organization"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "anchor",
+  "sig": "True",
+  "gain": 452,
+  "wlb": 0.4297149333173867,
+  "lift": 3.7716031915696333,
+  "n": 8054
+ },
+ {
+  "rank": 11,
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Military_operation"
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Agent"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 404,
+  "wlb": 0.4046606418935141,
+  "lift": 5.6188337417767125,
+  "n": 5646
+ },
+ {
+  "rank": 12,
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ],
+   [
+    "MIX",
+    "anchor_roles",
+    null
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 303,
+  "wlb": 0.406868628651724,
+  "lift": 5.7045037093637445,
+  "n": 3223
+ },
+ {
+  "rank": 13,
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    1
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "order",
+  "sig": "rev",
+  "gain": 276,
+  "wlb": 0.4234075139951269,
+  "lift": 4.948372442976675,
+  "n": 1765
+ },
+ {
+  "rank": 14,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Patient"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "anchor",
+  "sig": "True",
+  "gain": 246,
+  "wlb": 0.402017329565821,
+  "lift": 3.540356262815428,
+  "n": 6984
+ },
+ {
+  "rank": 15,
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ],
+   [
+    "EQ",
+    "shares_anchor",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 244,
+  "wlb": 0.4108430594490514,
+  "lift": 5.685643617389541,
+  "n": 6929
+ },
+ {
+  "rank": 16,
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "early"
+   ],
+   [
+    "EQ",
+    "same_type",
+    false
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Catastrophe",
+  "gain": 207,
+  "wlb": 0.4181778132928838,
+  "lift": 1.5062487768198345,
+  "n": 1380
+ },
+ {
+  "rank": 17,
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Catastrophe"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "sdist_ord",
+  "sig": "('4-7', 'fwd')",
+  "gain": 192,
+  "wlb": 0.40088391007014273,
+  "lift": 5.975957399786175,
+  "n": 2402
+ },
+ {
+  "rank": 18,
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_a",
+    false
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Traveling"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "bucket_a",
+  "sig": "lead",
+  "gain": 188,
+  "wlb": 0.626367490251774,
+  "lift": 2.0637189650339143,
+  "n": 430
+ },
+ {
+  "rank": 19,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Host"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 184,
+  "wlb": 0.45806702130186905,
+  "lift": 6.413372762397064,
+  "n": 2808
+ },
+ {
+  "rank": 20,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Violence"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Violence",
+  "gain": 159,
+  "wlb": 0.4078412287849608,
+  "lift": 2.2098646034816247,
+  "n": 611
+ },
+ {
+  "rank": 21,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 153,
+  "wlb": 0.49525844598613794,
+  "lift": 6.901513751466679,
+  "n": 3134
+ },
+ {
+  "rank": 22,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Agent",
+     "Agent"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 142,
+  "wlb": 0.4008026867009586,
+  "lift": 5.602589581165382,
+  "n": 3863
+ },
+ {
+  "rank": 23,
+  "conds": [
+   [
+    "CNT",
+    "roleset_shared",
+    3
+   ],
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 138,
+  "wlb": 0.46907261237382836,
+  "lift": 6.485955370207067,
+  "n": 5825
+ },
+ {
+  "rank": 24,
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Organization"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 124,
+  "wlb": 0.4027406489347079,
+  "lift": 5.603407634318853,
+  "n": 5013
+ },
+ {
+  "rank": 25,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "etypeset_shared",
+    "Organization"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 96,
+  "wlb": 0.4162421903499009,
+  "lift": 5.752040936098799,
+  "n": 7551
+ },
+ {
+  "rank": 26,
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "early"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 92,
+  "wlb": 0.4562918485869882,
+  "lift": 6.410609048642519,
+  "n": 2383
+ },
+ {
+  "rank": 27,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "same_type",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 90,
+  "wlb": 0.4352954043695756,
+  "lift": 6.097554538843288,
+  "n": 3002
+ },
+ {
+  "rank": 28,
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "anchor",
+  "sig": "True",
+  "gain": 87,
+  "wlb": 0.41937898026048004,
+  "lift": 3.7760312955842497,
+  "n": 1993
+ },
+ {
+  "rank": 29,
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_b",
+    false
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Military_operation"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "bucket_a",
+  "sig": "lead",
+  "gain": 84,
+  "wlb": 0.5943552214204103,
+  "lift": 1.8789082051163581,
+  "n": 3007
+ },
+ {
+  "rank": 30,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loss"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 79,
+  "wlb": 0.45641192948163833,
+  "lift": 6.350896178842926,
+  "n": 3997
+ },
+ {
+  "rank": 31,
+  "conds": [
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ],
+   [
+    "HAS",
+    "etypeset_b",
+    "Person"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 77,
+  "wlb": 0.4086271731725314,
+  "lift": 5.811683724935753,
+  "n": 1730
+ },
+ {
+  "rank": 32,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "mid"
+   ],
+   [
+    "HAS",
+    "etypeset_a",
+    "Organization"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Committing_crime",
+  "gain": 75,
+  "wlb": 0.42400375273975244,
+  "lift": 6.774794929157346,
+  "n": 149
+ },
+ {
+  "rank": 33,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Arriving"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 74,
+  "wlb": 0.4058285269528425,
+  "lift": 5.868640296031254,
+  "n": 1016
+ },
+ {
+  "rank": 34,
+  "conds": [
+   [
+    "CNT",
+    "etypeset_b",
+    0
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Cause_change_of_strength"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Catastrophe",
+  "gain": 70,
+  "wlb": 0.42915937027304035,
+  "lift": 1.578605865588673,
+  "n": 711
+ },
+ {
+  "rank": 35,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "etypeset_a",
+    "Organization"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "sdist",
+  "sig": "2-3",
+  "gain": 68,
+  "wlb": 0.41578421110410285,
+  "lift": 6.4955308030803085,
+  "n": 3030
+ },
+ {
+  "rank": 36,
+  "conds": [
+   [
+    "ALL",
+    "etypeset_a",
+    "Location"
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 68,
+  "wlb": 0.4145685683848783,
+  "lift": 5.753568360861398,
+  "n": 5598
+ },
+ {
+  "rank": 37,
+  "conds": [
+   [
+    "ALL",
+    "roleset_a",
+    "Location"
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    false
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "bucket_a",
+  "sig": "lead",
+  "gain": 61,
+  "wlb": 0.49309160911420474,
+  "lift": 1.621677408651284,
+  "n": 782
+ },
+ {
+  "rank": 38,
+  "conds": [
+   [
+    "CNT",
+    "roleset_a",
+    2
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Location_final"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Catastrophe",
+  "gain": 60,
+  "wlb": 0.40966918402533004,
+  "lift": 1.518953228449909,
+  "n": 634
+ },
+ {
+  "rank": 39,
+  "conds": [
+   [
+    "ALL",
+    "etypeset_a",
+    "Location"
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "sdist",
+  "sig": "8+",
+  "gain": 59,
+  "wlb": 0.4236651429324698,
+  "lift": 6.280209024198733,
+  "n": 1159
+ },
+ {
+  "rank": 40,
+  "conds": [
+   [
+    "CNT",
+    "roleset_a",
+    2
+   ],
+   [
+    "HAS",
+    "anchor_roles",
+    [
+     "Location",
+     "Location"
+    ]
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Traveling",
+  "gain": 58,
+  "wlb": 0.4315502930676885,
+  "lift": 1.9514128628052678,
+  "n": 378
+ },
+ {
+  "rank": 41,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "has_person_a",
+    false
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "anchor_sd",
+  "sig": "(True, '2-3')",
+  "gain": 58,
+  "wlb": 0.40618545752198265,
+  "lift": 4.002638565452465,
+  "n": 2968
+ },
+ {
+  "rank": 42,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Attack"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 52,
+  "wlb": 0.4238930993017803,
+  "lift": 6.006758353460835,
+  "n": 1871
+ },
+ {
+  "rank": 43,
+  "conds": [
+   [
+    "EQ",
+    "multi_mention_b",
+    false
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Competition"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "sdist",
+  "sig": "0",
+  "gain": 50,
+  "wlb": 0.40654316220351927,
+  "lift": 3.749856534039462,
+  "n": 955
+ },
+ {
+  "rank": 44,
+  "conds": [
+   [
+    "EQ",
+    "nrole_a",
+    0
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Attack"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "bucket_a",
+  "sig": "lead",
+  "gain": 48,
+  "wlb": 0.48258303280161025,
+  "lift": 1.7622489612656083,
+  "n": 115
+ },
+ {
+  "rank": 45,
+  "conds": [
+   [
+    "CNT",
+    "roleset_shared",
+    3
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 48,
+  "wlb": 0.40179579170929186,
+  "lift": 5.601570558812525,
+  "n": 4462
+ },
+ {
+  "rank": 46,
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    2
+   ],
+   [
+    "EQ",
+    "order",
+    "rev"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Use_firearm",
+  "gain": 47,
+  "wlb": 0.41035314036206955,
+  "lift": 11.841694537346713,
+  "n": 92
+ },
+ {
+  "rank": 47,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_shared",
+    "Location"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "sdist",
+  "sig": "1",
+  "gain": 44,
+  "wlb": 0.40069467564668776,
+  "lift": 6.3423357174787665,
+  "n": 1800
+ },
+ {
+  "rank": 48,
+  "conds": [
+   [
+    "CNT",
+    "roleset_shared",
+    1
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Arriving"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Catastrophe",
+  "gain": 43,
+  "wlb": 0.4016377147492935,
+  "lift": 1.523813033597445,
+  "n": 405
+ },
+ {
+  "rank": 49,
+  "conds": [
+   [
+    "EQ",
+    "has_person_a",
+    false
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "sdist",
+  "sig": "0",
+  "gain": 42,
+  "wlb": 0.4002737676145785,
+  "lift": 3.6428157067650635,
+  "n": 1484
+ },
+ {
+  "rank": 50,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Hostile_encounter"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 40,
+  "wlb": 0.5001170551286672,
+  "lift": 7.077576928506994,
+  "n": 1451
+ },
+ {
+  "rank": 51,
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "EQ",
+    "type_a",
+    "Social_event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 39,
+  "wlb": 0.420691572946772,
+  "lift": 6.250011665027137,
+  "n": 491
+ },
+ {
+  "rank": 52,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Getting"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 37,
+  "wlb": 0.4196161573125274,
+  "lift": 6.146682067530392,
+  "n": 681
+ },
+ {
+  "rank": 53,
+  "conds": [
+   [
+    "EQ",
+    "order",
+    "rev"
+   ],
+   [
+    "HAS",
+    "etypeset_a",
+    "Product"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Recording",
+  "gain": 36,
+  "wlb": 0.7002730466408176,
+  "lift": 8.920772566022862,
+  "n": 43
+ },
+ {
+  "rank": 54,
+  "conds": [
+   [
+    "EQ",
+    "has_loc_b",
+    true
+   ],
+   [
+    "EQ",
+    "multi_mention_a",
+    true
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "order",
+  "sig": "fwd",
+  "gain": 36,
+  "wlb": 0.40597481281900644,
+  "lift": 6.277530876283659,
+  "n": 6016
+ },
+ {
+  "rank": 55,
+  "conds": [
+   [
+    "CNT",
+    "etypeset_shared",
+    0
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Cause_change_of_strength"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "bucket_a",
+  "sig": "lead",
+  "gain": 35,
+  "wlb": 0.4854347974907177,
+  "lift": 1.61813218742764,
+  "n": 556
+ },
+ {
+  "rank": 56,
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    2
+   ],
+   [
+    "EQ",
+    "order",
+    "rev"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Connect",
+  "gain": 34,
+  "wlb": 0.7329395096236953,
+  "lift": 16.12223393045311,
+  "n": 39
+ },
+ {
+  "rank": 57,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Earnings_and_losses"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 34,
+  "wlb": 0.400545053098361,
+  "lift": 5.872199872256781,
+  "n": 722
+ },
+ {
+  "rank": 58,
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    3
+   ],
+   [
+    "EQ",
+    "has_loc_a",
+    false
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Creating",
+  "gain": 34,
+  "wlb": 0.40180918267194504,
+  "lift": 21.20034569453174,
+  "n": 74
+ },
+ {
+  "rank": 59,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "late"
+   ],
+   [
+    "HAS",
+    "etypeset_a",
+    "Organization"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Surrounding",
+  "gain": 33,
+  "wlb": 0.424917145489815,
+  "lift": 5.986046511627907,
+  "n": 60
+ },
+ {
+  "rank": 60,
+  "conds": [
+   [
+    "EQ",
+    "sdist",
+    "0"
+   ],
+   [
+    "HAS",
+    "etypeset_a",
+    "Organization"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Traveling",
+  "gain": 33,
+  "wlb": 0.42527698069212155,
+  "lift": 2.1015215445595192,
+  "n": 108
+ },
+ {
+  "rank": 61,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_b",
+    "Name"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 33,
+  "wlb": 0.41243845481554997,
+  "lift": 5.859177799584895,
+  "n": 1778
+ },
+ {
+  "rank": 62,
+  "conds": [
+   [
+    "EQ",
+    "has_org_a",
+    false
+   ],
+   [
+    "EQ",
+    "type_b",
+    "Coming_to_be"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Catastrophe",
+  "gain": 33,
+  "wlb": 0.4054229527681878,
+  "lift": 1.5301352002539939,
+  "n": 441
+ },
+ {
+  "rank": 63,
+  "conds": [
+   [
+    "ALL",
+    "etypeset_a",
+    "Art"
+   ],
+   [
+    "CNT",
+    "roleset_a",
+    3
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Supporting",
+  "gain": 32,
+  "wlb": 0.7202227252929444,
+  "lift": 17.222283507997794,
+  "n": 37
+ },
+ {
+  "rank": 64,
+  "conds": [
+   [
+    "EQ",
+    "bucket_a",
+    "lead"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Participant"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 32,
+  "wlb": 0.4189631664349685,
+  "lift": 5.939684759745371,
+  "n": 1874
+ },
+ {
+  "rank": 65,
+  "conds": [
+   [
+    "HAS",
+    "roleset_a",
+    "Loss"
+   ],
+   [
+    "MIX",
+    "anchor_roles",
+    null
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "sdist_ord",
+  "sig": "('8+', 'rev')",
+  "gain": 32,
+  "wlb": 0.49747627570942377,
+  "lift": 7.979944334207827,
+  "n": 61
+ },
+ {
+  "rank": 66,
+  "conds": [
+   [
+    "EQ",
+    "bucket_b",
+    "mid"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Event"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "global",
+  "sig": "*",
+  "gain": 31,
+  "wlb": 0.4091596381239687,
+  "lift": 5.725718685170107,
+  "n": 3519
+ },
+ {
+  "rank": 67,
+  "conds": [
+   [
+    "CNT",
+    "etypeset_a",
+    1
+   ],
+   [
+    "EQ",
+    "nrole_a",
+    1
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "etype_a",
+  "sig": "Statement",
+  "gain": 30,
+  "wlb": 0.6166343954261705,
+  "lift": 23.883265856950068,
+  "n": 39
+ },
+ {
+  "rank": 68,
+  "conds": [
+   [
+    "EQ",
+    "type_b",
+    "Motion"
+   ],
+   [
+    "HAS",
+    "roleset_a",
+    "Loss"
+   ]
+  ],
+  "rel": "CONTAINS",
+  "view": "order",
+  "sig": "rev",
+  "gain": 30,
+  "wlb": 0.40822998685489836,
+  "lift": 5.59777813788509,
+  "n": 99
+ }
+]

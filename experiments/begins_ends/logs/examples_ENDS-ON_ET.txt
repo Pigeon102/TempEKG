@@ -1,0 +1,99 @@
+ENDS-ON ET: 29 instances (train+valid). Head=A (stored s), tail=B (stored t)
+
+[VALID] 14db8247 | Battle of Harlaw  A='battle'  B='a year [DATE]'  sent-dist=2
+   s10: The latter could claim a strategic victory in that Aberdeen was saved , and within [B a year B] Albany had recaptured Ross and forced Donald to surrender .
+   s12: The ferocity of the [A battle A] gave it the nickname `` Red Harlaw '' .
+
+[VALID] 14db8247 | Battle of Harlaw  A='fighting'  B='a year [DATE]'  sent-dist=1
+   s9: After a day of fierce [A fighting A] there was no clear victor ; Donald had lost 900 men before retreating back to the Western Isles , and Mar had lost 600 .
+   s10: The latter could claim a strategic victory in that Aberdeen was saved , and within [B a year B] Albany had recaptured Ross and forced Donald to surrender .
+
+[VALID] 1e0e5bf1 | 1932 Cuba hurricane  A='moving'  B='November 9 [DATE]'  sent-dist=0
+   s8: The storm weakened to Category 4 intensity while recurving northeast , [A moving A] ashore Cuba 's Camagüey Province on [B November 9 B] with winds of 150 mph ( 240 km/h ) .
+
+[VALID] ba68a8ca | October Revolution  A='elections'  B='that time [DATE]'  sent-dist=1
+   s14: the long-awaited constituent assembly [A elections A] were held on 12 november 1917 .
+   s15: in contrast to their majority in the soviets , the bolsheviks only won 175 seats in the unk legislative body , coming in second behind the socialist revolutionary party , which won 370 seats , although the sr party no longer existed as a whole party by [B that time B] , as the left srs had gone into coalition with the bolsheviks from october 1917 to march 1918 ( a cause of dispute of the legitimacy of the returned seating of the constituent assembly , as the old lists were drawn up by the old sr party leadership , and thus represented mostly right srs , whereas the peasant soviet deputies had returned majorities for the unk left srs ) .
+
+[DISC] 0f761601 | 1989 Southeast Asian Games  A='hosted'  B='1971 [DATE]'  sent-dist=0
+   s6: Malaysia previously also [A hosted A] the 1965 games and the [B 1971 B] games , when the Southeast Asian Games were known as the Southeast Asian Peninsular Games at those times .
+
+[DISC] 4267c3dc | 1996 Andhra Pradesh cyclone  A='weakened'  B='November 7 [DATE]'  sent-dist=0
+   s5: Soon after landfall , the cyclone [A weakened A] and dissipated by [B November 7 B] .
+
+[DISC] 48b8765f | Operation Turkey Buzzard  A='supply'  B='August 1943 [DATE]'  sent-dist=0
+   s0: Operation Turkey Buzzard , also known as Operation Beggar , was a British [A supply A] mission to North Africa that took place between March and [B August 1943 B] , during the Second World War .
+
+[DISC] 48b8765f | Operation Turkey Buzzard  A='mission'  B='August 1943 [DATE]'  sent-dist=0
+   s0: Operation Turkey Buzzard , also known as Operation Beggar , was a British supply [A mission A] to North Africa that took place between March and [B August 1943 B] , during the Second World War .
+
+[DISC] 48b8765f | Operation Turkey Buzzard  A='Operation'  B='August 1943 [DATE]'  sent-dist=0
+   s0: [A Operation A] Turkey Buzzard , also known as Operation Beggar , was a British supply mission to North Africa that took place between March and [B August 1943 B] , during the Second World War .
+
+[DISC] 5eb3a58f | Battle of the Bogside  A='passing'  B='three days [DURATION]'  sent-dist=2
+   s4: The rioting erupted at the end of an Apprentice Boys parade which was [A passing A] along the city walls , past the Catholic Bogside .
+   s6: Rioting between police and Bogside residents continued for [B three days B] .
+
+[DISC] 66ba2210 | Hurricane Dean  A='hurricane'  B='a year [DURATION]'  sent-dist=2
+   s15: In Jamaica , where the damage was worst , banana production did not return to pre-storm levels for over [B a year B] .
+   s17: Dean was the first [A hurricane A] to make landfall in the Atlantic basin at Category 5 intensity since Hurricane Andrew on August 24 , 1992 .
+
+[CONF1] 8474c5cc | CMLL Torneo Gran Alternativa  A='tournaments'  B='2017 [DATE]'  sent-dist=2
+   s10: Carístico , then known as `` Místico '' won in his rookie year in 2004 and then as a veteran in 2007 and again in [B 2017 B] .
+   s12: Complete results have not been found documented for the 1998 event , but based on known information at least 187 individual wrestlers have participated in 22 [A tournaments A] as of 2017 .
+
+[CONF1] 8474c5cc | CMLL Torneo Gran Alternativa  A='tournaments'  B='2017 [DATE]'  sent-dist=0
+   s12: Complete results have not been found documented for the 1998 event , but based on known information at least 187 individual wrestlers have participated in 22 [A tournaments A] as of [B 2017 B] .
+
+[DISC] a424b743 | Oklahoma City bombing  A='sentenced'  B='12 years [DURATION]'  sent-dist=0
+   s15: Michael and Lori Fortier testified against McVeigh and Nichols ; Michael was [A sentenced A] to [B 12 years B] in prison for failing to warn the United States government , and Lori received immunity from prosecution in exchange for her testimony .
+
+[DISC] bc44fbfd | 2009 ASEAN Para Games  A='event'  B='19 August 2009 [DATE]'  sent-dist=0
+   s0: The 2009 ASEAN Para Games officially known as the 5th ASEAN Para Games , was a Southeast Asian disabled multi-sport [A event A] held in Kuala Lumpur , Malaysia from 15 to [B 19 August 2009 B] .
+
+[CONF1] bd70ed57 | Death of Jeremiah Duggan  A='telephoned'  B='50 minutes [DURATION]'  sent-dist=0
+   s4: Duggan [A telephoned A] his mother , Erica Duggan , [B 50 minutes B] before he died , apparently distressed about his involvement in it .
+
+[CONF1] c4dd693d | Battle of Malvern Hill  A='remained'  B='August 16 [DURATION]'  sent-dist=0
+   s16: After the battle , McClellan and his forces withdrew from Malvern Hill to Harrison 's Landing , where he [A remained A] until [B August 16 B] .
+
+[CONF2] cb776b54 | Barbary Wars  A='Wars'  B='early 19th centuries [DATE]'  sent-dist=0
+   s0: The Barbary [A Wars A] were a series of conflicts culminating in two main wars fought between the United States , Sweden , and the Barbary states ( Ottoman Empire , including Tunis , Algiers , and Tripoli ) of North Africa in the late 18th and [B early 19th centuries B] .
+
+[DISC] cec83ddb | Iran hostage crisis  A='sworn'  B='minutes [DATE]'  sent-dist=0
+   s19: Political analysts cited the standoff as a major factor in the continuing downfall of Carter 's presidency and his landslide loss in the 1980 presidential election ; the hostages were formally released into United States custody the day after the signing of the Algiers Accords , just [B minutes B] after American President Ronald Reagan was [A sworn A] into office .
+
+[DISC] cf723149 | 1923 Imperial Conference  A='affirmed'  B='1931 [DATE]'  sent-dist=0
+   s15: The conference 's final report [A affirmed A] the Canadian and South African position and thus was a step away from the concept of a centralised British Empire in favour of a more decentralised British Commonwealth without central authority , subsequently affirmed by the Balfour Declaration of 1926 and the Statute of Westminster [B 1931 B] .
+
+[DISC] d026ad27 | Wars of the Roses  A='ruled'  B='1483 [DATE]'  sent-dist=0
+   s12: With all significant Lancastrian leaders now banished or killed , Edward [A ruled A] unopposed until his sudden death in [B 1483 B] .
+
+[DISC] d026ad27 | Wars of the Roses  A='avoided'  B='22 August 1485 [DATE]'  sent-dist=0
+   s16: Richard [A avoided A] direct conflict with Henry until the Battle of Bosworth Field on [B 22 August 1485 B] .
+
+[DISC] d026ad27 | Wars of the Roses  A='ruled'  B='1603 [DURATION]'  sent-dist=0
+   s18: the house of tudor [A ruled A] the kingdom of england until [B 1603 B] , with the death of elizabeth i , granddaughter of henry vii and elizabeth of york .
+
+[DISC] d0a037b1 | 1997 Pro Bowl  A='connected'  B='44 seconds [TIME]'  sent-dist=0
+   s5: He [A connected A] with the Oakland Raiders Tim Brown for an 80-yard touchdown to tie the game at 23 with only [B 44 seconds B] to go .
+
+[CONF1] d2e51489 | Tropical Storm Domoina  A='occurred'  B='several days [DURATION]'  sent-dist=2
+   s10: Disrupted transport left areas isolated for [B several days B] .
+   s12: Flooding caused the Pongolapoort Dam to reach 87 % of its capacity ; when waters were released to maintain the structural integrity , additional flooding [A occurred A] in Mozambique , forcing thousands to evacuate .
+
+[DISC] e3970aa2 | Greek Civil War  A='elections'  B='1947 [DATE]'  sent-dist=14
+   s6: The struggle became one of the first conflicts of the Cold War ( [B 1947 B] to 1989 ) and represents the first example of Cold War power postwar involvement in the internal politics of a foreign country .
+   s20: The KKE backed up the endeavor , deciding that there was no alternative way to act against the internationally recognized government that had been formed after the 1946 [A elections A] , which the KKE had boycotted .
+
+[DISC] ed34034e | Death of Eric Garner  A='pronounced'  B='five years [DURATION]'  sent-dist=12
+   s9: Garner was [A pronounced A] dead at an area hospital approximately one hour later .
+   s21: Pantaleo was fired on August 19 , 2019 , [B five years B] after Garner 's death .
+
+[DISC] ed34034e | Death of Eric Garner  A='dead'  B='five years [DURATION]'  sent-dist=12
+   s9: Garner was pronounced [A dead A] at an area hospital approximately one hour later .
+   s21: Pantaleo was fired on August 19 , 2019 , [B five years B] after Garner 's death .
+
+[CONF2] eec064b0 | Claudy bombing  A='investigation'  B='24 August 2010 [DATE]'  sent-dist=0
+   s5: On [B 24 August 2010 B] , following an eight-year [A investigation A] , the Police Ombudsman for Northern Ireland published a report into the bombing , which stated that the Royal Ulster Constabulary believed in the early 1970s that Father James Chesney , a local Roman Catholic priest , was the IRA 's quartermaster and Director of Operations of the South Derry Brigade .
+

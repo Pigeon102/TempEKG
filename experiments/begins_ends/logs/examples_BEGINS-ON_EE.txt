@@ -1,0 +1,889 @@
+BEGINS-ON EE: 238 instances (train+valid). Head=A (stored s), tail=B (stored t)
+
+[VALID] 153f452f | South Thailand insurgency  A='violence'  B='occurred'  sent-dist=2
+   s3: although low-level separatist violence had [B occurred B] in the region for decades , the campaign escalated after 2001 , with a recrudescence in 2004 , and has occasionally spilled over into other provinces .
+   s5: In July 2005 , Prime Minister Thaksin Shinawatra assumed wide-ranging emergency powers to deal with the southern [A violence A] , but the insurgency escalated further .
+
+[VALID] 153f452f | South Thailand insurgency  A='conflict'  B='occurred'  sent-dist=3
+   s0: The South Thailand insurgency ( ; ) is an ongoing [A conflict A] centered in southern Thailand .
+   s3: although low-level separatist violence had [B occurred B] in the region for decades , the campaign escalated after 2001 , with a recrudescence in 2004 , and has occasionally spilled over into other provinces .
+
+[VALID] 153f452f | South Thailand insurgency  A='violence'  B='violence'  sent-dist=2
+   s3: although low-level separatist [B violence B] had occurred in the region for decades , the campaign escalated after 2001 , with a recrudescence in 2004 , and has occasionally spilled over into other provinces .
+   s5: In July 2005 , Prime Minister Thaksin Shinawatra assumed wide-ranging emergency powers to deal with the southern [A violence A] , but the insurgency escalated further .
+
+[VALID] 153f452f | South Thailand insurgency  A='conflict'  B='violence'  sent-dist=3
+   s0: The South Thailand insurgency ( ; ) is an ongoing [A conflict A] centered in southern Thailand .
+   s3: although low-level separatist [B violence B] had occurred in the region for decades , the campaign escalated after 2001 , with a recrudescence in 2004 , and has occasionally spilled over into other provinces .
+
+[VALID] 17342759 | Gulf War  A='met with'  B='brought'  sent-dist=0
+   s3: On 2 August 1990 the Iraqi Army invaded and occupied Kuwait , which was [A met with A] international condemnation and [B brought B] immediate economic sanctions against Iraq by members of the UN Security Council .
+
+[VALID] 251c106a | 1968 Thule Air Base B-52 crash  A='disperse'  B='rupture'  sent-dist=0
+   s3: The bomber crashed onto sea ice in North Star Bay , Greenland , causing the conventional explosives aboard to detonate and the nuclear payload to [B rupture B] and [A disperse A] , which resulted in radioactive contamination .
+
+[VALID] 2edee3b8 | Hurricane Gabrielle (2001)  A='hurricane'  B='developed'  sent-dist=1
+   s0: Hurricane Gabrielle was a North Atlantic [A hurricane A] that caused flooding in both Florida and Newfoundland in September of 2001 .
+   s1: It [B developed B] in the Gulf of Mexico on the same day as the September 11 attacks ; after the attacks , flights were canceled nationwide for two days , and when Gabrielle struck Florida on September 14 , it caused a day of additional cancellations .
+
+[VALID] 4922b00f | Atlantic campaign of May 1794  A='conducted'  B='battle'  sent-dist=2
+   s0: The Atlantic campaign of May 1794 was a series of operations [A conducted A] by the British Royal Navy 's Channel Fleet against the French Navy 's Atlantic Fleet , with the aim of preventing the passage of a strategically important French grain convoy travelling from the United States to France .
+   s2: The French lost seven battleships ; the British none , but the [B battle B] distracted the British fleet long enough for the French convoy to safely reach port .
+
+[VALID] 5017b520 | Bishops' Wars  A='involved'  B='Wars'  sent-dist=0
+   s0: The Bishops ' [B Wars B] of 1639 and 1640 are generally viewed as the starting point of the 1639–1652 Wars of the Three Kingdoms that ultimately [A involved A] the whole of the British Isles .
+
+[VALID] 5017b520 | Bishops' Wars  A='Wars'  B='Wars'  sent-dist=0
+   s0: The Bishops ' [B Wars B] of 1639 and 1640 are generally viewed as the starting point of the 1639–1652 [A Wars A] of the Three Kingdoms that ultimately involved the whole of the British Isles .
+
+[VALID] 551cf5a9 | Hindenburg disaster  A='caught fire'  B='occurred'  sent-dist=1
+   s0: The `` Hindenburg '' disaster [B occurred B] on May 6 , 1937 , in Manchester Township , New Jersey , United States .
+   s1: the german passenger airship lz 129 `` hindenburg '' [A caught fire A] and was destroyed during its attempt to dock with its mooring mast at naval air station lakehurst .
+
+[VALID] 5bf05e22 | Kannada Sahitya Sammelana  A='inaugurated'  B='inaugurated'  sent-dist=1
+   s3: It used to be [B inaugurated B] by prominent writers and poets from 1915 to 1948 .
+   s4: since then it has been [A inaugurated A] by the chief minister of karnataka .
+
+[VALID] 82dd11c7 | Hurricane Andrew  A='strike'  B='hit'  sent-dist=21
+   s9: With a barometric pressure of 922 mbar ( 27.23 inHg ) at the time of landfall in Florida , Andrew is the sixth most-intense hurricane to [A strike A] the United States .
+   s30: It is currently the seventh-costliest Atlantic hurricane to [B hit B] the United States , behind only Katrina ( 2005 ) , Ike ( 2008 ) , Sandy ( 2012 ) , Harvey ( 2017 ) , Dorian ( 2019 ) , and Maria ( 2017 ) , as well as the eighth-costliest Atlantic hurricane , behind the aforementioned systems and Wilma ( 2005 ) .
+
+[VALID] 82dd11c7 | Hurricane Andrew  A='strike'  B='hit'  sent-dist=22
+   s9: With a barometric pressure of 922 mbar ( 27.23 inHg ) at the time of landfall in Florida , Andrew is the sixth most-intense hurricane to [A strike A] the United States .
+   s31: It is the third-strongest hurricane to [B hit B] the U.S. mainland by wind speed ( 165 mph ) .
+
+[VALID] 82dd11c7 | Hurricane Andrew  A='hurricane'  B='strike'  sent-dist=21
+   s9: With a barometric pressure of 922 mbar ( 27.23 inHg ) at the time of landfall in Florida , Andrew is the sixth most-intense hurricane to [B strike B] the United States .
+   s30: It is currently the seventh-costliest Atlantic [A hurricane A] to hit the United States , behind only Katrina ( 2005 ) , Ike ( 2008 ) , Sandy ( 2012 ) , Harvey ( 2017 ) , Dorian ( 2019 ) , and Maria ( 2017 ) , as well as the eighth-costliest Atlantic hurricane , behind the aforementioned systems and Wilma ( 2005 ) .
+
+[VALID] 82dd11c7 | Hurricane Andrew  A='struck'  B='strike'  sent-dist=9
+   s0: Hurricane Andrew was a powerful and destructive Category 5 Atlantic hurricane that [A struck A] the Bahamas , Florida , and Louisiana in August 1992 .
+   s9: With a barometric pressure of 922 mbar ( 27.23 inHg ) at the time of landfall in Florida , Andrew is the sixth most-intense hurricane to [B strike B] the United States .
+
+[VALID] 82dd11c7 | Hurricane Andrew  A='strike'  B='hurricane'  sent-dist=21
+   s9: With a barometric pressure of 922 mbar ( 27.23 inHg ) at the time of landfall in Florida , Andrew is the sixth most-intense hurricane to [A strike A] the United States .
+   s30: It is currently the seventh-costliest Atlantic hurricane to hit the United States , behind only Katrina ( 2005 ) , Ike ( 2008 ) , Sandy ( 2012 ) , Harvey ( 2017 ) , Dorian ( 2019 ) , and Maria ( 2017 ) , as well as the eighth-costliest Atlantic [B hurricane B] , behind the aforementioned systems and Wilma ( 2005 ) .
+
+[VALID] 82dd11c7 | Hurricane Andrew  A='hit'  B='strike'  sent-dist=8
+   s1: It is the most destructive hurricane to ever [A hit A] Florida/Bahamas in terms of structures damaged or destroyed , and was the costliest in financial terms until Hurricane Dorian surpassed it 27 years later .
+   s9: With a barometric pressure of 922 mbar ( 27.23 inHg ) at the time of landfall in Florida , Andrew is the sixth most-intense hurricane to [B strike B] the United States .
+
+[VALID] 82dd11c7 | Hurricane Andrew  A='hurricane'  B='strike'  sent-dist=22
+   s9: With a barometric pressure of 922 mbar ( 27.23 inHg ) at the time of landfall in Florida , Andrew is the sixth most-intense hurricane to [B strike B] the United States .
+   s31: It is the third-strongest [A hurricane A] to hit the U.S. mainland by wind speed ( 165 mph ) .
+
+[VALID] 96ee897c | Dartmouth Conferences (peace)  A='conference'  B='conference'  sent-dist=1
+   s0: the dartmouth [B conference B] is the longest continuous bilateral dialogue between american and soviet ( now russian ) representatives .
+   s1: the first dartmouth [A conference A] took place at dartmouth college in 1961 .
+
+[VALID] a1a234c2 | Russian Revolution  A='dominated'  B='control'  sent-dist=0
+   s3: In the chaos , members of the Duma , Russia 's parliament , assumed [B control B] of the country , forming the Russian Provisional Government which was heavily [A dominated A] by the interests of large capitalists and the noble aristocracy .
+
+[VALID] a9b5d9d6 | Battle of Sakarya  A='War'  B='War'  sent-dist=0
+   s0: The Battle of Sakarya ( ) , also known as the Battle of the Sangarios ( ) , was an important engagement in the Greco-Turkish [A War A] ( 1919–1922 ) , the western front of the Turkish [B War B] of Independence .
+
+[VALID] cd09c2f7 | Siege of Kagoshima  A='took place'  B='surrounded'  sent-dist=4
+   s0: The 1587 siege of Kagoshima [A took place A] during Japan 's Sengoku period , and was the last stand of the Shimazu family against the forces of Toyotomi Hideyoshi .
+   s4: Under the leadership of Hashiba Hidenaga , Fukushima Masanori , Katō Kiyomasa and Kuroda Yoshitaka , they then [B surrounded B] the city .
+
+[VALID] de1adc8a | Siachen conflict  A='capture'  B='control'  sent-dist=1
+   s3: The conflict was started in 1984 by India 's successful [A capture A] of the Siachen Glacier as part of Operation `` Meghdoot '' .
+   s4: India took [B control B] of the Siachen Glacier and its tributary glaciers , as well as all the main passes and heights of the Saltoro Ridge immediately west of the glacier , including Sia La , Bilafond La , and Gyong La .
+
+[VALID] f74267c2 | 2007 Greek forest fires  A='recorded'  B='killed'  sent-dist=1
+   s7: From the end of June to early September , over 3,000 forest fires were [A recorded A] across the nation .
+   s8: Nine more people were [B killed B] in blazes in June and July .
+
+[CONF2] 07845dea | Battle of Osijek  A='crimes'  B='campaign'  sent-dist=3
+   s4: After the JNA captured Vukovar on 18 November 1991 , Osijek was the next target for its [B campaign B] in Croatia .
+   s7: Croatian authorities also charged the wartime commander of Osijek 's defence , Branimir Glavaš , and five others with war [A crimes A] committed in the city in 1991 .
+
+[CONF2] 07845dea | Battle of Osijek  A='committed'  B='Battle'  sent-dist=1
+   s6: In the aftermath of the [B Battle B] of Osijek , Croatian authorities charged thirteen JNA officers with war crimes against civilians , but no arrests have been made to date .
+   s7: Croatian authorities also charged the wartime commander of Osijek 's defence , Branimir Glavaš , and five others with war crimes [A committed A] in the city in 1991 .
+
+[CONF2] 07845dea | Battle of Osijek  A='crimes'  B='Battle'  sent-dist=1
+   s6: In the aftermath of the [B Battle B] of Osijek , Croatian authorities charged thirteen JNA officers with war crimes against civilians , but no arrests have been made to date .
+   s7: Croatian authorities also charged the wartime commander of Osijek 's defence , Branimir Glavaš , and five others with war [A crimes A] committed in the city in 1991 .
+
+[CONF2] 07845dea | Battle of Osijek  A='committed'  B='crimes'  sent-dist=1
+   s6: In the aftermath of the Battle of Osijek , Croatian authorities charged thirteen JNA officers with war [B crimes B] against civilians , but no arrests have been made to date .
+   s7: Croatian authorities also charged the wartime commander of Osijek 's defence , Branimir Glavaš , and five others with war crimes [A committed A] in the city in 1991 .
+
+[CONF2] 07845dea | Battle of Osijek  A='crimes'  B='crimes'  sent-dist=1
+   s6: In the aftermath of the Battle of Osijek , Croatian authorities charged thirteen JNA officers with war [B crimes B] against civilians , but no arrests have been made to date .
+   s7: Croatian authorities also charged the wartime commander of Osijek 's defence , Branimir Glavaš , and five others with war [A crimes A] committed in the city in 1991 .
+
+[CONF2] 07845dea | Battle of Osijek  A='committed'  B='campaign'  sent-dist=3
+   s4: After the JNA captured Vukovar on 18 November 1991 , Osijek was the next target for its [B campaign B] in Croatia .
+   s7: Croatian authorities also charged the wartime commander of Osijek 's defence , Branimir Glavaš , and five others with war crimes [A committed A] in the city in 1991 .
+
+[DISC] 0e78084e | Tsunami Relief Cardiff  A='streamed'  B='watched'  sent-dist=7
+   s2: The concert was , at the time , the biggest charity concert in the United Kingdom since Live Aid over 20 years before , and more than 60,000 fans [B watched B] live , with many millions more from around the world viewing the seven-hour-long concert .
+   s9: The concert was carried live by BBC Radio Wales , and on UK digital television via the BBC 's `` red-button '' service as well as being [A streamed A] online .
+
+[DISC] 0e78084e | Tsunami Relief Cardiff  A='live'  B='watched'  sent-dist=7
+   s2: The concert was , at the time , the biggest charity concert in the United Kingdom since Live Aid over 20 years before , and more than 60,000 fans [B watched B] live , with many millions more from around the world viewing the seven-hour-long concert .
+   s9: The concert was carried [A live A] by BBC Radio Wales , and on UK digital television via the BBC 's `` red-button '' service as well as being streamed online .
+
+[CONF2] 0ec4a2ba | Paraguayan War  A='devastated'  B='losses'  sent-dist=7
+   s2: It particularly [A devastated A] Paraguay , which suffered catastrophic losses in population ( the numbers are disputed and the true mortality rate may never be known ) , and it was forced to cede territory in dispute with Argentina and Brazil .
+   s9: Estimates of total Paraguayan [B losses B] range from 21,000 to 200,000 people .
+
+[CONF1] 16bb4b3f | Hurricane Danielle (1998)  A='reached'  B='existence'  sent-dist=0
+   s9: As the cyclone [A reached A] the western periphery of the ridge that steered it across the Atlantic for much of its [B existence B] , it began yet another period of intensification , and once again attained a peak intensity as a Category 2 hurricane .
+
+[DISC] 1abfbb3c | Musket Wars  A='warfare'  B='spread'  sent-dist=3
+   s3: The increased use of muskets in intertribal [A warfare A] led to changes in the design of pā fortifications , which later benefited Māori when engaged in battles with colonial forces during the New Zealand Wars .
+   s6: His success prompted other `` iwi '' to procure firearms in order to mount effective methods of defence and deterrence and the spiral of violence peaked in 1832 and 1833 , by which time it had [B spread B] to all parts of the country except the inland area of the North Island later known as the King Country and remote bays and valleys of Fiordland in the South Island .
+
+[DISC] 1abfbb3c | Musket Wars  A='wars'  B='spread'  sent-dist=2
+   s6: His success prompted other `` iwi '' to procure firearms in order to mount effective methods of defence and deterrence and the spiral of violence peaked in 1832 and 1833 , by which time it had [B spread B] to all parts of the country except the inland area of the North Island later known as the King Country and remote bays and valleys of Fiordland in the South Island .
+   s8: Historian Michael King suggested the term `` holocaust '' could be applied to the Musket War period ; another historian , Angela Ballara , has questioned the validity of the term `` musket [A wars A] '' , suggesting the conflict was no more than a continuation of Māori `` tikanga '' ( custom ) , but more destructive because of the widespread use of firearms .
+
+[DISC] 1abfbb3c | Musket Wars  A='wars'  B='spread'  sent-dist=4
+   s2: The [A wars A] are seen as an example of the `` fatal impact '' of indigenous contact with Europeans .
+   s6: His success prompted other `` iwi '' to procure firearms in order to mount effective methods of defence and deterrence and the spiral of violence peaked in 1832 and 1833 , by which time it had [B spread B] to all parts of the country except the inland area of the North Island later known as the King Country and remote bays and valleys of Fiordland in the South Island .
+
+[DISC] 1abfbb3c | Musket Wars  A='fought'  B='spread'  sent-dist=6
+   s0: The Musket Wars were a series of as many as 3,000 battles and raids [A fought A] throughout New Zealand ( including the Chatham Islands ) among Māori between 1807 and 1837 , after Māori first obtained muskets and then engaged in an intertribal arms race in order to gain territory or seek revenge for past defeats .
+   s6: His success prompted other `` iwi '' to procure firearms in order to mount effective methods of defence and deterrence and the spiral of violence peaked in 1832 and 1833 , by which time it had [B spread B] to all parts of the country except the inland area of the North Island later known as the King Country and remote bays and valleys of Fiordland in the South Island .
+
+[DISC] 1ef6d520 | 2002 Poso bus attacks  A='attack'  B='attacks'  sent-dist=2
+   s0: The 2002 Poso bus attacks were a series of terrorist [B attacks B] targeting public transport that occurred in Central Sulawesi , Indonesia , between 5 June and 8 August 2002 .
+   s2: The first [A attack A] occurred on 5 June 2002 , when a bomb detonated in an `` Antariksa '' -owned public bus servicing the Palu , Poso and Tentena routes .
+
+[DISC] 1fa7a6c9 | Continental Airlines Flight 12  A='accident'  B='ran off'  sent-dist=2
+   s11: It began to veer 30° left before it [B ran off B] the end of the runway .
+   s13: After an investigation , the cause of the [A accident A] was determined to be `` hydroplaning of the landing gear wheels , which precluded braking effectiveness . ''
+
+[CONF2] 2482477e | The Wall Live (2010–13)  A='tour'  B='tour'  sent-dist=5
+   s0: The Wall Live was a worldwide concert [A tour A] by Roger Waters , formerly of Pink Floyd .
+   s5: It was the second-highest-grossing concert [B tour B] in North America in 2010 and the third-highest-grossing concert tour worldwide as of 2013 .
+
+[CONF2] 2782ed95 | 1960 U-2 incident  A='loss'  B='hit'  sent-dist=2
+   s1: The single-seat aircraft , flown by pilot Francis Gary Powers , was [B hit B] by an S-75 Dvina ( SA-2 Guideline ) surface-to-air missile and crashed near Sverdlovsk ( today 's Yekaterinburg ) .
+   s3: Initially , the US authorities acknowledged the incident as the [A loss A] of a civilian weather research aircraft operated by NASA , but were forced to admit the mission 's true purpose when a few days later the Soviet government produced the captured pilot and parts of the U-2 's surveillance equipment , including photographs of Soviet military bases taken during the mission .
+
+[CONF2] 2782ed95 | 1960 U-2 incident  A='hit'  B='incident'  sent-dist=3
+   s1: The single-seat aircraft , flown by pilot Francis Gary Powers , was [A hit A] by an S-75 Dvina ( SA-2 Guideline ) surface-to-air missile and crashed near Sverdlovsk ( today 's Yekaterinburg ) .
+   s4: The [B incident B] occurred during the presidency of Dwight D. Eisenhower and the premiership of Nikita Khrushchev , around two weeks before the scheduled opening of an east–west summit in Paris .
+
+[CONF2] 2782ed95 | 1960 U-2 incident  A='hit'  B='occurred'  sent-dist=3
+   s1: The single-seat aircraft , flown by pilot Francis Gary Powers , was [A hit A] by an S-75 Dvina ( SA-2 Guideline ) surface-to-air missile and crashed near Sverdlovsk ( today 's Yekaterinburg ) .
+   s4: The incident [B occurred B] during the presidency of Dwight D. Eisenhower and the premiership of Nikita Khrushchev , around two weeks before the scheduled opening of an east–west summit in Paris .
+
+[CONF2] 2782ed95 | 1960 U-2 incident  A='hit'  B='shot down'  sent-dist=1
+   s0: on 1 may 1960 , a united states u-2 spy plane was [B shot down B] by the soviet air defence forces while performing photographic aerial reconnaissance deep into soviet territory .
+   s1: The single-seat aircraft , flown by pilot Francis Gary Powers , was [A hit A] by an S-75 Dvina ( SA-2 Guideline ) surface-to-air missile and crashed near Sverdlovsk ( today 's Yekaterinburg ) .
+
+[DISC] 2a5b37d7 | Battle of Roatán  A='successes'  B='maintain'  sent-dist=0
+   s5: although he met with temporary [A successes A] , the british were able to [B maintain B] a colonial presence in the area .
+
+[DISC] 2cfa0f15 | 2015 Chapel Hill shooting  A='attack'  B='shooting'  sent-dist=5
+   s2: Their neighbor , Craig Stephen Hicks , accused of killing the three people in a single [A attack A] , turned himself in to Chapel Hill police later that day and was arrested .
+   s7: The Federal Bureau of Investigation and the United States Department of Justice also launched their own investigations into the [B shooting B] .
+
+[DISC] 2cfa0f15 | 2015 Chapel Hill shooting  A='discharging'  B='shooting'  sent-dist=1
+   s6: On February 16 , Hicks was indicted by a Durham County grand jury on three counts of first-degree murder and one count of [A discharging A] a firearm into an occupied dwelling .
+   s7: The Federal Bureau of Investigation and the United States Department of Justice also launched their own investigations into the [B shooting B] .
+
+[CONF1] 2e129330 | 1942 Belize hurricane  A='hurricane'  B='storm'  sent-dist=0
+   s3: On November 6 , the [B storm B] became a Category 1 [A hurricane A] on the modern day Saffir–Simpson hurricane wind scale .
+
+[CONF2] 2fdd730b | British occupation of the Jordan Valley  A='fought'  B='attack'  sent-dist=0
+   s5: The Third Transjordan [B attack B] and Second Battle of Amman were [A fought A] as part of the Battle of Nablus .
+
+[CONF1] 3087b67f | Hurricane Marie (2014)  A='losses'  B='rescues'  sent-dist=0
+   s24: Hundreds of ocean [B rescues B] , including over 100 in Malibu alone , were attributed to the storm , and overall [A losses A] reached $ 20 million .
+
+[DISC] 35e9e9c5 | Occupy Wall Street  A='initiated'  B='began'  sent-dist=1
+   s0: Occupy Wall Street ( OWS ) was a protest movement that [B began B] on September 17 , 2011 , in Zuccotti Park , located in New York City 's Wall Street financial district , against economic inequality .
+   s1: The Canadian anti-consumerist and pro-environment group/magazine `` Adbusters '' [A initiated A] the call for a protest .
+
+[CONF1] 365e6bdd | Third Crusade  A='finalized'  B='visit'  sent-dist=0
+   s9: on 2 september 1192 richard and saladin [A finalized A] the treaty of jaffa , which granted muslim control over jerusalem but allowed unarmed christian pilgrims and merchants to [B visit B] the city .
+
+[CONF1] 365e6bdd | Third Crusade  A='finalized'  B='allowed'  sent-dist=0
+   s9: on 2 september 1192 richard and saladin [A finalized A] the treaty of jaffa , which granted muslim control over jerusalem but [B allowed B] unarmed christian pilgrims and merchants to visit the city .
+
+[CONF1] 3766872c | 2008 Chatsworth train collision  A='accident'  B='collided'  sent-dist=1
+   s0: The Chatsworth train collision occurred at 4:22:23 p.m. PDT ( 23:22:23 UTC ) on Friday , September 12 , 2008 , when a Union Pacific freight train and a Metrolink commuter train [B collided B] head-on in the Chatsworth district of Los Angeles , California .
+   s1: The scene of the [A accident A] was a curved section of single track on the Metrolink Ventura County Line just east of Stoney Point .
+
+[CONF1] 3c2e2261 | Hurricane Eugene (1987)  A='developed'  B='storm'  sent-dist=0
+   s1: The eighth tropical cyclone , fifth named [B storm B] , and first hurricane of the season , Eugene [A developed A] on July 22 from a tropical disturbance centered well offshore of Mexico .
+
+[CONF1] 3d77f211 | Battle of San Francisco de Malabon  A='revolution'  B='uprising'  sent-dist=0
+   s3: The [B uprising B] was fought by Magdiwang faction of the Katipunan led by Diego Mojica which signaled the start of the [A revolution A] in Cavite .
+
+[CONF1] 3d77f211 | Battle of San Francisco de Malabon  A='occurred'  B='uprisings'  sent-dist=0
+   s4: Numerous [B uprisings B] [A occurred A] later that day .
+
+[CONF1] 3d77f211 | Battle of San Francisco de Malabon  A='revolution'  B='fought'  sent-dist=0
+   s3: The uprising was [B fought B] by Magdiwang faction of the Katipunan led by Diego Mojica which signaled the start of the [A revolution A] in Cavite .
+
+[DISC] 40b270c9 | List of Avril Lavigne concert tours  A='tours'  B='Tour'  sent-dist=0
+   s0: Canadian recording artist Avril Lavigne has completed four concert [A tours A] beginning with the `` Try to Shut Me Up '' [B Tour B] in 2002–03 .
+
+[DISC] 40b270c9 | List of Avril Lavigne concert tours  A='Tour'  B='concert'  sent-dist=0
+   s0: Canadian recording artist Avril Lavigne has completed four [B concert B] tours beginning with the `` Try to Shut Me Up '' [A Tour A] in 2002–03 .
+
+[DISC] 40b270c9 | List of Avril Lavigne concert tours  A='completed'  B='Tour'  sent-dist=0
+   s0: Canadian recording artist Avril Lavigne has [A completed A] four concert tours beginning with the `` Try to Shut Me Up '' [B Tour B] in 2002–03 .
+
+[DISC] 46f76e18 | Tuareg rebellion (2012)  A='fighting'  B='claiming'  sent-dist=0
+   s5: The Islamist group Ansar Dine , too , began [A fighting A] the government in later stages of the conflict , [B claiming B] control of vast swathes of territory , albeit disputed by the MNLA .
+
+[DISC] 48c5bf4e | Third Battle of Panipat  A='lasted'  B='fought'  sent-dist=2
+   s2: The battle is considered one of the largest and most eventful [B fought B] in the 18th century , and has perhaps the largest number of fatalities in a single day reported in a classic formation battle between two armies .
+   s4: The battle [A lasted A] for several days and involved over 125,000 troops .
+
+[DISC] 48c5bf4e | Third Battle of Panipat  A='losses'  B='fighting'  sent-dist=0
+   s7: The extent of the [A losses A] on both sides is heavily disputed by historians , but it is believed that between 60,000–70,000 were killed in [B fighting B] , while the numbers of injured and prisoners taken vary considerably .
+
+[DISC] 48c5bf4e | Third Battle of Panipat  A='pitted'  B='lasted'  sent-dist=3
+   s1: Militarily , the battle [A pitted A] the artillery and cavalry of the Marathas against the heavy cavalry and mounted artillery ( zamburak and jezail ) of the Afghans and Rohillas led by Abdali and Najib-ud-Daulah , both ethnic Afghans .
+   s4: The battle [B lasted B] for several days and involved over 125,000 troops .
+
+[DISC] 48c5bf4e | Third Battle of Panipat  A='taken'  B='injured'  sent-dist=0
+   s7: The extent of the losses on both sides is heavily disputed by historians , but it is believed that between 60,000–70,000 were killed in fighting , while the numbers of [B injured B] and prisoners [A taken A] vary considerably .
+
+[DISC] 48c5bf4e | Third Battle of Panipat  A='marked'  B='credited'  sent-dist=0
+   s12: This period is [A marked A] by the rule of Peshwa Madhavrao , who is [B credited B] with the revival of Maratha domination following the defeat at Panipat .
+
+[DISC] 48c5bf4e | Third Battle of Panipat  A='marked'  B='revival'  sent-dist=0
+   s12: This period is [A marked A] by the rule of Peshwa Madhavrao , who is credited with the [B revival B] of Maratha domination following the defeat at Panipat .
+
+[DISC] 48c5bf4e | Third Battle of Panipat  A='pitted'  B='fought'  sent-dist=1
+   s1: Militarily , the battle [A pitted A] the artillery and cavalry of the Marathas against the heavy cavalry and mounted artillery ( zamburak and jezail ) of the Afghans and Rohillas led by Abdali and Najib-ud-Daulah , both ethnic Afghans .
+   s2: The battle is considered one of the largest and most eventful [B fought B] in the 18th century , and has perhaps the largest number of fatalities in a single day reported in a classic formation battle between two armies .
+
+[DISC] 4a268c31 | Battle of Mariazell  A='war'  B='Campaign'  sent-dist=5
+   s5: The 1805 war began with the Ulm [B Campaign B] which was disastrous for Austria , with only the corps of Michael von Kienmayer and Franz Jellacic escaping envelopment by the Grande Armée of Napoleon .
+   s10: The outcome of the [A war A] would be decided by the Battle of Austerlitz in early December .
+
+[DISC] 4bb82374 | 2008 World University Cycling Championship  A='ceremony'  B='sanctioned'  sent-dist=3
+   s0: The 2008 World University Cycling Championship is the 5th Word University Cycling Championship sponsored by the International University Sports Federation ( FISU ) and [B sanctioned B] by the Union Cycliste Internationale ( UCI ) .
+   s3: The NOC*NSF chairman Erica Terpstra opened he World Championships at the opening [A ceremony A] on 21 May .
+
+[DISC] 4bb82374 | 2008 World University Cycling Championship  A='ceremony'  B='organize'  sent-dist=1
+   s2: Prague , Czech Republic and Bangkok , Thailand were also candidate cities to [B organize B] the championship .
+   s3: The NOC*NSF chairman Erica Terpstra opened he World Championships at the opening [A ceremony A] on 21 May .
+
+[DISC] 4bb82374 | 2008 World University Cycling Championship  A='held'  B='ceremony'  sent-dist=2
+   s3: The NOC*NSF chairman Erica Terpstra opened he World Championships at the opening [B ceremony B] on 21 May .
+   s5: It was the first time in student sports that there was [A held A] a World Championship Mountain Biking .
+
+[DISC] 4bb82374 | 2008 World University Cycling Championship  A='took place'  B='ceremony'  sent-dist=2
+   s1: The championship [A took place A] in Nijmegen , Netherlands from 21 to 25 May 2008 .
+   s3: The NOC*NSF chairman Erica Terpstra opened he World Championships at the opening [B ceremony B] on 21 May .
+
+[DISC] 4bb82374 | 2008 World University Cycling Championship  A='ceremony'  B='championship'  sent-dist=1
+   s2: Prague , Czech Republic and Bangkok , Thailand were also candidate cities to organize the [B championship B] .
+   s3: The NOC*NSF chairman Erica Terpstra opened he World Championships at the opening [A ceremony A] on 21 May .
+
+[DISC] 4bb82374 | 2008 World University Cycling Championship  A='ceremony'  B='sponsored'  sent-dist=3
+   s0: The 2008 World University Cycling Championship is the 5th Word University Cycling Championship [B sponsored B] by the International University Sports Federation ( FISU ) and sanctioned by the Union Cycliste Internationale ( UCI ) .
+   s3: The NOC*NSF chairman Erica Terpstra opened he World Championships at the opening [A ceremony A] on 21 May .
+
+[CONF2] 4c68e988 | The Beatles Winter 1963 Helen Shapiro Tour  A='organised'  B='worked'  sent-dist=1
+   s4: The tour was [A organised A] by the Arthur Howes Agency .
+   s5: This was the first time that the Beatles had [B worked B] with Howes .
+
+[DISC] 50e61aa3 | Port Said Stadium riot  A='deaths'  B='escape'  sent-dist=0
+   s2: Many of the [A deaths A] were due to the police 's refusal to open the stadium gates , trapping the Ahly fans inside , leaving some to die , and killing others in a stampede to [B escape B] .
+
+[DISC] 50e61aa3 | Port Said Stadium riot  A='escape'  B='injured'  sent-dist=1
+   s1: 74 people were killed and more than 500 were [B injured B] after thousands of Masry spectators stormed the stadium stands and the pitch , following a 3–1 victory by their team , and violently attacked Ahly fans using clubs , stones , bottles , and fireworks , getting them all trapped in El Ahly partition of the stadium .
+   s2: Many of the deaths were due to the police 's refusal to open the stadium gates , trapping the Ahly fans inside , leaving some to die , and killing others in a stampede to [A escape A] .
+
+[DISC] 50e61aa3 | Port Said Stadium riot  A='escape'  B='killed'  sent-dist=1
+   s1: 74 people were [B killed B] and more than 500 were injured after thousands of Masry spectators stormed the stadium stands and the pitch , following a 3–1 victory by their team , and violently attacked Ahly fans using clubs , stones , bottles , and fireworks , getting them all trapped in El Ahly partition of the stadium .
+   s2: Many of the deaths were due to the police 's refusal to open the stadium gates , trapping the Ahly fans inside , leaving some to die , and killing others in a stampede to [A escape A] .
+
+[DISC] 514b84cc | Operation Opera  A='terrorism'  B='took place'  sent-dist=2
+   s8: The attack [B took place B] about three weeks before the elections for the Knesset .
+   s10: Media reactions were also negative : `` Israel 's sneak attack ... was an act of inexcusable and short-sighted aggression '' , wrote the `` New York Times '' , while the `` Los Angeles Times '' called it `` state-sponsored [A terrorism A] '' .
+
+[DISC] 514b84cc | Operation Opera  A='terrorism'  B='met with'  sent-dist=1
+   s9: at the time , the attack was [B met with B] sharp international criticism , including in the united states , and israel was rebuked by the united nations security council and general assembly in two separate resolutions .
+   s10: Media reactions were also negative : `` Israel 's sneak attack ... was an act of inexcusable and short-sighted aggression '' , wrote the `` New York Times '' , while the `` Los Angeles Times '' called it `` state-sponsored [A terrorism A] '' .
+
+[DISC] 514b84cc | Operation Opera  A='met with'  B='took place'  sent-dist=1
+   s8: The attack [B took place B] about three weeks before the elections for the Knesset .
+   s9: at the time , the attack was [A met with A] sharp international criticism , including in the united states , and israel was rebuked by the united nations security council and general assembly in two separate resolutions .
+
+[DISC] 514b84cc | Operation Opera  A='carried out'  B='took place'  sent-dist=8
+   s0: Operation Opera ( ) , also known as Operation Babylon , was a surprise Israeli air strike [A carried out A] on 7 June 1981 , which destroyed an Iraqi nuclear reactor under construction 17 kilometers ( 10.5 miles ) southeast of Baghdad .
+   s8: The attack [B took place B] about three weeks before the elections for the Knesset .
+
+[DISC] 514b84cc | Operation Opera  A='strike'  B='took place'  sent-dist=8
+   s0: Operation Opera ( ) , also known as Operation Babylon , was a surprise Israeli air [A strike A] carried out on 7 June 1981 , which destroyed an Iraqi nuclear reactor under construction 17 kilometers ( 10.5 miles ) southeast of Baghdad .
+   s8: The attack [B took place B] about three weeks before the elections for the Knesset .
+
+[DISC] 514b84cc | Operation Opera  A='met with'  B='damaged'  sent-dist=4
+   s5: on 7 june 1981 , a flight of israeli air force f-16a fighter aircraft , with an escort of unk , bombed and heavily [B damaged B] the `` osirak '' reactor .
+   s9: at the time , the attack was [A met with A] sharp international criticism , including in the united states , and israel was rebuked by the united nations security council and general assembly in two separate resolutions .
+
+[DISC] 514b84cc | Operation Opera  A='took place'  B='bombed'  sent-dist=3
+   s5: on 7 june 1981 , a flight of israeli air force f-16a fighter aircraft , with an escort of unk , [B bombed B] and heavily damaged the `` osirak '' reactor .
+   s8: The attack [A took place A] about three weeks before the elections for the Knesset .
+
+[DISC] 514b84cc | Operation Opera  A='carried out'  B='met with'  sent-dist=9
+   s0: Operation Opera ( ) , also known as Operation Babylon , was a surprise Israeli air strike [A carried out A] on 7 June 1981 , which destroyed an Iraqi nuclear reactor under construction 17 kilometers ( 10.5 miles ) southeast of Baghdad .
+   s9: at the time , the attack was [B met with B] sharp international criticism , including in the united states , and israel was rebuked by the united nations security council and general assembly in two separate resolutions .
+
+[DISC] 514b84cc | Operation Opera  A='strike'  B='met with'  sent-dist=9
+   s0: Operation Opera ( ) , also known as Operation Babylon , was a surprise Israeli air [A strike A] carried out on 7 June 1981 , which destroyed an Iraqi nuclear reactor under construction 17 kilometers ( 10.5 miles ) southeast of Baghdad .
+   s9: at the time , the attack was [B met with B] sharp international criticism , including in the united states , and israel was rebuked by the united nations security council and general assembly in two separate resolutions .
+
+[DISC] 514b84cc | Operation Opera  A='met with'  B='bombed'  sent-dist=4
+   s5: on 7 june 1981 , a flight of israeli air force f-16a fighter aircraft , with an escort of unk , [B bombed B] and heavily damaged the `` osirak '' reactor .
+   s9: at the time , the attack was [A met with A] sharp international criticism , including in the united states , and israel was rebuked by the united nations security council and general assembly in two separate resolutions .
+
+[DISC] 514b84cc | Operation Opera  A='took place'  B='damaged'  sent-dist=3
+   s5: on 7 june 1981 , a flight of israeli air force f-16a fighter aircraft , with an escort of unk , bombed and heavily [B damaged B] the `` osirak '' reactor .
+   s8: The attack [A took place A] about three weeks before the elections for the Knesset .
+
+[DISC] 52f7b349 | 2013 Colorado floods  A='rainfall'  B='rain'  sent-dist=4
+   s2: This resulted in heavy [B rain B] and catastrophic flooding along Colorado 's Front Range from Colorado Springs north to Fort Collins .
+   s6: the national weather service 's hydrometeorological design studies center stated in a document that the annual unk probability ( aep ) for the entire [A rainfall A] event was as low as 1/1000 ( 0.1 % ) in places .
+
+[DISC] 52f7b349 | 2013 Colorado floods  A='disasters'  B='flooding'  sent-dist=2
+   s0: The 2013 Colorado floods were a series of natural [A disasters A] occurring in the U.S. state of Colorado .
+   s2: This resulted in heavy rain and catastrophic [B flooding B] along Colorado 's Front Range from Colorado Springs north to Fort Collins .
+
+[DISC] 52f7b349 | 2013 Colorado floods  A='Flood'  B='intensified'  sent-dist=2
+   s3: The situation [B intensified B] on September 11 and 12 .
+   s5: This event has also been referred to as the 2013 Colorado Front Range [A Flood A] , reflecting a more precise geographic extent in and along the Colorado Front Range mountains .
+
+[DISC] 52f7b349 | 2013 Colorado floods  A='intensified'  B='reflecting'  sent-dist=2
+   s3: The situation [A intensified A] on September 11 and 12 .
+   s5: This event has also been referred to as the 2013 Colorado Front Range Flood , [B reflecting B] a more precise geographic extent in and along the Colorado Front Range mountains .
+
+[DISC] 52f7b349 | 2013 Colorado floods  A='floods'  B='flooding'  sent-dist=2
+   s0: The 2013 Colorado [A floods A] were a series of natural disasters occurring in the U.S. state of Colorado .
+   s2: This resulted in heavy rain and catastrophic [B flooding B] along Colorado 's Front Range from Colorado Springs north to Fort Collins .
+
+[DISC] 55ed5656 | Sinking of USS Housatonic  A='made'  B='staged'  sent-dist=0
+   s1: The Confederate States Navy submarine , [A made A] her first and only attack on a Union Navy warship when she [B staged B] a clandestine night attack on in Charleston harbor .
+
+[DISC] 56962f98 | Burning of the Parliament Buildings in Montreal  A='demonstrate'  B='decided'  sent-dist=0
+   s10: though the bill was passed by the majority of those sitting in the legislative assembly , it remained unpopular with the loyalist population of montreal , who [B decided B] to use violence to [A demonstrate A] their opposition .
+
+[DISC] 581996c0 | Glastonbury Festival  A='festival'  B='held'  sent-dist=3
+   s8: After the 1970s , the [A festival A] took place almost every year and grew in size , with the number of attendees sometimes being swollen by gatecrashers .
+   s11: Glastonbury Festival was [B held B] intermittently from 1970 until 1981 ; since then , it has been held every year , except for `` fallow years '' taken mostly at five year intervals , intended to give the land , local population , and organisers a break .
+
+[CONF1] 61e42155 | Siege of Fort St. Jean  A='prepare'  B='defences'  sent-dist=0
+   s7: General Carleton escaped from Montreal , and made his way to Quebec City to [A prepare A] its [B defences B] against an anticipated attack .
+
+[DISC] 62d88309 | Operation Tiger Hound  A='controlled'  B='conducted'  sent-dist=2
+   s0: operation tiger hound was a covert u.s. 2nd air division , later seventh air force and u.s. navy task force 77 aerial interdiction campaign [B conducted B] in southeastern laos from 5 december 1965 till 11 november 1968 , during the vietnam war .
+   s2: the missions were originally [A controlled A] by the 2d air division until that headquarters was superseded by the seventh air force on 1 april 1966 .
+
+[DISC] 67a3218d | 2015–16 Sheffield Shield season  A='began'  B='competition'  sent-dist=1
+   s0: The 2015–16 Sheffield Shield season was the 114th season of the Sheffield Shield , the domestic first-class cricket [B competition B] in Australia .
+   s1: The season [A began A] after the conclusion of the Matador BBQs One-Day Cup , and included a break halfway through to allow for the Big Bash League .
+
+[CONF1] 69103cb9 | Battle of Queenston Heights  A='campaigning'  B='ended'  sent-dist=0
+   s3: The battle was fought as the result of an American attempt to establish a foothold on the Canadian side of the Niagara River before [A campaigning A] [B ended B] with the onset of winter .
+
+[CONF1] 69103cb9 | Battle of Queenston Heights  A='battle'  B='ended'  sent-dist=0
+   s3: The [A battle A] was fought as the result of an American attempt to establish a foothold on the Canadian side of the Niagara River before campaigning [B ended B] with the onset of winter .
+
+[CONF1] 69103cb9 | Battle of Queenston Heights  A='battle'  B='campaigning'  sent-dist=0
+   s3: The [A battle A] was fought as the result of an American attempt to establish a foothold on the Canadian side of the Niagara River before [B campaigning B] ended with the onset of winter .
+
+[CONF1] 6bac34bf | Hurricane Emily (2005)  A='hurricane'  B='formed'  sent-dist=4
+   s1: a powerful , early season and cape verde tropical cyclone that caused significant damage across the caribbean sea to mexico , the storm [B formed B] on july 10 , 2005 , in the central atlantic ocean before passing through the windward islands on july 14 .
+   s5: On July 20 , the storm struck Tamaulipas as a major [A hurricane A] and rapidly dissipated within 24 hours .
+
+[CONF1] 6bac34bf | Hurricane Emily (2005)  A='storm'  B='form'  sent-dist=7
+   s0: Hurricane Emily was the earliest forming Category 5 Atlantic hurricane on record in a season and the most intense to [B form B] before August .
+   s7: Emily is the latest Category 5 [A storm A] to not have its name retired .
+
+[CONF1] 6bac34bf | Hurricane Emily (2005)  A='cyclone'  B='formed'  sent-dist=0
+   s1: a powerful , early season and cape verde tropical [A cyclone A] that caused significant damage across the caribbean sea to mexico , the storm [B formed B] on july 10 , 2005 , in the central atlantic ocean before passing through the windward islands on july 14 .
+
+[CONF1] 6bac34bf | Hurricane Emily (2005)  A='storm'  B='formed'  sent-dist=6
+   s1: a powerful , early season and cape verde tropical cyclone that caused significant damage across the caribbean sea to mexico , the storm [B formed B] on july 10 , 2005 , in the central atlantic ocean before passing through the windward islands on july 14 .
+   s7: Emily is the latest Category 5 [A storm A] to not have its name retired .
+
+[CONF1] 6bac34bf | Hurricane Emily (2005)  A='forming'  B='formed'  sent-dist=1
+   s0: Hurricane Emily was the earliest [A forming A] Category 5 Atlantic hurricane on record in a season and the most intense to form before August .
+   s1: a powerful , early season and cape verde tropical cyclone that caused significant damage across the caribbean sea to mexico , the storm [B formed B] on july 10 , 2005 , in the central atlantic ocean before passing through the windward islands on july 14 .
+
+[CONF1] 6bac34bf | Hurricane Emily (2005)  A='cyclone'  B='form'  sent-dist=1
+   s0: Hurricane Emily was the earliest forming Category 5 Atlantic hurricane on record in a season and the most intense to [B form B] before August .
+   s1: a powerful , early season and cape verde tropical [A cyclone A] that caused significant damage across the caribbean sea to mexico , the storm formed on july 10 , 2005 , in the central atlantic ocean before passing through the windward islands on july 14 .
+
+[CONF1] 6bac34bf | Hurricane Emily (2005)  A='forming'  B='form'  sent-dist=0
+   s0: Hurricane Emily was the earliest [A forming A] Category 5 Atlantic hurricane on record in a season and the most intense to [B form B] before August .
+
+[CONF1] 6bac34bf | Hurricane Emily (2005)  A='storm'  B='form'  sent-dist=2
+   s0: Hurricane Emily was the earliest forming Category 5 Atlantic hurricane on record in a season and the most intense to [B form B] before August .
+   s2: Tracking generally towards the west-northwest , the storm gradually intensified as it traversed the Caribbean , peaking as a Category 5 hurricane on July 16 , marking the earliest date for a [A storm A] to do so during the course of a given year .
+
+[CONF1] 6bac34bf | Hurricane Emily (2005)  A='storm'  B='formed'  sent-dist=1
+   s1: a powerful , early season and cape verde tropical cyclone that caused significant damage across the caribbean sea to mexico , the storm [B formed B] on july 10 , 2005 , in the central atlantic ocean before passing through the windward islands on july 14 .
+   s2: Tracking generally towards the west-northwest , the storm gradually intensified as it traversed the Caribbean , peaking as a Category 5 hurricane on July 16 , marking the earliest date for a [A storm A] to do so during the course of a given year .
+
+[CONF1] 6bac34bf | Hurricane Emily (2005)  A='hurricane'  B='form'  sent-dist=5
+   s0: Hurricane Emily was the earliest forming Category 5 Atlantic hurricane on record in a season and the most intense to [B form B] before August .
+   s5: On July 20 , the storm struck Tamaulipas as a major [A hurricane A] and rapidly dissipated within 24 hours .
+
+[DISC] 6f30bc5a | TWA Flight 847  A='endured'  B='held'  sent-dist=4
+   s4: The passengers and crew [A endured A] a three-day intercontinental ordeal .
+   s8: Dozens of passengers were [B held B] hostage over the next two weeks until released by their captors after some of their demands were met .
+
+[DISC] 6f30bc5a | TWA Flight 847  A='endured'  B='hostage'  sent-dist=4
+   s4: The passengers and crew [A endured A] a three-day intercontinental ordeal .
+   s8: Dozens of passengers were held [B hostage B] over the next two weeks until released by their captors after some of their demands were met .
+
+[DISC] 72358725 | Maramon Convention  A='Convention'  B='movement'  sent-dist=2
+   s0: The Maramon [A Convention A] , one of the largest Christian convention in Asia , is held at Maramon , Pathanamthitta , Kerala , India annually in February on the vast sand-bed of the Pampa River next to the Kozhencherry Bridge .
+   s2: The origin and growth of this annual get-together for one week at a stretch can be traced to the great revival [B movement B] which gathered momentum during the reformation period in the Syrian Churches of Kerala under the pioneering leadership of Abraham Malpan in the latter part of the 19th century .
+
+[DISC] 72358725 | Maramon Convention  A='organised'  B='movement'  sent-dist=1
+   s1: It is [A organised A] by Mar Thoma Evangelistic Association , the missionary wing of the Malankara Mar Thoma Syrian Church .
+   s2: The origin and growth of this annual get-together for one week at a stretch can be traced to the great revival [B movement B] which gathered momentum during the reformation period in the Syrian Churches of Kerala under the pioneering leadership of Abraham Malpan in the latter part of the 19th century .
+
+[DISC] 727a9180 | Operation Entebbe  A='planning'  B='rescue'  sent-dist=0
+   s10: This threat led to the [A planning A] of the [B rescue B] operation .
+
+[CONF2] 72d146f0 | CMLL Reyes del Aire  A='tournaments'  B='tournament'  sent-dist=15
+   s1: There was no tournament in 2010 and both 2007 and 2012 saw two `` Reyes del Aire '' [A tournaments A] .
+   s16: Virus , is the oldest `` Reyes del Aire '' , winning the second [B tournament B] in 2007 at the age of 38 , with his participation in the 2012 `` Reyes del Aire '' he also became the oldest overall competitor at 43 years of age .
+
+[CONF2] 72d146f0 | CMLL Reyes del Aire  A='tournaments'  B='tournament'  sent-dist=12
+   s1: There was no tournament in 2010 and both 2007 and 2012 saw two `` Reyes del Aire '' [A tournaments A] .
+   s13: Metálico worked as Tigre Metálico in the very first `` Reyes del Aire '' and opening match worker Bengala also participated in the 2007 [B tournament B] as `` Sombra de Plata '' .
+
+[CONF1] 79502289 | Battle of Chickamauga  A='marched'  B='fought'  sent-dist=6
+   s2: The battle was [B fought B] between the Army of the Cumberland under Maj. Gen. William Rosecrans and the Confederate Army of Tennessee under Gen. Braxton Bragg , and was named for Chickamauga Creek , which meanders near the battle area in northwest Georgia ( and ultimately flows into the Tennessee River about 3.5 miles ( 5.6 km ) northeast of downtown Chattanooga ) .
+   s8: As Bragg [A marched A] north on September 18 , his cavalry and infantry fought with Union cavalry and mounted infantry , which were armed with Spencer repeating rifles .
+
+[DISC] 79aeeced | 2014 People's Climate March  A='events'  B='organized'  sent-dist=0
+   s7: The entire PCM project consisted of `` numerous [A events A] , actions , symposia , presentations , and more [B organized B] over the course of the days leading up to the Summit , and in the days following , '' of which the march was intended to be `` the anchor event . ''
+
+[DISC] 7e1a6f8b | Great Train Robbery (1963)  A='present'  B='attacked'  sent-dist=2
+   s1: After tampering with the lineside signals in order to bring the train to a halt , a gang of fifteen , led by Bruce Reynolds , [B attacked B] the train .
+   s3: A 16th man , an unnamed retired train driver , was also [A present A] .
+
+[DISC] 7e1a6f8b | Great Train Robbery (1963)  A='robbery'  B='attacked'  sent-dist=1
+   s0: The Great Train Robbery was the [A robbery A] of £2.6 million from a Royal Mail train heading from Glasgow to London on the West Coast Main Line in the early hours of 8 August 1963 , at Bridego Railway Bridge , Ledburn , near Mentmore in Buckinghamshire , England .
+   s1: After tampering with the lineside signals in order to bring the train to a halt , a gang of fifteen , led by Bruce Reynolds , [B attacked B] the train .
+
+[CONF1] 8474c5cc | CMLL Torneo Gran Alternativa  A='tournament'  B='tournaments'  sent-dist=1
+   s11: Héctor Garza and Rey Escorpión have both won the [A tournament A] twice , once as a rookie and once as the `` veteran '' and Emilio Charles Jr. has won it twice as a veteran .
+   s12: Complete results have not been found documented for the 1998 event , but based on known information at least 187 individual wrestlers have participated in 22 [B tournaments B] as of 2017 .
+
+[CONF1] 8474c5cc | CMLL Torneo Gran Alternativa  A='tournament'  B='tournaments'  sent-dist=12
+   s0: The Torneo Gran Alternativa ( Spanish for `` the Great Alternative Tournament '' ) is an annual `` lucha libre '' ( professional wrestling ) [A tournament A] held by the Mexican professional wrestling promotion Consejo Mundial de Lucha Libre ( CMLL ) .
+   s12: Complete results have not been found documented for the 1998 event , but based on known information at least 187 individual wrestlers have participated in 22 [B tournaments B] as of 2017 .
+
+[CONF1] 890d6ac4 | Kidnapping and murder of Mohammed Abu Khdeir  A='response'  B='crime'  sent-dist=5
+   s4: The murder suspects explained the attack as a [A response A] to the abduction and murder of three Israeli teens on 12 June .
+   s9: Three other suspects were released as unconnected with the [B crime B] , though they heard about it from the alleged murderers .
+
+[CONF1] 890d6ac4 | Kidnapping and murder of Mohammed Abu Khdeir  A='response'  B='guilty'  sent-dist=17
+   s4: The murder suspects explained the attack as a [A response A] to the abduction and murder of three Israeli teens on 12 June .
+   s21: On 30 November 2015 , the two minors involved were found [B guilty B] of Khdeirs ' murder , and were respectively sentenced to life and 21 years imprisonment on 4 February .
+
+[CONF1] 890d6ac4 | Kidnapping and murder of Mohammed Abu Khdeir  A='response'  B='crime'  sent-dist=4
+   s4: The murder suspects explained the attack as a [A response A] to the abduction and murder of three Israeli teens on 12 June .
+   s8: Within a day , three had confessed and reenacted the murder at the scene of the [B crime B] .
+
+[CONF1] 890d6ac4 | Kidnapping and murder of Mohammed Abu Khdeir  A='loss'  B='attack'  sent-dist=3
+   s11: The [B attack B] was widely condemned in Israel .
+   s14: The Fraenkels said they understand the magnitude of the [A loss A] and that they oppose any act of violence either by Jews or Arabs .
+
+[CONF1] 890d6ac4 | Kidnapping and murder of Mohammed Abu Khdeir  A='response'  B='kidnapping'  sent-dist=4
+   s0: The [B kidnapping B] and murder of Mohammed Abu Khdeir occurred early on the morning of 2 July 2014 .
+   s4: The murder suspects explained the attack as a [A response A] to the abduction and murder of three Israeli teens on 12 June .
+
+[CONF1] 890d6ac4 | Kidnapping and murder of Mohammed Abu Khdeir  A='carried out'  B='attack'  sent-dist=2
+   s4: The murder suspects explained the [B attack B] as a response to the abduction and murder of three Israeli teens on 12 June .
+   s6: On Sunday , 6 July , police took into custody six Jewish suspects for interrogation , stating that they believed the murder was most likely [A carried out A] by 'terrorists ' as revenge .
+
+[CONF1] 890d6ac4 | Kidnapping and murder of Mohammed Abu Khdeir  A='loss'  B='attack'  sent-dist=10
+   s4: The murder suspects explained the [B attack B] as a response to the abduction and murder of three Israeli teens on 12 June .
+   s14: The Fraenkels said they understand the magnitude of the [A loss A] and that they oppose any act of violence either by Jews or Arabs .
+
+[CONF1] 890d6ac4 | Kidnapping and murder of Mohammed Abu Khdeir  A='attack'  B='carried out'  sent-dist=5
+   s6: On Sunday , 6 July , police took into custody six Jewish suspects for interrogation , stating that they believed the murder was most likely [B carried out B] by 'terrorists ' as revenge .
+   s11: The [A attack A] was widely condemned in Israel .
+
+[DISC] 8bc3a95b | Battle of Blanchetaque  A='blocking'  B='encountered'  sent-dist=0
+   s6: Hearing of a ford at Blanchetaque , from the sea , Edward marched for it and [B encountered B] the [A blocking A] force under du Fay .
+
+[DISC] 8bc3a95b | Battle of Blanchetaque  A='shooting'  B='battle'  sent-dist=6
+   s1: The [B battle B] was part of the Crécy campaign , which took place during the early stages of the Hundred Years ' War .
+   s7: Once the ebbing tide had lowered the water level , a force of English longbowmen marched partway across the ford and , standing in the water , engaged a force of mercenary crossbowmen , whose [A shooting A] they were able to suppress .
+
+[DISC] 8bc3a95b | Battle of Blanchetaque  A='shooting'  B='fought'  sent-dist=7
+   s0: The Battle of Blanchetaque was [B fought B] on 24 August 1346 between an English army under King Edward III and a French force commanded by Godemar du Fay .
+   s7: Once the ebbing tide had lowered the water level , a force of English longbowmen marched partway across the ford and , standing in the water , engaged a force of mercenary crossbowmen , whose [A shooting A] they were able to suppress .
+
+[CONF1] 8f10ba9b | Cyclone Gwenda  A='storm'  B='Forming'  sent-dist=2
+   s1: [B Forming B] out of a tropical disturbance over the Arafura Sea on 2 April 1999 , the precursor to Gwenda tracked slowly westward and gradually became more organised .
+   s3: It began to undergo explosive intensification the following day , and in a 30-hour span ending early on 7 April , the [A storm A] 's maximum 10-minute sustained wind speed increased from 75 km/h ( 45 mph ) to 225 km/h ( 140 mph ) and its barometric pressure decreased to 900 hPa ( mbar ) .
+
+[DISC] 8f38709b | French Riviera Marathon  A='race'  B='race'  sent-dist=2
+   s8: The course record is held by Lucas Kanda , who completed the [A race A] in 2:08:40 in 2011 .
+   s10: The first [B race B] was won by a Russian , Oksana Kuzmicheva .
+
+[DISC] 8f38709b | French Riviera Marathon  A='races'  B='race'  sent-dist=3
+   s7: In the men 's [A races A] , Kenyan and Ethiopian athletes have won every race , with each nation claiming three victories .
+   s10: The first [B race B] was won by a Russian , Oksana Kuzmicheva .
+
+[DISC] 8f38709b | French Riviera Marathon  A='claiming'  B='race'  sent-dist=3
+   s7: In the men 's races , Kenyan and Ethiopian athletes have won every race , with each nation [A claiming A] three victories .
+   s10: The first [B race B] was won by a Russian , Oksana Kuzmicheva .
+
+[CONF1] 932b2334 | 1910 Cuba hurricane  A='impact'  B='occurred'  sent-dist=2
+   s11: It also had a widespread [A impact A] in Florida , including the destruction of houses and flooding .
+   s13: at least 100 deaths [B occurred B] in cuba alone .
+
+[CONF1] 932b2334 | 1910 Cuba hurricane  A='flooding'  B='deaths'  sent-dist=2
+   s11: It also had a widespread impact in Florida , including the destruction of houses and [A flooding A] .
+   s13: at least 100 [B deaths B] occurred in cuba alone .
+
+[CONF1] 932b2334 | 1910 Cuba hurricane  A='impact'  B='destruction'  sent-dist=0
+   s11: It also had a widespread [A impact A] in Florida , including the [B destruction B] of houses and flooding .
+
+[CONF1] 932b2334 | 1910 Cuba hurricane  A='impact'  B='flooding'  sent-dist=0
+   s11: It also had a widespread [A impact A] in Florida , including the destruction of houses and [B flooding B] .
+
+[CONF1] 932b2334 | 1910 Cuba hurricane  A='deaths'  B='destruction'  sent-dist=2
+   s11: It also had a widespread impact in Florida , including the [B destruction B] of houses and flooding .
+   s13: at least 100 [A deaths A] occurred in cuba alone .
+
+[CONF1] 932b2334 | 1910 Cuba hurricane  A='occurred'  B='destruction'  sent-dist=2
+   s11: It also had a widespread impact in Florida , including the [B destruction B] of houses and flooding .
+   s13: at least 100 deaths [A occurred A] in cuba alone .
+
+[CONF1] 932b2334 | 1910 Cuba hurricane  A='flooding'  B='occurred'  sent-dist=2
+   s11: It also had a widespread impact in Florida , including the destruction of houses and [A flooding A] .
+   s13: at least 100 deaths [B occurred B] in cuba alone .
+
+[CONF1] 932b2334 | 1910 Cuba hurricane  A='Analysis'  B='gave'  sent-dist=0
+   s8: [A Analysis A] of the event [B gave B] a greater understanding of weather systems that took similar paths .
+
+[CONF1] 932b2334 | 1910 Cuba hurricane  A='impact'  B='deaths'  sent-dist=2
+   s11: It also had a widespread [A impact A] in Florida , including the destruction of houses and flooding .
+   s13: at least 100 [B deaths B] occurred in cuba alone .
+
+[DISC] 983df371 | Cyclone Hellen  A='cyclone'  B='formed'  sent-dist=6
+   s1: Hellen [B formed B] on March 26 in the northern portion of the channel , and the storm brought rainfall to coastal Mozambique while in its formative stages .
+   s7: By April 1 , Hellen was no longer a tropical [A cyclone A] after most of the convection dissipated .
+
+[DISC] 99663d83 | Aphrodite_ Les Folies Tour  A='shows'  B='show'  sent-dist=1
+   s1: the tour began on 19 february 2011 in herning , denmark at jyske bank unk and concluded on 14 july 2011 in cape town , south africa at the grand arena , consisting of 36 [A shows A] in europe , nine shows in asia , 17 shows in north america , 10 shows in australia and five shows in africa .
+   s2: Given the nature of the [B show B] , the tour was officially acknowledged by two names .
+
+[DISC] 99663d83 | Aphrodite_ Les Folies Tour  A='shows'  B='shows'  sent-dist=4
+   s1: the tour began on 19 february 2011 in herning , denmark at jyske bank unk and concluded on 14 july 2011 in cape town , south africa at the grand arena , consisting of 36 [B shows B] in europe , nine shows in asia , 17 shows in north america , 10 shows in australia and five shows in africa .
+   s5: The tour ranked 6th in Pollstar 's `` Top 50 Worldwide Tour ( Mid-Year ) '' , earning over $ 52.1 million from 68 [A shows A] .
+
+[DISC] 99663d83 | Aphrodite_ Les Folies Tour  A='shows'  B='shows'  sent-dist=6
+   s1: the tour began on 19 february 2011 in herning , denmark at jyske bank unk and concluded on 14 july 2011 in cape town , south africa at the grand arena , consisting of 36 [A shows A] in europe , nine shows in asia , 17 shows in north america , 10 shows in australia and five shows in africa .
+   s7: The tour earned over $ 52.8 million from 72 [B shows B] , placing 21st on Pollstar 's `` Top 50 Worldwide Tours '' .
+
+[DISC] 9a9dfe51 | Poor People's Campaign  A='changing'  B='amplified'  sent-dist=1
+   s9: at the same time , the nature of poverty itself was [A changing A] as america 's population increasingly lived in cities , not farms ( and could not grow its own food ) .
+   s10: Poor African Americans , particularly women , suffered from racism and sexism that [B amplified B] the impact of poverty , especially after `` welfare mothers '' became a nationally recognized concept .
+
+[DISC] 9a9dfe51 | Poor People's Campaign  A='war'  B='carried out'  sent-dist=15
+   s1: It was organized by Martin Luther King , Jr. and the Southern Christian Leadership Conference ( SCLC ) , and [B carried out B] under the leadership of Ralph Abernathy in the wake of King 's assassination .
+   s16: King said , `` We believe the highest patriotism demands the ending of the [A war A] and the opening of a bloodless war to final victory over racism and poverty '' .
+
+[DISC] 9dfe8092 | Operation Dragon Fire East  A='discovered'  B='finding'  sent-dist=3
+   s0: Baghdad Soldiers and Iraqi Security Forces moved clearing operations into the East Rashid security district of southern Baghdad 26 May 2007 , detaining three suspected insurgents and [B finding B] two weapons caches .
+   s3: During the first hours of Operation Dragon Fire East , 3-2nd SBCT Soldiers [A discovered A] a cache which contained six 57mm projectiles rigged as two separate improvised explosive devices ; two additional 57mm rounds ; a 60mm mortar ; a 130 mm round and a concrete block hollowed out to fit a 130 mm projectile .
+
+[CONF1] a25b6957 | South Croydon rail crash  A='occurred'  B='accident'  sent-dist=3
+   s0: The South Croydon rail crash on the British railway system [A occurred A] on 24 October 1947 .
+   s3: It was the worst [B accident B] on Britain 's Southern Railway .
+
+[CONF1] a25b6957 | South Croydon rail crash  A='took place'  B='accident'  sent-dist=2
+   s1: The crash [A took place A] south of South Croydon railway station .
+   s3: It was the worst [B accident B] on Britain 's Southern Railway .
+
+[CONF1] a25b6957 | South Croydon rail crash  A='collided'  B='accident'  sent-dist=1
+   s2: Two electric commuter trains [A collided A] in fog and 32 people were killed , including the driver of the second train .
+   s3: It was the worst [B accident B] on Britain 's Southern Railway .
+
+[DISC] ac560d25 | Hurricane Ingrid  A='formed'  B='storm'  sent-dist=4
+   s2: It [A formed A] on September 12 in the Gulf of Mexico from a broad disturbance that also spawned Manuel in the eastern Pacific .
+   s6: On September 16 , Ingrid made landfall just south of La Pesca , Tamaulipas in northeastern Mexico as a strong tropical [B storm B] , and dissipated the next day .
+
+[CONF2] acb2d228 | Operation Mistral 2  A='contributed'  B='disagreement'  sent-dist=0
+   s6: There is [B disagreement B] among scholars as to whether the offensive , together with Operation Sana , or NATO airstrikes [A contributed A] more towards the resolution of the Bosnian War , and to what extent ARBiH , HVO and HV advances were aided by NATO airstrikes .
+
+[CONF2] ade62e97 | Climatic Research Unit email controversy  A='mitigation'  B='negotiations'  sent-dist=0
+   s4: The mainstream media picked up the story , as [B negotiations B] over climate change [A mitigation A] began in Copenhagen on 7 December 2009 .
+
+[CONF2] ade62e97 | Climatic Research Unit email controversy  A='fraud'  B='finding'  sent-dist=0
+   s7: Eight committees investigated the allegations and published reports , [B finding B] no evidence of [A fraud A] or scientific misconduct .
+
+[CONF2] ade62e97 | Climatic Research Unit email controversy  A='fraud'  B='investigated'  sent-dist=0
+   s7: Eight committees [B investigated B] the allegations and published reports , finding no evidence of [A fraud A] or scientific misconduct .
+
+[CONF2] ade62e97 | Climatic Research Unit email controversy  A='misconduct'  B='finding'  sent-dist=0
+   s7: Eight committees investigated the allegations and published reports , [B finding B] no evidence of fraud or scientific [A misconduct A] .
+
+[CONF2] ade62e97 | Climatic Research Unit email controversy  A='misconduct'  B='investigated'  sent-dist=0
+   s7: Eight committees [B investigated B] the allegations and published reports , finding no evidence of fraud or scientific [A misconduct A] .
+
+[CONF2] af038bfe | 2013 Lampedusa migrant shipwreck  A='death'  B='deaths'  sent-dist=0
+   s3: On 12 October it was reported that the confirmed [A death A] toll after searching the boat was 359 , but that further bodies were still missing ; a figure of `` more than 360 '' [B deaths B] was later reported .
+
+[DISC] afcc0543 | Action of 15 November 1810  A='defended'  B='anchored'  sent-dist=0
+   s7: On 15 November , the British squadron attacked the [B anchored B] French ships , which were [A defended A] by shore batteries at La Hougue and Tatihou .
+
+[DISC] afcc0543 | Action of 15 November 1810  A='patrolling'  B='patrol'  sent-dist=2
+   s2: In the autumn of 1810 , a British squadron assigned to [B patrol B] the Baie de la Seine was effectively isolating two French squadrons in the ports of Le Havre and Cherbourg .
+   s4: This squadron was spotted in the early hours of 13 November by the [A patrolling A] British frigates HMS `` Diana '' and HMS `` Niobe '' , which gave chase .
+
+[DISC] afcc0543 | Action of 15 November 1810  A='destroying'  B='on fire'  sent-dist=0
+   s13: `` Elisa '' remained in this position until 23 December , when the boats of `` Diana '' entered the anchorage at night and set the beached ship [B on fire B] , [A destroying A] her .
+
+[DISC] afcc0543 | Action of 15 November 1810  A='destroying'  B='set'  sent-dist=0
+   s13: `` Elisa '' remained in this position until 23 December , when the boats of `` Diana '' entered the anchorage at night and [B set B] the beached ship on fire , [A destroying A] her .
+
+[DISC] b058520f | 2006–07 ICC Intercontinental Cup  A='final'  B='scheduled'  sent-dist=1
+   s4: The eight teams played in two groups of four , with the winners of each group proceeding to the [A final A] which was played between Ireland and Canada at Grace Road in Leicester .
+   s5: The game was [B scheduled B] for 22 to 25 May 2007 , but in the event Ireland won inside two days .
+
+[DISC] b058520f | 2006–07 ICC Intercontinental Cup  A='final'  B='scheduled'  sent-dist=4
+   s1: Defending champions Ireland won the tournament after three wins and one drawn game , defeating Canada by an innings in the [A final A] , and stretched their streak of unbeaten matches in the Intercontinental Cup to eight .
+   s5: The game was [B scheduled B] for 22 to 25 May 2007 , but in the event Ireland won inside two days .
+
+[CONF1] b14233db | Bloody Sunday (1972)  A='killings'  B='involved'  sent-dist=6
+   s7: This battalion was [B involved B] in two other controversial shootings : the Ballymurphy massacre several months before , and the killing of Protestant civilians in the Shankill several months later .
+   s13: Following a 12-year inquiry , Saville 's report was made public in 2010 and concluded that the [A killings A] were both `` unjustified '' and `` unjustifiable '' .
+
+[CONF1] b14233db | Bloody Sunday (1972)  A='involved'  B='firing'  sent-dist=7
+   s7: This battalion was [A involved A] in two other controversial shootings : the Ballymurphy massacre several months before , and the killing of Protestant civilians in the Shankill several months later .
+   s14: It found that all of those shot were unarmed , that none were posing a serious threat , that no bombs were thrown , and that soldiers `` knowingly put forward false accounts '' to justify their [B firing B] .
+
+[CONF1] b14233db | Bloody Sunday (1972)  A='shot'  B='Massacre'  sent-dist=4
+   s0: Bloody Sunday , or the Bogside [B Massacre B] , was an incident on 30 January 1972 in the Bogside area of Derry , Northern Ireland , when British soldiers shot 28 unarmed civilians during a protest march against internment .
+   s4: All of those [A shot A] were Catholics .
+
+[CONF1] b14233db | Bloody Sunday (1972)  A='involved'  B='shooting'  sent-dist=3
+   s7: This battalion was [A involved A] in two other controversial shootings : the Ballymurphy massacre several months before , and the killing of Protestant civilians in the Shankill several months later .
+   s10: It described the soldiers ' [B shooting B] as `` bordering on the reckless '' , but accepted their claims that they shot at gunmen and bomb-throwers .
+
+[CONF1] b14233db | Bloody Sunday (1972)  A='shot'  B='Massacre'  sent-dist=0
+   s0: Bloody Sunday , or the Bogside [B Massacre B] , was an incident on 30 January 1972 in the Bogside area of Derry , Northern Ireland , when British soldiers [A shot A] 28 unarmed civilians during a protest march against internment .
+
+[CONF1] b14233db | Bloody Sunday (1972)  A='shootings'  B='killings'  sent-dist=6
+   s7: This battalion was involved in two other controversial [A shootings A] : the Ballymurphy massacre several months before , and the killing of Protestant civilians in the Shankill several months later .
+   s13: Following a 12-year inquiry , Saville 's report was made public in 2010 and concluded that the [B killings B] were both `` unjustified '' and `` unjustifiable '' .
+
+[CONF1] b14233db | Bloody Sunday (1972)  A='killings'  B='shooting'  sent-dist=3
+   s10: It described the soldiers ' [B shooting B] as `` bordering on the reckless '' , but accepted their claims that they shot at gunmen and bomb-throwers .
+   s13: Following a 12-year inquiry , Saville 's report was made public in 2010 and concluded that the [A killings A] were both `` unjustified '' and `` unjustifiable '' .
+
+[CONF1] b14233db | Bloody Sunday (1972)  A='killings'  B='firing'  sent-dist=1
+   s13: Following a 12-year inquiry , Saville 's report was made public in 2010 and concluded that the [A killings A] were both `` unjustified '' and `` unjustifiable '' .
+   s14: It found that all of those shot were unarmed , that none were posing a serious threat , that no bombs were thrown , and that soldiers `` knowingly put forward false accounts '' to justify their [B firing B] .
+
+[CONF1] b14233db | Bloody Sunday (1972)  A='fleeing'  B='shot'  sent-dist=0
+   s2: Many of the victims were [B shot B] while [A fleeing A] from the soldiers and some were shot while trying to help the wounded .
+
+[CONF1] b14233db | Bloody Sunday (1972)  A='shootings'  B='involved'  sent-dist=0
+   s7: This battalion was [B involved B] in two other controversial [A shootings A] : the Ballymurphy massacre several months before , and the killing of Protestant civilians in the Shankill several months later .
+
+[CONF1] b14233db | Bloody Sunday (1972)  A='killings'  B='shot'  sent-dist=1
+   s13: Following a 12-year inquiry , Saville 's report was made public in 2010 and concluded that the [A killings A] were both `` unjustified '' and `` unjustifiable '' .
+   s14: It found that all of those [B shot B] were unarmed , that none were posing a serious threat , that no bombs were thrown , and that soldiers `` knowingly put forward false accounts '' to justify their firing .
+
+[CONF1] b14233db | Bloody Sunday (1972)  A='involved'  B='shot'  sent-dist=7
+   s7: This battalion was [A involved A] in two other controversial shootings : the Ballymurphy massacre several months before , and the killing of Protestant civilians in the Shankill several months later .
+   s14: It found that all of those [B shot B] were unarmed , that none were posing a serious threat , that no bombs were thrown , and that soldiers `` knowingly put forward false accounts '' to justify their firing .
+
+[CONF1] bd3ed435 | Symphonic Odysseys  A='concert'  B='added'  sent-dist=0
+   s6: The concert was initially scheduled for a single performance , but after selling out within twelve hours a second [A concert A] was [B added B] prior in the same day in Cologne .
+
+[CONF2] c25b148f | 2014 Isla Vista killings  A='stabbed'  B='killed'  sent-dist=1
+   s0: On the evening of , 2014 , in Isla Vista , California , 22-year-old Elliot Rodger [B killed B] six people and injured fourteen others near the campus of University of California , Santa Barbara , before killing himself inside his vehicle .
+   s1: The attack began when Rodger [A stabbed A] three men to death in his apartment , apparently one by one on their arrival .
+
+[CONF2] cd516b85 | Hurricane Ivan  A='cyclone'  B='formed'  sent-dist=1
+   s1: The [A cyclone A] was the ninth named storm , the sixth hurricane and the fourth major hurricane of the active 2004 Atlantic hurricane season .
+   s2: Ivan [B formed B] in early September , and reached Category 5 strength on the Saffir–Simpson Hurricane Scale ( SSHS ) .
+
+[DISC] d43651db | Turkish Airlines Flight 981  A='remained'  B='remains'  sent-dist=1
+   s4: It [A remained A] the deadliest single-aircraft accident until the crash of Japan Airlines flight 123 on 12 August 1985 , and the deadliest aviation accident without survivors until the Charkhi Dadri mid-air collision on 12 November 1996 .
+   s5: It [B remains B] the deadliest single-aircraft accident without survivors .
+
+[DISC] d43651db | Turkish Airlines Flight 981  A='occurred'  B='occurred'  sent-dist=0
+   s17: The smoking gun was a memo from the fuselage 's manufacturer , Convair , to McDonnell Douglas , in which the series of events that [A occurred A] on Flight 96 , and fatally on Flight 981 , was foreseen ; it concluded that if these events [B occurred B] it would probably result in the loss of the aircraft .
+
+[DISC] d43651db | Turkish Airlines Flight 981  A='occurred'  B='occurred'  sent-dist=7
+   s10: In previous service , notably an incident that [A occurred A] on American Airlines Flight 96 in 1972 , it had been noticed that it was possible to close the handle on DC-10 cargo doors despite the latches being in the wrong position .
+   s17: The smoking gun was a memo from the fuselage 's manufacturer , Convair , to McDonnell Douglas , in which the series of events that occurred on Flight 96 , and fatally on Flight 981 , was foreseen ; it concluded that if these events [B occurred B] it would probably result in the loss of the aircraft .
+
+[DISC] d650d8ed | The Station nightclub fire  A='set off'  B='shows'  sent-dist=3
+   s1: The fire was caused by pyrotechnics [A set off A] by the tour manager of the evening 's headlining band , Great White , which ignited flammable acoustic foam in the walls and ceilings surrounding the stage .
+   s4: Video footage of the fire [B shows B] its ignition , rapid growth , the billowing smoke that quickly made escape impossible , and blocked egress that further hindered evacuation .
+
+[DISC] d650d8ed | The Station nightclub fire  A='shows'  B='occurred'  sent-dist=4
+   s0: The Station nightclub fire [B occurred B] on Thursday , February 20 , 2003 , in West Warwick , Rhode Island , United States , killing 100 people including Great White guitarist Ty Longley and injuring 230 .
+   s4: Video footage of the fire [A shows A] its ignition , rapid growth , the billowing smoke that quickly made escape impossible , and blocked egress that further hindered evacuation .
+
+[DISC] d74457a6 | Operation Camargue  A='took place'  B='landings'  sent-dist=2
+   s1: It [A took place A] from 28 July until 10 August 1953 .
+   s3: The first [B landings B] took place in the early morning on 28 July , and reached the first objectives , an inland canal , without major incident .
+
+[CONF2] dd0f5761 | 1954 Guatemalan coup d'état  A='strengthened'  B='criticized'  sent-dist=0
+   s21: Described as the definitive deathblow to democracy in Guatemala , the coup was widely [B criticized B] internationally , and [A strengthened A] the long-lasting anti-U.S. sentiment in Latin America .
+
+[DISC] dda710ec | Action of 28 February 1799  A='wounds'  B='struck'  sent-dist=0
+   s7: British losses by contrast were light , although Cooke had been [B struck B] by grape shot during the height of the action and suffered a lingering death three months later from his [A wounds A] .
+
+[DISC] dda710ec | Action of 28 February 1799  A='receive'  B='attack'  sent-dist=0
+   s5: For unclear reasons the French captain Hubert Le Loup de Beaulieu did not properly prepare `` Forte '' to [A receive A] the [B attack B] from Cooke 's frigate and he was consequently killed in the first raking broadside from the British ship .
+
+[DISC] dda710ec | Action of 28 February 1799  A='engaged'  B='operation'  sent-dist=0
+   s1: `` Forte '' was an exceptionally large and powerful ship [A engaged A] on a commerce raiding [B operation B] against British merchant shipping off the port of Calcutta in British India .
+
+[CONF1] dfcd262e | North American blizzard of 2005  A='dropping'  B='began'  sent-dist=0
+   s2: The storm [B began B] [A dropping A] snow on the upper Midwest on Thursday , January 20 , 2005 .
+
+[DISC] e0a779a7 | Operation Bribie  A='attacked'  B='came'  sent-dist=11
+   s1: During the night of 16 February the Viet Cong [A attacked A] a South Vietnamese Regional Force compound at Lang Phuoc Hai , before withdrawing the following morning after heavy fighting with South Vietnamese forces .
+   s12: From the outset , lead elements [B came B] under constant Viet Cong sniper fire from the trees , and from previously undetected machine-guns .
+
+[CONF2] e4bab5a5 | Declaratio Ferdinandei  A='changing'  B='war'  sent-dist=0
+   s5: The overturning of the `` Declaratio Ferdinandei '' and other religious persecution helped rekindle the Thirty Years ' War , [A changing A] it from an internal conflict within the Holy Roman Empire into an international religious [B war B] .
+
+[DISC] e664c528 | Chagai-I  A='tests'  B='tests'  sent-dist=1
+   s3: Its timing was a direct response to India 's second nuclear [A tests A] , on 11 and 13 May 1998 .
+   s4: These [B tests B] by Pakistan and India resulted in United Nations Security Council Resolution 1172 and economic sanctions on both states by a number of major powers , particularly the United States and Japan .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='tours'  B='visited'  sent-dist=1
+   s2: The band [B visited B] numerous international venues from 2006 through 2007 .
+   s3: The tour is the collective name of many smaller [A tours A] and festivals Snow Patrol has played in support of their album .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='saw'  B='tour'  sent-dist=5
+   s0: The Eyes Open Tour was a concert [B tour B] by the Scottish/Northern Irish alternative rock band Snow Patrol .
+   s5: The tour [A saw A] the band visit continents like Europe , North America , Australia and Asia .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='tour'  B='visit'  sent-dist=5
+   s0: The Eyes Open Tour was a concert [A tour A] by the Scottish/Northern Irish alternative rock band Snow Patrol .
+   s5: The tour saw the band [B visit B] continents like Europe , North America , Australia and Asia .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='tours'  B='supported'  sent-dist=3
+   s3: The tour is the collective name of many smaller [A tours A] and festivals Snow Patrol has played in support of their album .
+   s6: The band headlined on almost all dates , and various acts [B supported B] them throughout .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='saw'  B='supported'  sent-dist=1
+   s5: The tour [A saw A] the band visit continents like Europe , North America , Australia and Asia .
+   s6: The band headlined on almost all dates , and various acts [B supported B] them throughout .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='saw'  B='tours'  sent-dist=2
+   s3: The tour is the collective name of many smaller [B tours B] and festivals Snow Patrol has played in support of their album .
+   s5: The tour [A saw A] the band visit continents like Europe , North America , Australia and Asia .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='tour'  B='visited'  sent-dist=2
+   s0: The Eyes Open Tour was a concert [A tour A] by the Scottish/Northern Irish alternative rock band Snow Patrol .
+   s2: The band [B visited B] numerous international venues from 2006 through 2007 .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='tours'  B='visit'  sent-dist=2
+   s3: The tour is the collective name of many smaller [A tours A] and festivals Snow Patrol has played in support of their album .
+   s5: The tour saw the band [B visit B] continents like Europe , North America , Australia and Asia .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='supported'  B='visit'  sent-dist=1
+   s5: The tour saw the band [B visit B] continents like Europe , North America , Australia and Asia .
+   s6: The band headlined on almost all dates , and various acts [A supported A] them throughout .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='tour'  B='supported'  sent-dist=6
+   s0: The Eyes Open Tour was a concert [A tour A] by the Scottish/Northern Irish alternative rock band Snow Patrol .
+   s6: The band headlined on almost all dates , and various acts [B supported B] them throughout .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='visited'  B='supported'  sent-dist=4
+   s2: The band [A visited A] numerous international venues from 2006 through 2007 .
+   s6: The band headlined on almost all dates , and various acts [B supported B] them throughout .
+
+[CONF2] e6fe67c6 | Show Us Yours Tour  A='submitted'  B='submit'  sent-dist=2
+   s5: Remix stems of the song `` Hang It Up '' were also made available on their website with which fans could create their own remixes of the song and [B submit B] them .
+   s7: Two of the nine [A submitted A] remixes : the Inertia remix and CKB remix , were included as bonus tracks on the deluxe edition of the album .
+
+[CONF2] e6fe67c6 | Show Us Yours Tour  A='submit'  B='entered'  sent-dist=1
+   s5: Remix stems of the song `` Hang It Up '' were also made available on their website with which fans could create their own remixes of the song and [A submit A] them .
+   s6: All the [B entered B] remixes were uploaded onto the band 's Soundcloud account .
+
+[DISC] e82b36c2 | The Final Frontier World Tour  A='performing'  B='shows'  sent-dist=1
+   s3: `` Following these [B shows B] in USA and Canada The Final Frontier World Tour will travel back to Europe for a few selected major festival and stadium shows with the band planning to continue to many other countries in 2011 . ''
+   s4: The tour was extremely successful , with the band [A performing A] 98 shows in 36 countries across 5 continents to an estimated audience of over 2 million people and led to 2012 's live album/ video , `` En Vivo !
+
+[DISC] e9aafc9f | Operation Bagration  A='fought'  B='attacked'  sent-dist=2
+   s0: Operation Bagration ( ; , Operatsiya Bagration ) was the codename for the Soviet 1944 Belorussian Strategic Offensive Operation , ( , Belorusskaya nastupatelnaya Operatsiya `` Bagration '' ) a military campaign [A fought A] between 23 June and 19 August 1944 in Soviet Byelorussia in the Eastern Front of World War II .
+   s2: On 23 June 1944 , the Red Army [B attacked B] Army Group Centre in Byelorussia , with the objective of encircling and destroying its main component armies .
+
+[DISC] edc76d43 | Operation Chastise  A='return'  B='attack'  sent-dist=6
+   s0: operation chastise was an [B attack B] on german dams carried out on unk may 1943 by royal air force no .
+   s6: Despite rapid repairs by the Germans , production did not [A return A] to normal until September .
+
+[DISC] edc76d43 | Operation Chastise  A='return'  B='carried out'  sent-dist=6
+   s0: operation chastise was an attack on german dams [B carried out B] on unk may 1943 by royal air force no .
+   s6: Despite rapid repairs by the Germans , production did not [A return A] to normal until September .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='domination'  B='collapse'  sent-dist=0
+   s21: With the [B collapse B] of the first Bulgarian state , the Bulgarian church fell under the [A domination A] of Greek ecclesiastics who took control of the see of Ohrid and attempted to replace the Bulgarian Slavic liturgy with a Greek liturgy .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='resistance'  B='domination'  sent-dist=18
+   s3: Bulgarian [A resistance A] was led by the Cometopuli brothers , who based in the unconquered western regions of the Bulgarian Empire led it until its fall under Byzantine rule in 1018 .
+   s21: With the collapse of the first Bulgarian state , the Bulgarian church fell under the [B domination B] of Greek ecclesiastics who took control of the see of Ohrid and attempted to replace the Bulgarian Slavic liturgy with a Greek liturgy .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='rule'  B='domination'  sent-dist=18
+   s3: Bulgarian resistance was led by the Cometopuli brothers , who based in the unconquered western regions of the Bulgarian Empire led it until its fall under Byzantine [A rule A] in 1018 .
+   s21: With the collapse of the first Bulgarian state , the Bulgarian church fell under the [B domination B] of Greek ecclesiastics who took control of the see of Ohrid and attempted to replace the Bulgarian Slavic liturgy with a Greek liturgy .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='domination'  B='struggle'  sent-dist=19
+   s2: The [B struggle B] began with the incorporation of eastern Bulgaria after the Russo–Byzantine War ( 970–971 ) .
+   s21: With the collapse of the first Bulgarian state , the Bulgarian church fell under the [A domination A] of Greek ecclesiastics who took control of the see of Ohrid and attempted to replace the Bulgarian Slavic liturgy with a Greek liturgy .
+
+[DISC] f469f1f0 | Haymarket affair  A='bombing'  B='demonstration'  sent-dist=0
+   s0: The Haymarket Affair ( also known as the Haymarket Massacre , Haymarket Riot , or Haymarket Square Riot ) was the aftermath of a [A bombing A] that took place at a labor [B demonstration B] on May 4 , 1886 , at Haymarket Square in Chicago .
+
+[CONF2] f4cf9332 | Battle of Santa Cruz de Tenerife (1797)  A='besieged'  B='proved'  sent-dist=1
+   s8: Events [B proved B] otherwise .
+   s9: Jervis ' ships [A besieged A] Cádiz but were repelled by unexpected Spanish resistance .
+
+[CONF1] f5b3d128 | Pan Am Flight 281  A='arrested'  B='apprehended'  sent-dist=1
+   s3: Two of the hijackers were [B apprehended B] in the 1970s .
+   s4: Jose Rafael Rios Cruz was [A arrested A] in 1975 ; Miguel Castro was captured in 1976 .
+
+[CONF1] f5cf0c75 | Action of 20 October 1793  A='battered'  B='achieved'  sent-dist=0
+   s4: Captain François A. Dénian on `` Réunion '' responded , but aside from inflicting minor damage to Saumarez 's rigging [B achieved B] little while his own vessel was heavily [A battered A] , suffering severe damage to rigging masts and hull and more than 80 and possibly as many as 120 casualties .
+
+[CONF1] f5cf0c75 | Action of 20 October 1793  A='damage'  B='battered'  sent-dist=0
+   s4: Captain François A. Dénian on `` Réunion '' responded , but aside from inflicting minor [A damage A] to Saumarez 's rigging achieved little while his own vessel was heavily [B battered B] , suffering severe damage to rigging masts and hull and more than 80 and possibly as many as 120 casualties .
+
+[DISC] f7a469cd | Long March  A='traveling'  B='escaped'  sent-dist=4
+   s1: There was not one Long March , but a series of marches , as various Communist armies in the south [B escaped B] to the north and west .
+   s5: The route passed through some of the most difficult terrain of western China by [A traveling A] west , then north , to Shaanxi .
+
+[DISC] f7a469cd | Long March  A='passed'  B='escaped'  sent-dist=4
+   s1: There was not one Long March , but a series of marches , as various Communist armies in the south [B escaped B] to the north and west .
+   s5: The route [A passed A] through some of the most difficult terrain of western China by traveling west , then north , to Shaanxi .
+
+[DISC] f86e86f6 | Atomic bombings of Hiroshima and Nagasaki  A='dead'  B='deaths'  sent-dist=2
+   s12: over the next two to four months , the acute effects of the atomic bombings killed between 90,000 and 146,000 people in hiroshima and 39,000 and 80,000 people in nagasaki ; roughly half of the [B deaths B] in each city occurred on the first day .
+   s14: In both cities , most of the [A dead A] were civilians , although Hiroshima had a sizable military garrison .
+
+[CONF1] fb47ad2e | Cyclone Lua  A='cyclone'  B='cyclone'  sent-dist=1
+   s6: It steadily weakened as it progressed south over interior Western Australia , diminishing below tropical [B cyclone B] status on 18 March .
+   s7: The threat of the impending [A cyclone A] halted local industries such as oil production and iron ore mining and exporting .
+
+[CONF1] fb47ad2e | Cyclone Lua  A='cyclone'  B='cyclone'  sent-dist=1
+   s5: Ultimately intensifying into an upper-end Category 3 severe tropical [A cyclone A] with maximum sustained 10-minute winds of 155 km/h ( 100 mph ) , Lua made landfall near the remote community of Pardoo , about 150 km ( 95 mi ) east of Port Hedland .
+   s6: It steadily weakened as it progressed south over interior Western Australia , diminishing below tropical [B cyclone B] status on 18 March .
+

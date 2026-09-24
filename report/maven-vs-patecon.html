@@ -1,0 +1,472 @@
+<title>MAVEN vs PaTeCon</title>
+<meta name="description" content="Cấu trúc dữ liệu MAVEN-ERE/MAVEN-Arg đối chiếu với PaTeCon, và các bất cập khi dựng MAVEN theo khuôn PaTeCon.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f6f3ec;
+    --paper-2: #efeadb;
+    --ink: #1c1712;
+    --ink-soft: #5a5248;
+    --hairline: #d9d0ba;
+    --amber: #8b6f2f;
+    --amber-bg: #f1e9d2;
+    --amber-strong: #6b5322;
+    --pine: #2f6b58;
+    --pine-bg: #e2eee8;
+    --pine-strong: #1f4a3d;
+    --rust: #a8402f;
+    --rust-bg: #f7e6e0;
+    --rust-strong: #7d2c1f;
+    --code-bg: #ece5d3;
+    --shadow: 0 1px 0 rgba(28,23,18,0.06);
+  }
+
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --paper: #16140f;
+      --paper-2: #1d1a13;
+      --ink: #ece6d8;
+      --ink-soft: #b3a992;
+      --hairline: #3a3527;
+      --amber: #d8b96a;
+      --amber-bg: #2c2717;
+      --amber-strong: #eccd8a;
+      --pine: #7fbfa3;
+      --pine-bg: #17281f;
+      --pine-strong: #a4d9be;
+      --rust: #e08268;
+      --rust-bg: #2e1912;
+      --rust-strong: #f0a58c;
+      --code-bg: #221f16;
+      --shadow: 0 1px 0 rgba(0,0,0,0.4);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #16140f;
+    --paper-2: #1d1a13;
+    --ink: #ece6d8;
+    --ink-soft: #b3a992;
+    --hairline: #3a3527;
+    --amber: #d8b96a;
+    --amber-bg: #2c2717;
+    --amber-strong: #eccd8a;
+    --pine: #7fbfa3;
+    --pine-bg: #17281f;
+    --pine-strong: #a4d9be;
+    --rust: #e08268;
+    --rust-bg: #2e1912;
+    --rust-strong: #f0a58c;
+    --code-bg: #221f16;
+    --shadow: 0 1px 0 rgba(0,0,0,0.4);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    line-height: 1.55;
+    padding-inline: 20px;
+    padding-block: 40px;
+  }
+  main { max-width: 980px; margin: 0 auto; }
+
+  code, .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+  /* ---------- masthead ---------- */
+  .masthead { margin-bottom: 48px; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rust); flex: none; }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(30px, 5vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 14px;
+  }
+  h1 em { font-style: italic; font-weight: 500; color: var(--ink-soft); }
+  .dek {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  /* ---------- section headers ---------- */
+  .section { margin-block: 56px; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .section-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .section-sub {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0 0 20px;
+    max-width: 68ch;
+  }
+
+  /* ---------- two-column comparison spine ---------- */
+  .spine { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); border-radius: 10px; overflow: hidden; }
+  @media (max-width: 640px) { .spine { grid-template-columns: 1fr; } }
+
+  .spine-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+  }
+  @media (max-width: 640px) { .spine-head { grid-template-columns: 1fr; } }
+  .spine-head + .spine { border-top: none; border-radius: 0 0 10px 10px; }
+
+  .col-label {
+    padding: 14px 20px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .col-label.patecon { background: var(--amber-bg); color: var(--amber-strong); }
+  .col-label.maven { background: var(--pine-bg); color: var(--pine-strong); }
+  .col-label .swatch { width: 9px; height: 9px; border-radius: 2px; }
+  .col-label.patecon .swatch { background: var(--amber); }
+  .col-label.maven .swatch { background: var(--pine); }
+
+  .cell {
+    background: var(--paper);
+    padding: 18px 20px;
+  }
+  .cell.patecon { border-left: 3px solid var(--amber); }
+  .cell.maven { border-left: 3px solid var(--pine); }
+  @media (max-width: 640px) { .cell { border-left: none; border-top: 3px solid var(--hairline); }
+    .cell.patecon { border-top-color: var(--amber); }
+    .cell.maven { border-top-color: var(--pine); } }
+
+  .cell h3 {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .cell p { margin: 0 0 8px; font-size: 14.5px; color: var(--ink); }
+  .cell p:last-child { margin-bottom: 0; }
+  .cell .field-name { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--ink-soft); }
+
+  .row-divider { grid-column: 1 / -1; height: 1px; background: var(--hairline); }
+
+  /* JSON snippet block */
+  pre.snippet {
+    background: var(--code-bg);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    line-height: 1.6;
+    overflow-x: auto;
+    margin: 8px 0 0;
+    color: var(--ink);
+  }
+  pre.snippet .k { color: var(--pine-strong); }
+  pre.snippet .s { color: var(--amber-strong); }
+  pre.snippet .c { color: var(--ink-soft); font-style: italic; }
+
+  /* ---------- bất cập panels ---------- */
+  .friction {
+    background: var(--rust-bg);
+    border: 1px solid color-mix(in srgb, var(--rust) 35%, var(--hairline));
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-block: 14px;
+  }
+  .friction-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .friction-tag {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--rust-strong);
+    background: color-mix(in srgb, var(--rust) 16%, transparent);
+    border-radius: 999px;
+    padding: 3px 10px;
+  }
+  .friction h4 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 17px;
+    margin: 0;
+    color: var(--rust-strong);
+  }
+  .friction p { margin: 0 0 6px; font-size: 14.5px; }
+  .friction p:last-child { margin-bottom: 0; }
+  .friction .impact {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed color-mix(in srgb, var(--rust) 30%, transparent);
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+  .friction .impact b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- summary table ---------- */
+  table.summary {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  table.summary th, table.summary td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--hairline);
+    vertical-align: top;
+  }
+  table.summary th {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  table.summary td.tier { font-weight: 600; white-space: nowrap; }
+  table.summary tr:last-child td { border-bottom: none; }
+  .wrap-table { overflow-x: auto; border: 1px solid var(--hairline); border-radius: 10px; padding: 4px 8px; }
+
+  .pill { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 11.5px; padding: 2px 8px; border-radius: 999px; background: var(--code-bg); color: var(--ink-soft); }
+  .pill.bad { background: var(--rust-bg); color: var(--rust-strong); }
+  .pill.ok { background: var(--pine-bg); color: var(--pine-strong); }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 20px;
+    border-top: 1px solid var(--hairline);
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+</style>
+
+<main>
+  <div class="masthead">
+    <div class="eyebrow"><span class="dot"></span>ĐỐI CHIẾU CẤU TRÚC DỮ LIỆU</div>
+    <h1>MAVEN <em>đọ với</em> PaTeCon</h1>
+    <p class="dek">PaTeCon mine quan hệ thời gian từ các fact phẳng của Wikidata. MAVEN-ERE/MAVEN-Arg mô tả sự kiện bằng vai ngữ nghĩa và nhãn quan hệ có sẵn. Khi ép MAVEN vào khuôn statement của PaTeCon, ba tầng — entity, vai, thời gian — đều lệch nhau.</p>
+  </div>
+
+  <!-- ============ SECTION 1: WHAT EACH DATASET HAS ============ -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Thành phần của từng bên</h2>
+    </div>
+    <p class="section-sub">Đơn vị dữ liệu cơ bản, và những gì mỗi bên coi là "đã cho sẵn" so với "phải tự suy ra".</p>
+
+    <div class="spine-head">
+      <div class="col-label patecon"><span class="swatch"></span>PATECON · WIKIDATA</div>
+      <div class="col-label maven"><span class="swatch"></span>MAVEN-ERE / MAVEN-ARG</div>
+    </div>
+    <div class="spine">
+      <div class="cell patecon">
+        <h3>Đơn vị dữ liệu</h3>
+        <p>Một dòng fact phẳng: <span class="field-name">(subject_QID, property, object, t_start, t_end)</span>. Không có khái niệm "event" — mọi thứ là thuộc tính của entity.</p>
+      </div>
+      <div class="cell maven">
+        <h3>Đơn vị dữ liệu</h3>
+        <p>Một document JSON chứa nhiều <span class="field-name">events</span>, mỗi event có <span class="field-name">type</span> (168 loại) + <span class="field-name">mention</span> (trigger word). Không có subject/object cố định.</p>
+      </div>
+
+      <div class="row-divider"></div>
+
+      <div class="cell patecon">
+        <h3>Entity</h3>
+        <p>QID toàn cục, ổn định xuyên suốt Knowledge Base — cùng một entity lặp lại ở hàng trăm/nghìn statement.</p>
+      </div>
+      <div class="cell maven">
+        <h3>Entity</h3>
+        <p><span class="field-name">entity_id</span> chỉ hợp lệ <b>trong một document</b>, sinh bằng hash, gom coreference nội bộ (không link ra Wikidata/DBpedia).</p>
+        <pre class="snippet"><span class="c">// MAVEN-Arg — entity</span>
+{
+  <span class="k">"id"</span>: <span class="s">"ENTITY_052c8614..."</span>,
+  <span class="k">"type"</span>: <span class="s">"Location"</span>,
+  <span class="k">"mention"</span>: [
+    {<span class="k">"mention"</span>: <span class="s">"quarto"</span>, <span class="k">"offset"</span>: [197,203]},
+    {<span class="k">"mention"</span>: <span class="s">"quarto dei mille"</span>, ...}
+  ]
+}</pre>
+      </div>
+
+      <div class="row-divider"></div>
+
+      <div class="cell patecon">
+        <h3>Vai / cấu trúc statement</h3>
+        <p>Cố định <b>2 vai</b> cho mọi statement: subject, object. Không đổi theo loại quan hệ.</p>
+      </div>
+      <div class="cell maven">
+        <h3>Vai / cấu trúc statement</h3>
+        <p>Vai <b>frame-semantic riêng theo từng loại event</b> — không có trục chung. Nhiều vai chỉ là text span, <em>không</em> có <span class="field-name">entity_id</span>.</p>
+        <pre class="snippet"><span class="c">// MAVEN-Arg — event "Motion"</span>
+<span class="k">"argument"</span>: {
+  <span class="k">"Agent"</span>: [{<span class="k">"content"</span>: <span class="s">"..."</span>, <span class="k">"offset"</span>:[137,184]}],
+  <span class="k">"Location_original"</span>: [{<span class="k">"entity_id"</span>: <span class="s">"ENTITY_0527..."</span>}],
+  <span class="k">"Location_final"</span>: [{<span class="k">"entity_id"</span>: <span class="s">"ENTITY_1857..."</span>}]
+}</pre>
+      </div>
+
+      <div class="row-divider"></div>
+
+      <div class="cell patecon">
+        <h3>Thời gian</h3>
+        <p>Khoảng số tường minh <span class="field-name">[t_start, t_end]</span> gắn trực tiếp vào mỗi statement. Sẵn sàng cho so sánh số học.</p>
+      </div>
+      <div class="cell maven">
+        <h3>Thời gian</h3>
+        <p><span class="field-name">TIMEX</span> chỉ là text mention thô, <b>chưa chuẩn hoá thành số</b>.</p>
+        <pre class="snippet"><span class="c">// MAVEN-ERE — TIMEX</span>
+{<span class="k">"mention"</span>: <span class="s">"1860"</span>, <span class="k">"type"</span>: <span class="s">"DATE"</span>, <span class="k">"sent_id"</span>: 0}</pre>
+      </div>
+
+      <div class="row-divider"></div>
+
+      <div class="cell patecon">
+        <h3>Quan hệ thời gian</h3>
+        <p><b>Không có sẵn</b> — đây chính là thứ PaTeCon <em>tự mine ra</em> bằng cách so hai khoảng số của hai statement chia sẻ entity.</p>
+      </div>
+      <div class="cell maven">
+        <h3>Quan hệ thời gian</h3>
+        <p><b>Có sẵn</b> — nhãn quan hệ giữa cặp <span class="field-name">EVENT_id</span>, không phải khoảng số.</p>
+        <pre class="snippet"><span class="c">// MAVEN-ERE — temporal_relations</span>
+<span class="k">"BEFORE"</span>: [[<span class="s">"EVENT_8d2f..."</span>, <span class="s">"EVENT_f535..."</span>]]
+<span class="c">// + BEGINS-ON, CONTAINS, ENDS-ON, OVERLAP, SIMULTANEOUS
+// + causal_relations: CAUSE, PRECONDITION
+// + subevent_relations</span></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECTION 2: WHAT'S USABLE ============ -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Xài được gì</h2>
+    </div>
+    <div class="wrap-table">
+      <table class="summary">
+        <tr>
+          <th>Tầng</th>
+          <th>PaTeCon</th>
+          <th>MAVEN</th>
+        </tr>
+        <tr>
+          <td class="tier">Cỗ máy suy luận</td>
+          <td><code>Interval_Relations.py</code> — <code>comp_time</code>, <code>disjoint</code> chạy trực tiếp trên khoảng số có sẵn.</td>
+          <td><span class="pill bad">không chạy trực tiếp</span> — cần tự chuẩn hoá TIMEX → số trước.</td>
+        </tr>
+        <tr>
+          <td class="tier">Ground truth để chấm điểm</td>
+          <td><span class="pill bad">không có</span> — phải tự mine rule rồi tự đánh giá qua support/confidence.</td>
+          <td><span class="pill ok">có sẵn</span> — <code>temporal_relations</code> là nhãn quan hệ event–event, chấm trực tiếp.</td>
+        </tr>
+        <tr>
+          <td class="tier">Entity xuyên tài liệu</td>
+          <td><span class="pill ok">có</span> — QID lặp lại toàn KB, support cao tự nhiên.</td>
+          <td><span class="pill bad">không</span> — chỉ trong-document, phải tự entity-linking để có support.</td>
+        </tr>
+        <tr>
+          <td class="tier">Vai / argument</td>
+          <td><span class="pill ok">đơn giản</span> — luôn 2 vai cố định, luôn là entity.</td>
+          <td><span class="pill bad">không đồng nhất</span> — vai đổi theo event type, không phải vai nào cũng có entity_id.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============ SECTION 3: FRICTION ============ -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Bất cập khi dựng MAVEN theo khuôn PaTeCon</h2>
+    </div>
+    <p class="section-sub">Bốn điểm ma sát, xếp theo tầng dữ liệu chạm phải — không phải mọi bất cập đều sửa bằng cùng một cách.</p>
+
+    <div class="friction">
+      <div class="friction-head">
+        <span class="friction-tag">Tầng Entity</span>
+        <h4>Support thấp nếu coi mỗi document là một đồ thị riêng</h4>
+      </div>
+      <p>PaTeCon cần một entity xuất hiện ở ≥2 statement để so sánh khoảng thời gian. <code>entity_id</code> của MAVEN không liên kết qua document, nên phần lớn entity chỉ có 1–2 mention trong một document.</p>
+      <div class="impact"><b>Hệ quả:</b> đa số constraint mine ra rơi dưới <code>support_threshold</code>, trừ khi tự làm entity-linking xuyên document bằng string-match + <code>type</code> (Person/Organization/Location/Misc) — bản thân bước này có rủi ro nhầm hai thực thể trùng tên.</div>
+    </div>
+
+    <div class="friction">
+      <div class="friction-head">
+        <span class="friction-tag">Tầng Vai</span>
+        <h4>Không có trục vai chung để chọn cặp (a, b)</h4>
+      </div>
+      <p>Mỗi event type định nghĩa bộ vai riêng — <code>Killing</code> dùng Killer/Victim, <code>Motion</code> dùng Agent/Location_final. Không có "subject/object" phổ quát như PaTeCon.</p>
+      <div class="impact"><b>Hệ quả:</b> phải tự map thủ công theo từng event type, hoặc coi mỗi event type là một quan hệ <code>r</code> riêng trong statement.</div>
+    </div>
+
+    <div class="friction">
+      <div class="friction-head">
+        <span class="friction-tag">Tầng Vai</span>
+        <h4>Không phải vai nào cũng trỏ ra entity</h4>
+      </div>
+      <p>Cùng một event, vai <code>Agent</code> có thể chỉ là <code>content</code> + <code>offset</code> (text span thô), trong khi <code>Location_original</code> có <code>entity_id</code>.</p>
+      <div class="impact"><b>Hệ quả:</b> statement PaTeCon cần cả hai đầu là entity — event thiếu ≥2 vai có <code>entity_id</code> thì không sinh được statement nào, hoặc cặp sinh ra lệch hẳn ý nghĩa ngữ nghĩa gốc (vd chỉ còn cặp Location–Location thay vì "ai làm gì với ai").</div>
+    </div>
+
+    <div class="friction">
+      <div class="friction-head">
+        <span class="friction-tag">Tầng Thời gian</span>
+        <h4>TIMEX chưa chuẩn hoá thành số — cỗ máy Interval_Relations không chạy được</h4>
+      </div>
+      <p><code>Interval_Relations.py</code> so sánh số học <code>t1 &lt; t3</code>, <code>t2 &gt; t4</code>. MAVEN chỉ cho text mention thô ("1860", "March 2020") và nhãn quan hệ ở mức cặp event, không phải khoảng số gắn vào statement.</p>
+      <div class="impact"><b>Hệ quả:</b> phải tự viết bước chuẩn hoá (năm/tháng/ngày), tự nó có sai số và mất granularity — hoặc bỏ hẳn <code>Interval_Relations</code>, dùng thẳng <code>temporal_relations</code> làm ground truth. Hai lựa chọn đổi hẳn đơn vị chấm điểm: <b>constraint-level</b> (giống PaTeCon) so với <b>instance-level</b> (dễ chấm hơn, nhưng không còn "giống PaTeCon" ở phần suy luận khoảng thời gian).</div>
+    </div>
+  </div>
+
+  <footer>
+    Ghi chú tham khảo dựng từ <code>MAVEN-Arg.zip</code> / <code>MAVEN_ERE.zip</code> (train.jsonl) và mã nguồn PaTeCon (<code>Interval_Relations.py</code>, <code>Constraint_Mining.py</code>).
+  </footer>
+</main>

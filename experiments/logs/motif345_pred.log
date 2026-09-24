@@ -1,0 +1,38 @@
+[     5s] 3623 document; neighbour labels = pred
+[    27s] bo 3: 259 chu ky, 179 qua cong dem
+[    27s] bo 4: 4487 chu ky, 962 qua cong dem
+[    27s] bo 4K: 11209 chu ky, 1579 qua cong dem
+[    27s] bo 5: 23251 chu ky, 1893 qua cong dem
+[    55s] bo 3: 178 ung vien (>= 5 document)
+[    55s] bo 4: 946 ung vien (>= 5 document)
+[    55s] bo 4K: 1539 ung vien (>= 5 document)
+[    55s] bo 5: 1863 ung vien (>= 5 document)
+[    65s] bo 3: 136 luat sau xac nhan ({'BEFORE': 11, 'CONTAINS': 57, 'SIMULTANEOUS': 18, 'BEGINS-ON': 7, 'OVERLAP': 43})
+[    65s] bo 4: 673 luat sau xac nhan ({'BEFORE': 119, 'CONTAINS': 382, 'SIMULTANEOUS': 67, 'OVERLAP': 101, 'BEGINS-ON': 4})
+[    65s] bo 4K: 1000 luat sau xac nhan ({'BEFORE': 200, 'CONTAINS': 582, 'OVERLAP': 102, 'SIMULTANEOUS': 112, 'BEGINS-ON': 4})
+[    65s] bo 5: 1233 luat sau xac nhan ({'BEFORE': 310, 'CONTAINS': 717, 'OVERLAP': 94, 'SIMULTANEOUS': 108, 'BEGINS-ON': 4})
+[    92s] ban luat: CONF-2 156369 canh, valid 188924 canh
+
+==============================================================================================================
+BO 3 / 4 / 5 -- hang xom DU DOAN (thuc te), ca bon loai canh, valid mo mot lan
+==============================================================================================================
+  classifier hien tai (buoc 2.2): macro-F1 30.84%  acc 84.69%
+
+  che do: GHI DE len classifier
+    bo 3                 CONF-2 30.94%  VALID macro-F1 31.53% (+0.69)  acc 84.99%  | EE 28.38  ET 30.62  TE 24.70  TT 35.02 | F1 BEFO 91.4 CONT 55.5 SIMU 28.3 OVER 14.0 | 7 nguong bat
+    bo 4                 CONF-2 30.93%  VALID macro-F1 31.57% (+0.73)  acc 85.16%  | EE 28.38  ET 30.51  TE 25.24  TT 34.83 | F1 BEFO 91.5 CONT 55.0 SIMU 28.4 OVER 14.5 | 7 nguong bat
+    bo 4K (du 6 canh)    CONF-2 30.88%  VALID macro-F1 31.51% (+0.67)  acc 85.24%  | EE 28.36  ET 30.51  TE 25.02  TT 34.84 | F1 BEFO 91.6 CONT 55.5 SIMU 28.1 OVER 13.9 | 5 nguong bat
+    bo 5                 CONF-2 30.82%  VALID macro-F1 31.42% (+0.58)  acc 85.28%  | EE 28.24  ET 30.51  TE 25.32  TT 34.96 | F1 BEFO 91.6 CONT 55.3 SIMU 27.6 OVER 14.0 | 5 nguong bat
+    bo 3 + 4             CONF-2 31.06%  VALID macro-F1 31.60% (+0.76)  acc 85.16%  | EE 28.45  ET 30.62  TE 24.84  TT 34.18 | F1 BEFO 91.5 CONT 55.3 SIMU 28.6 OVER 14.1 | 9 nguong bat
+    bo 3 + 4K            CONF-2 30.98%  VALID macro-F1 31.55% (+0.72)  acc 85.13%  | EE 28.44  ET 30.62  TE 24.71  TT 34.92 | F1 BEFO 91.5 CONT 55.7 SIMU 28.2 OVER 14.0 | 7 nguong bat
+    bo 3 + 4 + 5         CONF-2 31.12%  VALID macro-F1 31.62% (+0.78)  acc 85.36%  | EE 28.45  ET 30.62  TE 25.03  TT 34.89 | F1 BEFO 91.7 CONT 55.8 SIMU 28.2 OVER 14.1 | 9 nguong bat
+
+  che do: DUNG MOT MINH (khong co luat -> BEFORE)
+    bo 3                 CONF-2 23.91%  VALID macro-F1 23.80% (-7.04)  acc 85.09%  | EE 23.61  ET 23.77  TE 22.43  TT 21.77 | F1 BEFO 91.6 CONT 50.4 SIMU 0.0 OVER 0.9 | 9 nguong bat
+    bo 4                 CONF-2 23.67%  VALID macro-F1 23.71% (-7.13)  acc 85.64%  | EE 23.44  ET 23.64  TE 22.24  TT 21.83 | F1 BEFO 91.9 CONT 49.8 SIMU 0.5 OVER 0.0 | 8 nguong bat
+    bo 4K (du 6 canh)    CONF-2 23.57%  VALID macro-F1 23.61% (-7.23)  acc 85.62%  | EE 23.36  ET 23.37  TE 22.25  TT 21.38 | F1 BEFO 91.9 CONT 49.8 SIMU 0.0 OVER 0.0 | 7 nguong bat
+    bo 5                 CONF-2 23.65%  VALID macro-F1 23.64% (-7.20)  acc 85.56%  | EE 23.51  ET 23.32  TE 22.15  TT 21.91 | F1 BEFO 91.9 CONT 49.1 SIMU 0.9 OVER 0.0 | 8 nguong bat
+    bo 3 + 4             CONF-2 24.02%  VALID macro-F1 23.95% (-6.89)  acc 85.76%  | EE 23.49  ET 23.48  TE 22.53  TT 22.12 | F1 BEFO 92.0 CONT 50.1 SIMU 0.5 OVER 1.1 | 10 nguong bat
+    bo 3 + 4K            CONF-2 23.97%  VALID macro-F1 23.84% (-7.00)  acc 85.64%  | EE 23.42  ET 23.42  TE 22.52  TT 22.13 | F1 BEFO 91.9 CONT 50.1 SIMU 0.0 OVER 1.0 | 10 nguong bat
+    bo 3 + 4 + 5         CONF-2 24.12%  VALID macro-F1 24.00% (-6.84)  acc 85.54%  | EE 23.72  ET 23.31  TE 22.44  TT 22.06 | F1 BEFO 91.8 CONT 50.2 SIMU 0.9 OVER 1.0 | 10 nguong bat
+[   708s] xong

@@ -1,0 +1,139 @@
+[    0s] nap train/valid ...
+[   10s] train 400 doc (disc 229 / conf 171), valid 705 doc
+[   15s]   257 luat EV-EV tren disc (in-sample)  acc 91.47%  loi 8.53%
+[   15s]   257 luat EV-EV tren valid             acc 87.87%  loi 12.13%
+[   15s]   classifier EV-TX (273 luat) tren valid: 79.84%
+[   15s]   TX-TX theo lich tren valid: 12464 canh, UNK 65.1%, dung 95.8% trong so da quyet dinh
+[   15s] dung motif ...
+[  210s]   do phu motif tren valid (109,929 cap): 3E 99.7%  3T 92.2%  4EE 99.4%  4ET 95.4%  4TE 96.1%  4TT 90.3%
+[  210s] BASE 257 luat: macro-F1 25.60%  acc 87.87%
+[  210s] do tin cay classifier tren confirmation: {'BEFORE': '94.6%', 'CONTAINS': '40.6%', 'SIMULTANEOUS': '16.3%', 'OVERLAP': '41.7%'}
+[  210s] chu ky gold tren train ...
+[  213s] OLD 21 luat, NEW(rel=clf) 175 luat
+
+======================================================================================================================
+F -- FAKE_DATA: auditor tren nhieu bom biet truoc (705 doc valid)
+======================================================================================================================
+
+muc r05: 5482/5482 canh doi khop KG.  rel=sim: {'BEFO': 0.995, 'CONT': 0.605, 'SIMU': 0.638, 'OVER': 0.681, 'BEGI': 0.812, 'ENDS': 0.733}   NEW(rel=sim) 75 luat
+ boi canh A
+  closure                                      co  3,970  P@k  69.75%  rep  99.35%  R_all  50.18%  hong  1201  rong  +1550  loi  4.99% ->  3.58%
+  OLD (21 luat)                                co 11,029  P@k  46.66%  rep  99.77%  R_all  93.65%  hong  5883  rong   -749  loi  4.99% ->  5.67%
+  NEW rel=clf                                  co 10,373  P@k  49.98%  rep  99.34%  R_all  93.94%  hong  5189  rong    -39  loi  4.99% ->  5.02%
+  NEW rel=sim                                  co  7,464  P@k  61.96%  rep  99.26%  R_all  83.75%  hong  2839  rong  +1752  loi  4.99% ->  3.39%
+  OLD -> closure -> date                       co 11,268  P@k  45.87%  rep  99.71%  R_all  94.02%  hong  6092  rong   -938  loi  4.99% ->  5.84%
+  NEW rel=sim -> OLD -> closure -> date        co 12,804  P@k  40.82%  rep  99.20%  R_all  94.58%  hong  7570  rong  -2385  loi  4.99% ->  7.16%
+ boi canh B
+  closure                                      co  3,970  P@k  69.75%  rep  99.35%  R_all  50.18%  hong  1201  rong  +1550  loi  4.99% ->  3.58%
+  OLD (21 luat)                                co 11,029  P@k  46.66%  rep  99.77%  R_all  93.65%  hong  5883  rong   -749  loi  4.99% ->  5.67%
+  NEW rel=clf                                  co 14,655  P@k  33.92%  rep  99.26%  R_all  90.00%  hong  9684  rong  -4750  loi  4.99% ->  9.31%
+  NEW rel=sim                                  co 12,022  P@k  37.47%  rep  99.20%  R_all  81.52%  hong  7517  rong  -3048  loi  4.99% ->  7.76%
+  OLD -> closure -> date                       co 11,286  P@k  45.80%  rep  99.71%  R_all  94.02%  hong  6101  rong   -947  loi  4.99% ->  5.85%
+  NEW rel=sim -> OLD -> closure -> date        co 15,642  P@k  33.19%  rep  99.17%  R_all  93.93%  hong 10434  rong  -5285  loi  4.99% ->  9.79%
+
+muc r10: 11044/11044 canh doi khop KG.  rel=sim: {'BEFO': 0.99, 'CONT': 0.426, 'SIMU': 0.447, 'OVER': 0.508, 'BEGI': 0.667, 'ENDS': 0.474}   NEW(rel=sim) 99 luat
+ boi canh A
+  closure                                      co  4,593  P@k  77.01%  rep  98.76%  R_all  31.63%  hong  1056  rong  +2437  loi 10.05% ->  7.83%
+  OLD (21 luat)                                co 16,471  P@k  62.61%  rep  99.64%  R_all  93.04%  hong  6159  rong  +4116  loi 10.05% ->  6.30%
+  NEW rel=clf                                  co 17,060  P@k  60.45%  rep  99.02%  R_all  92.46%  hong  6748  rong  +3463  loi 10.05% ->  6.90%
+  NEW rel=sim                                  co 14,778  P@k  65.01%  rep  98.89%  R_all  86.02%  hong  5171  rong  +4329  loi 10.05% ->  6.11%
+  OLD -> closure -> date                       co 16,750  P@k  61.83%  rep  99.52%  R_all  93.32%  hong  6387  rong  +3919  loi 10.05% ->  6.48%
+  NEW rel=sim -> OLD -> closure -> date        co 19,630  P@k  53.88%  rep  98.87%  R_all  94.69%  hong  9049  rong  +1409  loi 10.05% ->  8.76%
+ boi canh B
+  closure                                      co  4,593  P@k  77.01%  rep  98.76%  R_all  31.63%  hong  1056  rong  +2437  loi 10.05% ->  7.83%
+  OLD (21 luat)                                co 16,471  P@k  62.61%  rep  99.64%  R_all  93.04%  hong  6159  rong  +4116  loi 10.05% ->  6.30%
+  NEW rel=clf                                  co 20,116  P@k  49.30%  rep  99.05%  R_all  88.95%  hong 10198  rong   -374  loi 10.05% -> 10.39%
+  NEW rel=sim                                  co 18,203  P@k  50.83%  rep  98.88%  R_all  82.83%  hong  8951  rong   +197  loi 10.05% ->  9.87%
+  OLD -> closure -> date                       co 16,765  P@k  61.78%  rep  99.51%  R_all  93.32%  hong  6393  rong  +3913  loi 10.05% ->  6.49%
+  NEW rel=sim -> OLD -> closure -> date        co 21,885  P@k  47.80%  rep  98.90%  R_all  93.68%  hong 11412  rong  -1066  loi 10.05% -> 11.02%
+
+muc r15: 16555/16555 canh doi khop KG.  rel=sim: {'BEFO': 0.985, 'CONT': 0.317, 'SIMU': 0.346, 'OVER': 0.385, 'BEGI': 0.524, 'ENDS': 0.423}   NEW(rel=sim) 115 luat
+ boi canh A
+  closure                                      co  4,671  P@k  80.22%  rep  98.35%  R_all  22.26%  hong   924  rong  +2761  loi 15.06% -> 12.55%
+  OLD (21 luat)                                co 21,765  P@k  70.96%  rep  99.49%  R_all  92.81%  hong  6321  rong  +9044  loi 15.06% ->  6.83%
+  NEW rel=clf                                  co 22,848  P@k  67.02%  rep  98.90%  R_all  91.48%  hong  7536  rong  +7608  loi 15.06% ->  8.14%
+  NEW rel=sim                                  co 21,443  P@k  68.84%  rep  98.81%  R_all  88.11%  hong  6681  rong  +7905  loi 15.06% ->  7.87%
+  OLD -> closure -> date                       co 22,078  P@k  70.30%  rep  99.43%  R_all  93.21%  hong  6551  rong  +8880  loi 15.06% ->  6.98%
+  NEW rel=sim -> OLD -> closure -> date        co 25,591  P@k  61.89%  rep  98.78%  R_all  94.50%  hong  9747  rong  +5897  loi 15.06% ->  9.70%
+ boi canh B
+  closure                                      co  4,671  P@k  80.22%  rep  98.35%  R_all  22.26%  hong   924  rong  +2761  loi 15.06% -> 12.55%
+  OLD (21 luat)                                co 21,765  P@k  70.96%  rep  99.49%  R_all  92.81%  hong  6321  rong  +9044  loi 15.06% ->  6.83%
+  NEW rel=clf                                  co 25,217  P@k  58.80%  rep  98.82%  R_all  88.51%  hong 10389  rong  +4264  loi 15.06% -> 11.18%
+  NEW rel=sim                                  co 24,138  P@k  59.66%  rep  98.66%  R_all  85.82%  hong  9738  rong  +4469  loi 15.06% -> 10.99%
+  OLD -> closure -> date                       co 22,096  P@k  70.24%  rep  99.43%  R_all  93.22%  hong  6558  rong  +8874  loi 15.06% ->  6.99%
+  NEW rel=sim -> OLD -> closure -> date        co 27,476  P@k  57.11%  rep  98.67%  R_all  93.53%  hong 11769  rong  +3715  loi 15.06% -> 11.68%
+
+muc r20: 22012/22012 canh doi khop KG.  rel=sim: {'BEFO': 0.981, 'CONT': 0.25, 'SIMU': 0.276, 'OVER': 0.311, 'BEGI': 0.457, 'ENDS': 0.321}   NEW(rel=sim) 133 luat
+ boi canh A
+  closure                                      co  4,391  P@k  81.55%  rep  98.32%  R_all  16.00%  hong   810  rong  +2711  loi 20.02% -> 17.56%
+  OLD (21 luat)                                co 27,043  P@k  74.95%  rep  99.43%  R_all  91.55%  hong  6774  rong +13379  loi 20.02% ->  7.85%
+  NEW rel=clf                                  co 28,114  P@k  71.45%  rep  98.86%  R_all  90.22%  hong  8027  rong +11832  loi 20.02% ->  9.26%
+  NEW rel=sim                                  co 27,278  P@k  72.22%  rep  98.81%  R_all  88.43%  hong  7578  rong +11887  loi 20.02% ->  9.21%
+  OLD -> closure -> date                       co 27,474  P@k  74.26%  rep  99.36%  R_all  92.09%  hong  7066  rong +13204  loi 20.02% ->  8.01%
+  NEW rel=sim -> OLD -> closure -> date        co 31,405  P@k  66.59%  rep  98.80%  R_all  93.86%  hong 10486  rong +10175  loi 20.02% -> 10.77%
+ boi canh B
+  closure                                      co  4,391  P@k  81.55%  rep  98.32%  R_all  16.00%  hong   810  rong  +2711  loi 20.02% -> 17.56%
+  OLD (21 luat)                                co 27,043  P@k  74.95%  rep  99.43%  R_all  91.55%  hong  6774  rong +13379  loi 20.02% ->  7.85%
+  NEW rel=clf                                  co 29,785  P@k  65.58%  rep  98.83%  R_all  87.70%  hong 10251  rong  +9054  loi 20.02% -> 11.79%
+  NEW rel=sim                                  co 29,036  P@k  65.95%  rep  98.75%  R_all  85.91%  hong  9886  rong  +9025  loi 20.02% -> 11.81%
+  OLD -> closure -> date                       co 27,485  P@k  74.22%  rep  99.35%  R_all  92.07%  hong  7072  rong +13195  loi 20.02% ->  8.02%
+  NEW rel=sim -> OLD -> closure -> date        co 32,678  P@k  63.41%  rep  98.74%  R_all  92.95%  hong 11943  rong  +8517  loi 20.02% -> 12.28%
+
+======================================================================================================================
+B -- BOI CANH B (nhieu classifier, moi thu du doan): chon tren CONFIRMATION, valid mo mot lan
+======================================================================================================================
+[  758s] B1: chu ky tren do thi nhieu (disc) ...
+[  763s] B1: 436 khoa (chu ky, nhan hien tai) co nhan thay the
+ B1 -- chon margin tren CONFIRMATION:
+   margin 0.00  co  2291  sua  1363  hong   800  rong  +563
+   margin 0.05  co  2025  sua  1240  hong   664  rong  +576
+   margin 0.10  co  1616  sua  1063  hong   450  rong  +613
+   margin 0.20  co  1022  sua   739  hong   194  rong  +545
+   margin 0.30  co   642  sua   470  hong    96  rong  +374
+   -> margin 0.10
+ B2 -- chon (theta, margin) tren CONFIRMATION:
+   theta 0.0 margin 0.00  co  2664  sua  1462  hong  1055  rong  +407
+   theta 0.0 margin 0.02  co  1195  sua   847  hong   234  rong  +613
+   theta 0.0 margin 0.05  co  1072  sua   796  hong   179  rong  +617
+   theta 0.0 margin 0.10  co  1046  sua   778  hong   171  rong  +607
+   theta 0.5 margin 0.00  co  2664  sua  1462  hong  1055  rong  +407
+   theta 0.5 margin 0.02  co  1195  sua   847  hong   234  rong  +613
+   theta 0.5 margin 0.05  co  1072  sua   796  hong   179  rong  +617
+   theta 0.5 margin 0.10  co  1046  sua   778  hong   171  rong  +607
+   theta 0.6 margin 0.00  co  2159  sua  1288  hong   743  rong  +545
+   theta 0.6 margin 0.02  co  1211  sua   851  hong   244  rong  +607
+   theta 0.6 margin 0.05  co  1120  sua   816  hong   206  rong  +610
+   theta 0.6 margin 0.10  co  1102  sua   810  hong   194  rong  +616
+   theta 0.7 margin 0.00  co  2159  sua  1288  hong   743  rong  +545
+   theta 0.7 margin 0.02  co  1211  sua   851  hong   244  rong  +607
+   theta 0.7 margin 0.05  co  1120  sua   816  hong   206  rong  +610
+   theta 0.7 margin 0.10  co  1102  sua   810  hong   194  rong  +616
+   theta 0.8 margin 0.00  co  2159  sua  1288  hong   743  rong  +545
+   theta 0.8 margin 0.02  co  1211  sua   851  hong   244  rong  +607
+   theta 0.8 margin 0.05  co  1120  sua   816  hong   206  rong  +610
+   theta 0.8 margin 0.10  co  1102  sua   810  hong   194  rong  +616
+   theta 0.9 margin 0.00  co  1739  sua  1079  hong   536  rong  +543
+   theta 0.9 margin 0.02  co  1185  sua   816  hong   257  rong  +559
+   theta 0.9 margin 0.05  co  1090  sua   778  hong   218  rong  +560
+   theta 0.9 margin 0.10  co  1041  sua   762  hong   185  rong  +577
+   -> theta 0.0, margin 0.05
+
+ CONFIRMATION (chon cau hinh):
+  E4: OLD -> closure -> date                   co  1,612  P@k  73.57%  rep  89.46%  R_all  28.13%  hong   424  rong   +637  loi  9.28% ->  7.71%
+  truoc: NEW m.05 -> OLD -> closure -> date    co  1,690  P@k  74.08%  rep  89.38%  R_all  29.67%  hong   436  rong   +683  loi  9.28% ->  7.60%
+  B1 -> OLD -> closure -> date                 co  2,088  P@k  68.20%  rep  90.66%  R_all  34.23%  hong   662  rong   +629  loi  9.28% ->  7.73%
+  B2 -> OLD -> closure -> date                 co  1,690  P@k  74.08%  rep  89.38%  R_all  29.67%  hong   436  rong   +683  loi  9.28% ->  7.60%
+  B1 -> B2 -> OLD -> closure -> date           co  2,119  P@k  68.43%  rep  90.76%  R_all  34.89%  hong   667  rong   +649  loi  9.28% ->  7.68%
+   -> chon: truoc: NEW m.05 -> OLD -> closure -> date
+
+ VALID (mo mot lan, in moi dong de doi chieu; dong duoc chon danh dau *):
+    E4: OLD -> closure -> date                 co  5,794  P@k  72.94%  rep  91.93%  R_all  29.14%  hong  1551  rong  +2334  loi 12.13% -> 10.00%
+  * truoc: NEW m.05 -> OLD -> closure -> date  co  6,171  P@k  72.86%  rep  92.55%  R_all  31.21%  hong  1658  rong  +2503  loi 12.13% ->  9.85%
+    B1 -> OLD -> closure -> date               co  8,344  P@k  68.58%  rep  93.41%  R_all  40.09%  hong  2605  rong  +2740  loi 12.13% ->  9.63%
+    B2 -> OLD -> closure -> date               co  6,171  P@k  72.86%  rep  92.55%  R_all  31.21%  hong  1658  rong  +2503  loi 12.13% ->  9.85%
+    B1 -> B2 -> OLD -> closure -> date         co  8,423  P@k  68.50%  rep  93.36%  R_all  40.41%  hong  2636  rong  +2751  loi 12.13% ->  9.62%
+
+ Tung lop rieng tren VALID:
+  B1 margin 0.10                               co  6,467  P@k  70.87%  rep  93.10%  R_all  32.01%  hong  1884  rong  +2383  loi 12.13% ->  9.96%
+  B2 theta 0.0 margin 0.05                     co  3,289  P@k  80.94%  rep  91.21%  R_all  18.21%  hong   627  rong  +1801  loi 12.13% -> 10.49%
+[  959s] xong

@@ -1,0 +1,4 @@
+[     8s] cache K-fold: [96968, 95994, 103322, 99162, 88058] cap moi fold
+[   101s] fold 0: 108829 ung vien sau BH; nhan {'CONTAINS': 56592, 'SIMULTANEOUS': 38770, 'OVERLAP': 11887, 'BEGINS-ON': 1513, 'ENDS-ON': 67}
+[   207s] fold 1: 110686 ung vien sau BH; nhan {'CONTAINS': 60136, 'SIMULTANEOUS': 36943, 'OVERLAP': 11483, 'BEGINS-ON': 1954, 'ENDS-ON': 170}
+[   288s] fold 2: 111510 ung vien sau BH; nhan {'CONTAINS': 60846, 'SIMULTANEOUS': 38120, 'OVERLAP': 11313, 'BEGINS-ON': 1126, 'ENDS-ON': 105}

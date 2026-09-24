@@ -1,0 +1,31 @@
+[    0s] nap train/valid ...
+[   13s] train 400 doc (disc 229 / conf 171), valid 705 doc
+[   19s]   257 luat EV-EV tren disc (in-sample)  acc 91.47%  loi 8.53%
+[   19s]   257 luat EV-EV tren valid             acc 87.87%  loi 12.13%
+[   20s]   classifier EV-TX (273 luat) tren valid: 79.84%
+[   20s]   TX-TX theo lich tren valid: 12464 canh, UNK 65.1%, dung 95.8% trong so da quyet dinh
+[   20s] dung motif ...
+[  317s]   do phu motif tren valid (109,929 cap): 3E 99.7%  3T 92.2%  4EE 99.4%  4ET 95.4%  4TE 96.1%  4TT 90.3%
+[  317s] BASE 257 luat: macro-F1 25.60%  acc 87.87%
+[  317s] do tin cay classifier tren confirmation: {'BEFORE': '94.6%', 'CONTAINS': '40.6%', 'SIMULTANEOUS': '16.3%', 'OVERLAP': '41.7%'}
+[  317s] chu ky gold tren train ...
+[  323s] OLD 21 luat, NEW(rel=clf) 175 luat
+
+======================================================================================================================
+[  323s] Bayes: 518 chu ky co phan phoi (disc, gold)
+
+======================================================================================================================
+B3 -- BOI CANH B, CROSS-FIT tren valid (2 fold theo hash doc; moi thu hoc tu fold kia)
+======================================================================================================================
+fold 0: test 364 doc; B1 550 khoa, margin 0.10; Bayes margin -1.0
+fold 1: test 341 doc; B1 526 khoa, margin 0.00; Bayes margin -1.0
+
+TONG HAI FOLD TEST (= toan bo valid, moi doc duoc cham dung mot lan):
+  E4: OLD -> closure -> date                   co  5,794  P@k  72.94%  rep  91.93%  R_all  29.14%  hong  1551  rong  +2334  loi 12.13% -> 10.00%
+  truoc: NEW m.05 -> OLD -> closure -> date    co  6,171  P@k  72.86%  rep  92.55%  R_all  31.21%  hong  1658  rong  +2503  loi 12.13% ->  9.85%
+  B1 cross-fit                                 co  8,353  P@k  69.66%  rep  93.68%  R_all  40.89%  hong  2534  rong  +2917  loi 12.13% ->  9.47%
+  B1 cross-fit -> OLD -> closure -> date       co  9,173  P@k  67.82%  rep  93.59%  R_all  43.67%  hong  2935  rong  +2887  loi 12.13% ->  9.50%
+  Bayes cross-fit                              co  6,492  P@k  71.63%  rep  93.25%  R_all  32.53%  hong  1842  rong  +2494  loi 12.13% ->  9.86%
+  Bayes cross-fit -> OLD -> closure -> date    co  7,722  P@k  69.68%  rep  93.22%  R_all  37.63%  hong  2324  rong  +2692  loi 12.13% ->  9.68%
+  B1 -> Bayes -> OLD -> closure -> date        co  9,612  P@k  66.75%  rep  93.72%  R_all  45.11%  hong  3179  rong  +2834  loi 12.13% ->  9.55%
+[  482s] xong

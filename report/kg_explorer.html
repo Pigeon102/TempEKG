@@ -1,0 +1,563 @@
+<title>Alive! Tour Graph</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground:      #f4f5f7;
+    --surface:     #ffffff;
+    --surface-2:   #eceef2;
+    --ink:         #1b1f26;
+    --ink-2:       #4a5261;
+    --ink-3:       #7d8695;
+    --rule:        #d7dbe2;
+
+    --event:       #d9682c;
+    --entity:      #2f7fae;
+    --span:        #8a94a3;
+    --anchor:      #2f8f63;
+    --duration:    #a8851c;
+
+    --target:      #c0392b;
+    --input:       #3f8f5f;
+    --weak:        #b08a1e;
+
+    --canvas-bg:   #fbfbfc;
+    --shadow:      0 1px 2px rgba(20,25,35,.07), 0 4px 14px rgba(20,25,35,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:    #14171c;
+      --surface:   #1b1f26;
+      --surface-2: #232830;
+      --ink:       #e6e9ee;
+      --ink-2:     #a9b2bf;
+      --ink-3:     #78818f;
+      --rule:      #2e343d;
+
+      --event:     #e8834a;
+      --entity:    #4fa3d1;
+      --span:      #7c8899;
+      --anchor:    #5cb98b;
+      --duration:  #c9a227;
+
+      --target:    #e0605a;
+      --input:     #5cb07c;
+      --weak:      #cfa53a;
+
+      --canvas-bg: #171b21;
+      --shadow:    0 1px 2px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:    #14171c;
+    --surface:   #1b1f26;
+    --surface-2: #232830;
+    --ink:       #e6e9ee;
+    --ink-2:     #a9b2bf;
+    --ink-3:     #78818f;
+    --rule:      #2e343d;
+    --event:     #e8834a;
+    --entity:    #4fa3d1;
+    --span:      #7c8899;
+    --anchor:    #5cb98b;
+    --duration:  #c9a227;
+    --target:    #e0605a;
+    --input:     #5cb07c;
+    --weak:      #cfa53a;
+    --canvas-bg: #171b21;
+    --shadow:    0 1px 2px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.25);
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Instrument Sans", system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 1240px; margin: 0 auto; padding-inline: 16px; padding-block: 24px 48px; }
+
+  header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; margin-bottom: 4px; }
+  h1 { font-size: 22px; font-weight: 600; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+  .docid { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 11px; color: var(--ink-3); }
+  .lede { color: var(--ink-2); max-width: 66ch; margin: 6px 0 20px; }
+
+  h2 { font-size: 15px; font-weight: 600; margin: 32px 0 10px; letter-spacing: -.005em; }
+  h2 .n { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-3); margin-right: 8px; }
+  p { margin: 0 0 12px; max-width: 72ch; }
+
+  .src { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; }
+  .src ol { margin: 0; padding-left: 26px; }
+  .src li { margin: 3px 0; color: var(--ink-2); }
+  .src li.hit { color: var(--ink); }
+  .src mark {
+    background: color-mix(in srgb, var(--event) 22%, transparent);
+    color: inherit; padding: 0 2px; border-radius: 3px; font-weight: 500;
+  }
+
+  .toolbar {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    margin: 0 0 10px;
+  }
+  .chip {
+    font: inherit; font-size: 12px; font-weight: 500;
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--surface); color: var(--ink-2);
+    border: 1px solid var(--rule); border-radius: 999px;
+    padding: 5px 12px; cursor: pointer;
+    transition: border-color .12s, color .12s, background .12s;
+  }
+  .chip:hover { border-color: var(--ink-3); }
+  .chip:focus-visible { outline: 2px solid var(--entity); outline-offset: 2px; }
+  .chip[aria-pressed="false"] { opacity: .42; }
+  .chip .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .chip .bar { width: 15px; height: 0; flex: none; border-top-width: 2px; border-top-style: solid; }
+  .sep { width: 1px; align-self: stretch; background: var(--rule); margin: 2px 4px; }
+
+  .stage {
+    position: relative;
+    background: var(--canvas-bg);
+    border: 1px solid var(--rule); border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  #cv { display: block; width: 100%; height: 520px; touch-action: none; cursor: grab; }
+  #cv.drag { cursor: grabbing; }
+  @media (max-width: 640px) { #cv { height: 400px; } }
+
+  .panel {
+    position: absolute; top: 10px; right: 10px; width: 264px; max-width: calc(100% - 20px);
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 7px;
+    box-shadow: var(--shadow); padding: 13px 14px; font-size: 12.5px;
+  }
+  .panel .k { font-family: "JetBrains Mono", monospace; font-size: 10px; text-transform: uppercase;
+              letter-spacing: .07em; color: var(--ink-3); }
+  .panel h3 { margin: 3px 0 9px; font-size: 15px; font-weight: 600; }
+  .panel dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; }
+  .panel dt { color: var(--ink-3); font-size: 11.5px; }
+  .panel dd { margin: 0; font-family: "JetBrains Mono", monospace; font-size: 11.5px;
+              overflow-wrap: anywhere; }
+  .hint { color: var(--ink-3); font-size: 12px; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+  .scroll { overflow-x: auto; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+  th, td { text-align: left; padding: 7px 11px; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); font-weight: 600; }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  code, .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 11.5px; }
+  .tag { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 10.5px;
+         font-family: "JetBrains Mono", monospace; border: 1px solid; }
+
+  .cols { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
+  .note { background: var(--surface-2); border-left: 3px solid var(--event);
+          padding: 11px 14px; border-radius: 0 5px 5px 0; color: var(--ink-2); }
+  .note b { color: var(--ink); font-weight: 600; }
+  footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--rule);
+           color: var(--ink-3); font-size: 12px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Alive! Tour</h1>
+    <span class="docid">e5b5bf720b9e4ee491f5d7c49fd26331 · MAVEN-ERE train</span>
+  </header>
+  <p class="lede">
+    Một document thật, dựng thành KG hai tầng. Đủ nhỏ để nhìn hết: 7 event, 2 TIMEX,
+    5 entity, 6 span, 46 cạnh. Bấm vào node tròn để xem thuộc tính.
+  </p>
+
+  <h2><span class="n">1</span>Văn bản gốc</h2>
+  <div class="src">
+    <ol start="0">
+      <li>The Alive!</li>
+      <li class="hit">Tour was a concert <mark>tour</mark> by Kiss, in support of their 1975 live album "Alive!".</li>
+      <li class="hit">At the time of the European leg of the tour the "Destroyer" album was already
+        <mark>released</mark> and the band <mark>performed</mark> songs from that album, but they
+        <mark>wore</mark> the "Alive" costumes and had the "Alive" stage show.</li>
+      <li class="hit">At the time, the tour was <mark>referred</mark> to under the headline "Kiss tour", not "Alive!</li>
+      <li>Tour" or "Destroyer Tour".</li>
+      <li class="hit">At the Cobo Hall show, Paul Stanley <mark>starts</mark> his guitar smashing
+        <mark>ritual</mark> after "Let Me Go, Rock 'n' Roll", until it was eventually done after
+        "Rock and Roll All Nite" in later years.</li>
+    </ol>
+  </div>
+
+  <h2><span class="n">2</span>Đồ thị</h2>
+  <div class="toolbar" id="bar">
+    <button class="chip" data-kind="event"  aria-pressed="true"><span class="dot" style="background:var(--event)"></span>event <span class="mono">7</span></button>
+    <button class="chip" data-kind="entity" aria-pressed="true"><span class="dot" style="background:var(--entity)"></span>entity <span class="mono">5</span></button>
+    <button class="chip" data-kind="span"   aria-pressed="true"><span class="dot" style="background:var(--span)"></span>span <span class="mono">6</span></button>
+    <button class="chip" data-kind="timex"  aria-pressed="true"><span class="dot" style="background:var(--anchor)"></span>timex <span class="mono">2</span></button>
+    <span class="sep"></span>
+    <button class="chip" data-cls="input"  aria-pressed="true"><span class="bar" style="border-color:var(--input)"></span>HAS_ARG <span class="mono">18</span></button>
+    <button class="chip" data-cls="weak"   aria-pressed="true"><span class="bar" style="border-color:var(--weak);border-top-style:dashed"></span>weak <span class="mono">5</span></button>
+    <button class="chip" data-cls="target" aria-pressed="true"><span class="bar" style="border-color:var(--target)"></span>temporal <span class="mono">23</span></button>
+  </div>
+
+  <div class="stage">
+    <canvas id="cv"></canvas>
+    <div class="panel" id="panel">
+      <div class="k">chọn node</div>
+      <h3 style="margin-bottom:6px">Chưa chọn</h3>
+      <p class="hint" style="margin:0">Bấm một node tròn để xem thuộc tính đầy đủ. Kéo để di chuyển.</p>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:14px">
+    <b>Ba lớp cạnh tách vật lý.</b> Xanh là <code>input_edges</code> — detector được thấy.
+    Vàng đứt nét là <code>weak_edges</code>, dùng được nhưng không phải bằng chứng độc lập:
+    87,0% cặp SUBEVENT trùng nhãn CONTAINS. Đỏ là <code>target_edges</code> — thứ đang audit,
+    <b>không bao giờ</b> vào feature.
+  </div>
+
+  <h2><span class="n">3</span>Bảy event và thuộc tính</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>trigger</th><th>type</th><th class="num">câu</th><th>bucket</th>
+        <th class="num">n_role</th><th>roleset</th><th>etypeset</th></tr></thead>
+      <tbody id="evrows"></tbody>
+    </table>
+  </div>
+  <p class="hint" style="margin-top:8px">
+    <code>roleset</code> và <code>etypeset</code> là hai trục KG cũ không lưu, và chúng sinh
+    ra nhiều điều kiện nhất trong miner: 334.895 và 159.965 trên toàn train.
+  </p>
+
+  <h2><span class="n">4</span>Tám anchored pair</h2>
+  <p>Cặp event chia sẻ ít nhất một anchor. Chỉ 25,8% cặp EV-EV có nhãn đạt điều kiện này trên
+     toàn corpus — 74,2% còn lại không chung gì, nên motif kiểu PaTeCon mù với ba phần tư dữ liệu.</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>A</th><th>B</th><th>cặp vai</th><th class="num">n</th>
+        <th>strength</th><th class="num">sdist</th><th>order</th></tr></thead>
+      <tbody id="pairrows"></tbody>
+    </table>
+  </div>
+
+  <h2><span class="n">5</span>Từ một cặp ra điều kiện</h2>
+  <p>Lấy <code>Traveling(tour) → Hold(performed)</code>, nhãn vàng là CONTAINS. Feature sinh
+     ra <b>không đọc nhãn</b>:</p>
+  <div class="cols">
+    <div class="scroll"><table>
+      <thead><tr><th colspan="2">scalar</th></tr></thead>
+      <tbody>
+        <tr><td>type_pair</td><td class="mono">(Traveling, Hold)</td></tr>
+        <tr><td>order</td><td class="mono">fwd</td></tr>
+        <tr><td>sdist</td><td class="mono">1</td></tr>
+        <tr><td>bucket_a / b</td><td class="mono">early / early</td></tr>
+        <tr><td>nrole_a / b</td><td class="mono">2 / 3</td></tr>
+        <tr><td>shares_anchor</td><td class="mono">True</td></tr>
+        <tr><td>has_org_a / loc_a</td><td class="mono">True / True</td></tr>
+      </tbody></table></div>
+    <div class="scroll"><table>
+      <thead><tr><th colspan="2">set</th></tr></thead>
+      <tbody>
+        <tr><td>roleset_a</td><td class="mono">{Agent, Location}</td></tr>
+        <tr><td>roleset_b</td><td class="mono">{Agent, Content, Location}</td></tr>
+        <tr><td>roleset_shared</td><td class="mono">{Agent, Location}</td></tr>
+        <tr><td>etypeset_shared</td><td class="mono">{Location, Organization}</td></tr>
+        <tr><td>anchor_roles</td><td class="mono">{(Agent,Agent), (Location,Location)}</td></tr>
+      </tbody></table></div>
+  </div>
+  <p style="margin-top:12px">Từ đó sinh <b>56 điều kiện ứng viên</b> — 19 EQ, 15 HAS, 15 CNT, 7 MIX:</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>dạng</th><th>nghĩa</th><th>ví dụ từ chính cặp này</th><th class="num">dùng trên train</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag" style="border-color:var(--event);color:var(--event)">EQ</span></td>
+            <td>attr = v</td><td class="mono">EQ(type_a=Traveling)</td><td class="num">1.146.555</td></tr>
+        <tr><td><span class="tag" style="border-color:var(--entity);color:var(--entity)">CNT</span></td>
+            <td>|attr| ≥ k</td><td class="mono">CNT(roleset_shared&gt;=2)</td><td class="num">621.710</td></tr>
+        <tr><td><span class="tag" style="border-color:var(--anchor);color:var(--anchor)">HAS</span></td>
+            <td>v ∈ attr</td><td class="mono">HAS(roleset_b=Content)</td><td class="num">459.811</td></tr>
+        <tr><td><span class="tag" style="border-color:var(--duration);color:var(--duration)">MIX</span></td>
+            <td>|attr| ≥ 2</td><td class="mono">MIX(roleset_a)</td><td class="num">136.879</td></tr>
+        <tr><td><span class="tag" style="border-color:var(--span);color:var(--span)">ALL</span></td>
+            <td>attr = {v}</td><td class="mono">ALL(etypeset_a=Person)</td><td class="num">105.234</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2><span class="n">6</span>Tầng 2 cho chính document này</h2>
+  <p>Mỗi node thành hai biến điểm mút. Mỗi nhãn thành bất đẳng thức. PC-2 trên Allen 13×13.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>cạnh</th><th>Allen</th><th>ràng buộc điểm mút</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">Traveling CONTAINS Hold</td><td class="mono">{di}</td><td class="mono">s_T &lt; s_H ∧ e_H &lt; e_T</td></tr>
+      <tr><td class="mono">Publishing BEFORE Hold</td><td class="mono">{b}</td><td class="mono">e_P &lt; s_H</td></tr>
+      <tr><td class="mono">Wearing OVERLAP Hold</td><td class="mono">{o}</td><td class="mono">s_W &lt; s_H &lt; e_W &lt; e_H</td></tr>
+      <tr><td class="mono">Traveling SIMULTANEOUS Name_conferral</td><td class="mono">{e}</td><td class="mono">s_T = s_N ∧ e_T = e_N</td></tr>
+      <tr><td class="mono">1975 OVERLAP Traveling</td><td class="mono">{o}</td><td class="mono">s_1975 &lt; s_T &lt; e_1975 &lt; e_T</td></tr>
+    </tbody>
+  </table></div>
+  <p style="margin-top:10px">Kết quả: <b>CONSISTENT</b>. Đúng như 2.913/2.913 document trên gold —
+     corpus nhất quán theo cấu trúc, nên không có mâu thuẫn cứng nào để tìm.</p>
+
+  <footer>
+    Sinh từ <code>tempekg_kg/graph/train.jsonl</code>. Kiến trúc đầy đủ:
+    <code>report/ARCHITECTURE.md</code>. Mọi con số đo trên 2.913 document train.
+  </footer>
+</div>
+
+<script>
+const DATA = {"doc_id":"e5b5bf720b9e4ee491f5d7c49fd26331","nodes":[{"id":"EVENT_ef9f33dee51681465f95261b164e5e55","kind":"event","label":"starts","type":"Process_start","sent":5,"bucket":"mid","nrole":3,"roleset":["Agent","Location","Patient"],"etypeset":["Person"]},{"id":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","kind":"event","label":"released","type":"Publishing","sent":2,"bucket":"early","nrole":2,"roleset":["Author","Category"],"etypeset":["Organization"]},{"id":"EVENT_f3368872311ce38db8ef471fbb664e4f","kind":"event","label":"referred","type":"Name_conferral","sent":3,"bucket":"mid","nrole":2,"roleset":["New_name","Patient"],"etypeset":[]},{"id":"EVENT_60fe5ddf6fcca0a1f6ede15f45c7ace2","kind":"event","label":"ritual","type":"Rite","sent":5,"bucket":"mid","nrole":3,"roleset":["Content","Location","Patient"],"etypeset":["Person"]},{"id":"EVENT_4951303ac8555d7c719a3aa53fa74306","kind":"event","label":"wore","type":"Wearing","sent":2,"bucket":"early","nrole":3,"roleset":["Agent","Clothes","Location"],"etypeset":["Art","Location","Organization"]},{"id":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","kind":"event","label":"performed","type":"Hold","sent":2,"bucket":"early","nrole":3,"roleset":["Agent","Content","Location"],"etypeset":["Location","Organization"]},{"id":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","kind":"event","label":"tour","type":"Traveling","sent":1,"bucket":"early","nrole":2,"roleset":["Agent","Location"],"etypeset":["Location","Organization"]},{"id":"TIME_b5c76a102b961772d185de18d100846d","kind":"timex","label":"1975","type":"DATE","anchorable":true,"sent":1},{"id":"TIME_79843ae3d0370beff33951e83a19a839","kind":"timex","label":"later years","type":"DURATION","anchorable":false,"sent":5},{"id":"ENTITY_4e1087ca6b29387190c4d7a9d48654f6","kind":"entity","label":"Kiss","type":"Organization","mentions":["Kiss","band","Kiss"]},{"id":"ENTITY_71018dced0475b788b290f52ba9cf1be","kind":"entity","label":"Destroyer","type":"Art","mentions":["Destroyer","album"]},{"id":"ENTITY_61706f30a7cd4c10b73b538717f44240","kind":"entity","label":"paul stanley","type":"Person","mentions":["paul stanley"]},{"id":"ENTITY_3c7301cf6d352eba7f5c875fdcbbfc5b","kind":"entity","label":"European","type":"Location","mentions":["European"]},{"id":"ENTITY_68046fabb0897334168c77bbb3c057a6","kind":"entity","label":"Alive !","type":"Art","mentions":["Alive !","Alive"]},{"id":"SPAN_4530ebce55db39f1","kind":"span","label":"The Alive !","type":"span","offset":[0,11]},{"id":"SPAN_04504a4a277f8a76","kind":"span","label":"his guitar smashing ritual","type":"span","offset":[481,507]},{"id":"SPAN_25ca249982a79a22","kind":"span","label":"the cobo hall show","type":"span","offset":[440,458]},{"id":"SPAN_e289af77e2c36108","kind":"span","label":"Kiss tour","type":"span","offset":[373,382]},{"id":"SPAN_1a6e132ae1610c05","kind":"span","label":"guitar smashing","type":"span","offset":[485,500]},{"id":"SPAN_3cc6ee0fa7874c4b","kind":"span","label":"album","type":"span","offset":[162,167]}],"edges":[{"s":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","t":"ENTITY_4e1087ca6b29387190c4d7a9d48654f6","cls":"input","lab":"Agent"},{"s":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","t":"ENTITY_3c7301cf6d352eba7f5c875fdcbbfc5b","cls":"input","lab":"Location"},{"s":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","t":"ENTITY_4e1087ca6b29387190c4d7a9d48654f6","cls":"input","lab":"Agent"},{"s":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","t":"ENTITY_3c7301cf6d352eba7f5c875fdcbbfc5b","cls":"input","lab":"Location"},{"s":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","t":"SPAN_4530ebce55db39f1","cls":"input","lab":"Content"},{"s":"EVENT_ef9f33dee51681465f95261b164e5e55","t":"ENTITY_61706f30a7cd4c10b73b538717f44240","cls":"input","lab":"Agent"},{"s":"EVENT_ef9f33dee51681465f95261b164e5e55","t":"SPAN_04504a4a277f8a76","cls":"input","lab":"Patient"},{"s":"EVENT_ef9f33dee51681465f95261b164e5e55","t":"SPAN_25ca249982a79a22","cls":"input","lab":"Location"},{"s":"EVENT_f3368872311ce38db8ef471fbb664e4f","t":"SPAN_4530ebce55db39f1","cls":"input","lab":"Patient"},{"s":"EVENT_f3368872311ce38db8ef471fbb664e4f","t":"SPAN_e289af77e2c36108","cls":"input","lab":"New_name"},{"s":"EVENT_4951303ac8555d7c719a3aa53fa74306","t":"ENTITY_4e1087ca6b29387190c4d7a9d48654f6","cls":"input","lab":"Agent"},{"s":"EVENT_4951303ac8555d7c719a3aa53fa74306","t":"ENTITY_68046fabb0897334168c77bbb3c057a6","cls":"input","lab":"Clothes"},{"s":"EVENT_4951303ac8555d7c719a3aa53fa74306","t":"ENTITY_3c7301cf6d352eba7f5c875fdcbbfc5b","cls":"input","lab":"Location"},{"s":"EVENT_60fe5ddf6fcca0a1f6ede15f45c7ace2","t":"ENTITY_61706f30a7cd4c10b73b538717f44240","cls":"input","lab":"Patient"},{"s":"EVENT_60fe5ddf6fcca0a1f6ede15f45c7ace2","t":"SPAN_25ca249982a79a22","cls":"input","lab":"Location"},{"s":"EVENT_60fe5ddf6fcca0a1f6ede15f45c7ace2","t":"SPAN_1a6e132ae1610c05","cls":"input","lab":"Content"},{"s":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","t":"ENTITY_4e1087ca6b29387190c4d7a9d48654f6","cls":"input","lab":"Author"},{"s":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","t":"SPAN_3cc6ee0fa7874c4b","cls":"input","lab":"Category"},{"s":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","t":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","cls":"weak","lab":"PRECONDITION"},{"s":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","t":"EVENT_4951303ac8555d7c719a3aa53fa74306","cls":"weak","lab":"PRECONDITION"},{"s":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","t":"EVENT_ef9f33dee51681465f95261b164e5e55","cls":"weak","lab":"SUBEVENT"},{"s":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","t":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","cls":"weak","lab":"SUBEVENT"},{"s":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","t":"EVENT_4951303ac8555d7c719a3aa53fa74306","cls":"weak","lab":"SUBEVENT"},{"s":"EVENT_4951303ac8555d7c719a3aa53fa74306","t":"EVENT_ef9f33dee51681465f95261b164e5e55","cls":"target","lab":"BEFORE"},{"s":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","t":"TIME_79843ae3d0370beff33951e83a19a839","cls":"target","lab":"BEFORE"},{"s":"EVENT_4951303ac8555d7c719a3aa53fa74306","t":"TIME_79843ae3d0370beff33951e83a19a839","cls":"target","lab":"BEFORE"},{"s":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","t":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","cls":"target","lab":"BEFORE"},{"s":"EVENT_f3368872311ce38db8ef471fbb664e4f","t":"TIME_79843ae3d0370beff33951e83a19a839","cls":"target","lab":"BEFORE"},{"s":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","t":"TIME_79843ae3d0370beff33951e83a19a839","cls":"target","lab":"BEFORE"},{"s":"EVENT_ef9f33dee51681465f95261b164e5e55","t":"TIME_79843ae3d0370beff33951e83a19a839","cls":"target","lab":"BEFORE"},{"s":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","t":"EVENT_f3368872311ce38db8ef471fbb664e4f","cls":"target","lab":"BEFORE"},{"s":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","t":"EVENT_ef9f33dee51681465f95261b164e5e55","cls":"target","lab":"BEFORE"},{"s":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","t":"TIME_79843ae3d0370beff33951e83a19a839","cls":"target","lab":"BEFORE"},{"s":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","t":"EVENT_4951303ac8555d7c719a3aa53fa74306","cls":"target","lab":"BEFORE"},{"s":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","t":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","cls":"target","lab":"BEFORE"},{"s":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","t":"EVENT_ef9f33dee51681465f95261b164e5e55","cls":"target","lab":"BEFORE"},{"s":"EVENT_f3368872311ce38db8ef471fbb664e4f","t":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","cls":"target","lab":"CONTAINS"},{"s":"EVENT_f3368872311ce38db8ef471fbb664e4f","t":"EVENT_ef9f33dee51681465f95261b164e5e55","cls":"target","lab":"CONTAINS"},{"s":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","t":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","cls":"target","lab":"CONTAINS"},{"s":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","t":"EVENT_ef9f33dee51681465f95261b164e5e55","cls":"target","lab":"CONTAINS"},{"s":"EVENT_f3368872311ce38db8ef471fbb664e4f","t":"EVENT_4951303ac8555d7c719a3aa53fa74306","cls":"target","lab":"CONTAINS"},{"s":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","t":"EVENT_4951303ac8555d7c719a3aa53fa74306","cls":"target","lab":"CONTAINS"},{"s":"TIME_b5c76a102b961772d185de18d100846d","t":"EVENT_f3368872311ce38db8ef471fbb664e4f","cls":"target","lab":"OVERLAP"},{"s":"TIME_b5c76a102b961772d185de18d100846d","t":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","cls":"target","lab":"OVERLAP"},{"s":"EVENT_4951303ac8555d7c719a3aa53fa74306","t":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","cls":"target","lab":"OVERLAP"},{"s":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","t":"EVENT_f3368872311ce38db8ef471fbb664e4f","cls":"target","lab":"SIMULTANEOUS"}],"pairs":[{"a":"EVENT_4951303ac8555d7c719a3aa53fa74306","b":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","roles":[["Agent","Agent"],["Location","Location"]],"n":2,"strength":"entity","sdist":1,"torder":"rev"},{"a":"EVENT_4951303ac8555d7c719a3aa53fa74306","b":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","roles":[["Agent","Agent"],["Location","Location"]],"n":2,"strength":"entity","sdist":0,"torder":"rev"},{"a":"EVENT_4951303ac8555d7c719a3aa53fa74306","b":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","roles":[["Agent","Author"]],"n":1,"strength":"entity","sdist":0,"torder":"rev"},{"a":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","b":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","roles":[["Agent","Agent"],["Location","Location"]],"n":2,"strength":"entity","sdist":1,"torder":"fwd"},{"a":"EVENT_8ce7a0797aa1d241b9fc73880ca1e071","b":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","roles":[["Agent","Author"]],"n":1,"strength":"entity","sdist":1,"torder":"fwd"},{"a":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","b":"EVENT_fa1ff462e052c11c336eb8ebb04d18f8","roles":[["Agent","Author"]],"n":1,"strength":"entity","sdist":0,"torder":"rev"},{"a":"EVENT_dc66ef0f9d0a5f29f993f0a365f77595","b":"EVENT_f3368872311ce38db8ef471fbb664e4f","roles":[["Content","Patient"]],"n":1,"strength":"span","sdist":1,"torder":"fwd"},{"a":"EVENT_60fe5ddf6fcca0a1f6ede15f45c7ace2","b":"EVENT_ef9f33dee51681465f95261b164e5e55","roles":[["Patient","Agent"],["Location","Location"]],"n":2,"strength":"mixed","sdist":0,"torder":"rev"}]};
+
+const cv = document.getElementById('cv');
+const ctx = cv.getContext('2d');
+const panel = document.getElementById('panel');
+const css = getComputedStyle(document.documentElement);
+let C = {};
+function readTokens() {
+  const g = n => css.getPropertyValue(n).trim();
+  C = { event:g('--event'), entity:g('--entity'), span:g('--span'), anchor:g('--anchor'),
+        duration:g('--duration'), target:g('--target'), input:g('--input'), weak:g('--weak'),
+        ink:g('--ink'), ink2:g('--ink-2'), ink3:g('--ink-3'), surface:g('--surface'),
+        canvas:g('--canvas-bg'), rule:g('--rule') };
+}
+readTokens();
+
+function nodeColor(n) {
+  if (n.kind === 'event') return C.event;
+  if (n.kind === 'entity') return C.entity;
+  if (n.kind === 'span') return C.span;
+  return n.anchorable ? C.anchor : C.duration;
+}
+function edgeColor(cls) { return cls === 'target' ? C.target : cls === 'input' ? C.input : C.weak; }
+
+const byId = new Map();
+const N = DATA.nodes.map((n, i) => {
+  const a = (i / DATA.nodes.length) * Math.PI * 2;
+  const o = { ...n, x: 300 + Math.cos(a) * 170, y: 250 + Math.sin(a) * 150, vx: 0, vy: 0, deg: 0 };
+  byId.set(n.id, o); return o;
+});
+DATA.edges.forEach(e => { const a = byId.get(e.s), b = byId.get(e.t); if (a) a.deg++; if (b) b.deg++; });
+N.forEach(n => { n.r = 9 + Math.min(11, Math.sqrt(n.deg) * 3.1); });
+const E = DATA.edges.map(e => ({ ...e, a: byId.get(e.s), b: byId.get(e.t) })).filter(e => e.a && e.b);
+
+const show = { event: true, entity: true, span: true, timex: true, input: true, weak: true, target: true };
+let sel = null, drag = null, hover = null, W = 0, H = 0;
+
+function resize() {
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const r = cv.getBoundingClientRect();
+  W = r.width; H = r.height;
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+new ResizeObserver(resize).observe(cv);
+resize();
+N.forEach(n => { n.x = W / 2 + (n.x - 300) * 0.9; n.y = H / 2 + (n.y - 250) * 0.9; });
+
+function vis(n) { return show[n.kind]; }
+function visE(e) { return show[e.cls] && vis(e.a) && vis(e.b); }
+
+function step() {
+  const cx = W / 2, cy = H / 2;
+  for (const n of N) {
+    if (!vis(n)) continue;
+    n.vx += (cx - n.x) * 0.0016;
+    n.vy += (cy - n.y) * 0.0020;
+  }
+  for (let i = 0; i < N.length; i++) {
+    const a = N[i]; if (!vis(a)) continue;
+    for (let j = i + 1; j < N.length; j++) {
+      const b = N[j]; if (!vis(b)) continue;
+      let dx = b.x - a.x, dy = b.y - a.y;
+      let d2 = dx * dx + dy * dy; if (d2 < 1) d2 = 1;
+      const d = Math.sqrt(d2);
+      const f = 2600 / d2;
+      const ux = dx / d, uy = dy / d;
+      a.vx -= ux * f; a.vy -= uy * f; b.vx += ux * f; b.vy += uy * f;
+      const min = a.r + b.r + 8;
+      if (d < min) { const p = (min - d) * 0.32; a.vx -= ux * p; a.vy -= uy * p; b.vx += ux * p; b.vy += uy * p; }
+    }
+  }
+  for (const e of E) {
+    if (!visE(e)) continue;
+    const dx = e.b.x - e.a.x, dy = e.b.y - e.a.y;
+    const d = Math.hypot(dx, dy) || 1;
+    const rest = e.cls === 'input' ? 92 : 128;
+    const f = (d - rest) * 0.0075;
+    const ux = dx / d, uy = dy / d;
+    e.a.vx += ux * f; e.a.vy += uy * f; e.b.vx -= ux * f; e.b.vy -= uy * f;
+  }
+  for (const n of N) {
+    if (n === drag) { n.vx = n.vy = 0; continue; }
+    n.vx *= 0.86; n.vy *= 0.86;
+    n.x += Math.max(-9, Math.min(9, n.vx));
+    n.y += Math.max(-9, Math.min(9, n.vy));
+    n.x = Math.max(n.r + 6, Math.min(W - n.r - 6, n.x));
+    n.y = Math.max(n.r + 6, Math.min(H - n.r - 6, n.y));
+  }
+}
+
+function curve(e) {
+  const mx = (e.a.x + e.b.x) / 2, my = (e.a.y + e.b.y) / 2;
+  const dx = e.b.x - e.a.x, dy = e.b.y - e.a.y;
+  const d = Math.hypot(dx, dy) || 1;
+  const bow = e.cls === 'target' ? 0.13 : e.cls === 'weak' ? -0.13 : 0.05;
+  return { cx: mx - dy * bow, cy: my + dx * bow, d };
+}
+
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+  const focus = sel || hover;
+  const near = new Set();
+  if (focus) { near.add(focus.id); for (const e of E) { if (!visE(e)) continue;
+    if (e.a.id === focus.id) near.add(e.b.id); if (e.b.id === focus.id) near.add(e.a.id); } }
+
+  for (const e of E) {
+    if (!visE(e)) continue;
+    const on = !focus || e.a.id === focus.id || e.b.id === focus.id;
+    const { cx, cy } = curve(e);
+    ctx.save();
+    ctx.globalAlpha = on ? (focus ? 0.95 : 0.62) : 0.07;
+    ctx.strokeStyle = edgeColor(e.cls);
+    ctx.lineWidth = e.cls === 'target' ? 1.7 : 1.3;
+    ctx.setLineDash(e.cls === 'weak' ? [5, 4] : []);
+    ctx.beginPath();
+    ctx.moveTo(e.a.x, e.a.y);
+    ctx.quadraticCurveTo(cx, cy, e.b.x, e.b.y);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    // arrowhead at the target end, pulled back to the node rim
+    const ax = e.b.x - cx, ay = e.b.y - cy;
+    const al = Math.hypot(ax, ay) || 1;
+    const ux = ax / al, uy = ay / al;
+    const tipx = e.b.x - ux * (e.b.r + 2), tipy = e.b.y - uy * (e.b.r + 2);
+    const ang = Math.atan2(uy, ux), s = 6.5;
+    ctx.fillStyle = edgeColor(e.cls);
+    ctx.beginPath();
+    ctx.moveTo(tipx, tipy);
+    ctx.lineTo(tipx - s * Math.cos(ang - 0.42), tipy - s * Math.sin(ang - 0.42));
+    ctx.lineTo(tipx - s * Math.cos(ang + 0.42), tipy - s * Math.sin(ang + 0.42));
+    ctx.closePath(); ctx.fill();
+    if (on && focus) {
+      ctx.font = '500 10px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const lx = 0.25 * e.a.x + 0.5 * cx + 0.25 * e.b.x;
+      const ly = 0.25 * e.a.y + 0.5 * cy + 0.25 * e.b.y;
+      const w = ctx.measureText(e.lab).width + 8;
+      ctx.globalAlpha = 0.95; ctx.fillStyle = C.surface;
+      ctx.fillRect(lx - w / 2, ly - 7, w, 14);
+      ctx.fillStyle = edgeColor(e.cls);
+      ctx.fillText(e.lab, lx, ly);
+    }
+    ctx.restore();
+  }
+
+  for (const n of N) {
+    if (!vis(n)) continue;
+    const on = !focus || near.has(n.id);
+    ctx.save();
+    ctx.globalAlpha = on ? 1 : 0.16;
+    ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+    ctx.fillStyle = nodeColor(n); ctx.fill();
+    if (n === sel) { ctx.lineWidth = 2.5; ctx.strokeStyle = C.ink; ctx.stroke(); }
+    else if (n.kind === 'timex' && !n.anchorable) {
+      ctx.lineWidth = 1.6; ctx.setLineDash([3, 3]); ctx.strokeStyle = C.canvas; ctx.stroke(); ctx.setLineDash([]);
+    }
+    ctx.font = '500 11px "Instrument Sans", system-ui, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    const t = n.label.length > 17 ? n.label.slice(0, 16) + '…' : n.label;
+    const w = ctx.measureText(t).width;
+    ctx.globalAlpha = on ? 0.92 : 0.12;
+    ctx.fillStyle = C.canvas;
+    ctx.fillRect(n.x - w / 2 - 3, n.y + n.r + 3, w + 6, 14);
+    ctx.globalAlpha = on ? 1 : 0.2;
+    ctx.fillStyle = C.ink;
+    ctx.fillText(t, n.x, n.y + n.r + 4);
+    ctx.restore();
+  }
+}
+
+let frames = 0;
+function loop() { if (frames < 100000) { step(); draw(); frames++; } requestAnimationFrame(loop); }
+loop();
+
+function at(x, y) {
+  for (let i = N.length - 1; i >= 0; i--) {
+    const n = N[i]; if (!vis(n)) continue;
+    if ((x - n.x) ** 2 + (y - n.y) ** 2 <= (n.r + 5) ** 2) return n;
+  }
+  return null;
+}
+function pos(ev) { const r = cv.getBoundingClientRect(); return [ev.clientX - r.left, ev.clientY - r.top]; }
+
+cv.addEventListener('pointerdown', ev => {
+  const [x, y] = pos(ev); const n = at(x, y);
+  if (n) { drag = n; sel = n; cv.classList.add('drag'); cv.setPointerCapture(ev.pointerId); info(n); }
+  else { sel = null; info(null); }
+});
+cv.addEventListener('pointermove', ev => {
+  const [x, y] = pos(ev);
+  if (drag) { drag.x = x; drag.y = y; return; }
+  const n = at(x, y);
+  if (n !== hover) { hover = n; cv.style.cursor = n ? 'pointer' : 'grab'; }
+});
+cv.addEventListener('pointerup', () => { drag = null; cv.classList.remove('drag'); });
+cv.addEventListener('pointerleave', () => { drag = null; hover = null; });
+
+function esc(s) { return String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])); }
+
+function info(n) {
+  if (!n) {
+    panel.innerHTML = '<div class="k">chọn node</div><h3 style="margin-bottom:6px">Chưa chọn</h3>' +
+      '<p class="hint" style="margin:0">Bấm một node tròn để xem thuộc tính đầy đủ. Kéo để di chuyển.</p>';
+    return;
+  }
+  const rows = [];
+  const add = (k, v) => rows.push('<dt>' + k + '</dt><dd>' + esc(v) + '</dd>');
+  add('kind', n.kind);
+  add('type', n.type);
+  if (n.sent !== undefined) add('câu', n.sent);
+  if (n.kind === 'event') {
+    add('bucket', n.bucket);
+    add('n_role', n.nrole);
+    add('roleset', n.roleset.length ? n.roleset.join(', ') : '∅');
+    add('etypeset', n.etypeset.length ? n.etypeset.join(', ') : '∅');
+  }
+  if (n.kind === 'timex') add('anchorable', n.anchorable ? 'có' : 'không');
+  if (n.kind === 'entity') add('mentions', n.mentions.join(', '));
+  if (n.kind === 'span') add('offset', '[' + n.offset.join(', ') + ']');
+  add('bậc', n.deg);
+  const links = E.filter(e => visE(e) && (e.a.id === n.id || e.b.id === n.id))
+    .map(e => {
+      const out = e.a.id === n.id;
+      const o = out ? e.b : e.a;
+      return '<div style="margin-top:3px"><span style="color:' + edgeColor(e.cls) + '">' +
+        (out ? '→ ' : '← ') + esc(e.lab) + '</span> <span style="color:var(--ink-3)">' + esc(o.label) + '</span></div>';
+    }).join('');
+  panel.innerHTML = '<div class="k">' + esc(n.id.slice(0, 20)) + '</div>' +
+    '<h3>' + esc(n.label) + '</h3><dl>' + rows.join('') + '</dl>' +
+    '<div class="k" style="margin-top:11px">cạnh</div><div class="mono" style="font-size:11px">' + links + '</div>';
+}
+
+document.getElementById('bar').addEventListener('click', ev => {
+  const b = ev.target.closest('.chip'); if (!b) return;
+  const key = b.dataset.kind || b.dataset.cls;
+  show[key] = !show[key];
+  b.setAttribute('aria-pressed', String(show[key]));
+  if (sel && !vis(sel)) { sel = null; info(null); }
+  frames = 0;
+});
+
+// tables
+const ev = N.filter(n => n.kind === 'event').sort((a, b) => a.sent - b.sent);
+document.getElementById('evrows').innerHTML = ev.map(n =>
+  '<tr><td class="mono">' + esc(n.label) + '</td><td class="mono">' + esc(n.type) + '</td>' +
+  '<td class="num">' + n.sent + '</td><td class="mono">' + n.bucket + '</td>' +
+  '<td class="num">' + n.nrole + '</td><td class="mono">' + esc(n.roleset.join(', ')) + '</td>' +
+  '<td class="mono">' + esc(n.etypeset.join(', ') || '∅') + '</td></tr>').join('');
+
+document.getElementById('pairrows').innerHTML = DATA.pairs.map(p => {
+  const a = byId.get(p.a), b = byId.get(p.b);
+  return '<tr><td class="mono">' + esc(a.label) + '</td><td class="mono">' + esc(b.label) + '</td>' +
+    '<td class="mono">' + esc(p.roles.map(r => '(' + r.join(',') + ')').join(' ')) + '</td>' +
+    '<td class="num">' + p.n + '</td><td class="mono">' + p.strength + '</td>' +
+    '<td class="num">' + p.sdist + '</td><td class="mono">' + p.torder + '</td></tr>';
+}).join('');
+
+const mq = window.matchMedia('(prefers-color-scheme: dark)');
+mq.addEventListener && mq.addEventListener('change', () => { readTokens(); });
+</script>

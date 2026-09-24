@@ -1,0 +1,37 @@
+ENDS-ON TE: 10 instances (train+valid). Head=A (stored s), tail=B (stored t)
+
+[DISC] 0f761601 | 1989 Southeast Asian Games  A='1965 [DATE]'  B='hosted'  sent-dist=0
+   s6: Malaysia previously also [B hosted B] the [A 1965 A] games and the 1971 games , when the Southeast Asian Games were known as the Southeast Asian Peninsular Games at those times .
+
+[DISC] 1273db86 | Midburn  A='May [DATE]'  B='culminates'  sent-dist=0
+   s5: The burn is held every year in [A May A] or June , around the Hebrew holiday of `` Shavuot '' ( Pentecost ) , and [B culminates B] in a bonfire of wooden sculptures .
+
+[CONF1] 16bb4b3f | Hurricane Danielle (1998)  A='1200 UTC [TIME]'  B='reached'  sent-dist=0
+   s7: By [A 1200 UTC A] on August 27 , despite continued unfavorable conditions , Danielle [B reached B] a second peak intensity equal to the first .
+
+[CONF1] 365e6bdd | Third Crusade  A='10 June 1190 [DATE]'  B='returned'  sent-dist=1
+   s6: The elderly German Emperor Frederick Barbarossa also responded to the call to arms , leading a massive army across Anatolia , but he drowned in a river in Asia Minor on [A 10 June 1190 A] before reaching the Holy Land .
+   s7: His death caused tremendous grief among the German Crusaders , and most of his troops [B returned B] home .
+
+[CONF1] 365e6bdd | Third Crusade  A='1187 [DATE]'  B='Spurred'  sent-dist=4
+   s0: The Third Crusade ( 1189–1192 ) was an attempt by the leaders of the three most powerful states of Western Christianity ( England , France , and the Holy Roman Empire ) to reconquer the Holy Land following the capture of Jerusalem by the Ayyubid sultan , Saladin , in [A 1187 A] .
+   s4: [B Spurred B] by religious zeal , King Henry II of England and King Philip II of France ( known as `` Philip Augustus '' ) ended their conflict with each other to lead a new crusade .
+
+[CONF1] 9468afae | Action of 6 November 1794  A='October [DATE]'  B='returning'  sent-dist=0
+   s2: The French squadron had sailed from Brest in search of an inward bound British convoy in [A October A] , but instead encountered the two British ships [B returning B] from escorting an outward-bound convoy .
+
+[DISC] ac33c75c | The Anarchy  A='many more years [DURATION]'  B='agreed'  sent-dist=7
+   s10: The war dragged on for [A many more years A] .
+   s17: after limited campaigning and the siege of wallingford , stephen and henry [B agreed B] a negotiated peace , the treaty of wallingford , in which stephen recognised henry as his heir .
+
+[CONF2] d119e20f | British airborne operations in North Africa  A='mid-April 1943 [DATE]'  B='left'  sent-dist=0
+   s6: The brigade was transferred out of the front in [A mid-April 1943 A] and [B left B] to rejoin the rest of the 1st Airborne Division to train for Operation Husky , the Allied invasion of Sicily .
+
+[CONF2] eaf3fde2 | August 2012 Sinai attack  A='5 August 2012 [DATE]'  B='mourning'  sent-dist=6
+   s0: The August 2012 Sinai attack occurred on [A 5 August 2012 A] , when armed men ambushed an Egyptian military base in the Sinai Peninsula , killing 16 soldiers and stealing two armored cars , which they used to infiltrate into Israel .
+   s6: israeli defense minister ehud barak warned that the incident should be a `` wake up call '' for egypt in dealing with terrorists in the sinai peninsula , while egyptian president mohamed morsi vowed to retake the sinai peninsula and declared three days of [B mourning B] .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='the time [TIME]'  B='ruled'  sent-dist=1
+   s6: Emperor Boris II was captured and taken to Constantinople where he abdicated and the Byzantine Emperor John I Tzimiskes announced the annexation of Bulgaria , even though the Eastern Roman Empire only controlled Eastern Bulgaria at [A the time A] , but the lands to the west remained under Bulgarian control .
+   s7: The four brothers David , Moses , Aron and Samuel of the Cometopuli dynasty [B ruled B] in the free territories and in 976 launched a major offensive against the Byzantines to regain the lost lands .
+

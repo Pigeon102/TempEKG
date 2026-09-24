@@ -1,0 +1,26 @@
+[    1s] nap du lieu ...
+[    3s] mine tren conf2: 499 doc, chon tren conf1: 523 doc, valid 710 doc; canh: 129211 / 121440 / 188924
+[  270s] cau truc motif xong
+
+======================================================================================================================
+BAI 1 -- DO THI HOP NHAT (moi su kien, moi TIMEX, moi canh) -- valid mo mot lan
+======================================================================================================================
+  giai doan 1 (classifier tung loai)           acc  84.78%  macro-F1  29.87%   BEFO 91.4  CONT 51.4  SIMU 25.2  OVER 11.2
+      theo loai (macro-F1): EV-EV 26.15%   EV>TX 29.74%   TX>EV 24.29%   TX-TX 32.98%
+[  270s] mine THUC TE: ngu canh = nhan du doan ...
+[  273s]   1843 khoa (chu ky, nhan hien tai) co nhan thay the
+
+ THUC TE: ngu canh = nhan du doan -- chon tren conf1: margin 9.00, 1 vong (conf1 macro 31.64%)
+  sau do thi hop nhat                          acc  84.78%  macro-F1  29.87%   BEFO 91.4  CONT 51.4  SIMU 25.2  OVER 11.2
+      theo loai (macro-F1): EV-EV 26.15%   EV>TX 29.74%   TX>EV 24.29%   TX-TX 32.98%
+      doi 0 nhan: sua dung 0, lam hong 0   ->  macro-F1 +0.00
+      khoa theo ho motif: {'4TE': 400, '4EE': 382, '4TT': 376, '4ET': 372, '3T': 160, '3E': 153}
+[  321s] mine TRAN: ngu canh = gold (khong dat duoc) ...
+[  323s]   1655 khoa (chu ky, nhan hien tai) co nhan thay the
+
+ TRAN: ngu canh = gold (khong dat duoc) -- chon tren conf1: margin 0.00, 1 vong (conf1 macro 39.84%)
+  sau do thi hop nhat                          acc  94.92%  macro-F1  37.65%   BEFO 97.2  CONT 84.6  SIMU 24.6  OVER 19.5
+      theo loai (macro-F1): EV-EV 33.61%   EV>TX 30.74%   TX>EV 36.38%   TX-TX 41.41%
+      doi 25697 nhan: sua dung 22174, lam hong 3013   ->  macro-F1 +7.78
+      khoa theo ho motif: {'4TT': 360, '4TE': 350, '4EE': 331, '4ET': 330, '3T': 145, '3E': 139}
+[  369s] xong

@@ -1,0 +1,89 @@
+[     0s] 54719 luat; 2794 luat hoat dong (vuot nguong nhan)
+[     0s] ban luat tren phan 0 ...
+[    93s] ban luat tren phan 1 ...
+[   131s] ban luat tren phan 2 ...
+[   164s] ban luat tren phan 3 ...
+[   203s] xong ban luat
+
+====================================================================================================
+L1 + L2 -- luat khong bao gio anh huong du doan, va luat trung phan mo rong
+====================================================================================================
+  tong luat                                    54719
+  L1: duoi nguong cua nhan (khong bao gio bo phieu)   51925  -> bo, chinh xac tuyet doi
+  luat hoat dong                                2794
+  L2: lop tuong duong phan mo rong, tren 54.719 luat   33215 lop (trung binh 1.65 luat / lop)
+      trong 2.794 luat hoat dong                       1621 lop
+      lop 19 luat, vd:
+         sdist      0                      [['HAS', 'roleset_b', 'Patient'], ['HAS', 'anchor_roles', ('Loser', 'Patient')]]
+         sdist      0                      [['EQ', 'type_a', 'Competition'], ['HAS', 'anchor_roles', ('Loser', 'Patient')]]
+         sdist      0                      [['HAS', 'roleset_a', 'Winner'], ['HAS', 'anchor_roles', ('Loser', 'Patient')]]
+         sdist      0                      [['HAS', 'roleset_a', 'Loser'], ['HAS', 'anchor_roles', ('Loser', 'Patient')]]
+      lop 18 luat, vd:
+         etype_a    Killing                [['EQ', 'order', 'same'], ['CNT', 'anchor_roles', 2]]
+         etype_a    Killing                [['EQ', 'order', 'same'], ['MIX', 'anchor_roles', None]]
+         etype_a    Killing                [['EQ', 'order', 'same'], ['REL', 'n_anchor', '2+']]
+         etype_a    Killing                [['REL', 'sent_gap', '0'], ['CNT', 'anchor_roles', 2]]
+      lop 18 luat, vd:
+         etype_a    Military_operation     [['CNT', 'anchor_roles', 2], ['EQ', 'type_pair', ('Military_operation', 'Military_operation')]]
+         etype_a    Military_operation     [['CNT', 'anchor_roles', 2], ['REL', 'same_type', True]]
+         etype_a    Military_operation     [['CNT', 'anchor_roles', 2], ['EQ', 'same_type', True]]
+         etype_a    Military_operation     [['CNT', 'anchor_roles', 2], ['EQ', 'type_b', 'Military_operation']]
+  du doan doi khi chi giu dai dien lop: 0 / 593433 cap (train + valid)
+
+====================================================================================================
+L3 -- set cover giu du doan (dung tren DISCOVERY + CONF-1; kiem tren CONF-2; valid mo mot lan)
+====================================================================================================
+  Day du (2.794 luat hoat dong)           2794 luat
+     DISCOVERY  giu nguyen du doan 100.000%   macro-F1 28.00% -> 28.00%   acc 89.31% -> 89.31%
+     CONF-1     giu nguyen du doan 100.000%   macro-F1 30.19% -> 30.19%   acc 90.24% -> 90.24%
+     CONF-2     giu nguyen du doan 100.000%   macro-F1 26.36% -> 26.36%   acc 87.65% -> 87.65%
+     VALID      giu nguyen du doan 100.000%   macro-F1 26.99% -> 26.99%   acc 87.90% -> 87.90%
+     VALID theo nhan: BEFO 93.6/93.4/93.5  CONT 42.1/42.9/42.5  SIMU 17.2/15.1/16.0  OVER 8.7/11.4/9.8
+  L2: dai dien lop tuong duong            1621 luat
+     DISCOVERY  giu nguyen du doan 100.000%   macro-F1 28.00% -> 28.00%   acc 89.31% -> 89.31%
+     CONF-1     giu nguyen du doan 100.000%   macro-F1 30.19% -> 30.19%   acc 90.24% -> 90.24%
+     CONF-2     giu nguyen du doan 100.000%   macro-F1 26.36% -> 26.36%   acc 87.65% -> 87.65%
+     VALID      giu nguyen du doan 100.000%   macro-F1 26.99% -> 26.99%   acc 87.90% -> 87.90%
+     VALID theo nhan: BEFO 93.6/93.4/93.5  CONT 42.1/42.9/42.5  SIMU 17.2/15.1/16.0  OVER 8.7/11.4/9.8
+
+  A: giu moi du doan -- vu tru 37316 cap, bat buoc 318 luat, can duoi OPT >= 377, greedy <= H(6172)=9.31 x OPT
+  A: giu moi du doan                       378 luat
+     DISCOVERY  giu nguyen du doan 100.000%   macro-F1 28.00% -> 28.00%   acc 89.31% -> 89.31%
+     CONF-1     giu nguyen du doan 100.000%   macro-F1 30.19% -> 30.19%   acc 90.24% -> 90.24%
+     CONF-2     giu nguyen du doan  99.985%   macro-F1 26.36% -> 26.38%   acc 87.65% -> 87.66%
+     VALID      giu nguyen du doan  99.979%   macro-F1 26.99% -> 26.99%   acc 87.90% -> 87.91%
+     VALID theo nhan: BEFO 93.6/93.4/93.5  CONT 42.1/42.9/42.5  SIMU 17.2/15.1/16.1  OVER 8.7/11.4/9.8
+
+  B: giu moi du doan dung -- vu tru 14624 cap, bat buoc 198 luat, can duoi OPT >= 278, greedy <= H(3491)=8.74 x OPT
+  B: giu moi du doan dung                  279 luat
+     DISCOVERY  giu nguyen du doan  99.792%   macro-F1 28.00% -> 28.26%   acc 89.31% -> 89.50%
+     CONF-1     giu nguyen du doan  99.786%   macro-F1 30.19% -> 30.46%   acc 90.24% -> 90.43%
+     CONF-2     giu nguyen du doan  99.741%   macro-F1 26.36% -> 26.53%   acc 87.65% -> 87.84%
+     VALID      giu nguyen du doan  99.699%   macro-F1 26.99% -> 27.02%   acc 87.90% -> 88.11%
+     VALID theo nhan: BEFO 93.6/93.7/93.6  CONT 42.7/42.7/42.7  SIMU 17.5/14.7/16.0  OVER 9.1/10.7/9.8
+
+====================================================================================================
+L4 -- gom nhom cac luat giu lai
+====================================================================================================
+  A: giu moi du doan: 378 luat -> 209 khuon (template); theo nhan {'SIMULTANEOUS': 55, 'OVERLAP': 47, 'CONTAINS': 276}
+  B: giu moi du doan dung: 279 luat -> 170 khuon (template); theo nhan {'SIMULTANEOUS': 37, 'CONTAINS': 211, 'OVERLAP': 31}
+
+  cac khuon lon nhat (B):
+   CONTAINS     EQ(type_pair)                                                 21 luat | vd order [['EQ', 'type_pair', ('Catastrophe', 'Motion_directional')]] wlb 0.758
+   CONTAINS     EQ(bucket_b) ∧ EQ(type_a)                                     10 luat | vd sdist [['EQ', 'bucket_b', 'early'], ['EQ', 'type_a', 'Military_operation']] wlb 0.697
+   CONTAINS     EQ(type_b) ∧ HAS(roleset_a)                                    9 luat | vd bucket_a [['HAS', 'roleset_a', 'Loss'], ['EQ', 'type_b', 'Arriving']] wlb 0.647
+   CONTAINS     HAS(anchor_roles) ∧ HAS(roleset_a)                             7 luat | vd sdist [['HAS', 'anchor_roles', ('Location', 'Location')], ['HAS', 'roleset_a', 'Score']] wlb 0.816
+   CONTAINS     EQ(bucket_a) ∧ HAS(roleset_a)                                  6 luat | vd anchor [['EQ', 'bucket_a', 'lead'], ['HAS', 'roleset_a', 'Participant']] wlb 0.647
+   CONTAINS     EQ(bucket_b) ∧ EQ(type_pair)                                   5 luat | vd global [['EQ', 'bucket_b', 'early'], ['EQ', 'type_pair', ('Military_operation', 'Attack')]] wlb 0.717
+   CONTAINS     HAS(anchor_roles)                                              5 luat | vd order [['HAS', 'anchor_roles', ('Location', 'Host')]] wlb 0.604
+   OVERLAP      EQ(type_pair)                                                  5 luat | vd bucket_a [['EQ', 'type_pair', ('Damaging', 'Destroying')]] wlb 0.146
+   CONTAINS     CNT(anchor_roles) ∧ HAS(roleset_a)                             4 luat | vd sdist_ord [['CNT', 'anchor_roles', 2], ['HAS', 'roleset_a', 'Loss']] wlb 0.758
+   CONTAINS     EQ(bucket_a) ∧ HAS(roleset_b)                                  4 luat | vd etype_a [['EQ', 'bucket_a', 'lead'], ['HAS', 'roleset_b', 'Name']] wlb 0.578
+   CONTAINS     HAS(roleset_b) ∧ REL(mention_cmp)                              3 luat | vd anchor [['REL', 'mention_cmp', 'a>b'], ['HAS', 'roleset_b', 'Location_final']] wlb 0.583
+   CONTAINS     HAS(etypeset_shared) ∧ HAS(roleset_a)                          3 luat | vd sdist [['HAS', 'etypeset_shared', 'Location'], ['HAS', 'roleset_a', 'Loser']] wlb 0.689
+   CONTAINS     EQ(type_a) ∧ HAS(roleset_b)                                    3 luat | vd order [['EQ', 'type_a', 'Military_operation'], ['HAS', 'roleset_b', 'Location_original']] wlb 0.758
+   CONTAINS     EQ(bucket_a) ∧ EQ(type_b)                                      3 luat | vd sdist_ord [['EQ', 'bucket_a', 'lead'], ['EQ', 'type_b', 'Cause_change_of_strength']] wlb 0.531
+   CONTAINS     HAS(etypeset_b) ∧ HAS(roleset_a)                               3 luat | vd order [['HAS', 'etypeset_b', 'Building'], ['HAS', 'roleset_a', 'Score']] wlb 0.572
+
+  gan trung (Jaccard >= 0,8 tren train): 0 cap; 279 luat -> 279 cum
+[   206s] da luu src/artifacts/rules_compact.json; xong

@@ -1,0 +1,435 @@
+BEGINS-ON TT: 116 instances (train+valid). Head=A (stored s), tail=B (stored t)
+
+[VALID] 007924c3 | Rif War  A='1920s [DURATION]'  B='1920 [DATE]'  sent-dist=17
+   s0: The Rif War was an armed conflict fought from [B 1920 B] to 1927 between the colonial power Spain ( later joined by France ) and the Berber tribes of the Rif mountainous region of Morocco .
+   s17: The Riffian insurgency of the [A 1920s A] can be interpreted as a precursor to the Algerian war of independence , which took place three decades later .
+
+[VALID] 111d0533 | Franklin Dam controversy  A='five years [DURATION]'  B='1978 [DATE]'  sent-dist=0
+   s7: over the [A five years A] between the announcement of the dam proposal in [B 1978 B] and the axing of the plans in 1983 , there was vigorous debate between the pro- and unk lobbies , with large protests from both sides .
+
+[VALID] 173b9c13 | Dunmanway killings  A='26–28 April 1922 [DURATION]'  B='26 April [DATE]'  sent-dist=11
+   s0: The Dunmanway killings , also known as the Dunmanway murders or the Dunmanway massacre , refers to the killing ( and in some cases , disappearances ) of thirteen Protestant men and boys in and around Dunmanway , County Cork , between [A 26–28 April 1922 A] .
+   s11: It is generally agreed that they were provoked by the fatal shooting of IRA man Michael O'Neill by a loyalist whose house was being raided on [B 26 April B] .
+
+[VALID] 1eb8baa9 | Great North Run  A='nearly thirty years [DURATION]'  B='28 June 1981 [DATE]'  sent-dist=2
+   s3: The first Great North Run was staged on [B 28 June 1981 B] , when 12,000 runners participated .
+   s5: For the first year it was advertised as a local fun run ; [A nearly thirty years A] on it has become one of the biggest running events in the world , and the biggest in the UK .
+
+[VALID] 2f75d893 | Iran crisis of 1946  A='August–September 1941 [DATE]'  B='August 1941 [DATE]'  sent-dist=2
+   s5: As of [B August 1941 B] , the United States was a neutral nation and had not yet entered as a belligerent in World War II .
+   s7: In [A August–September 1941 A] , Pahlavi Iran had been jointly invaded and occupied by the Allied powers of the Soviet Red Army in the north and by the British in the centre and south .
+
+[VALID] 3ddbbed4 | LeeFest  A='first two years [DURATION]'  B='2006 [DATE]'  sent-dist=1
+   s1: The festival began in founder Lee Denny 's garden when his parents went away on holiday in [B 2006 B] .
+   s2: Despite the festival 's small scale in its [A first two years A] , by 2011 LeeFest grew into a two-day event with enough capacity for 2,000 people .
+
+[VALID] 40de0af8 | Indo-Pakistani War of 1971  A='1971 [DATE]'  B='1971 [DATE]'  sent-dist=9
+   s0: The Indo-Pakistani War of [B 1971 B] was a military confrontation between India and Pakistan that occurred during the liberation war in East Pakistan from 3 December 1971 to the fall of Dacca ( Dhaka ) on 16 December 1971 .
+   s9: During the [A 1971 A] Bangladesh war for independence , members of the Pakistani military and supporting Islamist militias called the Razakars raped between 200,000 and 400,000 Bangladeshi women and girls in a systematic campaign of genocidal rape .
+
+[VALID] 43fb6f85 | Hurricane Hilda  A='September 28 [DATE]'  B='seven days [DURATION]'  sent-dist=1
+   s3: Lasting for [B seven days B] as a tropical cyclone , Hilda caused US $ 126 million in damage and 38 deaths .
+   s4: Hilda developed over the southern shores of Cuba on [A September 28 A] as a tropical depression , tracking westward in an area of favorable conditions and reaching tropical storm intensity the next day .
+
+[VALID] 5017b520 | Bishops' Wars  A='1639 [DATE]'  B='1639–1652 [DURATION]'  sent-dist=0
+   s0: The Bishops ' Wars of [A 1639 A] and 1640 are generally viewed as the starting point of the [B 1639–1652 B] Wars of the Three Kingdoms that ultimately involved the whole of the British Isles .
+
+[VALID] 5db67134 | First Mongol invasion of Burma  A='1277–87 [DURATION]'  B='1277–78 [DURATION]'  sent-dist=14
+   s7: Pagan did contest but its army was driven back at the frontier by the Mongol Army in [B 1277–78 B] .
+   s21: Marco Polo reported the first invasions ( [A 1277–87 A] ) in his travelogue , `` Il Milione '' .
+
+[VALID] 683da139 | 2015 Sampson Flat bushfires  A='2 January 2015 [DATE]'  B='2 january 2015 [DATE]'  sent-dist=8
+   s1: The fire began on [A 2 January 2015 A] during a day of extreme heat and lasted until 9 January 2015 .
+   s9: at the same time , a smaller fire threat was posed near and in the limestone coast region on [B 2 january 2015 B] .
+
+[VALID] 794ca1b4 | Battle of Krasne  A='February 20 , 1651 [DATE]'  B='February 20 – February 23 , 1651 [DURATION]'  sent-dist=7
+   s0: Battle of Krasne ( [B February 20 – February 23 , 1651 B] ) was a battle of the Khmelnytsky Uprising .
+   s7: Poles reached Krasne on [A February 20 , 1651 A] , and seized the town after a short skirmish .
+
+[VALID] 8c180509 | Battle of Reims (1814)  A='the first day [DATE]'  B='12–13 March 1814 [DURATION]'  sent-dist=1
+   s0: The Battle of Reims ( [B 12–13 March 1814 B] ) was fought at Reims , France between an Imperial French army commanded by Emperor Napoleon and a combined Russian-Prussian corps led by General Emmanuel de Saint-Priest .
+   s1: On [A the first day A] , Saint-Priest 's Russians and General Friedrich Wilhelm von Jagow 's Prussians easily captured Reims from its French National Guard garrison , capturing or killing more than half of its defenders .
+
+[VALID] 96e86414 | Defence of the Reich  A='1944–45 [DURATION]'  B='1944 [DATE]'  sent-dist=9
+   s13: In the first quarter of [B 1944 B] , Nazi Germany produced 546,000 tons of aviation fuel , with 503,000 tons came from synthetic fuel by hydrogenation .
+   s22: The intensification of night bombing by the RAF and daylight attacks by the USAAF added to the destruction of a major part of the German 's industries and cities , which caused the economy to collapse in the winter of [A 1944–45 A] .
+
+[VALID] 98c231f7 | 2014 California wildfires  A='early September 2014 [DATE]'  B='September [DURATION]'  sent-dist=10
+   s0: 2014 saw several notable wildfires igniting in California , especially during the month of May , when multiple fires were ablaze concurrently in Southern California , and during [B September B] , when several massive wildfires were burning in Northern California .
+   s10: In [A early September 2014 A] , the Happy Complex Fire became the largest wildfire of the season , eventually topping out at in size on September 27 .
+
+[VALID] 98c231f7 | 2014 California wildfires  A='the same month [DATE]'  B='January 1 [DATE]'  sent-dist=0
+   s4: The season began unusually early when a wildfire ignited on [B January 1 B] , followed by 6 more fires igniting later within [A the same month A] .
+
+[VALID] 9ed65ca6 | Hurricane Debbie (1961)  A='two days later [DATE]'  B='the following several days [DATE]'  sent-dist=2
+   s3: By this time , it was estimated to have become a tropical storm , but forecasters did not issue advisories on the system until [A two days later A] .
+   s5: Once clear of the islands , data on the storm became sparse , and the status of Debbie was uncertain over [B the following several days B] as it tracked west-northwestward and later northward .
+
+[VALID] a08c96a4 | Chu–Han Contention  A='206 BC [DATE]'  B='206–202 BC [DURATION]'  sent-dist=1
+   s0: The Chu–Han Contention ( [B 206–202 BC B] ) was an interregnum between the Qin dynasty and the Han dynasty in Chinese history .
+   s1: Following the collapse of the Qin dynasty in [A 206 BC A] , Xiang Yu split the former Qin Empire into the Eighteen Kingdoms .
+
+[VALID] a9b5d9d6 | Battle of Sakarya  A='21 days [DURATION]'  B='August 23 [DATE]'  sent-dist=0
+   s1: The battle went on for [A 21 days A] from [B August 23 B] to September 13 , 1921 , close to the banks of the Sakarya River in the immediate vicinity of Polatlı , which is today a district of the Ankara Province .
+
+[VALID] ba68a8ca | October Revolution  A='1917–22 [DURATION]'  B='1917 [DATE]'  sent-dist=16
+   s2: [B 1917 B] .
+   s18: As the revolution was not universally recognized , there followed the struggles of the Russian Civil War ( [A 1917–22 A] ) and the creation of the Soviet Union in 1922 .
+
+[VALID] ba68a8ca | October Revolution  A='the same year [DATE]'  B='1917–22 [DURATION]'  sent-dist=15
+   s3: it followed and capitalized on the february revolution of [A the same year A] , which overthrew the tsarist autocracy and resulted in a provisional government after a transfer of power proclaimed by grand duke michael , the younger brother of tsar nicholas ii , who declined to take power after the tsar stepped down .
+   s18: As the revolution was not universally recognized , there followed the struggles of the Russian Civil War ( [B 1917–22 B] ) and the creation of the Soviet Union in 1922 .
+
+[VALID] d7dddae1 | First Peloponnesian War  A='446–445 BC [DURATION]'  B='446 BC [DATE]'  sent-dist=1
+   s10: In [B 446 BC B] , Boeotia revolted and defeated the Athenians at Coronea and regained their independence .
+   s11: The First Peloponnesian War ended in an arrangement between Sparta and Athens , which was ratified by the Thirty Years ' Peace ( winter of [A 446–445 BC A] ) .
+
+[VALID] da17e156 | Assassination of Olof Palme  A='the time [TIME]'  B='23:21 CET [TIME]'  sent-dist=2
+   s0: On Friday , 28 February 1986 , at [B 23:21 CET B] ( 22:21 UTC ) , Olof Palme , Prime Minister of Sweden , was fatally wounded by a single gunshot while walking home from a cinema with his wife Lisbet Palme on the central Stockholm street Sveavägen .
+   s2: The couple did not have bodyguards at [A the time A] .
+
+[VALID] da17e156 | Assassination of Olof Palme  A='the time [TIME]'  B='22:21 UTC [TIME]'  sent-dist=2
+   s0: On Friday , 28 February 1986 , at 23:21 CET ( [B 22:21 UTC B] ) , Olof Palme , Prime Minister of Sweden , was fatally wounded by a single gunshot while walking home from a cinema with his wife Lisbet Palme on the central Stockholm street Sveavägen .
+   s2: The couple did not have bodyguards at [A the time A] .
+
+[VALID] dcf352c0 | Zaire 74  A='September 22 [DATE]'  B='three-day [DURATION]'  sent-dist=0
+   s0: Zaire 74 was a [B three-day B] live music festival that took place on [A September 22 A] to 24 , 1974 at the 20th of May Stadium in Kinshasa , Zaire ( now Democratic Republic of the Congo ) .
+
+[VALID] e620cdb2 | Williamite War in Ireland  A='1688–1691 [DURATION]'  B='1688 [DATE]'  sent-dist=7
+   s0: The Williamite War in Ireland ( [A 1688–1691 A] ) ( , `` war of the two kings '' ) , was a conflict between Jacobite supporters of King James II and Williamite supporters of Prince William of Orange .
+   s7: The war began with a series of skirmishes between James ’ s Irish Army , which had stayed loyal in [B 1688 B] , and militia forces raised by Irish Protestants : they culminated in the Siege of Derry , where the Jacobites failed to regain control of one of the north ’ s key towns .
+
+[VALID] e620cdb2 | Williamite War in Ireland  A='1688–1691 [DURATION]'  B='1688 [DATE]'  sent-dist=2
+   s0: The Williamite War in Ireland ( [A 1688–1691 A] ) ( , `` war of the two kings '' ) , was a conflict between Jacobite supporters of King James II and Williamite supporters of Prince William of Orange .
+   s2: the proximate cause of the war was the glorious revolution of [B 1688 B] , in which james , a catholic , was overthrown as king of the three kingdoms of england , ireland and scotland and replaced by his protestant daughter mary and nephew and son-in-law william , ruling as joint monarchs .
+
+[VALID] ed6742f7 | Big Spring Jam  A='two-day [DURATION]'  B='Friday [DATE]'  sent-dist=18
+   s3: The 2011 revival was a two-day event on [B Friday B] and Saturday only .
+   s21: The 2011 Big Spring Jam was a smaller , [A two-day A] event with some acts moved into the Propst Arena at the Von Braun Center .
+
+[VALID] f7dbcdfb | Landing at Cape Helles  A='25 april 1915 [DATE]'  B='two months [DURATION]'  sent-dist=9
+   s0: the landing at cape helles ( turkish : `` unk unk '' ) was part of the amphibious invasion of the gallipoli peninsula by british and french forces on [A 25 april 1915 A] during the first world war .
+   s9: For [B two months B] the British fought several costly battles to reach the first day objectives but were defeated by the Ottoman army .
+
+[VALID] f8b70c1c | The Secret Policeman's Ball  A='1976–1981 [DURATION]'  B='1976 [DATE]'  sent-dist=3
+   s1: The shows started in [B 1976 B] featuring popular British comedians but later included leading musicians and actors .
+   s4: The shows of the first era ( [A 1976–1981 A] ) , featuring five members of Monty Python and newcomers such as Rowan Atkinson , yielded films , television specials , home-videos , and albums that have since been widely seen and heard internationally .
+
+[DISC] 022c0655 | 2009 Hong Kong Cricket Sixes  A='two days [DURATION]'  B='31 October [DATE]'  sent-dist=0
+   s1: Eight nations competed in twenty-two matches over [A two days A] , [B 31 October B] – 1 November 2009 .
+
+[DISC] 0367867d | 2001 anthrax attacks  A='several weeks [DATE]'  B='September 18 , 2001 [DATE]'  sent-dist=0
+   s0: The 2001 anthrax attacks , also known as Amerithrax from its FBI case name , occurred in the United States over the course of [A several weeks A] beginning on [B September 18 , 2001 B] , one week after the September 11 terrorist attacks .
+
+[DISC] 064600ef | Earthcore  A='1992 [DURATION]'  B='20 year [DURATION]'  sent-dist=2
+   s2: Earthcore has operated since [A 1992 A] .
+   s4: Earthcore returned to its traditional ground roots festival beginning with the [B 20 year B] anniversary in 2013 to celebrate the event that introduced Australia to the outdoor electronic dance music festival .
+
+[CONF1] 1b908c8f | Winter Jam Tour Spectacular  A='1995 [DURATION]'  B='1995–2000 [DURATION]'  sent-dist=2
+   s0: Winter Jam Tour Spectacular , also referred to as simply Winter Jam ( and formerly known as January Jam from [B 1995–2000 B] ) , is an annual American music tour featuring contemporary Christian music artists of all genres , stunt and/or comedy performances , as well as a tour speaker .
+   s2: Conceived and created in 1995 , as `` January Jam '' , by contemporary Christian music group NewSong and produced and promoted by the promotions company , Premier Productions , Winter Jam has run annually since [A 1995 A] .
+
+[CONF1] 1b908c8f | Winter Jam Tour Spectacular  A='1995 [DATE]'  B='1995–2000 [DURATION]'  sent-dist=3
+   s0: Winter Jam Tour Spectacular , also referred to as simply Winter Jam ( and formerly known as January Jam from [B 1995–2000 B] ) , is an annual American music tour featuring contemporary Christian music artists of all genres , stunt and/or comedy performances , as well as a tour speaker .
+   s3: From its inception in [A 1995 A] through the most recent 2019 tour , the Winter Jam Tour Spectacular has toured all over the United States of America .
+
+[CONF1] 1b908c8f | Winter Jam Tour Spectacular  A='1995 [DATE]'  B='1995–2000 [DURATION]'  sent-dist=2
+   s0: Winter Jam Tour Spectacular , also referred to as simply Winter Jam ( and formerly known as January Jam from [B 1995–2000 B] ) , is an annual American music tour featuring contemporary Christian music artists of all genres , stunt and/or comedy performances , as well as a tour speaker .
+   s2: Conceived and created in [A 1995 A] , as `` January Jam '' , by contemporary Christian music group NewSong and produced and promoted by the promotions company , Premier Productions , Winter Jam has run annually since 1995 .
+
+[CONF1] 1dee2d1e | 1948 Arab–Israeli War  A='1947 [DATE]'  B='1947–49 [DURATION]'  sent-dist=4
+   s2: The first deaths of the [B 1947–49 B] Palestine war occurred on 30 November 1947 during an ambush of two buses carrying Jews .
+   s6: In [A 1947 A] , these on-going tensions erupted into civil war following the 29 November 1947 adoption of the United Nations Partition Plan for Palestine , which planned to divide Palestine into an Arab state , a Jewish state , and the Special International Regime encompassing the cities of Jerusalem and Bethlehem .
+
+[CONF1] 1dee2d1e | 1948 Arab–Israeli War  A='1947 [DATE]'  B='1947–49 [DURATION]'  sent-dist=6
+   s0: The 1948 ( or First ) Arab–Israeli War was the second and final stage of the [B 1947–49 B] Palestine war .
+   s6: In [A 1947 A] , these on-going tensions erupted into civil war following the 29 November 1947 adoption of the United Nations Partition Plan for Palestine , which planned to divide Palestine into an Arab state , a Jewish state , and the Special International Regime encompassing the cities of Jerusalem and Bethlehem .
+
+[CONF2] 1f1cf6e0 | Indonesian National Revolution  A='1945 [DATE]'  B='four-year [DURATION]'  sent-dist=1
+   s1: It took place between Indonesia 's declaration of independence in [A 1945 A] and the Netherlands ' recognition of Indonesia 's independence at the end of 1949 .
+   s2: The [B four-year B] struggle involved sporadic but bloody armed conflict , internal Indonesian political and communal upheavals , and two major international diplomatic interventions .
+
+[DISC] 2539680c | Battle of the Dalmatian Channels  A='14 November [DATE]'  B='14–16 November 1991 [DURATION]'  sent-dist=1
+   s0: The Battle of the Dalmatian Channels was a three-day confrontation between three tactical groups of Yugoslav Navy ships and coastal artillery , and a detachment of naval commandos of the Croatian Navy fought on [B 14–16 November 1991 B] during the Croatian War of Independence .
+   s1: On [A 14 November A] , the commandos torpedoed the `` Mirna '' -class patrol boat PČ-176 `` Mukos '' close to the island of Brač in the Split Channel of the Adriatic Sea , prompting a Yugoslav naval bombardment of Brač and Šolta Island the same day .
+
+[DISC] 2539680c | Battle of the Dalmatian Channels  A='the same day [DATE]'  B='14–16 November 1991 [DURATION]'  sent-dist=1
+   s0: The Battle of the Dalmatian Channels was a three-day confrontation between three tactical groups of Yugoslav Navy ships and coastal artillery , and a detachment of naval commandos of the Croatian Navy fought on [B 14–16 November 1991 B] during the Croatian War of Independence .
+   s1: On 14 November , the commandos torpedoed the `` Mirna '' -class patrol boat PČ-176 `` Mukos '' close to the island of Brač in the Split Channel of the Adriatic Sea , prompting a Yugoslav naval bombardment of Brač and Šolta Island [A the same day A] .
+
+[DISC] 268c4763 | Siege of Pondicherry (1793)  A='Twenty days [DATE]'  B='the following weeks [DURATION]'  sent-dist=1
+   s8: British forces constructed trenches and batteries , often under heavy fire , over [B the following weeks B] .
+   s9: [A Twenty days A] after the city was cut off , Braithwaite began a bombardment of the defences .
+
+[DISC] 26a8c75c | 2012 Champions League Twenty20  A='one year [DURATION]'  B='four-year [DURATION]'  sent-dist=0
+   s4: They replaced Nokia , who withdrew from their [B four-year B] deal after just [A one year A] .
+
+[CONF2] 278d3c58 | Final Straw Tour  A='2003 [DATE]'  B='two years [DURATION]'  sent-dist=10
+   s1: It was launched in support of the group 's [A 2003 A] album `` Final Straw '' .
+   s11: Snow Patrol chose to end the touring , which had spanned almost [B two years B] , after the U2 dates in a bar owned by actor Eddie Murphy .
+
+[CONF2] 278d3c58 | Final Straw Tour  A='two years [DURATION]'  B='2003 [DATE]'  sent-dist=9
+   s2: The band visited numerous venues internationally from [B 2003 B] through 2005 .
+   s11: Snow Patrol chose to end the touring , which had spanned almost [A two years A] , after the U2 dates in a bar owned by actor Eddie Murphy .
+
+[CONF1] 2817868a | February 2009 Great Britain and Ireland snowfall  A='1 February 2009 [DATE]'  B='February 2009 [DATE]'  sent-dist=0
+   s0: The [B February 2009 B] Great Britain and Ireland snowfall was a prolonged period of snowfall that began on [A 1 February 2009 A] .
+
+[CONF1] 298b8273 | Six-Day War  A='The Six-Day War [DURATION]'  B='5 [DATE]'  sent-dist=0
+   s0: [A The Six-Day War A] ( , `` Milhemet Sheshet Ha Yamim '' ; Arabic : , `` an-Naksah '' , `` The Setback '' or , `` Ḥarb 1967 '' , `` War of 1967 '' ) , also known as the June War , 1967 Arab–Israeli War , or Third Arab–Israeli War , was fought between [B 5 B] and 10 June 1967 by Israel and the neighboring states of Egypt ( known at the time as the United Arab Republic ) , Jordan , and Syria .
+
+[CONF1] 298b8273 | Six-Day War  A='The Six-Day War [DURATION]'  B='5 June [DATE]'  sent-dist=8
+   s0: [A The Six-Day War A] ( , `` Milhemet Sheshet Ha Yamim '' ; Arabic : , `` an-Naksah '' , `` The Setback '' or , `` Ḥarb 1967 '' , `` War of 1967 '' ) , also known as the June War , 1967 Arab–Israeli War , or Third Arab–Israeli War , was fought between 5 and 10 June 1967 by Israel and the neighboring states of Egypt ( known at the time as the United Arab Republic ) , Jordan , and Syria .
+   s8: On [B 5 June B] , Israel launched a series of preemptive air strikes against Egyptian airfields , although there is some debate concerning which side caused the war .
+
+[CONF2] 3161821e | Second Northern War  A='1658–60 [DURATION]'  B='1658 [DATE]'  sent-dist=21
+   s0: The Second Northern War ( 1655–60 , also First or Little Northern War ) was fought between Sweden and its adversaries the Polish–Lithuanian Commonwealth ( 1655–60 ) , the Moscow Tsardom ( 1656–58 ) , Brandenburg-Prussia ( 1657–60 ) , the Habsburg Monarchy ( 1657–60 ) and Denmark–Norway ( 1657–58 and [A 1658–60 A] ) .
+   s21: sweden had already concluded a truce with russia in [B 1658 B] , which gave way to a final settlement in the treaty of unk in 1661 .
+
+[CONF2] 3161821e | Second Northern War  A='1657–58 [DURATION]'  B='1657–60 [DURATION]'  sent-dist=0
+   s0: The Second Northern War ( 1655–60 , also First or Little Northern War ) was fought between Sweden and its adversaries the Polish–Lithuanian Commonwealth ( 1655–60 ) , the Moscow Tsardom ( 1656–58 ) , Brandenburg-Prussia ( [B 1657–60 B] ) , the Habsburg Monarchy ( 1657–60 ) and Denmark–Norway ( [A 1657–58 A] and 1658–60 ) .
+
+[CONF2] 3161821e | Second Northern War  A='1657–58 [DURATION]'  B='1657–60 [DURATION]'  sent-dist=0
+   s0: The Second Northern War ( 1655–60 , also First or Little Northern War ) was fought between Sweden and its adversaries the Polish–Lithuanian Commonwealth ( 1655–60 ) , the Moscow Tsardom ( 1656–58 ) , Brandenburg-Prussia ( 1657–60 ) , the Habsburg Monarchy ( [B 1657–60 B] ) and Denmark–Norway ( [A 1657–58 A] and 1658–60 ) .
+
+[CONF2] 3161821e | Second Northern War  A='1658 [DATE]'  B='1658–60 [DURATION]'  sent-dist=16
+   s0: The Second Northern War ( 1655–60 , also First or Little Northern War ) was fought between Sweden and its adversaries the Polish–Lithuanian Commonwealth ( 1655–60 ) , the Moscow Tsardom ( 1656–58 ) , Brandenburg-Prussia ( 1657–60 ) , the Habsburg Monarchy ( 1657–60 ) and Denmark–Norway ( 1657–58 and [B 1658–60 B] ) .
+   s16: In [A 1658 A] Charles X Gustav decided that instead of returning to the remaining Swedish strongholds in Poland–Lithuania , he would rather attack Denmark again .
+
+[CONF1] 3c28e354 | Chiapas conflict  A='less than two weeks [DURATION]'  B='January 1994 [DATE]'  sent-dist=0
+   s1: The Zapatista uprising started in [B January 1994 B] , and lasted [A less than two weeks A] before a ceasefire was agreed upon .
+
+[DISC] 3d645248 | Saarang  A='Wednesday [DATE]'  B='5 day [DURATION]'  sent-dist=0
+   s1: It is a [B 5 day B] long festival usually extending from [A Wednesday A] to the second Sunday of the year which receives a footfall of over 60,000+ people from over 500 colleges all across the country .
+
+[DISC] 3d9ecdf7 | 2010 Karachi riots  A='two days [DURATION]'  B='August 3 , 2010 [DATE]'  sent-dist=4
+   s0: The 2010 Karachi riots started on [B August 3 , 2010 B] , after the assassination of Parliament member Raza Haider , a member of the Muttahida Qaumi Movement political party , on the night of August 2 , 2010 , in Karachi , Pakistan .
+   s4: Economic losses over [A two days A] of riots were estimated to be about Pakistani rupees ( Approx .
+
+[CONF2] 3ff80140 | Hurricane Alice (December 1954)  A='the previous year [DATE]'  B='two calendar years [DURATION]'  sent-dist=10
+   s0: hurricane alice is the only known atlantic hurricane to span [B two calendar years B] and one of only two named atlantic tropical cyclones , along with tropical storm zeta of 2005 , to do so .
+   s10: It received the name `` Alice '' in early 1955 , though re-analysis of the data supported extending its track to [A the previous year A] , resulting in two tropical cyclones of the same name in one season .
+
+[CONF2] 3ff80140 | Hurricane Alice (December 1954)  A='two calendar years [DURATION]'  B='1954 [DATE]'  sent-dist=1
+   s0: hurricane alice is the only known atlantic hurricane to span [A two calendar years A] and one of only two named atlantic tropical cyclones , along with tropical storm zeta of 2005 , to do so .
+   s1: The twelfth tropical cyclone and the eighth hurricane of the [B 1954 B] Atlantic hurricane season , Alice developed on December 30 , 1954 from a trough of low pressure in the central Atlantic Ocean in an area of unusually favorable conditions .
+
+[DISC] 44fdf7f7 | New Guinea campaign  A='January 1942 [DATE]'  B='early 1942 [DATE]'  sent-dist=1
+   s0: The New Guinea campaign of the Pacific War lasted from [A January 1942 A] until the end of the war in August 1945 .
+   s1: During the initial phase in [B early 1942 B] , the Empire of Japan invaded the Australian-administered territories of the New Guinea Mandate ( 23 January ) and Papua ( 8 March ) and overran western New Guinea ( beginning 29/30 March ) , which was a part of the Netherlands East Indies .
+
+[DISC] 48c5bf4e | Third Battle of Panipat  A='several days [DURATION]'  B='14 January 1761 [DATE]'  sent-dist=4
+   s0: The Third Battle of Panipat took place on [B 14 January 1761 B] at Panipat , about north of Delhi , between a northern expeditionary force of the Maratha Empire and invading forces of the King of Afghanistan , Ahmad Shah Abdali , supported by two Indian allies—the Rohillas Najib-ud-daulah , Afghans of the Doab region and Shuja-ud-Daula-the Nawab of Awadh .
+   s4: The battle lasted for [A several days A] and involved over 125,000 troops .
+
+[CONF2] 536b7878 | Third Macedonian War  A='171–168 BC [DURATION]'  B='171 BC [DATE]'  sent-dist=5
+   s0: The Third Macedonian War ( [A 171–168 BC A] ) was a war fought between the Roman Republic and King Perseus of Macedon .
+   s5: After an inconclusive battle at Callinicus in [B 171 BC B] , and several more years of campaigning , Rome decisively defeated the Macedonian forces at the Battle of Pydna in 168 BC , bringing the war to a close .
+
+[DISC] 53dfe2c9 | Invasion of Buka and Bougainville  A='that time [TIME]'  B='9 March [DATE]'  sent-dist=1
+   s0: Between [B 9 March B] and 5 April 1942 during World War II , forces of the Empire of Japan occupied the islands of Buka and Bougainville in the South Pacific .
+   s1: At [A that time A] these islands were part of the Australian-administered Territory of New Guinea .
+
+[DISC] 57d23a29 | Provisional Irish Republican Army campaign  A='1971–72 [DURATION]'  B='1971 [DATE]'  sent-dist=1
+   s2: The Provisionals gained credibility from their efforts to physically defend such areas in 1970 and [B 1971 B] .
+   s3: From [A 1971–72 A] , the IRA took to the offensive and conducted a relatively high intensity campaign against the British and Northern Ireland security forces and the infrastructure of the state .
+
+[CONF2] 580e7e96 | Karen conflict  A='seventy-year-long [DURATION]'  B='1949 [DURATION]'  sent-dist=1
+   s2: Karen nationalists have been fighting for an independent state known as Kawthoolei since [B 1949 B] .
+   s3: In the over [A seventy-year-long A] conflict there have been many different combatants , the most influential of which are the Karen National Union and their Karen National Liberation Army ( KNLA ) , and the Tatmadaw , the armed forces of Myanmar .
+
+[DISC] 5a21693d | 4 Deserts  A='the following three years [DURATION]'  B='2004 [DATE]'  sent-dist=1
+   s4: over [A the following three years A] , an additional race was introduced in a new location each year .
+   s5: In [B 2004 B] , the Atacama Crossing was held in the Atacama Desert of Chile .
+
+[DISC] 5e269eb0 | Oxegen 2013  A='one-year [DURATION]'  B='2012 [DATE]'  sent-dist=0
+   s2: It was confirmed on the official Oxegen website in April 2013 that the festival would return to the Irish festival line-up this summer , after a [A one-year A] hiatus in [B 2012 B] .
+
+[CONF1] 6109d2ef | Indian Rebellion of 1857  A='1 November 1858 [DATE]'  B='1 November 1858 [DATE]'  sent-dist=18
+   s4: On [A 1 November 1858 A] , the British granted amnesty to all rebels not involved in murder , though they did not declare the hostilities to have formally ended until 8 July 1859 .
+   s22: On [B 1 November 1858 B] , Queen Victoria issued a proclamation to Indians , which while lacking the authority of a constitutional provision , promised rights similar to those of other British subjects .
+
+[DISC] 65715b45 | Third Battle of Gaza  A='6–7 November [DURATION]'  B='6 November [DATE]'  sent-dist=15
+   s1: The fighting occurred at the beginning of the Southern Palestine Offensive , and together with attacks on Hareira and Sheria on [A 6–7 November A] and the continuing Battle of Tel el Khuweilfe which had been launched by General Edmund Allenby on 1 November , it eventually broke the Gaza to Beersheba line defended by the Yildirim Army Group .
+   s16: The bombardment of Gaza intensified on [B 6 November B] and during the night of 6/7 November successful attacks were launched on several trench systems .
+
+[CONF2] 69b3a2f1 | Britney_ Piece of Me  A='two years [DURATION]'  B='December 27 , 2013 [DATE]'  sent-dist=0
+   s1: The show , which opened on [B December 27 , 2013 B] , was initially set for [A two years A] ; it was well received by critics and also achieved huge commercial success .
+
+[DISC] 6d8ef3be | Chinese Civil War  A='1945 [DATE]'  B='the four years [DURATION]'  sent-dist=1
+   s1: although particular attention is paid to [B the four years B] of fighting from 1945 to 1949 , the war actually started in august 1927 , after the unk alliance collapsed during the northern expedition .
+   s2: The conflict took place in two stages , the first between 1927 and 1937 , and the second from 1946 to 1950 ; the Second Sino-Japanese War from 1937 to [A 1945 A] was an interlude in which the two sides were united against the forces of Japan .
+
+[DISC] 6d8ef3be | Chinese Civil War  A='1945 [DATE]'  B='the four years [DURATION]'  sent-dist=0
+   s1: although particular attention is paid to [B the four years B] of fighting from [A 1945 A] to 1949 , the war actually started in august 1927 , after the unk alliance collapsed during the northern expedition .
+
+[CONF2] 6e8b4536 | Beslan school siege  A='three days [DURATION]'  B='1 September 2004 [DATE]'  sent-dist=0
+   s0: The Beslan school siege ( also referred to as the Beslan school hostage crisis or Beslan massacre ) started on [B 1 September 2004 B] , lasted [A three days A] , involved the illegal imprisonment of over 1,100 people as hostages ( including 777 children ) , and ended with the deaths of at least 334 people .
+
+[CONF2] 6e8b4536 | Beslan school siege  A='three days [DURATION]'  B='1 September 2004 [DATE]'  sent-dist=1
+   s0: The Beslan school siege ( also referred to as the Beslan school hostage crisis or Beslan massacre ) started on 1 September 2004 , lasted [A three days A] , involved the illegal imprisonment of over 1,100 people as hostages ( including 777 children ) , and ended with the deaths of at least 334 people .
+   s1: The crisis began when a group of armed Islamic militants , mostly Ingush and Chechen , occupied School Number One ( SNO ) in the town of Beslan , North Ossetia ( an autonomous republic in the North Caucasus region of the Russian Federation ) on [B 1 September 2004 B] .
+
+[DISC] 71be883f | Second Fitna  A='twelve years [DURATION]'  B='680 [DATE]'  sent-dist=0
+   s1: It followed the death of the first Umayyad caliph Mu'awiya I in [B 680 B] and lasted for about [A twelve years A] .
+
+[CONF2] 78828415 | Capture of USS Chesapeake  A='ten [DURATION]'  B='fifteen minutes [DURATION]'  sent-dist=0
+   s8: The battle was notably intense but of short duration , lasting [A ten A] to [B fifteen minutes B] , in which time 252 men were killed or wounded .
+
+[CONF1] 79502289 | Battle of Chickamauga  A='September 18 [DATE]'  B='September 18 – 20 , 1863 [DURATION]'  sent-dist=8
+   s0: The Battle of Chickamauga , fought on [B September 18 – 20 , 1863 B] , between U.S. and Confederate forces in the American Civil War , marked the end of a Union offensive in southeastern Tennessee and northwestern Georgia — the Chickamauga Campaign .
+   s8: As Bragg marched north on [A September 18 A] , his cavalry and infantry fought with Union cavalry and mounted infantry , which were armed with Spencer repeating rifles .
+
+[CONF1] 7ddeac5c | Members of the 1st Dáil  A='892 days [DURATION]'  B='21 january 1919 [DATE]'  sent-dist=2
+   s4: it met for the first time on [B 21 january 1919 B] in mansion house in dublin .
+   s6: The First Dáil lasted [A 892 days A] .
+
+[DISC] 810d0be2 | 1995 UEFA Cup Winners' Cup Final  A='1994–95 [DURATION]'  B='1994 [DATE]'  sent-dist=1
+   s2: It was the final match of the [A 1994–95 A] UEFA Cup Winners ' Cup and the 35th UEFA Cup Winners ' Cup final .
+   s3: Zaragoza won the match 2–1 after , preventing Arsenal from retaining the trophy that they had won in [B 1994 B] .
+
+[DISC] 83cf602a | Quasi-War  A='two years [DATE]'  B='1798 [DATE]'  sent-dist=6
+   s0: The Quasi-War ( ) was an undeclared war fought almost entirely at sea between the United States and France from [B 1798 B] to 1800 , which broke out during the beginning of John Adams 's presidency .
+   s6: It involved [A two years A] of hostilities at sea , in which both navies and privateers attacked the other 's shipping in the West Indies .
+
+[DISC] 86893bc9 | Turkish War of Independence  A='30 October 1918 – May 1919 [DURATION]'  B='30 October 1918 [DATE]'  sent-dist=1
+   s7: Prelude : [A 30 October 1918 – May 1919 A] .
+   s8: On [B 30 October 1918 B] , the Armistice of Mudros was signed between the Ottoman Empire and the Allies of World War I , bringing hostilities in the Middle Eastern theatre of World War I to a close .
+
+[DISC] 86893bc9 | Turkish War of Independence  A='1 December [DATE]'  B='December [DATE]'  sent-dist=1
+   s15: On [A 1 December A] , British troops based in Syria occupied Kilis .
+   s16: Beginning in [B December B] , French troops began successive seizures of Ottoman territory , including the towns of Antakya , Mersin , Tarsus , Ceyhan , Adana , Osmaniye and Islahiye .
+
+[CONF1] 890d6ac4 | Kidnapping and murder of Mohammed Abu Khdeir  A='4 February [DATE]'  B='21 years [DURATION]'  sent-dist=0
+   s21: On 30 November 2015 , the two minors involved were found guilty of Khdeirs ' murder , and were respectively sentenced to life and [B 21 years B] imprisonment on [A 4 February A] .
+
+[CONF1] 890d6ac4 | Kidnapping and murder of Mohammed Abu Khdeir  A='20 years [DURATION]'  B='3 May 2016 [DATE]'  sent-dist=0
+   s22: On [B 3 May 2016 B] , Ben David was sentenced to life in prison and an additional [A 20 years A] .
+
+[DISC] 8d87cc83 | Livonian War  A='1558–1578 [DURATION]'  B='1558–1583 [DURATION]'  sent-dist=1
+   s0: The Livonian War ( [B 1558–1583 B] ) was fought for control of Old Livonia ( in the territory of present-day Estonia and Latvia ) , when the Tsardom of Russia faced a varying coalition of Denmark–Norway , the Kingdom of Sweden , and the Union ( later Commonwealth ) of the Grand Duchy of Lithuania and the Kingdom of Poland .
+   s1: During the period [A 1558–1578 A] , Russia dominated the region with early military successes at Dorpat ( Tartu ) and Narva .
+
+[DISC] 92ad8043 | Linda McMahon  A='this time [TIME]'  B='1980 [DATE]'  sent-dist=1
+   s1: McMahon , along with her husband Vince McMahon founded sports entertainment company Titan Sports , Inc. ( what is now WWE ) where she worked as the president and later CEO from [B 1980 B] to 2009 .
+   s2: During [A this time A] , the company grew from a small regional business in the northeast to a large multinational corporation .
+
+[DISC] 96d94b94 | Assassination of John F. Kennedy  A='70 minutes [TIME]'  B='30 minutes [TIME]'  sent-dist=1
+   s3: The motorcade rushed to Parkland Memorial Hospital where President Kennedy was pronounced dead about [B 30 minutes B] after the shooting ; Connally recovered from his injuries .
+   s4: Oswald was arrested by the Dallas Police Department [A 70 minutes A] after the initial shooting .
+
+[DISC] 9cfe853e | Siege of Sloviansk  A='2014 [DATE]'  B='2014 [DATE]'  sent-dist=1
+   s2: The fighting in Sloviansk marked the first major military engagement between pro-Russian separatists and Ukrainian government forces , in the first runoff of battles of [A 2014 A] .
+   s3: On 12 April 2014 , as unrest grew in eastern Ukraine following the [B 2014 B] Ukrainian revolution , masked men in fatigues , armed with Kalashnikov assault rifles , captured the city administration building .
+
+[CONF2] a62beaff | Air India Flight 182  A='twenty years [DURATION]'  B='2001 [DATE]'  sent-dist=5
+   s3: The bombing of Air India Flight 182 is the largest mass killing in Canadian history , the deadliest aviation accident in the history of Air India and was the deadliest act of aviation terrorism until the 11 September attacks in [B 2001 B] .
+   s8: The subsequent investigation and prosecution lasted almost [A twenty years A] .
+
+[CONF1] a98f2a9b | 2013 Grand National  A='2013 [DATE]'  B='four-year [DURATION]'  sent-dist=6
+   s0: The [A 2013 A] Grand National ( officially known as the John Smith 's Grand National for sponsorship reasons ) was the 166th annual running of the Grand National horse race at Aintree Racecourse near Liverpool , England .
+   s6: The race was broadcast on Channel 4 for the first time as it took over the broadcasting rights for a [B four-year B] period to 2016 .
+
+[CONF1] a98f2a9b | 2013 Grand National  A='three-day [DURATION]'  B='6 April 2013 [DATE]'  sent-dist=0
+   s1: The showpiece steeplechase , which concluded a [A three-day A] meeting ( one of only four held at Aintree throughout the year ) , took place on [B 6 April 2013 B] .
+
+[DISC] b058520f | 2006–07 ICC Intercontinental Cup  A='22 [DATE]'  B='two days [DURATION]'  sent-dist=0
+   s5: The game was scheduled for [A 22 A] to 25 May 2007 , but in the event Ireland won inside [B two days B] .
+
+[DISC] b6a48564 | Tropical Storm Toraji (2007)  A='july 5 [DATE]'  B='two-day [DURATION]'  sent-dist=3
+   s4: upon its emergence into the gulf of tonkin on [A july 5 A] , toraji quickly intensified into a tropical storm with winds of 65 km/h ( 40 mph ) ; this would be the tropical cyclone 's peak intensity for its entire duration .
+   s7: During its [B two-day B] duration , Toraji brought heavy rainfall to areas of southeastern China and Vietnam .
+
+[CONF2] bfbcc908 | Epcot International Food &amp; Wine Festival  A='1995 [DATE]'  B='the years [DURATION]'  sent-dist=0
+   s3: The activities , themes and corporate sponsors have changed over [B the years B] since the festival began in [A 1995 A] .
+
+[CONF2] c1c8dbab | Ortigueira's Festival of Celtic World  A='Thursday [DATE]'  B='four days [DURATION]'  sent-dist=0
+   s2: The festival lasts for [B four days B] , [A Thursday A] to Sunday , and is free .
+
+[DISC] c2920cbf | Western States Endurance Run  A='24 hours [DURATION]'  B='30-hour [DURATION]'  sent-dist=0
+   s5: Runners finishing before the [B 30-hour B] time limit for the race receive a commemorative bronze belt buckle , while runners finishing in under [A 24 hours A] receive a silver belt buckle .
+
+[CONF1] ca7d4f83 | 2009 Richmond High School gang rape  A='32 years [DURATION]'  B='the following month [DATE]'  sent-dist=0
+   s6: The trials for the six defendants began September 2012 , with defendant Manuel Ortega pleading guilty to four felonies and sentenced [B the following month B] to [A 32 years A] in prison .
+
+[DISC] ca898e3d | Siege of Belfort  A='3 November 1870 [DATE]'  B='103-day [DURATION]'  sent-dist=0
+   s0: The Siege of Belfort ( [A 3 November 1870 A] – 18 February 1871 ) was a [B 103-day B] military assault and blockade of the city of Belfort , France by Prussian forces during the Franco-Prussian War .
+
+[DISC] ca898e3d | Siege of Belfort  A='3 November [DATE]'  B='103-day [DURATION]'  sent-dist=6
+   s0: The Siege of Belfort ( 3 November 1870 – 18 February 1871 ) was a [B 103-day B] military assault and blockade of the city of Belfort , France by Prussian forces during the Franco-Prussian War .
+   s6: Werder 's forces reached Belfort and invested the city on [A 3 November A] .
+
+[DISC] ca898e3d | Siege of Belfort  A='15 January 1871 [DATE]'  B='three-day [DURATION]'  sent-dist=0
+   s9: On [A 15 January 1871 A] Bourbaki attacked Werder along the Lisaine River ; however after a [B three-day B] battle he was repelled and his army retreated into Switzerland .
+
+[CONF2] cc7f48ba | 2002 Oman cyclone  A='May 6 [DATE]'  B='the month of May [DATE]'  sent-dist=2
+   s1: The first storm of the 2002 North Indian Ocean cyclone season , it developed on [A May 6 A] in the Arabian Sea , and it maintained a general west-northwest track for much of its duration .
+   s3: The storm was rare , in the sense that it was one of only twelve tropical cyclones on record to approach the Arabian Peninsula in [B the month of May B] .
+
+[DISC] ccccbdc6 | 1906 Valparaíso earthquake  A='four minutes [DURATION]'  B='19:55 local time [TIME]'  sent-dist=4
+   s0: The 1906 Valparaíso earthquake hit Valparaíso , Chile , on August 16 at [B 19:55 local time B] .
+   s4: Reports said the earthquake lasted [A four minutes A] .
+
+[DISC] d410ec66 | Bahrain Tamarod  A='14 August [DATE]'  B='three-day [DURATION]'  sent-dist=14
+   s0: Bahrain Tamarod ( also spelled Bahrain Tamarrod ; ; literally `` Bahrain Rebellion '' ) , also known as August 14 Rebellion , was a [B three-day B] protest campaign in Bahrain that began on 14 August 2013 , the forty-second anniversary of Bahrain Independence Day and the two-and-a-half-year anniversary of the Bahraini uprising .
+   s14: The day of [A 14 August A] witnessed heavy deployment of security forces , which used tear gas and birdshot against hundreds-to-thousands of protesters who gathered in several locations throughout the country .
+
+[DISC] d6918ae3 | 2014 New York City Marathon  A='2:10:59 [TIME]'  B='2:25:07 [TIME]'  sent-dist=0
+   s1: It was won by Wilson Kipsang of Kenya with a time of [A 2:10:59 A] and Mary Keitany of Kenya with a time of [B 2:25:07 B] .
+
+[DISC] e04c5238 | Battle of Hampton Roads  A='the first day [DATE]'  B='two days [DURATION]'  sent-dist=4
+   s1: It was fought over [B two days B] , March 8–9 , 1862 , in Hampton Roads , a roadstead in Virginia where the Elizabeth and Nansemond rivers meet the James River just before it enters Chesapeake Bay adjacent to the city of Norfolk .
+   s5: On [A the first day A] of battle , they were opposed by several conventional , wooden-hulled ships of the Union Navy .
+
+[DISC] e04c5238 | Battle of Hampton Roads  A='that day [DATE]'  B='March 8–9 , 1862 [DURATION]'  sent-dist=5
+   s1: It was fought over two days , [B March 8–9 , 1862 B] , in Hampton Roads , a roadstead in Virginia where the Elizabeth and Nansemond rivers meet the James River just before it enters Chesapeake Bay adjacent to the city of Norfolk .
+   s6: On [A that day A] , `` Virginia '' was able to destroy two ships of the federal flotilla , and , and was about to attack a third , , which had run aground .
+
+[DISC] e04c5238 | Battle of Hampton Roads  A='that day [DATE]'  B='two days [DURATION]'  sent-dist=5
+   s1: It was fought over [B two days B] , March 8–9 , 1862 , in Hampton Roads , a roadstead in Virginia where the Elizabeth and Nansemond rivers meet the James River just before it enters Chesapeake Bay adjacent to the city of Norfolk .
+   s6: On [A that day A] , `` Virginia '' was able to destroy two ships of the federal flotilla , and , and was about to attack a third , , which had run aground .
+
+[DISC] e04c5238 | Battle of Hampton Roads  A='the first day [DATE]'  B='March 8–9 , 1862 [DURATION]'  sent-dist=4
+   s1: It was fought over two days , [B March 8–9 , 1862 B] , in Hampton Roads , a roadstead in Virginia where the Elizabeth and Nansemond rivers meet the James River just before it enters Chesapeake Bay adjacent to the city of Norfolk .
+   s5: On [A the first day A] of battle , they were opposed by several conventional , wooden-hulled ships of the Union Navy .
+
+[DISC] e0f43fd0 | Operation Diesel  A='the early hours of February 7 [DATE]'  B='february 7 , 2009 [DATE]'  sent-dist=2
+   s0: operation diesel was a raid by 700 british troops from the royal marines 45 commando , 42 commando , and the 3 commando brigade 's reconnaissance force , as well as armoured infantry and close reconnaissance from 1st battalion princess of wales 's royal regiment ( 1 unk ) on a taliban drug factory and arms stronghold in the upper sangin valley in helmand province , afghanistan on [B february 7 , 2009 B] .
+   s2: In [A the early hours of February 7 A] the raid was launched .
+
+[CONF2] e6d8238a | Eyes Open Tour  A='a year and a half [DURATION]'  B='14 February 2006 [DATE]'  sent-dist=10
+   s4: The tour officially commenced on [B 14 February 2006 B] with a `` secret gig '' called SG # 3 .
+   s14: Snow Patrol finished the tour , which went on for [A a year and a half A] , in September 2007 in Australia .
+
+[DISC] e8b093a2 | Assassination of Abraham Lincoln  A='12-day [DURATION]'  B='April 14 , 1865 [DATE]'  sent-dist=6
+   s0: Abraham Lincoln , the 16th President of the United States , was assassinated by well-known stage actor John Wilkes Booth on [B April 14 , 1865 B] , while attending the play `` Our American Cousin '' at Ford 's Theatre in Washington , D.C .
+   s6: After a dramatic initial escape , Booth was killed at the climax of a [A 12-day A] manhunt .
+
+[DISC] ee76161a | Anna Abreu (album)  A='first week [DURATION]'  B='August 22 , 2007 [DATE]'  sent-dist=2
+   s0: Anna Abreu is the self-titled debut album by Finnish singer and season three `` Idols '' runner-up Anna Abreu , released in Finland by RCA on [B August 22 , 2007 B] .
+   s2: The album debuted at number one on the Finnish albums chart and was certified platinum within its [A first week A] after selling close to 30,000 copies .
+
+[DISC] ee76161a | Anna Abreu (album)  A='thirty-seven weeks [DURATION]'  B='August 22 , 2007 [DATE]'  sent-dist=3
+   s0: Anna Abreu is the self-titled debut album by Finnish singer and season three `` Idols '' runner-up Anna Abreu , released in Finland by RCA on [B August 22 , 2007 B] .
+   s3: The album remained on the chart for a staggering [A thirty-seven weeks A] , thirteen of which were spent within the top five .
+
+[DISC] ee76161a | Anna Abreu (album)  A='first week [DURATION]'  B='thirty-seven weeks [DURATION]'  sent-dist=1
+   s2: The album debuted at number one on the Finnish albums chart and was certified platinum within its [A first week A] after selling close to 30,000 copies .
+   s3: The album remained on the chart for a staggering [B thirty-seven weeks B] , thirteen of which were spent within the top five .
+
+[DISC] f0f22af2 | Third Transjordan attack  A='21 [DATE]'  B='seven days [DURATION]'  sent-dist=10
+   s0: The Third Transjordan attack by Chaytor 's Force , part of the British Empire 's Egyptian Expeditionary Force ( EEF ) , took place between [A 21 A] and 25 September 1918 , against the Ottoman Empire 's Fourth Army and other Yildirim Army Group units .
+   s10: Fighting extended from the Mediterranean Sea during these [B seven days B] of battle , resulting in the capture of many thousands of prisoners , and extensive territory .
+
+[DISC] f0f4bd82 | Byzantine conquest of Bulgaria  A='970–971 [DURATION]'  B='970 [DATE]'  sent-dist=1
+   s1: [B 970 B] until 1018 , a series of conflicts between the Bulgarian Empire and the Byzantine Empire led to the gradual conquest of Bulgaria by the Byzantines , who thus re-established their control over the entire Balkan peninsula for the first time since the 7th-century Slavic invasions .
+   s2: The struggle began with the incorporation of eastern Bulgaria after the Russo–Byzantine War ( [A 970–971 A] ) .
+
+[DISC] f1d71627 | Death and state funeral of Leonid Brezhnev  A='five days [DATE]'  B='a month [DURATION]'  sent-dist=3
+   s0: on 10 november 1982 , leonid ilyich brezhnev , the third general secretary of the communist party of the soviet union ( cpsu ) and the fifth leader of the soviet union , died aged 75 , [B a month B] before his 76th birthday after suffering a heart attack following years of serious ailments .
+   s3: Yuri Andropov , Brezhnev 's eventual successor as general secretary , was chairman of the committee in charge of managing Brezhnev 's funeral , held on 15 November 1982 , [A five days A] after his death .
+
+[CONF2] fcce3241 | Wounded Knee incident  A='71 days [DURATION]'  B='February 27 , 1973 [DATE]'  sent-dist=3
+   s0: The Wounded Knee incident began on [B February 27 , 1973 B] , when approximately 200 Oglala Lakota and followers of the American Indian Movement ( AIM ) seized and occupied the town of Wounded Knee , South Dakota , on the Pine Ridge Indian Reservation .
+   s3: oglala and aim activists controlled the town for [A 71 days A] while the united states marshals service , fbi agents , and other law enforcement agencies cordoned off the area .
+

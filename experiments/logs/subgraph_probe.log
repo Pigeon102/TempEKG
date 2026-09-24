@@ -1,0 +1,33 @@
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+cau hinh tam giac gold: 792 loai, 5572591 tam giac
+
+DO THI CLASSIFIER TANG (30,83%)
+  nguong p<=0.000: canh trong tam giac bat thuong 76797, trong do sai 27.8%; phu 74.6% so canh sai
+     bo phieu >=1: sua  10611  hong   5681  rong  +4930  macro-F1 26.80%
+     bo phieu >=2: sua   7922  hong   3201  rong  +4721  macro-F1 28.88%
+     bo phieu >=3: sua   5992  hong   1954  rong  +4038  macro-F1 29.80%
+  nguong p<=0.001: canh trong tam giac bat thuong 87995, trong do sai 25.7%; phu 79.2% so canh sai
+     bo phieu >=1: sua  11029  hong   6232  rong  +4797  macro-F1 24.56%
+     bo phieu >=2: sua   8545  hong   3670  rong  +4875  macro-F1 26.81%
+     bo phieu >=3: sua   6710  hong   2289  rong  +4421  macro-F1 28.11%
+  nguong p<=0.010: canh trong tam giac bat thuong 151685, trong do sai 17.4%; phu 92.3% so canh sai
+     bo phieu >=1: sua  12589  hong   8826  rong  +3763  macro-F1 21.61%
+     bo phieu >=2: sua  10960  hong   6432  rong  +4528  macro-F1 23.21%
+     bo phieu >=3: sua   9676  hong   5140  rong  +4536  macro-F1 23.88%
+  (khong sua: loi 28552 canh, macro-F1 30.83%)
+
+NHIEU BOM 10% CA BON LOAI
+  nguong p<=0.000: canh trong tam giac bat thuong 145977, trong do sai 12.7%; phu 98.4% so canh sai
+     bo phieu >=1: sua  15517  hong  13419  rong  +2098  macro-F1 59.91%
+     bo phieu >=2: sua  14363  hong   6097  rong  +8266  macro-F1 74.47%
+     bo phieu >=3: sua  13216  hong   2932  rong +10284  macro-F1 80.58%
+  nguong p<=0.001: canh trong tam giac bat thuong 157451, trong do sai 11.8%; phu 98.8% so canh sai
+     bo phieu >=1: sua  15636  hong  14650  rong   +986  macro-F1 36.94%
+     bo phieu >=2: sua  14596  hong   7904  rong  +6692  macro-F1 43.64%
+     bo phieu >=3: sua  13536  hong   4727  rong  +8809  macro-F1 50.03%
+  nguong p<=0.010: canh trong tam giac bat thuong 183056, trong do sai 10.2%; phu 99.6% so canh sai
+     bo phieu >=1: sua  16048  hong  19488  rong  -3440  macro-F1 28.49%
+     bo phieu >=2: sua  15610  hong  14757  rong   +853  macro-F1 32.49%
+     bo phieu >=3: sua  15203  hong  12525  rong  +2678  macro-F1 36.04%
+  (khong sua: loi 18779 canh, macro-F1 69.43%)

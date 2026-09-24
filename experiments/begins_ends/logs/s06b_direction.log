@@ -1,0 +1,7 @@
+EE BEGINS-ON n=213: ORD:B1 107, ORD:A1 106
+EE ENDS-ON n=105: ORD:A1 70, ORD:B1 35
+ET BEGINS-ON n=104: ORD:A1 74, ORD:B1 30
+ET ENDS-ON n=25: ORD:A1 19, ORD:B1 6
+TE ENDS-ON n=10: ORD:A1 9, ORD:B1 1
+TT BEGINS-ON n=86: CAL:unparsed 62, ORD:B1 55, ORD:A1 31, CAL:same_start 23, CAL:B_contains_A 15, CAL:B_range 11, CAL:A_range 10, CAL:A_contains_B 6, CAL:equal 3, CAL:same_end 3, CAL:A_before_B 1
+TT ENDS-ON n=141: ORD:A1 124, CAL:A_before_B 81, CAL:unparsed 49, ORD:B1 17, CAL:A_range 10, CAL:same_end 9, CAL:A_end_is_B_start 6, CAL:B_range 5, CAL:A_contains_B 5, CAL:same_start 4, CAL:equal 3, CAL:B_contains_A 2, CAL:B_before_A 1

@@ -1,0 +1,23 @@
+[   130s] fold 3: 108154 ung vien sau BH; nhan {'CONTAINS': 59846, 'SIMULTANEOUS': 35666, 'OVERLAP': 11062, 'BEGINS-ON': 1416, 'ENDS-ON': 164}
+[   260s] fold 4: 113351 ung vien sau BH; nhan {'CONTAINS': 60557, 'SIMULTANEOUS': 39335, 'OVERLAP': 11321, 'BEGINS-ON': 1860, 'ENDS-ON': 278}
+[   261s] hop 199061 luat ung vien qua cac fold; 110259 qua xac nhan gop ngoai fold; nhan {'OVERLAP': 9952, 'SIMULTANEOUS': 40614, 'CONTAINS': 58359, 'BEGINS-ON': 1258, 'ENDS-ON': 76}; so fold chon: {5: 43670, 4: 25815, 1: 12957, 2: 11660, 3: 16157}
+[   319s] fold 0: 73405 luat dung cho du doan ngoai fold
+[   375s] fold 1: 74549 luat dung cho du doan ngoai fold
+[   442s] fold 2: 74088 luat dung cho du doan ngoai fold
+[   504s] fold 3: 73526 luat dung cho du doan ngoai fold
+[   559s] fold 4: 75158 luat dung cho du doan ngoai fold
+[  1211s] nguong chon tren du doan ngoai fold cua toan bo train (macro 27.37%): {'CONT': 0.5, 'SIMU': 0.15, 'OVER': 0.15}
+
+========================================================================================================
+HUONG C -- CROSS-FIT K=5 TREN TOAN BO TRAIN, valid mo mot lan
+========================================================================================================
+  110259 luat (hop cac fold, xac nhan ngoai fold), 6787 hoat dong theo nguong
+  valid macro-F1 26.32%  accuracy 87.00%   (huong A: 26,99% / 87,90%)
+    BEFORE        P  93.56%  R  92.67%  F1  93.11%
+    CONTAINS      P  42.43%  R  38.99%  F1  40.64%
+    SIMULTANEOUS  P  10.67%  R  29.28%  F1  15.64%
+    OVERLAP       P   9.50%  R   7.72%  F1   8.52%
+    BEGINS-ON     P   0.00%  R   0.00%  F1   0.00%
+    ENDS-ON       P   0.00%  R   0.00%  F1   0.00%
+  rut gon (set cover giu moi du doan tren train): 6787 luat hoat dong -> 818 (chan duoi 817); valid giu nguyen 99.922%, macro-F1 26.29%
+[  2484s] xong

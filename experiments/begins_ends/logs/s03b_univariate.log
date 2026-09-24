@@ -1,0 +1,171 @@
+
+EE BEGINS-ON: 105 positives / 292719 edges (prior 0.00036)
+   wlb 0.4385     3/3        B.n1:sharp
+   wlb 0.1368     3/8        A.n1:sharp
+   wlb 0.0329     4/48       B.p2:it_had
+   wlb 0.0315     4/50       A.tw:ceremony
+   wlb 0.0262     4/60       A.p2:the_opening
+   wlb 0.0246     4/64       A.p1:opening
+   wlb 0.0215     4/73       B.p2:the_attack
+   wlb 0.0202     3/51       B.tw:met with
+   wlb 0.0161     3/64       A.tw:met with
+   wlb 0.0098     4/159      B.tw:shows
+   wlb 0.0080     4/194      B.p1:attack
+   wlb 0.0080     4/196      B.p2:the_first
+   wlb 0.0075     3/137      B.tw:race
+   wlb 0.0062     4/250      A.tw:shows
+   wlb 0.0061     3/168      A.p2:attack_was
+   wlb 0.0054     3/188      B.p2:attack_was
+   wlb 0.0043     3/239      A.p2:the_battle
+   wlb 0.0035     3/292      B.n1:which
+   wlb 0.0031     4/498      B.tw:spread
+   wlb 0.0029     4/531      B.p1:first
+   wlb 0.0029     3/349      A.p1:battle
+   wlb 0.0024     4/636      B.n1:about
+   wlb 0.0023     4/683      B.tw:took place
+   wlb 0.0022     3/475      A.n1:''
+   wlb 0.0020     3/509      A.n1:her
+   atoms with >=3 positives: 113
+
+EE ENDS-ON: 70 positives / 292719 edges (prior 0.00024)
+   wlb 0.3000     4/6        B.p2:with_temporary
+   wlb 0.1888     4/9        B.p2:attention_is
+   wlb 0.1268     4/13       B.p2:years_of
+   wlb 0.0956     4/17       B.p1:favoured
+   wlb 0.0497     4/32       B.tw:successes
+   wlb 0.0359     4/44       B.p2:<s>_bulgaria
+   wlb 0.0322     4/49       B.n1:subject
+   wlb 0.0314     3/33       B.n1:others
+   wlb 0.0201     4/78       B.p2:independence_and
+   wlb 0.0199     5/108      B.p1:temporary
+   wlb 0.0160     4/98       B.p1:bulgaria
+   wlb 0.0114     4/137      A.tw:favoured
+   wlb 0.0100     4/157      B.tw:paid
+   wlb 0.0034     3/303      B.p2:''_,
+   wlb 0.0031     6/877      B.tw:fighting
+   wlb 0.0031     5/689      B.tw:remained
+   wlb 0.0024     4/657      B.tw:storm
+   wlb 0.0014     4/1129     B.tw:lost
+   wlb 0.0013     4/1239     B.p1:is
+   wlb 0.0012     3/838      TG:<=0
+   wlb 0.0012     3/852      B.tw:killing
+   wlb 0.0012     7/2851     B.et:Presence
+   wlb 0.0011     8/3573     TG:2-3
+   wlb 0.0010     8/4147     PAT:XTOY
+   wlb 0.0010     9/4877     B.et:Earnings_and_losses
+   atoms with >=3 positives: 88
+
+ET BEGINS-ON: 67 positives / 62685 edges (prior 0.00107)
+   wlb 0.4869     6/7        B.p2:place_about
+   wlb 0.4385     3/3        B.p2:the_period
+   wlb 0.4385     3/3        B.p1:period
+   wlb 0.1172     4/14       BW:since
+   wlb 0.0889     3/12       B.p2:developed_on
+   wlb 0.0346     3/30       B.p2:day_of
+   wlb 0.0346     3/30       B.n1:witnessed
+   wlb 0.0314     3/33       A.tw:wave
+   wlb 0.0268    14/313      PAT:SINCE_B
+   wlb 0.0214     7/160      BW:from
+   wlb 0.0193    11/320      BW:in
+   wlb 0.0180     9/265      TG:1
+   wlb 0.0141     3/73       BW:between
+   wlb 0.0118     6/235      B.p1:about
+   wlb 0.0102     8/400      TG:2-3
+   wlb 0.0089     3/115      A.p2:a_tropical
+   wlb 0.0086     8/473      BW:the
+   wlb 0.0086     6/322      B.n1:before
+   wlb 0.0073     3/140      B.p2:war_(
+   wlb 0.0065    37/4123     SD:0
+   wlb 0.0062    11/997      TG:4-8
+   wlb 0.0057     4/272      A.p1:tropical
+   wlb 0.0056     3/182      A.tw:beginning
+   wlb 0.0052     4/301      BW:on
+   wlb 0.0051     7/672      B.sh:YEAR_RANGE
+   atoms with >=3 positives: 76
+
+ET ENDS-ON: 18 positives / 62685 edges (prior 0.00029)
+   wlb 0.0087     3/118      B.p2:march_and
+   wlb 0.0068     7/497      PAT:XTOY
+   wlb 0.0021     3/481      PAT:ASPECT_BETWEEN
+   wlb 0.0020     4/770      PAT:UNTIL_B
+   wlb 0.0018    13/4123     SD:0
+   wlb 0.0016     4/997      TG:4-8
+   wlb 0.0014     7/2399     TG:9+
+   wlb 0.0012     3/887      B.n1:after
+   wlb 0.0007     6/3950     B.sh:QTY
+   wlb 0.0004     3/2375     B.p1:and
+   wlb 0.0004     4/4302     A.p1:was
+   wlb 0.0003     6/9065     B.tt:DURATION
+   wlb 0.0003     3/3378     A.n1:to
+   wlb 0.0003     7/12286    B.dur
+   wlb 0.0002     7/16414    B.n1:.
+   wlb 0.0002    16/52110    A.tc:none
+   wlb 0.0002    15/49338    ORD:A1
+   wlb 0.0002     3/5568     A.n1:the
+   wlb 0.0001     3/7111     B.sh:MONTH_YEAR
+   wlb 0.0001     5/15566    B.sh:YEAR
+   wlb 0.0001    11/52019    B.tt:DATE
+   wlb 0.0001     3/13347    ORD:B1
+   wlb 0.0001     4/22257    B.n1:,
+   wlb 0.0000     3/34336    SD:4+
+   atoms with >=3 positives: 24
+
+TE ENDS-ON: 4 positives / 95934 edges (prior 0.00004)
+   wlb 0.0000     3/78080    ORD:A1
+   atoms with >=3 positives: 1
+
+TT BEGINS-ON: 48 positives / 27940 edges (prior 0.00172)
+   wlb 0.2307     3/5        B.p2:days_,
+   wlb 0.0498     3/21       B.p2:was_a
+   wlb 0.0091     5/236      A.n1:after
+   wlb 0.0086     5/249      B.p1:a
+   wlb 0.0084     4/185      A.n1:of
+   wlb 0.0079    18/1444     B.sh:QTY
+   wlb 0.0073     3/140      A.p1:over
+   wlb 0.0073     3/141      B.p1:over
+   wlb 0.0067    15/1362     A.sh:QTY
+   wlb 0.0064     4/243      TG:2-3
+   wlb 0.0061     4/255      B.sh:DAY_RANGE
+   wlb 0.0060    10/906      CAL:same_start
+   wlb 0.0053     3/194      B.n1:of
+   wlb 0.0041    23/3764     B.tt:DURATION
+   wlb 0.0036    30/5840     ORD:B1
+   wlb 0.0036     4/435      B.p1:,
+   wlb 0.0032     4/485      A.tt:TIME
+   wlb 0.0032    24/5071     B.dur
+   wlb 0.0031    25/5543     A.dur
+   wlb 0.0030     7/1150     A.sh:RELATIVE
+   wlb 0.0029    38/9483     CAL:unparsed
+   wlb 0.0027    20/4711     A.tt:DURATION
+   wlb 0.0026     7/1292     A.p2:<s>_on
+   wlb 0.0026     6/1049     CAL:A_range
+   wlb 0.0026    17/4153     SD:1
+   atoms with >=3 positives: 57
+
+TT ENDS-ON: 92 positives / 27940 edges (prior 0.00329)
+   wlb 0.4385     3/3        A.p2:france_from
+   wlb 0.2307     3/5        A.p2:the_years
+   wlb 0.2307     3/5        A.p1:years
+   wlb 0.1582     3/7        B.p2:this_was
+   wlb 0.0757     3/14       B.p2:3_and
+   wlb 0.0552     3/19       B.p1:was
+   wlb 0.0488    18/236      PAT:FROMTO
+   wlb 0.0467    19/263      BW:to
+   wlb 0.0459    10/120      PAT:BETWEENAND
+   wlb 0.0457    40/648      TG:1
+   wlb 0.0307    24/528      PAT:UNTIL_B
+   wlb 0.0287     3/36       B.p2:august_and
+   wlb 0.0273    19/449      PAT:SINCE_A
+   wlb 0.0220    18/521      BW:and
+   wlb 0.0198     3/52       A.p2:after_a
+   wlb 0.0189    10/289      PAT:SINCE_B
+   wlb 0.0184     3/56       B.p2:war_(
+   wlb 0.0171    26/1044     A.n1:to
+   wlb 0.0152    23/1011     B.p1:to
+   wlb 0.0147    53/2757     SD:0
+   wlb 0.0140     8/290      A.sh:BARE_NUM
+   wlb 0.0139    26/1278     A.p1:from
+   wlb 0.0129    10/424      BW:,
+   wlb 0.0122     3/84       A.p2:lasted_from
+   wlb 0.0114     6/243      TG:2-3
+   atoms with >=3 positives: 87

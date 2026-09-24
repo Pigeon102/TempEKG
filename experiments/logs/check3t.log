@@ -1,0 +1,40 @@
+[    0s] nap train/valid ...
+[    9s] train 400 doc (disc 229 / conf 171), valid 705 doc
+[   14s]   257 luat EV-EV tren disc (in-sample)  acc 91.47%  loi 8.53%
+[   14s]   257 luat EV-EV tren valid             acc 87.87%  loi 12.13%
+[   15s]   classifier EV-TX (273 luat) tren valid: 79.84%
+[   15s]   TX-TX theo lich tren valid: 12464 canh, UNK 65.1%, dung 95.8% trong so da quyet dinh
+[   15s] dung motif ...
+[  251s]   do phu motif tren valid (109,929 cap): 3E 99.7%  3T 92.2%  4EE 99.4%  4ET 95.4%  4TE 96.1%  4TT 90.3%
+[  251s] BASE 257 luat: macro-F1 25.60%  acc 87.87%
+[  251s] do tin cay classifier tren confirmation: {'BEFORE': '94.6%', 'CONTAINS': '40.6%', 'SIMULTANEOUS': '16.3%', 'OVERLAP': '41.7%'}
+[  251s] chu ky gold tren train ...
+3T rules: 17
+  3T|BEFORE|BEFORE                         {'BEFORE': 1.0}
+  3T|iCONTAINS|BEFORE                      {'BEFORE': 1.0}
+  3T|BEFORE|CONTAINS                       {'BEFORE': 1.0}
+  3T|CONTAINS|iBEFORE                      {'CONTAINS': 0.997}
+  3T|CONTAINS|CONTAINS                     {'CONTAINS': 0.995}
+  3T|BEFORE|OVERLAP                        {'BEFORE': 0.991}
+  3T|OVERLAP|BEFORE                        {'BEFORE': 0.987}
+  3T|SIMULTANEOUS|BEFORE                   {'BEFORE': 0.976}
+  3T|BEFORE|SIMULTANEOUS                   {'BEFORE': 0.955}
+  3T|iOVERLAP|CONTAINS                     {'CONTAINS': 0.93}
+  3T|OVERLAP|iBEFORE                       {'CONTAINS': 0.872}
+  3T|SIMULTANEOUS|CONTAINS                 {'CONTAINS': 0.839}
+  3T|CONTAINS|iOVERLAP                     {'CONTAINS': 0.796}
+  3T|CONTAINS|BEFORE                       {'CONTAINS': 0.521}
+  3T|CONTAINS|iCONTAINS                    {'SIMULTANEOUS': 0.39}
+  3T|iOVERLAP|OVERLAP                      {'SIMULTANEOUS': 0.234}
+  3T|OVERLAP|iOVERLAP                      {'SIMULTANEOUS': 0.189}
+gold 3T instances on valid: 254562, in signatures >=99% pure: 43.8%
+  pred CONTAINS     -> BEFORE       gold BEFORE       3473
+  pred BEFORE       -> CONTAINS     gold CONTAINS     2078
+  pred SIMULTANEOUS -> BEFORE       gold BEFORE       451
+  pred SIMULTANEOUS -> CONTAINS     gold CONTAINS     96
+  pred SIMULTANEOUS -> CONTAINS     gold BEFORE       12
+  pred BEFORE       -> CONTAINS     gold BEGINS-ON    5
+  pred SIMULTANEOUS -> CONTAINS     gold BEGINS-ON    3
+  pred SIMULTANEOUS -> CONTAINS     gold OVERLAP      1
+  pred OVERLAP      -> CONTAINS     gold CONTAINS     1
+  pred OVERLAP      -> BEFORE       gold BEFORE       1

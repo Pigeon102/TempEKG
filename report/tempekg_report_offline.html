@@ -1,0 +1,2100 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TempEKG Findings</title>
+<style>
+  :root { color-scheme: light dark;
+           padding-top: env(safe-area-inset-top, 0px);
+           padding-bottom: env(safe-area-inset-bottom, 0px); }
+  body { margin: 0; font: 14px system-ui, sans-serif; background: #f6f6f4; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<title>TempEKG Findings</title>
+<style>
+  /* offline build: no webfont fetch, so these stacks stand in for the published faces */
+  body, button { font-family: "Instrument Sans", "Segoe UI", system-ui,
+                 -apple-system, "Helvetica Neue", Arial, sans-serif; }
+  code, pre, .mono, .num, td.num, th.num,
+  .card .big, .meta, .tag, .pill { font-family: "JetBrains Mono", "Cascadia Mono",
+                 Consolas, "SF Mono", ui-monospace, monospace; }
+</style>
+<style>
+  :root {
+    --ground:#f3f4f6; --surface:#fff; --surface-2:#e8eaee;
+    --ink:#16191f; --ink-2:#4b5361; --ink-3:#7f8896; --rule:#d5d9e0;
+    --pos:#2d7f6a; --neg:#b5443c; --warn:#c2703a; --info:#3a6ea5;
+    --ev:#d9682c; --ent:#2f7fae; --spn:#8a94a3; --anc:#2f8f63; --dur:#a8851c;
+    --target:#c0392b; --input:#3f8f5f; --weak:#b08a1e;
+    --shadow:0 1px 2px rgba(20,25,35,.06),0 3px 12px rgba(20,25,35,.05);
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --ground:#15181d; --surface:#1c2027; --surface-2:#242932;
+    --ink:#e7eaef; --ink-2:#a8b1bf; --ink-3:#757e8c; --rule:#2f353f;
+    --pos:#4fb396; --neg:#e0605a; --warn:#e8a05c; --info:#6ea8dd;
+    --ev:#e8834a; --ent:#4fa3d1; --spn:#7c8899; --anc:#5cb98b; --dur:#c9a227;
+    --target:#e0605a; --input:#5cb07c; --weak:#cfa53a;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.22);}}
+  :root[data-theme="dark"]{
+    --ground:#15181d; --surface:#1c2027; --surface-2:#242932;
+    --ink:#e7eaef; --ink-2:#a8b1bf; --ink-3:#757e8c; --rule:#2f353f;
+    --pos:#4fb396; --neg:#e0605a; --warn:#e8a05c; --info:#6ea8dd;
+    --ev:#e8834a; --ent:#4fa3d1; --spn:#7c8899; --anc:#5cb98b; --dur:#c9a227;
+    --target:#e0605a; --input:#5cb07c; --weak:#cfa53a;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.22);}
+
+  body{background:var(--ground);color:var(--ink);
+       font-family:"Instrument Sans",system-ui,sans-serif;font-size:14.5px;line-height:1.62;}
+  .wrap{max-width:1000px;margin:0 auto;padding-inline:16px;padding-block:26px 56px;}
+
+  h1{font-size:25px;font-weight:600;margin:0 0 3px;letter-spacing:-.015em;}
+  .sub{color:var(--ink-2);margin:0 0 4px;}
+  .meta{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink-3);}
+
+  nav{display:flex;flex-wrap:wrap;gap:6px;margin:20px 0 24px;
+      position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+      background:var(--ground);padding-block:8px;border-bottom:1px solid var(--rule);}
+  nav button{font:inherit;font-size:12.5px;font-weight:500;cursor:pointer;
+             background:var(--surface);color:var(--ink-2);border:1px solid var(--rule);
+             border-radius:999px;padding:6px 13px;transition:.12s;}
+  nav button:hover{border-color:var(--ink-3);}
+  nav button:focus-visible{outline:2px solid var(--info);outline-offset:2px;}
+  nav button[aria-current="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink);}
+  nav button .tag{font-family:"JetBrains Mono",monospace;font-size:10px;opacity:.65;margin-right:5px;}
+
+  h2{font-size:19px;font-weight:600;margin:0 0 5px;letter-spacing:-.012em;}
+  .pagesub{color:var(--ink-2);margin:0 0 6px;max-width:76ch;}
+  .toc{font-size:12.5px;color:var(--ink-3);margin:0 0 24px;font-family:"JetBrains Mono",monospace;}
+  h3{font-size:15px;font-weight:600;margin:30px 0 9px;padding-bottom:6px;
+     border-bottom:1px solid var(--rule);}
+  h3 .n{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink-3);margin-right:8px;}
+  h4{font-size:13.5px;font-weight:600;margin:20px 0 7px;color:var(--ink-2);}
+  p{margin:0 0 12px;max-width:78ch;}
+  ul{margin:0 0 12px;padding-left:22px;max-width:78ch;}
+  li{margin:4px 0;}
+
+  .cards{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-bottom:18px;}
+  .card{background:var(--surface);border:1px solid var(--rule);border-radius:7px;
+        padding:14px 15px;box-shadow:var(--shadow);border-top:3px solid var(--ink-3);}
+  .card.pos{border-top-color:var(--pos);} .card.neg{border-top-color:var(--neg);}
+  .card.warn{border-top-color:var(--warn);} .card.info{border-top-color:var(--info);}
+  .card .k{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;
+           text-transform:uppercase;color:var(--ink-3);}
+  .card h4{margin:3px 0 7px;font-size:14.5px;font-weight:600;color:var(--ink);border:0;padding:0;}
+  .card .big{font-family:"JetBrains Mono",monospace;font-size:22px;font-weight:500;
+             font-variant-numeric:tabular-nums;line-height:1.15;}
+  .card.pos .big{color:var(--pos);} .card.neg .big{color:var(--neg);}
+  .card.warn .big{color:var(--warn);} .card.info .big{color:var(--info);}
+  .card .note{font-size:12.5px;color:var(--ink-2);margin-top:5px;}
+
+  .scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;
+          background:var(--surface);margin-bottom:14px;}
+  table{border-collapse:collapse;width:100%;font-size:13px;}
+  th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--rule);white-space:nowrap;}
+  th{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:600;}
+  tbody tr:last-child td{border-bottom:0;}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;
+                font-family:"JetBrains Mono",monospace;}
+  td.w{white-space:normal;min-width:230px;}
+  tr.hi td{background:color-mix(in srgb,var(--pos) 9%,transparent);font-weight:500;}
+  tr.dim td{color:var(--ink-3);}
+  code,.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;}
+
+  .box{background:var(--surface-2);border-left:3px solid var(--warn);padding:12px 15px;
+       border-radius:0 5px 5px 0;color:var(--ink-2);margin-bottom:14px;}
+  .box.bad{border-left-color:var(--neg);} .box.good{border-left-color:var(--pos);}
+  .box.info{border-left-color:var(--info);}
+  .box b{color:var(--ink);font-weight:600;} .box p:last-child{margin-bottom:0;}
+  .box .lbl{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.07em;
+            text-transform:uppercase;display:block;margin-bottom:5px;color:var(--ink-3);}
+
+  pre{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+      padding:12px 14px;overflow-x:auto;font-family:"JetBrains Mono",monospace;
+      font-size:12px;line-height:1.55;margin:0 0 14px;color:var(--ink-2);}
+  pre b{color:var(--ink);font-weight:500;}
+  pre .c{color:var(--ink-3);}
+
+  .legend{display:flex;flex-wrap:wrap;gap:7px 14px;margin:10px 0 12px;font-size:12.5px;color:var(--ink-2);}
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .legend i{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .legend i.bar{width:16px;height:0;border-radius:0;border-top:2px solid;}
+  .stage{background:var(--surface);border:1px solid var(--rule);border-radius:7px;
+         box-shadow:var(--shadow);overflow:hidden;margin-bottom:8px;}
+  #cv{display:block;width:100%;height:420px;touch-action:none;}
+  @media (max-width:640px){#cv{height:330px;}}
+
+  .pill{display:inline-block;padding:1px 7px;border-radius:4px;font-size:10.5px;
+        font-family:"JetBrains Mono",monospace;border:1px solid;}
+  .bars{display:inline-flex;height:11px;border-radius:2px;overflow:hidden;
+        min-width:120px;vertical-align:middle;}
+  .bars i{display:block;height:100%;}
+  footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);
+         color:var(--ink-3);font-size:12.5px;}
+</style>
+
+<div class="wrap">
+  <h1>TempEKG</h1>
+  <p class="sub">Event-centric temporal KG từ MAVEN-ERE + MAVEN-Arg — kết quả đo, không phải kế hoạch.</p>
+  <p class="meta">train 2.913 doc · valid 710 doc · 2026-09-21</p>
+
+  <nav id="nav">
+    <button data-p="0" aria-current="true"><span class="tag">00</span>Tổng hợp</button>
+    <button data-p="1"><span class="tag">01</span>Tổng quan</button>
+    <button data-p="2"><span class="tag">C1</span>Kiến trúc KG</button>
+    <button data-p="3"><span class="tag">P1</span>Temporal classifier</button>
+    <button data-p="4"><span class="tag">P2</span>Noise-aware</button>
+    <button data-p="5"><span class="tag">INJ</span>Injection</button>
+    <button data-p="6"><span class="tag">BL</span>Baseline</button>
+    <button data-p="7"><span class="tag">!!</span>Artifact & rủi ro</button>
+    <button data-p="8"><span class="tag">??</span>Thuật ngữ</button>
+  </nav>
+
+<!-- ═══════════════════════════════ 0 ═══════════════════════════════ -->
+<section data-page="0">
+  <h2>Hai bài toán — trạng thái</h2>
+  <p class="pagesub">Mọi con số đều đã đo, có script tái tạo. Số nào chưa đo thì ghi rõ.</p>
+  <p class="toc">A. bài 1 classifier · B. bài 2 noise-aware · C. ba điều phải nói ·
+     D. việc cần làm trước · E. đã bác bỏ</p>
+
+  <h3><span class="n">A</span>Bài 1 — Temporal classifier <span class="pill">ĐÓNG</span></h3>
+  <div class="cards">
+    <div class="card pos"><div class="k">Đạt được</div><h4>Macro-F1</h4>
+      <div class="big">25,60%</div><div class="note">hằng số 15,78% · <b>257 rule</b> · 4/6 nhãn có điểm</div></div>
+    <div class="card neg"><div class="k">Trần oracle</div><h4>Không lấy được</h4>
+      <div class="big">+0,87</div><div class="note">điểm — đã thử 6 combiner, chỉ 2% khoảng cách</div></div>
+    <div class="card warn"><div class="k">EV-TIMEX</div><h4>+6,67 điểm</h4>
+      <div class="big">21,21%</div><div class="note">macro-F1 (hằng số 14,54%) · nhãn hiếm <b>vẫn 0</b></div></div>
+  </div>
+  <p><b>Đã làm:</b> dựng KG (9/9 bất biến) → mine 8 view + vét cạn depth-2
+(155.467 rule) → rút gọn (956 họ) → bốn gate thống kê (861 rule) →
+<b>xác nhận độc lập trên 126 document riêng</b> (257 rule). Giao thức sạch:
+chia theo document, valid chỉ mở một lần trên cấu hình đã đóng băng.</p>
+
+<table>
+<thead><tr><th>Bộ rule</th><th>#rule</th><th>macro-F1</th><th>F1 không-BEFORE</th></tr></thead>
+<tbody>
+<tr><td>Baseline hằng số</td><td>0</td><td>15,78%</td><td>0%</td></tr>
+<tr><td>Gộp hai file</td><td>4.380</td><td>24,61%</td><td>29,53%</td></tr>
+<tr><td>Bốn gate</td><td>861</td><td>25,14%</td><td>35,47%</td></tr>
+<tr><td><b>+ xác nhận độc lập</b></td><td><b>257</b></td><td><b>25,60%</b></td><td><b>37,12%</b></td></tr>
+</tbody></table>
+
+<p class="note">17 lần ít rule hơn mà điểm <b>tăng</b>. Phần lớn mức tăng ở nhóm
+không-BEFORE: F1 <b>+7,59đ</b>, recall <b>+13,73đ</b> — đúng chỗ baseline hằng số
+không giải quyết được.</p>
+  <p><b>Đã thử và thất bại — sáu hướng:</b> Δlogit vs parent (Spearman +0,229),
+conditional effect vs baseline stratum (corr với confirmation −0,039), stability
+selection (max π của SIMULTANEOUS chỉ 0,09), LCB-Lift (thua ở mọi ngưỡng),
+greedy tối ưu downstream (dev 27,16% nhưng valid 25,40%), MDL/khử bao hàm
+(0 rule bị loại). <b>Không statistic nào thắng được một policy đơn giản.</b></p>
+
+<p><b>Rule mining có cần không:</b> softmax regression trên cùng KG feature đạt
+<b>20,07%</b> với 18.076 tham số; 257 rule đạt <b>25,60%</b>. Hơn 5,53 điểm với
+70 lần ít tham số hơn.</p>
+
+<p class="note"><b>Trần thông tin:</b> thêm 41.609 luật mô tả cấu trúc hàng xóm (không chứa nhãn) chỉ cho <b>+0,12 điểm</b> — cấu trúc KG quan sát được đã gần cạn. Xem mục 2.13.</p>
+
+<p><b>Còn lại:</b> BEGINS-ON/ENDS-ON vẫn 0% — trên discovery <b>không một candidate
+nào</b> qua được n ≥ 25 cho hai nhãn này (25 và 15 mẫu trong 109.929 cặp). Đây là
+giới hạn dữ liệu, không phải thuật toán.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Nhãn</th><th class="num">hằng số</th><th class="num">68 rule (argmax)</th><th class="num">norm-wlb τ=100</th></tr></thead>
+    <tbody>
+      <tr><td>BEFORE</td><td class="num">94,70%</td><td class="num">92,40%</td><td class="num">89,70%</td></tr>
+      <tr><td>CONTAINS</td><td class="num">0%</td><td class="num"><b>43,29%</b></td><td class="num">32,78%</td></tr>
+      <tr class="hi"><td>SIMULTANEOUS</td><td class="num">0%</td><td class="num">0%</td><td class="num"><b>11,88%</b></td></tr>
+      <tr class="hi"><td>OVERLAP</td><td class="num">0%</td><td class="num">0%</td><td class="num"><b>6,55%</b></td></tr>
+      <tr><td>BEGINS-ON / ENDS-ON</td><td class="num">0%</td><td class="num">0%</td><td class="num">0%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box good"><span class="lbl">4/6 quan hệ có điểm, thay vì 2/6</span>
+    <p>Cách làm: <b>chuẩn hoá trọng số rule theo base rate của nhãn</b>. Rule SIMULTANEOUS ở
+    wlb 0,14 tính nặng hơn rule CONTAINS cùng wlb, vì SIMULTANEOUS chiếm 0,86% corpus còn
+    CONTAINS 7,43%. Cộng dồn thô <b>thua</b> argmax vì CONTAINS đông rule nhất nên thắng mọi
+    phép cộng bất kể đúng sai.</p></div>
+  <div class="box bad"><span class="lbl">khoảng cách oracle KHÔNG lấy được</span>
+    <p>Oracle đạt 65,85%, nhưng đã thử <b>6 combiner</b> và tốt nhất chỉ <b>+0,87 điểm</b> so
+    với argmax-wlb — khoảng <b>2%</b> khoảng cách, không phải 30–45% như dự đoán. Rule bắn trên
+    <b>96,3% số cặp, 46,4 rule/cặp</b>; oracle chọn đúng <i>vì nó đã biết đáp án</i>.
+    <b>Đừng trích 65,85% như headroom lấy được.</b></p></div>
+
+  <h3><span class="n">B</span>Bài 2 — Noise-aware reasoning</h3>
+  <div class="cards">
+    <div class="card pos"><div class="k">C3-B đề xuất cạnh</div><h4>Mạnh nhất</h4>
+      <div class="big">89,3%</div><div class="note">recall, F1 gấp <b>118×</b> baseline</div></div>
+    <div class="card pos"><div class="k">Sửa nhãn (5 seed)</div><h4>Gần hoàn hảo</h4>
+      <div class="big">93,7%</div><div class="note">[91,8–95,5] · <b>sửa sai 0,44%</b></div></div>
+    <div class="card neg"><div class="k">Ở nhiễu 30%</div><h4>Sụp</h4>
+      <div class="big">6,14%</div><div class="note">chỉ gắn cờ được bấy nhiêu lỗi</div></div>
+  </div>
+  <p><b>Đã làm:</b> bơm lỗi có kiểm soát (<code>inject.py</code>) → phát hiện nhãn sai
+     (<code>detect.py</code>) → đề xuất cạnh thiếu (<code>propose_missing.py</code>) →
+     đánh giá theo mức nhiễu (<code>noise_aware.py</code>).</p>
+  <div class="box good"><p><b>Ý chính:</b> giá trị của closure là ở chỗ <b>biết im lặng</b>, không
+     phải ở chỗ quyết định. Nó từ chối 95,9% số cặp, nên đề xuất ít hơn baseline <b>127×</b> mà
+     recall tương đương.</p></div>
+  <div class="box bad"><p><b>Vấn đề nghiêm trọng nhất:</b> closure sụp nhanh khi nhiễu tăng —
+     số cạnh nó dám xem xét tụt từ 64.562 xuống <b>5.054</b>. Nếu dùng khung "ERE thật sai
+     30–50%" thì ở mức đó phương pháp chạm tới <b>~6% số lỗi</b>. Nó <b>im lặng</b> chứ không
+     sai (đồng ý nhãn sai chỉ 0,40–0,61%).</p></div>
+
+  <h3><span class="n">C</span>Ba điều phải nói, nếu không reviewer sẽ bắt</h3>
+  <div class="scroll"><table>
+    <thead><tr><th class="num">#</th><th>Điều phải nói</th><th>Bằng chứng</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td class="w"><b>Gold không có conflict nào để tìm</b> — recall chỉ đo được bằng bơm lỗi</td>
+          <td class="w">0 cặp hai nhãn · 0/2.913 doc PC-inconsistent · <b>0/164.803</b> cặp closure loại nhãn gold</td></tr>
+      <tr><td class="num">2</td><td class="w"><b>Không dùng accuracy cho bài 1</b> — phải báo macro-F1 và F1 từng nhãn</td>
+          <td class="w">base rate BEFORE <b>89,94%</b>; hằng số đạt accuracy 89,94% mà macro-F1 chỉ 15,78%</td></tr>
+      <tr class="hi"><td class="num">3</td><td class="w"><b>Luôn nói mẫu số</b> khi trích số bài 2</td>
+          <td class="w"><code>repair@k</code> 90–99% và <code>R_all</code> 5–75% là <b>cùng một lần chạy</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="box bad"><span class="lbl">một con số phải sửa trước khi nộp</span>
+    <p><b>93,40% không phải số cho bảng classifier.</b> Đó là precision trên các cặp rule có bắn
+    và đoán CONTAINS, sau khi bỏ BEFORE khỏi mẫu số. Chấm như classifier thật:
+    CONTAINS <b>P 35,25% / R 56,07% / F1 43,29%</b>.</p></div>
+
+  <h3><span class="n">D</span>Cần làm gì trước</h3>
+  <div class="scroll"><table>
+    <thead><tr><th class="num">#</th><th>Việc</th><th class="num">Thời gian</th><th>Vì sao</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td class="w"><s>Kết hợp rule đang bắn</s> — <b>ĐÃ LÀM</b></td>
+          <td class="num">xong</td><td class="w">+0,87 điểm, nhưng đưa SIMULTANEOUS và OVERLAP thoát 0% (xem A)</td></tr>
+      <tr><td class="num">2</td><td class="w"><s>Sửa 93,40% → 35,25%</s> — <b>ĐÃ LÀM</b></td>
+          <td class="num">xong</td><td class="w">thêm cảnh báo mẫu số ở STATUS và MINIMISE</td></tr>
+      <tr><td class="num">3</td><td class="w"><s>Sweep nhiều seed</s> — <b>ĐÃ LÀM</b></td>
+          <td class="num">xong</td><td class="w">số cũ ổn định; <b>sửa sai chỉ 0,44%</b> [0–0,97]</td></tr>
+      <tr class="hi"><td class="num">4</td><td class="w"><s>Khai thác EV-TIMEX</s> — <b>ĐÃ LÀM</b></td>
+          <td class="num">xong</td><td class="w">535 rule, 70,1% giữ trên valid, <b>có rule cho BEGINS-ON/ENDS-ON</b></td></tr>
+      <tr><td class="num">5</td><td class="w">Chạy bài 2 trên cạnh model dự đoán</td>
+          <td class="num">cần model</td><td class="w">chỗ <b>duy nhất có thể làm hỏng câu chuyện</b></td></tr>
+      <tr><td class="num">6</td><td class="w">Quyết cách xử lý BEGINS-ON/ENDS-ON</td>
+          <td class="num">1 giờ</td><td class="w">25 và 15 mẫu — khoá trần macro-F1 ở ~67%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box good"><span class="lbl">đề nghị — cập nhật sau khi thử việc 1</span>
+    <p>Việc 1 đã làm, biên độ nhỏ hơn hy vọng (<b>+0,87 điểm</b>) nhưng cho kết quả định tính
+    đáng giá: <b>4/6 quan hệ có điểm</b> thay vì 2/6.</p>
+    <p>Thứ tự còn lại: <b>việc 2 và 3</b> (45 phút dọn chỗ dễ bị bắt lỗi) → <b>việc 5</b> nếu có
+    model (rủi ro duy nhất chưa đánh giá được) → <b>việc 4</b> (EV-TIMEX, 112.540 cạnh chưa dùng).</p>
+    <p>Bài 1 giờ nên đóng khung là <i>"4/6 quan hệ có điểm, macro-F1 gấp 1,5× hằng số"</i>,
+    <b>dẫn bằng bảng từng nhãn</b> chứ không dẫn bằng con số gộp.</p></div>
+
+  <h3><span class="n">E</span>Đã bác bỏ — đừng thử lại</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Ý tưởng</th><th>Kết quả đo</th></tr></thead>
+    <tbody>
+      <tr><td>Greedy per-label cứu SIMULTANEOUS/OVERLAP</td><td class="w">120 rule, precision <b>8,73%</b> — tệ hơn 4×</td></tr>
+      <tr><td>Dùng rule làm detector C3-A</td><td class="w">4 hướng, tốt nhất 10,1× (baseline 10,7×)</td></tr>
+      <tr><td>PC-2 thay 1-step closure</td><td class="w">khôi phục thêm <b>0 cạnh</b>, tốn hơn nhiều</td></tr>
+      <tr><td>Lọc theo anchor</td><td class="w">mất <b>57,8%</b> khối non-BEFORE, chỉ giảm tải xuống 23%</td></tr>
+      <tr><td>Kết hợp rule để lấy khoảng cách oracle</td><td class="w">6 combiner, tốt nhất <b>+0,87 điểm</b> (2% khoảng cách)</td></tr>
+      <tr><td>Ép rule cho BEGINS-ON / ENDS-ON</td><td class="w">F1 0,137% và 0,118%; <b>99,94% cảnh báo sai</b></td></tr>
+      <tr><td>Phép kiểm bao hàm cho C3-B</td><td class="w">thổi 4,9% thành 80,4%; 97% lạm phát là BEFORE-vs-ENDS-ON</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section data-page="1" hidden>
+  <h2>Tổng quan</h2>
+  <p class="pagesub">Rule có tín hiệu thật và giữ được trên hold-out, nhưng dự đoán thua hằng số
+     vì lý do cấu trúc. Phát biểu ở dạng phủ định thì lại rất sạch. Injection đã chạy: nó cho hai
+     kết quả âm quan trọng — C3-A thua baseline tầm thường, và baseline closure của C3-B là
+     <b>4,9%</b> chứ không phải 80,4% như các bản trước.</p>
+  <p class="toc">0.1 bốn kết luận · 0.2 mười phase · 0.3 đề nghị đóng khung bài</p>
+
+  <h3><span class="n">0.1</span>Bốn kết luận</h3>
+  <div class="cards">
+    <div class="card pos"><div class="k">C1 — dựng KG</div><h4>Đạt</h4>
+      <div class="big">9/9</div><div class="note">bất biến, 3 trong đó chống rò rỉ nhãn</div></div>
+    <div class="card warn"><div class="k">C2 — bộ rule tối thiểu</div><h4>Đúng phạm vi thì đạt</h4>
+      <div class="big">68 rule</div><div class="note">macro-F1 <b>22,62%</b> vs 15,78% của hằng số; trần oracle <b>65,85%</b></div></div>
+    <div class="card neg"><div class="k">C3-A — audit sai nhãn</div><h4>Thua baseline</h4>
+      <div class="big">1/60</div><div class="note">constraint bắt được, baseline 2 dòng bắt 55/60 — xem trang INJ</div></div>
+    <div class="card pos"><div class="k">C3-B — audit thiếu nhãn</div><h4>Đạt</h4>
+      <div class="big">89,3%</div><div class="note">recall, F1 gấp <b>118×</b> baseline; closure thuần chỉ 1,8%</div></div>
+  </div>
+
+  <h3><span class="n">0.2</span>Mười phase</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Phase</th><th>Trạng thái</th><th>Bằng chứng</th></tr></thead>
+    <tbody>
+      <tr><td>P1 Dựng KG</td><td>xong</td><td class="w">9/9 bất biến, build 5,5 s, 217,7 MB</td></tr>
+      <tr><td>P2 Tầng Allen</td><td>xong</td><td class="w">13×13 brute-force, PC-2 fixpoint, 21/21 luật paper sound</td></tr>
+      <tr><td>P3 Miner hợp thành</td><td>xong</td><td class="w">5 dạng điều kiện, depth ≤3, beam, Wilson LB</td></tr>
+      <tr><td>P4 Multi-view</td><td>xong</td><td class="w">8 view, 155.127 rule, precision 10,68%</td></tr>
+      <tr><td>P5 Rút gọn</td><td>xong</td><td class="w">1.073 họ sau dedupe</td></tr>
+      <tr><td>P6 Constraint</td><td>xong</td><td class="w">sweep 5 mức τ, chốt 0,001</td></tr>
+      <tr><td>P7 Xuất artifact</td><td>xong</td><td class="w">3 file JSON, 125 MB, 93 phút</td></tr>
+      <tr><td>P8 Bộ rule nhỏ nhất</td><td>xong</td><td class="w">68 rule, 35,25% hold-out; macro-F1 22,62% vs hằng số 15,78%</td></tr>
+      <tr><td>P9 Injector hai chiều</td><td>xong</td><td class="w">relabel 14,3% PC-inconsistent (spec dự đoán 13,1%), delete 0%, 0% rơi nhãn hiếm</td></tr>
+      <tr><td>P9b Detection</td><td>xong</td><td class="w">C3-A τ=0,005 F1 gấp 2,2× baseline; C3-B <b>89,3% recall, F1 gấp 118×</b></td></tr>
+      <tr class="dim"><td>P10 Thẩm định người</td><td>chưa</td><td class="w">giao thức xong, chưa chạy</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3><span class="n">0.3</span>Đề nghị đóng khung bài</h3>
+  <ul>
+    <li><b>Đừng dẫn bằng C3-A nữa.</b> Injection cho thấy nó bắt 1/60 lỗi trong khi baseline hai
+        dòng bắt 55/60. Tỉ lệ vi phạm 0,094% đo <i>độ an toàn</i> của constraint, không đo khả năng
+        phát hiện. Phải sửa (τ cao hơn, hoặc dùng 68 rule) rồi mới dẫn.</li>
+    <li><b>Dẫn bằng C2 + C1.</b> 68 rule / macro-F1 22,62% (hằng số 15,78%) là kết quả C2 hiện có,
+        và nó giữ trên hold-out (35,25% valid vs 35,35% train).</li>
+    <li><b>Dẫn bằng C3-B.</b> Đây là kết quả mạnh nhất: 89,3% recall với F1 gấp 118× baseline,
+        và câu chuyện sạch — closure có giá trị vì nó <i>biết im lặng</i> (từ chối 95,9% cặp),
+        không phải vì nó quyết định được.</li>
+    <li><b>C1 làm nền kỹ thuật</b> — KG hai tầng, ba lớp cạnh tách vật lý, 9 bất biến.</li>
+    <li><b>C2 đóng khung lại</b> thành "họ rule với lift giữ trên hold-out", không phải "dự đoán nhãn".</li>
+    <li><b>Nêu thẳng trần oracle 12,45%</b> như phát hiện về dataset: với base rate 91%, mọi phương
+        pháp dựa trên enrichment đều bị chặn ở đó.</li>
+  </ul>
+</section>
+
+<!-- ═══════════════════════════════ 1 ═══════════════════════════════ -->
+<section data-page="2" hidden>
+  <h2>C1 — Kiến trúc KG</h2>
+  <p class="pagesub">Hai tầng vì một tầng không đủ. Ba lớp cạnh tách vật lý vì quy ước không chặn
+     được rò rỉ. Mọi quyết định dưới đây đến từ một con số đo được, không từ trực giác.</p>
+  <p class="toc">1.1 vì sao hai tầng · 1.2 ba lớp cạnh · 1.3 node · 1.4 bất biến ·
+     1.5 census · 1.6 ánh xạ Allen · 1.7 ví dụ · 1.8 định dạng lưu</p>
+
+  <h3><span class="n">1.1</span>Vì sao phải hai tầng</h3>
+  <p>Bảng pairwise <b>không thể</b> phát hiện mâu thuẫn ba biến. Ví dụ cụ thể:</p>
+<pre>BEFORE(a,b) ∧ BEFORE(b,c) ∧ ENDS-ON(a,c)</pre>
+  <p>Từng cặp một đều hợp lệ. Cả ba cùng lúc thì <b>tuỳ mapping</b>: dưới
+     <code>ENDS-ON = {m}</code> là bất khả thoả, dưới <code>{b,m}</code> (đã chốt) thì không.</p>
+  <div class="box bad"><span class="lbl">bài học đã trả giá</span>
+    <p>Vòng research trước sinh ra <b>7 "mâu thuẫn cứng"</b> hoàn toàn từ cơ chế này — chúng biến
+    mất khi sửa mapping. Nếu công bố, đó sẽ là kết quả sai do chính lựa chọn mapping của mình.</p></div>
+  <p><code>constraint_net.py --self-test</code> tái lập <b>cả hai chiều</b> để hồi quy không lặp lại:</p>
+<pre><b>PASS</b>  composition table (brute-forced, 13x13)
+<b>PASS</b>  3-variable contradiction detected under ENDS-ON={m}
+<b>PASS</b>  3-variable consistency under ENDS-ON={b,m}   <span class="c">&lt;- mapping đã chốt</span>
+<b>PASS</b>  BEFORE cycle detected</pre>
+
+  <div class="scroll"><table>
+    <thead><tr><th>Tầng</th><th>Biểu diễn</th><th>Trả lời câu hỏi</th><th>Lưu ở đâu</th></tr></thead>
+    <tbody>
+      <tr><td><b>1</b> Property graph</td><td class="w">node/edge có nhãn</td>
+          <td class="w">pattern này xuất hiện bao nhiêu lần</td><td>đĩa, JSONL</td></tr>
+      <tr><td><b>2</b> Constraint network</td><td class="w">biến điểm mút + bất đẳng thức</td>
+          <td class="w">tập nhãn này có thoả được không</td><td class="w">sinh theo yêu cầu, <b>lười</b></td></tr>
+    </tbody>
+  </table></div>
+  <p>Tầng 2 sinh lười vì đã đo <b>300/300 document nhất quán</b> trên gold — chạy hết là lãng phí.
+     Chi phí PC-2: median 0,069 s/doc, max 10,7 s, đồ thị median 27 node và max 110.</p>
+
+  <h3><span class="n">1.2</span>Ba lớp cạnh — tách theo vai trò nhận thức</h3>
+  <p>Không tách theo file nguồn mà theo <b>detector được thấy gì</b>:</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Lớp</th><th>Nội dung</th><th class="num">train</th><th>Detector thấy</th><th>Lý do</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">input_edges</td><td class="w">HAS_ARG(role, strength)</td>
+          <td class="num">188.584</td><td>Có</td><td class="w">dữ liệu hợp lệ</td></tr>
+      <tr><td class="mono">weak_edges</td><td class="w">CAUSAL, SUBEVENT</td>
+          <td class="num">45.509</td><td class="w">Có, nhưng <b>không</b> phải bằng chứng độc lập</td>
+          <td class="w">95,2% PRECONDITION và 87,0% SUBEVENT đã mang nhãn temporal</td></tr>
+      <tr class="dim"><td class="mono">target_edges</td><td class="w">TEMPORAL</td>
+          <td class="num">792.395</td><td><b>Không</b></td><td class="w">đây là thứ đang audit</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box bad"><span class="lbl">vì sao tách vật lý, không phải quy ước</span>
+    <p>Nếu để chung một mảng và chỉ "nhớ đừng dùng", rò rỉ thành lỗi thầm lặng. Tách vật lý khiến
+    nó thành <b>lỗi cấu trúc bắt được bằng bất biến</b>. Bằng chứng: khi bật weak layer làm feature,
+    rule mạnh nhất là <code>EQ(weak=SUBEVENT) → CONTAINS</code> với precision 99,3% trên 2.399 lần
+    bắn — hoàn toàn giả, vì 87% cặp SUBEVENT vốn đã là CONTAINS.</p></div>
+
+  <h3><span class="n">1.3</span>Bốn loại node, và quyết định đằng sau mỗi loại</h3>
+
+  <h4>Event — dùng cluster, không dùng mention</h4>
+  <p>MAVEN-ERE gom mention thành coreference cluster. Câu hỏi: motif khớp ở mức nào?</p>
+  <p>Đo được: <b>96,4% cluster là singleton</b> (65.510/67.984), chỉ <b>3,4%</b> span nhiều câu.
+     Nên tranh cãi "cluster hay mention" gần như vô nghĩa với hầu hết dữ liệu. Chốt dùng cluster,
+     lưu kèm <code>n_mentions</code> và <code>sent_span</code> để 3,4% còn lại lọc được khi cần.</p>
+
+  <h4>Span — 59,6% argument filler không có entity_id</h4>
+  <p>Đo được <b>113.597/190.479</b> filler thiếu <code>entity_id</code>. Chúng không phải rác:</p>
+<pre>{"content": "a corps of volunteers led by giuseppe garibaldi", "offset": [137, 184]}</pre>
+  <p>Đó là Agent, Patient, Location thật, chỉ chưa được coref hoá. Bỏ đi là mất quá nửa dữ liệu
+     argument. Giải pháp: node <code>Span</code> khoá theo <b>character offset</b> — hai filler
+     cùng offset trong cùng doc là cùng span <b>theo cấu trúc</b>, kiểm được chứ không đoán.</p>
+  <div class="box good"><p>Đo lại sau khi build: span node đóng góp <b>31,3%</b> số anchored pair.
+    Nếu bỏ thì mất gần một phần ba không gian pattern.</p></div>
+
+  <h4>TIMEX — tách anchorable, không opaque hoàn toàn</h4>
+  <div class="scroll"><table>
+    <thead><tr><th>timex_type</th><th class="num">Số lượng</th><th class="num">Tỉ lệ</th><th>anchorable</th><th>Lý do</th></tr></thead>
+    <tbody>
+      <tr><td>DATE</td><td class="num">13.339</td><td class="num">79,9%</td><td>có</td><td class="w">có vị trí trên timeline</td></tr>
+      <tr><td>DURATION</td><td class="num">2.901</td><td class="num">17,4%</td><td>không</td><td class="w">"14 năm" là <b>độ dài</b>, không có vị trí</td></tr>
+      <tr><td>TIME</td><td class="num">432</td><td class="num">2,6%</td><td>có</td><td class="w">—</td></tr>
+      <tr><td>PREPOSTEXP</td><td class="num">16</td><td class="num">0,1%</td><td>không</td><td class="w">—</td></tr>
+    </tbody>
+  </table></div>
+  <p>13.771 anchor này là <b>kênh bằng chứng độc lập duy nhất</b> còn lại sau khi loại causal.</p>
+
+  <h4>Entity — không merge theo surface string</h4>
+  <p>Đo được: merge cho <b>+0,45 điểm phần trăm</b>, đổi lại <b>≥15,38%</b> merge sai chứng minh
+     được. Không đáng. Giữ <code>entity_id</code> thô.</p>
+
+  <h3><span class="n">1.4</span>Chín bất biến</h3>
+  <p>Mỗi cái ứng với một cách build có thể sai âm thầm. Ba cái đầu là chống rò rỉ — fail một trong
+     ba thì mọi số downstream vô nghĩa.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Bất biến</th><th>Bắt lỗi gì</th></tr></thead>
+    <tbody>
+      <tr class="hi"><td class="mono">input_layer_shape</td><td class="w"><b>rò rỉ</b> — cạnh input nối hai event trực tiếp</td></tr>
+      <tr class="hi"><td class="mono">target_minimal</td><td class="w"><b>rò rỉ</b> — cạnh target mang thêm thuộc tính có thể lộ</td></tr>
+      <tr class="hi"><td class="mono">pairs_label_free</td><td class="w"><b>rò rỉ</b> — anchored_pairs chứa trường nhãn</td></tr>
+      <tr><td class="mono">no_dangling</td><td class="w">cạnh trỏ node không tồn tại</td></tr>
+      <tr><td class="mono">symmetric_canonical</td><td class="w">SIMULTANEOUS/BEGINS-ON chưa canonical hoá</td></tr>
+      <tr><td class="mono">one_label_per_pair</td><td class="w">một cặp ordered mang hai nhãn</td></tr>
+      <tr><td class="mono">no_self_loop</td><td class="w">cạnh tự vòng</td></tr>
+      <tr><td class="mono">node_invariants</td><td class="w">anchorable sai, event không mention, span thiếu offset</td></tr>
+      <tr><td class="mono">pairs_consistent</td><td class="w">anchored_pairs không khớp input_edges</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3><span class="n">1.5</span>Census</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Thành phần</th><th class="num">train</th><th class="num">valid</th></tr></thead>
+    <tbody>
+      <tr><td>Document</td><td class="num">2.913</td><td class="num">710</td></tr>
+      <tr><td>Node event</td><td class="num">67.984</td><td class="num">16.301</td></tr>
+      <tr><td>Node entity</td><td class="num">55.421</td><td class="num">13.176</td></tr>
+      <tr><td>Node span</td><td class="num">71.485</td><td class="num">17.963</td></tr>
+      <tr><td>Node timex</td><td class="num">16.688</td><td class="num">4.139</td></tr>
+      <tr><td><code>input_edges</code></td><td class="num">188.584</td><td class="num">44.966</td></tr>
+      <tr><td><code>weak_edges</code></td><td class="num">45.509</td><td class="num">12.524</td></tr>
+      <tr><td><code>target_edges</code></td><td class="num">792.395</td><td class="num">188.924</td></tr>
+      <tr><td><code>anchored_pairs</code></td><td class="num">244.687</td><td class="num">57.925</td></tr>
+      <tr><td>Kích thước</td><td class="num">217,7 MB</td><td class="num">55,4 MB</td></tr>
+      <tr><td>Thời gian build</td><td class="num">5,5 s</td><td class="num">1,4 s</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>Sáu con số định hình mọi quyết định sau</h4>
+  <div class="scroll"><table>
+    <thead><tr><th>Sự kiện</th><th class="num">Số đo</th><th>Ảnh hưởng</th></tr></thead>
+    <tbody>
+      <tr><td class="w">Event cluster là singleton</td><td class="num">96,4%</td><td class="w">bỏ tranh cãi cluster/mention</td></tr>
+      <tr><td class="w">Filler không có entity_id</td><td class="num">59,6%</td><td class="w">buộc phải có span node</td></tr>
+      <tr><td class="w">Entity không dùng làm argument</td><td class="num">58,4%</td><td class="w">node mồ côi là tính chất dữ liệu, không phải bug</td></tr>
+      <tr><td class="w">Cặp EV-EV chung anchor</td><td class="num">25,8%</td><td class="w">motif kiểu PaTeCon mù 74,2% dữ liệu</td></tr>
+      <tr><td class="w">Cặp EV-EV chưa có nhãn</td><td class="num">54,9%</td><td class="w">mẫu số của C3-B</td></tr>
+      <tr><td class="w">Quan hệ xuyên document</td><td class="num">0</td><td class="w">per-doc là đúng ngữ nghĩa, không phải hạn chế</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box info"><span class="lbl">vì sao per-document</span>
+    <p><b>0/55.421</b> entity_id dùng lại ở doc khác · <b>0/67.984</b> event_id · và quan trọng nhất
+    <b>0/792.445</b> quan hệ temporal có endpoint ngoài document. Nghĩa là dù có entity linking
+    xuyên doc, <b>vẫn không có cạnh nào nối hai đồ thị</b>. Gộp lại chỉ cho 2.913 thành phần rời
+    rạc, mà làm PC-2 bất khả thi (68k node thay vì median 27).</p></div>
+
+  <h3><span class="n">1.6</span>Ánh xạ Allen và kiểm chứng chéo</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>MAVEN</th><th>Allen</th><th>Bất đẳng thức điểm mút</th><th class="num">train</th></tr></thead>
+    <tbody>
+      <tr><td>BEFORE</td><td class="mono">{b}</td><td class="mono">e_a &lt; s_b</td><td class="num">683.581</td></tr>
+      <tr><td>CONTAINS</td><td class="mono">{di}</td><td class="mono">s_a &lt; s_b ∧ e_b &lt; e_a</td><td class="num">95.933</td></tr>
+      <tr><td>OVERLAP</td><td class="mono">{o}</td><td class="mono">s_a &lt; s_b &lt; e_a &lt; e_b</td><td class="num">6.376</td></tr>
+      <tr><td>SIMULTANEOUS</td><td class="mono">{e}</td><td class="mono">s_a = s_b ∧ e_a = e_b</td><td class="num">5.821</td></tr>
+      <tr><td>BEGINS-ON</td><td class="mono">{s, si, e}</td><td class="mono">s_a = s_b</td><td class="num">403</td></tr>
+      <tr><td>ENDS-ON</td><td class="mono">{b, m}</td><td class="mono">e_a ≤ s_b</td><td class="num">281</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box good"><span class="lbl">kiểm chứng độc lập</span>
+    <p>Paper MAVEN-ERE Appendix B Table 11 có đúng <b>21 luật transitivity</b>. Chạy từng luật qua
+    bảng composition: <b>21/21 sound, 19/21 exact</b>. Bảng sinh brute-force từ liệt kê interval
+    nguyên — hoàn toàn không biết paper viết gì. Hai nguồn độc lập khớp nhau là bằng chứng mạnh.</p></div>
+  <p>Bảng của paper <b>thiếu 15 ô</b>, và không ô nào vô dụng. Năm ô ép ra nhãn duy nhất:</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Composition bị paper bỏ</th><th>Ép ra</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">OVERLAP ∘ ENDS-ON</td><td>BEFORE</td></tr>
+      <tr><td class="mono">ENDS-ON ∘ BEFORE</td><td>BEFORE</td></tr>
+      <tr><td class="mono">ENDS-ON ∘ CONTAINS</td><td>BEFORE</td></tr>
+      <tr><td class="mono">ENDS-ON ∘ ENDS-ON</td><td>BEFORE</td></tr>
+      <tr><td class="mono">ENDS-ON ∘ BEGINS-ON</td><td>ENDS-ON</td></tr>
+    </tbody>
+  </table></div>
+  <p>Toàn bộ nhánh <code>ENDS-ON ∘ *</code> bị bỏ trống. Nên dùng Allen 13×13 đầy đủ, không dùng
+     bảng 6×6 của paper làm engine.</p>
+
+  <h3><span class="n">1.7</span>Ví dụ thật — "Alive! Tour"</h3>
+  <p>7 event, 2 TIMEX, 5 entity, 6 span, 46 cạnh. Bấm node để xem thuộc tính, kéo để di chuyển.</p>
+  <div class="legend">
+    <span><i style="background:var(--ev)"></i>event</span>
+    <span><i style="background:var(--ent)"></i>entity</span>
+    <span><i style="background:var(--spn)"></i>span</span>
+    <span><i style="background:var(--anc)"></i>timex anchorable</span>
+    <span><i style="background:var(--dur)"></i>timex duration</span>
+    <span><i class="bar" style="border-color:var(--input)"></i>HAS_ARG</span>
+    <span><i class="bar" style="border-color:var(--weak)"></i>weak</span>
+    <span><i class="bar" style="border-color:var(--target)"></i>temporal</span>
+  </div>
+  <div class="stage"><canvas id="cv"></canvas></div>
+  <p class="meta" id="sel">Chưa chọn node nào.</p>
+  <p><b>Destroyer mồ côi</b> là ví dụ trực quan cho con số 58,4%: câu gốc nói
+     <i>"the Destroyer album was already released"</i>, nhưng annotator gán role
+     <code>Category</code> cho một <b>span</b> <code>"album"</code> chứ không cho entity
+     <code>Destroyer</code>. Builder phản ánh trung thực quyết định annotate đó.</p>
+
+  <h3><span class="n">1.8</span>Định dạng lưu</h3>
+  <p>Một dòng JSONL một document, tự chứa:</p>
+<pre>{"doc_id":"…", "nodes":{…}, "input_edges":[…], "weak_edges":[…],
+ "target_edges":[{"s":"EVENT_a","t":"EVENT_b","rel":"BEFORE"}],
+ "anchored_pairs":[…]}</pre>
+  <div class="scroll"><table>
+    <thead><tr><th>Vì sao JSONL, không phải Neo4j/RDF</th></tr></thead>
+    <tbody>
+      <tr><td class="w">per-document tự chứa → song song hoá theo dòng, không cần server</td></tr>
+      <tr><td class="w">2.913 doc / 838k cạnh → vừa RAM, không cần DB</td></tr>
+      <tr><td class="w">diff được bằng git, reproduce được</td></tr>
+      <tr><td class="w"><b>inject conflict = sửa <code>target_edges</code> một dòng</b>, phần còn lại bit-identical</td></tr>
+    </tbody>
+  </table></div>
+  <p>Cần query đồ thị phức tạp thì import sang Neo4j từ định dạng này mất ~20 dòng. Chiều ngược
+     lại khó hơn nhiều.</p>
+</section>
+
+<!-- ═══════════════════════════════ 2 ═══════════════════════════════ -->
+<section data-page="3" hidden>
+  <h2>Bài 1 — Temporal classifier <span class="pill">ĐÓNG</span></h2>
+  <p class="pagesub">Kết quả âm, và lý do là cấu trúc chứ không phải miner yếu. Ba vòng đo độc lập
+     cùng kết luận.</p>
+  <p class="toc">2.1 ngôn ngữ rule · 2.2 đặc trưng cấm · 2.3 tám view · 2.4 rút gọn ·
+     2.5 vì sao thua · 2.6 bộ 68 rule · 2.7 1.073 họ · 2.8 macro-F1 &amp; trần oracle · 2.9 kết hợp rule · 2.10 EV-TIMEX · 2.11 <b>EV-TIMEX classifier</b></p>
+
+  <h3><span class="n">2.1</span>Năm dạng điều kiện</h3>
+  <p>Miner đầu tiên chỉ có <code>EQ</code>. Đó là nguyên nhân chính khiến rule yếu — FORMAL.md §5.2
+     đã đo pattern hợp thành cho lift 4,85× hold-out so với 3,63× của điều kiện đơn.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Dạng</th><th>Nghĩa</th><th>Ví dụ thật</th><th class="num">Dùng trên train</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill" style="border-color:var(--ev);color:var(--ev)">EQ</span></td>
+          <td>attr = v</td><td class="mono">EQ(type_a=Traveling)</td><td class="num">1.146.555</td></tr>
+      <tr><td><span class="pill" style="border-color:var(--ent);color:var(--ent)">CNT</span></td>
+          <td>|attr| ≥ k</td><td class="mono">CNT(roleset_shared&gt;=2)</td><td class="num">621.710</td></tr>
+      <tr><td><span class="pill" style="border-color:var(--anc);color:var(--anc)">HAS</span></td>
+          <td>v ∈ attr</td><td class="mono">HAS(roleset_b=Content)</td><td class="num">459.811</td></tr>
+      <tr><td><span class="pill" style="border-color:var(--dur);color:var(--dur)">MIX</span></td>
+          <td>|attr| ≥ 2</td><td class="mono">MIX(roleset_a)</td><td class="num">136.879</td></tr>
+      <tr><td><span class="pill" style="border-color:var(--spn);color:var(--spn)">ALL</span></td>
+          <td>attr = {v}</td><td class="mono">ALL(etypeset_a=Person)</td><td class="num">105.234</td></tr>
+    </tbody>
+  </table></div>
+  <p>Pattern = <b>hội</b> các điều kiện, độ sâu ≤ 3. Trung bình <b>40,9 điều kiện/cặp</b>
+     (min 26, max 83, đo trên 60.345 cặp).</p>
+  <p>Thuộc tính sinh nhiều điều kiện nhất: <code>roleset_a</code> 334.895 ·
+     <code>roleset_b</code> 325.012 · <code>roleset_shared</code> 163.795 ·
+     <code>etypeset_a</code> 159.965. <b>KG trước không lưu cái nào</b> — đó là chẩn đoán được xác nhận.</p>
+
+  <h3><span class="n">2.2</span>Đặc trưng bị cấm, khai báo tường minh</h3>
+  <p>Không dùng đặc trưng nào tính được từ chính các đại lượng định nghĩa nhãn. Khai báo bằng tên
+     để việc loại trừ <b>kiểm toán được</b>, không phụ thuộc người viết nhớ.</p>
+<pre>FORBIDDEN = {
+  "rel":              "is the label",
+  "gold":             "is the label",
+  "allen":            "is the label under another name",
+  "n_temporal_edges": "counted from the target layer",
+  "temporal_degree":  "counted from the target layer",
+  "hull":             "hull&gt;0 &lt;=&gt; conflict at k=2, gave a fake 11.16x lift",
+}</pre>
+
+  <h3><span class="n">2.3</span>Tám view — mine theo subgraph</h3>
+  <p>Mỗi view phân hoạch instance thành lớp chữ ký, mine <b>độc lập</b> trong từng lớp với base rate
+     <b>cục bộ</b>. Khác biệt then chốt với việc thêm điều kiện:</p>
+  <div class="box info"><p>Conjunction thêm điều kiện vào <b>rule</b>. View đổi <b>quần thể</b> mà
+    thống kê được tính trên đó. BEFORE là 91% toàn corpus nhưng chỉ <b>79,1%</b> trong view cùng câu,
+    còn SIMULTANEOUS nhảy từ 0,2% lên <b>5,4%</b>.</p></div>
+  <div class="scroll"><table>
+    <thead><tr><th>View</th><th class="num">Rule</th><th class="num">Phủ</th><th class="num">Precision</th><th class="num">Oracle</th></tr></thead>
+    <tbody id="views"></tbody>
+  </table></div>
+  <p>View càng tinh vi thì <b>đứng riêng càng kém</b> (anchor_sd 7,86% thấp nhất, global 8,38%) —
+     chia nhỏ quần thể làm support mỏng đi. Chỉ khi <b>hợp nhất</b> mới ăn thua, vì mỗi view mạnh ở
+     một vùng khác nhau. Oracle tăng 9,11% → 12,45% chứng tỏ chúng bổ sung thông tin thật.</p>
+
+  <h3><span class="n">2.4</span>Rút gọn — abstraction giữ, subsumption phá</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Tập rule</th><th class="num">Rule</th><th class="num">Phủ</th><th class="num">Precision</th><th class="num">Oracle</th></tr></thead>
+    <tbody>
+      <tr><td>tất cả (8 view)</td><td class="num">155.467</td><td class="num">100%</td><td class="num">10,68%</td><td class="num">12,45%</td></tr>
+      <tr><td>sau subsumption</td><td class="num">129.987</td><td class="num">100%</td><td class="num">8,55%</td><td class="num">10,04%</td></tr>
+      <tr class="hi"><td>956 họ</td><td class="num">956</td><td class="num">93,8%</td><td class="num">8,76%</td><td class="num">10,28%</td></tr>
+      <tr><td>general + specific</td><td class="num">124.037</td><td class="num">100%</td><td class="num">8,55%</td><td class="num">10,05%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box bad"><span class="lbl">giả định sai</span>
+    <p><b>Subsumption mất 2,13 điểm.</b> Giả định "rule dài bị rule ngắn bao hàm thì thừa" <b>sai</b>:
+    rule dài <b>hẹp hơn nên chính xác hơn</b> trên vùng nó phủ. Tiêu chí đúng là
+    <code>cov(P) == cov(Q)</code> (ngữ nghĩa — cùng tập instance), không phải <code>P ⊆ Q</code>
+    (cú pháp — cùng điều kiện).</p></div>
+  <div class="box good"><p><b>Abstraction thì giữ.</b> 956 họ đạt precision <b>cao hơn</b> 129.987
+    rule mà nó thay, với 136× ít rule hơn. Thêm 123.275 rule type-specific vào <b>không cải thiện
+    gì</b> (8,55%) — chúng là nhiễu.</p></div>
+
+  <h3><span class="n">2.5</span>Vì sao dự đoán không thắng được</h3>
+<pre>base rate BEFORE trên cặp EV-EV = <b>91,04%</b>
+  → 1/0,9104 = 1,098 &lt; ngưỡng lift 2,0
+  → <b>KHÔNG rule nào dự đoán BEFORE</b> (theo định nghĩa)
+  → nhưng <b>89,94%</b> instance khớp lại có nhãn gold BEFORE
+  → trần oracle chỉ <b>12,45%</b></pre>
+  <p>Kể cả chọn đúng rule mọi lần cũng chỉ đạt 12,45%. Hạ ngưỡng lift xuống dưới 1,098 sẽ cho family
+     phát BEFORE và accuracy vọt lên ~90% — nhưng đó chỉ là nói lại tỉ lệ nền.</p>
+
+  <h3><span class="n">2.6</span>Bộ rule tối thiểu — 68 rule</h3>
+  <p>Thay cắt tỉa mò bằng <b>set cover có trọng số</b>: lặp lại việc chọn rule thêm được
+     nhiều instance <b>đúng</b> nhất. Bitset trên Python bignum, lazy greedy khai thác tính submodular.</p>
+
+  <h4>Đường cong Pareto (train)</h4>
+  <div class="scroll"><table>
+    <thead><tr><th class="num">Sàn wlb</th><th class="num">Rule</th><th class="num">Phủ</th><th class="num">Precision</th><th class="num">Phủ non-BEFORE</th></tr></thead>
+    <tbody>
+      <tr class="hi"><td class="num">0,40</td><td class="num">68</td><td class="num">13,0%</td><td class="num">35,35%</td><td class="num">55,1%</td></tr>
+      <tr><td class="num">0,50</td><td class="num">60</td><td class="num">6,9%</td><td class="num">48,59%</td><td class="num">39,2%</td></tr>
+      <tr><td class="num">0,60</td><td class="num">47</td><td class="num">3,2%</td><td class="num">61,80%</td><td class="num">23,1%</td></tr>
+      <tr><td class="num">0,70</td><td class="num">31</td><td class="num">0,6%</td><td class="num">84,63%</td><td class="num">5,6%</td></tr>
+    </tbody>
+  </table></div>
+  <p>Sàn 0,70 cho precision <b>84,63%</b> nhưng chỉ chạm 0,6% instance. Điểm vận hành chọn tự
+     động: precision cao nhất trong các lần phủ ≥50% khối lượng non-BEFORE → sàn 0,40.</p>
+
+  <h4>Held-out trên valid</h4>
+  <div class="scroll"><table>
+    <thead><tr><th>Tập rule</th><th class="num">Rule</th><th class="num">Phủ</th><th class="num">Precision</th><th class="num">Oracle</th></tr></thead>
+    <tbody>
+      <tr><td>tất cả</td><td class="num">155.124</td><td class="num">100%</td><td class="num">8,55%</td><td class="num">10,04%</td></tr>
+      <tr><td>phủ phân biệt</td><td class="num">7.103</td><td class="num">16,5%</td><td class="num">31,52%</td><td class="num">31,52%</td></tr>
+      <tr class="hi"><td><b>greedy tối thiểu</b></td><td class="num">68</td><td class="num">13,6%</td><td class="num">35,25%</td><td class="num">35,25%</td></tr>
+      <tr class="dim"><td>hằng BEFORE trên tập khớp</td><td class="num">—</td><td class="num">—</td><td class="num">62,26%</td><td class="num">—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box good"><p><b>35,25% trên valid vs 35,35% trên train</b> — không overfit. Gấp
+    <b>4,1 lần</b> bộ 155.124 rule đầy đủ, với <b>ít hơn 2.281 lần</b> số rule.</p>
+    <p><code>precision == oracle</code> ở cả hai tập cuối: mọi rule bắn trên một instance đều
+    <b>đồng ý cùng nhãn</b>. Hệ quả của dedupe theo tập phủ.</p></div>
+
+  <h4>Phủ theo lát cắt kiến trúc</h4>
+  <div class="scroll"><table>
+    <thead><tr><th>Lát cắt</th><th class="num">Instance</th><th class="num">Phủ</th><th class="num">Precision</th></tr></thead>
+    <tbody>
+      <tr><td>all</td><td class="num">483.504</td><td class="num">13,0%</td><td class="num">35,35%</td></tr>
+      <tr class="hi"><td><b>non_BEFORE</b></td><td class="num">43.298</td><td class="num">55,1%</td><td class="num">93,40%<sup>*</sup></td></tr>
+      <tr><td>anchored</td><td class="num">124.708</td><td class="num">22,9%</td><td class="num">35,78%</td></tr>
+      <tr><td>unanchored</td><td class="num">358.796</td><td class="num">9,6%</td><td class="num">35,00%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box bad"><span class="lbl">* 93,40% KHÔNG phải số cho bảng classifier</span>
+    <p>Đây là precision trên các cặp rule <b>có bắn</b> và <b>đoán CONTAINS</b>, sau khi đã bỏ
+    BEFORE khỏi mẫu số. Chấm như một classifier thật trên valid, CONTAINS đạt
+    <b>P 35,25% / R 56,07% / F1 43,29%</b>. <b>Bảng classifier phải dùng 35,25%.</b>
+    Để 93,40% mà không nói mẫu số thì reviewer sẽ bắt.</p></div>
+  <div class="box good"><p><b>93,40% precision trên khối lượng non-BEFORE với 68 rule.</b> Family
+    không phát ra BEFORE theo định nghĩa, nên chấm nó trên toàn bộ instance (89,94% là BEFORE)
+    là chấm sai đối tượng. Và phủ <b>đều</b> giữa anchored (35,78%) và unanchored (35,00%) —
+    rule không phụ thuộc việc có anchor hay không, quan trọng vì 74,2% cặp không chung anchor.</p></div>
+  <div class="box bad"><span class="lbl">hệ quả phải nêu</span>
+    <p><b>Cả 68 rule đều dự đoán CONTAINS.</b> Đó là tất yếu của hàm mục tiêu: greedy tối đa
+    hoá số instance đúng, mà CONTAINS chiếm <b>88,1%</b> khối lượng non-BEFORE. Rule dự đoán
+    SIMULTANEOUS hay OVERLAP có gain biên nhỏ hơn hẳn nên không bao giờ được chọn.</p>
+    <p>Nên đây là <b>bộ phát hiện CONTAINS</b>, không phải bộ dự đoán quan hệ tổng quát. Muốn
+    phủ cả nhãn hiếm thì phải greedy <b>theo từng nhãn</b> rồi hợp nhất — chưa làm.</p></div>
+
+  <h4>Năm rule mạnh nhất</h4>
+  <div class="scroll"><table>
+    <thead><tr><th class="num">Gain</th><th class="num">wlb</th><th class="num">lift</th><th class="num">n</th><th>Pattern</th></tr></thead>
+    <tbody>
+      <tr><td class="num">+5.369</td><td class="num">0,450</td><td class="num">6,18×</td><td class="num">11.695</td><td class="mono w">EQ(bucket_a=lead) ∧ EQ(multi_mention_a=True)</td></tr>
+      <tr><td class="num">+2.925</td><td class="num">0,529</td><td class="num">1,67×</td><td class="num">5.391</td><td class="mono w">EQ(multi_mention_a=False) ∧ EQ(type_a=Hostile_encounter)</td></tr>
+      <tr><td class="num">+2.185</td><td class="num">0,409</td><td class="num">5,67×</td><td class="num">5.831</td><td class="mono w">CNT(etypeset_a=1) ∧ EQ(type_a=Military_operation)</td></tr>
+      <tr><td class="num">+2.111</td><td class="num">0,407</td><td class="num">5,64×</td><td class="num">6.498</td><td class="mono w">EQ(type_a=Competition) ∧ HAS(roleset_a=Location)</td></tr>
+      <tr><td class="num">+1.258</td><td class="num">0,402</td><td class="num">5,55×</td><td class="num">7.930</td><td class="mono w">EQ(bucket_b=mid) ∧ EQ(type_a=Hostile_encounter)</td></tr>
+    </tbody>
+  </table></div>
+  <p><code>bucket_a=lead</code> xuất hiện dày đặc — <b>sự kiện ở câu đầu bài thường bao trùm sự
+     kiện sau</b>. Quy luật diễn ngôn thật, và là rule có gain lớn nhất.</p>
+  <p>Trùng lặp rất thấp: chỉ <b>3 cặp</b> có Jaccard &gt; 0,5 trong top 60 — bộ rule gần như
+     <b>trực giao</b>, đúng như set cover mong đợi.</p>
+
+  <h3><span class="n">2.7</span>1.073 họ pattern tổng quát</h3>
+  <p>Một họ là pattern mà khi <b>bỏ hẳn điều kiện type</b>, bản trừu tượng vẫn đủ support và lift
+     <b>trong chính subgraph của nó</b>. Sau dedupe 380 họ trùng (<code>type_a=X</code> và
+     <code>type_pair=(X,Y)</code> cho cùng abs_conds).</p>
+  <p>Phân bố: CONTAINS 732 · SIMULTANEOUS 223 · OVERLAP 118. <b>Không có BEFORE</b> — theo định nghĩa.</p>
+  <div class="scroll"><table>
+    <thead><tr><th class="num">#</th><th class="num">wlb</th><th class="num">lift</th><th class="num">n</th><th>→</th><th>view = sig</th><th>Pattern</th><th class="num">bt</th></tr></thead>
+    <tbody id="fams"></tbody>
+  </table></div>
+  <p class="meta">bt = số biến thể type gộp vào họ. Đọc một dòng: "trong subgraph
+     <code>view=sig</code>, cặp thoả pattern này thì quan hệ là R, với lift so base rate <b>cục bộ</b>
+     của subgraph đó".</p>
+
+<h3><span class="n">2.12</span>Đóng Bài 1 — 257 rule, macro-F1 25,60%</h3>
+
+<p>Bộ rule cuối cùng là <code>rules/final/rules_rx_c70.json</code>. Đường đi từ 4.380
+rule xuống 257 rule <b>tăng</b> điểm, không giảm — và phần lớn mức tăng nằm ở nhóm
+không-BEFORE, tức chỗ baseline hằng số không giải quyết được.</p>
+
+<table>
+<thead><tr><th>Bộ rule</th><th>#rule</th><th>macro-F1</th><th>F1 không-BEFORE</th><th>acc</th></tr></thead>
+<tbody>
+<tr><td>Baseline hằng số BEFORE</td><td>0</td><td>15,78%</td><td>0%</td><td><b>89,94%</b></td></tr>
+<tr><td>Gộp hai file (điểm xuất phát)</td><td>4.380</td><td>24,61%</td><td>29,53%</td><td>88,05%</td></tr>
+<tr><td>Bốn gate thống kê</td><td>861</td><td>25,14%</td><td>35,47%</td><td>86,06%</td></tr>
+<tr><td><b>+ xác nhận độc lập</b> (đóng băng)</td><td><b>257</b></td><td><b>25,60%</b></td><td><b>37,12%</b></td><td>87,87%</td></tr>
+</tbody></table>
+
+<p class="note">17 lần ít rule hơn: macro-F1 <b>+0,99đ</b>, F1 nhóm không-BEFORE
+<b>+7,59đ</b> (recall +13,73đ), accuracy chỉ giảm 0,18đ. Accuracy không phải thước đo
+ở đây — baseline đoán BEFORE cho mọi cặp đạt 89,94% mà macro-F1 chỉ 15,78%.</p>
+
+<h4>Giao thức: chia theo document, valid chạm một lần</h4>
+
+<pre><code>DISCOVERY     197 doc    63.270 cặp   đề xuất rule
+CONFIRMATION  126 doc    29.455 cặp   chấm lại trên nhãn CHƯA từng chọn rule
+DEV-INNER      77 doc    18.389 cặp   chọn combiner và ngưỡng
+VALID         705 doc   109.929 cặp   mở một lần, cấu hình đã đóng băng</code></pre>
+
+<p>Chia theo <b>document</b> chứ không theo cặp: cặp trong cùng document chia sẻ chủ đề
+và phong cách chú thích. Leakage audit tìm được một chỗ thật (<code>vote.py</code> quét
+31 cấu hình rồi lấy max trên valid) — đo ra <b>leak = 0,00 điểm</b>, nhưng vẫn đã sửa.</p>
+
+<h4>Sáu hướng đã thử và thất bại</h4>
+
+<table>
+<thead><tr><th>Cơ chế</th><th>Kết quả</th></tr></thead>
+<tbody>
+<tr><td>Δlogit vs parent</td><td>Spearman +0,229 với precision valid — tệ nhất trong năm</td></tr>
+<tr><td>Conditional effect vs baseline stratum</td><td>corr với confirmation <b>−0,039</b></td></tr>
+<tr><td>Stability selection (100 subsample)</td><td>max π: CONTAINS 1,00, SIM <b>0,09</b>, OVL <b>0,01</b></td></tr>
+<tr><td>LCB-Lift = WilsonLB / base_rate</td><td>thua ở mọi λ và k_min trên dev-inner</td></tr>
+<tr><td>Greedy tối ưu downstream</td><td>dev 27,16% nhưng valid 25,40% — rớt 1,77đ</td></tr>
+<tr><td>MDL / khử bao hàm</td><td><b>0 rule bị loại</b> — mọi rule đều depth-2</td></tr>
+</tbody></table>
+
+<p class="note">Hai lỗi lập luận đã bị bác bỏ bằng đo đạc: (a) <i>"lift dự báo tốt hơn
+WLB"</i> — sai, vì trong cùng nhãn <code>lift = precision / base_rate</code> nên
+Spearman = 1,0000 theo định nghĩa; (b) <i>"utility tập trung ở vài rule đầu"</i> — sai,
+hai mức tăng lớn nhất trên valid là rule thứ <b>20</b> và <b>23</b>.</p>
+
+<h4>Rule mining có cần thiết không?</h4>
+
+<p>Softmax regression trên cùng KG feature, train trên train-inner, đo trên cùng valid:</p>
+
+<table>
+<thead><tr><th>Feature set</th><th>#tham số</th><th>macro-F1</th></tr></thead>
+<tbody>
+<tr><td>A: chỉ event type</td><td>15.557</td><td>18,81%</td></tr>
+<tr><td>B: + vị trí</td><td>15.573</td><td>19,44%</td></tr>
+<tr><td>C: + roles</td><td>17.823</td><td>16,48%</td></tr>
+<tr><td>D: toàn bộ KG</td><td>18.076</td><td>20,07%</td></tr>
+<tr><td><b>E: 257 mined rules</b></td><td><b>257</b></td><td><b>25,60%</b></td></tr>
+</tbody></table>
+
+<p>Rule hơn <b>5,53 điểm</b> với <b>70 lần ít tham số hơn</b>. Đã kiểm tra hội tụ
+(3/10/20 epoch, hai mức lr) trước khi kết luận — gains phẳng từ 10 epoch, bản 20 epoch
+phân kỳ. Caveat: chỉ một model class tuyến tính; GBM hoặc MLP có thể thu hẹp khoảng cách.</p>
+
+<h4>Bộ rule cuối cùng</h4>
+
+<p>257 rule, tất cả depth-2. CONTAINS 254, SIMULTANEOUS 2, OVERLAP 1. Ba rule nhãn hiếm
+đọc vào có nghĩa thời gian thật:</p>
+
+<pre><code>21/51   type_pair=(Killing, Bodily_harm) AND HAS(anchor_roles,(Location,Location))  → OVERLAP
+36/171  bucket_b=lead AND same_type=True                                             → SIMULTANEOUS
+96/592  same_type=True AND REL:a_before_b=False                                      → SIMULTANEOUS</code></pre>
+
+<p class="note"><b>BEGINS-ON và ENDS-ON vẫn 0%.</b> Trên discovery, <b>không một
+candidate nào</b> qua được <code>n ≥ 25</code> cho hai nhãn này — số 0, không phải ít.
+Đây là phát biểu về dữ liệu (25 và 15 mẫu trong 109.929 cặp), không phải về thuật toán.</p>
+
+<h4>Hai kết luận phương pháp</h4>
+
+<p><b>Không gian giả thuyết rất lớn nhưng tín hiệu chuyển giao được rất thưa.</b>
+155.467 → 956 → 861 → 257 → 23 rule, mà bốn bước cuối gần như không đổi điểm
+(25,14% → 25,60% → 25,40%).</p>
+
+<p><b>Xác nhận độc lập quan trọng hơn một score thống kê tinh vi hơn.</b> Sáu statistic
+có cơ sở lý thuyết đều thua một policy gần như không phát biểu gì. Thứ làm rule set tốt
+lên không phải cách chấm điểm tốt hơn, mà là <b>thay đổi quyền lực của dữ liệu</b>:
+discovery được phép tìm, confirmation chỉ được phép xác nhận.</p>
+
+<p class="note">Chi tiết: <code>report/BAI1_C2_FINAL.md</code> ·
+<code>report/RULESET.md</code> · ablation ở <code>experiments/ablations/</code></p>
+
+
+<h3><span class="n">2.13</span>Luật bậc cao — tín hiệu có thật, nhưng không dùng được ở Bài 1</h3>
+
+<p>Giả thuyết: tín hiệu có thể nằm ở tổ hợp <b>ba sự kiện</b> chứ không phải cặp. Với mỗi
+cạnh A–B và sự kiện thứ ba C, cặp nhãn <code>(A–C, C–B)</code> tạo một <i>chữ ký tam giác</i>.</p>
+
+<p>Tín hiệu có thật và rất mạnh:</p>
+
+<pre><code>SIMULTANEOUS, SIMULTANEOUS  →  SIMULTANEOUS      1.470/1.470
+BEFORE, SIMULTANEOUS        →  BEFORE           16.264/16.264 trên valid</code></pre>
+
+<p><b>31/36 chữ ký là luật học được</b> — đại số Allen để ngỏ nhiều nhãn, dữ liệu chốt một
+cái. Chỉ 5 là định lý. Ví dụ <code>OVERLAP, OVERLAP → BEGINS-ON</code> có lift 78× trong khi
+composition <code>o∘o = {b,m,o}</code> không hề ép ra nhãn đó.</p>
+
+<h4>Nhưng ba cách khai thác đều thất bại</h4>
+
+<table>
+<thead><tr><th>Cách</th><th>macro-F1</th></tr></thead>
+<tbody>
+<tr><td><b>Pair-level (257 luật)</b></td><td><b>24,11%</b></td></tr>
+<tr><td>Chạy lặp 5 vòng</td><td>19,41%</td></tr>
+<tr><td>Soft one-pass (phân phối thay vì nhãn cứng)</td><td>22,92%</td></tr>
+<tr><td>Joint inference + MDD pruning</td><td>23,10%</td></tr>
+<tr><td><i>Trên đồ thị gold (không đạt được lúc test)</i></td><td><i>28,56%</i></td></tr>
+</tbody></table>
+
+<p class="note">Luật tam giác cần biết nhãn của cạnh kề — mà đó chính là thứ phải dự đoán.
+Nguyên nhân gốc: <b>lỗi của classifier tụm theo văn bản</b>. Độ lệch chuẩn tỷ lệ lỗi giữa
+các văn bản là <b>13,5%</b>, trong khi nếu lỗi độc lập chỉ <b>2,7%</b> — gấp 5 lần. Văn bản
+tệ nhất sai 71% số cạnh, nên mọi tam giác trong đó hỏng đồng thời.</p>
+
+<h4>Thang thông tin — thí nghiệm quyết định</h4>
+
+<p>Câu hỏi cuối: thông tin còn thiếu nằm ở <b>đặc trưng</b> hay ở <b>suy luận</b>?</p>
+
+<table>
+<thead><tr><th>Nguồn ngữ cảnh</th><th>macro-F1</th><th>chênh</th></tr></thead>
+<tbody>
+<tr><td>Đặc trưng cặp</td><td>20,61%</td><td>—</td></tr>
+<tr><td>+ cấu trúc KG <b>không chứa nhãn</b></td><td>20,73%</td><td><b>+0,12</b></td></tr>
+<tr><td>+ nhãn hàng xóm <b>dự đoán</b></td><td>21,21%</td><td>+0,48</td></tr>
+<tr><td>+ nhãn hàng xóm <b>gold</b></td><td>28,56%</td><td><b>+7,35</b></td></tr>
+</tbody></table>
+
+<p>Bậc thứ hai thêm <b>41.609 luật</b> mô tả toàn bộ hàng xóm chung — số sự kiện chung, loại,
+vai trò, độ trải câu — mà chỉ được <b>+0,12 điểm</b>. Cấu trúc đồ thị không chứa nhãn
+<b>đã gần cạn</b>; toàn bộ 7,35 điểm còn lại nằm ở chính các nhãn thời gian của cạnh kề.</p>
+
+<h4>Một lỗi đã tìm ra và sửa</h4>
+
+<p>Mọi script bậc cao ban đầu dựng đồ thị sai: <code>adj[b][a] = r</code> thay vì nghịch đảo,
+tức khẳng định "A trước B" thì cũng "B trước A". Lỗi làm 5,05% tam giác gold trông như vi
+phạm đại số Allen. Sau khi sửa: <b>0 vi phạm trên 585.078 tam giác</b> — dữ liệu gold nhất
+quán tuyệt đối. Mọi con số ở đây là bản sau khi sửa.</p>
+
+<h4>Sáu cách chấm điểm luật thay thế — đều thua</h4>
+
+<table>
+<thead><tr><th>Cơ chế</th><th>Kết quả</th></tr></thead>
+<tbody>
+<tr><td>Δlogit so với luật cha</td><td>tương quan +0,229 — tệ nhất trong năm</td></tr>
+<tr><td>Conditional effect vs baseline stratum</td><td>tương quan với xác nhận = <b>−0,039</b></td></tr>
+<tr><td>Stability selection (100 subsample)</td><td>SIMULTANEOUS max π = <b>0,09</b></td></tr>
+<tr><td>LCB-Lift</td><td>thua ở mọi ngưỡng</td></tr>
+<tr><td>Greedy tối ưu trực tiếp</td><td>dev 27,16% nhưng valid 25,40%</td></tr>
+<tr><td>MDL / khử dư thừa</td><td><b>0 luật bị loại</b></td></tr>
+</tbody></table>
+
+<p class="note">Bài học: thứ cải thiện bộ luật không phải cách chấm điểm tinh vi hơn, mà là
+<b>thay đổi quyền lực của dữ liệu</b> — tập discovery được phép tìm, tập confirmation chỉ
+được phép xác nhận.</p>
+
+<h3><span class="n">2.14</span>Bài 1 — ĐÓNG</h3>
+
+<p>Cấu hình đóng băng: <code>rules/final/rules_rx_c70.json</code>, <b>257 luật, macro-F1
+25,60%</b> trên valid.</p>
+
+<p><b>25,60% không phải trần tuyệt đối</b> — nó là trần của <i>nguồn thông tin + lớp giả
+thuyết + giao thức hiện tại</i>. Mô hình ngôn ngữ hoàn toàn có thể phá trần đó.</p>
+
+<p>Phát biểu chính xác cho báo cáo:</p>
+
+<p class="note">Trong không gian đặc trưng KG và giao thức khai phá hiện tại, việc khai thác
+thêm cấu trúc đồ thị không chứa nhãn cho mức cải thiện không đáng kể, xác lập một trần thông
+tin thực tiễn cho biểu diễn hiện tại. Tuy nhiên, thí nghiệm oracle cho thấy còn lượng tín
+hiệu đáng kể trong nhãn thời gian của các sự kiện lân cận, gợi hướng chuyển từ khai phá luật
+hậu kỳ sang học biểu diễn thời gian có neo văn bản.</p>
+
+<h4>Cùng bộ luật đó lại rất hiệu quả ở Bài 2</h4>
+
+<p>Vì Bài 2 bắt đầu từ một đồ thị <b>đã tồn tại</b>, nhãn cạnh kề là quan sát được chứ không
+phải đoán:</p>
+
+<table>
+<thead><tr><th>Chỉ số</th><th>Phương pháp cũ</th><th>Luật bậc cao</th></tr></thead>
+<tbody>
+<tr><td>Tỷ lệ gắn cờ đúng (P@k)</td><td>8,63%</td><td><b>61,76%</b></td></tr>
+<tr><td>Sửa đúng khi đã tìm được</td><td>31,84%</td><td><b>93,53%</b></td></tr>
+<tr><td>Tìm và sửa đúng trên tổng lỗi</td><td>8,24%</td><td><b>26,15%</b></td></tr>
+</tbody></table>
+
+<p><b>Luật quan hệ thời gian phù hợp với việc kiểm toán đồ thị hơn là phân loại trực tiếp.</b>
+Đây là phân biệt đáng giữ trong paper.</p>
+
+<p class="note">Báo cáo dành cho người mới: <code>report/BAI1_TONG_QUAN.md</code> ·
+kỹ thuật: <code>report/BAI1_C2_FINAL.md</code> · bậc cao: <code>report/LUAT_BAC_CAO.md</code></p>
+
+</section>
+
+<!-- ═══════════════════════════════ 3 ═══════════════════════════════ -->
+
+  <h3><span class="n">2.8</span>Macro-F1 và trần oracle — <b>43 điểm đang bỏ trống</b></h3>
+  <p>Base rate BEFORE 89,94% nên <b>accuracy là thước đo sai</b>: một chương trình chỉ biết in
+     "BEFORE" đã đúng 89,94%. Chấm lại bằng macro-F1 trên valid:</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Cấu hình</th><th class="num">Accuracy</th><th class="num">Macro-F1</th></tr></thead>
+    <tbody>
+      <tr><td>hằng số "luôn BEFORE"</td><td class="num"><b>89,94%</b></td><td class="num">15,78%</td></tr>
+      <tr class="hi"><td>68 rule + fallback BEFORE</td><td class="num">86,27%</td><td class="num"><b>22,62%</b></td></tr>
+    </tbody>
+  </table></div>
+  <p>Rule <b>thua accuracy 3,67 điểm</b> nhưng <b>thắng macro-F1 6,84 điểm</b>. F1 từng nhãn:
+     BEFORE 92,40% · CONTAINS <b>43,29%</b> · bốn nhãn còn lại <b>0%</b>.</p>
+
+  <h4>Vì sao 4 nhãn bằng 0 — không phải lỗi thuật toán</h4>
+  <div class="scroll"><table>
+    <thead><tr><th>Nhãn</th><th class="num">Rule</th><th class="num">wlb cao nhất</th><th class="num">Rule wlb≥0,4</th></tr></thead>
+    <tbody>
+      <tr><td>CONTAINS</td><td class="num">1.033</td><td class="num">0,598</td><td class="num"><b>43</b></td></tr>
+      <tr><td>SIMULTANEOUS</td><td class="num">279</td><td class="num"><b>0,141</b></td><td class="num"><b>0</b></td></tr>
+      <tr><td>OVERLAP</td><td class="num">141</td><td class="num"><b>0,125</b></td><td class="num"><b>0</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="box bad"><span class="lbl">giả thuyết cũ của tôi SAI</span>
+    <p>Tôi từng nói "greedy loại sạch SIMULTANEOUS vì CONTAINS chiếm 88,1% khối non-BEFORE".
+    <b>Đã đo và sai.</b> Greedy chọn CONTAINS vì đó là nhãn <b>duy nhất có rule đáng tin</b> —
+    rule tốt nhất cho SIMULTANEOUS chỉ đúng ~14% số lần.</p>
+    <p>Đã thử greedy <b>per-label</b> (chạy riêng từng nhãn, sàn 0,10): <b>120 rule, precision
+    8,73%</b> so với 35,25% của bộ 68 — <b>tệ hơn 4 lần</b>. Đây là tính chất dữ liệu, không
+    phải lỗi hàm mục tiêu. Hướng này đã chết.</p></div>
+
+  <h4>Trần thật: 65,85%, không phải 22,62%</h4>
+  <p>Oracle = với mỗi cặp, nếu <b>bất kỳ</b> rule nào bắn ra đúng nhãn gold thì lấy nhãn đó,
+     không thì fallback BEFORE.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Cấu hình</th><th class="num">Macro-F1</th></tr></thead>
+    <tbody>
+      <tr><td>hằng số BEFORE</td><td class="num">15,78%</td></tr>
+      <tr><td>rule wlb≥0,4 + fallback</td><td class="num">22,57%</td></tr>
+      <tr class="hi"><td><b>ORACLE (giữ fallback)</b></td><td class="num"><b>65,85%</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="scroll"><table>
+    <thead><tr><th>Nhãn ở oracle</th><th class="num">F1</th><th>Ghi chú</th></tr></thead>
+    <tbody>
+      <tr><td>BEFORE</td><td class="num">99,77%</td><td class="w"></td></tr>
+      <tr><td>CONTAINS</td><td class="num">97,95%</td><td class="w"></td></tr>
+      <tr class="hi"><td><b>SIMULTANEOUS</b></td><td class="num"><b>99,53%</b></td><td class="w">dù rule tốt nhất chỉ wlb <b>0,141</b></td></tr>
+      <tr><td>OVERLAP</td><td class="num">97,85%</td><td class="w"></td></tr>
+      <tr><td>BEGINS-ON / ENDS-ON</td><td class="num">0%</td><td class="w">25 và 15 mẫu — khoá trần ở ~67%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box good"><span class="lbl">đây là bài toán xếp hạng, không phải mining</span>
+    <p>SIMULTANEOUS đạt <b>99,53%</b> ở oracle dù rule tốt nhất chỉ wlb 0,141. Nghĩa là
+    <b>rule đúng CÓ bắn ở đúng chỗ</b> — nó bắn kèm hàng chục rule sai, và cách chọn hiện tại
+    (lấy wlb cao nhất) chọn nhầm.</p>
+    <p>Khoảng cách <b>22,57% → 65,85% = 43 điểm</b> lấy được bằng cách <b>kết hợp rule đang
+    bắn</b> (bỏ phiếu có trọng số, học trọng số thay wlb), <b>không cần mine lại</b>.</p></div>
+  <div class="box"><span class="lbl">lưu ý bắt buộc khi trích số này</span>
+    <p>Oracle <b>không</b> giữ fallback chỉ được <b>20,13%</b>, vì nó bỏ BEFORE (F1 8,16%) ở mọi
+    chỗ có rule bắn, mà BEFORE chiếm 89,94%. <b>Luôn nói rõ là có fallback.</b></p></div>
+
+
+  <h3><span class="n">2.9</span>Kết hợp rule đang bắn — chuẩn hoá prior là chìa khoá</h3>
+  <p><code>src/vote.py</code>, toàn bộ valid (109.929 cặp), 1.453 family. Thay vì lấy rule có
+     wlb cao nhất, cho các rule đang bắn <b>bỏ phiếu</b>.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Combiner</th><th class="num">τ</th><th class="num">Macro-F1</th><th class="num">BEFORE</th><th class="num">CONTAINS</th><th class="num">SIMU</th><th class="num">OVERLAP</th></tr></thead>
+    <tbody>
+      <tr><td>hằng số BEFORE</td><td class="num">—</td><td class="num">15,78%</td><td class="num">94,70%</td><td class="num">0%</td><td class="num">0%</td><td class="num">0%</td></tr>
+      <tr><td>argmax-wlb <i>(bản cũ)</i></td><td class="num">0,4</td><td class="num">22,62%</td><td class="num">92,40%</td><td class="num"><b>43,29%</b></td><td class="num">0%</td><td class="num">0%</td></tr>
+      <tr><td>sum-wlb</td><td class="num">8,0</td><td class="num">20,86%</td><td class="num">92%</td><td class="num">33%</td><td class="num">0%</td><td class="num">0%</td></tr>
+      <tr><td>sum-logodds</td><td class="num">0,0</td><td class="num">15,78%</td><td class="num">95%</td><td class="num">0%</td><td class="num">0%</td><td class="num">0%</td></tr>
+      <tr><td>count</td><td class="num">10</td><td class="num">12,83%</td><td class="num">47%</td><td class="num">20%</td><td class="num">4%</td><td class="num">5%</td></tr>
+      <tr><td>norm-wlb <i>(1.453 rule)</i></td><td class="num">100</td><td class="num">23,49%</td><td class="num">89,70%</td><td class="num">32,78%</td><td class="num">11,88%</td><td class="num"><b>6,55%</b></td></tr>
+      <tr class="hi"><td><b>norm-wlb + rules_mdd</b> <i>(4.380)</i></td><td class="num"><b>200</b></td><td class="num"><b>25,60%</b></td><td class="num">93,72%</td><td class="num"><b>33,25%</b></td><td class="num"><b>14,60%</b></td><td class="num">6,09%</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box bad"><span class="lbl">khoảng cách oracle 43 điểm KHÔNG lấy được</span>
+    <p>Dự đoán trước khi chạy: lấy được 30–45%. <b>Thực tế +0,87 điểm</b> so với argmax-wlb,
+    tức khoảng <b>2%</b>.</p>
+    <p>Nguyên nhân đã đo: rule bắn trên <b>96,3% số cặp</b>, trung bình <b>46,4 rule/cặp</b>.
+    Oracle chọn đúng rule trong 46 cái <i>vì nó đã biết đáp án</i>; một combiner mù gần như
+    không có tín hiệu phân biệt. Phần lớn khoảng cách đó là <b>thông tin chỉ tồn tại khi đã
+    biết nhãn</b>, không phải thông tin nằm sẵn trong bộ rule.</p></div>
+
+  <div class="box good"><span class="lbl">điều thật sự quan trọng: phân bố nhãn</span>
+    <p>Cộng dồn thô <b>thua</b> argmax (sum-wlb 20,86%, sum-logodds 15,78%) vì CONTAINS đông
+    rule nhất nên thắng mọi phép cộng bất kể đúng sai.</p>
+    <p><b>Chỉ chuẩn hoá trọng số theo base rate của nhãn</b> mới cho nhãn hiếm cơ hội:
+    <code>score(r) += wlb / prior(r)</code>. Một rule SIMULTANEOUS ở wlb 0,14 tính nặng hơn
+    rule CONTAINS cùng wlb, vì SIMULTANEOUS chiếm 0,86% corpus còn CONTAINS 7,43%.</p>
+    <p>Đây là cấu hình <b>đầu tiên đưa SIMULTANEOUS và OVERLAP thoát khỏi 0%</b> — mọi phương
+    pháp trước đều để hai nhãn này ở 0.</p></div>
+
+  <h4>Đánh đổi theo τ</h4>
+  <div class="scroll"><table>
+    <thead><tr><th class="num">τ</th><th class="num">Macro-F1</th><th class="num">SIMULTANEOUS</th></tr></thead>
+    <tbody>
+      <tr><td class="num">50</td><td class="num">20,15%</td><td class="num">9%</td></tr>
+      <tr class="hi"><td class="num"><b>100</b></td><td class="num"><b>23,49%</b></td><td class="num">11,88%</td></tr>
+      <tr><td class="num">200</td><td class="num">22,64%</td><td class="num"><b>16%</b></td></tr>
+      <tr><td class="num">400</td><td class="num">16,97%</td><td class="num">3%</td></tr>
+    </tbody>
+  </table></div>
+  <p>τ=100 là điểm gãy. Muốn đẩy SIMULTANEOUS lên 16% thì phải chấp nhận macro-F1 giảm 0,85 điểm.</p>
+
+  <div class="box"><span class="lbl">cách báo cáo</span>
+    <p><b>Dẫn bằng bảng từng nhãn, không dẫn bằng con số gộp.</b> Claim trung thực là
+    <i>"4/6 quan hệ giờ có điểm"</i>, không phải <i>"+0,87 điểm"</i>.</p>
+    <p>Không cần GPU: chi phí là <b>so khớp tập rời rạc</b> (tra bảng băm), không phải số học
+    dày. Toàn bộ valid chạy <b>~2 phút</b> trên CPU.</p></div>
+
+  <h4>BEGINS-ON và ENDS-ON — đã đo riêng, và đề nghị không ép</h4>
+  <p>Hạ ngưỡng xuống <code>k≥3</code> thì <b>có</b> pattern: 255 và 169 điều kiện, lift tới
+     <b>358×</b> trên train. Tín hiệu <b>sống sót trên valid</b> (lift 3,2× và 4,8×).</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Cấu hình</th><th>Nhãn</th><th class="num">P</th><th class="num">R</th><th class="num">F1</th><th class="num">gắn cờ</th></tr></thead>
+    <tbody>
+      <tr><td>lift≥5, k≥3</td><td>BEGINS-ON</td><td class="num">0,069%</td><td class="num">36,0%</td><td class="num">0,137%</td><td class="num">13.069</td></tr>
+      <tr><td>lift≥5, k≥3</td><td>ENDS-ON</td><td class="num">0,059%</td><td class="num">66,7%</td><td class="num">0,118%</td><td class="num">16.947</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box bad"><p><b>Ép ra F1 khác 0 được, nhưng không nên.</b> Để bắt 10/15 mẫu ENDS-ON,
+    nó gắn cờ <b>16.947 cặp</b> — <b>99,94% cảnh báo là sai</b>. Cộng vào macro-F1 chỉ
+    <b>~0,04 điểm</b>. Với 25 và 15 mẫu, khoảng tin cậy rộng đến mức con số không có ý nghĩa
+    thống kê: bắt 10/15 có thể thành 2/15 ở seed khác.</p>
+    <p><b>Đề nghị:</b> báo macro-F1 trên <b>4 lớp có ≥100 mẫu</b>, ghi rõ hai lớp kia và lý do.</p></div>
+
+
+  <h3><span class="n">2.10</span>EV-TIMEX — 33% corpus chưa ai chạm, và có rule cho nhãn hiếm</h3>
+  <p><code>src/mine_timex.py</code>. Mọi thứ trước đây chỉ chấm cặp event-event. Đo trên train:</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Loại cặp</th><th class="num">Cạnh</th><th class="num">BEFORE</th><th class="num">non-BEFORE</th></tr></thead>
+    <tbody>
+      <tr><td>EV-EV <i>(đang dùng)</i></td><td class="num">203.449</td><td class="num">92,03%</td><td class="num">7,97%</td></tr>
+      <tr class="hi"><td><b>EV-TIMEX</b> <i>(bỏ)</i></td><td class="num">97.354</td><td class="num"><b>81,54%</b></td><td class="num"><b>18,46%</b></td></tr>
+      <tr><td>TIMEX-TIMEX <i>(bỏ)</i></td><td class="num">15.186</td><td class="num">82,87%</td><td class="num">17,13%</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>112.540 cạnh (35,6%)</b> chưa dùng, non-BEFORE đậm đặc <b>2,3×</b>. Base rate thấp hơn
+     ⇒ trần lift cao hơn ⇒ rule ở đây có thể mạnh hơn mọi thứ mine được trên cặp event.</p>
+
+  <div class="scroll"><table>
+    <thead><tr><th></th><th class="num">EV-EV</th><th class="num">EV-TIMEX</th></tr></thead>
+    <tbody>
+      <tr><td>wlb cao nhất</td><td class="num">0,598</td><td class="num"><b>0,666</b></td></tr>
+      <tr><td>rule mine được</td><td class="num">—</td><td class="num"><b>535</b></td></tr>
+      <tr class="hi"><td>giữ lift≥1,5 trên valid</td><td class="num">—</td><td class="num"><b>375/535 = 70,1%</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box good"><span class="lbl">bộ rule ĐẦU TIÊN có rule cho BEGINS-ON và ENDS-ON</span>
+    <p>CONTAINS 197 · OVERLAP 193 · SIMULTANEOUS 94 · <b>BEGINS-ON 38</b> · <b>ENDS-ON 13</b>.</p>
+    <p>Mine trên EV-EV không ra rule nào cho hai nhãn này. <b>18/18 rule đầu giữ lift trên
+    valid.</b> Nhưng <b>có rule không có nghĩa là học được</b> — xem mục 2.11.</p>
+    <p>Rule đọc được bằng tiếng người: <code>Use_firearm</code> cùng câu với timex → CONTAINS
+    <b>90,00%</b> · <code>Terrorism</code> → 86,67% · <code>Sign_agreement</code> → 76,67%.</p></div>
+
+  <div class="box bad"><span class="lbl">cảnh báo — đã đo, không phải phỏng đoán</span>
+    <p>Mọi rule top đều chứa <code>sdist=0</code>, nên phần lớn tín hiệu là <i>"sự kiện và mốc
+    thời gian nằm cùng câu"</i>: riêng điều kiện đó đã cho <b>59,29%</b> CONTAINS trên valid
+    so với base 21,10% (lift 2,81×).</p>
+    <div class="scroll"><table>
+      <thead><tr><th>ev_type</th><th class="num">Precision valid</th><th class="num">So với chỉ sdist=0</th></tr></thead>
+      <tbody>
+        <tr><td>Use_firearm</td><td class="num">90,00%</td><td class="num"><b>+30,71</b></td></tr>
+        <tr><td>Expressing_publicly</td><td class="num">78,87%</td><td class="num"><b>+19,58</b></td></tr>
+        <tr><td>Sign_agreement</td><td class="num">76,67%</td><td class="num"><b>+17,38</b></td></tr>
+        <tr><td>Coming_to_be</td><td class="num">66,40%</td><td class="num">+7,11</td></tr>
+        <tr><td>Attack</td><td class="num">59,42%</td><td class="num">+0,13</td></tr>
+        <tr><td>Competition</td><td class="num">58,24%</td><td class="num"><b>−1,05</b></td></tr>
+      </tbody>
+    </table></div>
+    <p><code>Attack</code> và <code>Competition</code> chỉ là <code>sdist=0</code> đội lốt.
+    <b>Luôn báo baseline <code>sdist=0</code> bên cạnh bất kỳ rule nào chứa nó</b>, nếu không
+    điều kiện <code>ev_type</code> trông như đang làm việc mà nó không làm.</p></div>
+
+
+  <h3><span class="n">2.11</span>Rule EV-TIMEX làm classifier — nhãn hiếm <b>vẫn F1 = 0</b></h3>
+  <p><code>src/classify_timex.py</code>, 66.508 cặp valid EV-TIMEX.
+     <b>Tập khác EV-EV, bảng riêng — không cộng hai bảng.</b></p>
+  <div class="scroll"><table>
+    <thead><tr><th>Nhãn</th><th class="num">Hằng số</th><th class="num">Rule (argmax τ=0,4)</th></tr></thead>
+    <tbody>
+      <tr><td>BEFORE</td><td class="num">87,26%</td><td class="num">88,07%</td></tr>
+      <tr><td>CONTAINS</td><td class="num">0%</td><td class="num"><b>39,21%</b></td></tr>
+      <tr class="hi"><td><b>Macro-F1</b></td><td class="num"><b>14,54%</b></td><td class="num"><b>21,21%</b></td></tr>
+    </tbody>
+  </table></div>
+  <p>Rule thắng hằng số <b>+6,67 điểm</b> trên tập này.</p>
+
+  <div class="box bad"><span class="lbl">nhưng BEGINS-ON và ENDS-ON vẫn 0%, dù có 38 và 13 rule</span>
+    <div class="scroll"><table>
+      <thead><tr><th></th><th class="num">BEGINS-ON</th><th class="num">ENDS-ON</th></tr></thead>
+      <tbody>
+        <tr><td>Cặp gold trên valid</td><td class="num"><b>14</b></td><td class="num"><b>4</b></td></tr>
+        <tr><td>Rule bắn đúng chỗ</td><td class="num">14/14</td><td class="num"><b>0/4</b></td></tr>
+        <tr><td>Rule đó <b>thắng</b></td><td class="num">2</td><td class="num">0</td></tr>
+        <tr class="hi"><td>Rule bắn <b>nhầm</b> chỗ</td><td class="num"><b>38.090</b></td><td class="num">4.475</td></tr>
+      </tbody>
+    </table></div>
+    <p>Tỉ lệ nhiễu <b>2.721:1</b>. Kể cả thắng hết 14 cặp thì precision cũng chỉ <b>0,037%</b>.
+    13 rule ENDS-ON chỉ khớp train — trên valid <b>không chạm cặp nào</b>.</p></div>
+
+  <div class="box"><span class="lbl">kết luận chốt cho hai nhãn hiếm</span>
+    <p><b>Có rule là điều kiện cần, nhưng còn xa mới đủ.</b> Không combiner nào cứu được
+    (argmax và norm-wlb đều để 0), hạ τ thì 38.090 false positive tràn vào. Với <b>14 và 4
+    mẫu</b>, không phương pháp nào học được — đây là <b>giới hạn dữ liệu</b>, không phải lựa
+    chọn thuật toán.</p>
+    <p>Điều này <b>bác bỏ</b> kỳ vọng ở mục 2.10 rằng có rule là sẽ gỡ được hai nhãn.</p>
+    <p><b>Đề nghị:</b> báo macro-F1 trên <b>4 lớp có ≥100 mẫu</b>, ghi rõ hai lớp kia và lý do.</p></div>
+
+<section data-page="4" hidden>
+  <h2>Bài 2 — Noise-aware reasoning</h2>
+  <p class="pagesub">Tách làm hai bài toán khác nhau: nhãn <b>sai</b> và nhãn <b>thiếu</b>. Chúng có
+     mẫu số khác nhau và cần hàng rào khác nhau.</p>
+  <p class="toc">3.1 vì sao tách · 3.2 constraint · 3.3 chọn τ · 3.4 thang closure · 3.5 residual</p>
+
+  <h3><span class="n">3.1</span>Vì sao C3 phải tách làm hai</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Thành phần</th><th>Input</th><th class="num">Ứng viên</th><th>Baseline / trần</th></tr></thead>
+    <tbody>
+      <tr><td><b>C3-A</b> wrong-edge</td><td class="w">cạnh có nhãn + constraint</td>
+          <td class="num">483.504</td><td class="w">vi phạm trên gold sạch = false positive</td></tr>
+      <tr><td><b>C3-B</b> missing-edge</td><td class="w">cặp không nhãn + bằng chứng cấu trúc</td>
+          <td class="num">588.654</td><td class="w">closure 1-step <b>4,9%</b></td></tr>
+      <tr class="hi"><td><b>C3-B residual</b></td><td class="w">closure không quyết định</td>
+          <td class="num">223</td><td class="w">chỗ rule thật sự đóng góp</td></tr>
+    </tbody>
+  </table></div>
+  <p>C3-A có mẫu số xác định. C3-B thì <b>mọi cặp không nhãn đều là ứng viên</b> trước khi lọc, nên
+     nó cần hàng rào mà C3-A không cần. Chính sách B5 đã chốt: vắng nhãn = <b>UNKNOWN</b>, chỉ
+     transitive forcing mới được gọi là thiếu sót.</p>
+
+  <h3><span class="n">3.2</span>Constraint — phát biểu phủ định</h3>
+  <p>Chuyển từ <i>"pattern P dự đoán R"</i> sang <i>"cặp khớp P <b>không được</b> mang quan hệ ngoài
+     tập cho phép"</i>. Quan hệ bị cấm khi Wilson <b>upper</b> bound dưới τ.</p>
+  <div class="box info"><p>Dùng cận <b>trên</b> vì câu hỏi đổi chiều: dự đoán hỏi <i>"tỉ lệ này cao
+    nhất bao nhiêu"</i>, cấm đoán hỏi <i>"chắc chắn nó thấp dưới mức nào"</i>.</p></div>
+  <p>Điều làm phép đo này có giá trị: gold <b>nhất quán nội tại</b> — 0 cặp hai nhãn, 0 BEFORE hai
+     chiều, 0 document bất khả thoả trên cả 2.913 doc. Nên mọi vi phạm là <b>hoặc lỗi annotator hoặc
+     lỗi rule</b>, không có khả năng thứ ba. Tỉ lệ vi phạm cho <b>specificity trực tiếp</b>, không
+     cần người chấm.</p>
+
+  <h3><span class="n">3.3</span>Chọn τ</h3>
+  <div class="scroll"><table>
+    <thead><tr><th class="num">τ</th><th class="num">Constraint (bộ cũ)</th><th class="num">Vi phạm train</th><th class="num">Vi phạm valid</th><th class="num">Chọn lọc hơn baseline</th></tr></thead>
+    <tbody>
+      <tr class="hi"><td class="num">0,001</td><td class="num">1.730</td><td class="num">0,054%</td><td class="num">0,035%</td><td class="num">~290×</td></tr>
+      <tr><td class="num">0,005</td><td class="num">7.575</td><td class="num">0,437%</td><td class="num">0,407%</td><td class="num">~25×</td></tr>
+      <tr><td class="num">0,01</td><td class="num">9.746</td><td class="num">1,314%</td><td class="num">1,352%</td><td class="num">~7×</td></tr>
+      <tr><td class="num">0,02</td><td class="num">11.758</td><td class="num">1,594%</td><td class="num">1,737%</td><td class="num">~6×</td></tr>
+      <tr><td class="num">0,05</td><td class="num">14.034</td><td class="num">2,915%</td><td class="num">3,352%</td><td class="num">3,0×</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box good"><p><b>Train ≈ valid ở cả năm mức — constraint không overfit.</b> Mọi thứ
+    khác trong dự án đều sụt khi sang hold-out; cái này thì không.</p></div>
+  <div class="box bad"><span class="lbl">vì sao không chọn τ lỏng hơn</span>
+    <p>Ở τ=0,05, constraint bị vi phạm nhiều nhất là
+    <code>EQ(has_loc_b=True) ∧ HAS(roleset_a=Location)</code> với n=86.918, cấm SIMULTANEOUS dù quan
+    hệ đó xuất hiện <b>1.370 lần</b> trong train. Đó là <b>lỗi rule</b>, không phải lỗi annotator.
+    Tại τ=0,001 ngưỡng chặt hơn 50 lần.</p></div>
+
+  <h4>Bộ constraint mới — đã đo</h4>
+  <div class="scroll"><table>
+    <thead><tr><th class="num">τ</th><th class="num">Constraint</th><th class="num">Bắn trên</th><th class="num">Vi phạm train</th><th class="num">Vi phạm valid</th><th class="num">Chọn lọc</th></tr></thead>
+    <tbody>
+      <tr class="dim"><td class="num">bộ cũ</td><td class="num">1.730</td><td class="num">một phần</td><td class="num">0,054%</td><td class="num">0,035%</td><td class="num">~290×</td></tr>
+      <tr class="hi"><td class="num"><b>0,001</b></td><td class="num">13.589</td><td class="num">100,0%</td><td class="num">0,107%</td><td class="num">0,094%</td><td class="num">107,4×</td></tr>
+      <tr><td class="num">0,005</td><td class="num">47.323</td><td class="num">100,0%</td><td class="num">1,071%</td><td class="num">1,138%</td><td class="num">8,8×</td></tr>
+      <tr><td class="num">0,01</td><td class="num">67.672</td><td class="num">100,0%</td><td class="num">1,615%</td><td class="num">1,734%</td><td class="num">5,8×</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box good"><p><b>Không overfit ở cả ba mức</b>, và <b>bắn trên 100% instance</b> thay vì
+    chỉ một phần như bộ cũ. Đường cong <b>rất dốc</b>: nới τ từ 0,001 lên 0,005 làm vi phạm
+    tăng <b>12 lần</b> và chọn lọc tụt từ 107× xuống 8,8×.</p></div>
+
+  <h4>Chi tiết bác bỏ cách đọc lạc quan</h4>
+  <div class="scroll"><table>
+    <thead><tr><th>Nhãn</th><th class="num">Constraint CẤM nó</th><th class="num">Vi phạm RƠI vào</th></tr></thead>
+    <tbody>
+      <tr><td>ENDS-ON</td><td class="num">13.154</td><td class="num">15</td></tr>
+      <tr><td>BEGINS-ON</td><td class="num">6.773</td><td class="num">25</td></tr>
+      <tr class="hi"><td>SIMULTANEOUS</td><td class="num">85</td><td class="num">47</td></tr>
+      <tr><td>OVERLAP</td><td class="num">37</td><td class="num">16</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box bad"><p><b>85 constraint cấm SIMULTANEOUS gây 47/103 vi phạm</b> — 46% số vi phạm
+    đến từ 0,6% số constraint. Ngược lại 13.154 constraint cấm ENDS-ON chỉ gây 15.</p>
+    <p>Nghĩa là <b>phần lớn constraint không bao giờ bắn</b> — chúng cấm nhãn vốn đã cực hiếm.
+    Tỉ lệ 0,094% thấp <b>chủ yếu vì thế</b>, không phải vì constraint chính xác.</p></div>
+
+  <h4>Sáu vi phạm đầu tiên — đều là lỗi rule</h4>
+<pre>gold=SIMULTANEOUS  bị cấm bởi [sdist=2-3]
+gold=SIMULTANEOUS  bị cấm bởi [anchor_sd=(False,'8+')]
+gold=OVERLAP       bị cấm bởi [sdist=4-7]              x2
+gold=OVERLAP       bị cấm bởi [anchor_sd=(False,'8+')]  x2</pre>
+  <p>Tất cả đều là constraint trong subgraph <b>cặp xa nhau về câu</b> cấm SIMULTANEOUS/OVERLAP.
+     Hợp lý về thống kê nhưng <b>không phải quy luật</b>. Annotator đúng, constraint sai.</p>
+
+  <h4>Kết luận cho C3-A</h4>
+  <div class="scroll"><table>
+    <thead><tr><th>Phép đo</th><th>Kết quả</th></tr></thead>
+    <tbody>
+      <tr><td class="w">Closure thuần logic (164.803 cặp)</td><td class="w"><b>0 conflict</b></td></tr>
+      <tr><td class="w">Constraint τ=0,001 (109.929 cặp valid)</td><td class="w">103 vi phạm, <b>phần lớn là lỗi rule</b></td></tr>
+      <tr><td class="w">Cặp mang hai nhãn</td><td class="w">0</td></tr>
+      <tr><td class="w">Document bất khả thoả</td><td class="w">0/2.913</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box bad"><p><b>Bốn phép đo độc lập đều nói gold sạch.</b> Không phải thất bại mà là tính
+    chất dataset: MAVEN-ERE là read-off từ <b>một timeline duy nhất</b>, nên nhất quán theo cấu
+    trúc. Hệ quả: <b>injector là con đường duy nhất</b> để C3 có recall đo được.</p></div>
+  <div class="scroll"><table>
+    <thead><tr><th class="num">n</th><th>Pattern</th><th>view</th><th>Cấm</th><th>Phân bố nhãn</th></tr></thead>
+    <tbody id="cons"></tbody>
+  </table></div>
+  <div class="box"><p><b>Đọc ra ngay:</b> ở τ=0,001 constraint chỉ cấm được BEGINS-ON và ENDS-ON —
+    hai nhãn hiếm nhất (0,05% và 0,04%). Ngưỡng chặt đến mức mọi nhãn phổ biến đều được phép, nên
+    constraint <b>rất an toàn nhưng cũng rất yếu</b>. Đó chính là lý do tỉ lệ vi phạm thấp — phải
+    nói rõ, không để 0,035% trông mạnh hơn thực tế.</p></div>
+
+  <h3><span class="n">3.4</span>Thang closure cho C3-B</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Phương pháp</th><th class="num">Khôi phục đúng</th><th class="num">Mẫu</th></tr></thead>
+    <tbody>
+      <tr><td>1-step closure</td><td class="num">46 = 4,9%</td><td class="num">948</td></tr>
+      <tr><td>2-step closure</td><td class="num">46 = 4,9%</td><td class="num">948</td></tr>
+      <tr><td>PC-2 tới fixpoint</td><td class="num">40 = 5,0%</td><td class="num">808</td></tr>
+    </tbody>
+  </table></div>
+  <p>PC-2 khôi phục <b>0 cạnh</b> mà 1-step bỏ sót (so trên cùng population 808 case).</p>
+
+  <div class="box bad"><span class="lbl">đính chính — bản trước báo 80,4%</span>
+    <p>Con số cũ dùng phép kiểm <b>bao hàm</b> <code>implied ⊆ allen(gold)</code>, không đòi closure
+    chỉ ra được <b>một</b> nhãn. Ba phép kiểm khác nhau:</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Phép kiểm</th><th>Câu hỏi</th><th class="num">Kết quả</th></tr></thead>
+      <tbody>
+        <tr><td><code>allen(gold) ∩ implied = ∅</code></td><td class="w">có mâu thuẫn không</td><td class="num">0 / 164.803</td></tr>
+        <tr><td><code>implied ⊆ allen(gold)</code></td><td class="w">có bị ràng buộc đủ không</td><td class="num">81,2%</td></tr>
+        <tr class="hi"><td><code>len(compat(implied)) = 1</code></td><td class="w"><b>có đoán ra một nhãn không</b></td><td class="num"><b>4,9%</b></td></tr>
+      </tbody>
+    </table></div>
+    <p>Phân rã 81,2%: 770 case bao hàm thành công, nhưng chỉ <b>46 thực sự quyết định được</b>;
+    724 case còn mơ hồ. Và <b>701/724 là cùng một chỗ</b> — gold BEFORE, closure thu về
+    <code>{b}</code>, vẫn tương thích ENDS-ON <code>{b,m}</code>. Ánh xạ MAVEN→Allen chỉ chồng lấn ở
+    <code>b</code> và <code>e</code>; <b>97% độ lạm phát là BEFORE vs ENDS-ON</b>. Với base rate
+    BEFORE 89,94%, phép bao hàm gần như chỉ đo lại base rate.</p></div>
+
+  <div class="box bad"><span class="lbl">phát biểu phải cẩn thận</span>
+    <p>4,9% là trần của <b>1-step closure dưới protocol xoá cạnh hiện tại</b>, <b>không</b> phải cận
+    trên toán học cho mọi hệ suy luận. Định nghĩa residual theo baseline có tên:
+    <i>closure-undetermined under the 1-step protocol</i>.</p></div>
+
+  <h3><span class="n">3.5</span>Residual — 95,1%, và điều đó là tin tốt</h3>
+  <p>Con số 4,9% <b>đảo chiều câu chuyện C3-B theo hướng có lợi</b>. Trước đây closure trông như
+     đã ăn mất 80,4%, chỉ chừa 19,6% cho rule chứng minh giá trị. Thực tế:</p>
+  <div class="box good"><p>Closure thuần tuý chỉ khôi phục <b>4,9%</b> cạnh bị xoá.
+    <b>95,1% còn lại</b> là population mà bằng chứng ngữ nghĩa — vai, entity chung, vị trí diễn
+    ngôn — là nguồn thông tin duy nhất. Đó gần như là <b>toàn bộ</b> bài toán.</p></div>
+
+  <p>Hai nguyên nhân khiến closure bất lực, đọc từ residual:</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Nguyên nhân</th><th>Dấu hiệu</th><th>Rule có giúp được không</th></tr></thead>
+    <tbody>
+      <tr><td>Không có đường dẫn suy luận</td><td class="w">closure trả về toàn bộ 13 quan hệ</td>
+          <td class="w">Có — đây là chỗ bằng chứng ngữ nghĩa vào</td></tr>
+      <tr class="hi"><td>Thu hẹp được nhưng không tách nổi nhãn</td>
+          <td class="w">thu về <code>{b}</code>, còn kẹt BEFORE vs ENDS-ON</td>
+          <td class="w">Có — và rẻ, vì chỉ cần phân biệt <b>hai</b> nhãn</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>Hai metric vẫn phải báo tách:</p>
+<pre>R_all    = khôi phục được / tổng cạnh xoá
+R_beyond = khôi phục trên residual / residual</pre>
+  <p>Vì tầng closure chỉ còn 4,9%, <code>R_all</code> và <code>R_beyond</code> giờ gần bằng nhau —
+     phép tách vẫn giữ để người đọc kiểm được, nhưng rủi ro "khoe công của closure" đã gần như biến mất.</p>
+</section>
+
+<!-- ═══════════════════════════════ 4 ═══════════════════════════════ -->
+<section data-page="5" hidden>
+  <h2>Injection &amp; Detection — đo recall thật</h2>
+  <p class="pagesub">Gold sạch nên recall không đo được trên gold. Bơm lỗi đã biết vào KG rồi hỏi
+     detector bắt lại được bao nhiêu. Đây là kết quả đo, kể cả phần thất bại.</p>
+  <p class="toc">4.1 vì sao phải bơm lỗi · 4.2 hai toán tử · 4.3 kiểm chứng bộ bơm ·
+     4.4 C3-A quét τ · 4.5 chẩn đoán · 4.6 rule làm detector (âm) · 4.7 <b>C3-B 89,3%</b> · 4.8 bộ 1.073 (âm) · 4.9 claim nhị phân · 4.10 <b>noise-aware theo mức nhiễu</b> · 4.11 việc phải làm</p>
+
+  <h3><span class="n">4.1</span>Vì sao phải bơm lỗi</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Phép đo trên gold</th><th class="num">Kết quả</th></tr></thead>
+    <tbody>
+      <tr><td>cặp mang hai nhãn</td><td class="num">0</td></tr>
+      <tr><td>BEFORE cả hai chiều</td><td class="num">0</td></tr>
+      <tr><td>document PC-inconsistent</td><td class="num">0 / 2.913</td></tr>
+      <tr><td>closure loại nhãn gold</td><td class="num">0 / 164.803</td></tr>
+    </tbody>
+  </table></div>
+  <p>Bốn phép đo độc lập đều rỗng. Nhãn MAVEN-ERE là <b>đọc ra từ một timeline đã sắp xếp</b> cho mỗi
+     document, nên về mặt cấu tạo nó không thể tự mâu thuẫn. Không có gì để tìm ⇒
+     <b>không đo được recall</b>. Bơm lỗi là con đường duy nhất tới ground truth.</p>
+
+  <h3><span class="n">4.2</span>Hai toán tử, hai bài toán</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Toán tử</th><th>Mô phỏng</th><th>Sau khi bơm</th><th>Đo cho</th></tr></thead>
+    <tbody>
+      <tr><td><code>RELABEL</code> (a,b,r)→(a,b,r′)</td><td class="w">annotator gán sai nhãn</td>
+          <td class="w">đồ thị đủ cạnh ⇒ <b>có thể tự mâu thuẫn</b></td><td>C3-A</td></tr>
+      <tr><td><code>DELETE</code> (a,b,r)→∅</td><td class="w">annotator bỏ sót cạnh</td>
+          <td class="w">vẫn nhất quán, chỉ nghèo đi</td><td>C3-B</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box"><span class="lbl">mô hình nhiễu: gold-marginal, không phải uniform</span>
+    <p>Rút r′ đều từ 5 nhãn còn lại đặt <b>40%</b> lỗi lên {BEGINS-ON, ENDS-ON} — hai nhãn chỉ chiếm
+    <b>0,09%</b> corpus, tức khuếch đại <b>432×</b>. Khi đó một baseline hai dòng "gắn cờ hai nhãn hiếm"
+    thắng cả rule family (F1 0,557 vs 0,378) — thuần tuý do lỗi lấy mẫu. Rút theo marginal của corpus
+    loại bỏ ảo giác đó.</p></div>
+
+  <h3><span class="n">4.3</span>Kiểm chứng bộ bơm</h3>
+  <div class="cards">
+    <div class="card good"><div class="k">RELABEL</div><h4>PC-inconsistent</h4>
+      <div class="big">14,3%</div><div class="note">spec dự đoán 13,1% — khớp</div></div>
+    <div class="card good"><div class="k">RELABEL</div><h4>quy được về 1 lỗi</h4>
+      <div class="big">83,7%</div><div class="note">định vị được, không chỉ phát hiện</div></div>
+    <div class="card good"><div class="k">DELETE</div><h4>PC-inconsistent</h4>
+      <div class="big">0%</div><div class="note">đúng như lý thuyết</div></div>
+    <div class="card good"><div class="k">Cả hai</div><h4>rơi vào nhãn hiếm</h4>
+      <div class="big">0%</div><div class="note">uniform sẽ là 40%</div></div>
+  </div>
+  <p>Bốn con số này là <b>điều kiện cần</b> trước khi tin bất kỳ số recall nào: bộ bơm hành xử đúng
+     như spec đã tiên đoán trước khi chạy.</p>
+
+  <h3><span class="n">4.4</span>C3-A — wrong-edge, quét τ</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Detector</th><th class="num">P</th><th class="num">R</th><th class="num">F1</th><th class="num">tp/60</th><th class="num">gắn cờ</th><th class="num">lift vs ngẫu nhiên</th></tr></thead>
+    <tbody>
+      <tr><td>constraint τ=0,001</td><td class="num">0,65%</td><td class="num">1,67%</td><td class="num">0,94%</td><td class="num">1</td><td class="num">153</td><td class="num">8,9×</td></tr>
+      <tr class="hi"><td><b>constraint τ=0,005</b></td><td class="num"><b>1,84%</b></td><td class="num">31,67%</td><td class="num"><b>3,47%</b></td><td class="num">19</td><td class="num">1.034</td><td class="num"><b>25,1×</b></td></tr>
+      <tr><td>constraint τ=0,01</td><td class="num">1,49%</td><td class="num">36,67%</td><td class="num">2,87%</td><td class="num">22</td><td class="num">1.472</td><td class="num">20,4×</td></tr>
+      <tr><td>baseline <i>all non-BEFORE</i></td><td class="num">0,78%</td><td class="num"><b>91,67%</b></td><td class="num">1,55%</td><td class="num">55</td><td class="num">7.015</td><td class="num">10,7×</td></tr>
+      <tr><td>baseline <i>Brare</i></td><td class="num">0,00%</td><td class="num">0,00%</td><td class="num">0,00%</td><td class="num">0</td><td class="num">90</td><td class="num">0×</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box good"><span class="lbl">τ=0,005 là điểm vận hành</span>
+    <p><b>F1 gấp 2,2× baseline</b> (3,47% vs 1,55%) và <b>precision gấp 2,4×</b>. τ=0,01 bắt thêm
+    3 lỗi nhưng precision tụt, nên 0,005 trội hơn hẳn.</p></div>
+  <div class="box"><span class="lbl">phải báo cột lift, không báo precision trần</span>
+    <p>Bơm 60 lỗi vào 82.064 cặp đặt prior ngẫu nhiên ở <b>0,073%</b> — không detector nào có thể
+    đạt precision tuyệt đối cao ở mật độ này. Con số 1,84% đọc như thất bại nhưng thực ra là
+    <b>25× ngẫu nhiên</b>. Trích precision trần mà bỏ prior là xuyên tạc cả phương pháp lẫn baseline.</p></div>
+  <div class="box bad"><span class="lbl">vẫn phải nói thẳng</span>
+    <p>Recall 31,67% vẫn <b>thấp hơn nhiều</b> so với baseline 91,67%. Claim đúng là
+    <b>độ chọn lọc</b>, không phải độ phủ: baseline gắn cờ 7.015 cặp để bắt 55 lỗi, C3-A gắn cờ
+    1.034 cặp để bắt 19.</p></div>
+
+  <h3><span class="n">4.5</span>Vì sao C3-A yếu — chẩn đoán</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Constraint cấm nhãn</th><th class="num">Số constraint</th><th class="num">Vi phạm gây ra</th></tr></thead>
+    <tbody>
+      <tr><td>ENDS-ON</td><td class="num">13.154</td><td class="num">15</td></tr>
+      <tr><td>BEGINS-ON</td><td class="num">6.773</td><td class="num">25</td></tr>
+      <tr class="hi"><td>SIMULTANEOUS</td><td class="num">85</td><td class="num"><b>47</b></td></tr>
+      <tr><td>OVERLAP</td><td class="num">37</td><td class="num">16</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>Nguyên nhân gốc: ở τ=0,001 constraint và lỗi bơm không giao nhau.</b> Mức này chủ yếu sinh
+     constraint cấm ENDS-ON/BEGINS-ON, trong khi sampler gold-marginal <b>không bao giờ</b> bơm hai
+     nhãn đó (0,09% corpus). 19.927 constraint canh một cửa mà lỗi không đi qua.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>τ</th><th class="num">constraint</th><th class="num">cấm CONTAINS</th><th class="num">cấm OVERLAP</th><th class="num">cấm SIMULTANEOUS</th></tr></thead>
+    <tbody>
+      <tr><td>0,001</td><td class="num">13.589</td><td class="num">0</td><td class="num">37</td><td class="num">85</td></tr>
+      <tr class="hi"><td><b>0,005</b></td><td class="num">47.323</td><td class="num">44</td><td class="num">7.495</td><td class="num">5.270</td></tr>
+      <tr><td>0,01</td><td class="num">67.672</td><td class="num">315</td><td class="num">24.945</td><td class="num">13.477</td></tr>
+    </tbody>
+  </table></div>
+  <p>Nới τ khiến constraint chạm tới <b>đúng những nhãn mà sampler thực sự bơm</b> — đó là toàn bộ
+     lý do recall nhảy từ 1,67% lên 31,67%. Chẩn đoán đúng, và cách sửa xác nhận chẩn đoán.</p>
+  <div class="box"><span class="lbl">đây là lỗi thiết kế sửa được, không phải giới hạn phương pháp</span>
+    <p>Hai hướng đã xác định: (1) chạy lại ở τ=0,005 và 0,01 để constraint chạm tới nhãn phổ biến;
+    (2) dùng <b>68 rule minimal</b> (precision 93,40% trên non-BEFORE) làm detector thay cho constraint
+    — rule dự đoán CONTAINS, mà CONTAINS <b>có</b> nằm trong phân phối lỗi bơm.</p></div>
+
+  <h3><span class="n">4.6</span>68 rule minimal làm detector — <b>không chạy được</b></h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Detector</th><th class="num">P</th><th class="num">R</th><th class="num">gắn cờ</th><th class="num">lift</th></tr></thead>
+    <tbody>
+      <tr><td>constraint τ=0,005</td><td class="num">1,84%</td><td class="num">31,67%</td><td class="num">1.034</td><td class="num">25,1×</td></tr>
+      <tr class="hi"><td>68 rule minimal (cờ khi <code>rel ≠ rule.rel</code>)</td><td class="num">0,08%</td><td class="num">6,67%</td><td class="num">5.142</td><td class="num"><b>1,1×</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="box bad"><span class="lbl">kết quả âm, và là lỗi cấu trúc chứ không phải tinh chỉnh</span>
+    <p>Cả 68 rule đều đoán CONTAINS, nên "rule bất đồng với cạnh này" rút gọn thành
+    <code>rel ≠ CONTAINS</code> — đúng với <b>93,13%</b> số cạnh (riêng BEFORE đã 91,51%).
+    Detector thừa hưởng base rate và rơi về mức ngẫu nhiên.</p></div>
+  <div class="box"><span class="lbl">điều này giới hạn ý nghĩa con số 93,40%</span>
+    <p>93,40% là precision trên những cặp rule <b>có bắn</b> và <b>đoán CONTAINS</b>. Nó
+    <b>không</b> chuyển sang chiều bất đồng, vì biết một cạnh không phải CONTAINS <b>không nói gì</b>
+    về việc nó phải mang nhãn nào trong năm nhãn còn lại.</p>
+    <p><b>Một predictor dương trên lớp áp đảo không thể lật thành detector âm.</b> Constraint làm
+    được đúng vì nó nêu <b>nhãn bị cấm</b>, không nêu nhãn kỳ vọng — đó là khác biệt thiết kế, không
+    phải khác biệt chất lượng.</p></div>
+
+  <h3><span class="n">4.7</span>C3-B — bộ đề xuất cạnh thiếu: <b>1,8% → 89,3%</b></h3>
+  <p><code>propose_missing.py</code>. Quét <b>mọi</b> cặp không nhãn, không chỉ 56 cặp bị xoá —
+     giao thức này mới là so sánh công bằng, vì detector thật không biết cặp nào bị xoá.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Phương pháp</th><th class="num">Đề xuất</th><th class="num">P</th><th class="num">R</th><th class="num">F1</th></tr></thead>
+    <tbody>
+      <tr><td>luôn đoán BEFORE</td><td class="num">199.918</td><td class="num">0,026%</td><td class="num">92,9%</td><td class="num">0,052%</td></tr>
+      <tr><td>closure strict (đòi 1 nhãn)</td><td class="num">1</td><td class="num">100%</td><td class="num">1,8%</td><td class="num">3,509%</td></tr>
+      <tr class="hi"><td><b>closure + majority, |compat|≤2</b></td><td class="num"><b>1.572</b></td><td class="num"><b>3,181%</b></td><td class="num">89,3%</td><td class="num"><b>6,143%</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="box good"><span class="lbl">F1 gấp 118× baseline · đề xuất ít hơn 127× · precision cao hơn 122×</span>
+    <p><b>Giá trị của closure là ở chỗ biết im lặng, không phải ở chỗ quyết định.</b> Nó từ chối
+    191.752 cặp (95,9%) vì suy luận một bước không nói được gì. Baseline không bao giờ từ chối,
+    nên phải trả giá bằng 199.918 đề xuất.</p></div>
+  <div class="box"><span class="lbl">vì sao nới lỏng là hợp lệ, không phải gian lận</span>
+    <p>Closure thu hẹp về một <b>tập</b> Allen. Đòi tập đó ánh xạ về đúng một nhãn MAVEN thì vứt
+    bỏ 89,3% case ánh xạ về hai — mà <b>49/50</b> trong đó là cùng một dạng <code>{b}</code> =
+    BEFORE hoặc ENDS-ON. Chọn theo tần suất corpus (BEFORE:ENDS-ON ≈ <b>3.000:1</b>) đúng 49/49 lần.
+    Thứ tự tần suất là <b>prior cố định từ corpus</b>, không fit vào tập đánh giá.</p></div>
+
+  <h4>Cổng kích thước — recall miễn phí</h4>
+  <div class="scroll"><table>
+    <thead><tr><th class="num">ngưỡng</th><th class="num">đề xuất</th><th class="num">P</th><th class="num">R</th><th class="num">F1</th></tr></thead>
+    <tbody>
+      <tr><td class="num">≤ 1</td><td class="num">1</td><td class="num">100%</td><td class="num">1,8%</td><td class="num">3,509%</td></tr>
+      <tr class="hi"><td class="num"><b>≤ 2</b></td><td class="num">1.572</td><td class="num">3,181%</td><td class="num">89,3%</td><td class="num"><b>6,143%</b></td></tr>
+      <tr><td class="num">≤ 3</td><td class="num">1.586</td><td class="num">3,153%</td><td class="num">89,3%</td><td class="num">6,090%</td></tr>
+      <tr><td class="num">≤ 4</td><td class="num">5.231</td><td class="num">0,956%</td><td class="num">89,3%</td><td class="num">1,891%</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>3.645 đề xuất ở size-4 đúng 0 lần.</b> Closure mơ hồ bốn chiều không mang tín hiệu dùng
+     được, phát ra chỉ tốn precision. Chặn ở 2 bỏ 70% đề xuất mà <b>không mất gì</b>.</p>
+  <div class="box"><span class="lbl">một điểm trông như lỗi nhưng không phải</span>
+    <p>2.935 cặp thu hẹp về tập Allen mà <b>không nhãn MAVEN nào khớp</b> (chủ yếu <code>{bi}</code>).
+    MAVEN chỉ phủ <b>7/13</b> quan hệ Allen, bỏ nhóm nghịch đảo <code>bi, d, f, fi, mi, oi</code> vì
+    chuẩn hoá hướng bằng cách đảo chiều cạnh. Nên <code>{bi}</code> nghĩa là "quan hệ này nằm ở
+    chiều ngược lại", không phải mâu thuẫn. <b>0/2.935</b> là cạnh xoá thật — xác nhận cách đọc.</p></div>
+
+  <h3><span class="n">4.8</span>Bộ 1.073 families dùng cho C3 — <b>không xài được</b></h3>
+  <p>Bộ 1.073 (<code>families_dedup.json</code>) có 341 rule non-CONTAINS, nên đáng thử: hai thất
+     bại trước đều đổ cho "toàn CONTAINS". Đo cả hai hướng.</p>
+
+  <h4>C3-A detector</h4>
+  <div class="scroll"><table>
+    <thead><tr><th>Biến thể</th><th class="num">gắn cờ</th><th class="num">P</th><th class="num">R</th><th class="num">F1</th><th class="num">lift</th></tr></thead>
+    <tbody>
+      <tr><td>tất cả 1.073</td><td class="num">76.937</td><td class="num">0,066%</td><td class="num">85,00%</td><td class="num">0,132%</td><td class="num"><b>0,9×</b></td></tr>
+      <tr><td>chỉ 341 non-CONTAINS</td><td class="num">71.308</td><td class="num">0,069%</td><td class="num">81,67%</td><td class="num">0,137%</td><td class="num"><b>0,9×</b></td></tr>
+      <tr><td>wlb≥0,3 (100 rule)</td><td class="num">7.080</td><td class="num">0,042%</td><td class="num">5,00%</td><td class="num">0,084%</td><td class="num">0,6×</td></tr>
+      <tr><td>wlb≥0,5 (11 rule)</td><td class="num">573</td><td class="num">0,524%</td><td class="num">5,00%</td><td class="num">0,948%</td><td class="num">7,2×</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box bad"><span class="lbl">0,9× là DƯỚI ngẫu nhiên</span>
+    <p>Bộ đầy đủ gắn cờ <b>93,8%</b> toàn bộ cặp — gần như "gắn cờ tất cả". Lọc non-CONTAINS
+    <b>không cứu được</b>, nên nguyên nhân không phải phân bố nhãn mà là <b>wlb median 0,107</b>
+    (max 0,598, không rule nào vượt 0,7): rule đúng ~11% số lần thì "rule bất đồng với cạnh này"
+    gần như luôn đúng một cách vô nghĩa.</p></div>
+
+  <h4>C3-B proposer — đổi 2.157 dự đoán, đúng thêm <b>0</b></h4>
+  <p>Ưu tiên nhãn rule thay vì prior tần suất cho ra P/R/F1 <b>giống hệt</b>, vì mọi thay đổi rơi
+     vào cặp không phải cạnh xoá. Trên 51 cạnh xoá closure nói được:</p>
+  <div class="scroll"><table>
+    <thead><tr><th>gold</th><th>majority</th><th>rule bắn</th><th>rule trong tập closure</th><th class="num">n</th></tr></thead>
+    <tbody>
+      <tr><td>BEFORE</td><td>BEFORE ✓</td><td>CONTAINS</td><td><b>không</b></td><td class="num">38</td></tr>
+      <tr><td>BEFORE</td><td>BEFORE ✓</td><td>SIMULTANEOUS</td><td><b>không</b></td><td class="num">7</td></tr>
+      <tr><td>BEFORE</td><td>BEFORE ✓</td><td>—</td><td>—</td><td class="num">3</td></tr>
+      <tr><td>BEFORE</td><td>BEFORE ✓</td><td>OVERLAP</td><td><b>không</b></td><td class="num">1</td></tr>
+      <tr><td>CONTAINS</td><td>CONTAINS ✓</td><td>CONTAINS</td><td>có</td><td class="num">1</td></tr>
+      <tr><td>SIMULTANEOUS</td><td>CONTAINS ✗</td><td>CONTAINS</td><td>có</td><td class="num">1</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box bad"><span class="lbl">46/51 lần rule đề xuất nhãn closure đã loại trừ</span>
+    <p>Không phải "sai một chút" mà <b>sai một cách bác bỏ được bằng logic</b>: rule nói CONTAINS
+    trong khi closure đã chứng minh chỉ còn <code>{BEFORE, ENDS-ON}</code>.</p></div>
+
+  <div class="box bad"><span class="lbl">nguyên nhân gốc — lần thứ ba cùng một bức tường</span>
+    <p>Family chỉ đoán <b>CONTAINS 732 · SIMULTANEOUS 223 · OVERLAP 118</b> —
+    <b>không rule nào đoán BEFORE</b>, trong khi 52/56 cạnh xoá là BEFORE và corpus 91,5% BEFORE.
+    Bộ rule và bài toán C3 <b>không giao nhau</b>. Cùng lý do với 68 rule minimal (1,1×).</p>
+    <p><b>Kết luận:</b> giữ 1.073 như <i>kết quả trung gian của C2</i>, không trình bày như thành
+    phần của C3. C3-A thuộc constraint τ=0,005; C3-B thuộc closure + prior tần suất.</p></div>
+
+  <h3><span class="n">4.9</span>Đọc lại family thành claim nhị phân — vẫn không đủ</h3>
+  <p>Bộ 1.073 thất bại ở 4.8 vì không rule nào đoán BEFORE. Nhưng C3 không cần đoán BEFORE, nó cần
+     biết <b>khi nào KHÔNG phải BEFORE</b> — câu hỏi nhị phân. Chấm lại cùng family theo câu hỏi đó,
+     <b>không mine lại gì cả</b>.</p>
+
+  <div class="box good"><span class="lbl">tín hiệu có thật, và wlb cũ đã che mất nó</span>
+    <p><code>wlb</code> cũ chấm theo <b>nhãn cụ thể</b> nên chỉ 0,107 — bắn CONTAINS mà thật ra
+    OVERLAP thì tính sai. Đổi sang câu hỏi nhị phân thì cùng family đó lên <b>0,5–0,85</b>.
+    Cùng dữ liệu, cùng rule, khác câu hỏi.</p></div>
+
+  <div class="scroll"><table>
+    <thead><tr><th>Ngưỡng (chọn trên dev)</th><th class="num">family</th><th class="num">train P</th><th class="num">VALID P</th><th class="num">VALID lift</th></tr></thead>
+    <tbody>
+      <tr><td>wlb≥0,4</td><td class="num">63</td><td class="num">—</td><td class="num">43,16%</td><td class="num">4,29×</td></tr>
+      <tr class="hi"><td><b>wlb≥0,5</b></td><td class="num">25</td><td class="num">62,39%</td><td class="num"><b>55,33%</b></td><td class="num"><b>5,50×</b></td></tr>
+      <tr><td>wlb≥0,6</td><td class="num">9</td><td class="num">71,85%</td><td class="num">54,80%</td><td class="num">5,44×</td></tr>
+      <tr><td>wlb≥0,8 (chọn trên train)</td><td class="num">4</td><td class="num">89,18%</td><td class="num">56,46%</td><td class="num">5,61×</td></tr>
+    </tbody>
+  </table></div>
+  <p>Điều kiện đọc được bằng tiếng người: <code>HAS(roleset_a=Event)</code> 154/170 ·
+     <code>EQ(bucket_a=lead)</code> 170/192 · <code>HAS(roleset_a=Winner)</code> 158/180.
+     Base rate non-BEFORE chỉ <b>8,49%</b> (train) / <b>10,06%</b> (valid).</p>
+  <div class="box bad"><span class="lbl">overfit thật, phải báo số valid</span>
+    <p>train 89,18% → valid <b>55,33%</b>. Ngưỡng chọn trên dev độc lập (train doc 300–800) cho
+    kết quả gần y hệt chọn trên train (55,33% vs 56,46%), nên con số này <b>ổn định</b> — nhưng
+    mức tụt gần một nửa là có thật.</p></div>
+
+  <h4>Dùng làm detector C3-A — cả hai chiều đều hỏng</h4>
+  <div class="scroll"><table>
+    <thead><tr><th>Chiều</th><th class="num">trần</th><th class="num">gắn cờ</th><th class="num">P</th><th class="num">R</th><th class="num">lift</th></tr></thead>
+    <tbody>
+      <tr><td>family nói NOT-BEFORE, cạnh mang BEFORE</td><td class="num">5/60</td><td class="num">753</td><td class="num">0,133%</td><td class="num">1,67%</td><td class="num">1,8×</td></tr>
+      <tr><td>family nói IS-BEFORE, cạnh mang nhãn khác</td><td class="num">55/60</td><td class="num">6.925</td><td class="num">0,736%</td><td class="num">85,00%</td><td class="num">10,1×</td></tr>
+      <tr><td>baseline <i>all non-BEFORE</i></td><td class="num">—</td><td class="num">7.015</td><td class="num">0,780%</td><td class="num">91,67%</td><td class="num"><b>10,7×</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="box"><span class="lbl">chiều thứ nhất là lỗi thiết kế của tôi, không phải lỗi rule</span>
+    <p>Sau khi bơm gold-marginal, chỉ <b>5/60</b> cạnh hỏng còn mang nhãn BEFORE — 55 cạnh đã bị đổi
+    <i>từ</i> BEFORE <i>sang</i> nhãn khác. Detector chỉ bắn khi <code>rel == BEFORE</code> nên trần
+    chỉ là 5. Nó bắt 1/5 = <b>20%</b>, không phải 1,67%.</p></div>
+  <div class="box bad"><span class="lbl">chiều thứ hai đạt 51/55 = 93% trần, nhưng là baseline trá hình</span>
+    <p>Siết từ <b>591</b> family xuống <b>19</b> mà lift không nhúc nhích: 10,1× → 10,5× → 9,3×,
+    trong khi baseline là 10,7×. Một bộ chọn mà precision không đổi khi siết chặt <b>30×</b> thì
+    <b>không mang thông tin gì ngoài base rate</b> — nó chỉ tái tạo baseline bằng đường vòng.</p></div>
+
+  <div class="box"><span class="lbl">kết luận</span>
+    <p>Tín hiệu non-BEFORE là <b>có thật</b> (5,50× trên valid) và đáng giữ như <b>kết quả C2</b>.
+    Nhưng nó <b>không chuyển thành detector C3-A</b>: C3-A cần độ chọn lọc trên tập lỗi hiếm, mà
+    tín hiệu này phân bố quá rộng. C3-A vẫn thuộc về constraint τ=0,005 (25,1×).</p></div>
+
+
+  <h3><span class="n">4.10</span>Noise-aware theo mức nhiễu — hoà giải chênh lệch 13×</h3>
+  <p><code>src/noise_aware.py</code>, 299 document / 82.063 cạnh, xếp hạng nghi ngờ rồi lấy
+     top-k với k = 3× số cạnh hỏng.</p>
+  <div class="scroll"><table>
+    <thead><tr><th class="num">Nhiễu</th><th class="num">ranked</th><th class="num">P@k</th><th class="num">repair@k</th><th class="num">found</th><th class="num">R_all</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1%</td><td class="num">64.562</td><td class="num">25,19%</td><td class="num"><b>99,51%</b></td><td class="num">75,58%</td><td class="num"><b>75,21%</b></td></tr>
+      <tr><td class="num">5%</td><td class="num">35.730</td><td class="num">14,15%</td><td class="num">98,85%</td><td class="num">42,45%</td><td class="num">41,97%</td></tr>
+      <tr class="hi"><td class="num"><b>10%</b></td><td class="num">19.872</td><td class="num">9,87%</td><td class="num"><b>96,63%</b></td><td class="num">23,74%</td><td class="num"><b>22,94%</b></td></tr>
+      <tr><td class="num">20%</td><td class="num">9.241</td><td class="num">20,16%</td><td class="num">94,47%</td><td class="num">11,30%</td><td class="num">10,67%</td></tr>
+      <tr><td class="num">30%</td><td class="num"><b>5.054</b></td><td class="num">30,06%</td><td class="num"><b>90,45%</b></td><td class="num"><b>6,14%</b></td><td class="num"><b>5,55%</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box good"><span class="lbl">hai bảng số lệch nhau 13× — không bên nào sai</span>
+    <p>Một bảng đề xuất ghi 90,54% / 81,61% / 74,16% ở mức 1/10/30%; phép đo độc lập cho
+    75,8% / 22,9% / 5,6%. Đó là <code>repair@k</code> và <code>R_all</code> — <b>hai mẫu số
+    khác nhau trên cùng một lần chạy</b>.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Chỉ số</th><th>Mẫu số</th></tr></thead>
+      <tbody>
+        <tr><td><code>P@k</code></td><td class="w">trong số cạnh <b>đã gắn cờ</b>, bao nhiêu thật sự hỏng</td></tr>
+        <tr><td><code>repair@k</code></td><td class="w">trong số <b>đã gắn cờ VÀ hỏng</b>, sửa đúng bao nhiêu</td></tr>
+        <tr><td><code>found</code></td><td class="w">trong số <b>toàn bộ</b> cạnh hỏng, gắn cờ được bao nhiêu</td></tr>
+        <tr class="hi"><td><code>R_all</code></td><td class="w">trong số <b>toàn bộ</b> cạnh hỏng, <b>tìm ra VÀ sửa đúng</b> bao nhiêu</td></tr>
+      </tbody>
+    </table></div>
+    <p><code>repair@k</code> có điều kiện "đã gắn cờ" nên giữ trên 90% ở mọi mức, trong khi
+    phương pháp <b>lặng lẽ ngừng gắn cờ</b>. Cột <code>found</code> nói hết: <b>6,14%</b> ở
+    nhiễu 30%.</p></div>
+
+  <div class="box bad"><span class="lbl">cơ chế: closure suy thoái bằng cách IM LẶNG</span>
+    <p>Cột <code>ranked</code> tụt từ 64.562 xuống <b>5.054</b>. Closure suy luận bằng bắc cầu
+    (<i>A trước B, B trước C ⇒ A trước C</i>); nhiễu phá đúng những chuỗi đó. Trên phần nó
+    còn dám đụng thì vẫn chuẩn — <b>90,45%</b> ở nhiễu 30%, và đồng ý với nhãn sai chỉ
+    <b>0,40–0,61%</b>.</p>
+    <p><b>Hệ quả cho khung "ERE thật sai 30–50%":</b> ở mức đó phương pháp chạm tới
+    <b>~6% số lỗi</b>. Phải nói thẳng con số này, kèm <code>repair@k</code> để thấy phần nó
+    chạm tới thì làm tốt.</p></div>
+
+  <div class="box"><span class="lbl">P@k đi hình chữ U — không dùng làm headline</span>
+    <p>25,19% → 9,87% → <b>30,06%</b>. Ở nhiễu cao, cạnh hỏng nhiều đến mức gắn cờ bừa cũng
+    trúng; P@k tăng lại <b>không</b> phản ánh điều gì tốt.</p></div>
+
+  <div class="box"><span class="lbl">ghi chú về nguồn</span>
+    <p><code>patecon_maven/eval/noise_aware.py</code> — đường dẫn được trích cho bảng cũ —
+    <b>không tồn tại</b> ở bất kỳ đâu trên đĩa. Các số đó không có code chạy được đứng sau
+    cho tới khi file <code>src/noise_aware.py</code> này được viết.</p></div>
+
+  <h3><span class="n">4.11</span>Việc phải làm</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Việc</th><th>Vì sao</th><th>Trạng thái</th></tr></thead>
+    <tbody>
+      <tr><td>C3-A ở τ=0,005 / 0,01</td><td class="w">đã chạy — <b>τ=0,005 thắng baseline về F1</b></td><td>xong</td></tr>
+      <tr><td>C3-A dùng 68 rule minimal</td><td class="w">đã chạy — <b>1,1× lift, thất bại cấu trúc</b> (xem 4.6)</td><td>xong</td></tr>
+      <tr><td>Bộ đề xuất cạnh thiếu</td><td class="w">đã làm — <b>89,3% recall, F1 gấp 118× baseline</b> (xem 4.7)</td><td>xong</td></tr>
+      <tr><td>Mine family đoán BEFORE</td><td class="w">đã thử bằng cách đọc lại claim nhị phân — <b>tín hiệu thật 5,50× nhưng không thành detector</b> (xem 4.9)</td><td>xong</td></tr>
+      <tr><td>Sweep seed</td><td class="w">60 lỗi là mẫu nhỏ, cần khoảng tin cậy</td><td>chưa chạy</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section data-page="6" hidden>
+  <h2>Baseline — PaTeCon áp thẳng lên MAVEN</h2>
+  <p class="pagesub">Đã chạy và đo. Đây là lập luận trực tiếp cho việc phải thiết kế lại thay vì tái
+     dùng PaTeCon.</p>
+  <p class="toc">5.1 kết quả · 5.2 ba nguyên nhân · 5.3 nguyên nhân gốc · 5.4 chuyển giao được gì</p>
+
+  <h3><span class="n">5.1</span>Kết quả</h3>
+  <div class="cards">
+    <div class="card neg"><div class="k">Độ phủ</div><h4>0,0374%</h4>
+      <div class="big">181</div><div class="note">/483.504 cặp có nhãn</div></div>
+    <div class="card neg"><div class="k">Precision</div><h4>≈ 0</h4>
+      <div class="big">171/181</div><div class="note">cặp bị gắn cờ là BEFORE bình thường</div></div>
+    <div class="card info"><div class="k">Của mình</div><h4>Độ phủ</h4>
+      <div class="big">100%</div><div class="note">rule family phủ toàn bộ cặp</div></div>
+  </div>
+  <p>348 constraint, 535 conflict → 256 cặp event phân biệt. Trong đó 181 cặp có nhãn gold, và nhãn
+     của chúng là: <b>BEFORE 171 · CONTAINS 6 · SIMULTANEOUS 4</b>. Gold đã kiểm chứng nhất quán, nên
+     gần như toàn bộ là <b>false positive</b>.</p>
+
+  <h3><span class="n">5.2</span>Ba nguyên nhân</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Nguyên nhân</th><th>Chi tiết</th></tr></thead>
+    <tbody>
+      <tr><td class="w">Vị từ chi phối không nhìn thời gian</td>
+          <td class="w"><code>include</code> chiếm 232/348 constraint (66,7%) và 488/535 conflict
+          (91,2%); <code>MutualExclusion</code> theo thiết kế <b>không bao giờ</b> so sánh timestamp</td></tr>
+      <tr><td class="w">Timestamp là giả</td>
+          <td class="w">102 giá trị <code>(ts,te)</code> phân biệt, dạng <code>201301–201312</code> —
+          <b>cả năm</b>. MAVEN không có timestamp cho event; bản convert gán khoảng cả năm cho mọi
+          thứ, nên gần như mọi cặp cùng năm đều "chồng lấn"</td></tr>
+      <tr><td class="w">Đơn vị sai</td>
+          <td class="w">PaTeCon dựa trên <code>(entity, relation, entity)</code> của Wikidata; MAVEN
+          không có cấu trúc đó, bản convert phải bịa <code>ENTITY → Type → EVENT</code></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3><span class="n">5.3</span>Nguyên nhân gốc</h3>
+  <div class="box info"><p>Wikidata có timestamp thật từ <b>nhiều nguồn</b> nên mâu thuẫn được.
+    MAVEN là read-off từ <b>một timeline duy nhất</b> — annotator sắp xếp điểm đầu/cuối rồi quan hệ
+    được suy ra tự động. Một read-off từ timeline đã sắp xếp thì <b>hiện thực được theo định nghĩa</b>,
+    nên không thể tự mâu thuẫn.</p></div>
+
+  <h3><span class="n">5.4</span>Điều gì chuyển giao được</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Thành phần PaTeCon</th><th>Chuyển giao?</th><th>Ghi chú</th></tr></thead>
+    <tbody>
+      <tr><td class="w">Trivalent pos/neg/unknown + drop-unknown</td><td>Có</td>
+          <td class="w">unknown ở MAVEN có <b>tài liệu</b> (sub-timeline), biện minh còn mạnh hơn Wikidata</td></tr>
+      <tr><td class="w">Liệt kê all-pairs trong nhóm có chặn</td><td>Có</td>
+          <td class="w">nhóm là <b>document</b>, không phải statement bucket của subject</td></tr>
+      <tr><td class="w">Hình dạng refinement (một pass, top-K)</td><td>Có</td>
+          <td class="w">nhưng trigger và acceptance thì không</td></tr>
+      <tr><td class="w">Literal nhận key đếm tăng, không join</td><td>Có</td>
+          <td class="w">argument content-only của MAVEN <b>chính là</b> literal của PaTeCon</td></tr>
+      <tr class="dim"><td class="w"><code>Interval_Relations.py</code></td><td>Không</td>
+          <td class="w">chiều tính đảo: MAVEN <b>cho sẵn</b> predicate làm nhãn; PaTeCon phải suy ra từ timestamp</td></tr>
+      <tr class="dim"><td class="w">Confidence <code>pos/(pos+neg)</code></td><td>Không</td>
+          <td class="w">thoái hoá (neg=0); null constraint đạt 0,9104 &gt; ngưỡng 0,9 của họ</td></tr>
+      <tr class="dim"><td class="w">Định danh subject toàn cục (QID)</td><td>Không</td>
+          <td class="w"><code>entity_id</code> của MAVEN chỉ trong document</td></tr>
+      <tr class="dim"><td class="w">Emission một-predicate qua if/elif</td><td>Không</td>
+          <td class="w">sai cho 38,84% pattern L1 và 82,6% pattern L3</td></tr>
+      <tr class="dim"><td class="w">Mine và detect trên cùng graph</td><td>Không</td>
+          <td class="w">MAVEN cho đơn vị split tự nhiên (document) gần như miễn phí</td></tr>
+      <tr class="dim"><td class="w">Đánh giá chỉ-recall với gold error list</td><td>Không</td>
+          <td class="w">tình huống <b>đảo ngược</b>: recall không đo được, precision thì đo được</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ═══════════════════════════════ 5 ═══════════════════════════════ -->
+<section data-page="7" hidden>
+  <h2>Artifact và rủi ro</h2>
+  <p class="pagesub">Bốn kết quả "đẹp" hoá ra giả, và các quyết định phương pháp rút ra từ chúng.
+     Ghi lại để nhận ra cái tiếp theo.</p>
+  <p class="toc">6.1 bốn artifact · 6.2 quyết định đã chốt · 6.3 lỗi lấy mẫu · 6.4 file đã xuất ·
+     5.5 chưa làm</p>
+
+  <h3><span class="n">6.1</span>Bốn artifact đã bắt được</h3>
+  <p>Điểm chung: <b>khớp quá nhiều và đúng quá thường xuyên</b>.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Biểu hiện</th><th>Nguyên nhân</th><th>Cách bắt</th></tr></thead>
+    <tbody>
+      <tr><td class="mono w">hull<br>lift 11,16× conf 100%</td>
+          <td class="w"><code>hull&gt;0 ⟺ conflict</code> tại k=2 — đặc trưng dẫn xuất từ chính đại
+          lượng định nghĩa nhãn</td><td class="w">chứng minh đại số</td></tr>
+      <tr><td class="mono w">SUBEVENT<br>precision 99,3% / 2.399 lần</td>
+          <td class="w">87,0% cặp SUBEVENT trùng nhãn CONTAINS — hai nhãn gần đồng nghĩa</td>
+          <td class="w">đếm chồng lấn</td></tr>
+      <tr><td class="mono w">mất chữ ký view<br>precision 70,52%</td>
+          <td class="w">rule mine trong subgraph được áp toàn cục; 333 rule đoán BEFORE lọt qua vì
+          base rate cục bộ thấp — <b>hằng-BEFORE đội lốt</b></td><td class="w">nghi vì quá cao</td></tr>
+      <tr><td class="mono w">so khác population<br>714/714/607</td>
+          <td class="w">ba phương pháp báo trên ba mẫu khác nhau; sửa lại cùng population, rồi phát hiện phép kiểm bao hàm thổi 4,9% thành 80,4%</td>
+          <td class="w">phản biện bên ngoài</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3><span class="n">6.2</span>Quyết định phương pháp đã chốt</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Quyết định</th><th>Bằng chứng</th></tr></thead>
+    <tbody>
+      <tr><td class="w">Xếp hạng bằng <b>Wilson LB</b>, không dùng lift</td>
+          <td class="w">7,96% vs 2,76% — gấp 2,9×; lift thưởng rule n=5/287 lift 39,5×</td></tr>
+      <tr><td class="w">Cấm quan hệ bằng Wilson <b>upper</b> bound</td>
+          <td class="w">dự đoán hỏi "cao nhất", cấm hỏi "chắc chắn thấp dưới"</td></tr>
+      <tr><td class="w"><b>Tắt</b> weak layer khi mining</td><td class="w">87% SUBEVENT trùng CONTAINS</td></tr>
+      <tr><td class="w"><b>Từ chối</b> rule dự đoán BEFORE</td><td class="w">restates the prior ở base rate 91%</td></tr>
+      <tr><td class="w">Chữ ký view là <b>phần định danh</b> của rule</td><td class="w">artifact thứ ba</td></tr>
+      <tr><td class="w"><code>test.jsonl</code> <b>không dùng được</b></td>
+          <td class="w">857 doc, không có key <code>events</code>, 0 quan hệ — "giấu nhãn test" thực
+          tế là giấu nhãn <b>valid</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3><span class="n">6.3</span>Lỗi lấy mẫu phải nêu</h3>
+  <div class="box bad"><p>Script in <b>8 vi phạm đầu tiên</b> để đọc tay, và cả 8 rơi vào cùng một
+    document (<code>364ed14fc610df6e</code>). Vi phạm thật trải <b>2.128 document</b>. Tám ví dụ đó
+    không đại diện, và tôi đã dùng một trong số chúng làm ví dụ trước khi phát hiện. Phải lấy mẫu
+    <b>ngẫu nhiên phân tầng</b> khi thẩm định.</p></div>
+
+  <h3><span class="n">6.4</span>File đã xuất</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>File</th><th class="num">Kích thước</th><th>Nội dung</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">rules.json</td><td class="num">52,7 MB</td>
+          <td class="w">155.127 rule, mỗi cái kèm view + sig + wlb/lift/k/n</td></tr>
+      <tr><td class="mono">families.json</td><td class="num">0,6 MB</td>
+          <td class="w">1.453 họ thô → <b>1.073</b> sau dedupe</td></tr>
+      <tr><td class="mono">constraints.json</td><td class="num">71,7 MB</td>
+          <td class="w">13.589 / 47.323 / 67.672 theo τ = 0,001 / 0,005 / 0,01</td></tr>
+    </tbody>
+  </table></div>
+  <p>Sinh một lần bằng <code>python tempekg_kg/export_rules.py</code> (93 phút). Từ đây mọi bước sau
+     <b>đọc file thay vì mine lại</b>.</p>
+
+  <h3><span class="n">6.5</span>Chưa làm</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Việc</th><th>Trạng thái</th><th>Vì sao quan trọng</th></tr></thead>
+    <tbody>
+      <tr><td class="w">Tìm bộ rule nhỏ nhất</td><td>đang chạy</td>
+          <td class="w">Pareto + set cover; đã sửa lỗi bitset 31×</td></tr>
+      <tr><td class="w">Đo bộ constraint mới (13.589)</td><td>xong</td>
+          <td class="w">0,094% valid, chọn lọc 107×, nhưng phần lớn vi phạm là lỗi rule</td></tr>
+      <tr><td class="w">Injector hai chiều</td><td>chưa</td>
+          <td class="w">thứ <b>duy nhất</b> làm recall của C3 đo được</td></tr>
+      <tr><td class="w">Đọc tay 7 case closure trái gold</td><td>chưa</td>
+          <td class="w">ứng viên lỗi <b>thuần logic</b>, không dính thống kê</td></tr>
+      <tr><td class="w">Mine trên cặp EV-TX</td><td>chưa</td><td class="w">33,1% cạnh bị bỏ qua</td></tr>
+      <tr><td class="w">Thẩm định người</td><td>chưa</td><td class="w">giao thức xong</td></tr>
+    </tbody>
+  </table></div>
+</section>
+<section data-page="8" hidden>
+<h2>Thuật ngữ</h2>
+<p class="note">Tra nhanh. Quyết định thiết kế đầy đủ nằm ở <code>report/DEFINITIONS.md</code> (135 KB); bản Markdown của trang này là <code>report/THUAT_NGU.md</code>.</p>
+
+<h3><span class="n">9.1</span>Dữ liệu và đồ thị</h3>
+<table>
+<thead><tr><th>Thuật ngữ</th><th>Nghĩa</th></tr></thead>
+<tbody>
+<tr><td><b>MAVEN-ERE</b></td><td>Bộ dữ liệu gốc: event, entity, mốc thời gian và quan hệ giữa chúng.</td></tr>
+<tr><td><b>event</b></td><td>Một sự việc, neo vào từ kích hoạt (<i>trigger</i>). Ví dụ <code>assaulted</code>.</td></tr>
+<tr><td><b>entity</b></td><td>Người, tổ chức, địa điểm… tham gia vào event.</td></tr>
+<tr><td><b>timex</b></td><td>Mốc thời gian dạng văn bản: <code>"November 11, 1778"</code>, <code>"1606"</code>.</td></tr>
+<tr><td><b>cặp (pair)</b></td><td>Hai event trong <b>cùng một document</b> — đơn vị mà hệ thống phân loại.</td></tr>
+<tr><td><b>document</b></td><td>Một bài viết. Mọi phép chia dữ liệu đều theo document, không theo cặp.</td></tr>
+<tr><td><code>input_edges</code></td><td>Cạnh event→entity (vai trò tham số). Được phép làm đặc trưng.</td></tr>
+<tr><td><code>target_edges</code></td><td>Quan hệ thời gian — thứ <b>phải dự đoán</b>. Không bao giờ làm đặc trưng.</td></tr>
+<tr><td><code>weak_edges</code></td><td>PRECONDITION / CAUSE / SUBEVENT. Không phải bằng chứng thời gian độc lập.</td></tr>
+<tr><td><code>anchored_pairs</code></td><td>Hai event chia sẻ ít nhất một entity.</td></tr>
+</tbody></table>
+
+<h3><span class="n">9.2</span>Sáu nhãn quan hệ thời gian</h3>
+<table>
+<thead><tr><th>Nhãn</th><th>Nghĩa</th><th>Tỷ lệ (valid)</th></tr></thead>
+<tbody>
+<tr><td><b>BEFORE</b></td><td>A kết thúc trước khi B bắt đầu</td><td>89,94%</td></tr>
+<tr><td><b>CONTAINS</b></td><td>A bao trùm B về thời gian</td><td>8,54%</td></tr>
+<tr><td><b>SIMULTANEOUS</b></td><td>A và B cùng lúc</td><td>0,97%</td></tr>
+<tr><td><b>OVERLAP</b></td><td>A và B chồng lấn một phần</td><td>0,52%</td></tr>
+<tr><td><b>BEGINS-ON</b></td><td>A bắt đầu cùng lúc với B</td><td>0,023%</td></tr>
+<tr><td><b>ENDS-ON</b></td><td>A kết thúc cùng lúc với B</td><td>0,014%</td></tr>
+</tbody></table>
+<p class="note">Mất cân bằng này là khó khăn trung tâm: đoán BEFORE cho mọi cặp đã đạt 89,94% accuracy mà macro-F1 chỉ 15,78%.</p>
+<h4>Allen interval algebra</h4>
+<p>Hệ 13 quan hệ đầy đủ giữa hai khoảng. MAVEN dùng 7, bỏ các quan hệ nghịch đảo:</p>
+<pre><code>BEFORE    → {b}          CONTAINS     → {di}
+OVERLAP   → {o}          SIMULTANEOUS → {e}
+BEGINS-ON → {s, si, e}   ENDS-ON      → {b, m}</code></pre>
+<p>Chỉ hai chỗ giao: <code>b</code> (BEFORE ⊂ ENDS-ON) và <code>e</code> (SIMULTANEOUS ⊂ BEGINS-ON) — nguồn của một sai lầm đo đạc đã sửa.</p>
+
+<h3><span class="n">9.3</span>Rule</h3>
+<table>
+<thead><tr><th>Thuật ngữ</th><th>Nghĩa</th></tr></thead>
+<tbody>
+<tr><td><b>rule</b></td><td>Luật dạng <code>điều kiện → nhãn</code>. Chỉ bắn khi <b>mọi</b> điều kiện đúng.</td></tr>
+<tr><td><code>conds</code></td><td>Danh sách điều kiện, nối bằng AND.</td></tr>
+<tr><td><b>depth</b></td><td>Số điều kiện. Bộ hiện tại toàn depth-2.</td></tr>
+<tr><td><code>k</code> / <code>n</code></td><td>Số lần đúng / số lần bắn.</td></tr>
+<tr><td><b>support</b></td><td>Chính là <code>n</code>.</td></tr>
+<tr><td><b>precision</b></td><td><code>k/n</code>.</td></tr>
+<tr><td><b>phủ (coverage)</b></td><td>Tỷ lệ cặp có ít nhất một rule bắn.</td></tr>
+<tr><td><b>fallback</b></td><td>Nhãn mặc định (BEFORE) khi không đủ bằng chứng.</td></tr>
+</tbody></table>
+<h4>Năm dạng điều kiện</h4>
+<table>
+<thead><tr><th>Dạng</th><th>Ví dụ</th><th>Nghĩa</th></tr></thead>
+<tbody>
+<tr><td><code>EQ</code></td><td><code>EQ(type_a, Killing)</code></td><td>thuộc tính bằng đúng giá trị</td></tr>
+<tr><td><code>HAS</code></td><td><code>HAS(roleset_a, Agent)</code></td><td>tập chứa phần tử này</td></tr>
+<tr><td><code>ALL</code></td><td><code>ALL(roleset_a, Patient)</code></td><td>tập chỉ gồm đúng phần tử này</td></tr>
+<tr><td><code>CNT</code></td><td><code>CNT(etypeset_a, 3)</code></td><td>tập có đúng 3 phần tử</td></tr>
+<tr><td><code>MIX</code></td><td><code>MIX(anchor_roles, _)</code></td><td>tập có nhiều hơn một loại</td></tr>
+<tr><td><code>REL</code></td><td><code>REL(a_before_b, False)</code></td><td>so sánh <b>giữa hai event</b></td></tr>
+</tbody></table>
+<h4>Tên thuộc tính</h4>
+<table>
+<thead><tr><th>Tên</th><th>Nghĩa</th></tr></thead>
+<tbody>
+<tr><td><code>type_pair</code></td><td>cặp loại, ví dụ <code>(Killing, Bodily_harm)</code></td></tr>
+<tr><td><code>same_type</code></td><td>hai event cùng loại hay không</td></tr>
+<tr><td><code>order</code></td><td>thứ tự trong văn bản: <code>fwd</code> / <code>rev</code> / <code>same</code></td></tr>
+<tr><td><code>sdist</code></td><td>khoảng cách câu: <code>0</code>, <code>1</code>, <code>2-3</code>, <code>4-7</code>, <code>8+</code></td></tr>
+<tr><td><code>bucket_a</code></td><td>vị trí trong document: <code>lead</code> (câu đầu), <code>early</code>, <code>mid</code>, <code>late</code></td></tr>
+<tr><td><code>roleset_a</code></td><td>tập vai trò event A gán cho tham số của nó</td></tr>
+<tr><td><code>etypeset_a</code></td><td>tập loại thực thể tham gia event A</td></tr>
+<tr><td><code>anchor_roles</code></td><td>cặp vai trò của thực thể mà hai event chia sẻ</td></tr>
+</tbody></table>
+
+<h3><span class="n">9.4</span>Thống kê chọn rule</h3>
+<table>
+<thead><tr><th>Thuật ngữ</th><th>Nghĩa</th></tr></thead>
+<tbody>
+<tr><td><b>Wilson lower bound</b> (<code>wlb</code>)</td><td>Cận dưới khoảng tin cậy 95% của <code>k/n</code>. Phạt mẫu nhỏ: <code>5/5</code> thấp hơn <code>90/100</code>.</td></tr>
+<tr><td><b>lift</b></td><td><code>precision / base_rate</code> — mạnh hơn mức tự nhiên bao nhiêu lần.</td></tr>
+<tr><td><b>base rate / prior</b></td><td>Tỷ lệ nhãn trong corpus.</td></tr>
+<tr><td><b>Δlogit</b></td><td><code>logit(p_rule) − logit(p_parent)</code>. Điều kiện thêm có đóng góp gì không.</td></tr>
+<tr><td><b>parent</b></td><td>Rule chỉ gồm một trong các điều kiện.</td></tr>
+<tr><td><b>BH-FDR</b></td><td>Benjamini-Hochberg — hiệu chỉnh khi thử hàng nghìn giả thuyết.</td></tr>
+<tr><td><b>block permutation</b></td><td>Xáo nhãn <b>trong từng document</b> để dựng phân phối null.</td></tr>
+<tr><td><b>stability (π)</b></td><td>Tỷ lệ lần rule được chọn khi lấy mẫu lại document.</td></tr>
+<tr><td><b>document diversity</b></td><td>Số document cung cấp <code>k</code>. Dự báo generalization tốt hơn wlb.</td></tr>
+</tbody></table>
+<p class="note"><b>Vì sao không dùng một ngưỡng chung:</b> <code>wlb ≥ 0,40</code> hợp lý cho CONTAINS nhưng xóa sạch nhãn hiếm — SIMULTANEOUS có wlb tối đa <b>0,141</b>, OVERLAP <b>0,125</b>. Với nhãn chiếm 0,97% corpus, precision 14% đã là tín hiệu rất mạnh. Nên xếp hạng phải làm <b>riêng trong từng nhãn</b>.</p>
+
+<h3><span class="n">9.5</span>Giao thức chia dữ liệu</h3>
+<table>
+<thead><tr><th>Tập</th><th>Vai trò</th></tr></thead>
+<tbody>
+<tr><td><b>DISCOVERY</b> (197 doc)</td><td>Đề xuất rule. Nhãn ở đây quyết định rule nào tồn tại.</td></tr>
+<tr><td><b>CONFIRMATION</b> (126 doc)</td><td>Chấm lại trên nhãn <b>chưa từng tham gia chọn rule</b>.</td></tr>
+<tr><td><b>DEV-INNER</b> (77 doc)</td><td>Chọn combiner và ngưỡng.</td></tr>
+<tr><td><b>VALID</b> (705 doc)</td><td>Mở <b>một lần</b>, trên cấu hình đã đóng băng.</td></tr>
+</tbody></table>
+<table>
+<thead><tr><th>Thuật ngữ</th><th>Nghĩa</th></tr></thead>
+<tbody>
+<tr><td><b>leakage</b></td><td>Dùng dữ liệu test để ra quyết định → kết quả đẹp giả.</td></tr>
+<tr><td><b>post-selection inference</b></td><td>p-value không còn đúng khi giả thuyết được chọn từ chính dữ liệu đó.</td></tr>
+<tr><td><b>confirmation split</b></td><td>Tập chỉ được phép <i>xác nhận</i>, không được phép <i>tìm</i>.</td></tr>
+<tr><td><b>freeze</b></td><td>Chốt cấu hình rồi mới mở valid. Sau đó không tune nữa.</td></tr>
+</tbody></table>
+
+<h3><span class="n">9.6</span>Đánh giá</h3>
+<table>
+<thead><tr><th>Thuật ngữ</th><th>Nghĩa</th></tr></thead>
+<tbody>
+<tr><td><b>precision (P)</b></td><td>Trong số lần đoán nhãn X, bao nhiêu phần đúng.</td></tr>
+<tr><td><b>recall (R)</b></td><td>Trong số nhãn X thật, bắt được bao nhiêu phần.</td></tr>
+<tr><td><b>macro-F1</b></td><td>Trung bình F1 của <b>6 nhãn</b>, mỗi nhãn tính như nhau. <b>Thước đo chính.</b></td></tr>
+<tr><td><b>accuracy</b></td><td>Tỷ lệ đoán đúng trên tổng số cặp. <b>Không phải thước đo tốt ở đây.</b></td></tr>
+<tr><td><b>baseline hằng số</b></td><td>Đoán BEFORE cho mọi cặp: accuracy 89,94% mà macro-F1 chỉ 15,78%.</td></tr>
+<tr><td><b>oracle</b></td><td>Trần lý thuyết: giả sử luôn chọn đúng rule trong số rule đang bắn.</td></tr>
+</tbody></table>
+<p class="note"><b>Vì sao accuracy gây hiểu nhầm:</b> BEFORE chiếm 89,94% dữ liệu, nên mọi hệ thống cố gọi tên năm nhãn còn lại đều <b>giảm</b> accuracy. Bộ 257 rule đạt accuracy 87,87% — thấp hơn baseline — nhưng macro-F1 25,60% so với 15,78%.</p>
+
+<h3><span class="n">9.7</span>Kết hợp rule và khai phá</h3>
+<table>
+<thead><tr><th>Thuật ngữ</th><th>Nghĩa</th></tr></thead>
+<tbody>
+<tr><td><b>combiner</b></td><td>Cách hợp nhiều rule cùng bắn thành một dự đoán.</td></tr>
+<tr><td><code>max-norm</code></td><td>Combiner đang dùng: <code>score[rel] = max(wlb / prior[rel])</code>.</td></tr>
+<tr><td><b>τ (tau)</b></td><td>Ngưỡng phát nhãn. Dưới ngưỡng thì rơi về fallback.</td></tr>
+<tr><td><b>chuẩn hóa prior</b></td><td>Chia điểm cho base rate. Bắt buộc, nếu không CONTAINS luôn thắng.</td></tr>
+<tr><td><b>beam search</b></td><td>Duyệt có cắt tỉa, giữ <code>k</code> nhánh tốt nhất. Không vét cạn.</td></tr>
+<tr><td><b>vét cạn depth-2</b></td><td>Xét <b>mọi</b> cặp điều kiện; ba định lý cắt tỉa giảm còn 0,185× một lượt quét.</td></tr>
+<tr><td><b>MDD</b></td><td>Multi-valued Decision Diagram — 19 biến đa trị thay vì 1.143 biến nhị phân.</td></tr>
+<tr><td><b>family</b></td><td>Rule đã trừu tượng hóa, gom nhiều rule cụ thể.</td></tr>
+</tbody></table>
+
+<h3><span class="n">9.8</span>Bài 2 — noise-aware reasoning</h3>
+<table>
+<thead><tr><th>Thuật ngữ</th><th>Nghĩa</th></tr></thead>
+<tbody>
+<tr><td><b>injection</b></td><td>Cố ý làm hỏng một tỷ lệ cạnh để đo khả năng phát hiện.</td></tr>
+<tr><td><b>closure</b></td><td>Suy ra quan hệ mới từ quan hệ đã có, bằng đại số Allen.</td></tr>
+<tr><td><b>date bridge</b></td><td>Cả hai event neo được vào ngày thật và <code>d₁ &lt; d₂</code> ⟹ A BEFORE B. Đúng <b>100%</b> trên 12.946 suy luận.</td></tr>
+<tr><td><b>conflict</b></td><td>Cạnh mâu thuẫn với những gì suy ra được.</td></tr>
+<tr><td><b>repair@k</b></td><td>Trong <code>k</code> cạnh bị gắn cờ, bao nhiêu phần sửa đúng.</td></tr>
+<tr><td><b>R_all</b></td><td>Trong <b>toàn bộ</b> cạnh hỏng, bắt được bao nhiêu phần.</td></tr>
+<tr><td><b>wrong-repair</b></td><td>Sửa một cạnh vốn đã đúng. Đo được 0,44%.</td></tr>
+</tbody></table>
+<p class="note"><b>Chú ý mẫu số:</b> <code>repair@k</code> và <code>R_all</code> từng cho hai con số lệch nhau 13 lần, cả hai đều đúng — chúng trả lời hai câu hỏi khác nhau.</p>
+</section>
+
+
+  <footer>
+    Tài liệu đầy đủ: <code>report/STATUS.md</code> · <code>ARCHITECTURE.md</code> ·
+    <code>DEFINITIONS.md</code> · <code>MINIMISE.md</code> · <code>INJECTION_SPEC.md</code> ·
+    <code>KG_BUILD.md</code>. Code: <code>tempekg_kg/</code>.
+  </footer>
+</div>
+
+<script>
+const D={"families":[{"t":"EQ(multi_mention_a=True)","r":"CONTAINS","v":"etype_a","s":"Competition","w":0.598,"l":1.72,"n":1407,"m":15},{"t":"EQ(bucket_a=lead)","r":"CONTAINS","v":"etype_a","s":"Military_operation","w":0.597,"l":1.58,"n":3099,"m":35},{"t":"HAS(roleset_a=Winner)","r":"CONTAINS","v":"bucket_a","s":"lead","w":0.592,"l":1.89,"n":1631,"m":11},{"t":"HAS(roleset_a=Event)","r":"CONTAINS","v":"bucket_a","s":"lead","w":0.574,"l":1.83,"n":2062,"m":10},{"t":"EQ(bucket_a=lead)","r":"CONTAINS","v":"etype_a","s":"Competition","w":0.572,"l":1.63,"n":2449,"m":18},{"t":"EQ(bucket_a=lead)","r":"CONTAINS","v":"etype_a","s":"Hostile_encounter","w":0.557,"l":1.56,"n":8045,"m":34},{"t":"EQ(multi_mention_a=True)","r":"CONTAINS","v":"etype_a","s":"Hostile_encounter","w":0.556,"l":1.58,"n":3126,"m":39},{"t":"EQ(bucket_a=lead)","r":"CONTAINS","v":"etype_a","s":"Traveling","w":0.545,"l":2.35,"n":850,"m":11},{"t":"HAS(roleset_a=Loser)","r":"CONTAINS","v":"bucket_a","s":"lead","w":0.536,"l":1.73,"n":1178,"m":6},{"t":"HAS(etypeset_shared=Building)","r":"CONTAINS","v":"etype_a","s":"Competition","w":0.523,"l":1.54,"n":684,"m":8},{"t":"ALL(roleset_a=Location)","r":"CONTAINS","v":"bucket_a","s":"lead","w":0.502,"l":1.64,"n":886,"m":3},{"t":"HAS(roleset_a=Name)","r":"CONTAINS","v":"bucket_a","s":"lead","w":0.495,"l":1.57,"n":3134,"m":13},{"t":"HAS(roleset_a=Score)","r":"CONTAINS","v":"bucket_a","s":"lead","w":0.491,"l":1.61,"n":772,"m":6},{"t":"EQ(bucket_a=lead)","r":"CONTAINS","v":"etype_a","s":"Catastrophe","w":0.469,"l":1.64,"n":4441,"m":28},{"t":"EQ(multi_mention_a=True)","r":"CONTAINS","v":"etype_a","s":"Catastrophe","w":0.448,"l":1.57,"n":4035,"m":35},{"t":"HAS(roleset_a=Event)","r":"CONTAINS","v":"anchor_sd","s":"(True, '0')","w":0.44,"l":3.71,"n":613,"m":3},{"t":"HAS(roleset_a=Score)","r":"CONTAINS","v":"anchor_sd","s":"(True, '2-3')","w":0.433,"l":4.53,"n":425,"m":3},{"t":"EQ(multi_mention_a=True)","r":"CONTAINS","v":"anchor_sd","s":"(True, '2-3')","w":0.43,"l":4.3,"n":1472,"m":3},{"t":"HAS(roleset_a=Event)","r":"CONTAINS","v":"sdist","s":"0","w":0.428,"l":3.97,"n":782,"m":3},{"t":"HAS(roleset_a=Event)","r":"CONTAINS","v":"order","s":"same","w":0.428,"l":3.97,"n":782,"m":3}],
+"cons":[{"n":200091,"t":"CNT(roleset_a>=1) AND HAS(roleset_b=Location)","v":"global","f":["BEGINS-ON","ENDS-ON"],"d":{"BEFORE":178466,"CONTAINS":17575,"SIMULTANEOUS":2345,"OVERLAP":1516,"BEGINS-ON":135,"ENDS-ON":54}},{"n":198168,"t":"EQ(has_person_a=False) AND HAS(roleset_a=Location)","v":"global","f":["BEGINS-ON","ENDS-ON"],"d":{"BEFORE":171802,"CONTAINS":22621,"SIMULTANEOUS":2139,"OVERLAP":1456,"BEGINS-ON":99,"ENDS-ON":51}},{"n":193601,"t":"CNT(etypeset_a>=1) AND HAS(roleset_a=Location)","v":"global","f":["BEGINS-ON","ENDS-ON"],"d":{"BEFORE":167837,"CONTAINS":22232,"SIMULTANEOUS":2099,"OVERLAP":1289,"BEGINS-ON":102,"ENDS-ON":42}},{"n":185228,"t":"HAS(roleset_b=Location) AND MIX(roleset_a)","v":"global","f":["BEGINS-ON","ENDS-ON"],"d":{"BEFORE":164700,"CONTAINS":16653,"SIMULTANEOUS":2261,"OVERLAP":1435,"BEGINS-ON":129,"ENDS-ON":50}},{"n":185228,"t":"CNT(roleset_a>=2) AND HAS(roleset_b=Location)","v":"global","f":["BEGINS-ON","ENDS-ON"],"d":{"BEFORE":164700,"CONTAINS":16653,"SIMULTANEOUS":2261,"OVERLAP":1435,"BEGINS-ON":129,"ENDS-ON":50}}]};
+
+const VIEWS=[["global",11894,"99,9%","8,38%","9,81%"],["sdist",15171,"99,5%","8,18%","9,28%"],
+["order",15023,"99,9%","8,27%","9,42%"],["anchor",13189,"100%","8,34%","9,71%"],
+["bucket_a",16349,"99,7%","8,80%","10,06%"],["etype_a",49358,"95,3%","9,12%","10,35%"],
+["sdist_ord",16734,"99,1%","8,07%","9,05%"],["anchor_sd",17749,"99,8%","7,86%","8,86%"]];
+
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const fm=n=>n.toLocaleString('vi-VN');
+
+document.getElementById('views').innerHTML=VIEWS.map(v=>
+  `<tr><td>${v[0]}</td><td class="num">${fm(v[1])}</td><td class="num">${v[2]}</td>
+   <td class="num">${v[3]}</td><td class="num">${v[4]}</td></tr>`).join('')
+  +`<tr class="hi"><td><b>hợp nhất</b></td><td class="num">155.467</td><td class="num">100%</td>
+    <td class="num">10,68%</td><td class="num">12,45%</td></tr>`;
+
+document.getElementById('fams').innerHTML=D.families.map((f,i)=>
+  `<tr><td class="num">${i+1}</td><td class="num">${f.w.toFixed(3)}</td>
+   <td class="num">${f.l.toFixed(2)}×</td><td class="num">${fm(f.n)}</td>
+   <td>${f.r}</td><td class="mono">${esc(f.v)}=${esc(f.s)}</td>
+   <td class="mono w">${esc(f.t)}</td><td class="num">${f.m}</td></tr>`).join('');
+
+const RC={BEFORE:'--target',CONTAINS:'--ent',OVERLAP:'--warn',SIMULTANEOUS:'--anc',
+          'BEGINS-ON':'--dur','ENDS-ON':'--spn'};
+document.getElementById('cons').innerHTML=D.cons.map(c=>{
+  const tot=Object.values(c.d).reduce((a,b)=>a+b,0);
+  const bars=Object.entries(c.d).sort((a,b)=>b[1]-a[1]).map(([r,v])=>
+    `<i style="width:${(100*v/tot).toFixed(1)}%;background:var(${RC[r]||'--ink-3'})" title="${r} ${fm(v)}"></i>`).join('');
+  return `<tr><td class="num">${fm(c.n)}</td><td class="mono w">${esc(c.t)}</td>
+    <td class="mono">${esc(c.v)}</td>
+    <td class="mono" style="color:var(--neg)">${c.f.join(', ')}</td>
+    <td><span class="bars">${bars}</span></td></tr>`;}).join('');
+
+const nav=document.getElementById('nav');
+nav.addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  const p=b.dataset.p;
+  nav.querySelectorAll('button').forEach(x=>x.setAttribute('aria-current',String(x===b)));
+  document.querySelectorAll('section[data-page]').forEach(s=>s.hidden=s.dataset.page!==p);
+  window.scrollTo({top:0,behavior:'smooth'});
+  try{localStorage.setItem('tempekg-page',p);}catch(_){}
+  if(p==='1') setTimeout(resize,30);
+});
+try{const p=localStorage.getItem('tempekg-page');
+  if(p&&p!=='0') nav.querySelector(`button[data-p="${p}"]`)?.click();}catch(_){}
+
+/* ── graph ─────────────────────────────────────────────────────────── */
+const G={"nodes":[{"id":"E1","kind":"event","label":"starts","type":"Process_start","sent":5,"bucket":"mid","nrole":3,"roleset":["Agent","Location","Patient"],"etypeset":["Person"]},{"id":"E2","kind":"event","label":"released","type":"Publishing","sent":2,"bucket":"early","nrole":2,"roleset":["Author","Category"],"etypeset":["Organization"]},{"id":"E3","kind":"event","label":"referred","type":"Name_conferral","sent":3,"bucket":"mid","nrole":2,"roleset":["New_name","Patient"],"etypeset":[]},{"id":"E4","kind":"event","label":"ritual","type":"Rite","sent":5,"bucket":"mid","nrole":3,"roleset":["Content","Location","Patient"],"etypeset":["Person"]},{"id":"E5","kind":"event","label":"wore","type":"Wearing","sent":2,"bucket":"early","nrole":3,"roleset":["Agent","Clothes","Location"],"etypeset":["Art","Location","Organization"]},{"id":"E6","kind":"event","label":"performed","type":"Hold","sent":2,"bucket":"early","nrole":3,"roleset":["Agent","Content","Location"],"etypeset":["Location","Organization"]},{"id":"E7","kind":"event","label":"tour","type":"Traveling","sent":1,"bucket":"early","nrole":2,"roleset":["Agent","Location"],"etypeset":["Location","Organization"]},{"id":"T1","kind":"timex","label":"1975","type":"DATE","anchorable":true,"sent":1},{"id":"T2","kind":"timex","label":"later years","type":"DURATION","anchorable":false,"sent":5},{"id":"N1","kind":"entity","label":"Kiss","type":"Organization","mentions":["Kiss","band"]},{"id":"N2","kind":"entity","label":"Destroyer","type":"Art","mentions":["Destroyer","album"]},{"id":"N3","kind":"entity","label":"paul stanley","type":"Person","mentions":["paul stanley"]},{"id":"N4","kind":"entity","label":"European","type":"Location","mentions":["European"]},{"id":"N5","kind":"entity","label":"Alive !","type":"Art","mentions":["Alive !","Alive"]},{"id":"S1","kind":"span","label":"The Alive !","type":"span"},{"id":"S2","kind":"span","label":"his guitar smashing ritual","type":"span"},{"id":"S3","kind":"span","label":"the cobo hall show","type":"span"},{"id":"S4","kind":"span","label":"Kiss tour","type":"span"},{"id":"S5","kind":"span","label":"guitar smashing","type":"span"},{"id":"S6","kind":"span","label":"album","type":"span"}],
+"edges":[{"s":"E7","t":"N1","cls":"input","lab":"Agent"},{"s":"E7","t":"N4","cls":"input","lab":"Location"},{"s":"E6","t":"N1","cls":"input","lab":"Agent"},{"s":"E6","t":"N4","cls":"input","lab":"Location"},{"s":"E6","t":"S1","cls":"input","lab":"Content"},{"s":"E1","t":"N3","cls":"input","lab":"Agent"},{"s":"E1","t":"S2","cls":"input","lab":"Patient"},{"s":"E1","t":"S3","cls":"input","lab":"Location"},{"s":"E3","t":"S1","cls":"input","lab":"Patient"},{"s":"E3","t":"S4","cls":"input","lab":"New_name"},{"s":"E5","t":"N1","cls":"input","lab":"Agent"},{"s":"E5","t":"N5","cls":"input","lab":"Clothes"},{"s":"E5","t":"N4","cls":"input","lab":"Location"},{"s":"E4","t":"N3","cls":"input","lab":"Patient"},{"s":"E4","t":"S3","cls":"input","lab":"Location"},{"s":"E4","t":"S5","cls":"input","lab":"Content"},{"s":"E2","t":"N1","cls":"input","lab":"Author"},{"s":"E2","t":"S6","cls":"input","lab":"Category"},{"s":"E2","t":"E6","cls":"weak","lab":"PRECONDITION"},{"s":"E2","t":"E5","cls":"weak","lab":"PRECONDITION"},{"s":"E7","t":"E1","cls":"weak","lab":"SUBEVENT"},{"s":"E7","t":"E6","cls":"weak","lab":"SUBEVENT"},{"s":"E7","t":"E5","cls":"weak","lab":"SUBEVENT"},{"s":"E5","t":"E1","cls":"target","lab":"BEFORE"},{"s":"E6","t":"T2","cls":"target","lab":"BEFORE"},{"s":"E5","t":"T2","cls":"target","lab":"BEFORE"},{"s":"E2","t":"E6","cls":"target","lab":"BEFORE"},{"s":"E3","t":"T2","cls":"target","lab":"BEFORE"},{"s":"E2","t":"T2","cls":"target","lab":"BEFORE"},{"s":"E1","t":"T2","cls":"target","lab":"BEFORE"},{"s":"E2","t":"E3","cls":"target","lab":"BEFORE"},{"s":"E2","t":"E1","cls":"target","lab":"BEFORE"},{"s":"E7","t":"T2","cls":"target","lab":"BEFORE"},{"s":"E2","t":"E5","cls":"target","lab":"BEFORE"},{"s":"E2","t":"E7","cls":"target","lab":"BEFORE"},{"s":"E6","t":"E1","cls":"target","lab":"BEFORE"},{"s":"E3","t":"E6","cls":"target","lab":"CONTAINS"},{"s":"E3","t":"E1","cls":"target","lab":"CONTAINS"},{"s":"E7","t":"E6","cls":"target","lab":"CONTAINS"},{"s":"E7","t":"E1","cls":"target","lab":"CONTAINS"},{"s":"E3","t":"E5","cls":"target","lab":"CONTAINS"},{"s":"E7","t":"E5","cls":"target","lab":"CONTAINS"},{"s":"T1","t":"E3","cls":"target","lab":"OVERLAP"},{"s":"T1","t":"E7","cls":"target","lab":"OVERLAP"},{"s":"E5","t":"E6","cls":"target","lab":"OVERLAP"},{"s":"E7","t":"E3","cls":"target","lab":"SIMULTANEOUS"}]};
+
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d'),selEl=document.getElementById('sel');
+const cs=getComputedStyle(document.documentElement);
+let C={};
+function tok(){const g=n=>cs.getPropertyValue(n).trim();
+  C={ev:g('--ev'),ent:g('--ent'),spn:g('--spn'),anc:g('--anc'),dur:g('--dur'),
+     target:g('--target'),input:g('--input'),weak:g('--weak'),ink:g('--ink'),surf:g('--surface')};}
+tok();
+const nc=n=>n.kind==='event'?C.ev:n.kind==='entity'?C.ent:n.kind==='span'?C.spn:(n.anchorable?C.anc:C.dur);
+const ec=c=>c==='target'?C.target:c==='input'?C.input:C.weak;
+const byId=new Map();
+const N=G.nodes.map((n,i)=>{const a=i/G.nodes.length*Math.PI*2;
+  const o={...n,x:300+Math.cos(a)*145,y:210+Math.sin(a)*125,vx:0,vy:0,deg:0};byId.set(n.id,o);return o;});
+G.edges.forEach(e=>{const a=byId.get(e.s),b=byId.get(e.t);if(a)a.deg++;if(b)b.deg++;});
+N.forEach(n=>n.r=8+Math.min(10,Math.sqrt(n.deg)*2.8));
+const EE=G.edges.map(e=>({...e,a:byId.get(e.s),b:byId.get(e.t)})).filter(e=>e.a&&e.b);
+let W=0,H=0,pick=null,drag=null;
+function resize(){const d=Math.min(2,devicePixelRatio||1),r=cv.getBoundingClientRect();
+  if(!r.width) return; W=r.width;H=r.height;cv.width=W*d|0;cv.height=H*d|0;ctx.setTransform(d,0,0,d,0,0);}
+new ResizeObserver(resize).observe(cv);resize();
+N.forEach(n=>{n.x=(W||600)/2+(n.x-300)*.85;n.y=(H||420)/2+(n.y-210)*.85;});
+function step(){if(!W)return;const cx=W/2,cy=H/2;
+  for(const n of N){n.vx+=(cx-n.x)*.0017;n.vy+=(cy-n.y)*.0022;}
+  for(let i=0;i<N.length;i++)for(let j=i+1;j<N.length;j++){const a=N[i],b=N[j];
+    let dx=b.x-a.x,dy=b.y-a.y,d2=dx*dx+dy*dy||1,d=Math.sqrt(d2),f=2200/d2,ux=dx/d,uy=dy/d;
+    a.vx-=ux*f;a.vy-=uy*f;b.vx+=ux*f;b.vy+=uy*f;
+    const m=a.r+b.r+8;if(d<m){const p=(m-d)*.3;a.vx-=ux*p;a.vy-=uy*p;b.vx+=ux*p;b.vy+=uy*p;}}
+  for(const e of EE){const dx=e.b.x-e.a.x,dy=e.b.y-e.a.y,d=Math.hypot(dx,dy)||1;
+    const f=(d-(e.cls==='input'?84:116))*.0075,ux=dx/d,uy=dy/d;
+    e.a.vx+=ux*f;e.a.vy+=uy*f;e.b.vx-=ux*f;e.b.vy-=uy*f;}
+  for(const n of N){if(n===drag){n.vx=n.vy=0;continue;}
+    n.vx*=.86;n.vy*=.86;n.x+=Math.max(-8,Math.min(8,n.vx));n.y+=Math.max(-8,Math.min(8,n.vy));
+    n.x=Math.max(n.r+5,Math.min(W-n.r-5,n.x));n.y=Math.max(n.r+5,Math.min(H-n.r-5,n.y));}}
+function draw(){if(!W)return;ctx.clearRect(0,0,W,H);
+  const near=new Set();if(pick){near.add(pick.id);
+    for(const e of EE){if(e.a.id===pick.id)near.add(e.b.id);if(e.b.id===pick.id)near.add(e.a.id);}}
+  for(const e of EE){const on=!pick||e.a.id===pick.id||e.b.id===pick.id;
+    const mx=(e.a.x+e.b.x)/2,my=(e.a.y+e.b.y)/2,dx=e.b.x-e.a.x,dy=e.b.y-e.a.y;
+    const bow=e.cls==='target'?.13:e.cls==='weak'?-.13:.05,qx=mx-dy*bow,qy=my+dx*bow;
+    ctx.save();ctx.globalAlpha=on?(pick?.95:.55):.07;ctx.strokeStyle=ec(e.cls);
+    ctx.lineWidth=e.cls==='target'?1.6:1.2;ctx.setLineDash(e.cls==='weak'?[5,4]:[]);
+    ctx.beginPath();ctx.moveTo(e.a.x,e.a.y);ctx.quadraticCurveTo(qx,qy,e.b.x,e.b.y);ctx.stroke();
+    ctx.setLineDash([]);
+    const ax=e.b.x-qx,ay=e.b.y-qy,al=Math.hypot(ax,ay)||1,ux=ax/al,uy=ay/al;
+    const tx=e.b.x-ux*(e.b.r+2),ty=e.b.y-uy*(e.b.r+2),an=Math.atan2(uy,ux),s=6;
+    ctx.fillStyle=ec(e.cls);ctx.beginPath();ctx.moveTo(tx,ty);
+    ctx.lineTo(tx-s*Math.cos(an-.42),ty-s*Math.sin(an-.42));
+    ctx.lineTo(tx-s*Math.cos(an+.42),ty-s*Math.sin(an+.42));ctx.closePath();ctx.fill();
+    if(on&&pick){ctx.font='500 10px "JetBrains Mono",monospace';ctx.textAlign='center';
+      ctx.textBaseline='middle';const lx=.25*e.a.x+.5*qx+.25*e.b.x,ly=.25*e.a.y+.5*qy+.25*e.b.y;
+      const w=ctx.measureText(e.lab).width+8;ctx.globalAlpha=.96;ctx.fillStyle=C.surf;
+      ctx.fillRect(lx-w/2,ly-7,w,14);ctx.fillStyle=ec(e.cls);ctx.fillText(e.lab,lx,ly);}
+    ctx.restore();}
+  for(const n of N){const on=!pick||near.has(n.id);
+    ctx.save();ctx.globalAlpha=on?1:.15;
+    ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,7);ctx.fillStyle=nc(n);ctx.fill();
+    if(n===pick){ctx.lineWidth=2.4;ctx.strokeStyle=C.ink;ctx.stroke();}
+    else if(n.kind==='timex'&&!n.anchorable){ctx.lineWidth=1.5;ctx.setLineDash([3,3]);
+      ctx.strokeStyle=C.surf;ctx.stroke();ctx.setLineDash([]);}
+    ctx.font='500 10.5px "Instrument Sans",system-ui,sans-serif';ctx.textAlign='center';
+    ctx.textBaseline='top';const t=n.label.length>16?n.label.slice(0,15)+'…':n.label;
+    const w=ctx.measureText(t).width;ctx.globalAlpha=on?.9:.1;ctx.fillStyle=C.surf;
+    ctx.fillRect(n.x-w/2-3,n.y+n.r+3,w+6,13);ctx.globalAlpha=on?1:.18;ctx.fillStyle=C.ink;
+    ctx.fillText(t,n.x,n.y+n.r+3);ctx.restore();}}
+(function loop(){step();draw();requestAnimationFrame(loop);})();
+function at(x,y){for(let i=N.length-1;i>=0;i--){const n=N[i];
+  if((x-n.x)**2+(y-n.y)**2<=(n.r+5)**2)return n;}return null;}
+function pos(e){const r=cv.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top];}
+cv.addEventListener('pointerdown',e=>{const[x,y]=pos(e),n=at(x,y);
+  if(n){drag=n;pick=n;cv.setPointerCapture(e.pointerId);}else pick=null;showSel();});
+cv.addEventListener('pointermove',e=>{const[x,y]=pos(e);
+  if(drag){drag.x=x;drag.y=y;return;}cv.style.cursor=at(x,y)?'pointer':'grab';});
+cv.addEventListener('pointerup',()=>{drag=null;});
+cv.addEventListener('pointerleave',()=>{drag=null;});
+function showSel(){const n=pick;
+  if(!n){selEl.textContent='Chưa chọn node nào.';return;}
+  const p=[n.kind,n.type];
+  if(n.sent!==undefined)p.push('câu '+n.sent);
+  if(n.kind==='event')p.push('n_role='+n.nrole,'roleset={'+n.roleset.join(', ')+'}',
+    'etypeset={'+(n.etypeset.join(', ')||'∅')+'}');
+  if(n.kind==='timex')p.push('anchorable='+(n.anchorable?'có':'không'));
+  if(n.kind==='entity')p.push(n.mentions.join(', '));
+  p.push('bậc '+n.deg);
+  selEl.textContent=n.label+' — '+p.join(' · ');}
+const mq=matchMedia('(prefers-color-scheme: dark)');
+mq.addEventListener&&mq.addEventListener('change',tok);
+</script>
+
+</body>
+</html>

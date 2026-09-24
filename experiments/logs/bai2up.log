@@ -1,0 +1,78 @@
+[    0s] nap train/valid ...
+[   10s] train 400 doc (disc 229 / conf 171), valid 705 doc
+[   17s]   257 luat EV-EV tren disc (in-sample)  acc 91.47%  loi 8.53%
+[   17s]   257 luat EV-EV tren valid             acc 87.87%  loi 12.13%
+[   17s]   classifier EV-TX (273 luat) tren valid: 79.84%
+[   17s]   TX-TX theo lich tren valid: 12464 canh, UNK 65.1%, dung 95.8% trong so da quyet dinh
+[   17s] dung motif ...
+[  290s]   do phu motif tren valid (109,929 cap): 3E 99.7%  3T 92.2%  4EE 99.4%  4ET 95.4%  4TE 96.1%  4TT 90.3%
+[  290s] BASE 257 luat: macro-F1 25.60%  acc 87.87%
+[  290s] do tin cay classifier tren confirmation: {'BEFORE': '94.6%', 'CONTAINS': '40.6%', 'SIMULTANEOUS': '16.3%', 'OVERLAP': '41.7%'}
+[  290s] chu ky gold tren train ...
+[  298s] OLD: 21 luat.  NEW: {'3E': 24, '3T': 17, '4EE': 30, '4ET': 27, '4TE': 36, '4TT': 41, 'ALL': 175}
+[  298s] NEW ALL nhan: {'BEFORE': 96, 'CONTAINS': 64, 'SIMULTANEOUS': 12, 'OVERLAP': 3}
+[  298s] chu ky tren do thi dang kiem toan, boi canh A (EV-TX, TX-TX nhu trong KG) ...
+
+====================================================================================================
+BAI 2 -- BOI CANH A (EV-TX, TX-TX nhu trong KG)
+====================================================================================================
+  OLD  higher-order (21 luat, nhan da so, chi 3E)
+      HO-old         gan co  5,514  dung  4,029  sua dung  3,706
+      P@k  73.07%  found_all  30.22%  repair@k  91.98%  R_all  27.80%   canh sai 12.13% -> 10.11%
+  NEW 3E    gan co  4,124  P@k  67.05%  repair@k  91.32%  R_all  18.94%
+  NEW 3T    gan co  6,121  P@k 100.00%  repair@k  99.66%  R_all  45.76%
+  NEW 4EE   gan co  4,604  P@k  71.07%  repair@k  90.92%  R_all  22.32%
+  NEW 4ET   gan co  4,232  P@k  75.61%  repair@k  91.69%  R_all  22.01%
+  NEW 4TE   gan co  6,986  P@k  84.67%  repair@k  96.20%  R_all  42.68%
+  NEW 4TT   gan co  7,481  P@k  87.80%  repair@k  97.23%  R_all  47.90%
+  NEW ALL   gan co  7,267  P@k  81.82%  repair@k  95.41%  R_all  42.55%
+
+  OLD stack: HO-old -> closure -> date
+      HO-old         gan co  5,514  dung  4,029  sua dung  3,706
+      closure        gan co    242  dung    183  sua dung    166
+      date           gan co     41  dung     33  sua dung     33
+      P@k  73.23%  found_all  31.84%  repair@k  91.99%  R_all  29.29%   canh sai 12.13% -> 9.98%
+  NEW stack: HO-new(ALL) -> closure -> date
+      HO-new         gan co  7,267  dung  5,946  sua dung  5,673
+      closure        gan co    193  dung    134  sua dung    113
+      date           gan co      8  dung      0  sua dung      0
+      P@k  81.41%  found_all  45.61%  repair@k  95.16%  R_all  43.40%   canh sai 12.13% -> 8.12%
+  NEW + OLD stack: HO-new -> HO-old -> closure -> date
+      HO-new         gan co  7,267  dung  5,946  sua dung  5,673
+      HO-old         gan co  1,080  dung    452  sua dung    407
+      closure        gan co    174  dung    114  sua dung    101
+      date           gan co      8  dung      0  sua dung      0
+      P@k  76.35%  found_all  48.85%  repair@k  94.92%  R_all  46.37%   canh sai 12.13% -> 8.33%
+[  391s] chu ky tren do thi dang kiem toan, boi canh B (tat ca du doan) ...
+
+====================================================================================================
+BAI 2 -- BOI CANH B (tat ca du doan)
+====================================================================================================
+  OLD  higher-order (21 luat, nhan da so, chi 3E)
+      HO-old         gan co  5,514  dung  4,029  sua dung  3,706
+      P@k  73.07%  found_all  30.22%  repair@k  91.98%  R_all  27.80%   canh sai 12.13% -> 10.11%
+  NEW 3E    gan co  4,124  P@k  67.05%  repair@k  91.32%  R_all  18.94%
+  NEW 3T    gan co  8,489  P@k  56.63%  repair@k  95.94%  R_all  34.60%
+  NEW 4EE   gan co  4,604  P@k  71.07%  repair@k  90.92%  R_all  22.32%
+  NEW 4ET   gan co  4,956  P@k  72.52%  repair@k  91.49%  R_all  24.66%
+  NEW 4TE   gan co  9,697  P@k  62.62%  repair@k  93.87%  R_all  42.76%
+  NEW 4TT   gan co  4,537  P@k  66.17%  repair@k  94.10%  R_all  21.19%
+  NEW ALL   gan co 10,099  P@k  60.83%  repair@k  93.75%  R_all  43.20%
+
+  OLD stack: HO-old -> closure -> date
+      HO-old         gan co  5,514  dung  4,029  sua dung  3,706
+      closure        gan co    242  dung    183  sua dung    166
+      date           gan co     41  dung     33  sua dung     33
+      P@k  73.23%  found_all  31.84%  repair@k  91.99%  R_all  29.29%   canh sai 12.13% -> 9.98%
+  NEW stack: HO-new(ALL) -> closure -> date
+      HO-new         gan co 10,099  dung  6,143  sua dung  5,759
+      closure        gan co    237  dung    114  sua dung     83
+      date           gan co      9  dung      1  sua dung      1
+      P@k  60.49%  found_all  46.94%  repair@k  93.37%  R_all  43.83%   canh sai 12.13% -> 10.52%
+  NEW + OLD stack: HO-new -> HO-old -> closure -> date
+      HO-new         gan co 10,099  dung  6,143  sua dung  5,759
+      HO-old         gan co    671  dung    357  sua dung    326
+      closure        gan co    197  dung     89  sua dung     60
+      date           gan co      9  dung      1  sua dung      1
+      P@k  60.04%  found_all  49.43%  repair@k  93.26%  R_all  46.10%   canh sai 12.13% -> 10.52%
+[  481s] xong

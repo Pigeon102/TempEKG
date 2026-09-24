@@ -1,0 +1,53 @@
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+
+==============================================================================================================
+BAI 1 -- BON LOAI CANH (valid mo mot lan cho moi loai)
+==============================================================================================================
+[    4s] dung dieu kien EV->TIMEX ...
+[   10s] EV->TIMEX: 1412 luat qua cong ({'CONTAINS': 709, 'OVERLAP': 409, 'SIMULTANEOUS': 241, 'ENDS-ON': 4, 'BEGINS-ON': 49})
+
+ EV->TIMEX -- nguong precision moi nhan chon tren CONFIRMATION-2 (macro 30.10%): {'CONT': 0.4, 'OVER': 0.15, 'SIMU': 0.15, 'ENDS': 0.5, 'BEGI': 0.5}
+  luon BEFORE                        n= 26573  acc  91.31%  macro-F1  15.91%
+      BEFO P91.3 R100.0 F95.5 (n=24264)  CONT P0.0 R0.0 F0.0 (n=1799)  SIMU P0.0 R0.0 F0.0 (n=84)  OVER P0.0 R0.0 F0.0 (n=408)  BEGI P0.0 R0.0 F0.0 (n=14)  ENDS P0.0 R0.0 F0.0 (n=4)
+  luat (EV->TIMEX)                   n= 26573  acc  89.44%  macro-F1  29.74%
+      BEFO P94.6 R94.7 F94.6 (n=24264)  CONT P41.1 R37.5 F39.2 (n=1799)  SIMU P21.2 R25.0 F23.0 (n=84)  OVER P18.7 R25.7 F21.6 (n=408)  BEGI P0.0 R0.0 F0.0 (n=14)  ENDS P0.0 R0.0 F0.0 (n=4)
+        (('lem', 'hurrican'), ('prep', 'on'))                                            -> CONTAINS     cwlb 0.758
+        (('gran', 'none'), ('lem', 'hurrican'))                                          -> CONTAINS     cwlb 0.754
+        (('prep', 'between'), ('tdist', '<=8'))                                          -> OVERLAP      cwlb 0.397
+        (('prep', 'to'), ('tdist', '<=8'))                                               -> OVERLAP      cwlb 0.300
+        (('nearest_ev', True), ('prep', 'at'))                                           -> SIMULTANEOUS cwlb 0.213
+        (('ebkt', 'lead'), ('tdist', '<=3'))                                             -> SIMULTANEOUS cwlb 0.193
+[   19s] dung dieu kien TIMEX->EV ...
+[   30s] TIMEX->EV: 1710 luat qua cong ({'CONTAINS': 1148, 'OVERLAP': 562})
+
+ TIMEX->EV -- nguong precision moi nhan chon tren CONFIRMATION-2 (macro 24.43%): {'CONT': 0.6, 'OVER': 0.15}
+  luon BEFORE                        n= 39935  acc  68.13%  macro-F1  13.51%
+      BEFO P68.1 R100.0 F81.0 (n=27209)  CONT P0.0 R0.0 F0.0 (n=12232)  OVER P0.0 R0.0 F0.0 (n=494)
+  luat (TIMEX->EV)                   n= 39935  acc  74.09%  macro-F1  24.29%
+      BEFO P81.9 R81.1 F81.5 (n=27209)  CONT P58.5 R61.3 F59.9 (n=12232)  OVER P9.4 R2.8 F4.4 (n=494)
+        (('prep', 'of'), ('txw', 'world'))                                               -> CONTAINS     cwlb 0.968
+        (('prep', 'during'), ('txw', 'world'))                                           -> CONTAINS     cwlb 0.926
+        (('ebkt', 'lead'), ('lem', 'conflict'))                                          -> OVERLAP      cwlb 0.355
+        (('ebkt', 'lead'), ('prep', 'between'))                                          -> OVERLAP      cwlb 0.276
+[   46s] dung dieu kien TIMEX-TIMEX ...
+[   48s] TIMEX-TIMEX: 416 luat qua cong ({'CONTAINS': 255, 'OVERLAP': 65, 'BEGINS-ON': 19, 'ENDS-ON': 22, 'SIMULTANEOUS': 55})
+
+ TIMEX-TIMEX -- nguong precision moi nhan chon tren CONFIRMATION-2 (macro 31.85%): {'CONT': 0.5, 'OVER': 0.5, 'BEGI': 0.5, 'ENDS': 0.5, 'SIMU': 0.5}
+  luon BEFORE                        n= 12487  acc  79.19%  macro-F1  14.73%
+      BEFO P79.2 R100.0 F88.4 (n=9888)  CONT P0.0 R0.0 F0.0 (n=2128)  SIMU P0.0 R0.0 F0.0 (n=328)  OVER P0.0 R0.0 F0.0 (n=98)  BEGI P0.0 R0.0 F0.0 (n=30)  ENDS P0.0 R0.0 F0.0 (n=15)
+  chi so lich                        n= 12487  acc  83.08%  macro-F1  29.94%
+      BEFO P83.0 R99.5 F90.5 (n=9888)  CONT P92.1 R17.0 F28.7 (n=2128)  SIMU P70.2 R53.0 F60.4 (n=328)  OVER P0.0 R0.0 F0.0 (n=98)  BEGI P0.0 R0.0 F0.0 (n=30)  ENDS P0.0 R0.0 F0.0 (n=15)
+  luat (TIMEX-TIMEX)                 n= 12487  acc  84.35%  macro-F1  32.98%
+      BEFO P85.5 R97.5 F91.1 (n=9888)  CONT P74.3 R33.6 F46.3 (n=2128)  SIMU P70.2 R53.0 F60.4 (n=328)  OVER P0.0 R0.0 F0.0 (n=98)  BEGI P0.0 R0.0 F0.0 (n=30)  ENDS P0.0 R0.0 F0.0 (n=15)
+        (('pb', 'on'), ('wa', 'world'))                                                  -> CONTAINS     cwlb 0.879
+        (('gb', 'ymd'), ('wa', 'world'))                                                 -> CONTAINS     cwlb 0.871
+        (('anch', (True, True)), ('cal', 'eq'))                                          -> SIMULTANEOUS cwlb 0.771
+        (('cal', 'eq'), ('order', 'b<a'))                                                -> SIMULTANEOUS cwlb 0.771
+
+ GOP TOAN BO CANH VALID (EV-EV dung 257 + 719 luat trigger):
+  luon BEFORE                        n=188924  acc  84.81%  macro-F1  15.30%
+      BEFO P84.8 R100.0 F91.8 (n=160227)  CONT P0.0 R0.0 F0.0 (n=25550)  SIMU P0.0 R0.0 F0.0 (n=1474)  OVER P0.0 R0.0 F0.0 (n=1570)  BEGI P0.0 R0.0 F0.0 (n=69)  ENDS P0.0 R0.0 F0.0 (n=34)
+  classifier theo tung loai          n=188924  acc  84.78%  macro-F1  29.87%
+      BEFO P91.5 R91.2 F91.4 (n=160227)  CONT P50.0 R52.9 F51.4 (n=25550)  SIMU P25.9 R24.6 F25.2 (n=1474)  OVER P17.3 R8.3 F11.2 (n=1570)  BEGI P0.0 R0.0 F0.0 (n=69)  ENDS P0.0 R0.0 F0.0 (n=34)
+[   53s] da luu 981319 du doan -> pred_all_edges.json
