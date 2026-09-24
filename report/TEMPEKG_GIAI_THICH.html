@@ -731,11 +731,12 @@ T_t    = −[ log p~(cấu hình t) − Σ_{cạnh ∈ t} log P(l_e | loại c�
 <tr><td>CONTAINS</td><td class="n">25.550</td><td class="n">51,6 / 50,6 / 51,1</td><td class="n">52,9</td><td class="n">53,7</td><td class="n">56,6</td></tr>
 <tr><td>SIMULTANEOUS</td><td class="n">1.474</td><td class="n">27,8 / 24,1 / 25,8</td><td class="n">26,0</td><td class="n">25,7</td><td class="n">28,4</td></tr>
 <tr><td>OVERLAP</td><td class="n">1.570</td><td class="n">12,6 / 11,7 / 12,1</td><td class="n">14,8</td><td class="n">14,6</td><td class="n">13,4</td></tr>
-<tr><td>BEGINS-ON</td><td class="n">69</td><td class="n">0 / 0 / 0</td><td class="n">0</td><td class="n">0</td><td class="n">0</td></tr>
-<tr><td>ENDS-ON</td><td class="n">34</td><td class="n">0 / 0 / 0</td><td class="n">0</td><td class="n">0</td><td class="n">0</td></tr>
+<tr><td>BEGINS-ON</td><td class="n">69</td><td class="n">0 / 0 / 0</td><td class="n">0</td><td class="n" rowspan="2">cộng lại ≈ 1,9*</td><td class="n" rowspan="2">cộng lại ≈ 0*</td></tr>
+<tr><td>ENDS-ON</td><td class="n">34</td><td class="n">0 / 0 / 0</td><td class="n">0</td></tr>
 <tr class="hl"><td>Macro-F1</td><td></td><td class="n">30,09%</td><td class="n">30,84%</td><td class="n">31,36%</td><td class="n">31,89%</td></tr>
 <tr class="dim"><td>Accuracy</td><td></td><td class="n">84,96%</td><td class="n">84,69%</td><td class="n">86,17%</td><td class="n">87,47% (lỗi 12,53%)</td></tr>
 </table></div>
+<p>* Log gốc của bước 2.3 và Bài 2 chỉ in F1 của 4 nhãn chính. Cộng ngược từ macro-F1: ở cột 2.3, F1 của BEGINS-ON và ENDS-ON cộng lại khoảng <b>1,9 điểm</b> (1,6–2,1 do làm tròn; 6 × 31,36 − (92,3 + 53,7 + 25,7 + 14,6)), tức là bước tam giác đoán đúng được một ít cạnh của hai nhãn này. Ở cột Bài 2 phần đó xấp xỉ 0. Số chính xác từng nhãn sẽ có khi chạy lại bước này với bản <code>bai2_combo.py</code> đã sửa để in đủ 6 nhãn.</p>
 <p>Pipeline với bộ luật EV–EV mine trên toàn bộ train. Cột 2.3 và cột Bài 2 là cross-fit trên valid; hai cột đầu dùng protocol DISCOVERY / CONFIRMATION. Với bộ 257 luật cũ, hàng macro-F1 là 29,87 / 30,83 / 31,70 / 32,25%.</p>
 
 <h4>B1.4 — Luật liên tầng theo loại cạnh, F1 từng nhãn</h4>

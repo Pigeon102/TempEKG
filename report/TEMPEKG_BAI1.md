@@ -409,10 +409,15 @@ Tất cả trên valid (710 document). P, R, F1 theo từng nhãn; macro-F1 là 
 | CONTAINS | 25.550 | 51,6 / 50,6 / 51,1 | 52,9 | 53,7 | 56,6 |
 | SIMULTANEOUS | 1.474 | 27,8 / 24,1 / 25,8 | 26,0 | 25,7 | 28,4 |
 | OVERLAP | 1.570 | 12,6 / 11,7 / 12,1 | 14,8 | 14,6 | 13,4 |
-| BEGINS-ON | 69 | 0 | 0 | 0 | 0 |
-| ENDS-ON | 34 | 0 | 0 | 0 | 0 |
+| BEGINS-ON | 69 | 0 | 0 | cộng với ENDS-ON ≈ 1,9\* | ≈ 0\* |
+| ENDS-ON | 34 | 0 | 0 | (xem trên) | (xem trên) |
 | **Macro-F1** | | **30,09%** | **30,84%** | **31,36%** | **31,89%** |
 | Accuracy | | 84,96% | 84,69% | 86,17% | 87,47% |
+
+\* Log gốc của bước 2.3 và Bài 2 chỉ in F1 của 4 nhãn chính. Cộng ngược từ macro-F1: ở cột 2.3, F1 của
+BEGINS-ON và ENDS-ON cộng lại khoảng **1,9 điểm** (1,6–2,1 do làm tròn; 6 × 31,36 − (92,3 + 53,7 + 25,7 + 14,6)),
+tức là bước tam giác đoán đúng được một ít cạnh của hai nhãn này. Ở cột Bài 2 phần đó xấp xỉ 0. Số chính xác từng
+nhãn sẽ có khi chạy lại bước này với bản `bai2_combo.py` đã sửa để in đủ 6 nhãn.
 
 Hai cột cuối là cross-fit trên valid; hai cột đầu dùng protocol DISCOVERY / CONFIRMATION. Với bộ 257
 luật cũ, hàng macro-F1 là 29,87 / 30,83 / 31,70 / 32,25%.
