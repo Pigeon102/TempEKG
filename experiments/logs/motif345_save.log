@@ -1,0 +1,21 @@
+[     4s] 3623 document; neighbour labels = pred
+[    32s] bo 3: 259 chu ky, 179 qua cong dem
+[    32s] bo 4: 4487 chu ky, 962 qua cong dem
+[    32s] bo 4K: 11209 chu ky, 1579 qua cong dem
+[    32s] bo 5: 23251 chu ky, 1893 qua cong dem
+[    61s] bo 3: 178 ung vien (>= 5 document)
+[    61s] bo 4: 946 ung vien (>= 5 document)
+[    61s] bo 4K: 1539 ung vien (>= 5 document)
+[    61s] bo 5: 1863 ung vien (>= 5 document)
+[    70s] bo 3: 136 luat sau xac nhan ({'BEFORE': 11, 'CONTAINS': 57, 'SIMULTANEOUS': 18, 'BEGINS-ON': 7, 'OVERLAP': 43})
+[    70s] bo 4: 673 luat sau xac nhan ({'BEFORE': 119, 'CONTAINS': 382, 'SIMULTANEOUS': 67, 'OVERLAP': 101, 'BEGINS-ON': 4})
+[    70s] bo 4K: 1000 luat sau xac nhan ({'BEFORE': 200, 'CONTAINS': 582, 'SIMULTANEOUS': 112, 'OVERLAP': 102, 'BEGINS-ON': 4})
+[    70s] bo 5: 1233 luat sau xac nhan ({'BEFORE': 310, 'CONTAINS': 717, 'OVERLAP': 94, 'SIMULTANEOUS': 108, 'BEGINS-ON': 4})
+[    89s] ban luat: CONF-2 156369 canh, valid 188924 canh
+
+==============================================================================================================
+BO 3 / 4 / 5 -- hang xom DU DOAN (thuc te), ca bon loai canh, valid mo mot lan
+==============================================================================================================
+  classifier hien tai (buoc 2.2): macro-F1 30.84%  acc 84.69%
+  luu cau hinh 3+4+5 (ghi de): CONF-2 31.12%, valid macro-F1 31.62% acc 85.36%, doi 7721 nhan valid
+[   126s] da luu pred_layered_full_motif.json; xong

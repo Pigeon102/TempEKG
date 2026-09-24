@@ -262,7 +262,7 @@ Trong nhóm $g$, một luật đề xuất nhãn $\ell \ne \tilde y$. Với $\pi
   node trung gian, các nhãn có hướng trên đường).
 - **Combiner:** §5 với $\mathrm{fb} = \tilde y$ và ngưỡng theo $(\tau, \ell)$.
 
-## 9. Mô hình năng lượng tam giác (bước 2.3 và 3.2)
+## 9. Mô hình năng lượng tam giác (Bài 2, bước 3.2)
 
 **Tam giác và cấu hình.** Tam giác $t = \{a, b, c\}$ có đủ ba cạnh. Cấu hình $\gamma(t)$ = (loại ba node, ba nhãn *có hướng*);
 nhãn của cạnh lưu ngược chiều được thay bằng nghịch đảo.
@@ -352,7 +352,7 @@ $\text{macro-F1} = \frac{1}{6}\sum_{\ell} F_\ell$. Nhãn không xuất hiện tr
 | Luôn BEFORE | 15,30% | 15,30% |
 | 2.1 Luật 4 loại cạnh | 30,09% (EE 26,99) | 29,87% (EE 26,15) |
 | 2.2 Liên tầng | 30,84% (EE 27,44) | 30,83% (EE 26,50) |
-| 2.3 Tam giác (cross-fit) | 31,36% | 31,70% |
+| *Tham khảo: Bài 2 chỉ tam giác trên đồ thị 2.2* | *31,36%* | *31,70%* |
 | *Ghi đè bộ 3+4+5 lên 2.2 (§10)* | *31,62%* | — |
 
 **Bài 2:**
@@ -378,7 +378,7 @@ $\text{macro-F1} = \frac{1}{6}\sum_{\ell} F_\ell$. Nhãn không xuất hiện tr
    cũ và mới chưa được kết luận.
 4. **BH-FDR** giả định độc lập hoặc phụ thuộc dương; các cặp cùng document vi phạm giả định này.
 5. **Chế độ `mean` của ICM** không có bảo đảm hội tụ theo năng lượng (Mệnh đề 9.1).
-6. **Các bước 2.2, 2.3 và Bài 2** chưa chạy lại với các bộ gọn; các bộ gọn lệch tối đa 0,021% dự đoán trên valid.
+6. **Bước 2.2 và Bài 2** chưa chạy lại với các bộ gọn; các bộ gọn lệch tối đa 0,021% dự đoán trên valid.
 
 **Nguồn số liệu:**
 - `experiments/rules_full/mine_full.log`, `compress.log`, `compress_timex.log`, `compress_layered.log`;

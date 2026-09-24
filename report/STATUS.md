@@ -54,7 +54,7 @@ KG dựng xong, verify bằng 9 bất biến trong đó 3 cái chống rò rỉ 
 | | train | valid |
 |---|---:|---:|
 | Document | 2.913 | 710 |
-| Node event / entity / span / timex | 67.984 / 55.421 / 71.485 / 16.688 | 16.301 / 13.176 / 17.963 / 4.139 |
+| Node event / entity / span / timex | 67.984 / 55.421 / 71.485 / 16.688 | 16.301 / 12.927 / 17.963 / 4.139 |
 | `input_edges` / `weak_edges` / `target_edges` | 188.584 / 45.509 / 792.395 | 44.966 / 12.524 / 188.924 |
 | `anchored_pairs` | 244.687 | 57.925 |
 
@@ -1292,3 +1292,10 @@ lại, trọng số = Wilson của bằng chứng ngoài fold gộp, ngưỡng c
 - Lọc ổn định (m chọn ngoài fold = 5): 43.670 luật, 4.975 hoạt động → valid 26,39% (acc 87,48%).
 - A (60/20/20) 26,99%; A với cách chia khác (seed 1) 26,51% → chênh A − C nằm trong dao động do cách chia.
 - **Quyết định:** pipeline chính giữ A; C ghi làm ablation.
+
+## §37 — Ranh giới Bài 1 / Bài 2 (2026-09-25)
+
+Bài 1 dừng ở bước 2.2 (30,84%): chỉ dùng thông tin từng cặp; đồ thị này là đầu vào của Bài 2. Mô hình tam
+giác (trước gọi là bước 2.3) chuyển hẳn sang Bài 2: chạy một mình trên đồ thị 2.2 cho 31,36% (dòng ablation
+"chỉ 3.2"), auditor → tam giác cho 31,89%. Ghi đè motif bộ 3+4+5 (31,62%) cũng dùng cấu trúc đồ thị nên thuộc
+nhóm phương pháp của Bài 2. Không số nào thay đổi, chỉ đổi cách trình bày.

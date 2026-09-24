@@ -232,6 +232,23 @@ print(); print("=" * 110)
 print("BO 3 / 4 / 5 -- hang xom %s, ca bon loai canh, valid mo mot lan" % ("GOLD (tran)" if NB == "gold" else "DU DOAN (thuc te)"))
 print("=" * 110)
 print("  classifier hien tai (buoc 2.2): macro-F1 %.2f%%  acc %.2f%%" % (100*base[0], 100*base[2]))
+import os
+if os.environ.get("SAVE_OVERRIDE"):
+    # write the override predictions of one configuration (floors chosen on CONF-2) into a copy of the
+    # layered prediction file, so the triangle step / Bai 2 can run on top of them (TAG=_full_motif)
+    cfg = tuple(os.environ["SAVE_OVERRIDE"].split(","))
+    TH, m2 = tune(cfg, "override")
+    pv = decide(merged(FV, cfg), TH, "override")
+    keys = ["%s|%s|%s" % (doc, a, b) for doc, sp, K, es in DOCS if sp == 3 for a, b, g, p, t in es]
+    assert len(keys) == len(pv)
+    m, per, acc = macro(pv, gv)
+    print("  luu cau hinh %s (ghi de): CONF-2 %.2f%%, valid macro-F1 %.2f%% acc %.2f%%, doi %d nhan valid" %
+          ("+".join(cfg), 100*m2, 100*m, 100*acc, sum(1 for x, q in zip(FV, pv) if q != x[2])))
+    P = dict(PRED)
+    for k, q in zip(keys, pv): P[k] = q
+    json.dump(P, io.open(ART/"pred_layered_full_motif.json", "w", encoding="utf-8"))
+    log("da luu pred_layered_full_motif.json; xong")
+    sys.exit(0)
 CFGS = (("bo 3", ("3",)), ("bo 4", ("4",)), ("bo 4K (du 6 canh)", ("4K",)), ("bo 5", ("5",)),
         ("bo 3 + 4", ("3", "4")), ("bo 3 + 4K", ("3", "4K")), ("bo 3 + 4 + 5", ("3", "4", "5")))
 for mode in ("override", "alone"):

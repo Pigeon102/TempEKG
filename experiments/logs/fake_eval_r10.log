@@ -1,0 +1,11 @@
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+[    4s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
+[  244s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
+====================================================================================================================
+BAI 2 TREN FAKE_DATA -- sua chung theo tam giac (buoc 3.2), valid cham mot lan moi muc tieu
+====================================================================================================================
+[  788s] muc 10%: chinh tren CONF-2 xong (11044 canh doi trong fake_data, dung 10993, bo 51)
+  10% | giam loi (mean, 2.00, 0.5) | EV-EV loi 10.00% ->  1.75% | P  92.0 R  90.9 F1  91.4 | sua  9939 hong  867 rong  +9072 | macro EV-EV 70.23 -> 86.18 | canh TIMEX bi doi 0 | bao dong gia tren gold sach: 696 canh EV-EV (+0 TIMEX)
+  10% | macro-F1 (mean, 2.00, 0.0) | EV-EV loi 10.00% ->  2.28% | P  84.9 R  94.2 F1  89.3 | sua 10322 hong 1837 rong  +8485 | macro EV-EV 70.23 -> 83.95 | canh TIMEX bi doi 0 | bao dong gia tren gold sach: 1603 canh EV-EV (+0 TIMEX)
+[ 1013s] xong

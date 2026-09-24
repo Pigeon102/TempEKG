@@ -14,6 +14,11 @@ Classifier đầu vào dùng bộ luật EV–EV mine trên toàn bộ train (2.
 cùng dự đoán). Với bộ 257 luật cũ: lỗi
 15,11% → 11,81%, hoặc macro-F1 32,25%.
 
+**Đầu vào của Bài 2 là đồ thị tốt nhất của Bài 1** (sau bước 2.2: lỗi 15,31%, macro-F1 30,84%). Bài 1 chỉ
+dùng thông tin từng cặp; mọi phương pháp dùng cấu trúc cả đồ thị (auditor tầng GRAPH, mô hình tam giác) thuộc
+Bài 2. Dòng "chỉ 3.2" trong các bảng dưới là mô hình tam giác chạy một mình trên đồ thị đó (macro-F1 31,36%;
+các phiên bản trước gọi là bước 2.3 của Bài 1).
+
 Kiến trúc chung ở `TEMPEKG_KIEN_TRUC.md`; bộ luật (kể cả luật của auditor) ở `RULESET.md`.
 
 ---

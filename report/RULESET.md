@@ -346,7 +346,7 @@ lần trong gold; đổi cạnh cuối thành BEFORE cho cấu hình gặp 27.58
 4. **Độ sâu tối đa 2 trong một bộ luật.** Hội 3 điều kiện chỉ xuất hiện qua luật liên tầng (hội 2–3
    pattern, mỗi pattern tối đa 2 điều kiện).
 5. **Bộ luật mới hơn bộ cũ ở EV–EV (+0,84 ở 2.1, +0,94 sau 2.2)**, nhưng lợi thế gần như biến mất khi
-   gộp cả bốn loại cạnh sau bước 2.2 (30,83 → 30,84) và sau suy luận tam giác (31,70 → 31,36). Chưa đo
+   gộp cả bốn loại cạnh sau bước 2.2 (30,83 → 30,84) và sau mô hình tam giác của Bài 2 (31,70 → 31,36). Chưa đo
    dao động theo seed cho các bước này, nên chưa thể nói chênh lệch −0,34 là thật hay nhiễu.
 
 ## 10. Lịch sử: bộ 257 luật cũ
@@ -369,7 +369,7 @@ NW=4 python ../experiments/rules_full/mine_full.py                # 2.1 EV–EV,
 python ../experiments/rules_full/export_full.py                   # bắn luật trên train + valid → pred_all_edges_full.json
 python ../experiments/higher_order/bai1_all_edges.py              # 2.1 ba loại cạnh TIMEX
 TAG=_full python ../experiments/higher_order/layered_rules.py     # 2.2 luật liên tầng, ~8 phút
-TAG=_full python ../experiments/higher_order/bai2_combo.py        # 2.3, 3.1, 3.2 cross-fit, ~34 phút
+TAG=_full python ../experiments/higher_order/bai2_combo.py        # Bài 2: 3.1, 3.2 (và tam giác một mình), cross-fit, ~34 phút
 python ../experiments/rules_full/worked_example.py                # ví dụ thật ở mục 5
 NW=4 python ../experiments/rules_full/compress.py                # rút gọn có chứng minh, ~3,5 phút (mục 12)
 python ../experiments/rules_full/compact_listing.py               # → report/RULES_COMPACT.md
@@ -438,7 +438,7 @@ Hai biến thể, dựng trên DISCOVERY + CONF-1, kiểm trên CONF-2, valid m�
 - **Greedy cách tối ưu tối đa 1 luật:** 377 ≤ OPT_A ≤ 378 và 278 ≤ OPT_B ≤ 279. Với ngôn ngữ luật và tập
   ứng viên này, không cách chọn tập con nào giữ được mọi dự đoán mà dùng ít hơn 377 luật.
 - **A** cho dự đoán giống hệt trên toàn bộ dữ liệu dựng (chứng minh ở trên) và chỉ lệch 0,021% trên valid
-  (khoảng 23 cặp). Các bước sau (2.2, 2.3, Bài 2) chạy trên dự đoán của 2.794 luật hoạt động và chưa chạy
+  (khoảng 23 cặp). Các bước sau (2.2 và Bài 2) chạy trên dự đoán của 2.794 luật hoạt động và chưa chạy
   lại với bộ 378; với mức lệch đó, thay đổi nếu có sẽ rất nhỏ.
 - Mệnh đề được chứng minh cho combiner với tie-break `key = (wlb, −id)` mà `compress.py` cài lại; combiner
   gốc (`pred_floor`) phá hoà theo thứ tự bắn. Bản cài lại cho đúng macro-F1 của combiner gốc trên CONF-2

@@ -3,7 +3,9 @@
 **Bài toán:** cho một cặp (sự kiện hoặc TIMEX) trong cùng văn bản, đoán nhãn quan hệ thời gian
 trong 6 nhãn. Tương đương "che nhãn cạnh trên valid rồi đoán lại".
 
-**Kết quả hiện tại:** macro-F1 **31,36%** trên cả 188.924 cạnh valid (luôn đoán BEFORE: 15,30%).
+**Kết quả hiện tại:** macro-F1 **30,84%** trên cả 188.924 cạnh valid, sau bước 2.2 (luôn đoán BEFORE: 15,30%).
+Bài 1 chỉ dùng thông tin của từng cặp; đồ thị này là đầu vào của Bài 2. Mô hình tam giác (dùng cấu trúc cả
+đồ thị) thuộc Bài 2: chạy một mình trên đồ thị này cho 31,36%, kết hợp auditor cho 31,89% (`TEMPEKG_BAI2.md`).
 Riêng EV–EV: **26,99%** với bộ luật mine trên toàn bộ train, **27,44%** sau luật liên tầng.
 
 Kiến trúc chung (dữ liệu, KG, chia tập, thiết kế tầng) ở `TEMPEKG_KIEN_TRUC.md`. Bộ luật (luật là gì,
@@ -17,16 +19,14 @@ dựng ra sao, ví dụ luật thật và cách luật bắn trên một cặp t
 flowchart LR
     F["Đặc trưng quan sát được<br/>(không đọc nhãn thời gian)"] --> C["2.1 Classifier luật<br/>theo từng loại cạnh"]
     C -->|"30,09%"| L["2.2 Luật liên tầng<br/>ghi đè khi đủ chắc"]
-    L -->|"30,84%"| J["2.3 Suy luận chung<br/>theo tam giác"]
-    J -->|"31,36%"| O["Nhãn cho mọi cạnh"]
+    L -->|"30,84%"| O["Nhãn cho mọi cạnh<br/>= đầu vào Bài 2"]
 ```
 
 | Bước | macro-F1 gộp | Ghi chú |
 |---|---|---|
 | Luôn đoán BEFORE | 15,30% | baseline |
 | 2.1 Classifier từng loại cạnh | 30,09% | EV–EV 26,99 · EV→TIMEX 29,74 · TIMEX→EV 24,29 · TIMEX–TIMEX 32,98 |
-| 2.2 + luật liên tầng | 30,84% | EV–EV 27,44 · 30,51 · 26,24 · 34,93 |
-| 2.3 + suy luận chung tam giác | **31,36%** | cross-fit trên valid |
+| **2.2 + luật liên tầng (kết quả Bài 1)** | **30,84%** | EV–EV 27,44 · 30,51 · 26,24 · 34,93 |
 
 **So với bộ 257 luật cũ** (chỉ chọn trên 400 document train đầu):
 
@@ -36,10 +36,10 @@ flowchart LR
 | 2.1 gộp | 29,87% | **30,09%** |
 | 2.2 EV–EV | 26,50% | **27,44%** |
 | 2.2 gộp | 30,83% | 30,84% |
-| 2.3 gộp | **31,70%** | 31,36% |
+| *Tham khảo — Bài 2 chỉ mô hình tam giác* | *31,70%* | *31,36%* |
 
-Bộ mới hơn rõ ở EV–EV, nhưng lợi thế gần như không còn khi gộp bốn loại cạnh, và sau suy luận tam
-giác thì thấp hơn 0,34. Chưa đo dao động theo seed cho các bước này, nên chưa kết luận được chênh lệch
+Bộ mới hơn rõ ở EV–EV, nhưng lợi thế gần như không còn khi gộp bốn loại cạnh, và sau mô hình tam
+giác của Bài 2 thì thấp hơn 0,34. Chưa đo dao động theo seed cho các bước này, nên chưa kết luận được chênh lệch
 0,3–0,4 là thật hay nhiễu. Tài liệu dùng bộ mới làm số chính vì nó không phải bỏ 400 document train
 bị in-sample.
 
@@ -154,7 +154,7 @@ danh sách theo họ: `RULES_COMPACT.md`):
 | **Set cover giữ dự đoán** | mỗi cặp cần một luật cùng nhãn thắng mọi nhãn khác; greedy + xoá ngược, chặn dưới 377 | **378** (209 họ) | giống hệt trên dữ liệu dựng; valid 99,979%, macro-F1 26,99% |
 | Set cover giữ dự đoán đúng | mỗi cặp đoán đúng vẫn đúng | 279 (170 họ) | valid macro-F1 27,02%, accuracy 88,11% |
 
-Các bước 2.2, 2.3 và Bài 2 chạy trên dự đoán của 2.794 luật hoạt động; bộ 378 lệch khoảng 23 cặp valid
+Bước 2.2 và Bài 2 chạy trên dự đoán của 2.794 luật hoạt động; bộ 378 lệch khoảng 23 cặp valid
 (0,021%) nên chưa chạy lại, và thay đổi nếu có sẽ rất nhỏ.
 
 Greedy cách tối ưu tối đa 1 luật (377 ≤ OPT ≤ 378). Nhãn hiếm được giữ: 55 luật SIMULTANEOUS, 47
@@ -260,12 +260,13 @@ flowchart LR
 
 ---
 
-## 6. Bước 2.3 — Suy luận chung theo tam giác
+## 6. Mô hình tam giác thuộc Bài 2
 
-Dùng mô hình năng lượng tam giác của Bài 2 (xem `TEMPEKG_BAI2.md`, bước 3.2) trên đầu ra của bước 2.2:
-gán nhãn cho cả document, cân giữa nhãn từng cạnh và độ hợp lý của mọi tam giác (PMI học từ gold
-train). Chọn tham số theo macro-F1, cross-fit trên valid: **30,84% → 31,36%** (bộ cũ: 30,83% →
-31,70%). λ và α chọn giống nhau ở cả hai fold.
+Các phiên bản trước có "bước 2.3": chạy mô hình năng lượng tam giác của Bài 2 ngay trên đầu ra 2.2. Bước
+này đã được chuyển hẳn sang Bài 2, để ranh giới hai bài rõ ràng: **Bài 1 chỉ dùng thông tin của từng cặp,
+Bài 2 dùng cấu trúc cả đồ thị**, và đầu vào của Bài 2 chính là đồ thị tốt nhất của Bài 1. Chạy một mình
+trên đồ thị 2.2, mô hình tam giác cho 30,84% → 31,36% (bộ cũ: 30,83% → 31,70%); đây là một dòng ablation
+trong bảng của Bài 2.
 
 ---
 
@@ -311,7 +312,8 @@ flowchart LR
 Lần đo cũ bằng `quint.py` (38,30 → 37,83 → 36,94%) bị bác bỏ vì hai lỗi: gán cùng nhãn cho hai chiều của
 cạnh (LUAT_BAC_CAO §10.1) và áp CAP trước khi bỏ chính cạnh đang xét (§11.1). Đo lại cho thấy bộ 4 **có**
 thêm tín hiệu khi biết nhãn xung quanh (+0,87), còn trong thực tế cả bộ 4 lẫn bộ 5 gần như không thêm gì.
-Ghi đè bằng motif bộ 3+4+5 (31,62%) cao hơn suy luận tam giác hiện tại (31,36%), nhưng chưa ghép hai bước.
+Ghi đè bằng motif bộ 3+4+5 (31,62%) cao hơn mô hình tam giác chạy một mình (31,36%), nhưng chưa ghép hai bước.
+Cả hai đều đọc nhãn của các cạnh xung quanh, tức dùng cấu trúc đồ thị, nên thuộc nhóm phương pháp của Bài 2.
 
 ---
 
@@ -337,9 +339,9 @@ Ghi đè bằng motif bộ 3+4+5 (31,62%) cao hơn suy luận tam giác hiện t
   là sửa đúng 6–7 cạnh và làm hỏng 163–216 cạnh đúng, vì tín hiệu văn bản ("since", "from … to", "until") chỉ đi
   kèm nhãn hiếm ở 1–10% số lần. Luật đáng giữ nhất: TIMEX–TIMEX "ngày = điểm đầu của khoảng" → BEGINS-ON
   (CONF-1 7/9, valid 3/10).
-- Bộ luật mới hơn bộ cũ ở EV–EV nhưng không hơn sau suy luận tam giác (31,36% so với 31,70%); cần đo
+- Bộ luật mới hơn bộ cũ ở EV–EV nhưng không hơn sau mô hình tam giác của Bài 2 (31,36% so với 31,70%); cần đo
   dao động theo seed trước khi kết luận.
-- Trần khi biết nhãn xung quanh là 37,65%; hiện 31,36%.
+- Trần khi biết nhãn xung quanh là 37,65% (đo với classifier cũ); Bài 1 hiện 30,84%.
 - Lemma chỉ là tách hậu tố; phân cấp loại sự kiện MAVEN chưa có trên máy.
 - Chỉ đo trên MAVEN-ERE.
 
@@ -353,7 +355,7 @@ Ghi đè bằng motif bộ 3+4+5 (31,62%) cao hơn suy luận tam giác hiện t
 | Ví dụ luật bắn trên cặp thật | `experiments/rules_full/worked_example.py` |
 | Classifier ba loại cạnh TIMEX | `experiments/higher_order/bai1_all_edges.py` |
 | Luật liên tầng | `TAG=_full python experiments/higher_order/layered_rules.py` (khoảng 8 phút) |
-| Suy luận chung tam giác | `TAG=_full python experiments/higher_order/bai2_combo.py` (khoảng 34 phút, gồm cả Bài 2) |
+| Bài 2 (mô hình tam giác, auditor) | `TAG=_full python experiments/higher_order/bai2_combo.py` (khoảng 34 phút) |
 | Bộ 257 luật cũ, luật trigger | `python src/vote.py --tau-sweep`; `semantic_tracks.py`, `semantic_combo.py`, `semantic_export.py` |
 | Đồ thị hợp nhất (trần, thực tế) | `experiments/higher_order/unified_graph.py`, `unified_diag.py` |
 | Rút gọn mọi bộ luật (có chứng minh) | `experiments/rules_full/compress.py`, `compress_timex.py`, `compress_layered.py` (dùng `rule_cover.py`) |
@@ -403,7 +405,7 @@ Tất cả trên valid (710 document). P, R, F1 theo từng nhãn; macro-F1 là 
 
 ### P.3 Gộp 188.924 cạnh, F1 từng nhãn qua từng bước
 
-| Nhãn | Số cạnh | 2.1 Classifier: P / R / F1 | 2.2 + liên tầng | 2.3 + tam giác | + Bài 2 (3.1→3.2, macro) |
+| Nhãn | Số cạnh | 2.1 Classifier: P / R / F1 | 2.2 + liên tầng (Bài 1) | Bài 2: chỉ tam giác | Bài 2: 3.1→3.2 (macro) |
 |---|---|---|---|---|---|
 | BEFORE | 160.227 | 91,2 / 91,8 / 91,5 | 91,3 | 92,3 | 93,1 |
 | CONTAINS | 25.550 | 51,6 / 50,6 / 51,1 | 52,9 | 53,7 | 56,6 |
@@ -414,7 +416,7 @@ Tất cả trên valid (710 document). P, R, F1 theo từng nhãn; macro-F1 là 
 | **Macro-F1** | | **30,09%** | **30,84%** | **31,36%** | **31,89%** |
 | Accuracy | | 84,96% | 84,69% | 86,17% | 87,47% |
 
-\* Log gốc của bước 2.3 và Bài 2 chỉ in F1 của 4 nhãn chính. Cộng ngược từ macro-F1: ở cột 2.3, F1 của
+\* Log gốc của hai cột Bài 2 chỉ in F1 của 4 nhãn chính. Cộng ngược từ macro-F1: ở cột "chỉ tam giác", F1 của
 BEGINS-ON và ENDS-ON cộng lại khoảng **1,9 điểm** (1,6–2,1 do làm tròn; 6 × 31,36 − (92,3 + 53,7 + 25,7 + 14,6)),
 tức là bước tam giác đoán đúng được một ít cạnh của hai nhãn này. Ở cột Bài 2 phần đó xấp xỉ 0. Số chính xác từng
 nhãn sẽ có khi chạy lại bước này với bản `bai2_combo.py` đã sửa để in đủ 6 nhãn.

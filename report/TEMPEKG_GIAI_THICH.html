@@ -130,7 +130,7 @@ figure.dia figcaption{font-family:var(--f-head);font-size:13px;line-height:1.5;c
     <li class="sub"><a href="#b1-rutgon">Rút gọn 54.719 → 378</a></li>
     <li class="sub"><a href="#b1-timex">Ba loại cạnh TIMEX</a></li>
     <li class="sub"><a href="#b1-tang">Đồ thị theo tầng</a></li>
-    <li class="sub"><a href="#b1-chung">Suy luận chung</a></li>
+    <li class="sub"><a href="#b1-chung">Tam giác → Bài 2</a></li>
     <li class="sub"><a href="#b1-baccao">Vì sao bậc cao khó</a></li>
     <li class="sub"><a href="#b1-bo345">Bộ 3, 4, 5</a></li>
     <li><a href="#b2">Bài 2 — kiểm toán</a></li>
@@ -160,7 +160,7 @@ figure.dia figcaption{font-family:var(--f-head);font-size:13px;line-height:1.5;c
 <section id="tomtat">
 <h2><span class="tag">Tóm tắt</span>Kết quả chính</h2>
 <div class="kpis">
-  <div class="kpi"><div class="v">31,36%</div><div class="l">Bài 1: macro-F1 trên cả bốn loại cạnh (188.924 cạnh), sau luật liên tầng và suy luận chung theo tam giác. Luôn đoán BEFORE: 15,30%.</div></div>
+  <div class="kpi"><div class="v">30,84%</div><div class="l">Bài 1: macro-F1 trên cả bốn loại cạnh (188.924 cạnh), sau luật liên tầng — chỉ dùng thông tin từng cặp. Luôn đoán BEFORE: 15,30%.</div></div>
   <div class="kpi"><div class="v">11,62%</div><div class="l">Bài 2, nhiễu do classifier: tỷ lệ cạnh sai sau kiểm toán (ban đầu 15,31%), cross-fit trên valid.</div></div>
   <div class="kpi"><div class="v">31,89%</div><div class="l">Bài 1 + Bài 2: macro-F1 của đồ thị sau kiểm toán khi chọn theo macro-F1.</div></div>
   <div class="kpi"><div class="v">1,94%<small> · 4,16%</small></div><div class="l">Bài 2, nhiễu bơm 10% · 20% trên cả bốn loại cạnh: tỷ lệ lỗi còn lại (loại khoảng 80% lỗi).</div></div>
@@ -170,8 +170,8 @@ figure.dia figcaption{font-family:var(--f-head);font-size:13px;line-height:1.5;c
   <div class="bar"><span>Luôn đoán BEFORE</span><div class="track"><div class="fill bad" style="width:43.71%"></div></div><span class="val">15,30%</span></div>
   <div class="bar"><span>Classifier từng loại cạnh</span><div class="track"><div class="fill" style="width:85.97%"></div></div><span class="val">30,09%</span></div>
   <div class="bar"><span>+ luật liên tầng</span><div class="track"><div class="fill" style="width:88.11%"></div></div><span class="val">30,84%</span></div>
-  <div class="bar"><span>+ suy luận chung tam giác</span><div class="track"><div class="fill" style="width:89.60%"></div></div><span class="val">31,36%</span></div>
-  <div class="bar"><span>+ auditor tầng → tam giác</span><div class="track"><div class="fill" style="width:91.11%"></div></div><span class="val">31,89%</span></div>
+  <div class="bar"><span>Bài 2: chỉ mô hình tam giác</span><div class="track"><div class="fill" style="width:89.60%"></div></div><span class="val">31,36%</span></div>
+  <div class="bar"><span>Bài 2: auditor → tam giác</span><div class="track"><div class="fill" style="width:91.11%"></div></div><span class="val">31,89%</span></div>
   <div class="scale"><span></span><div class="ticks"><span>0</span><span>35%</span></div><span></span></div>
 </div>
 
@@ -192,7 +192,6 @@ figure.dia figcaption{font-family:var(--f-head);font-size:13px;line-height:1.5;c
   <div class="step"><b>1. Dựng KG</b>sự kiện, entity, span, TIMEX; ba lớp cạnh; tầng Allen</div>
   <div class="step"><b>2.1 Classifier</b>luật riêng cho từng loại cạnh<span class="num">30,09%</span></div>
   <div class="step"><b>2.2 Luật liên tầng</b>pattern từng tầng, ghép 2–3 tầng<span class="num">30,84%</span></div>
-  <div class="step"><b>2.3 Suy luận chung</b>tam giác PMI + ICM<span class="num">31,36%</span></div>
   <div class="step warn"><b>3.1 Auditor tầng + GRAPH</b>luật theo (loại cạnh, nhãn hiện tại)<span class="num">12,80%</span> lỗi</div>
   <div class="step warn"><b>3.2 Sửa chung tam giác</b>trên đầu ra 3.1<span class="num">11,62%</span> lỗi</div>
 </div>
@@ -202,9 +201,8 @@ figure.dia figcaption{font-family:var(--f-head);font-size:13px;line-height:1.5;c
 <tr><td>1</td><td>Dựng KG, kiểm 9 bất biến chống rò rỉ</td><td>—</td><td>0 vi phạm Allen trên 585.078 tam giác gold</td></tr>
 <tr><td>2.1</td><td>Classifier luật cho EV–EV, EV→TIMEX, TIMEX→EV, TIMEX–TIMEX</td><td>mine DISCOVERY, xác nhận CONFIRMATION-1, chọn ngưỡng CONFIRMATION-2</td><td>macro-F1 gộp 30,09% (EV–EV 26,99%)</td></tr>
 <tr><td>2.2</td><td>Luật liên tầng ghi đè nhãn khi đủ chắc</td><td>như trên</td><td>30,84%</td></tr>
-<tr><td>2.3</td><td>Suy luận chung theo tam giác trên đầu ra 2.2</td><td>thống kê tam giác từ gold train; tham số cross-fit</td><td>31,36%</td></tr>
 <tr><td>3.1</td><td>Auditor tầng + GRAPH trên đồ thị cần kiểm toán</td><td>cross-fit trên valid (học một nửa, chấm nửa kia)</td><td>lỗi 15,31% → 12,80%</td></tr>
-<tr><td>3.2</td><td>Sửa chung tam giác trên đầu ra 3.1</td><td>cross-fit trên valid</td><td>lỗi → 11,62%, hoặc macro-F1 → 31,89%</td></tr>
+<tr><td>3.2</td><td>Sửa chung tam giác trên đầu ra 3.1</td><td>cross-fit trên valid</td><td>lỗi → 11,62%, hoặc macro-F1 → 31,89% (một mình trên đồ thị 2.2: 31,36%)</td></tr>
 </table></div>
 </section>
 
@@ -271,7 +269,7 @@ figure.dia figcaption{font-family:var(--f-head);font-size:13px;line-height:1.5;c
 <path d="M135,320 Q380,375 623,322" fill="none" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#dcB)"/>
 <text x="380" y="366" text-anchor="middle" style="fill:var(--accent)" font-weight="600">BEFORE</text>
 </svg>
-<figcaption>Đồ thị thật (nhãn gold) trích từ document <i>United States occupation of Nicaragua</i> (valid): câu 3 “Nicaragua <b>assumed</b> a quasi-protectorate status under the <b>1916</b> Bryan–Chamorro Treaty.”, câu 4 “President Herbert Hoover (<b>1929–1933</b>) <b>opposed</b> the relationship.”, câu 5 “… Roosevelt, invoking his new Good Neighbor policy <b>ended</b> American intervention.” Đủ bốn loại cạnh: 1916 → 1929–1933 (TIMEX–TIMEX), 1929–1933 → opposed (TIMEX→EV), assumed → 1929–1933 (EV→TIMEX), 1916 → ended (TIMEX→EV, cung phía trên). Ba cạnh màu nhấn giữa ba sự kiện tạo thành một <b>tam giác</b> — đơn vị suy luận của bước 2.3 và 3.2.</figcaption>
+<figcaption>Đồ thị thật (nhãn gold) trích từ document <i>United States occupation of Nicaragua</i> (valid): câu 3 “Nicaragua <b>assumed</b> a quasi-protectorate status under the <b>1916</b> Bryan–Chamorro Treaty.”, câu 4 “President Herbert Hoover (<b>1929–1933</b>) <b>opposed</b> the relationship.”, câu 5 “… Roosevelt, invoking his new Good Neighbor policy <b>ended</b> American intervention.” Đủ bốn loại cạnh: 1916 → 1929–1933 (TIMEX–TIMEX), 1929–1933 → opposed (TIMEX→EV), assumed → 1929–1933 (EV→TIMEX), 1916 → ended (TIMEX→EV, cung phía trên). Ba cạnh màu nhấn giữa ba sự kiện tạo thành một <b>tam giác</b> — đơn vị suy luận của mô hình tam giác (Bài 2, bước 3.2).</figcaption>
 </figure>
 <div class="two">
   <div class="card">
@@ -294,7 +292,7 @@ figure.dia figcaption{font-family:var(--f-head);font-size:13px;line-height:1.5;c
 <div class="tbl"><table>
 <tr><th>Loại node</th><th>Là gì</th><th class="n">Train</th><th class="n">Valid</th></tr>
 <tr><td>event</td><td>một <b>cụm đồng tham chiếu</b> (các lần nhắc cùng một sự kiện); 96,4% cụm chỉ có một lần nhắc</td><td class="n">67.984</td><td class="n">16.301</td></tr>
-<tr><td>entity</td><td>thực thể có id (người, tổ chức, địa điểm…)</td><td class="n">55.421</td><td class="n">13.176</td></tr>
+<tr><td>entity</td><td>thực thể có id (người, tổ chức, địa điểm…)</td><td class="n">55.421</td><td class="n">12.927</td></tr>
 <tr><td>span</td><td>tham số <i>không có</i> entity id, khoá bằng <code>md5(offset)</code>; 59,6% filler thuộc loại này, bỏ đi là mất quá nửa dữ liệu tham số</td><td class="n">71.485</td><td class="n">17.963</td></tr>
 <tr><td>timex</td><td>biểu thức thời gian; DATE/TIME đánh dấu <code>anchorable</code>, DURATION thì không</td><td class="n">16.688</td><td class="n">4.139</td></tr>
 </table></div>
@@ -310,33 +308,138 @@ figure.dia figcaption{font-family:var(--f-head);font-size:13px;line-height:1.5;c
 <p>Ba bất biến canh rò rỉ: <code>input_layer_shape</code> (cạnh input không nối hai sự kiện trực tiếp), <code>target_minimal</code> (cạnh đích chỉ có <code>{s, t, rel}</code>), <code>pairs_label_free</code> (bảng cặp không chứa nhãn).</p>
 
 <figure class="dia">
-<svg class="dia" viewBox="0 0 760 300" role="img" aria-label="Ba lớp cạnh của KG: cạnh vai trò nối sự kiện với entity, cạnh nhân quả chỉ làm trần, cạnh thời gian là đích cần đoán, gồm cả cạnh giữa sự kiện và TIMEX">
+<svg class="dia" viewBox="0 0 900 520" style="font-size:12.5px" role="img" aria-label="Sơ đồ KG của một document: bốn loại node (sự kiện, entity, span, TIMEX) và ba lớp cạnh. Cạnh vai trò nối sự kiện với entity hoặc span; cạnh thời gian nối sự kiện và TIMEX theo bốn loại; cạnh nhân quả và sự kiện con chỉ nối hai sự kiện. Hai sự kiện cùng trỏ tới một entity tạo thành một cặp chung neo.">
 <defs>
-<marker id="kgA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
-<marker id="kgB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/></marker>
+<marker id="kg2A" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+<marker id="kg2B" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/></marker>
 </defs>
-<rect x="290" y="30" width="180" height="44" rx="8" style="fill:var(--panel);stroke:currentColor"/>
-<text x="380" y="57" text-anchor="middle" font-weight="600">Sự kiện A</text>
-<rect x="290" y="226" width="180" height="44" rx="8" style="fill:var(--panel);stroke:currentColor"/>
-<text x="380" y="253" text-anchor="middle" font-weight="600">Sự kiện B</text>
-<rect x="30" y="128" width="170" height="44" rx="8" style="fill:var(--panel);stroke:currentColor"/>
-<text x="115" y="155" text-anchor="middle">Entity / Span</text>
-<rect x="560" y="128" width="170" height="44" rx="22" style="fill:var(--panel);stroke:currentColor"/>
-<text x="645" y="155" text-anchor="middle">TIMEX</text>
-<line x1="290" y1="62" x2="202" y2="136" stroke="currentColor" marker-end="url(#kgA)"/>
-<text x="238" y="90" text-anchor="end">vai trò</text>
-<line x1="290" y1="238" x2="202" y2="164" stroke="currentColor" marker-end="url(#kgA)"/>
-<text x="238" y="218" text-anchor="end">vai trò</text>
-<line x1="365" y1="74" x2="365" y2="222" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#kgB)"/>
-<text x="356" y="154" text-anchor="end" style="fill:var(--accent)" font-weight="600">thời gian (đích)</text>
-<line x1="395" y1="74" x2="395" y2="226" stroke="currentColor" stroke-dasharray="5 4" opacity="0.65"/>
-<text x="404" y="154" opacity="0.8">nhân quả, sự kiện con</text>
-<line x1="470" y1="62" x2="558" y2="136" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#kgB)"/>
-<text x="522" y="90" style="fill:var(--accent)" font-weight="600">EV→TIMEX</text>
-<line x1="560" y1="164" x2="472" y2="238" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#kgB)"/>
-<text x="522" y="222" style="fill:var(--accent)" font-weight="600">TIMEX→EV</text>
+<!-- nodes -->
+<rect x="334" y="40" width="232" height="78" rx="8" style="fill:var(--panel);stroke:currentColor"/>
+<text x="450" y="64" text-anchor="middle" font-weight="600">Sự kiện A</text>
+<text x="450" y="84" text-anchor="middle">cụm đồng tham chiếu · 16.301</text>
+<text x="450" y="104" text-anchor="middle" opacity="0.75">loại, trigger, vị trí câu</text>
+<rect x="334" y="340" width="232" height="78" rx="8" style="fill:var(--panel);stroke:currentColor"/>
+<text x="450" y="364" text-anchor="middle" font-weight="600">Sự kiện B</text>
+<text x="450" y="384" text-anchor="middle">cụm đồng tham chiếu</text>
+<text x="450" y="404" text-anchor="middle" opacity="0.75">loại, trigger, vị trí câu</text>
+<rect x="24" y="180" width="220" height="86" rx="8" style="fill:var(--panel);stroke:currentColor"/>
+<text x="134" y="204" text-anchor="middle" font-weight="600">Entity</text>
+<text x="134" y="224" text-anchor="middle">12.927 · có id và loại</text>
+<text x="134" y="244" text-anchor="middle" opacity="0.75">vd: Cherry Valley (Location)</text>
+<rect x="24" y="356" width="220" height="78" rx="8" style="fill:var(--panel);stroke:currentColor"/>
+<text x="134" y="380" text-anchor="middle" font-weight="600">Span</text>
+<text x="134" y="400" text-anchor="middle">17.963 · tham số không có id</text>
+<text x="134" y="420" text-anchor="middle" opacity="0.75">vd: “Brant”</text>
+<rect x="656" y="40" width="220" height="78" rx="22" style="fill:var(--panel);stroke:currentColor"/>
+<text x="766" y="64" text-anchor="middle" font-weight="600">TIMEX</text>
+<text x="766" y="84" text-anchor="middle">4.139 · DATE / TIME / DURATION</text>
+<text x="766" y="104" text-anchor="middle" opacity="0.75">vd: “November 11, 1778”</text>
+<rect x="656" y="340" width="220" height="78" rx="22" style="fill:var(--panel);stroke:currentColor"/>
+<text x="766" y="364" text-anchor="middle" font-weight="600">TIMEX</text>
+<text x="766" y="384" text-anchor="middle">không có cạnh vai trò</text>
+<text x="766" y="404" text-anchor="middle" opacity="0.75">chỉ nối bằng cạnh thời gian</text>
+<!-- observable role edges -->
+<line x1="334" y1="95" x2="248" y2="203" stroke="currentColor" marker-end="url(#kg2A)"/>
+<text x="282" y="140" text-anchor="end">vai trò</text>
+<line x1="334" y1="360" x2="248" y2="246" stroke="currentColor" marker-end="url(#kg2A)"/>
+<text x="286" y="322" text-anchor="end">vai trò</text>
+<line x1="334" y1="395" x2="248" y2="395" stroke="currentColor" marker-end="url(#kg2A)"/>
+<text x="291" y="388" text-anchor="middle">vai trò</text>
+<text x="134" y="294" text-anchor="middle" opacity="0.8">A và B cùng trỏ tới entity này</text>
+<text x="134" y="312" text-anchor="middle" opacity="0.8">→ một cặp chung neo (57.959)</text>
+<!-- temporal edges (targets) -->
+<line x1="420" y1="118" x2="420" y2="336" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#kg2B)"/>
+<text x="412" y="222" text-anchor="end" font-weight="600" style="fill:var(--accent)">EV–EV</text>
+<text x="412" y="240" text-anchor="end" style="fill:var(--accent)">109.929</text>
+<line x1="566" y1="79" x2="652" y2="79" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#kg2B)"/>
+<text x="610" y="70" text-anchor="middle" font-weight="600" style="fill:var(--accent)">EV→TIMEX</text>
+<text x="610" y="97" text-anchor="middle" style="fill:var(--accent)">26.573</text>
+<line x1="656" y1="379" x2="570" y2="379" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#kg2B)"/>
+<text x="612" y="370" text-anchor="middle" font-weight="600" style="fill:var(--accent)">TIMEX→EV</text>
+<text x="612" y="397" text-anchor="middle" style="fill:var(--accent)">39.935</text>
+<line x1="766" y1="118" x2="766" y2="336" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#kg2B)"/>
+<text x="774" y="222" font-weight="600" style="fill:var(--accent)">TIMEX–TIMEX</text>
+<text x="774" y="240" style="fill:var(--accent)">12.487</text>
+<!-- weak edges -->
+<line x1="490" y1="118" x2="490" y2="340" stroke-width="1.6" stroke-dasharray="6 5" style="stroke:var(--amber)"/>
+<text x="498" y="222" style="fill:var(--amber)">nhân quả /</text>
+<text x="498" y="240" style="fill:var(--amber)">sự kiện con · 12.524</text>
+<!-- legend -->
+<line x1="24" y1="470" x2="60" y2="470" stroke="currentColor"/>
+<text x="68" y="474">quan sát được, dùng làm đặc trưng ở Bài 1</text>
+<line x1="470" y1="470" x2="506" y2="470" stroke-width="2.5" style="stroke:var(--accent)"/>
+<text x="514" y="474">cạnh thời gian: đích của Bài 1, đồ thị kiểm toán của Bài 2</text>
+<line x1="24" y1="498" x2="60" y2="498" stroke-width="1.6" stroke-dasharray="6 5" style="stroke:var(--amber)"/>
+<text x="68" y="502">nhân quả / sự kiện con: không làm đặc trưng, chỉ dùng đo trần</text>
 </svg>
-<figcaption>Ba lớp cạnh được tách riêng. Cạnh vai trò (nét liền) là thông tin quan sát, dùng làm đặc trưng. Cạnh nhân quả / sự kiện con (nét đứt) chỉ dùng làm trần, vì 95% cặp PRECONDITION đã mang sẵn nhãn thời gian. Cạnh thời gian (màu nhấn) là đích: EV–EV, EV→TIMEX, TIMEX→EV, và TIMEX–TIMEX giữa hai mốc thời gian.</figcaption>
+<figcaption>Cấu trúc KG của một document, số lượng đếm trên valid (710 document). Bốn loại node: <b>sự kiện</b> (cụm đồng tham chiếu), <b>entity</b> (tham số có id và loại), <b>span</b> (tham số không có entity id), <b>TIMEX</b>. Ba lớp cạnh được tách riêng: cạnh <b>vai trò</b> nối sự kiện với entity/span (45.978), là thông tin quan sát được; cạnh <b>thời gian</b> theo bốn loại (188.924) là đích dự đoán; cạnh <b>nhân quả / sự kiện con</b> (CAUSE, PRECONDITION, SUBEVENT) chỉ nối hai sự kiện. TIMEX không có cạnh vai trò, nên với Bài 1 thông tin về TIMEX đến từ văn bản (giới từ, vị trí, giá trị lịch) chứ không đến từ đồ thị. Hai sự kiện cùng trỏ tới một entity hoặc span tạo thành một <b>cặp chung neo</b>, được tính sẵn lúc dựng KG làm nguồn đặc trưng.</figcaption>
+</figure>
+<figure class="dia">
+<svg class="dia" viewBox="0 0 900 470" style="font-size:12.5px" role="img" aria-label="KG thật của câu đầu bài Franco-Dutch War: hai sự kiện War và supported cùng trỏ tới France, Dutch Republic, Dutch; supported còn trỏ tới span allies. War chứa supported và supported là sự kiện con của War. 1672 trước 1678; cả hai sự kiện chồng lấn với 1672 và 1678.">
+<defs>
+<marker id="exA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+<marker id="exB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/></marker>
+<marker id="exC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--amber)"/></marker>
+</defs>
+<g style="paint-order:stroke;stroke-linejoin:round">
+<!-- role edges (observable) -->
+<line x1="330" y1="108" x2="202" y2="82" stroke="currentColor" marker-end="url(#exA)"/>
+<line x1="330" y1="112" x2="202" y2="172" stroke="currentColor" marker-end="url(#exA)"/>
+<line x1="330" y1="116" x2="202" y2="260" stroke="currentColor" marker-end="url(#exA)"/>
+<line x1="330" y1="314" x2="202" y2="88" stroke="currentColor" marker-end="url(#exA)"/>
+<line x1="330" y1="318" x2="202" y2="178" stroke="currentColor" marker-end="url(#exA)"/>
+<line x1="330" y1="322" x2="202" y2="266" stroke="currentColor" marker-end="url(#exA)"/>
+<line x1="330" y1="326" x2="202" y2="354" stroke="currentColor" marker-end="url(#exA)"/>
+<text x="300" y="98" text-anchor="middle" font-size="11" style="stroke:var(--paper);stroke-width:4px;fill:currentColor">Agent</text>
+<text x="292" y="132" text-anchor="middle" font-size="11" style="stroke:var(--paper);stroke-width:4px;fill:currentColor">Patient</text>
+<text x="300" y="160" text-anchor="middle" font-size="11" style="stroke:var(--paper);stroke-width:4px;fill:currentColor">Location</text>
+<text x="300" y="262" text-anchor="middle" font-size="11" style="stroke:var(--paper);stroke-width:4px;fill:currentColor">Patient</text>
+<text x="292" y="285" text-anchor="middle" font-size="11" style="stroke:var(--paper);stroke-width:4px;fill:currentColor">Patient</text>
+<text x="300" y="307" text-anchor="middle" font-size="11" style="stroke:var(--paper);stroke-width:4px;fill:currentColor">Location</text>
+<text x="300" y="344" text-anchor="middle" font-size="11" style="stroke:var(--paper);stroke-width:4px;fill:currentColor">Agent</text>
+<!-- temporal edges (targets) -->
+<line x1="400" y1="134" x2="400" y2="294" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#exB)"/>
+<text x="392" y="218" text-anchor="end" font-weight="600" style="stroke:var(--paper);stroke-width:4px;fill:var(--accent)">CONTAINS</text>
+<line x1="688" y1="108" x2="534" y2="108" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#exB)"/>
+<text x="611" y="99" text-anchor="middle" font-weight="600" style="fill:var(--accent)">OVERLAP</text>
+<line x1="530" y1="320" x2="684" y2="320" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#exB)"/>
+<text x="607" y="341" text-anchor="middle" font-weight="600" style="fill:var(--accent)">OVERLAP</text>
+<line x1="700" y1="130" x2="534" y2="300" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#exB)"/>
+<text x="664" y="178" text-anchor="middle" font-weight="600" style="stroke:var(--paper);stroke-width:4px;fill:var(--accent)">OVERLAP</text>
+<line x1="530" y1="130" x2="696" y2="298" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#exB)"/>
+<text x="572" y="178" text-anchor="middle" font-weight="600" style="stroke:var(--paper);stroke-width:4px;fill:var(--accent)">OVERLAP</text>
+<line x1="776" y1="130" x2="776" y2="294" stroke-width="2.5" style="stroke:var(--accent)" marker-end="url(#exB)"/>
+<text x="784" y="218" font-weight="600" style="fill:var(--accent)">BEFORE</text>
+<!-- weak edge -->
+<line x1="462" y1="134" x2="462" y2="294" stroke-width="1.6" stroke-dasharray="6 5" style="stroke:var(--amber)" marker-end="url(#exC)"/>
+<text x="470" y="218" style="stroke:var(--paper);stroke-width:4px;fill:var(--amber)">SUBEVENT</text>
+</g>
+<!-- nodes -->
+<rect x="22" y="60" width="180" height="44" rx="8" style="fill:var(--panel);stroke:currentColor"/>
+<text x="112" y="80" text-anchor="middle" font-weight="600">France</text><text x="112" y="96" text-anchor="middle" font-size="11" opacity="0.75">entity · Location</text>
+<rect x="22" y="150" width="180" height="44" rx="8" style="fill:var(--panel);stroke:currentColor"/>
+<text x="112" y="170" text-anchor="middle" font-weight="600">Dutch Republic</text><text x="112" y="186" text-anchor="middle" font-size="11" opacity="0.75">entity · Location</text>
+<rect x="22" y="240" width="180" height="44" rx="8" style="fill:var(--panel);stroke:currentColor"/>
+<text x="112" y="260" text-anchor="middle" font-weight="600">Dutch</text><text x="112" y="276" text-anchor="middle" font-size="11" opacity="0.75">entity · Location</text>
+<rect x="22" y="332" width="180" height="44" rx="8" stroke-dasharray="4 3" style="fill:var(--panel);stroke:currentColor"/>
+<text x="112" y="352" text-anchor="middle" font-weight="600">allies</text><text x="112" y="368" text-anchor="middle" font-size="11" opacity="0.75">span (không có id)</text>
+<rect x="330" y="86" width="200" height="48" rx="8" stroke-width="1.6" style="fill:var(--accent-soft);stroke:currentColor"/>
+<text x="430" y="107" text-anchor="middle" font-weight="600">War</text><text x="430" y="124" text-anchor="middle" font-size="11" opacity="0.75">sự kiện · Hostile_encounter</text>
+<rect x="330" y="296" width="200" height="48" rx="8" stroke-width="1.6" style="fill:var(--accent-soft);stroke:currentColor"/>
+<text x="430" y="317" text-anchor="middle" font-weight="600">supported</text><text x="430" y="334" text-anchor="middle" font-size="11" opacity="0.75">sự kiện · Supporting</text>
+<rect x="690" y="86" width="172" height="44" rx="22" style="fill:var(--panel);stroke:currentColor"/>
+<text x="776" y="106" text-anchor="middle" font-weight="600">1672</text><text x="776" y="122" text-anchor="middle" font-size="11" opacity="0.75">TIMEX · DATE</text>
+<rect x="690" y="298" width="172" height="44" rx="22" style="fill:var(--panel);stroke:currentColor"/>
+<text x="776" y="318" text-anchor="middle" font-weight="600">1678</text><text x="776" y="334" text-anchor="middle" font-size="11" opacity="0.75">TIMEX · DATE</text>
+<!-- anchored-pair note -->
+<text x="112" y="410" text-anchor="middle" font-size="11.5" opacity="0.85">War và supported cùng trỏ tới 3 entity</text>
+<text x="112" y="426" text-anchor="middle" font-size="11.5" opacity="0.85">→ một cặp chung neo</text>
+<!-- legend -->
+<line x1="330" y1="410" x2="366" y2="410" stroke="currentColor"/><text x="374" y="414">vai trò (quan sát được)</text>
+<line x1="560" y1="410" x2="596" y2="410" stroke-width="2.5" style="stroke:var(--accent)"/><text x="604" y="414">quan hệ thời gian (nhãn gold)</text>
+<line x1="330" y1="438" x2="366" y2="438" stroke-width="1.6" stroke-dasharray="6 5" style="stroke:var(--amber)"/><text x="374" y="442">sự kiện con (chỉ dùng đo trần)</text>
+</svg>
+<figcaption><b>Ví dụ thật</b>, câu đầu bài <i>Franco-Dutch War</i> (valid): “The Franco-Dutch War … was a <b>conflict</b> that lasted <b>from 1672 to 1678</b> between the Dutch Republic and France, each <b>supported</b> by allies.” Mỗi cạnh trong hình lấy nguyên từ KG. Đủ bốn loại cạnh thời gian: War CONTAINS supported (EV–EV), War OVERLAP 1678 và supported OVERLAP 1678 (EV→TIMEX), 1672 OVERLAP War và 1672 OVERLAP supported (TIMEX→EV), 1672 BEFORE 1678 (TIMEX–TIMEX). Bốn node có đủ 6 cạnh, cho thấy đồ thị dày thế nào. Ở Bài 1, classifier chỉ thấy các cạnh vai trò, loại sự kiện và văn bản, rồi phải đoán nhãn của 6 cạnh màu; cạnh SUBEVENT không được dùng.</figcaption>
 </figure>
 <h3>Tầng ràng buộc Allen</h3>
 <p>Mỗi nhãn dịch sang tập quan hệ Allen trên hai điểm mút <code>(s, e)</code>: BEFORE = {b} (<code>e_a &lt; s_b</code>), CONTAINS = {di}, OVERLAP = {o}, SIMULTANEOUS = {e}, BEGINS-ON = {s, si, e}, ENDS-ON = {b, m}. Bảng hợp thành 13×13 <b>sinh bằng vét cạn</b> trên các khoảng nguyên trong <code>[0,7)</code>, không viết tay. Kiểm trên gold: <b>0 vi phạm trong 585.078 tam giác</b>.</p>
@@ -415,7 +518,7 @@ A(x) = luật hoạt động (wlb ≥ ngưỡng của nhãn) bắn trên cặp x
 <tr class="hl"><td>Bước 3A: giữ mọi dự đoán</td><td class="n"><b>378</b></td><td class="n">209</td><td class="n">377</td><td class="n">99,985% / 99,979%</td><td class="n">26,99% / 87,91%</td></tr>
 <tr><td>Bước 3B: giữ mọi dự đoán đúng</td><td class="n">279</td><td class="n">170</td><td class="n">278</td><td class="n">99,741% / 99,699%</td><td class="n">27,02% / 88,11%</td></tr>
 </table></div>
-<p><b>Greedy cách tối ưu tối đa 1 luật</b> (377 ≤ OPT ≤ 378): với ngôn ngữ luật này, không tập con nào giữ được mọi dự đoán mà dùng ít hơn 377 luật. Bộ A giống hệt trên dữ liệu dựng (DISCOVERY + CONF-1) và chỉ lệch khoảng 23 cặp valid (0,021%). Các bước 2.2, 2.3 và Bài 2 chưa chạy lại với bộ này; với mức lệch đó, thay đổi nếu có sẽ rất nhỏ. Bộ B bảo đảm mọi cặp đã đoán đúng vẫn đúng, cặp sai có thể về BEFORE. Khác hai lần rút gọn trước — bỏ theo bao hàm làm mất tín hiệu, set cover gộp mọi nhãn chỉ giữ CONTAINS — ràng buộc ở đây đặt trên đúng quyết định của combiner ở từng cặp, nên nhãn hiếm giữ nguyên: bộ A có 276 CONTAINS, 55 SIMULTANEOUS, 47 OVERLAP. Trong bộ B không còn cặp luật cùng nhãn nào có Jaccard phần mở rộng ≥ 0,8. Danh sách theo nhãn → họ → luật: <code>report/RULES_COMPACT.md</code>.</p>
+<p><b>Greedy cách tối ưu tối đa 1 luật</b> (377 ≤ OPT ≤ 378): với ngôn ngữ luật này, không tập con nào giữ được mọi dự đoán mà dùng ít hơn 377 luật. Bộ A giống hệt trên dữ liệu dựng (DISCOVERY + CONF-1) và chỉ lệch khoảng 23 cặp valid (0,021%). Bước 2.2 và Bài 2 chưa chạy lại với bộ này; với mức lệch đó, thay đổi nếu có sẽ rất nhỏ. Bộ B bảo đảm mọi cặp đã đoán đúng vẫn đúng, cặp sai có thể về BEFORE. Khác hai lần rút gọn trước — bỏ theo bao hàm làm mất tín hiệu, set cover gộp mọi nhãn chỉ giữ CONTAINS — ràng buộc ở đây đặt trên đúng quyết định của combiner ở từng cặp, nên nhãn hiếm giữ nguyên: bộ A có 276 CONTAINS, 55 SIMULTANEOUS, 47 OVERLAP. Trong bộ B không còn cặp luật cùng nhãn nào có Jaccard phần mở rộng ≥ 0,8. Danh sách theo nhãn → họ → luật: <code>report/RULES_COMPACT.md</code>.</p>
 <div class="tbl"><table><tr><th>Bộ luật</th><th>Sau xác nhận / qua cổng</th><th>Hoạt động</th><th>Phát biểu khác nhau</th><th><b>Phủ A</b> (chặn dưới)</th><th>Valid: giữ nguyên / macro-F1</th></tr><tr><td>EV–EV (2.1)</td><td>54.719</td><td>2.794</td><td>1.621</td><td><b>378</b> (377)</td><td>99,979% / 26,99%</td></tr><tr><td>EV→TIMEX (2.1)</td><td>1.412</td><td>134</td><td>125</td><td><b>45</b> (45)</td><td>100% / 29,74%</td></tr><tr><td>TIMEX→EV (2.1)</td><td>1.710</td><td>598</td><td>583</td><td><b>93</b> (93)</td><td>99,997% / 24,29%</td></tr><tr><td>TIMEX–TIMEX (2.1)</td><td>416</td><td>100</td><td>90</td><td><b>16</b> (16)</td><td>100% / 32,98%</td></tr><tr><td>Liên tầng EV–EV (2.2)</td><td>7.856</td><td>1.595</td><td>1.015</td><td><b>152</b> (152)</td><td>99,979% / 27,41%</td></tr><tr><td>Liên tầng EV→TIMEX</td><td>959</td><td>273</td><td>217</td><td><b>12</b> (12)</td><td>99,989% / 30,58%</td></tr><tr><td>Liên tầng TIMEX→EV</td><td>875</td><td>6</td><td>6</td><td><b>5</b> (5)</td><td>100% / 26,24%</td></tr><tr><td>Liên tầng TIMEX–TIMEX</td><td>548</td><td>221</td><td>121</td><td><b>12</b> (12)</td><td>100% / 34,93%</td></tr><tr class="hl"><td><b>Bài 1 tổng</b></td><td><b>68.495</b></td><td><b>5.721</b></td><td></td><td><b>713</b> (712)</td><td></td></tr><tr><td>Auditor Bài 2 (mỗi fold · mục tiêu)</td><td>1.433–1.559</td><td>87–287</td><td></td><td><b>42–83</b> (42–83)</td><td>99,985–99,993%</td></tr></table></div>
 <p><b>Cùng cách rút gọn cho mọi bộ luật của Bài 1 — tổng 68.495 → 713 luật.</b> Mọi phủ A trừ EV–EV bằng đúng chặn dưới, tức là tối ưu. Luật liên tầng dùng combiner ghi đè, nên tập cặp cần giữ gồm cả những cặp mà luật đề xuất đúng nhãn đang có để chặn nhãn khác. Chạy lại bước liên tầng cho 30,83% thay vì 30,84% (207 / 981.319 dự đoán khác nhau): bước này không tái lập từng bit vì thứ tự duyệt set phụ thuộc hash seed.</p>
 <div class="note"><b>Điểm yếu lộ ra:</b> nhiều luật có precision thấp trên DISCOVERY nhưng rất cao trên CONF-1, ví dụ <code>type_pair = (Catastrophe, Motion_directional)</code>: 11/32 rồi 12/12, wlb 0,758. Vì wlb chấm trên CONF-1 cho 92 nghìn ứng viên, luật có thể được xếp cao nhờ may trên tập xác nhận nhỏ. Hướng sửa: gộp bằng chứng hai phần hoặc co về tiên nghiệm trước khi so ngưỡng — chưa làm.</div>
@@ -440,7 +543,7 @@ A(x) = luật hoạt động (wlb ≥ ngưỡng của nhãn) bắn trên cặp x
 <tr><td>2.1 gộp 4 loại cạnh</td><td class="n">29,87%</td><td class="n"><b>30,09%</b></td></tr>
 <tr><td>2.2 EV–EV</td><td class="n">26,50%</td><td class="n"><b>27,44%</b></td></tr>
 <tr><td>2.2 gộp 4 loại cạnh</td><td class="n">30,83%</td><td class="n">30,84%</td></tr>
-<tr><td>2.3 gộp (cross-fit)</td><td class="n"><b>31,70%</b></td><td class="n">31,36%</td></tr>
+<tr><td><i>Tham khảo — Bài 2 chỉ mô hình tam giác</i></td><td class="n"><i>31,70%</i></td><td class="n"><i>31,36%</i></td></tr>
 <tr><td>Bài 2, lỗi (3.1 → 3.2, giảm lỗi)</td><td class="n">15,11% → 11,81%</td><td class="n">15,31% → <b>11,62%</b></td></tr>
 <tr><td>Bài 2, macro-F1 (3.1 → 3.2, macro-F1)</td><td class="n"><b>32,25%</b></td><td class="n">31,89%</td></tr>
 </table></div>
@@ -518,8 +621,8 @@ A(x) = luật hoạt động (wlb ≥ ngưỡng của nhãn) bắn trên cặp x
 </figure>
 <p>Trên bộ luật mới, <b>pattern từng tầng tạo phần lớn gain</b> (EV–EV +0,34, TIMEX–TIMEX +1,69, TIMEX→EV +1,95) và <b>ghép liên tầng thêm một phần</b> (EV–EV +0,12, EV→TIMEX +0,36, TIMEX–TIMEX +0,26, TIMEX→EV 0). Trên bộ cũ thì ngược lại: pattern từng tầng chỉ +0,01 ở EV–EV, ghép liên tầng thêm +0,34 — tức một phần tín hiệu mà pattern mang lại đã được bộ luật mới nắm sẵn. Luật liên tầng thật: <i>A ở đầu bài, B ở giữa bài (DISC) + trigger A là “war” (LEX)</i> → CONTAINS (0,95); <i>B đứng trước A (DISC) + cùng giá trị lịch (TIME)</i> → SIMULTANEOUS cho TIMEX–TIMEX (0,77). Bản thử theo ý tưởng Event-Centric PaTeCon (hull mốc thời gian ba trị, refinement trong dàn view, BH-FDR) chỉ +0,09 ở EV–EV: khi mỗi tầng chỉ còn vài trăm pattern, vét cạn tổ hợp 2–3 tìm được nhiều luật tốt hơn là tinh chỉnh dần.</p>
 
-<h3 id="b1-chung">Suy luận chung theo document</h3>
-<p>Dùng mô hình năng lượng tam giác của Bài 2 (xem <a href="#b2-tamgiac">bước 3.2</a>) trên đầu ra của classifier: cân giữa nhãn từng cạnh và độ hợp lý của mọi tam giác. Chọn tham số theo macro-F1, cross-fit trên valid: <b>30,84% → 31,36%</b> (với bộ luật cũ: 30,83% → 31,70%). λ và α chọn giống nhau ở cả hai fold.</p>
+<h3 id="b1-chung">Mô hình tam giác thuộc Bài 2</h3>
+<p>Các phiên bản trước có "bước 2.3": chạy mô hình năng lượng tam giác của Bài 2 ngay trên đầu ra 2.2. Bước này đã được chuyển hẳn sang Bài 2 để ranh giới rõ ràng: <b>Bài 1 chỉ dùng thông tin của từng cặp, Bài 2 dùng cấu trúc cả đồ thị</b>, và đầu vào của Bài 2 chính là đồ thị tốt nhất của Bài 1 (30,84%). Chạy một mình trên đồ thị đó, mô hình tam giác cho 31,36% (bộ luật cũ: 31,70%) — xem <a href="#b2-tamgiac">bước 3.2</a> và bảng ghép ở Bài 2.</p>
 
 <h3 id="b1-baccao">Vì sao tín hiệu bậc cao khó dùng ở Bài 1</h3>
 <p>Nếu biết nhãn thật của các cạnh xung quanh, đồ thị hợp nhất (mọi sự kiện, mọi TIMEX, mọi cạnh) nâng macro-F1 gộp từ 29,87% (classifier cũ) lên <b>37,65%</b> (accuracy 94,92%). Khi các nhãn đó phải tự đoán, pattern trên đồ thị chỉ thêm tối đa +0,25. Lý do là <b>tính vòng tròn</b>: luật đọc nhãn dự đoán không thể đáng tin hơn classifier sinh ra nhãn đó; thêm vào đó lỗi classifier tụ thành cụm (EV–EV, classifier cũ: quanh một cạnh sai, 32,9% cạnh kề cũng sai, so với 7,6% quanh cạnh đúng). Các biểu diễn quan sát được khác đã thử: ngữ cảnh TIMEX không đọc quan hệ (−0,02 đến −0,04), đường đi qua entity có vai trò (0 luật qua cổng chặt).</p>
@@ -527,7 +630,7 @@ A(x) = luật hoạt động (wlb ≥ ngưỡng của nhãn) bắn trên cặp x
 <h3 id="b1-bo345">Tình trạng bộ 3, 4, 5 giữa sự kiện và TIMEX</h3>
 <div class="tbl"><table>
 <tr><th>Cấu trúc</th><th>Đã áp dụng ở đâu</th><th>Kết quả</th></tr>
-<tr><td><b>Bộ 3</b>: đường A–X–B, X là sự kiện hoặc TIMEX</td><td>Bài 1: luật motif 3E/3T; Bài 2: tầng GRAPH; cả hai bài: tam giác trong suy luận chung</td><td>Bài 1: motif thực tế tối đa +0,26 (vòng tròn), trần +15,67 khi biết nhãn xung quanh (đo trên bộ 257 luật cũ); suy luận tam giác +0,52 (30,84 → 31,36). Bài 2: đơn vị suy luận chính — loại khoảng 80% lỗi bơm, đưa lỗi classifier 15,31% → 11,62% (cùng auditor 3.1)</td></tr>
+<tr><td><b>Bộ 3</b>: đường A–X–B, X là sự kiện hoặc TIMEX</td><td>Bài 1: luật motif 3E/3T (thí nghiệm); Bài 2: tầng GRAPH và mô hình tam giác</td><td>Bài 1: motif thực tế tối đa +0,26 (vòng tròn), trần +15,67 khi biết nhãn xung quanh (đo trên bộ 257 luật cũ); mô hình tam giác của Bài 2 +0,52 (30,84 → 31,36). Bài 2: đơn vị suy luận chính — loại khoảng 80% lỗi bơm, đưa lỗi classifier 15,31% → 11,62% (cùng auditor 3.1)</td></tr>
 <tr><td><b>Bộ 4</b> dạng đường A–X–Y–B (4EE/4ET/4TE/4TT)</td><td>Bài 1: luật motif; Bài 2: tầng GRAPH</td><td>Bài 1 (bộ 257 luật cũ): 0 luật qua cổng chặt khi có TIMEX ở giữa, +0,17 với 4EE; Bài 2: là một phần của tầng GRAPH (auditor 3.1)</td></tr>
 <tr><td><b>Bộ 4</b> dạng cụm đủ 6 cạnh (4 node)</td><td>Thăm dò làm hạng tử suy luận chung (Bài 2, nhiễu classifier, classifier cũ)</td><td>Không có tín hiệu thêm (tỷ số phát hiện 0,94×): không gian cấu hình 6⁶ quá thưa so với dữ liệu</td></tr>
 <tr><td><b>Bộ 3 / 4 / 5 quanh một cạnh</b> (1 / 2 / 3 hàng xóm chung, sự kiện hoặc TIMEX; bộ 4K thêm cạnh giữa hai hàng xóm)</td><td><b>Đo lại 24/09</b> trên cả 4 loại cạnh, protocol hiện tại (<code>motif345.py</code>), ghi đè lên classifier bước 2.2 (30,84%)</td><td>Hàng xóm <b>gold</b> (trần): bộ 3 46,47%, bộ 3+4 <b>47,34%</b> (+0,87 so với bộ 3), bộ 3+4+5 47,21%. Hàng xóm <b>dự đoán</b> (thực tế): bộ 3 31,53% (+0,69), bộ 3+4 31,60%, bộ 3+4+5 <b>31,62%</b> (+0,78) — bộ 4 và 5 chỉ thêm +0,09</td></tr>
@@ -726,7 +829,7 @@ T_t    = −[ log p~(cấu hình t) − Σ_{cạnh ∈ t} log P(l_e | loại c�
 
 <h4>B1.3 — Gộp 188.924 cạnh, từng nhãn qua từng bước</h4>
 <div class="tbl"><table>
-<tr><th>Nhãn</th><th class="n">Số cạnh</th><th class="n">2.1 Classifier: P / R / F1</th><th class="n">2.2 + liên tầng: F1</th><th class="n">2.3 + tam giác: F1</th><th class="n">+ Bài 2 (3.1→3.2, macro): F1</th></tr>
+<tr><th>Nhãn</th><th class="n">Số cạnh</th><th class="n">2.1 Classifier: P / R / F1</th><th class="n">2.2 + liên tầng (Bài 1): F1</th><th class="n">Bài 2 chỉ tam giác: F1</th><th class="n">Bài 2 3.1→3.2 (macro): F1</th></tr>
 <tr><td>BEFORE</td><td class="n">160.227</td><td class="n">91,2 / 91,8 / 91,5</td><td class="n">91,3</td><td class="n">92,3</td><td class="n">93,1</td></tr>
 <tr><td>CONTAINS</td><td class="n">25.550</td><td class="n">51,6 / 50,6 / 51,1</td><td class="n">52,9</td><td class="n">53,7</td><td class="n">56,6</td></tr>
 <tr><td>SIMULTANEOUS</td><td class="n">1.474</td><td class="n">27,8 / 24,1 / 25,8</td><td class="n">26,0</td><td class="n">25,7</td><td class="n">28,4</td></tr>
@@ -736,8 +839,8 @@ T_t    = −[ log p~(cấu hình t) − Σ_{cạnh ∈ t} log P(l_e | loại c�
 <tr class="hl"><td>Macro-F1</td><td></td><td class="n">30,09%</td><td class="n">30,84%</td><td class="n">31,36%</td><td class="n">31,89%</td></tr>
 <tr class="dim"><td>Accuracy</td><td></td><td class="n">84,96%</td><td class="n">84,69%</td><td class="n">86,17%</td><td class="n">87,47% (lỗi 12,53%)</td></tr>
 </table></div>
-<p>* Log gốc của bước 2.3 và Bài 2 chỉ in F1 của 4 nhãn chính. Cộng ngược từ macro-F1: ở cột 2.3, F1 của BEGINS-ON và ENDS-ON cộng lại khoảng <b>1,9 điểm</b> (1,6–2,1 do làm tròn; 6 × 31,36 − (92,3 + 53,7 + 25,7 + 14,6)), tức là bước tam giác đoán đúng được một ít cạnh của hai nhãn này. Ở cột Bài 2 phần đó xấp xỉ 0. Số chính xác từng nhãn sẽ có khi chạy lại bước này với bản <code>bai2_combo.py</code> đã sửa để in đủ 6 nhãn.</p>
-<p>Pipeline với bộ luật EV–EV mine trên toàn bộ train. Cột 2.3 và cột Bài 2 là cross-fit trên valid; hai cột đầu dùng protocol DISCOVERY / CONFIRMATION. Với bộ 257 luật cũ, hàng macro-F1 là 29,87 / 30,83 / 31,70 / 32,25%.</p>
+<p>* Log gốc của hai cột Bài 2 chỉ in F1 của 4 nhãn chính. Cộng ngược từ macro-F1: ở cột "chỉ tam giác", F1 của BEGINS-ON và ENDS-ON cộng lại khoảng <b>1,9 điểm</b> (1,6–2,1 do làm tròn; 6 × 31,36 − (92,3 + 53,7 + 25,7 + 14,6)), tức là bước tam giác đoán đúng được một ít cạnh của hai nhãn này. Ở cột Bài 2 phần đó xấp xỉ 0. Số chính xác từng nhãn sẽ có khi chạy lại bước này với bản <code>bai2_combo.py</code> đã sửa để in đủ 6 nhãn.</p>
+<p>Pipeline với bộ luật EV–EV mine trên toàn bộ train. Hai cột Bài 2 là cross-fit trên valid; hai cột đầu dùng protocol DISCOVERY / CONFIRMATION. Với bộ 257 luật cũ, hàng macro-F1 là 29,87 / 30,83 / 31,70 / 32,25%.</p>
 
 <h4>B1.4 — Luật liên tầng theo loại cạnh, F1 từng nhãn</h4>
 <div class="tbl"><table>
@@ -867,9 +970,9 @@ T_t    = −[ log p~(cấu hình t) − Σ_{cạnh ∈ t} log P(l_e | loại c�
     <h4>Bài 1</h4>
     <ul>
       <li>BEGINS-ON / ENDS-ON vẫn F1 = 0 trong pipeline. Mine lại theo định nghĩa RED (<code>experiments/begins_ends/</code>) cho macro-F1 30,84% → 31,65% / 32,36%, nhưng sửa đúng 6–7 cạnh và làm hỏng 163–216 cạnh đúng, vì tín hiệu văn bản chỉ đi kèm nhãn hiếm ở 1–10% số lần.</li>
-      <li>Bộ luật mới hơn bộ cũ ở EV–EV nhưng không hơn sau suy luận tam giác (31,36% so với 31,70%); chưa đo dao động theo seed.</li>
+      <li>Bộ luật mới hơn bộ cũ ở EV–EV nhưng không hơn sau mô hình tam giác của Bài 2 (31,36% so với 31,70%); chưa đo dao động theo seed.</li>
       <li><code>wlb</code> chấm trên CONF-1 bị lời nguyền người thắng (ví dụ 11/32 trên DISCOVERY, 12/12 trên CONF-1).</li>
-      <li>Trần khi biết nhãn xung quanh là 37,65% (đo với classifier cũ); hiện 31,36%.</li>
+      <li>Trần khi biết nhãn xung quanh là 37,65% (đo với classifier cũ); Bài 1 hiện 30,84%.</li>
       <li>Lemma chỉ là tách hậu tố; phân cấp loại sự kiện MAVEN chưa có trên máy.</li>
     </ul>
   </div>

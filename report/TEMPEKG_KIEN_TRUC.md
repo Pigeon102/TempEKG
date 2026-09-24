@@ -95,7 +95,7 @@ Dựng bằng `build_kg.py`, kiểm bằng `verify_kg.py` (9 bất biến, đề
 | Loại node | Là gì | Train | Valid |
 |---|---|---|---|
 | event | cụm đồng tham chiếu (96,4% chỉ có một lần nhắc) | 67.984 | 16.301 |
-| entity | thực thể có id | 55.421 | 13.176 |
+| entity | thực thể có id | 55.421 | 12.927 |
 | span | tham số không có entity id, khoá `md5(offset)`; 59,6% filler thuộc loại này | 71.485 | 17.963 |
 | timex | biểu thức thời gian; DATE/TIME là `anchorable`, DURATION thì không | 16.688 | 4.139 |
 
@@ -105,14 +105,60 @@ Ví dụ thuộc tính một node sự kiện: `type=Hindering`, `trigger=restra
 ### 3.2 Ba lớp cạnh, tách vật lý
 
 ```mermaid
-flowchart TB
-    A["Sự kiện A"] -->|"vai trò (input)"| X["Entity / Span"]
-    B["Sự kiện B"] -->|"vai trò (input)"| X
-    A ==>|"thời gian (ĐÍCH)"| B
-    A -.->|"nhân quả / sự kiện con (chỉ làm trần)"| B
-    A ==>|"EV→TIMEX"| T["TIMEX"]
-    T ==>|"TIMEX→EV"| B
+flowchart LR
+    X["Entity<br/>(có id, loại)"]
+    S["Span<br/>(tham số không có id)"]
+    A["Sự kiện A<br/>(cụm đồng tham chiếu)"]
+    B["Sự kiện B"]
+    T1(["TIMEX"])
+    T2(["TIMEX"])
+    A -->|"vai trò"| X
+    B -->|"vai trò"| X
+    B -->|"vai trò"| S
+    A ==>|"EV–EV (đích)"| B
+    A -.->|"nhân quả / sự kiện con<br/>(chỉ làm trần)"| B
+    A ==>|"EV→TIMEX"| T1
+    T2 ==>|"TIMEX→EV"| B
+    T1 ==>|"TIMEX–TIMEX"| T2
 ```
+
+Số lượng trên valid: node sự kiện 16.301, entity 12.927, span 17.963, TIMEX 4.139; cạnh vai trò 45.978; cạnh
+thời gian 188.924 (EV–EV 109.929, EV→TIMEX 26.573, TIMEX→EV 39.935, TIMEX–TIMEX 12.487); nhân quả / sự kiện con
+12.524. TIMEX không có cạnh vai trò. A và B cùng trỏ tới một entity nên tạo thành một **cặp chung neo** (valid
+57.959 cặp), được tính sẵn làm nguồn đặc trưng.
+
+**Ví dụ thật**, câu đầu bài *Franco-Dutch War* (valid): "The Franco-Dutch War … was a **conflict** that lasted
+**from 1672 to 1678** between the Dutch Republic and France, each **supported** by allies."
+
+```mermaid
+flowchart LR
+    FR["France<br/>entity"]
+    DR["Dutch Republic<br/>entity"]
+    DU["Dutch<br/>entity"]
+    AL["allies<br/>span"]
+    W["War<br/>Hostile_encounter"]
+    S["supported<br/>Supporting"]
+    T1(["1672"])
+    T2(["1678"])
+    W -->|Agent| FR
+    W -->|Patient| DR
+    W -->|Location| DU
+    S -->|Patient| FR
+    S -->|Patient| DR
+    S -->|Location| DU
+    S -->|Agent| AL
+    W ==>|CONTAINS| S
+    W -.->|SUBEVENT| S
+    T1 ==>|OVERLAP| W
+    T1 ==>|OVERLAP| S
+    W ==>|OVERLAP| T2
+    S ==>|OVERLAP| T2
+    T1 ==>|BEFORE| T2
+```
+
+Đủ bốn loại cạnh thời gian (EV–EV, EV→TIMEX, TIMEX→EV, TIMEX–TIMEX) giữa 4 node, và War cùng supported trỏ
+tới 3 entity chung nên tạo thành một cặp chung neo. Ở Bài 1, classifier chỉ thấy cạnh vai trò, loại sự kiện và
+văn bản, rồi phải đoán nhãn của 6 cạnh thời gian; cạnh SUBEVENT không được dùng.
 
 | Lớp | Nội dung | Train | Dùng làm đặc trưng? |
 |---|---|---|---|
@@ -146,7 +192,7 @@ flowchart LR
 ```
 
 Đủ bốn loại cạnh. Ba cạnh đậm giữa ba sự kiện tạo thành một **tam giác** — đơn vị suy luận của các
-bước suy luận chung (Bài 1 bước 2.3, Bài 2 bước 3.2).
+bước suy luận chung (Bài 2 bước 3.2).
 
 ---
 
@@ -202,8 +248,7 @@ flowchart TB
     S0["0. Chia dữ liệu theo hash document"] --> S1["1. Dựng KG + tầng Allen"]
     S1 --> S21["2.1 Classifier luật cho 4 loại cạnh<br/>30,09%"]
     S21 --> S22["2.2 Luật liên tầng<br/>30,84%"]
-    S22 --> S23["2.3 Suy luận chung theo tam giác<br/>31,36%"]
-    S22 --> N["Đồ thị cần kiểm toán<br/>(đầu ra Bài 1, lỗi 15,31%, hoặc nhiễu bơm)"]
+    S22 --> N["Đồ thị cần kiểm toán<br/>(đầu ra tốt nhất của Bài 1, lỗi 15,31%, hoặc nhiễu bơm)"]
     N --> S31["3.1 Auditor tầng + GRAPH<br/>lỗi 12,80%"]
     S31 --> S32["3.2 Sửa chung theo tam giác<br/>lỗi 11,62% · macro-F1 31,89%"]
 ```
@@ -213,15 +258,14 @@ flowchart TB
 | 0 | Chia train theo hash document | — | — |
 | 1 | Dựng KG, kiểm 9 bất biến | — | 0 vi phạm Allen trên gold |
 | 2.1 | Classifier luật cho EV–EV, EV→TIMEX, TIMEX→EV, TIMEX–TIMEX | DISCOVERY / CONF-1 / CONF-2 | macro-F1 gộp 30,09% (EV–EV 26,99%) |
-| 2.2 | Luật liên tầng ghi đè nhãn khi đủ chắc | như trên | 30,84% |
-| 2.3 | Suy luận chung theo tam giác | thống kê tam giác gold; tham số cross-fit | 31,36% |
+| 2.2 | Luật liên tầng ghi đè nhãn khi đủ chắc | như trên | **30,84% — kết quả Bài 1** |
 | 3.1 | Auditor tầng + GRAPH | cross-fit trên valid | lỗi 15,31% → 12,80% |
-| 3.2 | Sửa chung tam giác trên đầu ra 3.1 | cross-fit trên valid | lỗi → 11,62%, hoặc macro-F1 → 31,89% |
+| 3.2 | Sửa chung tam giác trên đầu ra 3.1 | cross-fit trên valid | lỗi → 11,62%, hoặc macro-F1 → 31,89% (một mình trên đồ thị 2.2: 31,36%) |
 
 Nhiễu bơm 10% / 20% trên cả bốn loại cạnh: bước 3.2 đưa lỗi xuống 1,94% / 4,16%.
 
-Với bộ 257 luật cũ, cùng quy trình cho 29,87 / 30,83 / 31,70% ở 2.1 / 2.2 / 2.3, và lỗi 15,11% →
-11,81% hoặc macro-F1 32,25% ở Bài 2. Bộ mới hơn ở EV–EV nhưng không hơn sau suy luận tam giác; chưa
+Với bộ 257 luật cũ, cùng quy trình cho 29,87 / 30,83% ở 2.1 / 2.2 (tam giác một mình: 31,70%), và lỗi
+15,11% → 11,81% hoặc macro-F1 32,25% ở Bài 2. Bộ mới hơn ở EV–EV nhưng không hơn sau mô hình tam giác; chưa
 đo dao động theo seed nên chưa kết luận được chênh lệch 0,2–0,4 là thật hay nhiễu.
 
 ---
