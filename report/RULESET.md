@@ -10,6 +10,7 @@ Pipeline dùng năm bộ luật, mỗi bộ cho một bước:
 | 2.1 | Luật EV–EV mine trên toàn bộ train | 54.719 sau xác nhận, 2.794 được bật; **rút gọn có chứng minh còn 378** (mục 12) | nhãn của cặp sự kiện | macro-F1 EV–EV **26,99%** |
 | 2.1 | Luật EV→TIMEX / TIMEX→EV / TIMEX–TIMEX | 1.412 / 1.710 / 416 | nhãn của cạnh có TIMEX | 29,74% / 24,29% / 32,98% |
 | 2.2 | Pattern từng tầng → luật liên tầng | pattern / luật: EV–EV 1.673 / 6.184 · EV→TX 245 / 715 · TX→EV 248 / 627 · TX–TX 98 / 450 | ghi đè nhãn 2.1 khi đủ chắc | gộp 4 loại cạnh 30,09% → **30,84%** |
+| 3.0 | Luật motif bộ 3+4+5 quanh một cạnh (chỉ cho mục tiêu macro-F1) | 2.042 sau xác nhận (bộ 3 / 4 / 5: 136 / 673 / 1.233) | ghi đè nhãn theo cấu hình hàng xóm chung | macro-F1 30,84% → 31,62%; cuối Bài 2 32,54% |
 | 3.1 | Auditor Bài 2 theo (loại cạnh, nhãn hiện tại), có tầng GRAPH | mine lại trong từng fold cross-fit | cạnh nào sai, đúng ra là gì | lỗi 15,31% → 12,80% |
 | 3.2 | Tần suất cấu hình tam giác (không phải luật dạng if-then) | 6,31 triệu tam giác gold | độ hợp lý của cả tam giác | lỗi → **11,62%** (sau 3.1) |
 
@@ -302,7 +303,16 @@ Luật liên tầng thật (cwlb = cận Wilson trên CONF-1):
 | TIMEX–TIMEX | 98 | 450 | 32,98 → 34,93 |
 | **Gộp 188.924 cạnh** | | | **30,09 → 30,84** |
 
-## 8. Luật của Bài 2 (bước 3.1 và 3.2)
+## 8. Luật của Bài 2 (bước 3.0, 3.1 và 3.2)
+
+**Motif 3.0.** Luật dạng "chữ ký quanh cạnh → nhãn". Với cạnh (a, b), mỗi hàng xóm chung c (sự kiện hoặc
+TIMEX, tối đa 6) cho một nguyên tử (loại c, L(a, c), L(c, b)), trong đó L đọc từ đồ thị đang kiểm toán (nhãn
+ngược khi cạnh lưu chiều kia). Chữ ký bộ 3 là một nguyên tử, bộ 4 là cặp nguyên tử, bộ 5 là bộ ba nguyên tử;
+luật học riêng cho từng loại cạnh. Mine trên DISCOVERY của train với nhãn hàng xóm là dự đoán của classifier:
+`n ≥ 30`, `k ≥ 10`, ≥ 5 document, `k/n ≥ min(1,5·prior, (1+prior)/2)`, `wlb > prior`; xác nhận trên CONF-1
+(`cn ≥ 10`, `wlb > prior`); ngưỡng theo (loại cạnh, nhãn) chọn trên CONF-2 theo macro-F1. Luật có `wlb` cao nhất
+vượt ngưỡng thì ghi đè nhãn hiện tại. Sau xác nhận: bộ 3 136 luật, bộ 4 673, bộ 5 1.233 (`motif345.py`, log
+`motif345_pred.log`); luật chưa được xuất ra file và chưa rút gọn.
 
 **Auditor 3.1.** Giống bước 2.2 nhưng thêm tầng **GRAPH** và đổi câu hỏi. Tầng GRAPH là chữ ký các
 đường đi a–x–b và a–x–y–b của cạnh trên đồ thị **đang kiểm toán**: loại node trung gian cộng nhãn có

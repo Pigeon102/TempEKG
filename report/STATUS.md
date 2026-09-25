@@ -1299,3 +1299,25 @@ Bài 1 dừng ở bước 2.2 (30,84%): chỉ dùng thông tin từng cặp; đ�
 giác (trước gọi là bước 2.3) chuyển hẳn sang Bài 2: chạy một mình trên đồ thị 2.2 cho 31,36% (dòng ablation
 "chỉ 3.2"), auditor → tam giác cho 31,89%. Ghi đè motif bộ 3+4+5 (31,62%) cũng dùng cấu trúc đồ thị nên thuộc
 nhóm phương pháp của Bài 2. Không số nào thay đổi, chỉ đổi cách trình bày.
+
+## §38 — Bước 3.0: ghi đè motif bộ 3+4+5 trước auditor (2026-09-25)
+
+`motif345.py` với `SAVE_OVERRIDE=3,4,5` ghi `pred_layered_full_motif.json` (CONF-2 31,12%, valid 31,62%, đổi 7.721
+nhãn); `bai2_combo.py` với `TAG=_full_motif` (log `experiments/logs/bai2_combo_full_motif.log`).
+- Đồ thị đầu vào: lỗi 15,31% → 14,64%, macro-F1 30,84% → 31,62%.
+- 3.0 → 3.1 → 3.2 · macro-F1: **32,54%** (lỗi 13,15%), so với 31,89% khi không có 3.0.
+- 3.0 → 3.1 → 3.2 · giảm lỗi: lỗi 11,78%, so với **11,62%** khi không có 3.0.
+- Chỉ 3.1 · macro-F1 32,06% (không 3.0: 31,53%); chỉ 3.2 · macro-F1 31,56% (31,36%).
+- **Quyết định:** bước 3.0 vào pipeline Bài 2 cho mục tiêu macro-F1; kết quả chính Bài 2 là lỗi 11,62% (không 3.0)
+  và macro-F1 32,54% (có 3.0). Chưa có seed sweep.
+
+## §39 — Ablation MAVEN-Arg (2026-09-25, chỉ số liệu, chưa đưa vào tài liệu chính)
+
+Bỏ mọi đặc trưng MAVEN-Arg (19 thuộc tính vai trò / entity, view anchor và anchor_sd, điều kiện vai trò của cạnh
+TIMEX, tầng ARG của luật liên tầng và auditor); công tắc `NOARG=1` trong `mine_full.py`, `bai1_all_edges.py`,
+`layered_rules.py`; log `experiments/rules_full/noarg_mine.log` và `experiments/logs/*_noarg.log`.
+- Luật EV–EV 54.719 → 8.559; valid EV–EV 26,99% → 26,56% (CONF-2 26,36% → 26,74%).
+- Bài 1: 2.1 30,09% → 29,86%; 2.2 30,84% → 30,74%.
+- Bài 2 (không 3.0): lỗi đầu vào 15,31% → 14,41%; 3.1 → 3.2 giảm lỗi 11,62% → 11,56%; 3.1 → 3.2 macro-F1
+  31,89% → 31,77%; chỉ 3.2 macro-F1 31,36% → 31,57%.
+- Mọi chênh lệch nằm trong dao động do cách chia (0,2–0,5): MAVEN-Arg không có đóng góp đo được.

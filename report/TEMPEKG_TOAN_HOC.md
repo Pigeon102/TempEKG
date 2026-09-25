@@ -333,6 +333,10 @@ tại (thực tế). Dưới đây là chế độ ghi đè lên classifier bư�
 Khi biết nhãn thật xung quanh, bộ 4 thêm +0,87 so với bộ 3 và bộ 5 không thêm gì. Trong thực tế, cả bộ 4 và bộ 5 chỉ
 thêm +0,09. Kết luận cũ "bộ 4, 5 làm tệ đi" đến từ `quint.py`, script có lỗi hướng cạnh; kết luận đó bị bác bỏ.
 
+Ghi đè bộ 3+4+5 đọc nhãn các cạnh xung quanh nên thuộc Bài 2, là bước 3.0. Đặt trước auditor và mô hình tam giác,
+macro-F1 cuối 31,89% → 32,54%; nhưng với mục tiêu giảm lỗi thì lỗi cuối 11,62% → 11,78%, nên bước 3.0 chỉ dùng cho
+mục tiêu macro-F1 (`bai2_combo_full_motif.log`).
+
 ## 11. Thước đo
 
 Với mỗi nhãn $\ell$: $P_\ell = \frac{TP_\ell}{TP_\ell + FP_\ell}$, $R_\ell = \frac{TP_\ell}{TP_\ell + FN_\ell}$, $F_\ell = \frac{2 P_\ell R_\ell}{P_\ell + R_\ell}$, và
@@ -353,7 +357,7 @@ $\text{macro-F1} = \frac{1}{6}\sum_{\ell} F_\ell$. Nhãn không xuất hiện tr
 | 2.1 Luật 4 loại cạnh | 30,09% (EE 26,99) | 29,87% (EE 26,15) |
 | 2.2 Liên tầng | 30,84% (EE 27,44) | 30,83% (EE 26,50) |
 | *Tham khảo: Bài 2 chỉ tam giác trên đồ thị 2.2* | *31,36%* | *31,70%* |
-| *Ghi đè bộ 3+4+5 lên 2.2 (§10)* | *31,62%* | — |
+| *Ghi đè bộ 3+4+5 lên 2.2 (§10; Bài 2, bước 3.0)* | *31,62%* | — |
 
 **Bài 2:**
 
@@ -361,6 +365,7 @@ $\text{macro-F1} = \frac{1}{6}\sum_{\ell} F_\ell$. Nhãn không xuất hiện tr
 |---|---|---|
 | Classifier, tối ưu số lỗi | lỗi 15,31% | 11,62% (P/R/F1 69,78 / 47,04 / 56,20) — cũ 11,81% |
 | Classifier, tối ưu macro-F1 | macro-F1 30,84% | 31,89% — cũ 32,25% |
+| Classifier, tối ưu macro-F1, thêm bước 3.0 (motif 3+4+5) | macro-F1 30,84% | **32,54%** (lỗi 13,15%) |
 | Bơm 10% | lỗi 9,94% | 1,94% |
 | Bơm 20% | lỗi 19,89% | 4,16% |
 
@@ -383,4 +388,4 @@ $\text{macro-F1} = \frac{1}{6}\sum_{\ell} F_\ell$. Nhãn không xuất hiện tr
 **Nguồn số liệu:**
 - `experiments/rules_full/mine_full.log`, `compress.log`, `compress_timex.log`, `compress_layered.log`;
 - `experiments/logs/layered_rules_full.log`, `bai2_combo_full.log`, `bai2_compress.log`, `motif345_gold.log`,
-  `motif345_pred.log`, `real_examples_full.log`.
+  `motif345_pred.log`, `bai2_combo_full_motif.log`, `real_examples_full.log`.

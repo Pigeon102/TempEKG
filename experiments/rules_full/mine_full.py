@@ -40,6 +40,12 @@ BASE_CACHE = OUT/"cache_ee.pkl"
 if SEED:
     OUT = OUT/("seed_" + SEED); OUT.mkdir(exist_ok=True)
 SFX = "_s" + SEED if SEED else ""
+MF_OUT = os.environ.get("MF_OUT", "")              # ablations: separate output dir and artifact suffix
+if MF_OUT:
+    OUT = OUT/MF_OUT; OUT.mkdir(exist_ok=True); SFX = "_" + MF_OUT
+ARG_ATTRS = {"anchor_roles", "roleset_a", "roleset_b", "roleset_shared", "etypeset_a", "etypeset_b", "etypeset_shared",
+             "nrole_a", "nrole_b", "n_anchor", "has_loc_a", "has_loc_b", "has_person_a", "has_person_b", "has_org_a",
+             "has_org_b", "role_subset", "role_overlap", "shares_anchor"}   # all derived from MAVEN-Arg arguments
 CACHE = OUT/"cache_ee.pkl"
 RELS = ["BEFORE", "CONTAINS", "SIMULTANEOUS", "OVERLAP", "BEGINS-ON", "ENDS-ON"]
 VIEW_NAMES = ["global", "sdist", "order", "anchor", "bucket_a", "etype_a", "sdist_ord", "anchor_sd"]
@@ -203,6 +209,16 @@ def confirm_unit(args):
 # ---------------------------------------------------------------- main
 def main():
     NW = int(os.environ.get("NW", "6"))
+    if not CACHE.exists() and os.environ.get("NOARG") and BASE_CACHE.exists():
+        log("NOARG: bo moi dieu kien tu MAVEN-Arg va hai view anchor / anchor_sd ...")
+        with open(BASE_CACHE, "rb") as fh: data = pickle.load(fh)
+        drop = {i for i, n in enumerate(data["cond_names"]) if n[1] in ARG_ATTRS}
+        for sp in ("train", "valid"):
+            T = data[sp]; T["conds"] = [array("i", [c for c in cs if c not in drop]) for cs in T["conds"]]
+            for v, vn in enumerate(VIEW_NAMES):
+                if vn in ("anchor", "anchor_sd"): T["sig"][v] = array("i", [0]*len(T["lab"]))
+        with open(CACHE, "wb") as fh: pickle.dump(data, fh, protocol=pickle.HIGHEST_PROTOCOL)
+        log("  bo %d / %d dieu kien" % (len(drop), len(data["cond_names"]))); del data
     if not CACHE.exists() and SEED and BASE_CACHE.exists():
         log("seed %s: dung lai cache goc, chia lai train ..." % SEED)
         with open(BASE_CACHE, "rb") as fh: data = pickle.load(fh)

@@ -162,7 +162,7 @@ figure.dia figcaption{font-family:var(--f-head);font-size:13px;line-height:1.5;c
 <div class="kpis">
   <div class="kpi"><div class="v">30,84%</div><div class="l">Bài 1: macro-F1 trên cả bốn loại cạnh (188.924 cạnh), sau luật liên tầng — chỉ dùng thông tin từng cặp. Luôn đoán BEFORE: 15,30%.</div></div>
   <div class="kpi"><div class="v">11,62%</div><div class="l">Bài 2, nhiễu do classifier: tỷ lệ cạnh sai sau kiểm toán (ban đầu 15,31%), cross-fit trên valid.</div></div>
-  <div class="kpi"><div class="v">31,89%</div><div class="l">Bài 1 + Bài 2: macro-F1 của đồ thị sau kiểm toán khi chọn theo macro-F1.</div></div>
+  <div class="kpi"><div class="v">32,54%</div><div class="l">Bài 1 + Bài 2: macro-F1 của đồ thị sau kiểm toán khi chọn theo macro-F1 (motif → auditor → tam giác; không có motif: 31,89%).</div></div>
   <div class="kpi"><div class="v">1,94%<small> · 4,16%</small></div><div class="l">Bài 2, nhiễu bơm 10% · 20% trên cả bốn loại cạnh: tỷ lệ lỗi còn lại (loại khoảng 80% lỗi).</div></div>
 </div>
 
@@ -172,6 +172,7 @@ figure.dia figcaption{font-family:var(--f-head);font-size:13px;line-height:1.5;c
   <div class="bar"><span>+ luật liên tầng</span><div class="track"><div class="fill" style="width:88.11%"></div></div><span class="val">30,84%</span></div>
   <div class="bar"><span>Bài 2: chỉ mô hình tam giác</span><div class="track"><div class="fill" style="width:89.60%"></div></div><span class="val">31,36%</span></div>
   <div class="bar"><span>Bài 2: auditor → tam giác</span><div class="track"><div class="fill" style="width:91.11%"></div></div><span class="val">31,89%</span></div>
+  <div class="bar"><span>Bài 2: motif → auditor → tam giác</span><div class="track"><div class="fill" style="width:92.97%"></div></div><span class="val">32,54%</span></div>
   <div class="scale"><span></span><div class="ticks"><span>0</span><span>35%</span></div><span></span></div>
 </div>
 
@@ -192,6 +193,7 @@ figure.dia figcaption{font-family:var(--f-head);font-size:13px;line-height:1.5;c
   <div class="step"><b>1. Dựng KG</b>sự kiện, entity, span, TIMEX; ba lớp cạnh; tầng Allen</div>
   <div class="step"><b>2.1 Classifier</b>luật riêng cho từng loại cạnh<span class="num">30,09%</span></div>
   <div class="step"><b>2.2 Luật liên tầng</b>pattern từng tầng, ghép 2–3 tầng<span class="num">30,84%</span></div>
+  <div class="step warn"><b>3.0 Ghi đè motif bộ 3+4+5</b>chỉ cho mục tiêu macro-F1<span class="num">31,62%</span></div>
   <div class="step warn"><b>3.1 Auditor tầng + GRAPH</b>luật theo (loại cạnh, nhãn hiện tại)<span class="num">12,80%</span> lỗi</div>
   <div class="step warn"><b>3.2 Sửa chung tam giác</b>trên đầu ra 3.1<span class="num">11,62%</span> lỗi</div>
 </div>
@@ -201,8 +203,9 @@ figure.dia figcaption{font-family:var(--f-head);font-size:13px;line-height:1.5;c
 <tr><td>1</td><td>Dựng KG, kiểm 9 bất biến chống rò rỉ</td><td>—</td><td>0 vi phạm Allen trên 585.078 tam giác gold</td></tr>
 <tr><td>2.1</td><td>Classifier luật cho EV–EV, EV→TIMEX, TIMEX→EV, TIMEX–TIMEX</td><td>mine DISCOVERY, xác nhận CONFIRMATION-1, chọn ngưỡng CONFIRMATION-2</td><td>macro-F1 gộp 30,09% (EV–EV 26,99%)</td></tr>
 <tr><td>2.2</td><td>Luật liên tầng ghi đè nhãn khi đủ chắc</td><td>như trên</td><td>30,84%</td></tr>
+<tr><td>3.0</td><td>Ghi đè motif bộ 3+4+5 (tuỳ chọn, chỉ dùng cho mục tiêu macro-F1)</td><td>luật mine trên train, ngưỡng chọn trên CONFIRMATION-2</td><td>macro-F1 30,84% → 31,62%</td></tr>
 <tr><td>3.1</td><td>Auditor tầng + GRAPH trên đồ thị cần kiểm toán</td><td>cross-fit trên valid (học một nửa, chấm nửa kia)</td><td>lỗi 15,31% → 12,80%</td></tr>
-<tr><td>3.2</td><td>Sửa chung tam giác trên đầu ra 3.1</td><td>cross-fit trên valid</td><td>lỗi → 11,62%, hoặc macro-F1 → 31,89% (một mình trên đồ thị 2.2: 31,36%)</td></tr>
+<tr><td>3.2</td><td>Sửa chung tam giác trên đầu ra 3.1</td><td>cross-fit trên valid</td><td>lỗi → <b>11,62%</b>; macro-F1 → 31,89%, hoặc <b>32,54%</b> khi có 3.0 (tam giác một mình trên đồ thị 2.2: 31,36%)</td></tr>
 </table></div>
 </section>
 
@@ -776,12 +779,24 @@ T_t    = −[ log p~(cấu hình t) − Σ_{cạnh ∈ t} log P(l_e | loại c�
 </table></div>
 <p>Ghép thắng từng bước riêng ở cả hai mục tiêu. Chọn theo giảm lỗi thì macro-F1 tụt (27,90%: tam giác đẩy OVERLAP về BEFORE, F1 OVERLAP còn 0,8), nên luôn báo cả hai cấu hình. Nhiễu classifier khó hơn nhiễu bơm vì hai lý do đã đo (trên EV–EV với classifier cũ): <b>(1)</b> gần một nửa lỗi là nhãn hiếm bị đoán thành BEFORE, và muốn lật BEFORE (classifier hiện tại đúng 91,9% khi đoán BEFORE) cần bằng chứng mạnh hơn classifier ở đúng chỗ nó yếu nhất; <b>(2)</b> lỗi classifier tụ thành cụm, trong khi mô hình kênh nhiễu coi lỗi từng cạnh độc lập.</p>
 
+<h4>Thêm bước 3.0: ghi đè motif bộ 3+4+5 trước auditor</h4>
+<p>Với mỗi cạnh (a, b), lấy tối đa 6 hàng xóm chung c (sự kiện hoặc TIMEX); mỗi hàng xóm cho một nguyên tử (loại c, L(a, c), L(c, b)), tức một tam giác. Bộ 3 / 4 / 5 là một / hai / ba nguyên tử, nhãn L đọc từ đồ thị đang kiểm toán. Luật “chữ ký → nhãn” mine trên DISCOVERY của train (nhãn hàng xóm là dự đoán của classifier), xác nhận trên CONFIRMATION-1, ngưỡng theo (loại cạnh, nhãn) chọn trên CONFIRMATION-2 theo macro-F1; luật bắn thì ghi đè nhãn. Cấu hình 3+4+5 tốt nhất trên CONFIRMATION-2; trên valid nó đổi 7.721 nhãn, macro-F1 30,84% → 31,62%. Sau đó 3.1 → 3.2 chạy như trên, trên đồ thị đã ghi đè.</p>
+<div class="tbl"><table>
+<tr><th>Cấu hình</th><th class="n">Không 3.0</th><th class="n">Có 3.0</th></tr>
+<tr class="dim"><td>Đồ thị đầu vào</td><td class="n">lỗi 15,31% · macro-F1 30,84%</td><td class="n">lỗi 14,64% · macro-F1 31,62%</td></tr>
+<tr><td>Chỉ 3.1 · macro-F1</td><td class="n">31,53%</td><td class="n">32,06%</td></tr>
+<tr><td>Chỉ 3.2 · macro-F1</td><td class="n">31,36%</td><td class="n">31,56%</td></tr>
+<tr class="hl"><td>3.1 → 3.2 · macro-F1</td><td class="n">31,89% (lỗi 12,53%)</td><td class="n"><b>32,54%</b> (lỗi 13,15%)</td></tr>
+<tr class="hl"><td>3.1 → 3.2 · giảm lỗi</td><td class="n"><b>lỗi 11,62%</b> (macro-F1 27,90%)</td><td class="n">lỗi 11,78% (macro-F1 28,93%)</td></tr>
+</table></div>
+<p>Motif giữ gần hết lợi thế tới cuối (+0,78 ở đầu vào, +0,65 sau 3.1 → 3.2), chủ yếu nhờ OVERLAP (F1 13,4 → 16,2) và CONTAINS (56,6 → 57,7). Nó đổi thêm nhãn hiếm, một phần thành lỗi mà 3.1 và 3.2 không gỡ hết, nên với mục tiêu giảm lỗi thì bỏ 3.0 tốt hơn. <b>Kết quả chính của Bài 2 trên nhiễu classifier:</b> lỗi 11,62% (3.1 → 3.2) và macro-F1 32,54% (3.0 → 3.1 → 3.2). Chưa đo dao động theo seed.</p>
+
 <h3 id="b2-lichsu">Các bước trước đó (để hiểu vì sao đi tới thiết kế hiện tại)</h3>
 <div class="tbl"><table>
 <tr><th>Giai đoạn</th><th>Làm gì</th><th>Bài học</th></tr>
 <tr><td>E4: ba tầng kiểm toán</td><td>21 luật tam giác EV–EV + closure Allen + date bridge; lỗi EV–EV 12,13% → 9,98%</td><td>Closure một mình gần như im lặng (lỗi tụ cụm nên vẫn nhất quán); date bridge đúng 100% nhưng hiếm khi có đủ mốc</td></tr>
 <tr><td>Auditor 175 luật, bối cảnh A/B</td><td>Sáu họ motif; cạnh EV–TIMEX gold (A) hoặc dự đoán (B)</td><td>A gần gấp đôi E4 nhờ suy diễn qua mốc thời gian gold; B chỉ +7%. Phải báo giảm lỗi ròng vì R_all không trừ phần làm hỏng</td></tr>
-<tr><td>fake_data</td><td>Đổi nhãn EV–EV 5–20%</td><td>Auditor luật có nền báo động giả khoảng 6.000 cạnh trên đồ thị sạch; auditor Bayes có kênh nhiễu sửa được</td></tr>
+<tr><td>fake_data</td><td>Đổi nhãn EV–EV 5–20%</td><td>Mô hình tam giác loại 81–84% lỗi ở mọi mức, F1 phát hiện 90–92% (xem B2.5)</td></tr>
 <tr><td>Macro-F1 của đồ thị</td><td>Đo thêm macro-F1 sau kiểm toán</td><td>Auditor chọn theo số lỗi xoá nhãn hiếm (SIMULTANEOUS F1 → 0), tức cái bẫy accuracy; chia luật theo nhãn hiện tại giải quyết được</td></tr>
 <tr><td>Đồ thị hợp nhất</td><td>Pattern trên mọi sự kiện, mọi TIMEX</td><td>Nhiễu bơm loại khoảng 50% lỗi; TIMEX→EV chưa sửa được cho đến khi chia theo nhãn hiện tại và dùng tam giác</td></tr>
 </table></div>
@@ -829,15 +844,15 @@ T_t    = −[ log p~(cấu hình t) − Σ_{cạnh ∈ t} log P(l_e | loại c�
 
 <h4>B1.3 — Gộp 188.924 cạnh, từng nhãn qua từng bước</h4>
 <div class="tbl"><table>
-<tr><th>Nhãn</th><th class="n">Số cạnh</th><th class="n">2.1 Classifier: P / R / F1</th><th class="n">2.2 + liên tầng (Bài 1): F1</th><th class="n">Bài 2 chỉ tam giác: F1</th><th class="n">Bài 2 3.1→3.2 (macro): F1</th></tr>
-<tr><td>BEFORE</td><td class="n">160.227</td><td class="n">91,2 / 91,8 / 91,5</td><td class="n">91,3</td><td class="n">92,3</td><td class="n">93,1</td></tr>
-<tr><td>CONTAINS</td><td class="n">25.550</td><td class="n">51,6 / 50,6 / 51,1</td><td class="n">52,9</td><td class="n">53,7</td><td class="n">56,6</td></tr>
-<tr><td>SIMULTANEOUS</td><td class="n">1.474</td><td class="n">27,8 / 24,1 / 25,8</td><td class="n">26,0</td><td class="n">25,7</td><td class="n">28,4</td></tr>
-<tr><td>OVERLAP</td><td class="n">1.570</td><td class="n">12,6 / 11,7 / 12,1</td><td class="n">14,8</td><td class="n">14,6</td><td class="n">13,4</td></tr>
-<tr><td>BEGINS-ON</td><td class="n">69</td><td class="n">0 / 0 / 0</td><td class="n">0</td><td class="n" rowspan="2">cộng lại ≈ 1,9*</td><td class="n" rowspan="2">cộng lại ≈ 0*</td></tr>
-<tr><td>ENDS-ON</td><td class="n">34</td><td class="n">0 / 0 / 0</td><td class="n">0</td></tr>
-<tr class="hl"><td>Macro-F1</td><td></td><td class="n">30,09%</td><td class="n">30,84%</td><td class="n">31,36%</td><td class="n">31,89%</td></tr>
-<tr class="dim"><td>Accuracy</td><td></td><td class="n">84,96%</td><td class="n">84,69%</td><td class="n">86,17%</td><td class="n">87,47% (lỗi 12,53%)</td></tr>
+<tr><th>Nhãn</th><th class="n">Số cạnh</th><th class="n">2.1 Classifier: P / R / F1</th><th class="n">2.2 + liên tầng (Bài 1): F1</th><th class="n">Bài 2 chỉ tam giác: F1</th><th class="n">Bài 2 3.1→3.2 (macro): F1</th><th class="n">Bài 2 3.0→3.1→3.2 (macro): F1</th></tr>
+<tr><td>BEFORE</td><td class="n">160.227</td><td class="n">91,2 / 91,8 / 91,5</td><td class="n">91,3</td><td class="n">92,3</td><td class="n">93,1</td><td class="n">92,6</td></tr>
+<tr><td>CONTAINS</td><td class="n">25.550</td><td class="n">51,6 / 50,6 / 51,1</td><td class="n">52,9</td><td class="n">53,7</td><td class="n">56,6</td><td class="n">57,7</td></tr>
+<tr><td>SIMULTANEOUS</td><td class="n">1.474</td><td class="n">27,8 / 24,1 / 25,8</td><td class="n">26,0</td><td class="n">25,7</td><td class="n">28,4</td><td class="n">27,7</td></tr>
+<tr><td>OVERLAP</td><td class="n">1.570</td><td class="n">12,6 / 11,7 / 12,1</td><td class="n">14,8</td><td class="n">14,6</td><td class="n">13,4</td><td class="n">16,2</td></tr>
+<tr><td>BEGINS-ON</td><td class="n">69</td><td class="n">0 / 0 / 0</td><td class="n">0</td><td class="n" rowspan="2">cộng lại ≈ 1,9*</td><td class="n" rowspan="2">cộng lại ≈ 0*</td><td class="n">0,9</td></tr>
+<tr><td>ENDS-ON</td><td class="n">34</td><td class="n">0 / 0 / 0</td><td class="n">0</td><td class="n">0</td></tr>
+<tr class="hl"><td>Macro-F1</td><td></td><td class="n">30,09%</td><td class="n">30,84%</td><td class="n">31,36%</td><td class="n">31,89%</td><td class="n">32,54%</td></tr>
+<tr class="dim"><td>Accuracy</td><td></td><td class="n">84,96%</td><td class="n">84,69%</td><td class="n">86,17%</td><td class="n">87,47% (lỗi 12,53%)</td><td class="n">86,85% (lỗi 13,15%)</td></tr>
 </table></div>
 <p>* Log gốc của hai cột Bài 2 chỉ in F1 của 4 nhãn chính. Cộng ngược từ macro-F1: ở cột "chỉ tam giác", F1 của BEGINS-ON và ENDS-ON cộng lại khoảng <b>1,9 điểm</b> (1,6–2,1 do làm tròn; 6 × 31,36 − (92,3 + 53,7 + 25,7 + 14,6)), tức là bước tam giác đoán đúng được một ít cạnh của hai nhãn này. Ở cột Bài 2 phần đó xấp xỉ 0. Số chính xác từng nhãn sẽ có khi chạy lại bước này với bản <code>bai2_combo.py</code> đã sửa để in đủ 6 nhãn.</p>
 <p>Pipeline với bộ luật EV–EV mine trên toàn bộ train. Hai cột Bài 2 là cross-fit trên valid; hai cột đầu dùng protocol DISCOVERY / CONFIRMATION. Với bộ 257 luật cũ, hàng macro-F1 là 29,87 / 30,83 / 31,70 / 32,25%.</p>
@@ -927,6 +942,17 @@ T_t    = −[ log p~(cấu hình t) − Σ_{cạnh ∈ t} log P(l_e | loại c�
 </table></div>
 <p>Lỗi ban đầu của classifier (bộ luật mới): EV–EV 12,7% · EV→TIMEX 10,7% · TIMEX→EV 25,9% · TIMEX–TIMEX 14,5%, tổng 15,31%. Tham số tam giác (cách cân, λ, α) chọn giống nhau ở cả hai fold: (mean, 0,5, 0,0) cho giảm lỗi, (mean, 1,0, 0,5) cho macro-F1 khi chạy một mình.</p>
 
+<p>Có thêm bước 3.0 (ghi đè motif bộ 3+4+5). P / R tính so với đồ thị sau 3.0: lỗi ban đầu 14,64% (EV–EV 11,1% · EV→TIMEX 10,7% · TIMEX→EV 27,0% · TIMEX–TIMEX 15,0%), macro-F1 31,62%. Lần chạy này in đủ 6 nhãn: F1 BEGINS-ON 0,9 ở dòng in đậm (1,0 ở “3.0 → 3.2 · macro-F1”, 0 ở các dòng khác), ENDS-ON 0 ở mọi dòng.</p>
+<div class="tbl"><table>
+<tr><th>Cấu hình</th><th class="n">P / R / F1</th><th class="n">Sửa / hỏng / ròng</th><th class="n">Lỗi</th><th class="n">Macro-F1</th><th class="n">Lỗi EV–EV · EV→TX · TX→EV · TX–TX</th><th class="n">F1 BEFO · CONT · SIMU · OVER</th></tr>
+<tr><td>3.0 → 3.1 · giảm lỗi</td><td class="n">67,27 / 32,13 / 43,48</td><td class="n">8.655 / 4.324 / +4.331</td><td class="n">12,35%</td><td class="n">31,58%</td><td class="n">9,5 · 10,5 · 20,6 · 14,6</td><td class="n">93,2 · 54,0 · 28,2 · 14,1</td></tr>
+<tr><td>3.0 → 3.2 · giảm lỗi</td><td class="n">71,64 / 30,24 / 42,52</td><td class="n">7.721 / 3.311 / +4.410</td><td class="n">12,31%</td><td class="n">28,33%</td><td class="n">9,5 · 8,2 · 21,9 · 14,7</td><td class="n">93,1 · 55,1 · 20,9 · 0,9</td></tr>
+<tr><td>3.0 → 3.1 → 3.2 · giảm lỗi</td><td class="n">67,71 / 42,34 / 52,10</td><td class="n">10.999 / 5.586 / +5.413</td><td class="n">11,78%</td><td class="n">28,93%</td><td class="n">9,3 · 8,0 · 20,2 · 14,6</td><td class="n">93,5 · 52,5 · 23,7 · 3,8</td></tr>
+<tr><td>3.0 → 3.1 · macro-F1</td><td class="n">60,61 / 15,48 / 24,66</td><td class="n">4.146 / 2.782 / +1.364</td><td class="n">13,92%</td><td class="n">32,06%</td><td class="n">10,9 · 10,7 · 23,4 · 17,0</td><td class="n">92,1 · 56,9 · 28,2 · 15,1</td></tr>
+<tr><td>3.0 → 3.2 · macro-F1</td><td class="n">69,07 / 11,12 / 19,15</td><td class="n">2.699 / 1.377 / +1.322</td><td class="n">13,94%</td><td class="n">31,56%</td><td class="n">10,7 · 9,4 · 24,8 · 17,0</td><td class="n">92,1 · 56,4 · 27,2 · 12,6</td></tr>
+<tr class="hl"><td>3.0 → 3.1 → 3.2 · macro-F1</td><td class="n">65,86 / 25,27 / 36,53</td><td class="n">6.443 / 3.624 / +2.819</td><td class="n">13,15%</td><td class="n">32,54%</td><td class="n">10,4 · 9,1 · 22,3 · 16,6</td><td class="n">92,6 · 57,7 · 27,7 · 16,2</td></tr>
+</table></div>
+
 <h4>B2.4 — Loại lỗi nào sửa được (EV–EV, classifier 257 luật, luật có điều kiện cross-fit)</h4>
 <div class="tbl"><table>
 <tr><th>Gold → classifier đoán</th><th class="n">Số cạnh</th><th class="n">% lỗi</th><th class="n">Đã sửa</th><th class="n">Nhiễu bơm 10%: số / đã sửa</th></tr>
@@ -938,15 +964,15 @@ T_t    = −[ log p~(cấu hình t) − Σ_{cạnh ∈ t} log P(l_e | loại c�
 </table></div>
 <p>Lỗi classifier tụ cụm: quanh một cạnh sai, 32,90% cạnh tam giác kề cũng sai (quanh cạnh đúng: 7,61%); với nhiễu bơm 10% là 10,13% (bằng tỷ lệ chung). Tam giác ủng hộ nhãn sai: 10,08% so với 0,48%.</p>
 
-<h4>B2.5 — fake_data (chỉ đổi nhãn EV–EV), đồ thị EV–EV</h4>
+<h4>B2.5 — fake_data (chỉ đổi nhãn EV–EV): mô hình tam giác</h4>
 <div class="tbl"><table>
-<tr><th>Mức</th><th class="n">Ban đầu</th><th class="n">E4 (luật cũ)</th><th class="n">Closure</th><th class="n">Bayes → closure: lỗi</th><th class="n">P / R / F1</th></tr>
-<tr><td>5%</td><td class="n">4,99%</td><td class="n">5,67%</td><td class="n">3,58%</td><td class="n">1,45%</td><td class="n">81,7 / 91,6 / 86,4</td></tr>
-<tr><td>10%</td><td class="n">10,05%</td><td class="n">6,30%</td><td class="n">7,83%</td><td class="n">2,69%</td><td class="n">87,7 / 85,6 / 86,7</td></tr>
-<tr><td>15%</td><td class="n">15,06%</td><td class="n">6,83%</td><td class="n">12,55%</td><td class="n">3,69%</td><td class="n">88,1 / 87,7 / 87,9</td></tr>
-<tr><td>20%</td><td class="n">20,02%</td><td class="n">7,85%</td><td class="n">17,56%</td><td class="n">4,95%</td><td class="n">87,8 / 87,9 / 87,8</td></tr>
+<tr><th>Mức</th><th class="n">Lỗi EV–EV</th><th class="n">P / R / F1 phát hiện</th><th class="n">Sửa / hỏng / ròng</th><th class="n">Macro-F1 EV–EV</th><th class="n">Báo động giả trên gold sạch</th></tr>
+<tr><td>5%</td><td class="n">4,97% → <b>0,96%</b></td><td class="n">91,2 / 89,4 / 90,3</td><td class="n">4.874 / 472 / +4.402</td><td class="n">81,4 → 94,0</td><td class="n">401</td></tr>
+<tr><td>10%</td><td class="n">10,00% → <b>1,75%</b></td><td class="n">92,0 / 90,9 / 91,4</td><td class="n">9.939 / 867 / +9.072</td><td class="n">70,2 → 86,2</td><td class="n">696</td></tr>
+<tr><td>15%</td><td class="n">14,98% → <b>2,34%</b></td><td class="n">96,2 / 88,0 / 91,9</td><td class="n">14.471 / 574 / +13.897</td><td class="n">61,3 → 82,0</td><td class="n">302</td></tr>
+<tr><td>20%</td><td class="n">19,93% → <b>3,23%</b></td><td class="n">93,7 / 90,0 / 91,8</td><td class="n">19.679 / 1.320 / +18.359</td><td class="n">52,2 → 75,8</td><td class="n">895</td></tr>
 </table></div>
-<p>Nền báo động giả trên đồ thị gold sạch: E4 đổi 5.789 cạnh đúng, auditor 175 luật đổi 3.205, closure 0, Bayes (giả định nhiễu 5%) 427.</p>
+<p>Đồ thị cần kiểm toán = đúng 4 file fake_data (gold valid, đổi nhãn EV–EV ở 5/10/15/20%; cạnh TIMEX giữ gold). Phương pháp: mô hình năng lượng tam giác (bước 3.2) một mình; tham số chọn theo giảm lỗi trên CONFIRMATION-2 của train bị bơm nhiễu cùng cách, valid chấm một lần. Loại 81–84% số cạnh sai ở mọi mức; không cạnh TIMEX nào bị đổi. Báo động giả = số cạnh đúng bị đổi khi chạy cùng tham số trên đồ thị gold sạch. 23–106 cạnh bị đổi được lưu ngược chiều với nhãn không đối xứng nên được giữ nhãn gold; vì vậy tỷ lệ lỗi ban đầu thấp hơn file một chút.</p>
 
 <h4>B2.6 — Benchmark conflict trung thực, mức 20% (2.191 sự kiện, 476 conflict)</h4>
 <div class="tbl"><table>

@@ -5,7 +5,8 @@ trong 6 nhãn. Tương đương "che nhãn cạnh trên valid rồi đoán lại
 
 **Kết quả hiện tại:** macro-F1 **30,84%** trên cả 188.924 cạnh valid, sau bước 2.2 (luôn đoán BEFORE: 15,30%).
 Bài 1 chỉ dùng thông tin của từng cặp; đồ thị này là đầu vào của Bài 2. Mô hình tam giác (dùng cấu trúc cả
-đồ thị) thuộc Bài 2: chạy một mình trên đồ thị này cho 31,36%, kết hợp auditor cho 31,89% (`TEMPEKG_BAI2.md`).
+đồ thị) thuộc Bài 2: chạy một mình trên đồ thị này cho 31,36%, kết hợp auditor cho 31,89%, thêm ghi đè motif bộ 3+4+5 ở trước cho
+32,54% (`TEMPEKG_BAI2.md`).
 Riêng EV–EV: **26,99%** với bộ luật mine trên toàn bộ train, **27,44%** sau luật liên tầng.
 
 Kiến trúc chung (dữ liệu, KG, chia tập, thiết kế tầng) ở `TEMPEKG_KIEN_TRUC.md`. Bộ luật (luật là gì,
@@ -312,7 +313,8 @@ flowchart LR
 Lần đo cũ bằng `quint.py` (38,30 → 37,83 → 36,94%) bị bác bỏ vì hai lỗi: gán cùng nhãn cho hai chiều của
 cạnh (LUAT_BAC_CAO §10.1) và áp CAP trước khi bỏ chính cạnh đang xét (§11.1). Đo lại cho thấy bộ 4 **có**
 thêm tín hiệu khi biết nhãn xung quanh (+0,87), còn trong thực tế cả bộ 4 lẫn bộ 5 gần như không thêm gì.
-Ghi đè bằng motif bộ 3+4+5 (31,62%) cao hơn mô hình tam giác chạy một mình (31,36%), nhưng chưa ghép hai bước.
+Ghi đè bằng motif bộ 3+4+5 (31,62%) cao hơn mô hình tam giác chạy một mình (31,36%). Ghép ở Bài 2 (motif → auditor
+→ tam giác) cho 32,54% (`TEMPEKG_BAI2.md` mục 6.1).
 Cả hai đều đọc nhãn của các cạnh xung quanh, tức dùng cấu trúc đồ thị, nên thuộc nhóm phương pháp của Bài 2.
 
 ---
@@ -405,16 +407,16 @@ Tất cả trên valid (710 document). P, R, F1 theo từng nhãn; macro-F1 là 
 
 ### P.3 Gộp 188.924 cạnh, F1 từng nhãn qua từng bước
 
-| Nhãn | Số cạnh | 2.1 Classifier: P / R / F1 | 2.2 + liên tầng (Bài 1) | Bài 2: chỉ tam giác | Bài 2: 3.1→3.2 (macro) |
-|---|---|---|---|---|---|
-| BEFORE | 160.227 | 91,2 / 91,8 / 91,5 | 91,3 | 92,3 | 93,1 |
-| CONTAINS | 25.550 | 51,6 / 50,6 / 51,1 | 52,9 | 53,7 | 56,6 |
-| SIMULTANEOUS | 1.474 | 27,8 / 24,1 / 25,8 | 26,0 | 25,7 | 28,4 |
-| OVERLAP | 1.570 | 12,6 / 11,7 / 12,1 | 14,8 | 14,6 | 13,4 |
-| BEGINS-ON | 69 | 0 | 0 | cộng với ENDS-ON ≈ 1,9\* | ≈ 0\* |
-| ENDS-ON | 34 | 0 | 0 | (xem trên) | (xem trên) |
-| **Macro-F1** | | **30,09%** | **30,84%** | **31,36%** | **31,89%** |
-| Accuracy | | 84,96% | 84,69% | 86,17% | 87,47% |
+| Nhãn | Số cạnh | 2.1 Classifier: P / R / F1 | 2.2 + liên tầng (Bài 1) | Bài 2: chỉ tam giác | Bài 2: 3.1→3.2 (macro) | Bài 2: 3.0→3.1→3.2 (macro) |
+|---|---|---|---|---|---|---|
+| BEFORE | 160.227 | 91,2 / 91,8 / 91,5 | 91,3 | 92,3 | 93,1 | 92,6 |
+| CONTAINS | 25.550 | 51,6 / 50,6 / 51,1 | 52,9 | 53,7 | 56,6 | 57,7 |
+| SIMULTANEOUS | 1.474 | 27,8 / 24,1 / 25,8 | 26,0 | 25,7 | 28,4 | 27,7 |
+| OVERLAP | 1.570 | 12,6 / 11,7 / 12,1 | 14,8 | 14,6 | 13,4 | 16,2 |
+| BEGINS-ON | 69 | 0 | 0 | cộng với ENDS-ON ≈ 1,9\* | ≈ 0\* | 0,9 |
+| ENDS-ON | 34 | 0 | 0 | (xem trên) | (xem trên) | 0 |
+| **Macro-F1** | | **30,09%** | **30,84%** | **31,36%** | **31,89%** | **32,54%** |
+| Accuracy | | 84,96% | 84,69% | 86,17% | 87,47% | 86,85% |
 
 \* Log gốc của hai cột Bài 2 chỉ in F1 của 4 nhãn chính. Cộng ngược từ macro-F1: ở cột "chỉ tam giác", F1 của
 BEGINS-ON và ENDS-ON cộng lại khoảng **1,9 điểm** (1,6–2,1 do làm tròn; 6 × 31,36 − (92,3 + 53,7 + 25,7 + 14,6)),

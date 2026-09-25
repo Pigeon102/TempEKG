@@ -1,0 +1,36 @@
+[    0s] nap du lieu ...
+[    3s] train 2913 doc, valid 710 doc
+[    3s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
+[   39s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
+====================================================================================================================
+BAI 2 TREN FAKE_DATA -- sua chung theo tam giac (buoc 3.2), valid cham mot lan moi muc tieu
+====================================================================================================================
+[  339s] muc 05%: chinh tren CONF-2 xong (5482 canh doi trong fake_data, dung 5459, bo 23)
+  05% | giam loi (mean, 1.00, 0.0) | EV-EV loi  4.97% ->  0.96% | P  91.2 R  89.4 F1  90.3 | sua  4874 hong  472 rong  +4402 | macro EV-EV 81.37 -> 94.02 | canh TIMEX bi doi 0 | bao dong gia tren gold sach: 401 canh EV-EV (+0 TIMEX)
+       chi tren 5459 canh bi fake: acc 0 -> 89.28% | macro-F1 (6 nhan) 0 -> 24.60 | macro tren 4 nhan co mat 36.90 | canh sach giu dung 99.55%
+       BEFO P93.4 R95.1 F94.2 (n=4942)  CONT P55.7 R37.8 F45.0 (n=450)  SIMU P3.2 R9.1 F4.8 (n=33)  OVER P4.5 R2.9 F3.6 (n=34)  BEGI P0.0 R0.0 F0.0 (n=0)  ENDS P0.0 R0.0 F0.0 (n=0)
+  05% | macro-F1 (mean, 1.00, 0.0) | EV-EV loi  4.97% ->  0.96% | P  91.2 R  89.4 F1  90.3 | sua  4874 hong  472 rong  +4402 | macro EV-EV 81.37 -> 94.02 | canh TIMEX bi doi 0 | bao dong gia tren gold sach: 401 canh EV-EV (+0 TIMEX)
+       chi tren 5459 canh bi fake: acc 0 -> 89.28% | macro-F1 (6 nhan) 0 -> 24.60 | macro tren 4 nhan co mat 36.90 | canh sach giu dung 99.55%
+       BEFO P93.4 R95.1 F94.2 (n=4942)  CONT P55.7 R37.8 F45.0 (n=450)  SIMU P3.2 R9.1 F4.8 (n=33)  OVER P4.5 R2.9 F3.6 (n=34)  BEGI P0.0 R0.0 F0.0 (n=0)  ENDS P0.0 R0.0 F0.0 (n=0)
+[  786s] muc 10%: chinh tren CONF-2 xong (11044 canh doi trong fake_data, dung 10993, bo 51)
+  10% | giam loi (mean, 2.00, 0.5) | EV-EV loi 10.00% ->  1.75% | P  92.0 R  90.9 F1  91.4 | sua  9939 hong  867 rong  +9072 | macro EV-EV 70.23 -> 86.18 | canh TIMEX bi doi 0 | bao dong gia tren gold sach: 696 canh EV-EV (+0 TIMEX)
+       chi tren 10993 canh bi fake: acc 0 -> 90.41% | macro-F1 (6 nhan) 0 -> 30.88 | macro tren 5 nhan co mat 37.06 | canh sach giu dung 99.12%
+       BEFO P96.8 R92.9 F94.8 (n=9908)  CONT P65.4 R72.0 F68.6 (n=972)  SIMU P8.0 R47.1 F13.6 (n=51)  OVER P7.1 R10.0 F8.3 (n=60)  BEGI P0.0 R0.0 F0.0 (n=2)  ENDS P0.0 R0.0 F0.0 (n=0)
+  10% | macro-F1 (mean, 2.00, 0.0) | EV-EV loi 10.00% ->  2.28% | P  84.9 R  94.2 F1  89.3 | sua 10322 hong 1837 rong  +8485 | macro EV-EV 70.23 -> 83.95 | canh TIMEX bi doi 0 | bao dong gia tren gold sach: 1603 canh EV-EV (+0 TIMEX)
+       chi tren 10993 canh bi fake: acc 0 -> 93.90% | macro-F1 (6 nhan) 0 -> 34.03 | macro tren 5 nhan co mat 40.84 | canh sach giu dung 98.14%
+       BEFO P96.1 R97.5 F96.8 (n=9908)  CONT P80.6 R65.6 F72.3 (n=972)  SIMU P16.3 R43.1 F23.7 (n=51)  OVER P40.0 R6.7 F11.4 (n=60)  BEGI P0.0 R0.0 F0.0 (n=2)  ENDS P0.0 R0.0 F0.0 (n=0)
+[ 1273s] muc 15%: chinh tren CONF-2 xong (16555 canh doi trong fake_data, dung 16468, bo 87)
+  15% | giam loi (mean, 1.00, 0.5) | EV-EV loi 14.98% ->  2.34% | P  96.2 R  88.0 F1  91.9 | sua 14471 hong  574 rong +13897 | macro EV-EV 61.25 -> 82.00 | canh TIMEX bi doi 0 | bao dong gia tren gold sach: 302 canh EV-EV (+0 TIMEX)
+       chi tren 16468 canh bi fake: acc 0 -> 87.87% | macro-F1 (6 nhan) 0 -> 28.08 | macro tren 6 nhan co mat 28.08 | canh sach giu dung 99.39%
+       BEFO P95.1 R91.6 F93.3 (n=14915)  CONT P56.0 R57.1 F56.5 (n=1380)  SIMU P3.3 R17.4 F5.6 (n=86)  OVER P2.7 R7.1 F3.9 (n=85)  BEGI P4.8 R100.0 F9.1 (n=1)  ENDS P0.0 R0.0 F0.0 (n=1)
+  15% | macro-F1 (mean, 2.00, 0.5) | EV-EV loi 14.98% ->  2.56% | P  91.6 R  91.7 F1  91.6 | sua 15042 hong 1391 rong +13651 | macro EV-EV 61.25 -> 79.78 | canh TIMEX bi doi 2 | bao dong gia tren gold sach: 1102 canh EV-EV (+0 TIMEX)
+       chi tren 16468 canh bi fake: acc 0 -> 91.34% | macro-F1 (6 nhan) 0 -> 36.00 | macro tren 6 nhan co mat 36.00 | canh sach giu dung 98.51%
+       BEFO P96.6 R94.1 F95.3 (n=14915)  CONT P67.6 R70.5 F69.0 (n=1380)  SIMU P6.6 R26.7 F10.6 (n=86)  OVER P8.8 R12.9 F10.5 (n=85)  BEGI P4.3 R100.0 F8.3 (n=1)  ENDS P12.5 R100.0 F22.2 (n=1)
+[ 1787s] muc 20%: chinh tren CONF-2 xong (22012 canh doi trong fake_data, dung 21906, bo 106)
+  20% | giam loi (mean, 1.00, 0.5) | EV-EV loi 19.93% ->  3.23% | P  93.7 R  90.0 F1  91.8 | sua 19679 hong 1320 rong +18359 | macro EV-EV 52.18 -> 75.76 | canh TIMEX bi doi 0 | bao dong gia tren gold sach: 895 canh EV-EV (+0 TIMEX)
+       chi tren 21906 canh bi fake: acc 0 -> 89.83% | macro-F1 (6 nhan) 0 -> 30.71 | macro tren 6 nhan co mat 30.71 | canh sach giu dung 98.50%
+       BEFO P95.3 R93.6 F94.5 (n=19784)  CONT P68.8 R59.0 F63.5 (n=1896)  SIMU P4.8 R24.8 F8.1 (n=109)  OVER P2.4 R5.6 F3.4 (n=108)  BEGI P8.7 R50.0 F14.8 (n=4)  ENDS P0.0 R0.0 F0.0 (n=5)
+  20% | macro-F1 (mean, 2.00, 0.5) | EV-EV loi 19.93% ->  3.36% | P  91.7 R  91.9 F1  91.8 | sua 20040 hong 1826 rong +18214 | macro EV-EV 52.18 -> 72.68 | canh TIMEX bi doi 1 | bao dong gia tren gold sach: 1323 canh EV-EV (+0 TIMEX)
+       chi tren 21906 canh bi fake: acc 0 -> 91.48% | macro-F1 (6 nhan) 0 -> 33.41 | macro tren 6 nhan co mat 33.41 | canh sach giu dung 97.93%
+       BEFO P96.6 R94.2 F95.4 (n=19784)  CONT P68.3 R70.9 F69.6 (n=1896)  SIMU P8.7 R36.7 F14.0 (n=109)  OVER P7.3 R10.2 F8.5 (n=108)  BEGI P7.4 R50.0 F12.9 (n=4)  ENDS P0.0 R0.0 F0.0 (n=5)
+[ 1938s] xong

@@ -110,4 +110,11 @@ for tag in (sys.argv[1:] or ["05", "10", "15", "20"]):
         print("  %s%% | %-8s (%s, %.2f, %.1f) | EV-EV loi %5.2f%% -> %5.2f%% | P %5.1f R %5.1f F1 %5.1f | sua %5d hong %4d rong %+6d | macro EV-EV %5.2f -> %5.2f | canh TIMEX bi doi %d | bao dong gia tren gold sach: %d canh EV-EV (+%d TIMEX)" %
               (tag, obj, mode, lam, alpha, 100*c["b0"]/c["n"], 100*c["b1"]/c["n"], 100*P, 100*R, 100*F1, c["fix"], c["brk"], c["b0"] - c["b1"],
                100*m0, 100*m, c["other_changed"], cf["brk"], cf["other_changed"]))
+        # scored on the injected edges only (before repair every one is wrong: accuracy 0, macro-F1 0)
+        sp = [(f, e[2]) for d in VA for e, s, f in zip(d["edges"], obs[d["id"]], fin[d["id"]]) if e[3] == "EE" and s != e[2]]
+        ms, per, acc = prf([x[0] for x in sp], [x[1] for x in sp])
+        pres = [r for r in RELS if per[r][3]]
+        print("       chi tren %d canh bi fake: acc 0 -> %5.2f%% | macro-F1 (6 nhan) 0 -> %5.2f | macro tren %d nhan co mat %5.2f | canh sach giu dung %5.2f%%" %
+              (len(sp), 100*acc, 100*ms, len(pres), 100*sum(per[r][2] for r in pres)/len(pres), 100*(1 - c["brk"]/(c["n"] - c["b0"]))))
+        print("       " + "  ".join("%s P%.1f R%.1f F%.1f (n=%d)" % (r[:4], 100*per[r][0], 100*per[r][1], 100*per[r][2], per[r][3]) for r in RELS))
 log("xong")

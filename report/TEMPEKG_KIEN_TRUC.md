@@ -249,8 +249,10 @@ flowchart TB
     S1 --> S21["2.1 Classifier luật cho 4 loại cạnh<br/>30,09%"]
     S21 --> S22["2.2 Luật liên tầng<br/>30,84%"]
     S22 --> N["Đồ thị cần kiểm toán<br/>(đầu ra tốt nhất của Bài 1, lỗi 15,31%, hoặc nhiễu bơm)"]
+    N --> S30["3.0 Ghi đè motif bộ 3+4+5<br/>(chỉ cho mục tiêu macro-F1)"]
+    S30 --> S31
     N --> S31["3.1 Auditor tầng + GRAPH<br/>lỗi 12,80%"]
-    S31 --> S32["3.2 Sửa chung theo tam giác<br/>lỗi 11,62% · macro-F1 31,89%"]
+    S31 --> S32["3.2 Sửa chung theo tam giác<br/>lỗi 11,62% (không 3.0) · macro-F1 32,54% (có 3.0)"]
 ```
 
 | Bước | Làm gì | Học trên | Kết quả trên valid |
@@ -259,8 +261,9 @@ flowchart TB
 | 1 | Dựng KG, kiểm 9 bất biến | — | 0 vi phạm Allen trên gold |
 | 2.1 | Classifier luật cho EV–EV, EV→TIMEX, TIMEX→EV, TIMEX–TIMEX | DISCOVERY / CONF-1 / CONF-2 | macro-F1 gộp 30,09% (EV–EV 26,99%) |
 | 2.2 | Luật liên tầng ghi đè nhãn khi đủ chắc | như trên | **30,84% — kết quả Bài 1** |
+| 3.0 | Ghi đè motif bộ 3+4+5 (tuỳ chọn, chỉ dùng cho mục tiêu macro-F1) | luật mine trên train, ngưỡng chọn trên CONF-2 | macro-F1 30,84% → 31,62% |
 | 3.1 | Auditor tầng + GRAPH | cross-fit trên valid | lỗi 15,31% → 12,80% |
-| 3.2 | Sửa chung tam giác trên đầu ra 3.1 | cross-fit trên valid | lỗi → 11,62%, hoặc macro-F1 → 31,89% (một mình trên đồ thị 2.2: 31,36%) |
+| 3.2 | Sửa chung tam giác trên đầu ra 3.1 | cross-fit trên valid | lỗi → **11,62%**; macro-F1 → 31,89%, hoặc **32,54%** khi có 3.0 (tam giác một mình trên đồ thị 2.2: 31,36%) |
 
 Nhiễu bơm 10% / 20% trên cả bốn loại cạnh: bước 3.2 đưa lỗi xuống 1,94% / 4,16%.
 

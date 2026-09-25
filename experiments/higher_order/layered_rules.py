@@ -153,6 +153,7 @@ def build(docs):
             elif k == "TE": L = layered_ET(d, b, a, "TE")
             else: L = layered_TT(d, a, b)
             p = PRED.get("%s|%s|%s" % (d["id"], a, b), "BEFORE")
+            if os.environ.get("NOARG"): L.pop("ARG", None)     # MAVEN-Arg ablation: no ARG layer anywhere downstream
             out.append({"doc": d["id"], "a": a, "b": b, "sp": d["sp"], "k": k, "g": r, "p": p,
                         "L": {ly: frozenset(v) for ly, v in L.items()}})
     return out

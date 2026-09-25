@@ -42,6 +42,7 @@ def wlb(k, n):
     p = k/n
     return (p + Z*Z/(2*n) - Z*math.sqrt(p*(1-p)/n + Z*Z/(4*n*n)))/(1 + Z*Z/n)
 def h(s): return int(hashlib.md5(s.encode()).hexdigest(), 16)
+NOARG = __import__("os").environ.get("NOARG", "")
 SEED = __import__("os").environ.get("SEED", "")      # seed sweep: salts the document split ("" = original)
 def split_of(doc):
     if h(SEED + doc) % 10 >= 4: return "disc"
@@ -116,7 +117,8 @@ def conds_ET(d, e, t, kind):
     nearev = min(d["evs"], key=lambda x: (abs(pos(nd[x])[0] - st), abs(pos(nd[x])[1] - kt)))
     c.append(("nearest_ev", nearev == e))
     for p in prep_before(d, t): c.append(("prep", p))
-    for r in (E.get("roleset") or [])[:4]: c.append(("role", r))
+    if not NOARG:                                     # NOARG=1: MAVEN-Arg ablation, no role atoms
+        for r in (E.get("roleset") or [])[:4]: c.append(("role", r))
     first_date = min((x for x in d["txs"] if nd[x].get("timex_type") == "DATE"), key=lambda x: pos(nd[x]), default=None)
     c.append(("first_date", first_date == t))
     return c
@@ -286,5 +288,5 @@ print(" GOP TOAN BO CANH VALID (EV-EV dung 257 + 719 luat trigger):")
 show("luon BEFORE", allc, allg)
 show("classifier theo tung loai", allp, allg)
 SAVE.update(EEP)
-json.dump(SAVE, io.open(ART/("pred_all_edges%s.json" % ("_s" + SEED if SEED else "")), "w", encoding="utf-8"))
+json.dump(SAVE, io.open(ART/("pred_all_edges%s%s.json" % ("_s" + SEED if SEED else "", "_noarg" if NOARG else "")), "w", encoding="utf-8"))
 log("da luu %d du doan -> pred_all_edges.json" % len(SAVE))
