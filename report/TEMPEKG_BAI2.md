@@ -1,26 +1,31 @@
 # TempEKG — Bài 2: kiểm toán đồ thị thời gian có nhiễu
 
-**Bài toán:** cho một đồ thị thời gian *đã có* nhưng chứa cạnh sai, tìm cạnh sai và sửa lại.
+**Bài toán:** cho một đồ thị thời gian *đã có nhãn* nhưng chứa cạnh sai, tìm cạnh sai và sửa lại. Khác Bài 1,
+ở đây nhãn của các cạnh xung quanh là **quan sát**, nên được dùng. Đầu vào chính là đồ thị tốt nhất của Bài 1
+(sau bước 2.2); ngoài ra thử trên đồ thị gold bị bơm nhiễu và trên fake_data.
 
-**Kết quả hiện tại** (cả bốn loại cạnh, 188.924 cạnh valid):
+Pipeline: **3.1** auditor tầng + GRAPH → **3.2** mô hình năng lượng tam giác.
 
-| Nhiễu | Trước | Sau | Ghi chú |
-|---|---|---|---|
-| Classifier (đầu ra Bài 1) | lỗi 15,31%, macro-F1 30,84% | lỗi **11,62%**, hoặc macro-F1 **32,54%** | cross-fit trên valid; macro-F1 có thêm bước 3.0 (không có: 31,89%) |
-| Bơm 10% | lỗi 9,94% | **1,94%** | loại khoảng 80% lỗi |
-| Bơm 20% | lỗi 19,89% | **4,16%** | |
+## Kết quả chính
 
-Classifier đầu vào dùng bộ luật EV–EV mine trên toàn bộ train (2.794 luật hoạt động; bộ gọn 378 luật cho
-cùng dự đoán). Với bộ 257 luật cũ: lỗi
-15,11% → 11,81%, hoặc macro-F1 32,25%.
+Valid (710 document). Mọi tham số (ngưỡng auditor, λ, α, cách cân) chọn theo **một mục tiêu duy nhất: macro-F1**.
+Lỗi = tỷ lệ cạnh mang nhãn sai; F1 phát hiện = F1 của việc chọn đúng cạnh sai để đổi.
 
-**Đầu vào của Bài 2 là đồ thị tốt nhất của Bài 1** (sau bước 2.2: lỗi 15,31%, macro-F1 30,84%). Bài 1 chỉ
-dùng thông tin từng cặp; mọi phương pháp dùng cấu trúc cả đồ thị (ghi đè motif, auditor tầng GRAPH, mô hình tam
-giác) thuộc Bài 2. Thứ tự: **3.0** ghi đè motif bộ 3+4+5 (chỉ dùng cho mục tiêu macro-F1) → **3.1** auditor →
-**3.2** mô hình tam giác. Dòng "chỉ 3.2" trong các bảng dưới là mô hình tam giác chạy một mình trên đồ thị đó (macro-F1 31,36%;
-các phiên bản trước gọi là bước 2.3 của Bài 1).
+| Đồ thị cần kiểm toán | Phương pháp | Macro-F1: trước → sau | Lỗi: trước → sau | F1 phát hiện |
+|---|---|---|---|---|
+| **Đầu ra Bài 1** | 3.1 → 3.2 | 30,84% → **31,89%** | 15,31% → 12,53% | 45,9% |
+| Gold bơm nhiễu 10% (4 loại cạnh) | 3.2 | 69,1% → **85,1%** | 9,94% → 1,94% | 90,2% |
+| Gold bơm nhiễu 20% (4 loại cạnh) | 3.2 | 51,0% → **72,6%** | 19,89% → 4,42% | 89,1% |
+| fake_data 5% (chỉ EV–EV) | 3.2 | 81,4% → **94,0%** | 4,97% → 0,96% | 90,3% |
+| fake_data 10% | 3.2 | 70,2% → **84,0%** | 10,00% → 2,28% | 89,3% |
+| fake_data 15% | 3.2 | 61,3% → **79,8%** | 14,98% → 2,56% | 91,6% |
+| fake_data 20% | 3.2 | 52,2% → **72,7%** | 19,93% → 3,36% | 91,8% |
 
-Kiến trúc chung ở `TEMPEKG_KIEN_TRUC.md`; bộ luật (kể cả luật của auditor) ở `RULESET.md`.
+Đồ thị Bài 1 và nhiễu bơm tính trên cả 188.924 cạnh; fake_data tính trên 109.929 cạnh EV–EV (cạnh TIMEX giữ
+gold). Các so sánh từng bước và biến thể nằm ở mục 8 (Ablation).
+
+Kiến trúc chung ở `TEMPEKG_KIEN_TRUC.md`; luật của auditor ở `RULESET.md` §8; bản đồ cả dự án ở
+`TEMPEKG_TONG_QUAN.md`.
 
 ---
 
@@ -30,11 +35,10 @@ Kiến trúc chung ở `TEMPEKG_KIEN_TRUC.md`; bộ luật (kể cả luật c�
 auditor phải đoán. Vì vậy tín hiệu bậc cao mà Bài 1 không dùng được (trần +7,78 khi biết nhãn xung
 quanh) lại dùng được ở đây.
 
-**Hai nguồn nhiễu:**
-- **Nhiễu classifier:** đồ thị do classifier tầng của Bài 1 dự đoán (lỗi 15,31%). Khó, vì lỗi tụ
-  thành cụm và có hệ thống.
-- **Nhiễu bơm:** đổi nhãn 10% hoặc 20% theo phân phối biên của từng loại cạnh, cùng cách sinh với
-  fake_data (fake_data gốc chỉ đổi cạnh EV–EV; ở đây mở rộng sang cả cạnh TIMEX).
+**Ba loại đồ thị cần kiểm toán:**
+- **Đầu ra Bài 1:** đồ thị do classifier tầng dự đoán (lỗi 15,31%). Khó, vì lỗi tụ thành cụm và có hệ thống.
+- **Gold bơm nhiễu:** đổi nhãn 10% hoặc 20% theo phân phối biên của từng loại cạnh, trên cả bốn loại cạnh.
+- **fake_data:** gold valid với cạnh EV–EV bị đổi nhãn 5 / 10 / 15 / 20% (seed 0), cạnh TIMEX giữ gold.
 
 ---
 
@@ -42,16 +46,16 @@ quanh) lại dùng được ở đây.
 
 | Thước đo | Nghĩa |
 |---|---|
-| P | trong các cạnh bị gắn cờ, bao nhiêu thật sự sai |
-| R | trong tổng số cạnh sai, tìm ra được bao nhiêu |
+| P | trong các cạnh bị đổi nhãn, bao nhiêu thật sự sai |
+| R | trong tổng số cạnh sai, đổi được bao nhiêu |
 | F1 phát hiện | trung bình điều hoà của P và R |
 | Giảm lỗi ròng | cạnh sửa đúng trừ cạnh đúng bị làm hỏng |
 | Tỷ lệ lỗi | trước và sau kiểm toán |
 | Macro-F1 đồ thị | macro-F1 của toàn bộ nhãn sau khi sửa — nối Bài 1 và Bài 2 bằng cùng một thước |
-| Nền báo động giả | số cạnh đúng bị đổi khi chạy auditor trên đồ thị gold sạch |
+| Báo động giả | số cạnh đúng bị đổi khi chạy cùng tham số trên đồ thị gold sạch |
 
-Phải báo **cả tỷ lệ lỗi lẫn macro-F1**: cách rẻ nhất để giảm lỗi là lật nhãn hiếm về BEFORE, làm
-nhãn hiếm biến mất (cái bẫy accuracy của Bài 1, lặp lại ở Bài 2).
+**Mục tiêu tối ưu là macro-F1**, cùng thước với Bài 1; tỷ lệ lỗi chỉ báo kèm. Lý do: cách rẻ nhất để giảm số
+lỗi là lật nhãn hiếm về BEFORE, làm nhãn hiếm biến mất (cái bẫy accuracy của Bài 1, lặp lại ở Bài 2).
 
 ---
 
@@ -66,6 +70,11 @@ flowchart LR
     S2 -->|"gán chung cả document"| O["Đồ thị đã sửa"]
 ```
 
+Với đầu ra Bài 1, mọi thứ học từ lỗi out-of-sample bằng **cross-fit trên valid**: valid chia 2 fold theo
+hash; trong fold học chia 3 phần (mine luật / xác nhận luật / chỉnh ngưỡng, kênh nhiễu, λ, α); fold test
+chấm một lần; cộng hai fold. Với nhiễu bơm và fake_data, tham số chọn trên CONFIRMATION-2 của train bị bơm
+nhiễu cùng cách; valid chấm một lần.
+
 ---
 
 ## 4. Bước 3.1 — Auditor tầng + GRAPH
@@ -79,44 +88,16 @@ Dùng lại miner theo tầng của Bài 1 (ONT, ARG, DISC, LEX, TIME) và thêm
 - **Cổng thích ứng theo tỷ lệ nền của nhóm:** `k/n ≥ min(2·prior, (1+prior)/2)` và Wilson > prior.
   Cổng "lift ≥ 2" cũ không thể qua khi nhãn cần khôi phục là đa số của nhóm — 57% cạnh EV–EV mà
   classifier gán CONTAINS thực ra là BEFORE — nên bản đầu không sửa được cạnh EV–EV nào.
-- **Ngưỡng precision theo (loại cạnh, nhãn)**, chọn theo giảm lỗi hoặc theo macro-F1.
+- **Ngưỡng precision theo (loại cạnh, nhãn)**, chọn theo macro-F1.
 
-**Một luật auditor trông thế nào.** Điều kiện lấy từ các tầng của Bài 1 cộng tầng GRAPH; kết luận là
-nhãn đúng cho cạnh đang mang một nhãn nhất định. Ví dụ tầng GRAPH trên document thật *United States
-occupation of Nicaragua*: cạnh *began → 1934* (classifier gán OVERLAP) có đường đi qua TIMEX "1912" với
-chữ ký (TIMEX, *began ←CONTAINS– 1912*, *1912 –BEFORE→ 1934*). Luật dạng *"trong nhóm (EV→TIMEX,
-OVERLAP), nếu có đường qua TIMEX với chữ ký này thì nhãn đúng là BEFORE"* được giữ nếu qua cổng thích
-ứng và ngưỡng của nhóm. Luật mine lại trong từng fold cross-fit (học một nửa valid, chấm nửa kia), nên
-không có một bộ luật cố định để liệt kê.
+**Một luật auditor trông thế nào.** Ví dụ tầng GRAPH trên document thật *United States occupation of
+Nicaragua*: cạnh *began → 1934* (classifier gán OVERLAP) có đường đi qua TIMEX "1912" với chữ ký (TIMEX,
+*began ←CONTAINS– 1912*, *1912 –BEFORE→ 1934*). Luật dạng *"trong nhóm (EV→TIMEX, OVERLAP), nếu có đường qua
+TIMEX với chữ ký này thì nhãn đúng là BEFORE"* được giữ nếu qua cổng và ngưỡng của nhóm.
 
-**Auditor dùng bao nhiêu luật.** Combiner của auditor có cùng dạng với Bài 1 (luật có `wlb` cao nhất vượt
-ngưỡng quyết định, không có thì giữ nhãn hiện tại), nên cùng chứng minh set cover của `RULESET.md` §12 dùng
-được, với "giữ nhãn hiện tại" thay cho BEFORE. Bộ gọn dựng trên tài liệu train của fold, chấm trên fold test:
-
-| Fold · mục tiêu | Luật mine (pattern + liên tầng) | Hoạt động | A: giữ mọi thay đổi (chặn dưới) | B: giữ thay đổi đúng (chặn dưới) |
-|---|---|---|---|---|
-| 0 · giảm lỗi | 1.559 (1.409 + 150) | 211 | 83 (83) | 73 (73) |
-| 0 · macro-F1 | 1.559 | 111 | 70 (70) | 67 (66) |
-| 1 · giảm lỗi | 1.433 (1.294 + 139) | 287 | 76 (76) | 69 (69) |
-| 1 · macro-F1 | 1.433 | 87 | 42 (42) | 36 (36) |
-
-Bảy trong tám bộ gọn bằng đúng chặn dưới, tức là tối ưu; bộ còn lại cách tối ưu tối đa 1 luật. Trên fold
-test (cộng hai fold), auditor gọn giữ nguyên đầu ra ở 99,985% (A, giảm lỗi) và 99,993% (A, macro-F1) số
-cạnh; lỗi 12,80% → 12,79%, macro-F1 31,53% không đổi. Script `experiments/higher_order/bai2_compress.py`,
-log `experiments/logs/bai2_compress.log`.
-
-Bảng dưới so sánh ba biến thể auditor, **đo trên classifier cũ** (257 luật; mất khoảng 3 giờ, chưa chạy
-lại). Trên classifier mới, auditor B cross-fit cho lỗi 15,31% → 12,80% (chọn theo giảm lỗi) hoặc
-macro-F1 31,53% (chọn theo macro-F1), xem mục 6.
-
-| Auditor (classifier cũ, mine trên CONF-2) | Lỗi | Macro-F1 |
-|---|---|---|
-| Chỉ GRAPH | 15,11% → 12,65% | 31,96% |
-| **Mọi tầng + GRAPH, chọn theo giảm lỗi** | → **12,07%** | 31,97% |
-| **Mọi tầng + GRAPH, chọn theo macro-F1** | → 12,91% | **32,44%** |
-| Mọi tầng, không GRAPH | → 12,94% | 31,31% |
-
-Bỏ tầng GRAPH thì kết quả kém rõ rệt, nhất là với TIMEX→EV.
+**Số luật.** Luật mine lại trong từng fold cross-fit nên không có một bộ cố định: mỗi fold mine 1.433–1.559
+luật, bật 87–111, rút gọn có chứng minh còn **42–70 luật** mà đầu ra giữ nguyên 99,993% (`RULESET.md` §8,
+`bai2_compress.log`).
 
 ---
 
@@ -125,8 +106,8 @@ Bỏ tầng GRAPH thì kết quả kém rõ rệt, nhất là với TIMEX→EV.
 **Tam giác** = 3 node (sự kiện hoặc TIMEX) có đủ 3 cạnh; **cấu hình** = loại node + 3 nhãn có hướng.
 Tần suất cấu hình học từ gold của DISCOVERY + CONFIRMATION-1 (2.326 document): 6,31 triệu tam giác.
 
-**Quan sát then chốt** (đo với classifier cũ và thống kê tam giác cũ): 74,6% cạnh sai của classifier và
-98,4% cạnh sai do bơm nhiễu nằm trong ít nhất một tam giác có cấu hình **chưa từng gặp trong gold**.
+**Quan sát then chốt** (đo với classifier cũ): 74,6% cạnh sai của classifier và 98,4% cạnh sai do bơm nhiễu
+nằm trong ít nhất một tam giác có cấu hình **chưa từng gặp trong gold**.
 
 Ví dụ thật, *United States occupation of Nicaragua* (valid), câu 0–1: "… occupation of Nicaragua from
 **1912** to 1933 … from 1898 to **1934**." / "The formal occupation **began** in 1912 …"
@@ -164,86 +145,21 @@ T_t    = −[ log p~(cấu hình t) − Σ_{cạnh ∈ t} log P(l_e | loại c�
 | **α làm yếu prior** | α = 0 là hậu nghiệm Bayes, tự nó đã lật nhãn hiếm về BEFORE: P(SIMULTANEOUS thật \| thấy SIMULTANEOUS) chỉ 28,8% với classifier hiện tại (EV–EV 17,9%) |
 | **Kênh nhiễu** | nhiễu bơm: bộ sinh đã biết; nhiễu classifier: ma trận nhầm lẫn ước lượng trên tập chỉnh |
 | **ICM** | đổi từng cạnh nếu năng lượng giảm; chỉ xét cạnh nằm trong tam giác có PMI âm, đẩy lại hàng xóm khi có thay đổi |
-| **λ, α, cách cân** | chọn trên tập chỉnh; valid mở một lần |
-
-| Nhiễu bơm, cả 4 loại | P | R | F1 | Lỗi | Macro-F1 | Chỉ auditor 3.1 |
-|---|---|---|---|---|---|---|
-| 10% | 92,32% | 88,24% | **90,23%** | 9,94% → **1,94%** | 69,1% → **85,1%** | 4,74% |
-| 20% | 93,52% | 85,31% | **89,23%** | 19,89% → **4,16%** | 51,0% → **72,5%** | 7,96% |
-
-Theo loại cạnh (20%): EV–EV 20,0% → 3,9%, EV→TIMEX 20,0% → 2,1%, TIMEX→EV 19,5% → 6,0%,
-TIMEX–TIMEX 19,9% → 4,8%.
-
-**Bộ 4 không thêm tín hiệu** (đo trên nhiễu classifier, classifier cũ): với các lỗi mà tam giác không phát hiện được, cạnh sai và cạnh đúng nằm
-trong cụm 4 node "chưa gặp" với tỷ lệ gần như nhau (71,3% so với 75,6%, tỷ số 0,94×). Không gian cấu
-hình bộ 4 (6⁶ tổ hợp nhãn mỗi kiểu node) quá thưa so với dữ liệu. Bộ 5 chưa đo trong khung này. Lần đo sớm
-trên EV–EV (`quint.py`) chạy dưới protocol sau đó phát hiện có lỗi (LUAT_BAC_CAO §11.1), nên con số
-của nó không dùng được. Đo lại có kiểm soát ở Bài 1 (`motif345.py`, nhãn hàng xóm gold — đúng tình huống
-của Bài 2, nơi hàng xóm là quan sát): bộ 3 → 46,47%, thêm bộ 4 → 47,34% (+0,87), thêm bộ 5 → 47,21%. Tức là
-bộ 4 dạng "hai tam giác chung một cạnh" có mang thêm tín hiệu và đáng thử làm hạng tử cho bước 3.2; bộ 5 thì
-không. Bộ 3+4+5 hiện được dùng ở dạng luật ghi đè, là bước 3.0 (mục 6.1).
+| **λ, α, cách cân** | chọn bằng lưới trên tập chỉnh theo macro-F1; valid mở một lần |
 
 ---
 
-## 6. Ghép 3.1 → 3.2 cho nhiễu classifier (cross-fit trên valid)
+## 6. Vì sao đầu ra Bài 1 khó sửa hơn nhiễu bơm
 
-Mọi thứ học từ lỗi out-of-sample: valid chia 2 fold theo hash; trong fold học chia 3 phần (mine luật /
-xác nhận luật / chỉnh ngưỡng, kênh nhiễu, λ, α); fold test chấm một lần; cộng hai fold.
+Đo trên EV–EV với classifier cũ (`diag_b.log`, phụ lục P.4):
 
-| Cấu hình | P | R | F1 | Giảm ròng | Lỗi | Macro-F1 |
-|---|---|---|---|---|---|---|
-| Classifier tầng (chưa sửa) | — | — | — | — | 15,31% | 30,84% |
-| Chỉ 3.1 · giảm lỗi | 66,77% | 34,23% | 45,26% | +4.736 | 12,80% | 31,24% |
-| Chỉ 3.2 · giảm lỗi | 72,19% | 33,94% | 46,17% | +5.317 | 12,49% | 28,13% |
-| **3.1 → 3.2 · giảm lỗi** | 69,78% | **47,04%** | **56,20%** | **+6.956** | **11,62%** | 27,90% |
-| Chỉ 3.1 · macro-F1 | 68,00% | 23,51% | 34,94% | +3.465 | 13,47% | 31,53% |
-| Chỉ 3.2 · macro-F1 | 67,89% | 22,33% | 33,60% | +2.793 | 13,83% | 31,36% |
-| **3.1 → 3.2 · macro-F1** | 70,40% | 34,10% | 45,94% | +5.236 | 12,53% | **31,89%** |
-
-Ghép thắng từng bước riêng ở cả hai mục tiêu. Chọn theo giảm lỗi thì macro-F1 tụt còn 27,90% (tam giác
-đẩy OVERLAP về BEFORE, F1 OVERLAP còn 0,8), nên luôn báo cả hai cấu hình.
-
-| So với bộ 257 luật cũ | Bộ cũ | Bộ mới |
-|---|---|---|
-| Classifier | lỗi 15,11%, macro 30,83% | lỗi 15,31%, macro 30,84% |
-| 3.1 → 3.2 · giảm lỗi | lỗi 11,81% | lỗi **11,62%** |
-| 3.1 → 3.2 · macro-F1 | macro **32,25%** | macro 31,89% |
-
-Chưa đo dao động theo seed, nên chưa kết luận được chênh lệch 0,2–0,4 là thật hay nhiễu.
-
-### 6.1 Thêm bước 3.0: ghi đè motif bộ 3+4+5 trước auditor
-
-Bước 3.0 dùng luật motif (`motif345.py`). Với mỗi cạnh (a, b), lấy tối đa 6 hàng xóm chung c (sự kiện hoặc
-TIMEX); mỗi hàng xóm cho một nguyên tử (loại c, L(a, c), L(c, b)), tức một tam giác. Bộ 3 là một nguyên tử, bộ 4
-là cặp nguyên tử, bộ 5 là bộ ba nguyên tử; nhãn L đọc từ đồ thị đang kiểm toán. Luật "chữ ký → nhãn" mine trên
-DISCOVERY của train, với nhãn hàng xóm là dự đoán của classifier (n ≥ 30, k ≥ 10, ≥ 5 document, wlb > tỷ lệ nền),
-xác nhận trên CONF-1; ngưỡng theo (loại cạnh, nhãn) chọn trên CONF-2 theo macro-F1; luật bắn thì ghi đè nhãn.
-Cấu hình 3+4+5 tốt nhất trên CONF-2 (31,12%); trên valid nó đổi 7.721 nhãn, macro-F1 30,84% → 31,62%. Khác 3.1
-và 3.2, bước này không học trên valid. Sau đó 3.1 → 3.2 chạy như trên (cross-fit, cùng lưới tham số) trên đồ thị
-đã ghi đè (`TAG=_full_motif`, log `bai2_combo_full_motif.log`).
-
-| Cấu hình | Không 3.0 | Có 3.0 |
-|---|---|---|
-| Đồ thị đầu vào | lỗi 15,31% · macro-F1 30,84% | lỗi 14,64% · macro-F1 31,62% |
-| Chỉ 3.1 · macro-F1 | 31,53% | 32,06% |
-| Chỉ 3.2 · macro-F1 | 31,36% | 31,56% |
-| **3.1 → 3.2 · macro-F1** | 31,89% (lỗi 12,53%) | **32,54%** (lỗi 13,15%) |
-| **3.1 → 3.2 · giảm lỗi** | **lỗi 11,62%** (macro-F1 27,90%) | lỗi 11,78% (macro-F1 28,93%) |
-
-Motif giữ gần hết lợi thế tới cuối (+0,78 ở đầu vào, +0,65 sau 3.1 → 3.2), chủ yếu nhờ OVERLAP (F1 13,4 → 16,2)
-và CONTAINS (56,6 → 57,7). Motif được chọn theo macro-F1 nên đổi thêm nhãn hiếm; một phần trong số đó thành lỗi
-mà 3.1 và 3.2 không gỡ hết, nên với mục tiêu giảm lỗi thì bỏ 3.0 tốt hơn (11,62% so với 11,78%). Theo loại cạnh,
-motif giảm lỗi EV–EV (12,7% → 11,1%) nhưng tăng lỗi TIMEX→EV (25,9% → 27,0%) và TIMEX–TIMEX (14,5% → 15,0%).
-
-**Kết quả chính của Bài 2 trên nhiễu classifier:** lỗi **11,62%** (3.1 → 3.2, không 3.0) và macro-F1 **32,54%**
-(3.0 → 3.1 → 3.2). Chưa đo dao động theo seed cho chênh lệch +0,65.
-
-**Vì sao nhiễu classifier khó hơn nhiễu bơm** (đo trên EV–EV với classifier cũ, `diag_b.log`):
-
-1. **Gần một nửa lỗi là nhãn hiếm bị đoán thành BEFORE.** Muốn lật BEFORE (classifier hiện tại đúng 91,9% khi đoán BEFORE) cần
-   bằng chứng mạnh hơn classifier ở đúng chỗ nó yếu nhất — chính là bài toán của Bài 1.
-2. **Lỗi classifier tụ thành cụm:** quanh một cạnh sai, 32,9% cạnh kề cũng sai (nhiễu bơm: 10,1%,
-   bằng tỷ lệ chung). Mô hình kênh nhiễu coi lỗi từng cạnh độc lập nên không bắt được hết.
+1. **Gần một nửa lỗi là nhãn hiếm bị đoán thành BEFORE.** Muốn lật BEFORE (classifier hiện tại đúng 91,9% khi
+   đoán BEFORE) cần bằng chứng mạnh hơn classifier ở đúng chỗ nó yếu nhất — chính là bài toán của Bài 1.
+   CONTAINS → BEFORE và SIMULTANEOUS → BEFORE gần như không sửa được (0%), trong khi BEFORE → CONTAINS sửa được
+   84,6%.
+2. **Lỗi classifier tụ thành cụm:** quanh một cạnh sai, 32,9% cạnh kề cũng sai (nhiễu bơm: 10,1%, bằng tỷ lệ
+   chung). Tam giác quanh cạnh sai vì vậy vẫn nhất quán, và mô hình kênh nhiễu (coi lỗi từng cạnh độc lập)
+   không bắt được hết.
 
 ---
 
@@ -253,33 +169,93 @@ motif giảm lỗi EV–EV (12,7% → 11,1%) nhưng tăng lỗi TIMEX→EV (25,9
 |---|---|---|
 | E4: ba tầng kiểm toán | 21 luật tam giác EV–EV + closure Allen + date bridge; lỗi EV–EV 12,13% → 9,98% | closure một mình gần như im lặng (lỗi tụ cụm nên vẫn nhất quán); date bridge đúng 100% nhưng hiếm khi có đủ mốc |
 | Auditor 175 luật, bối cảnh A/B | sáu họ motif; cạnh EV–TIMEX gold (A) hoặc dự đoán (B) | A gần gấp đôi E4 nhờ suy diễn qua mốc gold; B chỉ +7%; phải báo giảm lỗi ròng vì R_all không trừ phần làm hỏng |
-| fake_data | đổi nhãn EV–EV 5–20% | mô hình tam giác loại 81–84% lỗi ở mọi mức, F1 phát hiện 90–92% (phụ lục P.5) |
 | Macro-F1 của đồ thị | đo thêm macro-F1 sau kiểm toán | auditor chọn theo số lỗi xoá nhãn hiếm (SIMULTANEOUS F1 → 0); chia luật theo nhãn hiện tại giải quyết được |
 | Đồ thị hợp nhất | pattern trên mọi sự kiện, mọi TIMEX | nhiễu bơm loại khoảng 50% lỗi; TIMEX→EV chưa sửa được cho đến khi chia theo nhãn hiện tại và dùng tam giác |
 
+**Benchmark conflict `results/`** (mức sự kiện, mốc `time_start` bị làm giả theo bốn kiểu): bản gốc có ít
+nhất 13 đường rò rỉ (chỉ so `timex_raw` với `time_start` đã đạt F1 76–90%). Trên bản trung thực, detector "dạng
+ngày bị làm thô + ràng buộc điểm bắt đầu cho mọi quan hệ Allen" đạt F1 51,0 / 53,4 / 54,0 / 55,5% ở 5 / 10 / 15 /
+20%; cạnh do TempEKG dự đoán kiểm toán tốt ngang cạnh gold (47,03% so với 47,23%). Chi tiết: phụ lục P.6,
+`BENCHMARK_AUDIT.md`.
+
 ---
 
-## 8. Benchmark conflict `results/`
+## 8. Ablation
 
-Benchmark mức sự kiện: một phần mốc `time_start` bị làm giả theo bốn kiểu (dịch mốc, đảo thứ tự, làm
-thô ngày, đổi từ nối).
+Mọi bảng dưới đây là so sánh phụ, cùng mục tiêu macro-F1; số chính ở bảng đầu tài liệu.
 
-- **Ít nhất 13 đường rò rỉ:** `timex_raw` giữ ngày thật; conflict được thêm thành dòng trùng nên dòng
-  thật vẫn còn; 8 cột pipeline chỉ có giá trị ở dòng conflict; `lexical_score = 0` ở mọi dòng thật;
-  `text_span` gần trùng với dòng anh em… Chỉ so `timex_raw` với `time_start` đã đạt F1 76–90%.
-- **Bản trung thực:** mỗi sự kiện một dòng (conflict thay dòng thật), 7 cột đầu vào, nối với đồ thị
-  TempEKG qua `cluster_id`.
-- **Detector:** dạng ngày bị làm thô (`YYYY-01-01`) + ràng buộc điểm bắt đầu cho mọi quan hệ Allen
-  (`BEFORE/CONTAINS/OVERLAP ⇒ start(A) ≤ start(B)`), quy trách nhiệm cho một đầu.
+### 8.1 Từng bước riêng và ghép hai bước (đầu ra Bài 1, cross-fit)
 
-| Mức | P | R | F1 |
-|---|---|---|---|
-| 5% | 52,00% | 50,00% | 50,98% |
-| 10% | 66,67% | 44,55% | 53,41% |
-| 15% | 71,29% | 43,44% | 53,99% |
-| 20% | 76,19% | 43,70% | 55,54% |
+| Cấu hình | Macro-F1 | Lỗi |
+|---|---|---|
+| Chưa sửa | 30,84% | 15,31% |
+| Chỉ 3.1 auditor | 31,53% | 13,47% |
+| Chỉ 3.2 tam giác | 31,36% | 13,83% |
+| **3.1 → 3.2** | **31,89%** | 12,53% |
 
-Cạnh do TempEKG tự dự đoán kiểm toán tốt ngang cạnh gold (47,03% so với 47,23%).
+Ghép thắng từng bước riêng. P / R / sửa / hỏng và F1 từng nhãn ở phụ lục P.3.
+
+### 8.2 Vai trò của tầng GRAPH trong auditor (classifier cũ, chưa chạy lại)
+
+| Auditor (đầu vào: macro-F1 30,83%, lỗi 15,11%) | Macro-F1 | Lỗi |
+|---|---|---|
+| Chỉ GRAPH | 32,38% | 13,11% |
+| **Mọi tầng + GRAPH** | **32,44%** | 12,91% |
+| Mọi tầng, không GRAPH | 31,58% | 13,07% |
+
+Bỏ tầng GRAPH thì macro-F1 giảm 0,86 điểm (phụ lục P.1).
+
+### 8.3 Auditor một mình và mô hình tam giác trên nhiễu bơm 10%
+
+| | Macro-F1 | Lỗi |
+|---|---|---|
+| Chưa sửa | 69,4% | 9,94% |
+| Chỉ 3.1 auditor | 77,1% | 4,74% |
+| **Chỉ 3.2 tam giác** | **85,1%** | **1,94%** |
+
+Theo loại cạnh ở mức 20% (3.2): EV–EV 20,0% → 4,2%, EV→TIMEX 20,0% → 2,4%, TIMEX→EV 19,5% → 6,2%,
+TIMEX–TIMEX 19,9% → 4,8%.
+
+### 8.4 Bộ luật cũ (257 luật) và bộ luật mới của Bài 1 làm đầu vào
+
+| | Bộ cũ | Bộ mới |
+|---|---|---|
+| Đồ thị đầu vào | macro-F1 30,83%, lỗi 15,11% | macro-F1 30,84%, lỗi 15,31% |
+| 3.1 → 3.2 | macro-F1 **32,25%**, lỗi 12,34% | macro-F1 31,89%, lỗi 12,53% |
+
+Chưa đo dao động theo seed, nên chưa kết luận được chênh lệch 0,36 là thật hay nhiễu.
+
+### 8.5 Bỏ toàn bộ đặc trưng MAVEN-Arg
+
+| | Có MAVEN-Arg | Không MAVEN-Arg |
+|---|---|---|
+| Đồ thị đầu vào (đầu ra Bài 1) | macro-F1 30,84%, lỗi 15,31% | macro-F1 30,74%, lỗi 14,41% |
+| 3.1 → 3.2 | macro-F1 31,89%, lỗi 12,53% | macro-F1 31,77%, lỗi 12,30% |
+
+Chênh lệch nằm trong dao động do cách chia (`STATUS.md` §39).
+
+### 8.6 fake_data chấm riêng trên các cạnh bị fake
+
+Trước khi sửa, mọi cạnh fake đều sai nên accuracy và macro-F1 trên tập con này đều bằng 0.
+
+| Mức | Số cạnh fake | Accuracy: 0 → | Macro-F1: 0 → | Cạnh sạch vẫn đúng | Báo động giả trên gold sạch |
+|---|---|---|---|---|---|
+| 5% | 5.459 | 89,3% | 24,6% | 99,6% | 401 |
+| 10% | 10.993 | 93,9% | 34,0% | 98,1% | 1.603 |
+| 15% | 16.468 | 91,3% | 36,0% | 98,5% | 1.102 |
+| 20% | 21.906 | 91,5% | 33,4% | 97,9% | 1.323 |
+
+Nhãn gold của cạnh fake khoảng 90% là BEFORE nên sửa về BEFORE là phần lớn công việc (F1 BEFORE 94–97).
+Cạnh chưa sửa được vẫn mang nhãn fake, thường là nhãn hiếm, trong khi tập con chỉ có 33–109 cạnh SIMULTANEOUS
+thật; vì vậy F1 của SIMULTANEOUS / OVERLAP dưới 25 và macro-F1 thấp. Macro-F1 trên toàn EV–EV (bảng chính) cao
+vì 80–95% cạnh là gold và gần như được giữ nguyên. Log: `experiments/logs/fake_eval_subset.log`.
+
+### 8.7 Cấu trúc lớn hơn tam giác
+
+- **Bộ 4 dạng cụm đủ 6 cạnh** (nhiễu classifier, classifier cũ): với các lỗi mà tam giác không phát hiện được,
+  cạnh sai và cạnh đúng nằm trong cụm 4 node "chưa gặp" với tỷ lệ gần như nhau (71,3% so với 75,6%, tỷ số
+  0,94×): không gian cấu hình quá thưa.
+- **Chuỗi 3 bước:** 99,86% cạnh đã có đường 2 bước, và 0 cạnh chỉ nối được qua 3 bước, nên không thêm gì.
 
 ---
 
@@ -288,9 +264,8 @@ Cạnh do TempEKG tự dự đoán kiểm toán tốt ngang cạnh gold (47,03% 
 - Kênh nhiễu của bước 3.2 coi lỗi từng cạnh độc lập, trong khi lỗi classifier tụ cụm → cần kênh nhiễu
   có tương quan.
 - Mỗi mức nhiễu bơm mới có một seed, và một kiểu nhiễu (đổi nhãn).
-- Bộ 4–5 chỉ có ích nếu gộp cấu hình về dạng trừu tượng hơn — chưa làm.
 - Gold MAVEN không có lỗi chú thích đo được: đánh giá dựa trên nhiễu bơm hoặc nhiễu classifier.
-- So sánh auditor A / B / C (P.1) mới đo trên classifier cũ.
+- So sánh auditor A / B / C (mục 8.2) mới đo trên classifier cũ.
 - Chưa đo dao động theo seed của cross-fit.
 
 ---
@@ -301,6 +276,7 @@ Cạnh do TempEKG tự dự đoán kiểm toán tốt ngang cạnh gold (47,03% 
 |---|---|
 | Auditor tầng + GRAPH | `experiments/higher_order/bai2_layered.py` |
 | Sửa chung tam giác (nhiễu bơm, nhiễu classifier) | `experiments/higher_order/joint_repair.py` |
+| fake_data | `cd src; TAG=_full python ../experiments/higher_order/fake_eval.py 05 10 15 20` |
 | Thăm dò tam giác, bộ 4 | `experiments/higher_order/subgraph_probe.py`, `quad_probe.py` |
 | Ghép 3.1 → 3.2, cross-fit | `TAG=_full python experiments/higher_order/bai2_combo.py` (khoảng 34 phút; bỏ `TAG` để chạy trên bộ luật cũ) |
 | Chẩn đoán nhiễu classifier | `experiments/higher_order/diag_b.py` |
@@ -308,7 +284,7 @@ Cạnh do TempEKG tự dự đoán kiểm toán tốt ngang cạnh gold (47,03% 
 | Các giai đoạn trước | `bai2_auditor.py`, `fake_and_b.py`, `bayes_audit.py`, `bai2_unified.py` |
 | Benchmark conflict | `experiments/benchmark_honest.py`, `benchmark_honest2.py` |
 
-Số liệu chi tiết: `BAI2_NOISE_AWARE.md` §11–17, `BENCHMARK_AUDIT.md`, `TEMPEKG_TOAN_HOC.md` §8–9, `STATUS.md` §22–35.
+Số liệu chi tiết: `BAI2_NOISE_AWARE.md` §11–17, `BENCHMARK_AUDIT.md`, `TEMPEKG_TOAN_HOC.md` §8–9, `STATUS.md` §22–39.
 
 ---
 
@@ -318,64 +294,38 @@ Tất cả trên valid (710 document, 188.924 cạnh trừ khi ghi khác). Ngu�
 
 ### P.1 Auditor tầng + GRAPH (bước 3.1): so sánh A / B / C, classifier cũ
 
-| Nhiễu | Auditor · mục tiêu | P | R | F1 | Sửa / hỏng / ròng | Lỗi | Macro-F1 | Lỗi EV–EV · EV→TX · TX→EV · TX–TX |
+| Nhiễu | Auditor | P | R | F1 | Sửa / hỏng / ròng | Lỗi | Macro-F1 | Lỗi EV–EV · EV→TX · TX→EV · TX–TX |
 |---|---|---|---|---|---|---|---|---|
-| Classifier cũ (15,11%, macro 30,83%) | A chỉ GRAPH · giảm lỗi | 69,95% | 29,86% | 41,86% | 8.318 / 3.663 / +4.655 | 12,65% | 31,96% | 9,8 · 9,7 · 22,0 · 14,2 |
-| | A · macro-F1 | 70,14% | 24,20% | 35,98% | 6.730 / 2.942 / +3.788 | 13,11% | 32,38% | 9,9 · 9,7 · 23,8 · 14,4 |
-| | **B mọi tầng + GRAPH · giảm lỗi** | 69,73% | 37,84% | 49,05% | 10.431 / 4.690 / +5.741 | **12,07%** | 31,97% | 9,1 · 9,7 · 21,4 · 13,6 |
-| | **B · macro-F1** | 70,09% | 26,82% | 38,80% | 7.438 / 3.268 / +4.170 | 12,91% | **32,44%** | 9,6 · 9,7 · 23,8 · 13,7 |
-| | C không GRAPH · giảm lỗi | 75,63% | 22,73% | 34,95% | 6.191 / 2.091 / +4.100 | 12,94% | 31,31% | 9,7 · 10,1 · 23,4 · 14,4 |
-| | C · macro-F1 | 72,22% | 23,68% | 35,66% | 6.458 / 2.601 / +3.857 | 13,07% | 31,58% | 9,7 · 10,3 · 23,6 · 15,1 |
-| Bơm 10% (9,94%, macro 69,43%) | A · giảm lỗi | 82,59% | 64,38% | 72,36% | 12.072 / 2.548 / +9.524 | 4,90% | 76,99% | 4,3 · 3,9 · 6,7 · 6,7 |
-| | **B · macro-F1** | 78,44% | 72,29% | 75,24% | 13.550 / 3.732 / +9.818 | **4,74%** | **77,11%** | 4,0 · 4,6 · 6,5 · 5,8 |
-| | C · giảm lỗi | 72,29% | 56,08% | 63,16% | 10.507 / 4.038 / +6.469 | 6,52% | 73,30% | 5,4 · 5,8 · 9,9 · 7,0 |
-| Bơm 20% (19,89%, macro 51,25%) | A · giảm lỗi | 85,51% | 62,82% | 72,43% | 23.562 / 4.001 / +19.561 | 9,54% | 63,51% | 8,8 · 6,8 · 12,7 · 11,3 |
-| | **B · giảm lỗi** | 81,81% | 77,40% | 79,54% | 29.010 / 6.468 / +22.542 | **7,96%** | 62,41% | 6,4 · 6,4 · 12,6 · 10,2 |
-| | C · giảm lỗi | 80,09% | 66,09% | 72,42% | 24.743 / 6.175 / +18.568 | 10,06% | 56,22% | 7,7 · 7,7 · 17,8 · 11,1 |
+| Classifier cũ (15,11%, macro 30,83%) | A chỉ GRAPH | 70,14% | 24,20% | 35,98% | 6.730 / 2.942 / +3.788 | 13,11% | 32,38% | 9,9 · 9,7 · 23,8 · 14,4 |
+| | **B mọi tầng + GRAPH** | 70,09% | 26,82% | 38,80% | 7.438 / 3.268 / +4.170 | 12,91% | **32,44%** | 9,6 · 9,7 · 23,8 · 13,7 |
+| | C không GRAPH | 72,22% | 23,68% | 35,66% | 6.458 / 2.601 / +3.857 | 13,07% | 31,58% | 9,7 · 10,3 · 23,6 · 15,1 |
+| Bơm 10% (9,94%, macro 69,43%) | **B** | 78,44% | 72,29% | 75,24% | 13.550 / 3.732 / +9.818 | 4,74% | **77,11%** | 4,0 · 4,6 · 6,5 · 5,8 |
 
 Lỗi ban đầu theo loại cạnh — classifier cũ: EV–EV 12,4%, EV→TIMEX 10,5%, TIMEX→EV 25,9%, TIMEX–TIMEX
 14,4%; nhiễu bơm xấp xỉ bằng mức bơm ở mọi loại.
 
 ### P.2 Sửa chung theo tam giác (bước 3.2), một mình
 
-Nhiễu bơm ở P.1 (`bai2_layered.py`) và P.2 (`joint_repair.py`) dùng cùng seed nên đổi nhãn đúng cùng các
-cạnh (cùng tỷ lệ lỗi), nhưng chọn nhãn thay thế từ phân phối biên tính hơi khác, nên macro-F1 ban đầu
-lệch nhẹ (69,43% và 69,08% ở mức 10%; 51,25% và 50,98% ở mức 20%).
-
-| Nhiễu | Mục tiêu (cách cân, λ, α) | P | R | F1 | Sửa / hỏng / ròng | Lỗi | Macro-F1 | Lỗi EV–EV · EV→TX · TX→EV · TX–TX |
+| Nhiễu | (cách cân, λ, α) | P | R | F1 | Sửa / hỏng / ròng | Lỗi | Macro-F1 | Lỗi EV–EV · EV→TX · TX→EV · TX–TX |
 |---|---|---|---|---|---|---|---|---|
-| Bơm 10% | giảm lỗi = macro-F1 (mean, 2,0, 0,5) | 92,32% | 88,24% | **90,23%** | 16.492 / 1.379 / +15.113 | 9,94% → **1,94%** | 69,08% → **85,10%** | 2,0 · 0,9 · 2,5 · 1,8 |
-| Bơm 20% | giảm lỗi (mean, 1,0, 0,5) | 93,52% | 85,31% | **89,23%** | 31.943 / 2.222 / +29.721 | 19,89% → **4,16%** | 50,98% → 72,46% | 3,9 · 2,1 · 6,0 · 4,8 |
-| | macro-F1 (mean, 2,0, 0,5) | 89,85% | 88,38% | 89,11% | 32.987 / 3.750 / +29.237 | → 4,42% | → **72,63%** | 4,2 · 2,4 · 6,2 · 4,8 |
-| Classifier (cross-fit) | giảm lỗi (mean, 0,5, 0,0) | 72,19% | 33,94% | 46,17% | 9.097 / 3.780 / +5.317 | 15,31% → 12,49% | 30,84% → 28,13% | 9,6 · 8,3 · 22,5 · 14,4 |
-| | macro-F1 (mean, 1,0, 0,5) | 67,89% | 22,33% | 33,60% | 5.847 / 3.054 / +2.793 | → 13,83% | → 31,36% | 11,1 · 9,7 · 23,3 · 16,7 |
+| Bơm 10% | (mean, 2,0, 0,5) | 92,32% | 88,24% | 90,23% | 16.492 / 1.379 / +15.113 | 9,94% → 1,94% | 69,08% → **85,10%** | 2,0 · 0,9 · 2,5 · 1,8 |
+| Bơm 20% | (mean, 2,0, 0,5) | 89,85% | 88,38% | 89,11% | 32.987 / 3.750 / +29.237 | 19,89% → 4,42% | 50,98% → **72,63%** | 4,2 · 2,4 · 6,2 · 4,8 |
+| Classifier (cross-fit) | (mean, 1,0, 0,5) | 67,89% | 22,33% | 33,60% | 5.847 / 3.054 / +2.793 | 15,31% → 13,83% | 30,84% → 31,36% | 11,1 · 9,7 · 23,3 · 16,7 |
+
+Nhiễu bơm ở P.1 (`bai2_layered.py`) và P.2 (`joint_repair.py`) đổi nhãn đúng cùng các cạnh, nhưng chọn nhãn
+thay thế hơi khác, nên macro-F1 ban đầu lệch nhẹ (69,43% và 69,08% ở mức 10%).
 
 ### P.3 Ghép 3.1 → 3.2, nhiễu classifier, cross-fit trên valid
 
 | Cấu hình | P / R / F1 | Sửa / hỏng / ròng | Lỗi | Macro-F1 | Lỗi EV–EV · EV→TX · TX→EV · TX–TX | F1 BEFO · CONT · SIMU · OVER |
 |---|---|---|---|---|---|---|
-| Chỉ 3.1 · giảm lỗi | 66,77 / 34,23 / 45,26 | 9.662 / 4.926 / +4.736 | 12,80% | 31,24% | 10,1 · 10,7 · 21,2 · 14,3 | 92,9 · 53,6 · 26,0 · 14,8 |
-| Chỉ 3.2 · giảm lỗi | 72,19 / 33,94 / 46,17 | 9.097 / 3.780 / +5.317 | 12,49% | 28,13% | 9,6 · 8,3 · 22,5 · 14,4 | 93,0 · 51,4 · 19,5 · 2,1 |
-| **3.1 → 3.2 · giảm lỗi** | 69,78 / 47,04 / 56,20 | 12.846 / 5.890 / +6.956 | **11,62%** | 27,90% | 9,2 · 8,0 · 20,0 · 14,0 | 93,6 · 53,2 · 19,9 · 0,8 |
-| Chỉ 3.1 · macro-F1 | 68,00 / 23,51 / 34,94 | 6.664 / 3.199 / +3.465 | 13,47% | 31,53% | 11,2 · 10,8 · 21,2 · 14,1 | 92,5 · 55,8 · 26,0 · 14,8 |
-| Chỉ 3.2 · macro-F1 | 67,89 / 22,33 / 33,60 | 5.847 / 3.054 / +2.793 | 13,83% | 31,36% | 11,1 · 9,7 · 23,3 · 16,7 | 92,3 · 53,7 · 25,7 · 14,6 |
-| **3.1 → 3.2 · macro-F1** | 70,40 / 34,10 / 45,94 | 9.381 / 4.145 / +5.236 | 12,53% | **31,89%** | 10,3 · 9,2 · 20,4 · 14,6 | 93,1 · 56,6 · 28,4 · 13,4 |
-
-Có thêm bước 3.0 (ghi đè motif bộ 3+4+5; P / R tính so với đồ thị sau 3.0, lỗi ban đầu 14,64%: EV–EV 11,1% ·
-EV→TIMEX 10,7% · TIMEX→EV 27,0% · TIMEX–TIMEX 15,0%, macro-F1 31,62%):
-
-| Cấu hình | P / R / F1 | Sửa / hỏng / ròng | Lỗi | Macro-F1 | Lỗi EV–EV · EV→TX · TX→EV · TX–TX | F1 BEFO · CONT · SIMU · OVER · BEGI · ENDS |
-|---|---|---|---|---|---|---|
-| 3.0 → 3.1 · giảm lỗi | 67,27 / 32,13 / 43,48 | 8.655 / 4.324 / +4.331 | 12,35% | 31,58% | 9,5 · 10,5 · 20,6 · 14,6 | 93,2 · 54,0 · 28,2 · 14,1 · 0 · 0 |
-| 3.0 → 3.2 · giảm lỗi | 71,64 / 30,24 / 42,52 | 7.721 / 3.311 / +4.410 | 12,31% | 28,33% | 9,5 · 8,2 · 21,9 · 14,7 | 93,1 · 55,1 · 20,9 · 0,9 · 0 · 0 |
-| 3.0 → 3.1 → 3.2 · giảm lỗi | 67,71 / 42,34 / 52,10 | 10.999 / 5.586 / +5.413 | 11,78% | 28,93% | 9,3 · 8,0 · 20,2 · 14,6 | 93,5 · 52,5 · 23,7 · 3,8 · 0 · 0 |
-| 3.0 → 3.1 · macro-F1 | 60,61 / 15,48 / 24,66 | 4.146 / 2.782 / +1.364 | 13,92% | 32,06% | 10,9 · 10,7 · 23,4 · 17,0 | 92,1 · 56,9 · 28,2 · 15,1 · 0 · 0 |
-| 3.0 → 3.2 · macro-F1 | 69,07 / 11,12 / 19,15 | 2.699 / 1.377 / +1.322 | 13,94% | 31,56% | 10,7 · 9,4 · 24,8 · 17,0 | 92,1 · 56,4 · 27,2 · 12,6 · 1,0 · 0 |
-| **3.0 → 3.1 → 3.2 · macro-F1** | 65,86 / 25,27 / 36,53 | 6.443 / 3.624 / +2.819 | 13,15% | **32,54%** | 10,4 · 9,1 · 22,3 · 16,6 | 92,6 · 57,7 · 27,7 · 16,2 · 0,9 · 0 |
+| Chỉ 3.1 | 68,00 / 23,51 / 34,94 | 6.664 / 3.199 / +3.465 | 13,47% | 31,53% | 11,2 · 10,8 · 21,2 · 14,1 | 92,5 · 55,8 · 26,0 · 14,8 |
+| Chỉ 3.2 | 67,89 / 22,33 / 33,60 | 5.847 / 3.054 / +2.793 | 13,83% | 31,36% | 11,1 · 9,7 · 23,3 · 16,7 | 92,3 · 53,7 · 25,7 · 14,6 |
+| **3.1 → 3.2** | 70,40 / 34,10 / 45,94 | 9.381 / 4.145 / +5.236 | 12,53% | **31,89%** | 10,3 · 9,2 · 20,4 · 14,6 | 93,1 · 56,6 · 28,4 · 13,4 |
 
 Lỗi ban đầu của classifier mới: EV–EV 12,7% · EV→TIMEX 10,7% · TIMEX→EV 25,9% · TIMEX–TIMEX 14,5%, tổng
-15,31%. Tham số tam giác (cách cân, λ, α) chọn giống nhau ở cả hai fold với mục tiêu giảm lỗi ((mean, 0,5, 0,0)) và
-với tam giác một mình theo macro-F1 ((mean, 1,0, 0,5)); riêng 3.1 → 3.2 theo macro-F1 thì fold 0 chọn λ = 0,5, fold 1 chọn λ = 1,0.
+15,31%. Tham số tam giác chọn trên tập chỉnh của từng fold: tam giác một mình (mean, 1,0, 0,5) ở cả hai fold;
+3.1 → 3.2 thì fold 0 chọn λ = 0,5, fold 1 chọn λ = 1,0.
 
 ### P.4 Loại lỗi nào sửa được (EV–EV, classifier 257 luật, luật có điều kiện cross-fit)
 
@@ -390,16 +340,16 @@ với tam giác một mình theo macro-F1 ((mean, 1,0, 0,5)); riêng 3.1 → 3.2
 Lỗi classifier tụ cụm: quanh một cạnh sai, 32,90% cạnh tam giác kề cũng sai (quanh cạnh đúng: 7,61%);
 với nhiễu bơm 10% là 10,13% (bằng tỷ lệ chung). Tam giác ủng hộ nhãn sai: 10,08% so với 0,48%.
 
-### P.5 fake_data (chỉ đổi nhãn EV–EV): mô hình tam giác
+### P.5 fake_data (chỉ đổi nhãn EV–EV): mô hình tam giác, chi tiết
 
 | Mức | Lỗi EV–EV | P / R / F1 phát hiện | Sửa / hỏng / ròng | Macro-F1 EV–EV | Báo động giả trên gold sạch |
 |---|---|---|---|---|---|
-| 5% | 4,97% → **0,96%** | 91,2 / 89,4 / 90,3 | 4.874 / 472 / +4.402 | 81,4 → 94,0 | 401 |
-| 10% | 10,00% → **1,75%** | 92,0 / 90,9 / 91,4 | 9.939 / 867 / +9.072 | 70,2 → 86,2 | 696 |
-| 15% | 14,98% → **2,34%** | 96,2 / 88,0 / 91,9 | 14.471 / 574 / +13.897 | 61,3 → 82,0 | 302 |
-| 20% | 19,93% → **3,23%** | 93,7 / 90,0 / 91,8 | 19.679 / 1.320 / +18.359 | 52,2 → 75,8 | 895 |
+| 5% | 4,97% → 0,96% | 91,2 / 89,4 / 90,3 | 4.874 / 472 / +4.402 | 81,4 → **94,0** | 401 |
+| 10% | 10,00% → 2,28% | 84,9 / 94,2 / 89,3 | 10.322 / 1.837 / +8.485 | 70,2 → **84,0** | 1.603 |
+| 15% | 14,98% → 2,56% | 91,6 / 91,7 / 91,6 | 15.042 / 1.391 / +13.651 | 61,3 → **79,8** | 1.102 |
+| 20% | 19,93% → 3,36% | 91,7 / 91,9 / 91,8 | 20.040 / 1.826 / +18.214 | 52,2 → **72,7** | 1.323 |
 
-Đồ thị cần kiểm toán = đúng 4 file fake_data (gold valid, đổi nhãn EV–EV ở 5/10/15/20%; cạnh TIMEX giữ gold). Phương pháp: mô hình năng lượng tam giác (bước 3.2) một mình; tham số chọn theo giảm lỗi trên CONFIRMATION-2 của train bị bơm nhiễu cùng cách, valid chấm một lần. Loại 81–84% số cạnh sai ở mọi mức; không cạnh TIMEX nào bị đổi. Báo động giả = số cạnh đúng bị đổi khi chạy cùng tham số trên đồ thị gold sạch. 23–106 cạnh bị đổi được lưu ngược chiều với nhãn không đối xứng nên được giữ nhãn gold; vì vậy tỷ lệ lỗi ban đầu thấp hơn file một chút.
+Đồ thị cần kiểm toán = đúng 4 file fake_data (gold valid, đổi nhãn EV–EV ở 5/10/15/20%; cạnh TIMEX giữ gold). Phương pháp: mô hình năng lượng tam giác (bước 3.2) một mình; tham số chọn theo macro-F1 trên CONFIRMATION-2 của train bị bơm nhiễu cùng cách, valid chấm một lần. Báo động giả = số cạnh đúng bị đổi khi chạy cùng tham số trên đồ thị gold sạch. 23–106 cạnh bị đổi được lưu ngược chiều với nhãn không đối xứng nên được giữ nhãn gold; vì vậy tỷ lệ lỗi ban đầu thấp hơn file một chút.
 
 ### P.6 Benchmark conflict trung thực, mức 20% (2.191 sự kiện, 476 conflict)
 

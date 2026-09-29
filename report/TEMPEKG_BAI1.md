@@ -1,16 +1,26 @@
 # TempEKG — Bài 1: phân loại quan hệ thời gian
 
-**Bài toán:** cho một cặp (sự kiện hoặc TIMEX) trong cùng văn bản, đoán nhãn quan hệ thời gian
-trong 6 nhãn. Tương đương "che nhãn cạnh trên valid rồi đoán lại".
+**Bài toán:** cho một cặp (sự kiện hoặc TIMEX) trong cùng văn bản, đoán nhãn quan hệ thời gian trong 6 nhãn.
+Tương đương "che toàn bộ nhãn cạnh trên valid rồi đoán lại". Biết cặp nào có quan hệ, chỉ không biết nhãn.
+Bài 1 chỉ dùng thông tin của từng cặp, không bao giờ đọc nhãn thời gian của cạnh khác. Đồ thị dự đoán của Bài 1
+là đầu vào của Bài 2.
 
-**Kết quả hiện tại:** macro-F1 **30,84%** trên cả 188.924 cạnh valid, sau bước 2.2 (luôn đoán BEFORE: 15,30%).
-Bài 1 chỉ dùng thông tin của từng cặp; đồ thị này là đầu vào của Bài 2. Mô hình tam giác (dùng cấu trúc cả
-đồ thị) thuộc Bài 2: chạy một mình trên đồ thị này cho 31,36%, kết hợp auditor cho 31,89%, thêm ghi đè motif bộ 3+4+5 ở trước cho
-32,54% (`TEMPEKG_BAI2.md`).
-Riêng EV–EV: **26,99%** với bộ luật mine trên toàn bộ train, **27,44%** sau luật liên tầng.
+## Kết quả chính
+
+Macro-F1 trên valid (710 document, 188.924 cạnh), theo loại cạnh:
+
+| Bước | EV–EV | EV→TIMEX | TIMEX→EV | TIMEX–TIMEX | **Gộp** |
+|---|---|---|---|---|---|
+| Luôn đoán BEFORE | 15,78% | 15,91% | 13,51% | 14,73% | 15,30% |
+| 2.1 Luật riêng cho từng loại cạnh | 26,99% | 29,74% | 24,29% | 32,98% | 30,09% |
+| **2.2 + luật liên tầng (kết quả Bài 1)** | **27,44%** | **30,51%** | **26,24%** | **34,93%** | **30,84%** |
+
+Số luật: 68.495 sau xác nhận, 5.721 được bật; rút gọn có chứng minh còn **713 luật** cho cùng dự đoán.
+F1 từng nhãn ở phụ lục P.1–P.4. Các so sánh và biến thể nằm riêng ở mục 8 (Ablation).
 
 Kiến trúc chung (dữ liệu, KG, chia tập, thiết kế tầng) ở `TEMPEKG_KIEN_TRUC.md`. Bộ luật (luật là gì,
-dựng ra sao, ví dụ luật thật và cách luật bắn trên một cặp thật) ở `RULESET.md`.
+dựng ra sao, ví dụ luật thật và cách luật bắn trên một cặp thật) ở `RULESET.md`. Bản đồ cả dự án ở
+`TEMPEKG_TONG_QUAN.md`.
 
 ---
 
@@ -22,27 +32,6 @@ flowchart LR
     C -->|"30,09%"| L["2.2 Luật liên tầng<br/>ghi đè khi đủ chắc"]
     L -->|"30,84%"| O["Nhãn cho mọi cạnh<br/>= đầu vào Bài 2"]
 ```
-
-| Bước | macro-F1 gộp | Ghi chú |
-|---|---|---|
-| Luôn đoán BEFORE | 15,30% | baseline |
-| 2.1 Classifier từng loại cạnh | 30,09% | EV–EV 26,99 · EV→TIMEX 29,74 · TIMEX→EV 24,29 · TIMEX–TIMEX 32,98 |
-| **2.2 + luật liên tầng (kết quả Bài 1)** | **30,84%** | EV–EV 27,44 · 30,51 · 26,24 · 34,93 |
-
-**So với bộ 257 luật cũ** (chỉ chọn trên 400 document train đầu):
-
-| Bước | Bộ cũ (257 + 719 luật trigger) | Bộ mới: mine toàn train (2.794 luật hoạt động; bộ gọn 378 luật cùng dự đoán) |
-|---|---|---|
-| 2.1 EV–EV | 26,15% | **26,99%** |
-| 2.1 gộp | 29,87% | **30,09%** |
-| 2.2 EV–EV | 26,50% | **27,44%** |
-| 2.2 gộp | 30,83% | 30,84% |
-| *Tham khảo — Bài 2 chỉ mô hình tam giác* | *31,70%* | *31,36%* |
-
-Bộ mới hơn rõ ở EV–EV, nhưng lợi thế gần như không còn khi gộp bốn loại cạnh, và sau mô hình tam
-giác của Bài 2 thì thấp hơn 0,34. Chưa đo dao động theo seed cho các bước này, nên chưa kết luận được chênh lệch
-0,3–0,4 là thật hay nhiễu. Tài liệu dùng bộ mới làm số chính vì nó không phải bỏ 400 document train
-bị in-sample.
 
 ---
 
@@ -98,42 +87,22 @@ flowchart LR
   CONFIRMATION-1 (95.352, chấm lại luật), CONFIRMATION-2 (95.433, chọn combiner). Valid mở một lần.
 - **View:** chia các cặp thành lớp theo 8 cách (`global`, khoảng cách câu, thứ tự, có chung entity, vị
   trí câu của A, loại của A, và hai tổ hợp), mine luật **trong từng lớp** và chấm theo tỷ lệ nền của
-  chính lớp đó. Trong lớp các cặp cùng câu, BEFORE chỉ còn 79,1% (toàn train 91,0%) và SIMULTANEOUS tăng từ 0,86% lên 5,4%.
+  chính lớp đó. Trong lớp các cặp cùng câu, BEFORE chỉ còn 79,1% (toàn train 91,0%) và SIMULTANEOUS tăng
+  từ 0,86% lên 5,4%.
 - **Vét cạn bằng bitset:** mỗi điều kiện là một số nguyên có bit i bật khi cặp i thoả; support của luật
   hai điều kiện là `popcount(mask_a & mask_b)`. Duyệt **mọi** cặp điều kiện trong mọi lớp (40 đơn vị
   view × nhãn, 4 tiến trình, 74 giây).
-- **Bốn cổng trên DISCOVERY:** `n ≥ 25` và `k ≥ 8`; lift trong lớp ≥ 1,5; các lần bắn đúng nằm ở ≥ 5 document (luật từ 2–3
-  document rớt 19,2 điểm precision khi sang valid); Δlogit ≥ 0,5 so với điều kiện cha tốt nhất. Sau đó
-  **Benjamini–Hochberg** q < 0,05, dùng kiểm định nhị thức so với tỷ lệ nền (thiết kế gốc dùng 200 hoán
-  vị theo document, quá chậm trên 480 nghìn cặp).
+- **Bốn cổng trên DISCOVERY:** `n ≥ 25` và `k ≥ 8`; lift trong lớp ≥ 1,5; các lần bắn đúng nằm ở ≥ 5
+  document (luật từ 2–3 document rớt 19,2 điểm precision khi sang valid); Δlogit ≥ 0,5 so với điều kiện cha
+  tốt nhất. Sau đó **Benjamini–Hochberg** q < 0,05, dùng kiểm định nhị thức so với tỷ lệ nền.
 - **Xác nhận:** giữ luật có `cn ≥ 10` và `wlb(ck, cn)` lớn hơn tỷ lệ nền trên CONFIRMATION-1.
 - **Combiner:** trung bình 147 luật bắn trên một cặp. Luật chỉ được bỏ phiếu khi `wlb` vượt ngưỡng
   precision của nhãn nó; cặp nhận nhãn của luật có `wlb` cao nhất, không có thì BEFORE. Ngưỡng chọn
-  trên CONFIRMATION-2 (26,36%, thắng `max-norm` cũ 25,88%).
-
-| Nhãn (EV–EV, valid) | Số cạnh | 257 luật: F1 | Toàn train: P | R | F1 |
-|---|---|---|---|---|---|
-| BEFORE | 98.866 | 93,50% | 93,62% | 93,43% | 93,53% |
-| CONTAINS | 9.391 | 40,61% | 42,06% | 42,92% | 42,49% |
-| SIMULTANEOUS | 1.062 | 15,87% | 17,17% | 15,07% | 16,05% |
-| OVERLAP | 570 | 3,61% | 8,67% | 11,40% | **9,85%** |
-| BEGINS-ON / ENDS-ON | 25 / 15 | 0% | 0% | 0% | 0% |
-| **Macro-F1** | | **25,60%** | | | **26,99%** |
-
-**Số luật qua từng bước và luật mạnh nhất trong bộ 378:**
-
-| Nhãn | Sau xác nhận | Được bật | Bộ 378 | Ngưỡng (CONF-2) | Luật mạnh nhất trong bộ 378: lớp · điều kiện · DISCOVERY · CONF-1 |
-|---|---|---|---|---|---|
-| CONTAINS | 29.049 | 2.109 | 276 | 0,5 | `etype_a = Military_operation` · `roleset_a = {Location}` · 245/345 · 31/31 (wlb 0,890) |
-| SIMULTANEOUS | 20.538 | 278 | 55 | 0,15 | `etype_a = Damaging` · `a_before_b = False ∧ cùng câu` · 11/54 · 8/18 (wlb 0,246) |
-| OVERLAP | 4.583 | 407 | 47 | 0,1 | `sdist = 0` · `roleset_a ∋ Victim ∧ type_b = Bodily_harm` · 36/98 · 13/34 (wlb 0,239) |
-| BEGINS-ON | 523 | 0 | 0 | tắt | tốt nhất (theo wlb) 12/1.968 trên CONFIRMATION (0,6%) |
-| ENDS-ON | 26 | 0 | 0 | tắt | tốt nhất (theo wlb) 4/1.412 (0,3%) |
-| **Tổng** | **54.719** | **2.794** | **378** | | bộ 378: 58 luật một điều kiện, 320 luật hai điều kiện |
-
-Luật mạnh nhất trong 54.719 luật (`bucket_a = lead` · `type_a = Hostile_encounter ∧ nrole_a = 0`, 239/254 ·
-37/37, wlb 0,906) không nằm trong bộ 378: mọi cặp nó bắn đã có luật CONTAINS khác vượt ngưỡng và thắng
-mọi nhãn khác, nên bỏ nó không đổi dự đoán.
+  trên CONFIRMATION-2: CONTAINS 0,5, SIMULTANEOUS 0,15, OVERLAP 0,1; BEGINS-ON và ENDS-ON bị tắt vì luật tốt
+  nhất chỉ đúng 0,3–0,6%.
+- **Rút gọn có chứng minh:** 54.719 → 2.794 được bật → 1.621 phát biểu khác nhau → **378 luật** (set cover
+  giữ nguyên dự đoán, chặn dưới 377). Bộ 378 vẫn giữ nhãn hiếm: 55 luật SIMULTANEOUS, 47 OVERLAP. Chi tiết
+  và chứng minh ở `RULESET.md` §12, danh sách theo họ ở `RULES_COMPACT.md`.
 
 **Ví dụ thật: luật bắn thế nào trên một cặp valid.** *Cyclone Forrest* — “… the system produced
 significant storm surge, **damaged** or **destroyed** 1,700 homes …” (A = destroyed, B = damaged,
@@ -141,86 +110,17 @@ gold SIMULTANEOUS). 1.066 luật bắn; chỉ hai vượt ngưỡng: `a_before_b
 → SIMULTANEOUS (wlb 0,152) và `HAS(anchor_roles, (Agent, Agent)) ∧ HAS(roleset_b, Loss)` → OVERLAP
 (wlb 0,127). SIMULTANEOUS có `wlb` cao hơn nên thắng — đúng. Thêm ví dụ ở `RULESET.md` §5.
 
-Nhiều luật gần trùng giữa các view (`sdist = 0`, `sent_gap = 0`, `order = same` cùng nói "cùng câu"),
-nên 54.719 luật không phải 54.719 phát biểu độc lập; combiner chỉ lấy luật mạnh nhất nên bản trùng
-không bị đếm hai lần.
-
-**Rút gọn có chứng minh: 54.719 → 378 luật, cùng dự đoán** (chi tiết và chứng minh: `RULESET.md` §12;
-danh sách theo họ: `RULES_COMPACT.md`):
-
-| Bước | Lý do toán học | Số luật | Dự đoán |
-|---|---|---|---|
-| Bỏ luật dưới ngưỡng | không bao giờ vào tập bỏ phiếu | 2.794 | giống hệt, mọi nơi |
-| Gộp luật trùng phần mở rộng | quan hệ tương đương (cùng tập cặp bắn); 54.719 luật = 33.215 phát biểu | 1.621 | giống hệt |
-| **Set cover giữ dự đoán** | mỗi cặp cần một luật cùng nhãn thắng mọi nhãn khác; greedy + xoá ngược, chặn dưới 377 | **378** (209 họ) | giống hệt trên dữ liệu dựng; valid 99,979%, macro-F1 26,99% |
-| Set cover giữ dự đoán đúng | mỗi cặp đoán đúng vẫn đúng | 279 (170 họ) | valid macro-F1 27,02%, accuracy 88,11% |
-
-Bước 2.2 và Bài 2 chạy trên dự đoán của 2.794 luật hoạt động; bộ 378 lệch khoảng 23 cặp valid
-(0,021%) nên chưa chạy lại, và thay đổi nếu có sẽ rất nhỏ.
-
-Greedy cách tối ưu tối đa 1 luật (377 ≤ OPT ≤ 378). Nhãn hiếm được giữ: 55 luật SIMULTANEOUS, 47
-OVERLAP — khác set cover gộp nhãn trước đây chỉ giữ CONTAINS.
-
-**Cùng cách rút gọn cho mọi bộ luật của Bài 1** — tổng **68.495 → 713 luật**:
-
-| Bộ luật | Sau xác nhận / qua cổng | Hoạt động | Phát biểu khác nhau | **Phủ A** (chặn dưới) | Valid: giữ nguyên / macro-F1 |
-|---|---|---|---|---|---|
-| EV–EV (2.1) | 54.719 | 2.794 | 1.621 | **378** (377) | 99,979% / 26,99% |
-| EV→TIMEX (2.1) | 1.412 | 134 | 125 | **45** (45) | 100% / 29,74% |
-| TIMEX→EV (2.1) | 1.710 | 598 | 583 | **93** (93) | 99,997% / 24,29% |
-| TIMEX–TIMEX (2.1) | 416 | 100 | 90 | **16** (16) | 100% / 32,98% |
-| Liên tầng EV–EV (2.2) | 7.856 | 1.595 | 1.015 | **152** (152) | 99,979% / 27,41% |
-| Liên tầng EV→TIMEX | 959 | 273 | 217 | **12** (12) | 99,989% / 30,58% |
-| Liên tầng TIMEX→EV | 875 | 6 | 6 | **5** (5) | 100% / 26,24% |
-| Liên tầng TIMEX–TIMEX | 548 | 221 | 121 | **12** (12) | 100% / 34,93% |
-| **Bài 1 tổng** | **68.495** | **5.721** | | **713** (712) | |
-| Auditor Bài 2 (mỗi fold · mục tiêu) | 1.433–1.559 | 87–287 | | **42–83** (42–83) | 99,985–99,993% |
-
-Mọi phủ A trừ EV–EV bằng đúng chặn dưới, tức là **tối ưu**; EV–EV cách tối ưu tối đa 1 luật. Luật liên tầng
-dùng combiner ghi đè, nên tập cặp cần giữ gồm cả những cặp mà luật đề xuất đúng nhãn đang có để chặn nhãn
-khác (`experiments/rules_full/rule_cover.py`). Script: `compress_timex.py`, `compress_layered.py`; bộ gọn:
-`src/artifacts/rules_compact_timex.json`, `rules_compact_layered.json`. Chạy lại bước liên tầng để xuất luật
-cho 30,83% thay vì 30,84% (207 / 981.319 dự đoán khác nhau): bước này không tái lập từng bit, vì thứ tự duyệt
-set phụ thuộc hash seed.
-
-**Ablation: cách dùng dữ liệu train để tìm và chấm luật.**
-
-| Cách (luật EV–EV, cùng valid giấu nhãn) | Tìm luật | Chấm độ tin cậy | Chọn ngưỡng | Luật hoạt động | Valid macro-F1 | Accuracy | SIMU P / R |
-|---|---|---|---|---|---|---|---|
-| **A (pipeline chính)** | DISCOVERY 60% | CONF-1 20% | CONF-2 20% | 2.794 | **26,99%** | **87,90%** | 17,2 / 15,1 |
-| A, cách chia train khác (seed 1) | 60% | 20% | 20% | — | 26,51% | 87,66% | — |
-| C: K-fold (K = 5), hợp luật mọi fold | 4/5 train, 5 lần | fold còn lại (ngoài fold) | dự đoán ngoài fold của toàn bộ train | 6.787 | 26,32% | 87,00% | 10,7 / 29,3 |
-| C + lọc ổn định (luật được cả 5 fold chọn) | như trên | như trên | như trên | 4.975 | 26,39% | 87,48% | 11,3 / 28,7 |
-
-Hướng C dùng **toàn bộ** train cho cả tìm luật lẫn chấm luật, mà không luật nào tự chấm chính mình
-(K-fold cross-fitting). Macro-F1 ngoài fold trên train là 27,37–27,44%, nhưng trên valid không hơn A. Lọc ổn
-định chỉ thêm +0,07. Lý giải khả dĩ (suy luận, chưa kiểm chứng riêng): độ tin cậy gộp từ 5 fold sát precision thô
-hơn, nên ở cùng ngưỡng 0,15 có nhiều luật SIMULTANEOUS vượt ngưỡng hơn, recall gấp đôi nhưng precision tụt 17 → 11%.
-Chênh lệch A − C (0,6) cỡ bằng dao động của chính A khi đổi cách chia train (26,99 → 26,51), nên không kết luận A
-tốt hơn C một cách có ý nghĩa. Pipeline chính giữ A. Script: `experiments/rules_full/kfold_mine.py`,
-`kfold_stab.py`; log `kfold_mine.log`, `kfold_stab.log`.
-
-> **Bộ cũ (257 luật)** chọn trên 400 document train đầu: 155.467 luật thô (beam search 8 view) →
-> 1.453 họ trừu tượng (không qua subsumption) → 4.380 (gộp với nhánh vét cạn độ sâu 2 chỉ ở view `global`) → 861 (bốn cổng) → 257 (top
-> 30% theo Wilson trên CONFIRMATION), 25,60%; thêm 719 luật từ trigger (ví dụ `trigger_a = "wars"` →
-> CONTAINS, 0,93) được 26,15%. Bộ mới đạt 26,99% không cần luật trigger.
-
 ---
 
 ## 4. Bước 2.1b — Ba loại cạnh TIMEX
 
 Mỗi chiều một mô hình luật. Đặc trưng: phía sự kiện (loại, trigger, vị trí), phía TIMEX (loại, độ mịn
 lịch, từ nội dung như "war", "century"), hình học văn bản (cùng câu, khoảng cách, TIMEX gần nhất),
-giới từ ngay trước TIMEX (in, on, during, since, between…), và so sánh lịch cho TIMEX–TIMEX.
+giới từ ngay trước TIMEX (in, on, during, since, between…), và so sánh lịch cho TIMEX–TIMEX. Số luật:
+EV→TIMEX 1.412, TIMEX→EV 1.710, TIMEX–TIMEX 416.
 
 **Mỗi nhãn một ngưỡng precision riêng** (chọn trên CONFIRMATION-2). Ngưỡng chuẩn hoá theo prior dùng
 chung không làm được khi prior một nhãn là 0,3% còn nhãn khác 30%.
-
-| Loại cạnh | Luật | Luôn BEFORE | Luật: macro-F1 | F1 nổi bật |
-|---|---|---|---|---|
-| EV→TIMEX | 1.412 | 15,91% | 29,74% | CONTAINS 39,2 · SIMU 23,0 · OVER 21,6 |
-| TIMEX→EV | 1.710 | 13,51% | 24,29% | CONTAINS 59,9 |
-| TIMEX–TIMEX | 416 | 14,73% (chỉ so lịch 29,94%) | 32,98% | CONTAINS 46,3 · SIMU 60,4 |
 
 Luật thật: `giới từ between ∧ TIMEX cách sự kiện ≤ 8 token` → OVERLAP (0,40); `giới từ of ∧ TIMEX chứa
 "world"` (… World War) → TIMEX CONTAINS sự kiện (0,97); `cả hai neo được ∧ cùng giá trị lịch` →
@@ -240,93 +140,109 @@ flowchart LR
     R -->|"Stage C: ghi đè nếu vượt<br/>ngưỡng của nhãn (CONF-2)"| O["Nhãn mới"]
 ```
 
-| Loại cạnh | Classifier | Chỉ pattern từng tầng | + luật liên tầng | Nhãn được lợi |
-|---|---|---|---|---|
-| EV–EV | 26,99% | 27,33% | 27,44% | CONT 42,5 → 45,5 |
-| EV→TIMEX | 29,74% | 30,16% | 30,51% | CONT 39,2 → 43,3 |
-| TIMEX→EV | 24,29% | 26,24% | 26,24% | OVER 4,4 → 16,0 |
-| TIMEX–TIMEX | 32,98% | 34,67% | 34,93% | CONT 46,3 → 57,6 |
-| **Gộp** | **30,09%** | | **30,84%** | OVER 12,1 → 14,8 |
-
-- **Trên bộ luật mới, pattern từng tầng tạo phần lớn gain** (EV–EV +0,34, TIMEX–TIMEX +1,69, TIMEX→EV
-  +1,95); ghép liên tầng thêm một phần (EV–EV +0,12, EV→TIMEX +0,36, TIMEX–TIMEX +0,26, TIMEX→EV 0).
-  Trên bộ cũ thì ngược lại (pattern +0,01, ghép liên tầng thêm +0,34 ở EV–EV): một phần tín hiệu mà pattern mang lại
-  đã được bộ luật mới nắm sẵn.
+- Tầng: ONT (loại sự kiện, loại TIMEX), ARG (vai trò, entity, neo chung), DISC (vị trí, khoảng cách, từ nối,
+  giới từ), LEX (trigger, từ điển bao chứa, từ trong TIMEX), TIME (TIMEX gần, độ mịn lịch, so sánh lịch).
+- Đây vẫn là luật theo từng cặp, **không phải transitivity**: không luật nào đọc nhãn của cạnh khác.
 - Luật liên tầng thật: *sự kiện ở giữa bài, giới từ "during" (DISC) + TIMEX chứa "war", "world" (LEX)* →
   TIMEX CONTAINS sự kiện (0,95); *B đứng trước A (DISC) + cùng giá trị lịch (TIME)* → SIMULTANEOUS cho
   TIMEX–TIMEX (0,77).
-- Bản thử theo Event-Centric PaTeCon (hull mốc thời gian ba trị, refinement trong dàn view, BH-FDR)
-  chỉ +0,09 ở EV–EV (trên bộ cũ): khi mỗi tầng chỉ còn vài trăm pattern, vét cạn tổ hợp 2–3 tìm được
-  nhiều luật tốt hơn là tinh chỉnh dần.
+- Gain lớn nhất: CONTAINS của TIMEX–TIMEX 46,3 → 57,6, OVERLAP của TIMEX→EV 4,4 → 16,0 (phụ lục P.4).
 
 ---
 
-## 6. Mô hình tam giác thuộc Bài 2
+## 6. Ranh giới với Bài 2
 
-Các phiên bản trước có "bước 2.3": chạy mô hình năng lượng tam giác của Bài 2 ngay trên đầu ra 2.2. Bước
-này đã được chuyển hẳn sang Bài 2, để ranh giới hai bài rõ ràng: **Bài 1 chỉ dùng thông tin của từng cặp,
-Bài 2 dùng cấu trúc cả đồ thị**, và đầu vào của Bài 2 chính là đồ thị tốt nhất của Bài 1. Chạy một mình
-trên đồ thị 2.2, mô hình tam giác cho 30,84% → 31,36% (bộ cũ: 30,83% → 31,70%); đây là một dòng ablation
-trong bảng của Bài 2.
-
----
-
-## 7. Vì sao tín hiệu bậc cao khó dùng ở Bài 1
-
-```mermaid
-flowchart LR
-    CL["Classifier"] -->|"dự đoán"| N["Nhãn các cạnh xung quanh<br/>(có lỗi, tụ thành cụm)"]
-    N -->|"đọc"| M["Luật motif / pattern đồ thị"]
-    M -->|"sửa"| E["Nhãn cạnh đang xét"]
-    E -.->|"không thể đáng tin hơn nguồn của nó"| CL
-```
-
-Đo trên classifier cũ:
-
-| Nguồn ngữ cảnh | macro-F1 gộp |
-|---|---|
-| Classifier (không dùng đồ thị) | 29,87% |
-| + pattern đồ thị hợp nhất, nhãn xung quanh **dự đoán** | tối đa 30,12% (+0,25) |
-| + pattern đồ thị hợp nhất, nhãn xung quanh **gold** (trần) | 37,65% (+7,78), accuracy 94,92% |
-
-- **Tính vòng tròn:** luật đọc nhãn dự đoán không thể đáng tin hơn classifier sinh ra nhãn đó.
-- **Lỗi tụ cụm** (EV–EV, classifier cũ): quanh một cạnh sai, 32,9% cạnh kề cũng sai (quanh cạnh đúng:
-  7,6%), nên cả tam giác thường sai cùng lúc.
-- **Các biểu diễn quan sát được khác đã thử:** ngữ cảnh TIMEX không đọc quan hệ (−0,02 đến −0,04);
-  đường đi qua entity có vai trò (0 luật qua cổng chặt, chỉ phủ khoảng 18% cặp).
-- **Hai lỗi phương pháp đã tìm ra và sửa:** chỉ giữ nhãn đa số của chữ ký làm mọi luật thành BEFORE
-  (+0,00 giả); cổng lift ≥ 2 quá lỏng với nhãn cực hiếm làm luật BEGINS-ON precision 0,1% lật hàng
-  chục nghìn dự đoán.
+Mọi phương pháp đọc nhãn của các cạnh xung quanh (mô hình tam giác, tầng GRAPH, luật motif) thuộc Bài 2, vì
+chúng dùng cấu trúc cả đồ thị. Ở Bài 1, nhãn xung quanh chỉ có thể là nhãn dự đoán, và luật đọc nhãn dự đoán
+không thể đáng tin hơn classifier sinh ra nhãn đó (tính vòng tròn; số đo ở mục 8.5). Các phiên bản trước có
+"bước 2.3" chạy mô hình tam giác ngay trên đầu ra 2.2; bước đó giờ là dòng ablation "chỉ 3.2" của Bài 2.
 
 ---
 
-## 7b. Tình trạng bộ 3, 4, 5 giữa sự kiện và TIMEX
+## 7. Giới hạn đã biết
 
-| Cấu trúc | Đã áp dụng ở đâu | Kết quả |
+- BEGINS-ON / ENDS-ON có F1 = 0 (69 và 34 cạnh valid). Mine lại theo định nghĩa RED (BEGINS-ON = cùng bắt đầu,
+  ENDS-ON = meets; `experiments/begins_ends/`) nâng macro-F1 30,84% → 31,65% (cổng chặt) hoặc 32,36% (cổng nới),
+  nhưng chỉ sửa đúng 6–7 cạnh và làm hỏng 163–216 cạnh đúng, vì tín hiệu văn bản ("since", "from … to",
+  "until") chỉ đi kèm nhãn hiếm ở 1–10% số lần.
+- Trần khi biết nhãn gold xung quanh là 37,65% (đo với classifier cũ); Bài 1 hiện 30,84%.
+- Lemma chỉ là tách hậu tố; phân cấp loại sự kiện MAVEN chưa có trên máy. Chỉ đo trên MAVEN-ERE.
+- Chưa đo dao động theo seed cho cả pipeline; đổi cách chia train làm EV–EV dao động khoảng 0,5 điểm (mục 8.2).
+
+---
+
+## 8. Ablation
+
+Mọi dòng dưới đây là so sánh phụ; số chính ở bảng đầu tài liệu.
+
+### 8.1 Bộ luật cũ (257 luật) và bộ luật mới
+
+| Bước (macro-F1) | Bộ cũ: 257 + 719 luật trigger, chọn trên 400 document | **Bộ mới: mine toàn train** |
 |---|---|---|
-| **Bộ 3**: đường A–X–B, X là sự kiện hoặc TIMEX | Bài 1: luật motif 3E/3T; Bài 2: tầng GRAPH; cả hai bài: tam giác trong suy luận chung | Bài 1: motif thực tế tối đa +0,26 (vòng tròn), trần +15,67 (bộ 257 luật cũ); suy luận tam giác +0,52. Bài 2: đơn vị suy luận chính (loại khoảng 80% lỗi bơm; lỗi classifier 15,31% → 11,62% cùng auditor 3.1) |
-| **Bộ 4** dạng đường A–X–Y–B (4EE/4ET/4TE/4TT) | Bài 1: luật motif; Bài 2: tầng GRAPH | Bài 1: 0 luật qua cổng chặt khi có TIMEX ở giữa, +0,17 với 4EE; Bài 2: là một phần của tầng GRAPH |
-| **Bộ 4** dạng cụm đủ 6 cạnh | thăm dò làm hạng tử suy luận chung (Bài 2, nhiễu classifier, classifier cũ) | không có tín hiệu thêm (tỷ số 0,94×): cấu hình quá thưa |
-| **Bộ 3 / 4 / 5 quanh một cạnh** (1 / 2 / 3 hàng xóm chung, sự kiện hoặc TIMEX; bộ 4K thêm cạnh giữa hai hàng xóm) | **đo lại 24/09** trên cả 4 loại cạnh, protocol hiện tại (`motif345.py`); ghi đè lên classifier bước 2.2 (30,84%) | hàng xóm **gold** (trần): bộ 3 46,47%, bộ 3+4 **47,34%** (+0,87 so với bộ 3), bộ 3+4+5 47,21% (bộ 5 không thêm). Hàng xóm **dự đoán** (thực tế): bộ 3 31,53% (+0,69), bộ 3+4 31,60%, bộ 3+4+5 **31,62%** (+0,78; bộ 4 và 5 chỉ thêm +0,09) |
-| **Bộ 5** dạng đường A–X–Y–Z–B có TIMEX | chưa chạy | bộ 5 dạng hàng xóm chung đã không thêm gì so với bộ 3+4 ở cả hai chế độ, nên kỳ vọng thấp |
+| 2.1 EV–EV | 26,15% | **26,99%** |
+| 2.1 gộp | 29,87% | **30,09%** |
+| 2.2 EV–EV | 26,50% | **27,44%** |
+| 2.2 gộp | 30,83% | 30,84% |
 
-Lần đo cũ bằng `quint.py` (38,30 → 37,83 → 36,94%) bị bác bỏ vì hai lỗi: gán cùng nhãn cho hai chiều của
-cạnh (LUAT_BAC_CAO §10.1) và áp CAP trước khi bỏ chính cạnh đang xét (§11.1). Đo lại cho thấy bộ 4 **có**
-thêm tín hiệu khi biết nhãn xung quanh (+0,87), còn trong thực tế cả bộ 4 lẫn bộ 5 gần như không thêm gì.
-Ghi đè bằng motif bộ 3+4+5 (31,62%) cao hơn mô hình tam giác chạy một mình (31,36%). Ghép ở Bài 2 (motif → auditor
-→ tam giác) cho 32,54% (`TEMPEKG_BAI2.md` mục 6.1).
-Cả hai đều đọc nhãn của các cạnh xung quanh, tức dùng cấu trúc đồ thị, nên thuộc nhóm phương pháp của Bài 2.
+Bộ mới hơn rõ ở EV–EV nhưng gần như bằng khi gộp bốn loại cạnh. Bộ cũ: 155.467 luật thô → 1.453 họ →
+4.380 → 861 (bốn cổng) → 257 (top 30% theo Wilson), 25,60%; thêm 719 luật trigger được 26,15%. Tài liệu dùng
+bộ mới vì nó không phải bỏ 400 document train bị in-sample.
 
----
+### 8.2 Cách dùng dữ liệu train để tìm và chấm luật (EV–EV)
 
-## 8. Những gì đã thử mà không hiệu quả
+| Cách | Luật hoạt động | Valid macro-F1 |
+|---|---|---|
+| **A: 60 / 20 / 20 (pipeline chính)** | 2.794 | **26,99%** |
+| A, cách chia train khác (seed 1) | — | 26,51% |
+| C: K-fold (K = 5), hợp luật mọi fold | 6.787 | 26,32% |
+| C + lọc ổn định (luật được cả 5 fold chọn) | 4.975 | 26,39% |
+
+Chênh A − C (0,6) cỡ bằng dao động của chính A khi đổi cách chia, nên không kết luận A tốt hơn C. Chi tiết:
+`RULESET.md` §3.6; script `kfold_mine.py`, `kfold_stab.py`.
+
+### 8.3 Pattern từng tầng và luật liên tầng (bước 2.2)
+
+| Loại cạnh | 2.1 | Chỉ pattern từng tầng | + luật liên tầng |
+|---|---|---|---|
+| EV–EV | 26,99% | 27,33% | 27,44% |
+| EV→TIMEX | 29,74% | 30,16% | 30,51% |
+| TIMEX→EV | 24,29% | 26,24% | 26,24% |
+| TIMEX–TIMEX | 32,98% | 34,67% | 34,93% |
+
+Pattern từng tầng tạo phần lớn gain; ghép liên tầng thêm một phần. Bản thử theo Event-Centric PaTeCon (hull mốc
+thời gian ba trị, refinement trong dàn view) chỉ +0,09 ở EV–EV (bộ cũ).
+
+### 8.4 Bỏ toàn bộ đặc trưng MAVEN-Arg
+
+| | Có MAVEN-Arg | Không MAVEN-Arg |
+|---|---|---|
+| Luật EV–EV sau xác nhận | 54.719 | 8.559 |
+| 2.1 EV–EV | 26,99% | 26,56% |
+| 2.1 gộp | 30,09% | 29,86% |
+| 2.2 gộp (kết quả Bài 1) | 30,84% | 30,74% |
+
+Chênh lệch nằm trong dao động do cách chia: MAVEN-Arg không có đóng góp đo được (`STATUS.md` §39).
+
+### 8.5 Tín hiệu bậc cao ở Bài 1 (đọc nhãn cạnh xung quanh)
+
+| Nguồn ngữ cảnh (classifier cũ) | Macro-F1 gộp |
+|---|---|
+| Classifier, không dùng đồ thị | 29,87% |
+| + pattern đồ thị, nhãn xung quanh **dự đoán** | tối đa 30,12% (+0,25) |
+| + pattern đồ thị, nhãn xung quanh **gold** (trần) | 37,65% (+7,78) |
+
+Đo lại bộ 3 / 4 / 5 quanh một cạnh trên classifier hiện tại (`motif345.py`, ghi đè lên 30,84%): với nhãn
+xung quanh gold, bộ 3 46,47%, bộ 3+4 47,34%, bộ 3+4+5 47,21%; với nhãn dự đoán, chỉ 31,53–31,62%. Tín hiệu có
+thật nhưng chỉ dùng được khi nhãn xung quanh là quan sát, tức ở Bài 2. Lỗi classifier tụ cụm (classifier cũ): quanh một cạnh
+sai, 32,9% cạnh kề cũng sai (quanh cạnh đúng: 7,6%).
+
+### 8.6 Những hướng đã thử mà không hiệu quả
 
 | Hướng | Kết quả |
 |---|---|
 | Sáu cách chấm điểm luật thay thế (Δlogit, conditional effect, stability selection, LCB-Lift, greedy, MDL) | đều thua "giữ top 30% theo bằng chứng xác nhận, riêng từng nhãn" (bộ cũ) |
-| Combiner `max-norm` với bộ 54.719 luật | 25,88% trên CONF-2, thua ngưỡng theo nhãn (26,36%) |
+| Combiner `max-norm` với 54.719 luật | 25,88% trên CONF-2, thua ngưỡng theo nhãn (26,36%) |
 | Lặp / soft / joint inference với luật cũ | 19,41–23,10%, dưới pair-level 24,11% |
-| Motif bộ 3, bộ 4 trên nhãn dự đoán | tối đa +0,26 |
 | Ngữ cảnh TIMEX không đọc quan hệ | −0,02 đến −0,04 |
 | Metapath entity–vai trò | 0 luật qua cổng chặt |
 | Gộp thô các track ngữ nghĩa | mất hết gain (precision CONTAINS 39,8% → 32,7%) |
@@ -334,22 +250,7 @@ Cả hai đều đọc nhãn của các cạnh xung quanh, tức dùng cấu tr�
 
 ---
 
-## 9. Giới hạn và việc tiếp
-
-- BEGINS-ON / ENDS-ON vẫn F1 = 0 trong pipeline. Mine lại theo định nghĩa RED (BEGINS-ON = cùng bắt đầu, ENDS-ON =
-  meets; `experiments/begins_ends/`): macro-F1 30,84% → 31,65% (cổng chặt) hoặc 32,36% (cổng nới). Nhưng cái giá
-  là sửa đúng 6–7 cạnh và làm hỏng 163–216 cạnh đúng, vì tín hiệu văn bản ("since", "from … to", "until") chỉ đi
-  kèm nhãn hiếm ở 1–10% số lần. Luật đáng giữ nhất: TIMEX–TIMEX "ngày = điểm đầu của khoảng" → BEGINS-ON
-  (CONF-1 7/9, valid 3/10).
-- Bộ luật mới hơn bộ cũ ở EV–EV nhưng không hơn sau mô hình tam giác của Bài 2 (31,36% so với 31,70%); cần đo
-  dao động theo seed trước khi kết luận.
-- Trần khi biết nhãn xung quanh là 37,65% (đo với classifier cũ); Bài 1 hiện 30,84%.
-- Lemma chỉ là tách hậu tố; phân cấp loại sự kiện MAVEN chưa có trên máy.
-- Chỉ đo trên MAVEN-ERE.
-
----
-
-## 10. Tái tạo
+## 9. Tái tạo
 
 | Bước | Script (trong `tempekg/`) |
 |---|---|
@@ -407,16 +308,16 @@ Tất cả trên valid (710 document). P, R, F1 theo từng nhãn; macro-F1 là 
 
 ### P.3 Gộp 188.924 cạnh, F1 từng nhãn qua từng bước
 
-| Nhãn | Số cạnh | 2.1 Classifier: P / R / F1 | 2.2 + liên tầng (Bài 1) | Bài 2: chỉ tam giác | Bài 2: 3.1→3.2 (macro) | Bài 2: 3.0→3.1→3.2 (macro) |
-|---|---|---|---|---|---|---|
-| BEFORE | 160.227 | 91,2 / 91,8 / 91,5 | 91,3 | 92,3 | 93,1 | 92,6 |
-| CONTAINS | 25.550 | 51,6 / 50,6 / 51,1 | 52,9 | 53,7 | 56,6 | 57,7 |
-| SIMULTANEOUS | 1.474 | 27,8 / 24,1 / 25,8 | 26,0 | 25,7 | 28,4 | 27,7 |
-| OVERLAP | 1.570 | 12,6 / 11,7 / 12,1 | 14,8 | 14,6 | 13,4 | 16,2 |
-| BEGINS-ON | 69 | 0 | 0 | cộng với ENDS-ON ≈ 1,9\* | ≈ 0\* | 0,9 |
-| ENDS-ON | 34 | 0 | 0 | (xem trên) | (xem trên) | 0 |
-| **Macro-F1** | | **30,09%** | **30,84%** | **31,36%** | **31,89%** | **32,54%** |
-| Accuracy | | 84,96% | 84,69% | 86,17% | 87,47% | 86,85% |
+| Nhãn | Số cạnh | 2.1 Classifier: P / R / F1 | 2.2 + liên tầng (Bài 1) | Bài 2: chỉ tam giác | Bài 2: 3.1→3.2 (macro) |
+|---|---|---|---|---|---|
+| BEFORE | 160.227 | 91,2 / 91,8 / 91,5 | 91,3 | 92,3 | 93,1 |
+| CONTAINS | 25.550 | 51,6 / 50,6 / 51,1 | 52,9 | 53,7 | 56,6 |
+| SIMULTANEOUS | 1.474 | 27,8 / 24,1 / 25,8 | 26,0 | 25,7 | 28,4 |
+| OVERLAP | 1.570 | 12,6 / 11,7 / 12,1 | 14,8 | 14,6 | 13,4 |
+| BEGINS-ON | 69 | 0 | 0 | cộng với ENDS-ON ≈ 1,9\* | ≈ 0\* |
+| ENDS-ON | 34 | 0 | 0 | (xem trên) | (xem trên) |
+| **Macro-F1** | | **30,09%** | **30,84%** | **31,36%** | **31,89%** |
+| Accuracy | | 84,96% | 84,69% | 86,17% | 87,47% |
 
 \* Log gốc của hai cột Bài 2 chỉ in F1 của 4 nhãn chính. Cộng ngược từ macro-F1: ở cột "chỉ tam giác", F1 của
 BEGINS-ON và ENDS-ON cộng lại khoảng **1,9 điểm** (1,6–2,1 do làm tròn; 6 × 31,36 − (92,3 + 53,7 + 25,7 + 14,6)),
