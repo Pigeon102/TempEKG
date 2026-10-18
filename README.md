@@ -1,115 +1,126 @@
 # TempEKG
 
-Event-centric temporal knowledge graph construction, rule mining, and noise-aware audit
-over MAVEN-ERE.
+Code, log và tài liệu cho bài *Event-Centric Temporal Graph Repair for Temporal Relation Prediction*
+(MAVEN-ERE + MAVEN-Arg). Repo này chỉ giữ những gì sinh ra số trong paper.
 
-## Trạng thái — mọi con số dưới đây đều đã đo
+- **Số liệu chuẩn:** repo [`tempekg-numbers`](../tempekg-numbers). Repo đó chứa bảng LaTeX đã chốt, mọi con số
+  trong văn bản kèm log nguồn, và script kiểm bản draft. Khi trích số vào paper, lấy từ đó.
+- **Code và tài liệu cũ** (C2/C3, 257 luật, motif, các bản auditor trước…) không còn trong cây hiện tại. Lấy lại
+  bằng `git checkout pre-cleanup`.
 
-| Đóng góp | Kết quả | File |
+## Kết quả (valid: 710 document, 188.924 cạnh)
+
+| | Kết quả | Log | Bảng |
+|---|---|---|---|
+| Task 1, macro-F1 gộp | 30,09% → **30,84%** với luật liên tầng | `experiments/logs/layered_rules_full.log` | Table 2 |
+| Task 2 trên đầu ra Task 1 | macro-F1 30,84% → **31,89%**, lỗi 15,31% → **12,53%** | `experiments/logs/bai2_combo_full_subset.log` | Table 4 |
+| Task 2, nhiễu EV–EV 5 / 10 / 15 / 20% | lỗi → 0,96 / 2,28 / 2,56 / 3,36% | `experiments/logs/fake_eval_subset.log` | Table 3 |
+| Task 2, nhiễu mọi loại cạnh 10 / 20% | lỗi 9,94 → **1,91%**, 19,89 → **4,37%** | `experiments/logs/inj_eval_subset.log` | Table 3 |
+| Ablation | xem appendix của paper | `logs/ablate_tri*.log`, `logs/ablate_audit.log`, `rules_full/ablate_score.log`, `rules_full/abl_*.log` | Table 6–8 |
+
+Đã kiểm tra ngày 18/10/2026:
+- Table 2 tính lại trực tiếp từ `pred_layered_full.json`: khớp mọi ô.
+- Table 4 tính lại từ dự đoán từng cạnh (`bai2_rows_full.pkl`): khớp mọi ô, và đồ thị đầu vào trùng 100% với
+  dự đoán cuối của Task 1.
+
+## Pipeline
+
+```
+MAVEN-ERE + MAVEN-Arg
+  └─ src/build_kg.py ──► src/graph/{train,valid}.jsonl
+       ├─ experiments/rules_full/mine_full.py ──► rules_confirmed.pkl, src/artifacts/rules_full.json      (EV–EV 26,99%)
+       │    └─ experiments/rules_full/export_full.py ──► pred_all_edges_full.json  (ghi đè mọi dự đoán EV–EV)
+       ├─ experiments/higher_order/bai1_all_edges.py ──► pred_all_edges.json        (ba loại cạnh TIMEX)
+       │
+       └─ experiments/higher_order/layered_rules.py  [TAG=_full] ──► pred_layered_full.json   = KẾT QUẢ TASK 1 (30,84%)
+            ├─ bai2_combo.py  [MACRO_ONLY=1] ──► Table 4      (dùng bai2_layered.py = auditor 3.1, joint_repair.py = tam giác 3.2)
+            ├─ inj_eval.py, fake_eval.py ──► Table 3
+            └─ ablate_tri.py, ablate_audit.py ──► Table 7, 8
+```
+
+## Tái tạo
+
+Mọi lệnh chạy trong `tempekg/src`, với `export PYTHONIOENCODING=utf-8`. Thời gian đo trên máy 16 nhân, 15,7 GB.
+
+| # | Lệnh | Ra | Thời gian |
+|---|---|---|---|
+| 0 | `python build_kg.py --split train && python build_kg.py --split valid && python verify_kg.py` | `src/graph/` | ~10 s |
+| 1 | `NW=4 python ../experiments/rules_full/mine_full.py` | luật EV–EV, `rules_full/mine_full.log` | ~6 phút |
+| 2 | `python ../experiments/higher_order/bai1_all_edges.py` | `pred_all_edges.json`, `logs/bai1_all_edges.log` | ~1 phút |
+| 3 | `NW=4 python ../experiments/rules_full/export_full.py` | `pred_all_edges_full.json` | ~3,5 phút |
+| 4 | `TAG=_full python ../experiments/higher_order/layered_rules.py` | `pred_layered_full.json`, `logs/layered_rules_full.log` (**Table 2**) | ~8 phút |
+| 5 | `TAG=_full MACRO_ONLY=1 python ../experiments/higher_order/bai2_combo.py` | `logs/bai2_combo_full_subset.log` (**Table 4**) | ~26 phút |
+| 6 | `TAG=_full python ../experiments/higher_order/inj_eval.py` | `logs/inj_eval_subset.log` (**Table 3**, mọi loại cạnh) | ~25 phút |
+| 7 | `TAG=_full python ../experiments/higher_order/fake_eval.py` | `logs/fake_eval_subset.log` (**Table 3**, EV–EV; cần `C:\Reseach_Quang\fake_data`) | ~32 phút |
+| 8 | `bash ../experiments/rules_full/run_ablations_b1.sh` | `rules_full/ablate_score.log`, `rules_full/abl_*.log` (**Table 6**) | vài giờ |
+| 9 | `bash ../experiments/run_ablations_rest.sh` | `logs/ablate_tri.log`, `logs/ablate_audit.log` (**Table 7, 8**) | ~2 giờ |
+| 10 | `python ../experiments/rules_full/compress.py`; `compress_timex.py`; `TAG=_full DUMP=1 python ../experiments/higher_order/layered_rules.py` rồi `compress_layered.py` | 378 / 713 luật | ~25 phút |
+| 11 | `TAG=_full python ../experiments/higher_order/nic_example.py`; `python ../experiments/rules_full/appendix_atoms.py` | ví dụ Nicaragua; bảng điều kiện nguyên tử | |
+
+Đầu vào phụ của bước 2: `src/artifacts/pred_lex_d05.json`, do `experiments/higher_order/semantic_export.py` sinh từ
+bộ 257 luật cũ (`rules/final/rules_rx_c70.json`). Dự đoán EV–EV trong file này bị bước 3 ghi đè toàn bộ, nên không
+ảnh hưởng số cuối; file chỉ cần tồn tại để bước 2 chạy.
+
+### Lưu ý về tái lập
+
+- **Kết quả không hoàn toàn tất định.** Một số bước duyệt `set`, nên thứ tự phụ thuộc hash ngẫu nhiên của Python:
+  - `layered_rules.py` chạy hai lần cho 6.184 và 6.183 luật liên tầng, macro-F1 30,84% và 30,83%;
+  - mô hình tam giác, cùng một cấu hình, có thể lệch 1–2 cạnh giữa các lần chạy (macro-F1 giữ nguyên tới 2 chữ số
+    thập phân).
+
+  Số trong paper lấy từ đúng các log và artifact đang có trong repo. Muốn chạy lại cho khớp từng cạnh thì đặt
+  `PYTHONHASHSEED=0`; khi đó số có thể lệch vài cạnh so với log hiện tại.
+- **Con số 713 luật** = 378 (EV–EV) + 154 (ba loại cạnh TIMEX) + 181 (luật liên tầng). Phần 181 rút gọn từ lần chạy
+  `DUMP=1` của `layered_rules.py` (`logs/layered_rules_full_dump.log`, 30,83%), không phải lần chạy sinh
+  `pred_layered_full.json` (30,84%).
+- **Số đo trên classifier cũ.** Hai số 74,6% (cạnh sai nằm trong cấu hình tam giác chưa gặp) và 32,9% / 10,1% (cạnh
+  kề cũng sai) đo bằng `subgraph_probe.py` và `diag_b.py` trên một phiên bản classifier trước. Script và log của
+  chúng nằm ở tag `pre-cleanup`. Paper phải ghi "an earlier version of the classifier".
+- **Dao động khi chia lại train:** `experiments/seeds/logs/` (seed 1) cho Task 1 30,42% (so với 30,84%) và EV–EV
+  26,51% (so với 26,99%). Lần sweep chỉ chạy xong seed 1; phần Bài 2 của nó lỗi.
+
+## Dữ liệu (ngoài git)
+
+| Đường dẫn | Nội dung | Sinh bởi |
 |---|---|---|
-| **C1** dựng KG | 9/9 bất biến, 3 chống rò rỉ nhãn | `src/build_kg.py`, `src/verify_kg.py` |
-| **C2** mine rule | 68 rule, macro-F1 22,62% vs 15,78% của hằng số | `src/minimise.py` |
-| **C3-A** audit nhãn sai | τ=0,005: F1 gấp 2,2× baseline | `src/detect.py` |
-| **C3-B** audit cạnh thiếu | **89,3% recall, F1 gấp 118× baseline** | `src/propose_missing.py` |
-| **Sửa nhãn** dưới nhiễu | **96,7%** (58/60) ở mức nhiễu 0,1% | `src/detect.py` |
-
-### Kết quả mạnh nhất: C3-B
-
-| Phương pháp | Đề xuất | P | R | F1 |
-|---|---:|---:|---:|---:|
-| luôn đoán BEFORE | 199.918 | 0,026% | 92,9% | 0,052% |
-| closure strict (đòi 1 nhãn) | 1 | 100% | 1,8% | 3,509% |
-| **closure + majority, `|compat|≤2`** | **1.572** | **3,181%** | 89,3% | **6,143%** |
-
-Ý chính: **giá trị của closure là ở chỗ biết im lặng, không phải ở chỗ quyết định.** Nó từ
-chối 191.752/199.918 cặp (95,9%).
-
-## Đối chiếu với nguồn MAVEN-ERE
-
-`src/verify_kg.py` giờ so thẳng KG đã dựng với corpus gốc. Hai chênh lệch là **đúng**, không phải lỗi:
-
-| | nguồn | KG | ghi chú |
-|---|---:|---:|---|
-| weak train | 45.509 | 45.509 | khớp |
-| weak valid | 12.524 | 12.524 | khớp |
-| temporal train | 792.445 | 792.395 | chênh **50** — BEGINS-ON lưu hai chiều, gộp còn một |
-| temporal valid | 188.928 | 188.924 | chênh **4** — cùng lý do |
-
-Chênh temporal là hành vi đúng của bất biến `symmetric_canonical`. Weak edges thì copy thẳng
-nên **mọi chênh lệch đều là bug** — vì thế mới thêm phép đối chiếu này.
-
-Tài liệu trước ghi valid weak = 10.712; đó là **số cũ từ trước khi PRECONDITION vào**
-`CAUSAL_RELS`, không phải cạnh bị rớt. Đã sửa ở mọi tài liệu.
-
-## Bốn cảnh báo phải đọc trước khi trích số
-
-1. **Gold không có conflict nào để tìm.** Bốn phép đo độc lập: 0 cặp hai nhãn, 0/2.913
-   document PC-inconsistent, **0/164.803** cặp closure loại nhãn gold, 0 BEFORE hai chiều.
-   Nhãn MAVEN là đọc ra từ một timeline đã sắp xếp nên nhất quán theo cấu trúc. Recall về
-   conflict **chỉ đo được bằng bơm lỗi**.
-
-2. **93,40% ≠ 35,25%.** 93,40% là precision *trên các cặp rule bắn và đoán CONTAINS*, sau khi
-   đã bỏ BEFORE khỏi mẫu số. Chấm như classifier thật trên valid: CONTAINS **P 35,25% /
-   R 56,07% / F1 43,29%**. Đặt vào bảng classifier thì dùng 35,25%.
-
-3. **Accuracy che mất tất cả.** Base rate BEFORE 89,94%, nên phải báo macro-F1:
-
-   | | Accuracy | Macro-F1 |
-   |---|---:|---:|
-   | luôn đoán BEFORE | **89,94%** | 15,78% |
-   | 68 rule | 86,27% | **22,62%** |
-
-   Rule thua accuracy 3,67 điểm nhưng thắng macro-F1 6,84 điểm. **3/6 nhãn vẫn F1 = 0.**
-
-4. **Closure sụp nhanh khi nhiễu tăng** — không phải giảm dần đều:
-
-   | Nhiễu | Sửa đúng | Im lặng |
-   |---:|---:|---:|
-   | 1% | 75,83% | 23,19% |
-   | 10% | 22,94% | 76,26% |
-   | 30% | **5,55%** | **93,86%** |
-
-   Nó **từ chối** chứ không sai (đồng ý với nhãn sai chỉ 0,40–0,61%). Nhiễu tương quan
-   *không* tệ hơn nhiễu độc lập — nhỉnh hơn chút, vì nó để lại nhiều vùng hoàn toàn sạch.
-
-## Bốn hướng rule đã thử cho C3 — đều âm
-
-| Hướng | lift | Vì sao hỏng |
-|---|---:|---|
-| 68 rule minimal làm detector | 1,1× | cả 68 đoán CONTAINS ⇒ "bất đồng" = 93,13% số cạnh |
-| 1.073 families | 0,9× | wlb median 0,107, gắn cờ 93,8% số cặp |
-| 341 non-CONTAINS | 0,9× | không phải vấn đề nhãn mà là wlb thấp |
-| family đọc lại thành claim nhị phân | 10,1× | đạt 93% trần nhưng là baseline trá hình (siết 30× mà lift đứng yên) |
-
-**Nguyên tắc rút ra: predictor dương trên lớp áp đảo không lật được thành detector âm.**
-Constraint làm được vì nó nêu nhãn *bị cấm*, không nêu nhãn *kỳ vọng*.
-
-C3-A thuộc về constraint τ=0,005 (25,1× lift). C3-B thuộc về closure + prior tần suất.
+| `C:\Reseach_Quang\MAVEN_ERE`, `C:\Reseach_Quang\MAVEN-Arg.zip` | dữ liệu gốc | tải về |
+| `src/graph/` | đồ thị đã dựng (834 MB) | bước 0 |
+| `src/artifacts/` | luật và dự đoán; symlink tới `C:\Reseach_Quang\tempekg_kg\artifacts` | bước 1–4 |
+| `experiments/rules_full/cache_*.pkl` | bitset điều kiện | bước 1 (tự dựng nếu chưa có) |
+| `C:\Reseach_Quang\fake_data` | file nhiễu EV–EV do nhóm cung cấp | — |
 
 ## Cấu trúc
 
 ```
-src/       23 script — dựng KG, mine, minimise, inject, detect, propose
-report/    tài liệu + artifact HTML 7 trang (mở tempekg_report_offline.html)
-scripts/   make_standalone.py — build bản HTML offline
-legacy/    139 file code thăm dò cũ, giữ để tra cứu
-data/      README — dữ liệu 834 MB nằm ngoài git, xem cách dựng lại
+src/                      dựng KG (build_kg, verify_kg) và thư viện điều kiện/luật (mine_compositional, mine_mdd, mine_views, vote)
+experiments/rules_full/   luật EV–EV trên toàn train, ablation Bài 1, rút gọn có chứng minh
+experiments/higher_order/ Task 1 TIMEX + liên tầng, Task 2 (auditor, tam giác), nhiễu bơm, ablation Bài 2
+experiments/begins_ends/  phân tích BEGINS-ON / ENDS-ON theo định nghĩa RED
+experiments/seeds/        sweep seed (dao động khi chia lại train)
+experiments/logs/         log của mọi số trong paper
+rules/final/              bộ 257 luật cũ (chỉ để sinh pred_lex_d05.json)
+report/                   tài liệu (bắt đầu từ TEMPEKG_TONG_QUAN.md)
 ```
 
-## Chạy
+## Tài liệu
 
-```bash
-python src/build_kg.py && python src/verify_kg.py    # dựng + kiểm 9 bất biến
-python src/inject.py --rate 0.001 --seed 0           # bơm lỗi đã biết
-python src/detect.py --tau 0.005 --limit 300         # C3-A
-python src/propose_missing.py --limit 300 --sweep    # C3-B
-python src/proof_ceiling.py --docs 200 --per-doc 4   # trần closure
-```
+| Muốn hiểu | Đọc |
+|---|---|
+| Toàn cảnh | `report/TEMPEKG_TONG_QUAN.md` |
+| Kiến trúc, chia tập, chống rò rỉ | `report/TEMPEKG_KIEN_TRUC.md` |
+| Task 1 / Task 2 chi tiết | `report/TEMPEKG_BAI1.md`, `report/TEMPEKG_BAI2.md` |
+| Ablation, từng ô đối chiếu log | `report/ABLATION_TONG_HOP.md` |
+| Định nghĩa toán | `report/TEMPEKG_TOAN_HOC.md` |
+| Luật thật, 378 luật gọn | `report/RULESET.md`, `report/RULES_COMPACT.md` |
+| Đặc tả nhiễu, điều kiện nguyên tử | `report/NOISE_SETS_SPEC.md`, `report/APPENDIX_DIEU_KIEN_NGUYEN_TU.md` |
+| Dàn ý phần thực nghiệm | `report/EXPERIMENTS_DAN_Y.md` |
 
-Xem `report/STATUS.md` cho toàn bộ số liệu, `report/DEFINITIONS.md` cho định nghĩa hình thức.
+Tên tham số trong code khác trong paper:
 
-## Việc chưa làm
+| Code | Paper |
+|---|---|
+| `beta` | λ (làm trơn PMI) |
+| `lambda` | β (trọng số tam giác) |
+| `alpha` | γ (giảm prior) |
 
-- Sweep nhiều seed — 56/60 lỗi là mẫu nhỏ, cần khoảng tin cậy
-- Nối bài 1 → bài 2: chạy noise-aware trên **cạnh model dự đoán**, không phải gold đã bơm
-- Bộ rule phủ đủ SIMULTANEOUS/OVERLAP (greedy hiện loại sạch, 3/6 nhãn F1 = 0)
+Các phần mô tả "classifier cũ" hoặc "bộ cũ" trong tài liệu là lịch sử, chỉ để so sánh.

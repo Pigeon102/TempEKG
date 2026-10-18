@@ -1,5 +1,8 @@
 # TempEKG — Tổng quan từ đầu tới cuối
 
+> **Số chuẩn của paper nằm ở repo `tempekg-numbers`** (bảng LaTeX + mọi con số kèm log nguồn). Các mục ghi
+> "classifier cũ", "bộ cũ", "257 luật" trong tài liệu này là lịch sử, chỉ để so sánh.
+
 Tài liệu này là bản đồ của cả dự án: bài toán là gì, dữ liệu và đồ thị dựng ra sao, hai bài toán giải thế nào
 qua từng bước, kết quả cuối, và muốn hiểu sâu phần nào thì đọc tài liệu nào. Mọi số đo trên MAVEN-ERE valid
 (710 document, 188.924 cạnh quan hệ thời gian); valid chỉ mở một lần cho mỗi cấu hình. Cập nhật 27/09/2026.
@@ -14,7 +17,7 @@ qua từng bước, kết quả cuối, và muốn hiểu sâu phần nào thì 
 | Đầu ra | nhãn cho mọi cạnh, trong 6 nhãn | cạnh nào sai, và đúng ra là nhãn gì |
 | Được dùng | chỉ thông tin của từng cặp; **không bao giờ** dùng nhãn thời gian của cạnh khác | nhãn các cạnh xung quanh (vì chúng là quan sát) |
 | Thước đo | macro-F1 trên 6 nhãn | tỷ lệ cạnh sai sau sửa, và macro-F1 của đồ thị sau sửa |
-| Kết quả | **30,84%** (luôn đoán BEFORE: 15,30%) | nhiễu classifier: macro-F1 30,84% → **31,89%** (lỗi 15,31% → 12,53%); nhiễu bơm 10% / 20%: lỗi → **1,94% / 4,42%** |
+| Kết quả | **30,84%** | nhiễu classifier: macro-F1 30,84% → **31,89%** (lỗi 15,31% → 12,53%); nhiễu bơm 10% / 20%: lỗi → **1,91% / 4,37%** |
 
 Hai bài nối với nhau: **đầu ra tốt nhất của Bài 1 là đồ thị cần kiểm toán của Bài 2**. Ngoài ra Bài 2 còn chạy
 trên đồ thị gold bị bơm nhiễu (nhiễu nhân tạo) và trên fake_data.
@@ -44,7 +47,7 @@ Train 2.913 document, valid 710 document. Bốn loại cạnh thời gian trên 
 
 **Về MAVEN-Arg:** ablation bỏ toàn bộ đặc trưng từ MAVEN-Arg chỉ làm Bài 1 giảm 0,10 điểm (30,84 → 30,74%) và
 Bài 2 giảm 0,12 điểm (31,89 → 31,77%), nằm trong mức dao động do cách chia. MAVEN-Arg **không phải đóng góp**;
-pipeline hiện vẫn giữ nó trong KG, và có thể bỏ mà không mất gì đo được (`STATUS.md` §39).
+pipeline hiện vẫn giữ nó trong KG, và có thể bỏ mà không mất gì đo được (`STATUS.md` (tag `pre-cleanup`) §39).
 
 ---
 
@@ -77,8 +80,7 @@ tới hai entity này → cặp chung neo; các cạnh thời gian: War CONTAINS
 (TIMEX→EV), War OVERLAP 1678 (EV→TIMEX), 1672 BEFORE 1678 (TIMEX–TIMEX).
 
 > Đọc thêm: `TEMPEKG_KIEN_TRUC.md` §3–4 (sơ đồ, ví dụ thật, bảng Allen); `KG_BUILD.md` (định dạng lưu, bất
-> biến); `DEFINITIONS.md` (các quyết định định nghĩa); `TEMPEKG_TOAN_HOC.md` §1–2 (ký hiệu, chứng minh tầng Allen);
-> hình vẽ ở `TEMPEKG_GIAI_THICH.html`.
+> biến); `DEFINITIONS.md` (các quyết định định nghĩa); `TEMPEKG_TOAN_HOC.md` §1–2 (ký hiệu, chứng minh tầng Allen).
 
 ---
 
@@ -163,7 +165,7 @@ trên đồ thị đang kiểm toán (loại node trung gian + nhãn có hướn
   CONTAINS thực ra là BEFORE.
 - Với nhiễu classifier, học bằng cross-fit trên valid. Mỗi fold mine khoảng 1.400–1.560 luật, rút gọn còn
   42–83 luật.
-- Kết quả: lỗi 15,31% → 12,80%.
+- Kết quả (3.1 một mình, chọn theo macro-F1): macro-F1 30,84% → 31,53%, lỗi 15,31% → 13,47%.
 
 **Bước 3.2 — mô hình năng lượng tam giác** (không phải luật if-then).
 - Đếm tần suất mọi cấu hình tam giác (loại 3 node + 3 nhãn có hướng) trên gold train: 2.326 document, 6,31
@@ -180,14 +182,14 @@ trên đồ thị đang kiểm toán (loại node trung gian + nhãn có hướn
 | Đồ thị cần kiểm toán | Macro-F1: trước → sau | Lỗi: trước → sau |
 |---|---|---|
 | Đầu ra Bài 1 (3.1 → 3.2) | 30,84% → **31,89%** | 15,31% → 12,53% |
-| Bơm 10%, 4 loại cạnh (3.2) | 69,1% → **85,1%** | 9,94% → 1,94% |
-| Bơm 20%, 4 loại cạnh (3.2) | 51,0% → **72,6%** | 19,89% → 4,42% |
+| Bơm 10%, 4 loại cạnh (3.2) | 68,46% → **84,92%** | 9,94% → 1,91% |
+| Bơm 20%, 4 loại cạnh (3.2) | 50,47% → **72,03%** | 19,89% → 4,37% |
 | fake_data 5 / 10 / 15 / 20% (3.2, EV–EV) | 81,4 / 70,2 / 61,3 / 52,2% → **94,0 / 84,0 / 79,8 / 72,7%** | 4,97 / 10,00 / 14,98 / 19,93% → 0,96 / 2,28 / 2,56 / 3,36% |
 
 **Cách đọc số fake_data:** macro-F1 EV–EV của fake_data cao vì đồ thị đầu vào vốn gần đúng: 80–95% cạnh là
 gold. Chấm riêng trên các cạnh bị fake:
 - accuracy 0 → 89–94%, nhưng macro-F1 chỉ 0 → 25–36%;
-- 98–99,6% cạnh sạch vẫn giữ đúng nhãn;
+- 97,9–99,6% cạnh sạch vẫn giữ đúng nhãn;
 - nhãn hiếm vẫn khó khôi phục (`experiments/logs/fake_eval_subset.log`).
 
 **Vì sao chỉ tối ưu theo macro-F1:** chọn tham số theo số lỗi thì mô hình đẩy nhãn hiếm về BEFORE (cái bẫy
@@ -222,10 +224,9 @@ accuracy). Macro-F1 cũng là thước của Bài 1, nên hai bài dùng chung m
 | Bộ 378 luật gọn EV–EV | `RULES_COMPACT.md` | |
 | Định nghĩa và chứng minh (toán) | `TEMPEKG_TOAN_HOC.md` (+ `.html`) | §1–13 |
 | Chi tiết dựng KG, bất biến | `KG_BUILD.md`, `DEFINITIONS.md` | |
-| Đại số luật (bộ luật cũ) | `RULE_ALGEBRA.md` | |
-| Tín hiệu bậc cao (bộ 3/4/5, lịch sử) | `LUAT_BAC_CAO.md` | |
-| Mọi số liệu theo thời gian | `STATUS.md` | §22–39 |
-| Bản có hình vẽ | `TEMPEKG_GIAI_THICH.html` | |
+| Đại số luật (bộ luật cũ) | `RULE_ALGEBRA.md` (tag `pre-cleanup`) | |
+| Tín hiệu bậc cao (bộ 3/4/5, lịch sử) | `LUAT_BAC_CAO.md` (tag `pre-cleanup`) | |
+| Mọi số liệu theo thời gian | `STATUS.md` (tag `pre-cleanup`) | §22–39 |
 | Thuật ngữ | `THUAT_NGU.md` | |
 | So với PaTeCon, MAVEN-Arg | `NOTES_MAVEN_PaTeCon.md` | |
 

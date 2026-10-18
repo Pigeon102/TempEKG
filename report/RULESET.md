@@ -1,5 +1,8 @@
 # Bộ luật TempEKG: luật là gì, dựng ra sao, trông thế nào
 
+> **Số chuẩn của paper nằm ở repo `tempekg-numbers`** (bảng LaTeX + mọi con số kèm log nguồn). Các mục ghi
+> "classifier cũ", "bộ cũ", "257 luật" trong tài liệu này là lịch sử, chỉ để so sánh.
+
 *Cập nhật 24/09/2026. Mọi luật và ví dụ trong tài liệu này lấy từ bộ luật và document thật; số liệu
 đo trên valid MAVEN-ERE (710 document), valid chỉ mở một lần cho mỗi bộ luật.*
 

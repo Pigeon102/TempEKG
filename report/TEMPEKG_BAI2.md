@@ -1,5 +1,8 @@
 # TempEKG — Bài 2: kiểm toán đồ thị thời gian có nhiễu
 
+> **Số chuẩn của paper nằm ở repo `tempekg-numbers`** (bảng LaTeX + mọi con số kèm log nguồn). Các mục ghi
+> "classifier cũ", "bộ cũ", "257 luật" trong tài liệu này là lịch sử, chỉ để so sánh.
+
 **Bài toán:** cho một đồ thị thời gian *đã có nhãn* nhưng chứa cạnh sai, tìm cạnh sai và sửa lại. Khác Bài 1,
 ở đây nhãn của các cạnh xung quanh là **quan sát**, nên được dùng. Đầu vào chính là đồ thị tốt nhất của Bài 1
 (sau bước 2.2); ngoài ra thử trên đồ thị gold bị bơm nhiễu và trên fake_data.
@@ -14,8 +17,8 @@ Lỗi = tỷ lệ cạnh mang nhãn sai; F1 phát hiện = F1 của việc chọ
 | Đồ thị cần kiểm toán | Phương pháp | Macro-F1: trước → sau | Lỗi: trước → sau | F1 phát hiện |
 |---|---|---|---|---|
 | **Đầu ra Bài 1** | 3.1 → 3.2 | 30,84% → **31,89%** | 15,31% → 12,53% | 45,9% |
-| Gold bơm nhiễu 10% (4 loại cạnh) | 3.2 | 69,1% → **85,1%** | 9,94% → 1,94% | 90,2% |
-| Gold bơm nhiễu 20% (4 loại cạnh) | 3.2 | 51,0% → **72,6%** | 19,89% → 4,42% | 89,1% |
+| Gold bơm nhiễu 10% (4 loại cạnh) | 3.2 | 68,46% → **84,92%** | 9,94% → 1,91% | 90,4% |
+| Gold bơm nhiễu 20% (4 loại cạnh) | 3.2 | 50,47% → **72,03%** | 19,89% → 4,37% | 89,2% |
 | fake_data 5% (chỉ EV–EV) | 3.2 | 81,4% → **94,0%** | 4,97% → 0,96% | 90,3% |
 | fake_data 10% | 3.2 | 70,2% → **84,0%** | 10,00% → 2,28% | 89,3% |
 | fake_data 15% | 3.2 | 61,3% → **79,8%** | 14,98% → 2,56% | 91,6% |
@@ -176,7 +179,7 @@ T_t    = −[ log p~(cấu hình t) − Σ_{cạnh ∈ t} log P(l_e | loại c�
 nhất 13 đường rò rỉ (chỉ so `timex_raw` với `time_start` đã đạt F1 76–90%). Trên bản trung thực, detector "dạng
 ngày bị làm thô + ràng buộc điểm bắt đầu cho mọi quan hệ Allen" đạt F1 51,0 / 53,4 / 54,0 / 55,5% ở 5 / 10 / 15 /
 20%; cạnh do TempEKG dự đoán kiểm toán tốt ngang cạnh gold (47,03% so với 47,23%). Chi tiết: phụ lục P.6,
-`BENCHMARK_AUDIT.md`.
+`BENCHMARK_AUDIT.md` (tag `pre-cleanup`).
 
 ---
 
@@ -195,26 +198,33 @@ Mọi bảng dưới đây là so sánh phụ, cùng mục tiêu macro-F1; số 
 
 Ghép thắng từng bước riêng. P / R / sửa / hỏng và F1 từng nhãn ở phụ lục P.3.
 
-### 8.2 Vai trò của tầng GRAPH trong auditor (classifier cũ, chưa chạy lại)
+### 8.2 Vai trò của tầng GRAPH trong auditor (classifier hiện tại, 3.1 chạy một mình)
 
-| Auditor (đầu vào: macro-F1 30,83%, lỗi 15,11%) | Macro-F1 | Lỗi |
-|---|---|---|
-| Chỉ GRAPH | 32,38% | 13,11% |
-| **Mọi tầng + GRAPH** | **32,44%** | 12,91% |
-| Mọi tầng, không GRAPH | 31,58% | 13,07% |
+Nguồn: `experiments/logs/ablate_audit.log` (paper Table 8).
 
-Bỏ tầng GRAPH thì macro-F1 giảm 0,86 điểm (phụ lục P.1).
+| Auditor (đầu vào: macro-F1 30,84%, lỗi 15,31%) | P / R / F1 | Sửa / hỏng / ròng | Lỗi | Macro-F1 |
+|---|---|---|---|---|
+| **Mọi tầng + GRAPH (pipeline)** | 68,0 / 23,5 / 34,9 | 6.664 / 3.199 / +3.465 | **13,47%** | **31,53%** |
+| Mọi tầng, không GRAPH | 63,9 / 16,2 / 25,9 | 4.524 / 2.653 / +1.871 | 14,32% | 31,01% |
+| Không luật liên tầng | 68,0 / 23,5 / 34,9 | 6.664 / 3.199 / +3.465 | 13,47% | 31,53% |
+| Cổng lift ≥ 2 cố định | 64,8 / 12,6 / 21,0 | 3.556 / 1.971 / +1.585 | 14,47% | 31,42% |
+| Một nhóm cho mỗi loại cạnh | 59,6 / 3,1 / 5,9 | 862 / 604 / +258 | 15,17% | 31,02% |
+
+Bỏ tầng GRAPH thì lỗi TIMEX→EV chỉ giảm 25,9% → 25,0% (thay vì → 21,2%) và lỗi TIMEX–TIMEX tăng lên 16,4%
+(chưa sửa: 14,5%). Bảng cũ "chỉ GRAPH 32,38%" đo trên classifier cũ (macro 30,83%, lỗi 15,11%) và chưa chạy
+lại trên classifier hiện tại.
 
 ### 8.3 Auditor một mình và mô hình tam giác trên nhiễu bơm 10%
 
 | | Macro-F1 | Lỗi |
 |---|---|---|
-| Chưa sửa | 69,4% | 9,94% |
-| Chỉ 3.1 auditor | 77,1% | 4,74% |
-| **Chỉ 3.2 tam giác** | **85,1%** | **1,94%** |
+| Chưa sửa (bộ bơm của `inj_eval.py`) | 68,46% | 9,94% |
+| **Chỉ 3.2 tam giác** (`inj_eval_subset.log`) | **84,92%** | **1,91%** |
+| Chỉ 3.1 auditor (bộ bơm cũ của `bai2_layered.py`, chưa sửa 69,43%) | 77,1% | 4,74% |
 
-Theo loại cạnh ở mức 20% (3.2): EV–EV 20,0% → 4,2%, EV→TIMEX 20,0% → 2,4%, TIMEX→EV 19,5% → 6,2%,
-TIMEX–TIMEX 19,9% → 4,8%.
+Dòng auditor đo trên bộ bơm cũ của `bai2_layered.py` (generator khác, macro-F1 trước khi sửa 69,43%), nên
+không so trực tiếp với hai dòng trên. Theo loại cạnh: log hiện tại (`inj_eval_subset.log`) không in lỗi theo loại cạnh; số theo loại
+cạnh cũ (mức 20%: 4,2 / 2,4 / 6,2 / 4,8%) thuộc lần chạy `joint_repair.py` trước, không dùng nữa.
 
 ### 8.4 Bộ luật cũ (257 luật) và bộ luật mới của Bài 1 làm đầu vào
 
@@ -232,7 +242,7 @@ Chưa đo dao động theo seed, nên chưa kết luận được chênh lệch 
 | Đồ thị đầu vào (đầu ra Bài 1) | macro-F1 30,84%, lỗi 15,31% | macro-F1 30,74%, lỗi 14,41% |
 | 3.1 → 3.2 | macro-F1 31,89%, lỗi 12,53% | macro-F1 31,77%, lỗi 12,30% |
 
-Chênh lệch nằm trong dao động do cách chia (`STATUS.md` §39).
+Chênh lệch nằm trong dao động do cách chia (`STATUS.md` (tag `pre-cleanup`) §39).
 
 ### 8.6 fake_data chấm riêng trên các cạnh bị fake
 
@@ -272,19 +282,23 @@ vì 80–95% cạnh là gold và gần như được giữ nguyên. Log: `experi
 
 ## 10. Tái tạo
 
-| Bước | Script (trong `tempekg/`) |
-|---|---|
-| Auditor tầng + GRAPH | `experiments/higher_order/bai2_layered.py` |
-| Sửa chung tam giác (nhiễu bơm, nhiễu classifier) | `experiments/higher_order/joint_repair.py` |
-| fake_data | `cd src; TAG=_full python ../experiments/higher_order/fake_eval.py 05 10 15 20` |
-| Thăm dò tam giác, bộ 4 | `experiments/higher_order/subgraph_probe.py`, `quad_probe.py` |
-| Ghép 3.1 → 3.2, cross-fit | `TAG=_full python experiments/higher_order/bai2_combo.py` (khoảng 34 phút; bỏ `TAG` để chạy trên bộ luật cũ) |
-| Chẩn đoán nhiễu classifier | `experiments/higher_order/diag_b.py` |
-| Rút gọn luật auditor | `TAG=_full python experiments/higher_order/bai2_compress.py` |
-| Các giai đoạn trước | `bai2_auditor.py`, `fake_and_b.py`, `bayes_audit.py`, `bai2_unified.py` |
-| Benchmark conflict | `experiments/benchmark_honest.py`, `benchmark_honest2.py` |
+Lệnh đầy đủ và thứ tự chạy nằm ở `README.md` (mục "Tái tạo"). Mọi lệnh chạy trong `tempekg/src` với
+`PYTHONIOENCODING=utf-8 TAG=_full`.
 
-Số liệu chi tiết: `BAI2_NOISE_AWARE.md` §11–17, `BENCHMARK_AUDIT.md`, `TEMPEKG_TOAN_HOC.md` §8–9, `STATUS.md` §22–39.
+| Bước | Script | Log (bảng trong paper) |
+|---|---|---|
+| Auditor 3.1 (thư viện, được `bai2_combo.py` gọi) | `experiments/higher_order/bai2_layered.py` | — |
+| Mô hình tam giác 3.2 (thư viện) | `experiments/higher_order/joint_repair.py` | — |
+| Ghép 3.1 → 3.2 trên đầu ra Bài 1, cross-fit | `MACRO_ONLY=1 python ../experiments/higher_order/bai2_combo.py` | `logs/bai2_combo_full_subset.log` (Table 4) |
+| Nhiễu bơm 4 loại cạnh | `python ../experiments/higher_order/inj_eval.py` | `logs/inj_eval_subset.log` (Table 3) |
+| fake_data (EV–EV) | `python ../experiments/higher_order/fake_eval.py` | `logs/fake_eval_subset.log` (Table 3) |
+| Ablation mô hình tam giác | `SKIP_CLS=0,1,2 python ../experiments/higher_order/ablate_tri.py cls inj` | `logs/ablate_tri.log` (Table 7) |
+| Ablation auditor | `python ../experiments/higher_order/ablate_audit.py` | `logs/ablate_audit.log` (Table 8) |
+
+Script của các giai đoạn trước (`bai2_auditor.py`, `fake_and_b.py`, `bayes_audit.py`, `bai2_unified.py`,
+`diag_b.py`, `subgraph_probe.py`, `quad_probe.py`, `bai2_compress.py`, `benchmark_honest*.py`) đã chuyển sang
+`legacy/` cùng log của chúng. Số liệu lịch sử: `BAI2_NOISE_AWARE.md` (tag `pre-cleanup`), `BENCHMARK_AUDIT.md` (tag `pre-cleanup`),
+`STATUS.md` (tag `pre-cleanup`) §22–39.
 
 ---
 
@@ -308,12 +322,12 @@ Lỗi ban đầu theo loại cạnh — classifier cũ: EV–EV 12,4%, EV→TIME
 
 | Nhiễu | (cách cân, λ, α) | P | R | F1 | Sửa / hỏng / ròng | Lỗi | Macro-F1 | Lỗi EV–EV · EV→TX · TX→EV · TX–TX |
 |---|---|---|---|---|---|---|---|---|
-| Bơm 10% | (mean, 2,0, 0,5) | 92,32% | 88,24% | 90,23% | 16.492 / 1.379 / +15.113 | 9,94% → 1,94% | 69,08% → **85,10%** | 2,0 · 0,9 · 2,5 · 1,8 |
-| Bơm 20% | (mean, 2,0, 0,5) | 89,85% | 88,38% | 89,11% | 32.987 / 3.750 / +29.237 | 19,89% → 4,42% | 50,98% → **72,63%** | 4,2 · 2,4 · 6,2 · 4,8 |
+| Bơm 10% | (mean, 2,0, 0,5) | 92,5% | 88,4% | 90,4% | 16.526 / 1.353 / +15.173 | 9,94% → 1,91% | 68,46% → **84,92%** | — |
+| Bơm 20% | (mean, 2,0, 0,5) | 90,0% | 88,5% | 89,2% | 33.034 / 3.709 / +29.325 | 19,89% → 4,37% | 50,47% → **72,03%** | — |
 | Classifier (cross-fit) | (mean, 1,0, 0,5) | 67,89% | 22,33% | 33,60% | 5.847 / 3.054 / +2.793 | 15,31% → 13,83% | 30,84% → 31,36% | 11,1 · 9,7 · 23,3 · 16,7 |
 
-Nhiễu bơm ở P.1 (`bai2_layered.py`) và P.2 (`joint_repair.py`) đổi nhãn đúng cùng các cạnh, nhưng chọn nhãn
-thay thế hơi khác, nên macro-F1 ban đầu lệch nhẹ (69,43% và 69,08% ở mức 10%).
+Hai dòng nhiễu bơm của P.2 lấy từ `inj_eval_subset.log` (Table 3 của paper). Nhiễu bơm ở P.1 dùng bộ bơm cũ của
+`bai2_layered.py` (generator khác), nên macro-F1 ban đầu khác (69,43% so với 68,46% ở mức 10%).
 
 ### P.3 Ghép 3.1 → 3.2, nhiễu classifier, cross-fit trên valid
 

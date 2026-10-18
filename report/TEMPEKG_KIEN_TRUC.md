@@ -1,12 +1,14 @@
 # TempEKG — Kiến trúc hệ thống
 
+> **Số chuẩn của paper nằm ở repo `tempekg-numbers`** (bảng LaTeX + mọi con số kèm log nguồn). Các mục ghi
+> "classifier cũ", "bộ cũ", "257 luật" trong tài liệu này là lịch sử, chỉ để so sánh.
+
 Tài liệu này mô tả kiến trúc chung dùng cho cả hai bài toán: dữ liệu, cách chia tập, đồ thị tri
 thức (KG), tầng ràng buộc Allen, thiết kế theo tầng, và quy trình tổng thể. Cách giải từng bài nằm
 ở `TEMPEKG_BAI1.md` và `TEMPEKG_BAI2.md`. Mọi con số đo trên MAVEN-ERE valid (710 document,
 188.924 cạnh quan hệ thời gian), cập nhật 24/09/2026.
 
-> Các sơ đồ dùng mermaid (hiển thị trong VS Code và GitHub). Bản HTML có hình vẽ tương ứng:
-> `report/TEMPEKG_GIAI_THICH.html`.
+> Các sơ đồ dùng mermaid (hiển thị trong VS Code và GitHub).
 
 ---
 
@@ -249,7 +251,7 @@ flowchart TB
     S1 --> S21["2.1 Classifier luật cho 4 loại cạnh<br/>30,09%"]
     S21 --> S22["2.2 Luật liên tầng<br/>30,84%"]
     S22 --> N["Đồ thị cần kiểm toán<br/>(đầu ra tốt nhất của Bài 1, lỗi 15,31%, hoặc nhiễu bơm)"]
-    N --> S31["3.1 Auditor tầng + GRAPH<br/>lỗi 12,80%"]
+    N --> S31["3.1 Auditor tầng + GRAPH<br/>lỗi 13,47%"]
     S31 --> S32["3.2 Sửa chung theo tam giác<br/>macro-F1 31,89%"]
 ```
 
@@ -259,11 +261,11 @@ flowchart TB
 | 1 | Dựng KG, kiểm 9 bất biến | — | 0 vi phạm Allen trên gold |
 | 2.1 | Classifier luật cho EV–EV, EV→TIMEX, TIMEX→EV, TIMEX–TIMEX | DISCOVERY / CONF-1 / CONF-2 | macro-F1 gộp 30,09% (EV–EV 26,99%) |
 | 2.2 | Luật liên tầng ghi đè nhãn khi đủ chắc | như trên | **30,84% — kết quả Bài 1** |
-| 3.1 | Auditor tầng + GRAPH | cross-fit trên valid | lỗi 15,31% → 12,80% |
+| 3.1 | Auditor tầng + GRAPH | cross-fit trên valid | macro-F1 31,53%, lỗi 15,31% → 13,47% (một mình) |
 | 3.2 | Sửa chung tam giác trên đầu ra 3.1 | cross-fit trên valid | macro-F1 → **31,89%**, lỗi → 12,53% (một mình trên đồ thị 2.2: 31,36%) |
 
 Mọi tham số của Bài 2 chọn theo macro-F1. Nhiễu bơm 10% / 20% trên cả bốn loại cạnh: bước 3.2 đưa lỗi xuống
-1,94% / 4,42%.
+1,91% / 4,37%.
 
 Với bộ 257 luật cũ, cùng quy trình cho 29,87 / 30,83% ở 2.1 / 2.2 (tam giác một mình: 31,70%), và lỗi
 15,11% → 11,81% hoặc macro-F1 32,25% ở Bài 2. Bộ mới hơn ở EV–EV nhưng không hơn sau mô hình tam giác; chưa
@@ -291,10 +293,9 @@ Với bộ 257 luật cũ, cùng quy trình cho 29,87 / 30,83% ở 2.1 / 2.2 (ta
 |---|---|
 | `TEMPEKG_BAI1.md` | cách giải Bài 1 từ đầu tới cuối |
 | `TEMPEKG_BAI2.md` | cách giải Bài 2 từ đầu tới cuối |
-| `TEMPEKG_GIAI_THICH.html` | bản HTML có hình vẽ |
 | `KG_BUILD.md`, `DEFINITIONS.md` | chi tiết dựng KG và các quyết định định nghĩa |
 | `RULESET.md` | năm bộ luật của pipeline: luật là gì, dựng ra sao, ví dụ luật thật và cách luật bắn trên cặp thật |
 | `RULES_COMPACT.md` | bộ 378 luật gọn (cùng dự đoán với 54.719 luật), gom theo nhãn → họ → luật |
 | `TEMPEKG_TOAN_HOC.md` (+ `.html`) | báo cáo toán học: định nghĩa, mệnh đề và chứng minh cho cả pipeline |
-| `RULE_ALGEBRA.md` | đại số luật và ba định lý cắt tỉa (bộ cũ) |
-| `STATUS.md` | toàn bộ số liệu theo mục |
+| `RULE_ALGEBRA.md` (tag `pre-cleanup`) | đại số luật và ba định lý cắt tỉa (bộ cũ) |
+| `STATUS.md` (tag `pre-cleanup`) | toàn bộ số liệu theo mục |

@@ -1,5 +1,8 @@
 # TempEKG — Bài 1: phân loại quan hệ thời gian
 
+> **Số chuẩn của paper nằm ở repo `tempekg-numbers`** (bảng LaTeX + mọi con số kèm log nguồn). Các mục ghi
+> "classifier cũ", "bộ cũ", "257 luật" trong tài liệu này là lịch sử, chỉ để so sánh.
+
 **Bài toán:** cho một cặp (sự kiện hoặc TIMEX) trong cùng văn bản, đoán nhãn quan hệ thời gian trong 6 nhãn.
 Tương đương "che toàn bộ nhãn cạnh trên valid rồi đoán lại". Biết cặp nào có quan hệ, chỉ không biết nhãn.
 Bài 1 chỉ dùng thông tin của từng cặp, không bao giờ đọc nhãn thời gian của cạnh khác. Đồ thị dự đoán của Bài 1
@@ -11,7 +14,6 @@ Macro-F1 trên valid (710 document, 188.924 cạnh), theo loại cạnh:
 
 | Bước | EV–EV | EV→TIMEX | TIMEX→EV | TIMEX–TIMEX | **Gộp** |
 |---|---|---|---|---|---|
-| Luôn đoán BEFORE | 15,78% | 15,91% | 13,51% | 14,73% | 15,30% |
 | 2.1 Luật riêng cho từng loại cạnh | 26,99% | 29,74% | 24,29% | 32,98% | 30,09% |
 | **2.2 + luật liên tầng (kết quả Bài 1)** | **27,44%** | **30,51%** | **26,24%** | **34,93%** | **30,84%** |
 
@@ -221,7 +223,7 @@ thời gian ba trị, refinement trong dàn view) chỉ +0,09 ở EV–EV (bộ 
 | 2.1 gộp | 30,09% | 29,86% |
 | 2.2 gộp (kết quả Bài 1) | 30,84% | 30,74% |
 
-Chênh lệch nằm trong dao động do cách chia: MAVEN-Arg không có đóng góp đo được (`STATUS.md` §39).
+Chênh lệch nằm trong dao động do cách chia: MAVEN-Arg không có đóng góp đo được (`STATUS.md` (tag `pre-cleanup`) §39).
 
 ### 8.5 Tín hiệu bậc cao ở Bài 1 (đọc nhãn cạnh xung quanh)
 
@@ -252,20 +254,22 @@ sai, 32,9% cạnh kề cũng sai (quanh cạnh đúng: 7,6%).
 
 ## 9. Tái tạo
 
-| Bước | Script (trong `tempekg/`) |
-|---|---|
-| Bộ luật EV–EV trên toàn bộ train | `NW=4 python experiments/rules_full/mine_full.py` (khoảng 6 phút), `export_full.py` |
-| Ví dụ luật bắn trên cặp thật | `experiments/rules_full/worked_example.py` |
-| Classifier ba loại cạnh TIMEX | `experiments/higher_order/bai1_all_edges.py` |
-| Luật liên tầng | `TAG=_full python experiments/higher_order/layered_rules.py` (khoảng 8 phút) |
-| Bài 2 (mô hình tam giác, auditor) | `TAG=_full python experiments/higher_order/bai2_combo.py` (khoảng 34 phút) |
-| Bộ 257 luật cũ, luật trigger | `python src/vote.py --tau-sweep`; `semantic_tracks.py`, `semantic_combo.py`, `semantic_export.py` |
-| Đồ thị hợp nhất (trần, thực tế) | `experiments/higher_order/unified_graph.py`, `unified_diag.py` |
-| Rút gọn mọi bộ luật (có chứng minh) | `experiments/rules_full/compress.py`, `compress_timex.py`, `compress_layered.py` (dùng `rule_cover.py`) |
-| Bộ 3 / 4 / 5 đo lại | `python experiments/higher_order/motif345.py gold` và `... pred` (khoảng 11 phút mỗi lượt) |
-| BEGINS-ON / ENDS-ON theo định nghĩa RED | `experiments/begins_ends/s01…s06*.py` |
+Lệnh đầy đủ và thứ tự chạy nằm ở `README.md` (mục "Tái tạo").
 
-Số liệu chi tiết: `RULESET.md`, `TEMPEKG_TOAN_HOC.md`, `LUAT_BAC_CAO.md` §13–19, `STATUS.md` §22–35.
+| Bước | Script | Log (bảng trong paper) |
+|---|---|---|
+| Bộ luật EV–EV trên toàn bộ train | `experiments/rules_full/mine_full.py` (khoảng 6 phút) | `rules_full/mine_full.log` |
+| Dự đoán EV–EV cho mọi cặp | `experiments/rules_full/export_full.py` | `rules_full/export_full.log` |
+| Classifier ba loại cạnh TIMEX | `experiments/higher_order/bai1_all_edges.py` | `logs/bai1_all_edges.log` |
+| Luật liên tầng (kết quả Bài 1) | `TAG=_full … layered_rules.py` (khoảng 8 phút) | `logs/layered_rules_full.log` (Table 2) |
+| Rút gọn có chứng minh (378 / 713 luật) | `compress.py`, `compress_timex.py`, `compress_layered.py` (dùng `rule_cover.py`) | `rules_full/compress*.log` |
+| Ablation Bài 1 | `ablate_score.py`; `run_ablations_b1.sh` (các `ABL_*`) | `rules_full/ablate_score.log`, `rules_full/abl_*.log` (Table 6) |
+| BEGINS-ON / ENDS-ON theo định nghĩa RED | `experiments/begins_ends/s01…s06*.py` | `begins_ends/logs/` |
+
+`bai1_all_edges.py` cần file `pred_lex_d05.json` (do `semantic_export.py` sinh từ bộ 257 luật cũ). Dự đoán EV–EV
+trong file này bị `export_full.py` ghi đè toàn bộ, nên không ảnh hưởng số cuối. Script của các bước cũ
+(`semantic_combo.py`, `unified_graph.py`, `motif345.py`, `worked_example.py`, …) đã chuyển sang `legacy/`. Số liệu
+lịch sử: `RULESET.md`, `TEMPEKG_TOAN_HOC.md`, `LUAT_BAC_CAO.md` (tag `pre-cleanup`) §13–19, `STATUS.md` (tag `pre-cleanup`) §22–35.
 
 ---
 
@@ -277,16 +281,16 @@ Tất cả trên valid (710 document). P, R, F1 theo từng nhãn; macro-F1 là 
 
 ### P.1 EV–EV (109.929 cạnh), từng nhãn, ba bộ luật
 
-| Nhãn | Số cạnh | 257 luật: P | R | F1 | + trigger: F1 | Toàn train: P | R | F1 | Luôn BEFORE: F1 |
-|---|---|---|---|---|---|---|---|---|---|
-| BEFORE | 98.866 | 93,42% | 93,59% | 93,50% | 93,29% | 93,62% | 93,43% | 93,53% | 94,70% |
-| CONTAINS | 9.391 | 39,79% | 41,47% | 40,61% | 44,11% | 42,06% | 42,92% | 42,49% | 0% |
-| SIMULTANEOUS | 1.062 | 15,92% | 15,82% | 15,87% | 15,87% | 17,17% | 15,07% | 16,05% | 0% |
-| OVERLAP | 570 | 27,50% | 1,93% | 3,61% | 3,61% | 8,67% | 11,40% | 9,85% | 0% |
-| BEGINS-ON | 25 | 0% | 0% | 0% | 0% | 0% | 0% | 0% | 0% |
-| ENDS-ON | 15 | 0% | 0% | 0% | 0% | 0% | 0% | 0% | 0% |
-| **Macro-F1** | | | | **25,60%** | **26,15%** | | | **26,99%** | 15,78% |
-| Accuracy | | | | 87,87% | 87,59% | | | 87,90% | 89,94% |
+| Nhãn | Số cạnh | 257 luật: P | R | F1 | + trigger: F1 | Toàn train: P | R | F1 |
+|---|---|---|---|---|---|---|---|---|
+| BEFORE | 98.866 | 93,42% | 93,59% | 93,50% | 93,29% | 93,62% | 93,43% | 93,53% |
+| CONTAINS | 9.391 | 39,79% | 41,47% | 40,61% | 44,11% | 42,06% | 42,92% | 42,49% |
+| SIMULTANEOUS | 1.062 | 15,92% | 15,82% | 15,87% | 15,87% | 17,17% | 15,07% | 16,05% |
+| OVERLAP | 570 | 27,50% | 1,93% | 3,61% | 3,61% | 8,67% | 11,40% | 9,85% |
+| BEGINS-ON | 25 | 0% | 0% | 0% | 0% | 0% | 0% | 0% |
+| ENDS-ON | 15 | 0% | 0% | 0% | 0% | 0% | 0% | 0% |
+| **Macro-F1** | | | | **25,60%** | **26,15%** | | | **26,99%** |
+| Accuracy | | | | 87,87% | 87,59% | | | 87,90% |
 
 ### P.2 Ba loại cạnh TIMEX, từng nhãn (bước 2.1)
 

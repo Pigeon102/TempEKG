@@ -269,7 +269,7 @@ xuyên document. Cả hai là kỹ thuật NLP chuẩn, không phải bịa số
 
 ---
 
-# 6. Review: `graph_mining_review_report.md` — 4 vấn đề
+# 6. Review: `graph_mining_review_report.md` (tag `pre-cleanup`) — 4 vấn đề
 
 Script `generate_graph_mining_review_report.py` **chạy đúng như viết** (đã tái tạo:
 430,118 retained / 360,418 excluded / 1,909 mismatch). Nhưng có 4 vấn đề:

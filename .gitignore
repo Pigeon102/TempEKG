@@ -37,3 +37,17 @@ experiments/rules_full/seed_*/
 experiments/begins_ends/features.tsv.gz
 experiments/seeds/logs/
 experiments/seeds/run.log
+
+# Filter-ablation outputs (regenerate with experiments/rules_full/run_ablations_b1.sh)
+experiments/rules_full/abl_*/
+src/artifacts/rules_full_abl_*.json
+# Local working copies that live elsewhere (paper source is on Overleaf; slides in seminar_build)
+latex/
+report/slide/
+*.zip
+
+# Old artifacts from earlier pipelines (files stay on disk, see tag pre-cleanup)
+src/artifacts/*
+!src/artifacts/rules_compact*.json
+!src/artifacts/rules_rx_c70.json
+!src/artifacts/rules_lex_d05.json

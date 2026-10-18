@@ -1,5 +1,9 @@
 # Định nghĩa cho MAVEN Constraint Mining
 
+> **Ghi chú (18/10/2026):** các quyết định định nghĩa ở đây (mapping Allen, node, cạnh, chia tập) vẫn đúng với
+> pipeline hiện tại. Các con số thí nghiệm trong file (bộ 68 / 257 luật, C2/C3) là **lịch sử**, không phải số của
+> paper; số chuẩn ở repo `tempekg-numbers`.
+
 > Tài liệu quyết định, kết thúc giai đoạn định nghĩa.
 > Mọi con số trong tài liệu này đều kèm nguồn: `file:line`, lệnh đã chạy, hoặc mục trong paper.
 > Những gì chưa đo được đánh dấu **MỞ** một cách rõ ràng — không suy đoán.
@@ -45,7 +49,7 @@
 | **E5b** | **ĐÃ GỠ CHẶN bằng tiêm tổng hợp.** Câu hỏi đổi từ "gold có lỗi không" (cấu trúc: không) sang "detector thu hồi được bao nhiêu lỗi đã tiêm" | **CHỐT** | Gold vẫn 0 mâu thuẫn cứng; nhưng recall nay **đo được** trên ground truth tiêm, kèm trần phát hiện phải báo cùng |
 | **C3R** | Hàm chấm điểm cho DETECTION **khác hẳn C3**: `FORBIDS(p,r) ⟺ WilsonUB(k_r,n_p) < τ`. Không enrichment, không BH, không lift | **CHỐT** | C3 kiểm **đuôi dưới**, detection cần **đuôi trên**; τ=0,05 cho FP valid 0,673%, recall 38,80% (uniform) / 16,96% (gold-marginal) |
 | **C3Rb** | **BEFORE không thể bị cấm** ở mọi level — thuộc tính cấu trúc, phải ghi vào paper | **CHỐT** | 0/8.156 pattern có WilsonUB(BEFORE) < τ; min WilsonUB(BEFORE) = **0,446**; recall trên nhãn tiêm BEFORE đúng **0,000%** |
-| **INJ** | **Tiêm tổng hợp là giao thức đánh giá chính.** Chi tiết ở `INJECTION_SPEC.md` | **CHỐT** | Mô hình hỏng phải là **gold-marginal**, không uniform: uniform làm baseline tầm thường `Brare` thắng giả (F1 0,557 vs family 0,378), gold-marginal lật ngược (0,006 vs **0,245**) |
+| **INJ** | **Tiêm tổng hợp là giao thức đánh giá chính.** Chi tiết ở `INJECTION_SPEC.md` (tag `pre-cleanup`) | **CHỐT** | Mô hình hỏng phải là **gold-marginal**, không uniform: uniform làm baseline tầm thường `Brare` thắng giả (F1 0,557 vs family 0,378), gold-marginal lật ngược (0,006 vs **0,245**) |
 
 **Tổng: 33 CHỐT · 0 CẦN ĐO THÊM · 0 BỊ CHẶN.**
 
@@ -1423,7 +1427,7 @@ của nó**.
 
 ### E5b — Tiêm xung đột tổng hợp: ĐÃ GỠ CHẶN
 
-**Trạng thái đổi từ BỊ CHẶN sang CHỐT.** Chi tiết giao thức ở tài liệu riêng `INJECTION_SPEC.md`; mục này
+**Trạng thái đổi từ BỊ CHẶN sang CHỐT.** Chi tiết giao thức ở tài liệu riêng `INJECTION_SPEC.md` (tag `pre-cleanup`); mục này
 ghi **chính xác điều gì đã đổi** và **tuyên bố đánh giá mới** là gì.
 
 **Điều gì KHÔNG đổi.** Sàn mâu thuẫn cứng trong gold vẫn là **0**, và vẫn vì lý do cấu trúc: nhãn là read-off
@@ -1472,7 +1476,7 @@ ground truth đó **bằng xây dựng** — ta biết chính xác cung nào đ�
 
 **Điều này KHÔNG giải được tính vòng tròn.** Tiêm cho ta recall, không cho ta tính độc lập. Constraint vẫn
 khai thác từ chính chú thích mà chúng kiểm tra, nên bảng M1–M4 ở trên vẫn đứng nguyên và M3 (phán xử người
-bịt mắt) vẫn là chỗ phá vòng mạnh nhất. Xem `INJECTION_SPEC.md` mục 7 cho phản biện *"bạn chỉ tìm thấy đúng
+bịt mắt) vẫn là chỗ phá vòng mạnh nhất. Xem `INJECTION_SPEC.md` (tag `pre-cleanup`) mục 7 cho phản biện *"bạn chỉ tìm thấy đúng
 cái bạn đã trồng"* và câu trả lời trung thực cho nó.
 
 ---
@@ -1537,7 +1541,7 @@ hoặc (b) quên symmetrize BEGINS-ON (sẽ cho 100 giả). Cả hai đều đú
 **Xử lý:** đổi khung thành **"bất thường phân bố + phân xử người + thu hồi lỗi đã tiêm"**. Mọi câu dạng
 "chúng tôi phát hiện N lỗi chú thích" phải thành "chúng tôi đưa ra N candidate, trong đó một mẫu 150 được
 chú thích đôi có bịt mắt phân xử được P̂ là lỗi annotator (95% CI ...)", cộng với recall đo trên ground truth
-tiêm (E5b, `INJECTION_SPEC.md`).
+tiêm (E5b, `INJECTION_SPEC.md` (tag `pre-cleanup`)).
 
 > **Chế độ lỗi thật của MAVEN-ERE là trượt timeline — và mức phát hiện được của nó là một câu hỏi MỞ, không
 > phải 0.** Annotator không bao giờ khẳng định một nhãn theo cặp; họ sắp xếp điểm đầu/cuối trên timeline và
@@ -1785,7 +1789,7 @@ nào như vậy, và đó là ground truth bền vững duy nhất dự án này
 ## 11. Kết quả sau khi chốt định nghĩa (bổ sung 2026-09-20 tối)
 
 > Các định nghĩa ở mục 0–10 **vẫn đúng**. Mục này ghi những gì đo được sau đó, và ba chỗ
-> phải sửa. Chi tiết: `STATUS.md`, `ARCHITECTURE.md`, `MINIMISE.md`.
+> phải sửa. Chi tiết: `STATUS.md` (tag `pre-cleanup`), `ARCHITECTURE.md` (tag `pre-cleanup`), `MINIMISE.md` (tag `pre-cleanup`).
 
 ### 11.1. Multi-view mining — trục mới, không có trong mục C
 
@@ -1909,7 +1913,7 @@ Bignum Python cho AND + popcount **6,8 µs** trên 110k bit — đủ nhanh, kh�
 
 ---
 
-## 12. Đối chiếu `feedback.md` — proof bằng `proof_feedback.py`
+## 12. Đối chiếu `feedback.md` (tag `pre-cleanup`) — proof bằng `proof_feedback.py`
 
 > `report/feedback.md` đề xuất đổi khung nghiên cứu. Lập luận kiến trúc của nó đáng lấy,
 > nhưng **4/5 con số kiểm được đều sai** vì lấy từ README dataset chứ không phải từ file.

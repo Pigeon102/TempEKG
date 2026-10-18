@@ -1,6 +1,12 @@
-# Final rule library
+# Old 257-rule library (not the paper's rule set)
 
-`rules_rx_c70.json` -- 257 rules, the set the pipeline uses.
+> **Not used for any number in the paper.** The paper's EV-EV rules are the 54,719 full-train rules from
+> `experiments/rules_full/mine_full.py` (26.99%), extended by the cross-layer rules of `layered_rules.py`.
+> This set is kept only because `experiments/higher_order/semantic_export.py` needs it to write
+> `pred_lex_d05.json`, an input file of `bai1_all_edges.py` whose EV-EV predictions `export_full.py`
+> overwrites in full. See the top-level README.
+
+`rules_rx_c70.json` -- 257 rules, the set the earlier pipeline used.
 
 | | Value |
 |---|---|

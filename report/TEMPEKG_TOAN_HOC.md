@@ -1,5 +1,8 @@
 # TempEKG — Báo cáo toán học
 
+> **Số chuẩn của paper nằm ở repo `tempekg-numbers`** (bảng LaTeX + mọi con số kèm log nguồn). Các mục ghi
+> "classifier cũ", "bộ cũ", "257 luật" trong tài liệu này là lịch sử, chỉ để so sánh.
+
 *Cập nhật 24/09/2026. Mọi định nghĩa bám đúng code trong `tempekg/`; mọi con số là số đo, kèm nguồn
 log. Ký hiệu toán viết bằng LaTeX (hiển thị trong VS Code / GitHub).*
 
@@ -349,7 +352,6 @@ $\text{macro-F1} = \frac{1}{6}\sum_{\ell} F_\ell$. Nhãn không xuất hiện tr
 
 | Bước | Pipeline hiện tại | Pipeline cũ (257 luật, 400 document) |
 |---|---|---|
-| Luôn BEFORE | 15,30% | 15,30% |
 | 2.1 Luật 4 loại cạnh | 30,09% (EE 26,99) | 29,87% (EE 26,15) |
 | 2.2 Liên tầng | 30,84% (EE 27,44) | 30,83% (EE 26,50) |
 | *Tham khảo: Bài 2 chỉ tam giác trên đồ thị 2.2* | *31,36%* | *31,70%* |
@@ -360,8 +362,8 @@ $\text{macro-F1} = \frac{1}{6}\sum_{\ell} F_\ell$. Nhãn không xuất hiện tr
 | Nhiễu | Trước | Sau |
 |---|---|---|
 | Classifier (3.1 → 3.2) | macro-F1 30,84%, lỗi 15,31% | macro-F1 31,89%, lỗi 12,53% — cũ 32,25% |
-| Bơm 10% (3.2) | lỗi 9,94% | 1,94% |
-| Bơm 20% (3.2) | lỗi 19,89% | 4,42% |
+| Bơm 10% (3.2) | lỗi 9,94% | 1,91% |
+| Bơm 20% (3.2) | lỗi 19,89% | 4,37% |
 
 Mọi tham số của Bài 2 chọn theo macro-F1.
 

@@ -1,0 +1,11 @@
+[    0s] nap du lieu ...
+[   15s] train 2913 doc, valid 710 doc
+[   17s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
+[  121s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
+==================================================================================================================================
+1. DAU RA BAI 1, cross-fit tren valid (nhu dong 'chi tam giac' cua bai2_combo), chon theo macro-F1
+==================================================================================================================================
+  chua sua: macro 30.84%, loi 15.31%
+  pipeline (PMI, beta 10, kenh nhieu, luoi day du) macro  31.36% | loi 15.31% -> 13.83% | sua   5845 pha  3054 rong  +2791 | canh sai: acc  20.2% macro   8.3% | [('mean', 1.0, 0.5), ('mean', 1.0, 0.5)]
+  tan suat tho thay PMI                            macro  29.71% | loi 15.31% -> 13.38% | sua   4871 pha  1238 rong  +3633 | canh sai: acc  16.8% macro   5.0% | [('mean', 0.2, 0.5), ('mean', 0.2, 0.5)]
+  beta = 0 (khong lam tron)                        macro  31.27% | loi 15.31% -> 13.73% | sua   5526 pha  2540 rong  +2986 | canh sai: acc  19.1% macro   7.3% | [('mean', 1.0, 0.5), ('mean', 0.2, 0.5)]

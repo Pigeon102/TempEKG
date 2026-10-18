@@ -311,4 +311,4 @@ python tempekg_kg/constraint_net.py --split train --limit 300
 | Parse giá trị lịch cho DATE anchor | Chưa cần cho mining; cần khi dùng TIMEX làm neo tuyệt đối |
 | Dựng tầng 2 cho full corpus | Lãng phí — gold nhất quán 0/2.913; để lười |
 | Mining pattern trên KG này | Bước sau; key đã materialize sẵn |
-| Injector | `INJECTION_SPEC.md`; định dạng đã thiết kế để sửa `target_edges` là đủ |
+| Injector | `INJECTION_SPEC.md` (tag `pre-cleanup`); định dạng đã thiết kế để sửa `target_edges` là đủ |
