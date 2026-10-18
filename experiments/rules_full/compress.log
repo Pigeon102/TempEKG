@@ -1,9 +1,9 @@
 [     0s] 54719 luat; 2794 luat hoat dong (vuot nguong nhan)
 [     0s] ban luat tren phan 0 ...
-[    93s] ban luat tren phan 1 ...
-[   131s] ban luat tren phan 2 ...
-[   164s] ban luat tren phan 3 ...
-[   203s] xong ban luat
+[   108s] ban luat tren phan 1 ...
+[   145s] ban luat tren phan 2 ...
+[   180s] ban luat tren phan 3 ...
+[   223s] xong ban luat
 
 ====================================================================================================
 L1 + L2 -- luat khong bao gio anh huong du doan, va luat trung phan mo rong
@@ -19,10 +19,10 @@ L1 + L2 -- luat khong bao gio anh huong du doan, va luat trung phan mo rong
          sdist      0                      [['HAS', 'roleset_a', 'Winner'], ['HAS', 'anchor_roles', ('Loser', 'Patient')]]
          sdist      0                      [['HAS', 'roleset_a', 'Loser'], ['HAS', 'anchor_roles', ('Loser', 'Patient')]]
       lop 18 luat, vd:
-         etype_a    Killing                [['EQ', 'order', 'same'], ['CNT', 'anchor_roles', 2]]
-         etype_a    Killing                [['EQ', 'order', 'same'], ['MIX', 'anchor_roles', None]]
-         etype_a    Killing                [['EQ', 'order', 'same'], ['REL', 'n_anchor', '2+']]
          etype_a    Killing                [['REL', 'sent_gap', '0'], ['CNT', 'anchor_roles', 2]]
+         etype_a    Killing                [['REL', 'sent_gap', '0'], ['REL', 'n_anchor', '2+']]
+         etype_a    Killing                [['REL', 'sent_gap', '0'], ['MIX', 'anchor_roles', None]]
+         etype_a    Killing                [['EQ', 'sdist', '0'], ['CNT', 'anchor_roles', 2]]
       lop 18 luat, vd:
          etype_a    Military_operation     [['CNT', 'anchor_roles', 2], ['EQ', 'type_pair', ('Military_operation', 'Military_operation')]]
          etype_a    Military_operation     [['CNT', 'anchor_roles', 2], ['REL', 'same_type', True]]
@@ -65,7 +65,7 @@ L3 -- set cover giu du doan (dung tren DISCOVERY + CONF-1; kiem tren CONF-2; val
 ====================================================================================================
 L4 -- gom nhom cac luat giu lai
 ====================================================================================================
-  A: giu moi du doan: 378 luat -> 209 khuon (template); theo nhan {'SIMULTANEOUS': 55, 'OVERLAP': 47, 'CONTAINS': 276}
+  A: giu moi du doan: 378 luat -> 210 khuon (template); theo nhan {'SIMULTANEOUS': 55, 'OVERLAP': 47, 'CONTAINS': 276}
   B: giu moi du doan dung: 279 luat -> 170 khuon (template); theo nhan {'SIMULTANEOUS': 37, 'CONTAINS': 211, 'OVERLAP': 31}
 
   cac khuon lon nhat (B):
@@ -83,7 +83,7 @@ L4 -- gom nhom cac luat giu lai
    CONTAINS     HAS(etypeset_shared) ∧ HAS(roleset_a)                          3 luat | vd sdist [['HAS', 'etypeset_shared', 'Location'], ['HAS', 'roleset_a', 'Loser']] wlb 0.689
    CONTAINS     EQ(type_a) ∧ HAS(roleset_b)                                    3 luat | vd order [['EQ', 'type_a', 'Military_operation'], ['HAS', 'roleset_b', 'Location_original']] wlb 0.758
    CONTAINS     EQ(bucket_a) ∧ EQ(type_b)                                      3 luat | vd sdist_ord [['EQ', 'bucket_a', 'lead'], ['EQ', 'type_b', 'Cause_change_of_strength']] wlb 0.531
-   CONTAINS     HAS(etypeset_b) ∧ HAS(roleset_a)                               3 luat | vd order [['HAS', 'etypeset_b', 'Building'], ['HAS', 'roleset_a', 'Score']] wlb 0.572
+   CONTAINS     EQ(multi_mention_a) ∧ EQ(type_b)                               3 luat | vd bucket_a [['EQ', 'multi_mention_a', True], ['EQ', 'type_b', 'Self_motion']] wlb 0.600
 
   gan trung (Jaccard >= 0,8 tren train): 0 cap; 279 luat -> 279 cum
-[   206s] da luu src/artifacts/rules_compact.json; xong
+[   228s] da luu src/artifacts/rules_compact.json; xong

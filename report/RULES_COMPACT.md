@@ -5,7 +5,7 @@ Cách rút gọn và chứng minh: `RULESET.md` mục 12. Mỗi họ = cùng nh�
 khác giá trị. Cột *lớp* là view và lớp nơi luật áp dụng; `k/n` trên DISCOVERY, `ck/cn` trên
 CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 
-## CONTAINS — 276 luật, 136 họ
+## CONTAINS — 276 luật, 137 họ
 
 ### EQ(type_pair) (23)
 
@@ -189,15 +189,6 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 | ★ | bucket_a = lead | multi_mention_a = True ∧ type_b = Arriving | 87/138 | 27/37 | 0.570 |
 | ★ | global = * | multi_mention_a = True ∧ type_b = Cause_change_of_strength | 131/215 | 50/78 | 0.530 |
 
-### HAS(etypeset_b) ∧ HAS(roleset_a) (4)
-
-| | Lớp | Điều kiện | k/n | ck/cn | wlb |
-|---|---|---|---|---|---|
-| ★ | order = fwd | etypeset_b ∋ Building ∧ roleset_a ∋ Score | 58/103 | 38/54 | 0.572 |
-| ★ | anchor_sd = (True, '4-7') | etypeset_b ∋ Person ∧ roleset_a ∋ Event | 104/166 | 37/58 | 0.509 |
-|  | anchor_sd = (True, '4-7') | roleset_a ∋ Name ∧ etypeset_b ∋ Building | 67/140 | 60/100 | 0.502 |
-| ★ | sdist = 0 | etypeset_b ∋ Person ∧ roleset_a ∋ Event | 61/91 | 15/21 | 0.500 |
-
 ### EQ(bucket_a) ∧ HAS(anchor_roles) (3)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
@@ -351,6 +342,13 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |  | global = * | sent_gap = 4+ ∧ anchor_roles ∋ (Participant, Winner) | 22/35 | 11/13 | 0.578 |
 |  | global = * | sent_gap = 4+ ∧ anchor_roles ∋ (Host, Location) | 27/61 | 27/37 | 0.570 |
 
+### HAS(etypeset_b) ∧ HAS(roleset_a) (2)
+
+| | Lớp | Điều kiện | k/n | ck/cn | wlb |
+|---|---|---|---|---|---|
+| ★ | order = fwd | etypeset_b ∋ Building ∧ roleset_a ∋ Score | 58/103 | 38/54 | 0.572 |
+|  | anchor_sd = (True, '4-7') | roleset_a ∋ Name ∧ etypeset_b ∋ Building | 67/140 | 60/100 | 0.502 |
+
 ### EQ(nrole_b) ∧ HAS(anchor_roles) (2)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
@@ -435,6 +433,13 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |  | sdist_ord = ('4-7', 'fwd') | anchor_roles ∋ (Location, Location) ∧ type_a = Competition | 238/416 | 105/176 | 0.523 |
 | ★ | global = * | type_a = Military_operation ∧ anchor_roles ∋ (Patient, Patient) | 153/297 | 72/122 | 0.501 |
 
+### EQ(has_person_b) ∧ HAS(roleset_a) (2)
+
+| | Lớp | Điều kiện | k/n | ck/cn | wlb |
+|---|---|---|---|---|---|
+| ★ | anchor_sd = (True, '4-7') | has_person_b = True ∧ roleset_a ∋ Event | 104/166 | 37/58 | 0.509 |
+| ★ | sdist = 0 | has_person_b = True ∧ roleset_a ∋ Event | 61/91 | 15/21 | 0.500 |
+
 ### EQ(bucket_a) ∧ HAS(etypeset_a) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
@@ -513,11 +518,11 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |---|---|---|---|---|---|
 | ★ | global = * | mention_cmp = a>b ∧ type_pair = (Catastrophe, Self_motion) | 34/51 | 10/11 | 0.623 |
 
-### HAS(anchor_roles) ∧ MIX(etypeset_a) (1)
+### CNT(etypeset_a) ∧ HAS(anchor_roles) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-| ★ | global = * | etypeset_a có ≥ 2 loại ∧ anchor_roles ∋ (Host, Location) | 26/57 | 33/43 | 0.623 |
+| ★ | global = * | |etypeset_a| = 2 ∧ anchor_roles ∋ (Host, Location) | 26/57 | 33/43 | 0.623 |
 
 ### CNT(roleset_shared) ∧ EQ(bucket_b) (1)
 
@@ -525,11 +530,11 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |---|---|---|---|---|---|
 | ★ | etype_a = Military_operation | |roleset_shared| = 3 ∧ bucket_b = early | 90/152 | 40/54 | 0.611 |
 
-### HAS(anchor_roles) ∧ HAS(etypeset_b) (1)
+### EQ(has_person_b) ∧ HAS(anchor_roles) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-| ★ | etype_a = Competition | etypeset_b ∋ Person ∧ anchor_roles ∋ (Loser, Patient) | 25/35 | 12/14 | 0.601 |
+| ★ | etype_a = Competition | has_person_b = True ∧ anchor_roles ∋ (Loser, Patient) | 25/35 | 12/14 | 0.601 |
 
 ### ALL(roleset_shared) ∧ HAS(roleset_a) (1)
 
@@ -549,11 +554,11 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |---|---|---|---|---|---|
 | ★ | etype_a = Hostile_encounter | nrole_a = 0 ∧ bucket_b = lead | 25/29 | 9/10 | 0.596 |
 
-### EQ(multi_mention_a) ∧ MIX(etypeset_a) (1)
+### CNT(etypeset_a) ∧ EQ(multi_mention_a) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-| ★ | etype_a = Military_operation | etypeset_a có ≥ 2 loại ∧ multi_mention_a = True | 151/187 | 32/44 | 0.582 |
+| ★ | etype_a = Military_operation | |etypeset_a| = 2 ∧ multi_mention_a = True | 151/187 | 32/44 | 0.582 |
 
 ### EQ(bucket_b) ∧ HAS(roleset_shared) (1)
 
@@ -717,11 +722,11 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |---|---|---|---|---|---|
 | ★ | bucket_a = lead | nrole_a = 5 ∧ type_b = Process_end | 46/75 | 13/17 | 0.527 |
 
-### ALL(anchor_roles) ∧ HAS(etypeset_b) (1)
+### ALL(anchor_roles) ∧ EQ(has_person_b) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-| ★ | etype_a = Military_operation | etypeset_b ∋ Person ∧ anchor_roles = {(Agent, Agent)} | 24/36 | 13/17 | 0.527 |
+| ★ | etype_a = Military_operation | has_person_b = True ∧ anchor_roles = {(Agent, Agent)} | 24/36 | 13/17 | 0.527 |
 
 ### EQ(type_a) ∧ REL(a_before_b) (1)
 
@@ -819,11 +824,11 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |---|---|---|---|---|---|
 |  | global = * | multi_mention_a = True ∧ nrole_b = 5 | 161/325 | 69/114 | 0.514 |
 
-### EQ(type_a) ∧ MIX(etypeset_a) (1)
+### CNT(etypeset_a) ∧ EQ(type_a) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-| ★ | anchor_sd = (False, '8+') | etypeset_a có ≥ 2 loại ∧ type_a = Military_operation | 201/352 | 95/161 | 0.513 |
+| ★ | anchor_sd = (False, '8+') | |etypeset_a| = 2 ∧ type_a = Military_operation | 201/352 | 95/161 | 0.513 |
 
 ### HAS(roleset_a) ∧ HAS(roleset_a) (1)
 
@@ -965,13 +970,13 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 
 ## SIMULTANEOUS — 55 luật, 43 họ
 
-### EQ(order) ∧ REL(a_before_b) (3)
+### REL(a_before_b) ∧ REL(sent_gap) (3)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-| ★ | etype_a = Damaging | a_before_b = False ∧ order = same | 11/54 | 8/18 | 0.246 |
-| ★ | etype_a = Supply | order = same ∧ a_before_b = False | 9/52 | 7/22 | 0.164 |
-| ★ | etype_a = Judgment_communication | order = same ∧ a_before_b = False | 14/50 | 6/19 | 0.154 |
+| ★ | etype_a = Damaging | a_before_b = False ∧ sent_gap = 0 | 11/54 | 8/18 | 0.246 |
+| ★ | etype_a = Supply | sent_gap = 0 ∧ a_before_b = False | 9/52 | 7/22 | 0.164 |
+| ★ | etype_a = Judgment_communication | sent_gap = 0 ∧ a_before_b = False | 14/50 | 6/19 | 0.154 |
 
 ### EQ(type_b) ∧ HAS(anchor_roles) (3)
 
@@ -1139,11 +1144,11 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |---|---|---|---|---|---|
 |  | bucket_a = mid | |anchor_roles| = 2 ∧ type_pair = (Social_event, Social_event) | 14/48 | 4/10 | 0.168 |
 
-### EQ(order) ∧ HAS(roleset_b) (1)
+### HAS(roleset_b) ∧ REL(sent_gap) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-| ★ | etype_a = Bodily_harm | order = same ∧ roleset_b ∋ Victim | 16/38 | 4/10 | 0.168 |
+| ★ | etype_a = Bodily_harm | sent_gap = 0 ∧ roleset_b ∋ Victim | 16/38 | 4/10 | 0.168 |
 
 ### EQ(type_pair) ∧ HAS(roleset_a) (1)
 
@@ -1181,11 +1186,11 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |---|---|---|---|---|---|
 | ★ | sdist = 0 | etypeset_shared ∋ Organization ∧ type_b = Military_operation | 13/69 | 7/22 | 0.164 |
 
-### CNT(roleset_shared) ∧ EQ(order) (1)
+### CNT(roleset_shared) ∧ REL(sent_gap) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-| ★ | etype_a = Damaging | |roleset_shared| = 3 ∧ order = same | 17/98 | 8/27 | 0.159 |
+| ★ | etype_a = Damaging | |roleset_shared| = 3 ∧ sent_gap = 0 | 17/98 | 8/27 | 0.159 |
 
 ### CNT(anchor_roles) ∧ EQ(has_org_a) (1)
 
@@ -1193,11 +1198,11 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |---|---|---|---|---|---|
 | ★ | etype_a = Hold | has_org_a = False ∧ |anchor_roles| = 3 | 11/55 | 10/36 | 0.158 |
 
-### CNT(anchor_roles) ∧ EQ(order) (1)
+### CNT(anchor_roles) ∧ REL(sent_gap) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-|  | etype_a = Damaging | order = same ∧ |anchor_roles| = 3 | 14/73 | 6/19 | 0.154 |
+|  | etype_a = Damaging | sent_gap = 0 ∧ |anchor_roles| = 3 | 14/73 | 6/19 | 0.154 |
 
 ### CNT(anchor_roles) ∧ REL(a_before_b) (1)
 
@@ -1229,11 +1234,11 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |---|---|---|---|---|---|
 | ★ | sdist = 0 | etypeset_a ∋ Person ∧ type_b = Social_event | 14/70 | 5/15 | 0.152 |
 
-### MIX(roleset_shared) ∧ REL(a_before_b) (1)
+### CNT(roleset_shared) ∧ REL(a_before_b) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-|  | etype_a = Statement | a_before_b = False ∧ roleset_shared có ≥ 2 loại | 11/44 | 4/11 | 0.152 |
+|  | etype_a = Statement | a_before_b = False ∧ |roleset_shared| = 2 | 11/44 | 4/11 | 0.152 |
 
 ## OVERLAP — 47 luật, 30 họ
 
@@ -1265,12 +1270,12 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 | ★ | sdist = 0 | roleset_shared = {Location} ∧ type_b = Bodily_harm | 38/99 | 12/36 | 0.202 |
 |  | bucket_a = early | roleset_shared = {Location} ∧ type_b = Bodily_harm | 16/92 | 7/34 | 0.103 |
 
-### EQ(order) ∧ HAS(anchor_roles) (2)
+### HAS(anchor_roles) ∧ REL(sent_gap) (2)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-| ★ | bucket_a = late | order = same ∧ anchor_roles ∋ (Location_original, Location) | 9/73 | 6/17 | 0.173 |
-| ★ | etype_a = Killing | anchor_roles ∋ (Location, Location) ∧ order = same | 57/211 | 16/67 | 0.153 |
+| ★ | bucket_a = late | sent_gap = 0 ∧ anchor_roles ∋ (Location_original, Location) | 9/73 | 6/17 | 0.173 |
+| ★ | etype_a = Killing | anchor_roles ∋ (Location, Location) ∧ sent_gap = 0 | 57/211 | 16/67 | 0.153 |
 
 ### HAS(anchor_roles) ∧ HAS(roleset_a) (2)
 
@@ -1279,12 +1284,12 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |  | sdist = 0 | roleset_a ∋ Victim ∧ anchor_roles ∋ (Agent, Killer) | 17/45 | 4/11 | 0.152 |
 |  | sdist = 0 | anchor_roles ∋ (Location, Location) ∧ roleset_a ∋ Victim | 67/302 | 18/93 | 0.126 |
 
-### EQ(order) ∧ EQ(type_a) (2)
+### EQ(type_a) ∧ REL(sent_gap) (2)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-| ★ | bucket_a = late | order = same ∧ type_a = Bodily_harm | 17/164 | 10/40 | 0.142 |
-| ★ | bucket_a = early | order = same ∧ type_a = Killing | 19/115 | 7/32 | 0.110 |
+| ★ | bucket_a = late | sent_gap = 0 ∧ type_a = Bodily_harm | 17/164 | 10/40 | 0.142 |
+| ★ | bucket_a = early | sent_gap = 0 ∧ type_a = Killing | 19/115 | 7/32 | 0.110 |
 
 ### HAS(anchor_roles) ∧ HAS(roleset_b) (2)
 
@@ -1326,11 +1331,11 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |---|---|---|---|---|---|
 | ★ | sdist = 0 | etypeset_b = {Location} ∧ type_pair = (Damaging, Destroying) | 9/25 | 4/10 | 0.168 |
 
-### EQ(shares_anchor) ∧ EQ(type_pair) (1)
+### CNT(anchor_roles) ∧ EQ(type_pair) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-|  | bucket_a = late | shares_anchor = True ∧ type_pair = (Damaging, Destroying) | 9/66 | 7/22 | 0.164 |
+|  | bucket_a = late | |anchor_roles| = 1 ∧ type_pair = (Damaging, Destroying) | 9/66 | 7/22 | 0.164 |
 
 ### CNT(anchor_roles) ∧ HAS(roleset_b) (1)
 
@@ -1344,23 +1349,23 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |---|---|---|---|---|---|
 | ★ | anchor_sd = (True, '0') | etypeset_shared ∋ Location ∧ type_a = Damaging | 23/101 | 9/32 | 0.156 |
 
-### EQ(order) ∧ EQ(type_b) (1)
+### EQ(type_b) ∧ REL(sent_gap) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-| ★ | bucket_a = early | order = same ∧ type_b = Bodily_harm | 27/123 | 8/31 | 0.137 |
+| ★ | bucket_a = early | sent_gap = 0 ∧ type_b = Bodily_harm | 27/123 | 8/31 | 0.137 |
 
-### CNT(roleset_shared) ∧ EQ(order) (1)
-
-| | Lớp | Điều kiện | k/n | ck/cn | wlb |
-|---|---|---|---|---|---|
-|  | etype_a = Killing | |roleset_shared| = 1 ∧ order = same | 60/269 | 17/82 | 0.134 |
-
-### CNT(etypeset_shared) ∧ EQ(order) (1)
+### REL(role_overlap) ∧ REL(sent_gap) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-|  | etype_a = Killing | |etypeset_shared| = 1 ∧ order = same | 47/233 | 14/70 | 0.123 |
+|  | etype_a = Killing | role_overlap = True ∧ sent_gap = 0 | 60/269 | 17/82 | 0.134 |
+
+### CNT(etypeset_shared) ∧ REL(sent_gap) (1)
+
+| | Lớp | Điều kiện | k/n | ck/cn | wlb |
+|---|---|---|---|---|---|
+|  | etype_a = Killing | |etypeset_shared| = 1 ∧ sent_gap = 0 | 47/233 | 14/70 | 0.123 |
 
 ### EQ(nrole_b) ∧ HAS(roleset_a) (1)
 
@@ -1416,17 +1421,17 @@ CONFIRMATION-1; ★ = cũng nằm trong bộ 279 luật (biến thể B).
 |---|---|---|---|---|---|
 | ★ | anchor_sd = (True, '0') | etypeset_b = {Location} ∧ type_b = Destroying | 23/132 | 10/53 | 0.106 |
 
-### EQ(order) ∧ HAS(roleset_a) (1)
+### HAS(roleset_a) ∧ REL(sent_gap) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-|  | etype_a = Killing | order = same ∧ roleset_a ∋ Cause | 25/120 | 8/40 | 0.105 |
+|  | etype_a = Killing | sent_gap = 0 ∧ roleset_a ∋ Cause | 25/120 | 8/40 | 0.105 |
 
-### EQ(order) (1)
+### REL(sent_gap) (1)
 
 | | Lớp | Điều kiện | k/n | ck/cn | wlb |
 |---|---|---|---|---|---|
-| ★ | etype_a = Damaging | order = same | 37/280 | 19/119 | 0.105 |
+| ★ | etype_a = Damaging | sent_gap = 0 | 37/280 | 19/119 | 0.105 |
 
 ### CNT(anchor_roles) ∧ HAS(roleset_a) (1)
 

@@ -65,8 +65,8 @@ Cổng Δlogit cần để bộ luật không bùng nổ (433 nghìn luật).
 
 `experiments/higher_order/ablate_tri.py`, log `experiments/logs/ablate_tri_part1.log` (hai dòng "tần suất thô" và
 "β = 0" của bối cảnh 1) và `ablate_tri.log` (mọi dòng còn lại; dòng pipeline của bối cảnh 1 lấy từ "chỉ cách cân
-mean", cùng cấu hình). Mô hình tam giác không hoàn toàn tất định: cùng cấu hình, hai lần chạy lệch nhau 1–2 cạnh
-(part1 cho 5.845 / +2.791, `ablate_tri.log` cho 5.847 / +2.793), macro-F1 giữ nguyên tới 2 chữ số thập phân. Bối cảnh 1 là cross-fit trên valid, giống hệt dòng "chỉ tam giác" của pipeline; bối cảnh 2 là nhiễu
+mean", cùng cấu hình). Các log này chạy trước khi script có guard `PYTHONHASHSEED=0`, nên cùng một cấu hình có thể lệch 1–2 cạnh giữa
+hai lần chạy (part1 cho 5.845 / +2.791, `ablate_tri.log` cho 5.847 / +2.793); macro-F1 giữ nguyên tới 2 chữ số thập phân. Bối cảnh 1 là cross-fit trên valid, giống hệt dòng "chỉ tam giác" của pipeline; bối cảnh 2 là nhiễu
 bơm 10% trên cả bốn loại cạnh. Cột "cạnh sai" chấm riêng trên các cạnh sai trước khi sửa (trước đó đều bằng 0).
 
 ### 2.1 Bối cảnh 1: sửa đầu ra Bài 1 (chưa sửa: macro-F1 30,84%, lỗi 15,31%)

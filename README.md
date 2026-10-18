@@ -44,17 +44,17 @@ Mọi lệnh chạy trong `tempekg/src`, với `export PYTHONIOENCODING=utf-8`. 
 
 | # | Lệnh | Ra | Thời gian |
 |---|---|---|---|
-| 0 | `python build_kg.py --split train && python build_kg.py --split valid && python verify_kg.py` | `src/graph/` | ~10 s |
+| 0 | `python build_kg.py --split train --ere-dir ../../MAVEN_ERE --arg-zip ../../MAVEN-Arg.zip` (rồi `--split valid`), `python verify_kg.py --split valid` | `src/graph/` | ~12 s |
 | 1 | `NW=4 python ../experiments/rules_full/mine_full.py` | luật EV–EV, `rules_full/mine_full.log` | ~6 phút |
 | 2 | `python ../experiments/higher_order/bai1_all_edges.py` | `pred_all_edges.json`, `logs/bai1_all_edges.log` | ~1 phút |
 | 3 | `NW=4 python ../experiments/rules_full/export_full.py` | `pred_all_edges_full.json` | ~3,5 phút |
-| 4 | `TAG=_full python ../experiments/higher_order/layered_rules.py` | `pred_layered_full.json`, `logs/layered_rules_full.log` (**Table 2**) | ~8 phút |
+| 4 | `TAG=_full DUMP=1 python ../experiments/higher_order/layered_rules.py` | `pred_layered_full.json`, `logs/layered_rules_full.log` (**Table 2**) | ~8 phút |
 | 5 | `TAG=_full MACRO_ONLY=1 python ../experiments/higher_order/bai2_combo.py` | `logs/bai2_combo_full_subset.log` (**Table 4**) | ~26 phút |
 | 6 | `TAG=_full python ../experiments/higher_order/inj_eval.py` | `logs/inj_eval_subset.log` (**Table 3**, mọi loại cạnh) | ~25 phút |
 | 7 | `TAG=_full python ../experiments/higher_order/fake_eval.py` | `logs/fake_eval_subset.log` (**Table 3**, EV–EV; cần `C:\Reseach_Quang\fake_data`) | ~32 phút |
 | 8 | `bash ../experiments/rules_full/run_ablations_b1.sh` | `rules_full/ablate_score.log`, `rules_full/abl_*.log` (**Table 6**) | vài giờ |
 | 9 | `bash ../experiments/run_ablations_rest.sh` | `logs/ablate_tri.log`, `logs/ablate_audit.log` (**Table 7, 8**) | ~2 giờ |
-| 10 | `python ../experiments/rules_full/compress.py`; `compress_timex.py`; `TAG=_full DUMP=1 python ../experiments/higher_order/layered_rules.py` rồi `compress_layered.py` | 378 / 713 luật | ~25 phút |
+| 10 | `python ../experiments/rules_full/compress.py`; `compress_timex.py`; `TAG=_full python ../experiments/rules_full/compress_layered.py` (cần bước 4 chạy với `DUMP=1`); `compact_listing.py` | 378 / 713 luật, `report/RULES_COMPACT.md` | ~5 phút |
 | 11 | `TAG=_full python ../experiments/higher_order/nic_example.py`; `python ../experiments/rules_full/appendix_atoms.py` | ví dụ Nicaragua; bảng điều kiện nguyên tử | |
 
 Đầu vào phụ của bước 2: `src/artifacts/pred_lex_d05.json`, do `experiments/higher_order/semantic_export.py` sinh từ
@@ -63,16 +63,16 @@ bộ 257 luật cũ (`rules/final/rules_rx_c70.json`). Dự đoán EV–EV trong
 
 ### Lưu ý về tái lập
 
-- **Kết quả không hoàn toàn tất định.** Một số bước duyệt `set`, nên thứ tự phụ thuộc hash ngẫu nhiên của Python:
-  - `layered_rules.py` chạy hai lần cho 6.184 và 6.183 luật liên tầng, macro-F1 30,84% và 30,83%;
-  - mô hình tam giác, cùng một cấu hình, có thể lệch 1–2 cạnh giữa các lần chạy (macro-F1 giữ nguyên tới 2 chữ số
-    thập phân).
-
-  Số trong paper lấy từ đúng các log và artifact đang có trong repo. Muốn chạy lại cho khớp từng cạnh thì đặt
-  `PYTHONHASHSEED=0`; khi đó số có thể lệch vài cạnh so với log hiện tại.
-- **Con số 713 luật** = 378 (EV–EV) + 154 (ba loại cạnh TIMEX) + 181 (luật liên tầng). Phần 181 rút gọn từ lần chạy
-  `DUMP=1` của `layered_rules.py` (`logs/layered_rules_full_dump.log`, 30,83%), không phải lần chạy sinh
-  `pred_layered_full.json` (30,84%).
+- **Kết quả tất định.** Một số bước duyệt `set`, nên thứ tự phụ thuộc hash seed của Python. Mọi script entry có
+  guard ở đầu file: nếu `PYTHONHASHSEED` khác `0`, script tự chạy lại chính nó với `PYTHONHASHSEED=0`.
+  - Đã kiểm ngày 18/10/2026: chạy hai lần liên tiếp cho kết quả trùng từng byte.
+  - Seed 0 tái tạo **chính xác** file dự đoán của paper: 0 trên 981.319 dự đoán Task 1 khác nhau, 0 cạnh khác ở
+    cả ba cấu hình Bài 2.
+  - Trước khi có guard, các lần chạy lệch nhau ±0,1 điểm (ví dụ EV→TX 30,51 / 30,61).
+- **Con số 713 luật** = 378 (EV–EV) + 154 (ba loại cạnh TIMEX) + 181 (luật liên tầng). Bộ rút gọn và file dự đoán
+  giờ đến từ cùng một lần chạy (`logs/layered_rules_full.log` với `DUMP=1`).
+- **Ablation** (`logs/ablate_tri*.log`, `logs/ablate_audit.log`, `rules_full/abl_*.log`) chạy trước khi có guard.
+  Chạy lại dưới seed 0 có thể lệch 1–2 cạnh ở mô hình tam giác.
 - **Số đo trên classifier cũ.** Hai số 74,6% (cạnh sai nằm trong cấu hình tam giác chưa gặp) và 32,9% / 10,1% (cạnh
   kề cũng sai) đo bằng `subgraph_probe.py` và `diag_b.py` trên một phiên bản classifier trước. Script và log của
   chúng nằm ở tag `pre-cleanup`. Paper phải ghi "an earlier version of the classifier".

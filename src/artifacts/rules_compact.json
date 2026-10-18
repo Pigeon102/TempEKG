@@ -546,9 +546,9 @@ true
 "rel": "CONTAINS",
 "conds": [
 [
-"MIX",
+"CNT",
 "etypeset_a",
-null
+2
 ],
 [
 "EQ",
@@ -770,9 +770,9 @@ true
 "rel": "OVERLAP",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "EQ",
@@ -1267,9 +1267,9 @@ false
 ]
 ],
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ]
 ],
 "k": 57,
@@ -1444,9 +1444,9 @@ false
 "rel": "OVERLAP",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "EQ",
@@ -1466,14 +1466,14 @@ false
 "rel": "OVERLAP",
 "conds": [
 [
-"CNT",
-"roleset_shared",
-1
+"REL",
+"role_overlap",
+true
 ],
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ]
 ],
 "k": 60,
@@ -2059,9 +2059,9 @@ true
 1
 ],
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ]
 ],
 "k": 47,
@@ -2233,9 +2233,9 @@ true
 "rel": "CONTAINS",
 "conds": [
 [
-"HAS",
-"etypeset_b",
-"Person"
+"EQ",
+"has_person_b",
+true
 ],
 [
 "HAS",
@@ -2636,9 +2636,9 @@ true
 "rel": "SIMULTANEOUS",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "HAS",
@@ -3008,9 +3008,9 @@ false
 false
 ],
 [
-"MIX",
+"CNT",
 "roleset_shared",
-null
+2
 ]
 ],
 "k": 11,
@@ -3148,9 +3148,9 @@ null
 "rel": "CONTAINS",
 "conds": [
 [
-"HAS",
-"etypeset_b",
-"Person"
+"EQ",
+"has_person_b",
+true
 ],
 [
 "HAS",
@@ -3422,9 +3422,9 @@ true
 "rel": "SIMULTANEOUS",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "REL",
@@ -3444,9 +3444,9 @@ false
 "rel": "OVERLAP",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "HAS",
@@ -3839,9 +3839,9 @@ false
 "rel": "OVERLAP",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "EQ",
@@ -4464,9 +4464,9 @@ true
 "rel": "CONTAINS",
 "conds": [
 [
-"MIX",
+"CNT",
 "etypeset_a",
-null
+2
 ],
 [
 "EQ",
@@ -4678,9 +4678,9 @@ true
 "rel": "OVERLAP",
 "conds": [
 [
-"EQ",
-"shares_anchor",
-true
+"CNT",
+"anchor_roles",
+1
 ],
 [
 "EQ",
@@ -5082,9 +5082,9 @@ true
 "rel": "OVERLAP",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "HAS",
@@ -5107,9 +5107,9 @@ true
 "rel": "CONTAINS",
 "conds": [
 [
-"MIX",
+"CNT",
 "etypeset_a",
-null
+2
 ],
 [
 "HAS",
@@ -5257,9 +5257,9 @@ false
 "rel": "OVERLAP",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ]
 ],
 "k": 37,
@@ -5403,9 +5403,9 @@ true
 "rel": "SIMULTANEOUS",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "REL",
@@ -5783,9 +5783,9 @@ false
 3
 ],
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ]
 ],
 "k": 17,
@@ -5934,9 +5934,9 @@ false
 "rel": "SIMULTANEOUS",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "CNT",
@@ -6294,9 +6294,9 @@ false
 false
 ],
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ]
 ],
 "k": 11,
@@ -8185,9 +8185,9 @@ false
 "rel": "CONTAINS",
 "conds": [
 [
-"HAS",
-"etypeset_b",
-"Person"
+"EQ",
+"has_person_b",
+true
 ],
 [
 "HAS",
@@ -8370,9 +8370,9 @@ true
 "rel": "CONTAINS",
 "conds": [
 [
-"HAS",
-"etypeset_b",
-"Person"
+"EQ",
+"has_person_b",
+true
 ],
 [
 "ALL",
@@ -8926,9 +8926,9 @@ true
 "rel": "CONTAINS",
 "conds": [
 [
-"MIX",
+"CNT",
 "etypeset_a",
-null
+2
 ],
 [
 "EQ",
@@ -9150,9 +9150,9 @@ true
 "rel": "OVERLAP",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "EQ",
@@ -9537,9 +9537,9 @@ false
 ]
 ],
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ]
 ],
 "k": 57,
@@ -9714,9 +9714,9 @@ false
 "rel": "OVERLAP",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "EQ",
@@ -10208,9 +10208,9 @@ true
 "rel": "CONTAINS",
 "conds": [
 [
-"HAS",
-"etypeset_b",
-"Person"
+"EQ",
+"has_person_b",
+true
 ],
 [
 "HAS",
@@ -10542,9 +10542,9 @@ true
 "rel": "SIMULTANEOUS",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "HAS",
@@ -10868,9 +10868,9 @@ true
 "rel": "CONTAINS",
 "conds": [
 [
-"HAS",
-"etypeset_b",
-"Person"
+"EQ",
+"has_person_b",
+true
 ],
 [
 "HAS",
@@ -11123,9 +11123,9 @@ true
 "rel": "SIMULTANEOUS",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "REL",
@@ -11302,9 +11302,9 @@ false
 "rel": "OVERLAP",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "EQ",
@@ -11670,9 +11670,9 @@ true
 "rel": "CONTAINS",
 "conds": [
 [
-"MIX",
+"CNT",
 "etypeset_a",
-null
+2
 ],
 [
 "EQ",
@@ -12100,9 +12100,9 @@ true
 "rel": "OVERLAP",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "HAS",
@@ -12125,9 +12125,9 @@ true
 "rel": "CONTAINS",
 "conds": [
 [
-"MIX",
+"CNT",
 "etypeset_a",
-null
+2
 ],
 [
 "HAS",
@@ -12250,9 +12250,9 @@ false
 "rel": "OVERLAP",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ]
 ],
 "k": 37,
@@ -12396,9 +12396,9 @@ true
 "rel": "SIMULTANEOUS",
 "conds": [
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ],
 [
 "REL",
@@ -12645,9 +12645,9 @@ false
 3
 ],
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ]
 ],
 "k": 17,
@@ -12794,9 +12794,9 @@ false
 "rel": "SIMULTANEOUS",
 "conds": [
 [
-"EQ",
-"shares_anchor",
-true
+"CNT",
+"anchor_roles",
+1
 ],
 [
 "HAS",
@@ -13003,9 +13003,9 @@ false
 false
 ],
 [
-"EQ",
-"order",
-"same"
+"REL",
+"sent_gap",
+"0"
 ]
 ],
 "k": 11,
@@ -14439,9 +14439,9 @@ false
 "rel": "CONTAINS",
 "conds": [
 [
-"HAS",
-"etypeset_b",
-"Person"
+"EQ",
+"has_person_b",
+true
 ],
 [
 "HAS",
@@ -14555,9 +14555,9 @@ false
 "rel": "CONTAINS",
 "conds": [
 [
-"HAS",
-"etypeset_b",
-"Person"
+"EQ",
+"has_person_b",
+true
 ],
 [
 "ALL",

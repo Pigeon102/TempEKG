@@ -4,6 +4,11 @@ Prints every edge among began / 1898 / 1912 / 1933 / 1934 with classifier, repai
 and the local energy of each candidate label for the edges the joint repair changes.
 Joint repair alone, classifier channel from CONFIRMATION-2, parameters (mean, lambda 1.0, alpha 0.5) =
 the configuration chosen by macro-F1 for the triangle step alone. Run from src/ with TAG=_full."""
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import io, math
 from pathlib import Path
 HERE = Path(__file__).resolve().parent

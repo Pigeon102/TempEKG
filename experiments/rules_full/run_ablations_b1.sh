@@ -1,5 +1,6 @@
 #!/bin/bash
 cd /c/Reseach_Quang/tempekg/experiments/rules_full
+export PYTHONHASHSEED=0
 export PYTHONIOENCODING=utf-8 NW=4
 python ablate_score.py > ablate_score.log 2>&1
 for a in NODOC NOBH NODL NOCONF LOWN GLOBAL; do

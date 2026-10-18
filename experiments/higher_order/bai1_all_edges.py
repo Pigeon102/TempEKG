@@ -26,6 +26,11 @@ EV-EV uses the frozen classifier (257 + 719 trigger rules, 26.15%). Everything i
 per edge type and pooled over all 188,924 valid edges. Predictions of every type are saved for
 the unified-graph step.
 """
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import sys, io, json, math, re, hashlib, time
 sys.path.insert(0, r"C:\Reseach_Quang\tempekg\src")
 from collections import Counter, defaultdict

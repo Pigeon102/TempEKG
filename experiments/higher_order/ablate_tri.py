@@ -11,6 +11,11 @@ Scenarios: (1) Bai 1 output, cross-fit on valid exactly as bai2_combo's 'triangl
 hash, channel = confusion on the fold's tuning third); (2) injected noise 10% on all four edge types
 (channel known, tuned on CONFIRMATION-2 of train, seed 51 / valid seed 37). Choice by macro-F1.
 Run from src/ with TAG=_full. Log: experiments/logs/ablate_tri.log"""
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import io, os, math, hashlib, sys
 from pathlib import Path
 from collections import Counter

@@ -26,6 +26,11 @@ analytic test is used and the >= 5 documents gate keeps the document clustering 
 Parallelism: the main process encodes every pair once (condition ids, label, document, 8 view
 signatures) into a compact cache; a pool of workers loads it and processes (view, label) units.
 """
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import sys, io, os, json, math, hashlib, pickle, time
 from array import array
 from collections import Counter, defaultdict

@@ -2,17 +2,17 @@
 RUT GON BO LUAT LIEN TANG (buoc 2.2) -- co chung minh (rule_cover.py)
 ==============================================================================================================
 
- EV-EV: 7856 luat (1673 pattern + 6183 lien tang), 1595 hoat dong (nguong {'CONT': 0.5, 'OVER': 0.2, 'SIMU': 0.2}), 1015 phat bieu khac nhau
-   day du                1595 luat (254 pattern + 1341 lien tang) | conf2 giu 100.000% macro 26.70% acc 86.95% | valid giu 100.000% macro 27.43% acc 87.33% | 
-   dai dien              1015 luat (119 pattern + 896 lien tang) | conf2 giu 100.000% macro 26.70% acc 86.95% | valid giu 100.000% macro 27.43% acc 87.33% | 
-   A: giu moi dau ra      152 luat (37 pattern + 115 lien tang) | conf2 giu 99.978% macro 26.68% acc 86.95% | valid giu 99.979% macro 27.41% acc 87.32% | vu tru 7609, bat buoc 94, chan duoi 152
-   B: giu dau ra dung     116 luat (28 pattern + 88 lien tang) | conf2 giu 99.891% macro 26.69% acc 87.00% | valid giu 99.870% macro 27.46% acc 87.38% | vu tru 2334, bat buoc 63, chan duoi 116
+ EV-EV: 7859 luat (1673 pattern + 6186 lien tang), 1600 hoat dong (nguong {'CONT': 0.5, 'OVER': 0.2, 'SIMU': 0.2}), 1026 phat bieu khac nhau
+   day du                1600 luat (254 pattern + 1346 lien tang) | conf2 giu 100.000% macro 26.70% acc 86.95% | valid giu 100.000% macro 27.44% acc 87.33% | 
+   dai dien              1026 luat (124 pattern + 902 lien tang) | conf2 giu 100.000% macro 26.70% acc 86.95% | valid giu 100.000% macro 27.44% acc 87.33% | 
+   A: giu moi dau ra      152 luat (37 pattern + 115 lien tang) | conf2 giu 99.978% macro 26.69% acc 86.95% | valid giu 99.978% macro 27.42% acc 87.32% | vu tru 7626, bat buoc 93, chan duoi 152
+   B: giu dau ra dung     117 luat (28 pattern + 89 lien tang) | conf2 giu 99.892% macro 26.69% acc 87.00% | valid giu 99.864% macro 27.42% acc 87.37% | vu tru 2334, bat buoc 63, chan duoi 117
 
- EV->TIMEX: 959 luat (245 pattern + 714 lien tang), 273 hoat dong (nguong {'CONT': 0.4, 'OVER': 0.3}), 217 phat bieu khac nhau
-   day du                 273 luat (12 pattern + 261 lien tang) | conf2 giu 100.000% macro 30.57% acc 89.59% | valid giu 100.000% macro 30.61% acc 89.34% | 
-   dai dien               217 luat (12 pattern + 205 lien tang) | conf2 giu 100.000% macro 30.57% acc 89.59% | valid giu 100.000% macro 30.61% acc 89.34% | 
-   A: giu moi dau ra       12 luat (3 pattern + 9 lien tang) | conf2 giu 99.955% macro 30.59% acc 89.61% | valid giu 99.989% macro 30.58% acc 89.34% | vu tru 935, bat buoc 9, chan duoi 12
-   B: giu dau ra dung      10 luat (2 pattern + 8 lien tang) | conf2 giu 99.946% macro 30.59% acc 89.62% | valid giu 99.977% macro 30.61% acc 89.34% | vu tru 348, bat buoc 6, chan duoi 10
+ EV->TIMEX: 964 luat (245 pattern + 719 lien tang), 278 hoat dong (nguong {'CONT': 0.4, 'OVER': 0.3}), 232 phat bieu khac nhau
+   day du                 278 luat (12 pattern + 266 lien tang) | conf2 giu 100.000% macro 30.49% acc 89.61% | valid giu 100.000% macro 30.51% acc 89.33% | 
+   dai dien               232 luat (12 pattern + 220 lien tang) | conf2 giu 100.000% macro 30.49% acc 89.61% | valid giu 100.000% macro 30.51% acc 89.33% | 
+   A: giu moi dau ra       12 luat (3 pattern + 9 lien tang) | conf2 giu 99.955% macro 30.50% acc 89.63% | valid giu 99.989% macro 30.48% acc 89.33% | vu tru 838, bat buoc 9, chan duoi 12
+   B: giu dau ra dung      10 luat (2 pattern + 8 lien tang) | conf2 giu 99.936% macro 30.51% acc 89.64% | valid giu 99.974% macro 30.51% acc 89.34% | vu tru 316, bat buoc 7, chan duoi 10
 
  TIMEX->EV: 875 luat (248 pattern + 627 lien tang), 6 hoat dong (nguong {'OVER': 0.2}), 6 phat bieu khac nhau
    day du                   6 luat (6 pattern + 0 lien tang) | conf2 giu 100.000% macro 25.90% acc 72.97% | valid giu 100.000% macro 26.24% acc 74.11% | 
@@ -26,8 +26,8 @@ RUT GON BO LUAT LIEN TANG (buoc 2.2) -- co chung minh (rule_cover.py)
    A: giu moi dau ra       12 luat (1 pattern + 11 lien tang) | conf2 giu 100.000% macro 33.55% acc 82.82% | valid giu 100.000% macro 34.93% acc 85.52% | vu tru 1576, bat buoc 11, chan duoi 12
    B: giu dau ra dung      11 luat (1 pattern + 10 lien tang) | conf2 giu 100.000% macro 33.55% acc 82.82% | valid giu 100.000% macro 34.93% acc 85.52% | vu tru 902, bat buoc 10, chan duoi 11
 
- GOP 4 loai canh, day du                2095 luat  valid macro-F1 30.83%  acc 84.70%
- GOP 4 loai canh, dai dien              1359 luat  valid macro-F1 30.83%  acc 84.70%
- GOP 4 loai canh, A: giu moi dau ra      181 luat  valid macro-F1 30.81%  acc 84.69%
- GOP 4 loai canh, B: giu dau ra dung     141 luat  valid macro-F1 30.85%  acc 84.73%
+ GOP 4 loai canh, day du                2105 luat  valid macro-F1 30.84%  acc 84.69%
+ GOP 4 loai canh, dai dien              1385 luat  valid macro-F1 30.84%  acc 84.69%
+ GOP 4 loai canh, A: giu moi dau ra      181 luat  valid macro-F1 30.82%  acc 84.69%
+ GOP 4 loai canh, B: giu dau ra dung     142 luat  valid macro-F1 30.82%  acc 84.72%
 da luu rules_compact_layered.json

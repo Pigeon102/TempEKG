@@ -23,6 +23,11 @@ Stage C  rules override the stage-1 label (EV-EV: 257 + 719 trigger rules; TIMEX
          CONFIRMATION-2 by macro-F1; VALID opened once
 The first 400 train documents are excluded from every split (the 257 rules were mined there).
 """
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import io, json, re
 from pathlib import Path
 HERE = Path(__file__).resolve().parent

@@ -1,5 +1,5 @@
 [    0s] nap du lieu ...
-[    3s] train 2913 doc, valid 710 doc
+[    4s] train 2913 doc, valid 710 doc
 
 ==============================================================================================================
 RUT GON BO LUAT CANH TIMEX -- co chung minh (rule_cover.py)
@@ -24,5 +24,5 @@ RUT GON BO LUAT CANH TIMEX -- co chung minh (rule_cover.py)
    B: giu dau ra dung     16 luat | conf2 giu 100.000% macro 31.85% acc 82.30% | valid giu 100.000% macro 32.98% acc 84.35% | vu tru 2736, bat buoc 12, chan duoi 16
 
  TOM TAT: EV->TIMEX day du 134; EV->TIMEX dai dien 125; EV->TIMEX A: giu moi dau ra 45; EV->TIMEX B: giu dau ra dung 38; TIMEX->EV day du 598; TIMEX->EV dai dien 583; TIMEX->EV A: giu moi dau ra 93; TIMEX->EV B: giu dau ra dung 84; TIMEX-TIMEX day du 100; TIMEX-TIMEX dai dien 90; TIMEX-TIMEX A: giu moi dau ra 16; TIMEX-TIMEX B: giu dau ra dung 16
-[   62s] xong
+[   66s] xong
 da luu rules_compact_timex.json

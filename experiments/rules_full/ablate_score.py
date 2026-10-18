@@ -7,6 +7,11 @@
 Floors are chosen on CONFIRMATION-2 by coordinate ascent on macro-F1 (grid = fixed steps plus the
 weight quantiles of that label, so every score gets a fair grid); valid is opened once per variant.
 Log: experiments/rules_full/ablate_score.log"""
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import os, sys, pickle, json
 from collections import Counter
 from pathlib import Path

@@ -3,6 +3,11 @@
 rule_cover.py. Rules and floors are rebuilt exactly as bai1_all_edges.py builds them (same mining,
 same CONFIRMATION-2 floors); covers are built on DISCOVERY + CONFIRMATION-1, checked on CONF-2 and
 on valid (opened once)."""
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import io, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent

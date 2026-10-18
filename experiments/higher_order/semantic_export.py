@@ -2,6 +2,11 @@
 """Freeze the Bai 1 classifier chosen in semantic_combo.py (257 rules + LEX rules, strict gate,
 delta 0.05, tau 5) and export its predictions for every train and valid EV-EV pair, so Bai 2
 can audit the new classifier's graph."""
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import io, json
 from pathlib import Path
 HERE = Path(__file__).resolve().parent

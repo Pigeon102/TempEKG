@@ -12,6 +12,11 @@ Rows (all against the layered classifier's graph, error 15.11%, macro-F1 30.83%)
   B only, joint only (channel = classifier confusion on TUNE), B -> joint
 each with the objective 'net errors' and 'macro-F1' used for every choice made on TUNE.
 """
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import io, os, json, math, hashlib
 from pathlib import Path
 HERE = Path(__file__).resolve().parent

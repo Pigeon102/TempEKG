@@ -4,6 +4,11 @@ rules -- with the proof of rule_cover.py. The combiner overrides the step-2.1 la
 of each row is its incoming label p, and rules may propose p itself (blocking other labels): those
 rows are constraints too (rule_cover.constraints handles it). Input: src/artifacts/layered_dump_full.pkl
 written by  TAG=_full DUMP=1 python experiments/higher_order/layered_rules.py."""
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import io, sys, pickle, time
 from pathlib import Path
 from collections import Counter, defaultdict

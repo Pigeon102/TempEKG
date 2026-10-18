@@ -32,6 +32,11 @@ Everything below follows from that one formula.
 Covers are built on DISCOVERY + CONFIRMATION-1 (the splits the rules were mined and confirmed on),
 checked on CONFIRMATION-2, and valid is opened once for every variant. Floors are not re-tuned.
 """
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import io, os, sys, json, math, pickle, hashlib, heapq, time
 from collections import Counter, defaultdict
 from pathlib import Path

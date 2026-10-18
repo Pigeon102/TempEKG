@@ -5,6 +5,11 @@ all-edge prediction file so the later steps (layered rules, Bai 2) can be rebuil
 
 Output: src/artifacts/pred_all_edges_full.json  (EV-EV from the new rules, TIMEX edges unchanged)
 """
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import io, os, sys, json, pickle
 from collections import defaultdict
 from pathlib import Path

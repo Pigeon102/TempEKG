@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 """Appendix: every feature behind the EV-EV atomic conditions, counted from the encoded train cache and the
 rule sets. Writes report/APPENDIX_DIEU_KIEN_NGUYEN_TU.md"""
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import io, json, pickle
 from collections import Counter, defaultdict
 from pathlib import Path

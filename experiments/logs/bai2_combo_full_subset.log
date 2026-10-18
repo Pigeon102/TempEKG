@@ -1,19 +1,19 @@
 [    0s] nap du lieu ...
-[    3s] train 2913 doc, valid 710 doc
-[    4s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
-[   39s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
+[    4s] train 2913 doc, valid 710 doc
+[    5s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
+[   46s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
 [    0s] nap du lieu ...
 [    4s] train 2913 doc, valid 710 doc
-[    9s] train con lai 2913 doc (bo 400 doc dau)
-[   10s] dung dieu kien theo tang ...
-[  172s] instance: train 792395, valid 188924
-[  177s] dung cau truc motif ...
-[ 1028s] xong cau truc
+[    8s] train con lai 2913 doc (bo 400 doc dau)
+[    9s] dung dieu kien theo tang ...
+[  130s] instance: train 792395, valid 188924
+[  134s] dung cau truc motif ...
+[ 1003s] xong cau truc
 
-[ 1066s] fold 0: mine 120, confirm 109, tune 113 doc, test 368 doc
-[ 1323s]   fold 0 macro: B->joint ('mean', 0.5, 0.5), joint-only ('mean', 1.0, 0.5)
-[ 1324s] fold 1: mine 112, confirm 131, tune 125 doc, test 342 doc
-[ 1576s]   fold 1 macro: B->joint ('mean', 1.0, 0.5), joint-only ('mean', 1.0, 0.5)
+[ 1036s] fold 0: mine 120, confirm 109, tune 113 doc, test 368 doc
+[ 1302s]   fold 0 macro: B->joint ('mean', 0.5, 0.5), joint-only ('mean', 1.0, 0.5)
+[ 1302s] fold 1: mine 112, confirm 131, tune 125 doc, test 342 doc
+[ 1510s]   fold 1 macro: B->joint ('mean', 1.0, 0.5), joint-only ('mean', 1.0, 0.5)
 
 ==================================================================================================================================
 BAI 2 -- NHIEU CLASSIFIER, CROSS-FIT TREN VALID: auditor tang B, sua chung tam giac, va ghep ca hai
@@ -28,4 +28,4 @@ BAI 2 -- NHIEU CLASSIFIER, CROSS-FIT TREN VALID: auditor tang B, sua chung tam g
   B -> tam giac | macro-F1   P  70.40% R  34.10% F1  45.94%  sua   9381 hong  4145 rong  +5236  loi 15.31% -> 12.53%  macro-F1  31.89%
       loi theo loai: EE 12.7->10.3   ET 10.7->9.2   TE 25.9->20.4   TT 14.5->14.6   | F1 nhan: BEFO 93.1  CONT 56.6  SIMU 28.4  OVER 13.4  BEGI 0.0  ENDS 0.0
       chi tren 28916 canh sai ban dau: acc 0 -> 32.44% | macro-F1 0 -> 11.13% | BEFO F45.0(n=14982)  CONT F17.0(n=11374)  SIMU F1.3(n=1124)  OVER F3.4(n=1333)  BEGI F0.0(n=69)  ENDS F0.0(n=34)
-[ 1577s] xong
+[ 1511s] xong

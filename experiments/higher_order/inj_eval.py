@@ -13,6 +13,11 @@ triangles, step 3.2). fake_data = MAVEN-ERE valid gold with EV-EV labels changed
                    valid (fake_data) scored once per objective
   false alarms     the same parameters run on the CLEAN valid graph: how many correct edges get changed
 """
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import io, os, json, math, random, sys
 from pathlib import Path
 from collections import Counter, defaultdict

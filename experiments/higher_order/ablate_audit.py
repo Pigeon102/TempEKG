@@ -7,6 +7,11 @@ bai2_combo's 'B | macro-F1' row:
   gate lift >= 2  k/n >= 2 * prior instead of min(2 * prior, (1 + prior) / 2)
   one partition   rules learnt per edge type only, not per (edge type, current label)
 Run from src/ with TAG=_full. Log: experiments/logs/ablate_audit.log"""
+import os as _os, sys as _sys
+if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not depend on the hash seed
+    import subprocess as _sp; _os.environ["PYTHONHASHSEED"] = "0"
+    _sys.exit(_sp.call([_sys.executable] + _sys.argv))
+
 import io, os
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
