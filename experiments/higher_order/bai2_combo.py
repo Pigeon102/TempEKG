@@ -60,7 +60,7 @@ for k in (0, 1):
     log("fold %d: mine %d, confirm %d, tune %d doc, test %d doc" % (k, len({x['doc'] for x in mine}), len({x['doc'] for x in conf}), len(tune_docs), len(tst)))
     AR = audit_rules(mine, conf, "n1", LAYB, True); idx = rule_index(AR)
     activate(tune_x + test, AR, "n1", LAYB)
-    for obj in ("net", "macro"):
+    for obj in (("macro",) if os.environ.get("MACRO_ONLY") else ("net", "macro")):
         TH = tune(idx, tune_x, "n1", obj)
         b_tune = classify_k(idx, TH, tune_x, "n1"); b_test = classify_k(idx, TH, test, "n1")
         bt = {x["key"]: v for x, v in zip(tune_x, b_tune)}; bs = {x["key"]: v for x, v in zip(test, b_test)}
@@ -93,8 +93,17 @@ def report(nm, fin):
           % (nm, 100*P, 100*R, 100*F, c["fix"], c["brk"], c["b0"]-c["b1"], 100*c["b0"]/c["n"], 100*c["b1"]/c["n"], 100*m))
     print("      loi theo loai: " + "   ".join("%s %.1f->%.1f" % (k, 100*per[k]["b0"]/per[k]["n"], 100*per[k]["b1"]/per[k]["n"]) for k in ("EE", "ET", "TE", "TT"))
           + "   | F1 nhan: " + "  ".join("%s %.1f" % (r[:4], 100*perl[r][2]) for r in LABS))
+    # scored on the edges that were wrong before repair (accuracy and macro-F1 are 0 there by construction)
+    sp = [(f, e[2]) for docid in docs_all for e, s, f in zip(JR_VA[docid]["edges"], start[docid], fin[docid]) if s != e[2]]
+    ms, pl2, acc2 = prf([x[0] for x in sp], [x[1] for x in sp])
+    print("      chi tren %d canh sai ban dau: acc 0 -> %5.2f%% | macro-F1 0 -> %5.2f%% | " % (len(sp), 100*acc2, 100*ms)
+          + "  ".join("%s F%.1f(n=%d)" % (r[:4], 100*pl2[r][2], pl2[r][3]) for r in LABS))
 m0 = prf([q for d in docs_all for q in start[d]], [e[2] for d in docs_all for e in JR_VA[d]["edges"]])[0]
 print("  %-26s loi %.2f%%  macro-F1 %.2f%%" % ("do thi classifier tang", 100*sum(1 for d in docs_all for e, q in zip(JR_VA[d]["edges"], start[d]) if q != e[2])/sum(len(JR_VA[d]["edges"]) for d in docs_all), 100*m0))
-for nm in ("B | net", "chi tam giac | net", "B -> tam giac | net", "B | macro", "chi tam giac | macro", "B -> tam giac | macro"):
+for nm in [x for x in ("B | net", "chi tam giac | net", "B -> tam giac | net", "B | macro", "chi tam giac | macro", "B -> tam giac | macro") if x in rows]:
     report(nm.replace("net", "giam loi").replace("macro", "macro-F1") if nm.endswith(("net", "macro")) else nm, rows[nm])
+if os.environ.get("DUMP_ROWS"):          # per-edge outputs of every row, for worked examples in the reports
+    import pickle
+    with open(ART/("bai2_rows%s.pkl" % os.environ.get("TAG", "")), "wb") as fh:
+        pickle.dump({"start": start, "rows": {k: dict(v) for k, v in rows.items()}}, fh)
 log("xong")

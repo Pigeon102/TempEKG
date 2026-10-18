@@ -1,0 +1,28 @@
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+[    4s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
+[   40s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
+==================================================================================================================================
+1. DAU RA BAI 1, cross-fit tren valid (nhu dong 'chi tam giac' cua bai2_combo), chon theo macro-F1
+==================================================================================================================================
+  chua sua: macro 30.84%, loi 15.31%
+  beta = 100                                       macro  31.58% | loi 15.31% -> 13.86% | sua   5585 pha  2855 rong  +2730 | canh sai: acc  19.3% macro   8.3% | [('mean', 1.0, 0.5), ('mean', 1.0, 0.5)]
+  alpha = 0 (Bayes thuan)                          macro  28.78% | loi 15.31% -> 14.09% | sua   8084 pha  5792 rong  +2292 | canh sai: acc  28.0% macro  10.4% | [('sum', 0.1, 0.0), ('mean', 2.0, 0.0)]
+  chi cach can sum                                 macro  28.68% | loi 15.31% -> 15.05% | sua   7813 pha  7325 rong   +488 | canh sai: acc  27.0% macro  13.1% | [('sum', 0.1, 0.0), ('sum', 0.3, 0.0)]
+  chi cach can mean                                macro  31.36% | loi 15.31% -> 13.83% | sua   5847 pha  3054 rong  +2793 | canh sai: acc  20.2% macro   8.3% | [('mean', 1.0, 0.5), ('mean', 1.0, 0.5)]
+  khong mo hinh nhieu                              macro  27.47% | loi 15.31% -> 14.91% | sua   8704 pha  7958 rong   +746 | canh sai: acc  30.1% macro  12.6% | [('mean', 2.0, 0.5), ('mean', 2.0, 0.5)]
+  khong tam giac (lambda = 0)                      macro  30.84% | loi 15.31% -> 15.31% | sua      0 pha     0 rong     +0 | canh sai: acc   0.0% macro   0.0% | [('mean', 0.0, 0.5), ('mean', 0.0, 0.5)]
+==================================================================================================================================
+2. NHIEU BOM 10%% CA BON LOAI CANH (kenh nhieu biet truoc), chon theo macro-F1
+==================================================================================================================================
+  chua sua: macro 68.46%, loi 9.94%
+  pipeline (PMI, beta 10, kenh nhieu, luoi day du) macro  84.92% | loi  9.94% ->  1.91% | sua  16526 pha  1353 rong +15173 | canh sai: acc  88.0% macro  33.6% | [('mean', 2.0, 0.5)]
+  tan suat tho thay PMI                            macro  83.42% | loi  9.94% ->  3.68% | sua  14970 pha  3152 rong +11818 | canh sai: acc  79.7% macro  17.8% | [('mean', 0.5, 0.5)]
+  beta = 0 (khong lam tron)                        macro  86.79% | loi  9.94% ->  1.63% | sua  16182 pha   478 rong +15704 | canh sai: acc  86.2% macro  31.3% | [('mean', 1.0, 0.5)]
+  beta = 100                                       macro  86.32% | loi  9.94% ->  2.35% | sua  16928 pha  2587 rong +14341 | canh sai: acc  90.1% macro  33.4% | [('mean', 2.0, 0.0)]
+  alpha = 0 (Bayes thuan)                          macro  86.80% | loi  9.94% ->  2.27% | sua  17074 pha  2583 rong +14491 | canh sai: acc  90.9% macro  35.2% | [('mean', 2.0, 0.0)]
+  chi cach can sum                                 macro  83.32% | loi  9.94% ->  2.63% | sua  17047 pha  3230 rong +13817 | canh sai: acc  90.8% macro  34.3% | [('sum', 0.1, 0.0)]
+  chi cach can mean                                macro  84.92% | loi  9.94% ->  1.91% | sua  16526 pha  1353 rong +15173 | canh sai: acc  88.0% macro  33.6% | [('mean', 2.0, 0.5)]
+  khong mo hinh nhieu                              macro  43.58% | loi  9.94% ->  7.18% | sua  17144 pha 11932 rong  +5212 | canh sai: acc  91.3% macro  34.4% | [('mean', 1.0, 0.5)]
+  khong tam giac (lambda = 0)                      macro  68.46% | loi  9.94% ->  9.94% | sua      0 pha     0 rong     +0 | canh sai: acc   0.0% macro   0.0% | [('mean', 0.0, 0.5)]
+[ 4229s] xong

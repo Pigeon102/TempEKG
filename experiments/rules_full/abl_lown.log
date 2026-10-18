@@ -1,0 +1,62 @@
+[     0s] train: DISCOVERY 292719, CONF-1 95352, CONF-2 95433 cap; valid 109929 cap
+[     0s] mine 40 don vi (view, nhan) tren 3 tien trinh ...
+[    10s]   +1909 ung vien (tong 1909)
+[    12s]   +4264 ung vien (tong 6173)
+[    15s]   +360 ung vien (tong 6533)
+[    17s]   +106 ung vien (tong 6639)
+[    23s]   +7549 ung vien (tong 14188)
+[    27s]   +12906 ung vien (tong 27094)
+[    29s]   +1903 ung vien (tong 28997)
+[    31s]   +353 ung vien (tong 29350)
+[    33s]   +44 ung vien (tong 29394)
+[    37s]   +6494 ung vien (tong 35888)
+[    40s]   +5827 ung vien (tong 41715)
+[    43s]   +1879 ung vien (tong 43594)
+[    45s]   +377 ung vien (tong 43971)
+[    48s]   +39 ung vien (tong 44010)
+[    53s]   +9602 ung vien (tong 53612)
+[    55s]   +3327 ung vien (tong 56939)
+[    59s]   +1444 ung vien (tong 58383)
+[    60s]   +270 ung vien (tong 58653)
+[    64s]   +78 ung vien (tong 58731)
+[    64s]   +6463 ung vien (tong 65194)
+[    70s]   +2773 ung vien (tong 67967)
+[    71s]   +7406 ung vien (tong 75373)
+[    72s]   +11117 ung vien (tong 86490)
+[    75s]   +453 ung vien (tong 86943)
+[    76s]   +75 ung vien (tong 87018)
+[    78s]   +12242 ung vien (tong 99260)
+[    79s]   +2 ung vien (tong 99262)
+[    80s]   +9472 ung vien (tong 108734)
+[    80s]   +0 ung vien (tong 108734)
+[    80s]   +2990 ung vien (tong 111724)
+[    85s]   +1870 ung vien (tong 113594)
+[    86s]   +8115 ung vien (tong 121709)
+[    90s]   +164 ung vien (tong 121873)
+[    90s]   +28 ung vien (tong 121901)
+[    90s]   +15069 ung vien (tong 136970)
+[    95s]   +1327 ung vien (tong 138297)
+[    95s]   +4964 ung vien (tong 143261)
+[    98s]   +12498 ung vien (tong 155759)
+[    99s]   +24 ung vien (tong 155783)
+[    99s]   +173 ung vien (tong 155956)
+[    99s] BH-FDR q=0.05: 126616 / 155956 ung vien giu lai; theo nhan {'CONTAINS': 69732, 'SIMULTANEOUS': 43310, 'OVERLAP': 11916, 'BEGINS-ON': 1486, 'ENDS-ON': 172}
+[   104s] sau xac nhan tren CONF-1: 62574 luat; theo nhan {'CONTAINS': 31531, 'SIMULTANEOUS': 24623, 'OVERLAP': 5671, 'BEGINS-ON': 714, 'ENDS-ON': 35}
+[   104s] tinh luat ban tren CONF-2 (95433 cap) va valid (109929 cap), 3 tien trinh ...
+[   145s]   CONF-2 xong; trung binh 151 luat ban / cap
+[   193s]   valid xong
+[   233s]   max-norm tot nhat tren CONF-2: 25.90% (0.05, 5)
+[   347s]   nguong theo nhan tren CONF-2: 26.38% {'CONT': 0.5, 'SIMU': 0.15, 'OVER': 0.1}
+
+====================================================================================================
+BO LUAT EV-EV MINE LAI TREN TOAN BO TRAIN -- valid mo mot lan
+====================================================================================================
+  62574 luat sau xac nhan; combiner chon tren CONF-2 (26.38%): nguong theo nhan {0: 9, 1: 0.5, 2: 0.15, 3: 0.1, 4: 9, 5: 9}
+  valid macro-F1 26.93%  accuracy 87.79%   (257 luat cu: 25,60%; 257 + 719 trigger: 26,15%)
+    BEFORE        P  93.64%  R  93.30%  F1  93.47%
+    CONTAINS      P  41.91%  R  42.97%  F1  42.43%
+    SIMULTANEOUS  P  16.35%  R  15.63%  F1  15.98%
+    OVERLAP       P   8.41%  R  11.40%  F1   9.68%
+    BEGINS-ON     P   0.00%  R   0.00%  F1   0.00%
+    ENDS-ON       P   0.00%  R   0.00%  F1   0.00%
+[   349s] da luu rules_full.json va pred_valid_full.json; xong

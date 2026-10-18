@@ -1,0 +1,31 @@
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+[    5s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
+[   49s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+[    9s] train con lai 2913 doc (bo 400 doc dau)
+[   10s] dung dieu kien theo tang ...
+[  289s] instance: train 792395, valid 188924
+[  295s] dung cau truc motif ...
+[ 1382s] xong cau truc
+
+==================================================================================================================================
+ABLATION AUDITOR (buoc 3.1 mot minh, chon theo macro-F1, cross-fit tren valid)
+==================================================================================================================================
+  pipeline (moi tang + GRAPH, lien tang, cong thich ung, theo nhom) P  68.00% R  23.51% F1  34.94%  sua   6664 hong  3199 rong  +3465  loi 15.31% -> 13.47%  macro-F1  31.53%
+      loi theo loai: EE 12.7->11.2   ET 10.7->10.8   TE 25.9->21.2   TT 14.5->14.1   | F1 nhan: BEFO 92.5  CONT 55.8  SIMU 26.0  OVER 14.8  BEGI 0.0  ENDS 0.0
+      chi tren 28916 canh sai ban dau: acc 0 -> 23.05% | macro-F1 0 ->  7.77% | BEFO F33.0(n=14982)  CONT F13.6(n=11374)  SIMU F0.0(n=1124)  OVER F0.0(n=1333)  BEGI F0.0(n=69)  ENDS F0.0(n=34)
+  khong tang GRAPH           P  63.90% R  16.24% F1  25.90%  sua   4524 hong  2653 rong  +1871  loi 15.31% -> 14.32%  macro-F1  31.01%
+      loi theo loai: EE 12.7->11.1   ET 10.7->10.7   TE 25.9->25.0   TT 14.5->16.4   | F1 nhan: BEFO 91.9  CONT 53.3  SIMU 26.0  OVER 14.8  BEGI 0.0  ENDS 0.0
+      chi tren 28916 canh sai ban dau: acc 0 -> 15.65% | macro-F1 0 ->  5.09% | BEFO F25.3(n=14982)  CONT F5.3(n=11374)  SIMU F0.0(n=1124)  OVER F0.0(n=1333)  BEGI F0.0(n=69)  ENDS F0.0(n=34)
+  khong luat lien tang       P  68.00% R  23.51% F1  34.94%  sua   6664 hong  3199 rong  +3465  loi 15.31% -> 13.47%  macro-F1  31.53%
+      loi theo loai: EE 12.7->11.2   ET 10.7->10.8   TE 25.9->21.2   TT 14.5->14.1   | F1 nhan: BEFO 92.5  CONT 55.8  SIMU 26.0  OVER 14.8  BEGI 0.0  ENDS 0.0
+      chi tren 28916 canh sai ban dau: acc 0 -> 23.05% | macro-F1 0 ->  7.77% | BEFO F33.0(n=14982)  CONT F13.6(n=11374)  SIMU F0.0(n=1124)  OVER F0.0(n=1333)  BEGI F0.0(n=69)  ENDS F0.0(n=34)
+  cong lift >= 2             P  64.82% R  12.56% F1  21.04%  sua   3556 hong  1971 rong  +1585  loi 15.31% -> 14.47%  macro-F1  31.42%
+      loi theo loai: EE 12.7->12.7   ET 10.7->10.8   TE 25.9->22.0   TT 14.5->14.1   | F1 nhan: BEFO 91.8  CONT 55.8  SIMU 26.0  OVER 14.8  BEGI 0.0  ENDS 0.0
+      chi tren 28916 canh sai ban dau: acc 0 -> 12.30% | macro-F1 0 ->  4.44% | BEFO F14.8(n=14982)  CONT F11.9(n=11374)  SIMU F0.0(n=1124)  OVER F0.0(n=1333)  BEGI F0.0(n=69)  ENDS F0.0(n=34)
+  mot nhom cho moi loai canh (khong theo nhan hien tai) P  59.60% R   3.08% F1   5.86%  sua    862 hong   604 rong   +258  loi 15.31% -> 15.17%  macro-F1  31.02%
+      loi theo loai: EE 12.7->12.7   ET 10.7->10.7   TE 25.9->25.1   TT 14.5->14.5   | F1 nhan: BEFO 91.3  CONT 54.6  SIMU 26.0  OVER 14.3  BEGI 0.0  ENDS 0.0
+      chi tren 28916 canh sai ban dau: acc 0 ->  2.98% | macro-F1 0 ->  1.13% | BEFO F0.0(n=14982)  CONT F6.6(n=11374)  SIMU F0.0(n=1124)  OVER F0.2(n=1333)  BEGI F0.0(n=69)  ENDS F0.0(n=34)
+[ 2218s] xong

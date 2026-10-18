@@ -43,6 +43,8 @@ SFX = "_s" + SEED if SEED else ""
 MF_OUT = os.environ.get("MF_OUT", "")              # ablations: separate output dir and artifact suffix
 if MF_OUT:
     OUT = OUT/MF_OUT; OUT.mkdir(exist_ok=True); SFX = "_" + MF_OUT
+ABL = {k: os.environ.get(k, "") for k in ("ABL_NODOC", "ABL_NOBH", "ABL_NODL", "ABL_NOCONF", "ABL_LOWN", "ABL_GLOBAL")}
+MIN_N, MIN_K = (10, 3) if ABL["ABL_LOWN"] else (25, 8)     # ablation: weaker support floor
 ARG_ATTRS = {"anchor_roles", "roleset_a", "roleset_b", "roleset_shared", "etypeset_a", "etypeset_b", "etypeset_shared",
              "nrole_a", "nrole_b", "n_anchor", "has_loc_a", "has_loc_b", "has_person_a", "has_person_b", "has_org_a",
              "has_org_b", "role_subset", "role_overlap", "shares_anchor"}   # all derived from MAVEN-Arg arguments
@@ -154,17 +156,17 @@ def mine_unit(args):
     out = []
     for s, members in byclass.items():
         n_cls = len(members); k_cls = sum(1 for m in members if G["lab"][m] == r)
-        if n_cls < 25 or k_cls < 8: continue
+        if n_cls < MIN_N or k_cls < MIN_K: continue
         p0 = k_cls / n_cls
-        M = bitmasks(members); POS = lab_mask(members, r)
+        M = bitmasks(members, min_n=MIN_N); POS = lab_mask(members, r)
         single = {}
         for c, m in M.items():
             n = m.bit_count(); k = (m & POS).bit_count()
-            if k >= 8: single[c] = (n, k)
+            if k >= MIN_K: single[c] = (n, k)
         conds = sorted(single, key=lambda c: -single[c][1])
         def gate(key, n, k, parents):
-            if n < 25 or k < 8 or (k/n) < 1.5*p0: return None
-            if parents:
+            if n < MIN_N or k < MIN_K or (k/n) < 1.5*p0: return None
+            if parents and not ABL["ABL_NODL"]:
                 dl = logit(k, n) - max(logit(pk, pn) for pn, pk in parents)
                 if dl < 0.5: return None
             else: dl = 0.0
@@ -172,17 +174,17 @@ def mine_unit(args):
         for c in conds:
             n, k = single[c]
             dl = gate((c,), n, k, None)
-            if dl is not None and docs_of(M[c] & POS, members) >= 5:
+            if dl is not None and (ABL["ABL_NODOC"] or docs_of(M[c] & POS, members) >= 5):
                 out.append((v, s, r, (c,), n, k, log_binom_tail(k, n, p0), p0))
         for i, a in enumerate(conds):
             ma = M[a] & POS; na_, ka = single[a]
             for b in conds[i+1:]:
                 mk = ma & M[b]; k = mk.bit_count()
-                if k < 8: continue
+                if k < MIN_K: continue
                 n = (M[a] & M[b]).bit_count()
                 dl = gate((a, b), n, k, (single[a], single[b]))
                 if dl is None: continue
-                if docs_of(mk, members) < 5: continue
+                if not ABL["ABL_NODOC"] and docs_of(mk, members) < 5: continue
                 out.append((v, s, r, (a, b), n, k, log_binom_tail(k, n, p0), p0))
     return out
 
@@ -238,7 +240,7 @@ def main():
         with open(OUT/"rules_confirmed.pkl", "rb") as fh: rules = pickle.load(fh)
         log("dung lai %d luat da xac nhan (dat REMINE=1 de mine lai)" % len(rules))
         select_and_test(data, rules, NW); return
-    units = [(v, r) for v in range(len(VIEW_NAMES)) for r in range(1, len(RELS))]
+    units = [(v, r) for v in (range(1) if ABL["ABL_GLOBAL"] else range(len(VIEW_NAMES))) for r in range(1, len(RELS))]
     log("mine %d don vi (view, nhan) tren %d tien trinh ..." % (len(units), NW))
     cands = []
     with Pool(NW, initializer=init_worker, initargs=(0,)) as pool:
@@ -249,6 +251,7 @@ def main():
     cands.sort(key=lambda t: t[6]); m = len(cands); cut = 0
     for i, c in enumerate(cands, 1):
         if c[6] <= math.log(0.05*i/m): cut = i
+    if ABL["ABL_NOBH"]: cut = m
     cands = cands[:cut]
     log("BH-FDR q=0.05: %d / %d ung vien giu lai; theo nhan %s" % (cut, m, dict(Counter(RELS[c[2]] for c in cands))))
     # confirmation on CONF-1, in parallel per view
@@ -260,6 +263,7 @@ def main():
     rules = []
     for (v, s, r, key, n, k, lp, p0) in cands:
         cn, ck = conf.get((v, s, r, key), (0, 0))
+        if ABL["ABL_NOCONF"]: cn, ck = n, k            # ablation: trust the DISCOVERY counts, no re-check
         if cn < 10: continue
         cw = wlb(ck, cn)
         if cw <= p0: continue
@@ -277,6 +281,7 @@ def init_fire(which):
     idx = defaultdict(list)                        # (view, class, first condition) -> [(rule id, other conditions)]
     for rid, x in enumerate(R): idx[(x["v"], x["s"], x["key"][0])].append((rid, x["key"][1:]))
     G["ridx"] = idx
+    G["rl"] = [x["rel"] for x in R]; G["cw"] = [x["wlb"] for x in R]
 
 def fire_chunk(bounds):
     i0, i1 = bounds; out = []
@@ -287,6 +292,12 @@ def fire_chunk(bounds):
             for c in cs:
                 for rid, rest in G["ridx"].get((v, s, c), ()):
                     if all(z in cs for z in rest): hits.append(rid)
+        if os.environ.get("FIRE_TOP"):        # keep only the strongest rule of each label: exact for both combiners
+            best = {}
+            for rid in hits:
+                r = G["rl"][rid]
+                if r not in best or G["cw"][rid] > G["cw"][best[r]]: best[r] = rid
+            hits = list(best.values())
         out.append(hits)
     return i0, out
 
