@@ -1,0 +1,98 @@
+nodes: {'TIME_833e41f3304210094101eca59905055e': '1912', 'TIME_e54ef3032d7e9b01d40c95cf4c67d460': '1898', 'TIME_eace1c77a65d9c3f909aa6688c09043a': '1912', 'TIME_d15b46e51ac37f26ecff1e805e00cb76': '1933', 'EVENT_e198df1a8b96d83dba53488d8d69c4e9': 'began', 'TIME_1979ba1fe9e9708a92bb086563464d96': '1934', 'TIME_7a140bfa9f225fbf2775c5649d3a4fa4': '1933'}
+
+EDGES among them (stored direction):
+  1912   -> 1933    type TT  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  1933   -> 1934    type TT  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  began  -> 1933    type ET  classifier OVERLAP      repaired BEFORE       gold BEFORE      
+  1912   -> 1912    type TT  classifier SIMULTANEOUS repaired SIMULTANEOUS gold BEFORE      
+  1912   -> began   type TE  classifier CONTAINS     repaired CONTAINS     gold BEFORE      
+  1898   -> 1912    type TT  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  1898   -> began   type TE  classifier CONTAINS     repaired BEFORE       gold BEFORE      
+  1912   -> 1933    type TT  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  1912   -> 1934    type TT  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  1898   -> 1912    type TT  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  1933   -> 1933    type TT  classifier SIMULTANEOUS repaired SIMULTANEOUS gold BEFORE      
+  1912   -> 1933    type TT  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  1898   -> 1934    type TT  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  1898   -> 1933    type TT  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  began  -> 1934    type ET  classifier OVERLAP      repaired BEFORE       gold BEFORE      
+  began  -> 1933    type ET  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  1912   -> 1933    type TT  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  1898   -> 1933    type TT  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  1912   -> 1934    type TT  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  1933   -> 1934    type TT  classifier BEFORE       repaired BEFORE       gold BEFORE      
+  1912   -> began   type TE  classifier CONTAINS     repaired CONTAINS     gold CONTAINS    
+
+edges changed in the whole document: 6 (of 69); wrong before 10, after 4
+  changed: 1912 -> ended : CONTAINS -> BEFORE (gold BEFORE)
+  changed: began -> 1933 : OVERLAP -> BEFORE (gold BEFORE)
+  changed: 1898 -> began : CONTAINS -> BEFORE (gold BEFORE)
+  changed: 1912 -> assumed : CONTAINS -> BEFORE (gold BEFORE)
+  changed: 1912 -> opposed : CONTAINS -> BEFORE (gold BEFORE)
+  changed: began -> 1934 : OVERLAP -> BEFORE (gold BEFORE)
+
+LOCAL ENERGY at the start (other edges = classifier labels), lambda 1.0 alpha 0.5 mean:
+  edge began -> 1933 (observed OVERLAP, gold BEFORE), 10 triangles
+     BEFORE        -logC   4.17  -(1-a)logq  0.04  mean(-PMI)   2.72  total    6.93
+     CONTAINS      -logC   3.58  -(1-a)logq  1.42  mean(-PMI)  10.43  total   15.43
+     SIMULTANEOUS  -logC   2.00  -(1-a)logq  2.76  mean(-PMI)  11.57  total   16.33
+     OVERLAP       -logC   1.58  -(1-a)logq  2.18  mean(-PMI)  11.57  total   15.33
+     BEGINS-ON     -logC   1.24  -(1-a)logq  3.46  mean(-PMI)  10.65  total   15.35
+     ENDS-ON       -logC   1.20  -(1-a)logq  4.07  mean(-PMI)  11.57  total   16.84
+  edge 1898 -> began (observed CONTAINS, gold BEFORE), 11 triangles
+     BEFORE        -logC   1.61  -(1-a)logq  0.18  mean(-PMI)   1.47  total    3.25
+     CONTAINS      -logC   0.49  -(1-a)logq  0.62  mean(-PMI)   5.17  total    6.28
+     OVERLAP       -logC   0.68  -(1-a)logq  2.23  mean(-PMI)   2.90  total    5.81
+  edge began -> 1934 (observed OVERLAP, gold BEFORE), 10 triangles
+     BEFORE        -logC   4.17  -(1-a)logq  0.04  mean(-PMI)   1.91  total    6.12
+     CONTAINS      -logC   3.58  -(1-a)logq  1.42  mean(-PMI)  11.57  total   16.57
+     SIMULTANEOUS  -logC   2.00  -(1-a)logq  2.76  mean(-PMI)  11.57  total   16.33
+     OVERLAP       -logC   1.58  -(1-a)logq  2.18  mean(-PMI)  11.57  total   15.33
+     BEGINS-ON     -logC   1.24  -(1-a)logq  3.46  mean(-PMI)  11.57  total   16.27
+     ENDS-ON       -logC   1.20  -(1-a)logq  4.07  mean(-PMI)  11.57  total   16.84
+
+TRIANGLES made only of the 5 nodes:
+  1912-1933 / 1898-1912 / 1898-1933 | before ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48 | after ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48
+  1912-1933 / 1912-1912 / 1912-1933 | before ('iBEFORE', 'SIMULTANEOUS', 'iBEFORE') count 886 PMI -0.69 | after ('iBEFORE', 'SIMULTANEOUS', 'iBEFORE') count 886 PMI -0.69
+  1912-1933 / 1912-1933 / 1933-1933 | before ('iBEFORE', 'BEFORE', 'SIMULTANEOUS') count 824 PMI -0.77 | after ('iBEFORE', 'BEFORE', 'SIMULTANEOUS') count 824 PMI -0.77
+  1898-1933 / 1898-1912 / 1912-1933 | before ('iBEFORE', 'BEFORE', 'iBEFORE') count 11735 PMI -1.53 | after ('iBEFORE', 'BEFORE', 'iBEFORE') count 11735 PMI -1.53
+  1933-1933 / 1898-1933 / 1898-1933 | before ('SIMULTANEOUS', 'iBEFORE', 'iBEFORE') count 894 PMI -0.68 | after ('SIMULTANEOUS', 'iBEFORE', 'iBEFORE') count 894 PMI -0.68
+  1933-1933 / 1912-1933 / 1912-1933 | before ('SIMULTANEOUS', 'iBEFORE', 'iBEFORE') count 894 PMI -0.68 | after ('SIMULTANEOUS', 'iBEFORE', 'iBEFORE') count 894 PMI -0.68
+  1912-1934 / 1898-1912 / 1898-1934 | before ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48 | after ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48
+  1912-1934 / 1912-1912 / 1912-1934 | before ('iBEFORE', 'SIMULTANEOUS', 'iBEFORE') count 886 PMI -0.69 | after ('iBEFORE', 'SIMULTANEOUS', 'iBEFORE') count 886 PMI -0.69
+  1912-1934 / 1912-1933 / 1933-1934 | before ('iBEFORE', 'BEFORE', 'iBEFORE') count 11735 PMI -1.53 | after ('iBEFORE', 'BEFORE', 'iBEFORE') count 11735 PMI -1.53
+  1898-1934 / 1898-1912 / 1912-1934 | before ('iBEFORE', 'BEFORE', 'iBEFORE') count 11735 PMI -1.53 | after ('iBEFORE', 'BEFORE', 'iBEFORE') count 11735 PMI -1.53
+  1933-1934 / 1898-1933 / 1898-1934 | before ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48 | after ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48
+  1933-1934 / 1912-1933 / 1912-1934 | before ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48 | after ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48
+  1933-1934 / 1912-1933 / 1912-1934 | before ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48 | after ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48
+  1933-1934 / 1898-1933 / 1898-1934 | before ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48 | after ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48
+  1933-1934 / 1912-1933 / 1912-1934 | before ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48 | after ('iBEFORE', 'iBEFORE', 'iBEFORE') count 12344 PMI -1.48
+  1933-1934 / 1933-1933 / 1933-1934 | before ('iBEFORE', 'SIMULTANEOUS', 'iBEFORE') count 886 PMI -0.69 | after ('iBEFORE', 'SIMULTANEOUS', 'iBEFORE') count 886 PMI -0.69
+  1898-1912 / 1898-1912 / 1912-1912 | before ('iBEFORE', 'BEFORE', 'SIMULTANEOUS') count 824 PMI -0.77 | after ('iBEFORE', 'BEFORE', 'SIMULTANEOUS') count 824 PMI -0.77
+  1912-1933 / 1898-1933 / 1898-1912 | before ('BEFORE', 'iBEFORE', 'iBEFORE') count 12169 PMI -1.49 | after ('BEFORE', 'iBEFORE', 'iBEFORE') count 12169 PMI -1.49
+  1912-1933 / 1912-1933 / 1912-1912 | before ('BEFORE', 'iBEFORE', 'SIMULTANEOUS') count 917 PMI -0.66 | after ('BEFORE', 'iBEFORE', 'SIMULTANEOUS') count 917 PMI -0.66
+  1912-began / 1898-1912 / 1898-began | before ('iCONTAINS', 'iBEFORE', 'iCONTAINS') count 0 PMI -11.23 | after ('iCONTAINS', 'iBEFORE', 'iBEFORE') count 27156 PMI -1.49
+  1912-began / 1912-1912 / 1912-began | before ('iCONTAINS', 'SIMULTANEOUS', 'iCONTAINS') count 5868 PMI 1.29 | after ('iCONTAINS', 'SIMULTANEOUS', 'iCONTAINS') count 5868 PMI 1.29
+  1912-began / 1912-1933 / began-1933 | before ('iCONTAINS', 'BEFORE', 'OVERLAP') count 0 PMI -11.23 | after ('iCONTAINS', 'BEFORE', 'BEFORE') count 27686 PMI -1.75
+  1898-began / 1898-1912 / 1912-began | before ('iCONTAINS', 'BEFORE', 'iCONTAINS') count 0 PMI -11.23 | after ('iBEFORE', 'BEFORE', 'iCONTAINS') count 26287 PMI -1.53
+  began-1933 / 1898-1933 / 1898-began | before ('OVERLAP', 'iBEFORE', 'iCONTAINS') count 0 PMI -11.23 | after ('BEFORE', 'iBEFORE', 'iBEFORE') count 82537 PMI -1.55
+  began-1933 / 1912-1933 / 1912-began | before ('OVERLAP', 'iBEFORE', 'iCONTAINS') count 0 PMI -11.23 | after ('BEFORE', 'iBEFORE', 'iCONTAINS') count 27582 PMI -1.75
+  began-1934 / 1912-1934 / 1912-began | before ('OVERLAP', 'iBEFORE', 'iCONTAINS') count 0 PMI -11.23 | after ('BEFORE', 'iBEFORE', 'iCONTAINS') count 27582 PMI -1.75
+  began-1934 / 1898-1934 / 1898-began | before ('OVERLAP', 'iBEFORE', 'iCONTAINS') count 0 PMI -11.23 | after ('BEFORE', 'iBEFORE', 'iBEFORE') count 82537 PMI -1.55
+  began-1934 / 1912-1934 / 1912-began | before ('OVERLAP', 'iBEFORE', 'iCONTAINS') count 0 PMI -11.23 | after ('BEFORE', 'iBEFORE', 'iCONTAINS') count 27582 PMI -1.75
+  began-1934 / 1933-1934 / began-1933 | before ('OVERLAP', 'iBEFORE', 'OVERLAP') count 0 PMI -11.23 | after ('BEFORE', 'iBEFORE', 'BEFORE') count 75560 PMI -1.92
+  began-1934 / 1933-1934 / began-1933 | before ('OVERLAP', 'iBEFORE', 'BEFORE') count 0 PMI -11.23 | after ('BEFORE', 'iBEFORE', 'BEFORE') count 75560 PMI -1.92
+  began-1933 / 1912-1933 / 1912-began | before ('BEFORE', 'iBEFORE', 'iCONTAINS') count 27582 PMI -1.75 | after ('BEFORE', 'iBEFORE', 'iCONTAINS') count 27582 PMI -1.75
+  began-1933 / 1898-1933 / 1898-began | before ('BEFORE', 'iBEFORE', 'iCONTAINS') count 27582 PMI -1.75 | after ('BEFORE', 'iBEFORE', 'iBEFORE') count 82537 PMI -1.55
+  began-1933 / 1912-1933 / 1912-began | before ('BEFORE', 'iBEFORE', 'iCONTAINS') count 27582 PMI -1.75 | after ('BEFORE', 'iBEFORE', 'iCONTAINS') count 27582 PMI -1.75
+  began-1933 / 1933-1933 / began-1933 | before ('BEFORE', 'SIMULTANEOUS', 'OVERLAP') count 0 PMI -11.23 | after ('BEFORE', 'SIMULTANEOUS', 'BEFORE') count 4785 PMI -1.26
+  1898-1933 / 1898-1912 / 1912-1933 | before ('iBEFORE', 'BEFORE', 'iBEFORE') count 11735 PMI -1.53 | after ('iBEFORE', 'BEFORE', 'iBEFORE') count 11735 PMI -1.53
+
+channel P(seen | true) for EV->TIMEX / TIMEX->EV rows used above:
+  ET true BEFORE    : BEFO 0.933  CONT 0.048  SIMU 0.003  OVER 0.015  BEGI 0.000  ENDS 0.000
+  ET true OVERLAP   : BEFO 0.482  CONT 0.285  SIMU 0.024  OVER 0.205  BEGI 0.002  ENDS 0.002
+  ET true CONTAINS  : BEFO 0.441  CONT 0.520  SIMU 0.010  OVER 0.028  BEGI 0.000  ENDS 0.000
+  TE true BEFORE    : BEFO 0.795  CONT 0.200  SIMU 0.000  OVER 0.005  BEGI 0.000  ENDS 0.000
+  TE true OVERLAP   : BEFO 0.373  CONT 0.507  SIMU 0.001  OVER 0.116  BEGI 0.001  ENDS 0.001
+  TE true CONTAINS  : BEFO 0.386  CONT 0.611  SIMU 0.000  OVER 0.003  BEGI 0.000  ENDS 0.000
+q (label prior) ET: {'BEFO': 0.9241, 'CONT': 0.0579, 'SIMU': 0.004, 'OVER': 0.0127, 'BEGI': 0.001, 'ENDS': 0.0003}  TE: {'BEFO': 0.7017, 'CONT': 0.2867, 'SIMU': 0.0, 'OVER': 0.0115, 'BEGI': 0.0, 'ENDS': 0.0001}

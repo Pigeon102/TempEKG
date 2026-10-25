@@ -1,0 +1,26 @@
+rows: ['B -> tam giac | macro', 'B | macro', 'chi tam giac | macro']
+a        b        | classifier   auditor      aud->tri     tri only     | gold        
+1912     1933     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+1933     1934     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+began    1933     | OVERLAP      OVERLAP      BEFORE       BEFORE       | BEFORE      
+1912     1912     | SIMULTANEOUS SIMULTANEOUS BEGINS-ON    SIMULTANEOUS | BEFORE      
+1912     began    | CONTAINS     BEFORE       BEFORE       CONTAINS     | BEFORE      
+1898     1912     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+1898     began    | CONTAINS     BEFORE       BEFORE       BEFORE       | BEFORE      
+1912     1933     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+1912     1934     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+1898     1912     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+1933     1933     | SIMULTANEOUS SIMULTANEOUS SIMULTANEOUS SIMULTANEOUS | BEFORE      
+1912     1933     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+1898     1934     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+1898     1933     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+began    1934     | OVERLAP      OVERLAP      BEFORE       BEFORE       | BEFORE      
+began    1933     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+1912     1933     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+1898     1933     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+1912     1934     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+1933     1934     | BEFORE       BEFORE       BEFORE       BEFORE       | BEFORE      
+1912     began    | CONTAINS     CONTAINS     CONTAINS     CONTAINS     | CONTAINS    
+auditor   changes 8 of 69 edges; wrong 10 -> 6
+aud->tri  changes 10 of 69 edges; wrong 10 -> 3
+tri only  changes 6 of 69 edges; wrong 10 -> 4
