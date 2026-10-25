@@ -235,6 +235,7 @@ def tune_floors(labels, rules_by_first, act, starts, gold):
     return TH
 
 FINAL = {}
+SINGLE = {}
 DUMPD = {}
 SAVE_L = {}
 print()
@@ -320,6 +321,8 @@ for gname, kinds in GROUPS:
         print("   %-32s macro %6.2f%% (%+.2f)  acc %6.2f%%  doi %5d dung %5.1f%%  nguong %s" %
               (nm, 100*m, 100*(m-m0), 100*acc, ch, 100*ok/max(1, ch), {r[:4]: t for r, t in TH.items() if t < 9}))
         print("      " + "  ".join("%s %.1f" % (r[:4], 100*per[r][2]) for r in RELS if per[r][3]))
+        if nm == "+ pattern tung tang":      # kept only to pool the single-layer stage over all edges
+            for x, p in zip(va, pv): SINGLE[id(x)] = p
         if nm.startswith("+ pattern +"):
             for x, p in zip(va, pv): FINAL[id(x)] = p
             ptr = classify_override(idx, TH, [x["act"] for x in tr], [x["p"] for x in tr])
@@ -337,6 +340,9 @@ print()
 m0, _, a0 = prf(s1, gv); m1, per1, a1 = prf(fv, gv)
 print(" GOP 188.924 CANH: giai doan 1 macro %.2f%% acc %.2f%%  ->  theo tang %.2f%% (%+.2f) acc %.2f%%" % (100*m0, 100*a0, 100*m1, 100*(m1-m0), 100*a1))
 print("      " + "  ".join("%s %.1f" % (r[:4], 100*per1[r][2]) for r in RELS))
+sv = [SINGLE.get(id(x), x["p"]) for x in IVA]; ms, pers, as_ = prf(sv, gv)
+print(" GOP, chi pattern tung tang: macro %.2f%% acc %.2f%%" % (100*ms, 100*as_))
+print("      " + "  ".join("%s %.1f" % (r[:4], 100*pers[r][2]) for r in RELS))
 json.dump(SAVE_L, io.open(ART/("pred_layered%s.json" % TAG), "w", encoding="utf-8"))
 if os.environ.get("DUMP"):
     import pickle

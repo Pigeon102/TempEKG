@@ -1,16 +1,16 @@
 [    0s] nap du lieu ...
-[    4s] train 2913 doc, valid 710 doc
-[    9s] train con lai 2913 doc (bo 400 doc dau)
-[    9s] dung dieu kien theo tang ...
-[   84s] instance: train 792395, valid 188924
+[   14s] train 2913 doc, valid 710 doc
+[   25s] train con lai 2913 doc (bo 400 doc dau)
+[   26s] dung dieu kien theo tang ...
+[  399s] instance: train 792395, valid 188924
 
 ======================================================================================================================
 BAI 1 -- DO THI THEO TANG: pattern tung tang -> bo pattern chung -> luat lien tang (valid mo mot lan)
 ======================================================================================================================
-[   84s] EV-EV: stage A ...
-[  202s]   pattern theo tang: {'ONT': 388, 'ARG': 600, 'DISC': 496, 'LEX': 291, 'TIME': 167}
-[  301s]   stage B ...
-[  308s]   luat lien tang: 6186 ({'CONTAINS': 5102, 'SIMULTANEOUS': 769, 'OVERLAP': 315})
+[  400s] EV-EV: stage A ...
+[  662s]   pattern theo tang: {'ONT': 388, 'ARG': 600, 'DISC': 496, 'LEX': 291, 'TIME': 167}
+[  797s]   stage B ...
+[  805s]   luat lien tang: 6186 ({'CONTAINS': 5102, 'SIMULTANEOUS': 769, 'OVERLAP': 315})
 
  EV-EV -- 1673 pattern ({'ONT': 388, 'ARG': 600, 'DISC': 496, 'LEX': 291, 'TIME': 167}), 6186 luat lien tang
    giai doan 1:                     macro  26.99%  acc  87.90%
@@ -22,10 +22,10 @@ BAI 1 -- DO THI THEO TANG: pattern tung tang -> bo pattern chung -> luat lien ta
         lien tang -> CONTAINS     cwlb 0.954  LEX:(('dur_src_a', 'hi'), ('lem_a', 'wars')) & TIME:(('ntx_gran_a', 'ymd'), ('ntx_prep_a', 'of'))
         lien tang -> OVERLAP      cwlb 0.326  DISC:(('conn_btw', 'and'), ('conn_pre_b', 'and')) & ONT:(('EQ', 'type_a', 'Killing'), ('EQ', 'type_b', 'Bodily_harm'))
         lien tang -> OVERLAP      cwlb 0.326  DISC:(('conn_btw', 'and'), ('conn_pre_b', 'and')) & ONT:(('EQ', 'type_a', 'Killing'), ('EQ', 'type_pair', ('Killing', 'Bodily_harm')))
-[  457s] EV->TIMEX: stage A ...
-[  458s]   pattern theo tang: {'ONT': 71, 'ARG': 26, 'DISC': 233, 'LEX': 30, 'TIME': 0}
-[  462s]   stage B ...
-[  462s]   luat lien tang: 719 ({'CONTAINS': 644, 'SIMULTANEOUS': 11, 'OVERLAP': 64})
+[ 1003s] EV->TIMEX: stage A ...
+[ 1008s]   pattern theo tang: {'ONT': 71, 'ARG': 26, 'DISC': 233, 'LEX': 30, 'TIME': 0}
+[ 1013s]   stage B ...
+[ 1014s]   luat lien tang: 719 ({'CONTAINS': 644, 'SIMULTANEOUS': 11, 'OVERLAP': 64})
 
  EV->TIMEX -- 245 pattern ({'ONT': 71, 'ARG': 26, 'DISC': 233, 'LEX': 30, 'TIME': 0}), 719 luat lien tang
    giai doan 1:                     macro  29.74%  acc  89.44%
@@ -37,10 +37,10 @@ BAI 1 -- DO THI THEO TANG: pattern tung tang -> bo pattern chung -> luat lien ta
         lien tang -> CONTAINS     cwlb 0.816  ARG:(('role', 'Loss'),) & DISC:(('ebkt', 'lead'), ('order', 'e<t')) & LEX:(('lem', 'cyclone'),)
         lien tang -> OVERLAP      cwlb 0.213  DISC:(('prep', 'to'), ('sdist', '0')) & ONT:(('anch', True), ('etype', 'Hostile_encounter'))
         lien tang -> OVERLAP      cwlb 0.213  DISC:(('prep', 'to'), ('sdist', '0')) & ONT:(('etype', 'Hostile_encounter'),)
-[  470s] TIMEX->EV: stage A ...
-[  473s]   pattern theo tang: {'ONT': 31, 'ARG': 14, 'DISC': 226, 'LEX': 25, 'TIME': 1}
-[  478s]   stage B ...
-[  479s]   luat lien tang: 627 ({'CONTAINS': 428, 'OVERLAP': 199})
+[ 1022s] TIMEX->EV: stage A ...
+[ 1028s]   pattern theo tang: {'ONT': 31, 'ARG': 14, 'DISC': 226, 'LEX': 25, 'TIME': 1}
+[ 1035s]   stage B ...
+[ 1035s]   luat lien tang: 627 ({'CONTAINS': 428, 'OVERLAP': 199})
 
  TIMEX->EV -- 248 pattern ({'ONT': 31, 'ARG': 14, 'DISC': 226, 'LEX': 25, 'TIME': 1}), 627 luat lien tang
    giai doan 1:                     macro  24.29%  acc  74.09%
@@ -52,10 +52,10 @@ BAI 1 -- DO THI THEO TANG: pattern tung tang -> bo pattern chung -> luat lien ta
         lien tang -> CONTAINS     cwlb 0.948  DISC:(('ebkt', 'mid'), ('prep', 'during')) & LEX:(('txw', 'war'), ('txw', 'world'))
         lien tang -> OVERLAP      cwlb 0.193  ARG:(('role', 'Location'), ('role', 'Loss')) & DISC:(('ebkt', 'lead'), ('sdist', '1')) & ONT:(('etype', 'Catastrophe'), ('ttype', 'DATE'))
         lien tang -> OVERLAP      cwlb 0.193  ARG:(('role', 'Loss'), ('role', 'Patient')) & DISC:(('ebkt', 'lead'), ('sdist', '1')) & ONT:(('etype', 'Catastrophe'), ('ttype', 'DATE'))
-[  482s] TIMEX-TIMEX: stage A ...
-[  483s]   pattern theo tang: {'ONT': 22, 'DISC': 47, 'LEX': 19, 'TIME': 22}
-[  484s]   stage B ...
-[  484s]   luat lien tang: 450 ({'CONTAINS': 397, 'OVERLAP': 12, 'BEGINS-ON': 3, 'SIMULTANEOUS': 35, 'ENDS-ON': 3})
+[ 1040s] TIMEX-TIMEX: stage A ...
+[ 1040s]   pattern theo tang: {'ONT': 22, 'DISC': 47, 'LEX': 19, 'TIME': 22}
+[ 1041s]   stage B ...
+[ 1041s]   luat lien tang: 450 ({'CONTAINS': 397, 'OVERLAP': 12, 'BEGINS-ON': 3, 'SIMULTANEOUS': 35, 'ENDS-ON': 3})
 
  TIMEX-TIMEX -- 98 pattern ({'ONT': 22, 'DISC': 47, 'LEX': 19, 'TIME': 22}), 450 luat lien tang
    giai doan 1:                     macro  32.98%  acc  84.35%
@@ -70,5 +70,7 @@ BAI 1 -- DO THI THEO TANG: pattern tung tang -> bo pattern chung -> luat lien ta
 
  GOP 188.924 CANH: giai doan 1 macro 30.09% acc 84.96%  ->  theo tang 30.84% (+0.75) acc 84.69%
       BEFO 91.3  CONT 52.9  SIMU 26.0  OVER 14.8  BEGI 0.0  ENDS 0.0
-[  491s] da luu 981319 du doan -> pred_layered.json
-[  491s] xong
+ GOP, chi pattern tung tang: macro 30.92% acc 84.62%
+      BEFO 91.2  CONT 52.7  SIMU 25.9  OVER 15.7  BEGI 0.0  ENDS 0.0
+[ 1048s] da luu 981319 du doan -> pred_layered.json
+[ 1048s] xong
