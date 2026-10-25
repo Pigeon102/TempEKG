@@ -43,7 +43,7 @@ from pathlib import Path
 from multiprocessing import Pool
 
 OUT = Path(__file__).resolve().parent
-ART = Path(r"C:\Reseach_Quang\tempekg\src\artifacts")
+ART = __import__("pathlib").Path(__file__).resolve().parents[2] / "src" / "artifacts"
 RELS = ["BEFORE", "CONTAINS", "SIMULTANEOUS", "OVERLAP", "BEGINS-ON", "ENDS-ON"]
 FLOOR = {"CONTAINS": 0.5, "SIMULTANEOUS": 0.15, "OVERLAP": 0.1}
 P61 = (1 << 61) - 1

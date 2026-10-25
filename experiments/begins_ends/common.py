@@ -4,11 +4,11 @@ import io, json, math, hashlib, re
 from pathlib import Path
 from collections import Counter, defaultdict
 
-SRC = Path(r"C:\Reseach_Quang\tempekg\src")
+SRC = __import__("pathlib").Path(__file__).resolve().parents[2] / "src"
 GRAPH = SRC / "graph"
 ART = SRC / "artifacts"
-RAW = Path(r"C:\Reseach_Quang\MAVEN_ERE")
-OUT = Path(r"C:\Reseach_Quang\tempekg\experiments\begins_ends")
+RAW = __import__("pathlib").Path(__import__("os").environ.get("MAVEN_ERE_DIR", str(__import__("pathlib").Path(__file__).resolve().parents[2].parent / "MAVEN_ERE")))
+OUT = __import__("pathlib").Path(__file__).resolve().parents[2] / "experiments" / "begins_ends"
 RELS = ["BEFORE", "CONTAINS", "SIMULTANEOUS", "OVERLAP", "BEGINS-ON", "ENDS-ON"]
 RARE = ("BEGINS-ON", "ENDS-ON")
 SYM = {"SIMULTANEOUS", "BEGINS-ON"}

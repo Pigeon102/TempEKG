@@ -35,7 +35,7 @@ SRC = io.open(HERE/"bai1_all_edges.py", encoding="utf-8").read()
 exec(SRC[:SRC.index("# ---------------------------------------------------------------- miner")])
 exec(SRC[SRC.index("def prf(pred, gold):"):SRC.index("def show(nm, pred, gold):")])
 import sys
-sys.path.insert(0, r"C:\Reseach_Quang\tempekg\src")
+sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parents[2] / "src"))
 from mine_compositional import candidate_conditions, pair_features
 from mine_mdd import relational_conditions
 import random

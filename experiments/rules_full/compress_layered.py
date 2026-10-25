@@ -17,7 +17,7 @@ sys.path.insert(0, str(HERE))
 import rule_cover as RC, json
 SAVEK = {}
 RELS = ["BEFORE", "CONTAINS", "SIMULTANEOUS", "OVERLAP", "BEGINS-ON", "ENDS-ON"]
-D = pickle.load(open(Path(r"C:\Reseach_Quang\tempekg\src\artifacts")/"layered_dump_full.pkl", "rb"))
+D = pickle.load(open(__import__("pathlib").Path(__file__).resolve().parents[2] / "src" / "artifacts" / "layered_dump_full.pkl", "rb"))
 print("=" * 110); print("RUT GON BO LUAT LIEN TANG (buoc 2.2) -- co chung minh (rule_cover.py)"); print("=" * 110)
 TOT = defaultdict(int); POOL = defaultdict(lambda: defaultdict(list))
 for gname, G in D.items():
@@ -62,5 +62,5 @@ for vn in ("day du", "dai dien", "A: giu moi dau ra", "B: giu dau ra dung"):
     m, acc, per = RC.macro(POOL[vn]["pred"], POOL[vn]["gold"], RELS)
     print(" GOP 4 loai canh, %-20s %5d luat  valid macro-F1 %.2f%%  acc %.2f%%" % (vn, TOT[vn], 100*m, 100*acc))
 
-json.dump(SAVEK, io.open("C:/Reseach_Quang/tempekg/src/artifacts/rules_compact_layered.json", "w", encoding="utf-8"), ensure_ascii=False, default=list)
+json.dump(SAVEK, io.open(__import__("pathlib").Path(__file__).resolve().parents[2] / "src" / "artifacts" / "rules_compact_layered.json", "w", encoding="utf-8"), ensure_ascii=False, default=list)
 print("da luu rules_compact_layered.json")

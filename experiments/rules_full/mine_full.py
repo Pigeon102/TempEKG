@@ -37,7 +37,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from multiprocessing import Pool
 
-SRC = Path(r"C:\Reseach_Quang\tempekg\src"); sys.path.insert(0, str(SRC))
+SRC = __import__("pathlib").Path(__file__).resolve().parents[2] / "src"; sys.path.insert(0, str(SRC))
 GRAPH = SRC/"graph"; ART = SRC/"artifacts"
 OUT = Path(__file__).resolve().parent
 SEED = os.environ.get("SEED", "")                   # seed sweep: salts the split, separate output dir

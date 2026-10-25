@@ -28,7 +28,7 @@ CONFIRMATION, VALID opened once. Two gates, as in the motif study:
 Scores combine with the 257 rules under max-norm (wlb/prior), fallback BEFORE.
 """
 import sys, io, json, math, re, hashlib, time, random
-sys.path.insert(0, r"C:\Reseach_Quang\tempekg\src")
+sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parents[2] / "src"))
 from collections import Counter, defaultdict
 from pathlib import Path
 import vote as V
@@ -38,9 +38,9 @@ from mine_mdd import relational_conditions
 T0 = time.time()
 def log(*a): print("[%5.0fs] " % (time.time()-T0) + " ".join(str(x) for x in a), flush=True)
 
-GRAPH = Path(r"C:\Reseach_Quang\tempekg\src\graph")
-RAW = Path(r"C:\Reseach_Quang\MAVEN_ERE")
-ART = Path(r"C:\Reseach_Quang\tempekg\src\artifacts")
+GRAPH = __import__("pathlib").Path(__file__).resolve().parents[2] / "src" / "graph"
+RAW = __import__("pathlib").Path(__import__("os").environ.get("MAVEN_ERE_DIR", str(__import__("pathlib").Path(__file__).resolve().parents[2].parent / "MAVEN_ERE")))
+ART = __import__("pathlib").Path(__file__).resolve().parents[2] / "src" / "artifacts"
 RELS = ["BEFORE", "CONTAINS", "SIMULTANEOUS", "OVERLAP", "BEGINS-ON", "ENDS-ON"]
 LABS = ("CONTAINS", "SIMULTANEOUS", "OVERLAP")
 PRIOR = {"BEFORE": .91045, "CONTAINS": .07430, "SIMULTANEOUS": .00862,

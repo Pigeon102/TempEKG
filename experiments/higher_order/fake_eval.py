@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Bai 2 on the user's fake_data files, with the CURRENT method (document-level joint repair over
 triangles, step 3.2). fake_data = MAVEN-ERE valid gold with EV-EV labels changed at 5/10/15/20%
-(seed 0); C:/Reseach_Quang/fake_data/valid_rXX.manifest.json lists every changed pair.
+(seed 0); <FAKE_DATA_DIR>/valid_rXX.manifest.json lists every changed pair.
 
   graph to audit   valid: EV-EV labels from fake_data, TIMEX edges gold (fake_data leaves them alone)
   statistics       triangle configurations from gold train (DISCOVERY + CONF-1), as in the pipeline
@@ -27,7 +27,7 @@ exec(SRC_J[:SRC_J.index("def evaluate(docs, obs_of, fin_of):")])
 import gc
 for _d in STATS: _d.pop("tris", None); _d.pop("inc", None)   # counts already in FREQ; frees memory
 gc.collect()
-FAKE = Path(r"C:\Reseach_Quang\fake_data")
+FAKE = __import__("pathlib").Path(__import__("os").environ.get("FAKE_DATA_DIR", str(__import__("pathlib").Path(__file__).resolve().parents[2].parent / "fake_data")))
 GRID = [("mean", l, a) for l in (0.2, 0.5, 1.0, 2.0) for a in (0.0, 0.5)] + [("sum", l, 0.0) for l in (0.03, 0.1)]
 SYMM_ = {"SIMULTANEOUS", "BEGINS-ON"}
 

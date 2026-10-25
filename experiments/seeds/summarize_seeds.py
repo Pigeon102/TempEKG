@@ -3,7 +3,7 @@
 difference new - old with a paired t interval (Student t, df = n - 1). Seed 0 = the original runs."""
 import io, re, math, sys
 from pathlib import Path
-ROOT = Path(r"C:\Reseach_Quang\tempekg\experiments")
+ROOT = __import__("pathlib").Path(__file__).resolve().parents[2] / "experiments"
 L = ROOT/"seeds"/"logs"
 T975 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365, 8: 2.306, 9: 2.262}
 

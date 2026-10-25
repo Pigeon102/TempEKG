@@ -67,5 +67,5 @@ print()
 print(" TOM TAT: " + "; ".join("%s %s %d" % s for s in SUMMARY))
 log("xong")
 
-json.dump(SAVEK, io.open("C:/Reseach_Quang/tempekg/src/artifacts/rules_compact_timex.json", "w", encoding="utf-8"), ensure_ascii=False, default=list)
+json.dump(SAVEK, io.open(__import__("pathlib").Path(__file__).resolve().parents[2] / "src" / "artifacts" / "rules_compact_timex.json", "w", encoding="utf-8"), ensure_ascii=False, default=list)
 print("da luu rules_compact_timex.json")

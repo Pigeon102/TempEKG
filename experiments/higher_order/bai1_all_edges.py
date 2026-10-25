@@ -32,14 +32,14 @@ if _os.environ.get("PYTHONHASHSEED") != "0":   # set iteration order must not de
     _sys.exit(_sp.call([_sys.executable] + _sys.argv))
 
 import sys, io, json, math, re, hashlib, time
-sys.path.insert(0, r"C:\Reseach_Quang\tempekg\src")
+sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parents[2] / "src"))
 from collections import Counter, defaultdict
 from pathlib import Path
 
 T0 = time.time()
 def log(*a): print("[%5.0fs] " % (time.time()-T0) + " ".join(str(x) for x in a), flush=True)
-GRAPH = Path(r"C:\Reseach_Quang\tempekg\src\graph"); RAW = Path(r"C:\Reseach_Quang\MAVEN_ERE")
-ART = Path(r"C:\Reseach_Quang\tempekg\src\artifacts")
+GRAPH = __import__("pathlib").Path(__file__).resolve().parents[2] / "src" / "graph"; RAW = __import__("pathlib").Path(__import__("os").environ.get("MAVEN_ERE_DIR", str(__import__("pathlib").Path(__file__).resolve().parents[2].parent / "MAVEN_ERE")))
+ART = __import__("pathlib").Path(__file__).resolve().parents[2] / "src" / "artifacts"
 RELS = ["BEFORE", "CONTAINS", "SIMULTANEOUS", "OVERLAP", "BEGINS-ON", "ENDS-ON"]
 Z = 1.959963985
 def wlb(k, n):

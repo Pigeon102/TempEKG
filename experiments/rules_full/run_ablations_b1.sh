@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /c/Reseach_Quang/tempekg/experiments/rules_full
+cd "$(dirname "$0")"
 export PYTHONHASHSEED=0
 export PYTHONIOENCODING=utf-8 NW=4
 python ablate_score.py > ablate_score.log 2>&1

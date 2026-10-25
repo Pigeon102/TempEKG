@@ -5,7 +5,7 @@ attributes with the values abstracted). Rules that are also in variant B are mar
 import io, json
 from collections import defaultdict
 from pathlib import Path
-D = json.load(io.open(r"C:\Reseach_Quang\tempekg\src\artifacts\rules_compact.json", encoding="utf-8"))
+D = json.load(io.open(__import__("pathlib").Path(__file__).resolve().parents[2] / "src" / "artifacts" / "rules_compact.json", encoding="utf-8"))
 A = D["variants"]["A: giu moi du doan"]; B = D["variants"]["B: giu moi du doan dung"]
 sig = lambda x: (x["view"], json.dumps(x["sig"]), json.dumps(x["conds"]), x["rel"])
 inB = {sig(x) for x in B}
@@ -31,5 +31,5 @@ for rel in ("CONTAINS", "SIMULTANEOUS", "OVERLAP"):
             out.append("| %s | %s = %s | %s | %d/%d | %d/%d | %.3f |" % ("★" if sig(x) in inB else "", x["view"], s,
                        " ∧ ".join(cond(c) for c in x["conds"]), x["k"], x["n"], x["ck"], x["cn"], x["wlb"]))
         out.append("")
-io.open(r"C:\Reseach_Quang\tempekg\report\RULES_COMPACT.md", "w", encoding="utf-8").write("\n".join(out))
+io.open(__import__("pathlib").Path(__file__).resolve().parents[2] / "report" / "RULES_COMPACT.md", "w", encoding="utf-8").write("\n".join(out))
 print("ok", len(A), "luat A;", len(inB & {sig(x) for x in A}), "cung nam trong B")

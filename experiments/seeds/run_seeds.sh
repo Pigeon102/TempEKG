@@ -6,7 +6,7 @@
 # Steps run SEQUENTIALLY (a layered or combo process needs about 5 GB of RAM) and are skipped when
 # their log already ends with "xong". Usage: bash run_seeds.sh 1 2 3 4
 set -u
-ROOT=/c/Reseach_Quang/tempekg
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 LOG=$ROOT/experiments/seeds/logs; mkdir -p "$LOG"
 ART=$ROOT/src/artifacts
 cd "$ROOT/src"
