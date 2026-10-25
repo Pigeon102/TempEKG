@@ -1,0 +1,3 @@
+gold statistics: 2326 documents, 815 configurations, 6306908 triangles
+Task 1 output                error 15.31% | wrong edges in >=1 unseen configuration  21868 /  28916 =  75.6% | triangle neighbours of wrong edges also wrong  30.4%
+all-edge injected 10%        error  9.94% | wrong edges in >=1 unseen configuration  18488 /  18779 =  98.5% | triangle neighbours of wrong edges also wrong   9.8%
