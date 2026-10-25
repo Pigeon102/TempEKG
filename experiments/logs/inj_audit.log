@@ -1,0 +1,43 @@
+[    0s] nap du lieu ...
+[    5s] train 2913 doc, valid 710 doc
+[    6s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
+[   50s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+[    8s] train con lai 2913 doc (bo 400 doc dau)
+[    9s] dung dieu kien theo tang ...
+[  180s] instance: train 792395, valid 188924
+[  190s] dung cau truc motif ...
+[ 1159s] xong cau truc
+
+[ 1198s] rho 0.10: 188924 instance, 0 khong khop canh JR
+[ 1559s]   fold 0: 10 audit rules; aud->tri ('mean', 1.0, 0.0), tri(est) ('mean', 1.0, 0.0), tri(known) ('mean', 1.0, 0.0)
+[ 1813s]   fold 1: 9 audit rules; aud->tri ('mean', 1.0, 0.5), tri(est) ('mean', 1.0, 0.5), tri(known) ('mean', 2.0, 0.0)
+==================================================================================================================================
+NHIEU BOM 10% MOI LOAI CANH -- auditor hoc lai tren nhieu bom, cross-fit tren valid
+==================================================================================================================================
+  do thi nhieu (chua sua)            macro-F1 68.46%
+  auditor only                       P  82.52% R  58.32% F1  68.34%  sua  10946 hong  2320 rong  +8626  loi  9.94% ->  5.37%  macro-F1  73.10%  | recovered acc 58.29% macro 12.92%
+      loi theo loai: EE 9.9->4.5   ET 9.6->5.4   TE 10.2->6.9   TT 10.1->7.6   | F1 nhan: BEFO 96.9  CONT 83.7  SIMU 78.8  OVER 70.1  BEGI 51.8  ENDS 57.4
+  triangle only (known channel)      P  86.48% R  89.18% F1  87.81%  sua  16692 hong  2619 rong +14073  loi  9.94% ->  2.49%  macro-F1  86.26%  | recovered acc 88.89% macro 31.28%
+      loi theo loai: EE 9.9->2.6   ET 9.6->1.6   TE 10.2->3.0   TT 10.1->2.1   | F1 nhan: BEFO 98.6  CONT 91.9  SIMU 90.4  OVER 79.4  BEGI 84.0  ENDS 73.3
+  triangle only (est. channel)       P  91.65% R  83.35% F1  87.30%  sua  15596 hong  1426 rong +14170  loi  9.94% ->  2.44%  macro-F1  82.19%  | recovered acc 83.05% macro 26.23%
+      loi theo loai: EE 9.9->2.3   ET 9.6->1.6   TE 10.2->3.5   TT 10.1->2.5   | F1 nhan: BEFO 98.6  CONT 92.8  SIMU 86.0  OVER 80.9  BEGI 73.0  ENDS 62.0
+  auditor -> triangle (est. channel) P  84.73% R  78.94% F1  81.73%  sua  14782 hong  2672 rong +12110  loi  9.94% ->  3.53%  macro-F1  80.84%  | recovered acc 78.72% macro 22.56%
+      loi theo loai: EE 9.9->3.2   ET 9.6->2.9   TE 10.2->4.6   TT 10.1->4.0   | F1 nhan: BEFO 98.0  CONT 88.3  SIMU 85.3  OVER 83.1  BEGI 65.5  ENDS 64.9
+[ 1857s] rho 0.20: 188924 instance, 0 khong khop canh JR
+[ 2336s]   fold 0: 11 audit rules; aud->tri ('mean', 1.0, 0.5), tri(est) ('mean', 1.0, 0.5), tri(known) ('mean', 2.0, 0.0)
+[ 2775s]   fold 1: 10 audit rules; aud->tri ('mean', 1.0, 0.5), tri(est) ('mean', 1.0, 0.5), tri(known) ('mean', 1.0, 0.5)
+==================================================================================================================================
+NHIEU BOM 20% MOI LOAI CANH -- auditor hoc lai tren nhieu bom, cross-fit tren valid
+==================================================================================================================================
+  do thi nhieu (chua sua)            macro-F1 50.47%
+  auditor only                       P  79.38% R  72.62% F1  75.85%  sua  27217 hong  7090 rong +20127  loi 19.89% ->  9.24%  macro-F1  58.54%  | recovered acc 72.43% macro 18.63%
+      loi theo loai: EE 20.0->7.0   ET 20.0->8.7   TE 19.5->14.5   TT 19.9->13.5   | F1 nhan: BEFO 94.6  CONT 70.3  SIMU 60.9  OVER 60.3  BEGI 33.2  ENDS 31.8
+  triangle only (known channel)      P  88.58% R  88.03% F1  88.31%  sua  32929 hong  4263 rong +28666  loi 19.89% ->  4.72%  macro-F1  70.31%  | recovered acc 87.63% macro 28.95%
+      loi theo loai: EE 20.0->4.1   ET 20.0->2.4   TE 19.5->7.7   TT 19.9->5.0   | F1 nhan: BEFO 97.3  CONT 84.4  SIMU 74.5  OVER 68.7  BEGI 58.0  ENDS 39.0
+  triangle only (est. channel)       P  93.45% R  85.68% F1  89.40%  sua  32072 hong  2255 rong +29817  loi 19.89% ->  4.11%  macro-F1  71.94%  | recovered acc 85.35% macro 27.29%
+      loi theo loai: EE 20.0->3.9   ET 20.0->2.0   TE 19.5->6.0   TT 19.9->4.6   | F1 nhan: BEFO 97.6  CONT 87.7  SIMU 72.0  OVER 73.8  BEGI 51.5  ENDS 49.0
+  auditor -> triangle (est. channel) P  82.72% R  83.97% F1  83.34%  sua  31411 hong  6592 rong +24819  loi 19.89% ->  6.75%  macro-F1  67.18%  | recovered acc 83.59% macro 24.90%
+      loi theo loai: EE 20.0->6.1   ET 20.0->5.3   TE 19.5->9.0   TT 19.9->8.4   | F1 nhan: BEFO 96.1  CONT 76.9  SIMU 70.5  OVER 68.0  BEGI 44.8  ENDS 46.8
+[ 2777s] xong
