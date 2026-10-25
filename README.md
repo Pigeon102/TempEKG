@@ -73,10 +73,13 @@ logs are kept for reference.
 
 Several steps iterate over Python sets, so their order depends on the hash seed. Every entry script therefore
 re-executes itself with `PYTHONHASHSEED=0` if the variable is not already set. With this guard, two consecutive
-runs are byte-identical, and the Task 1 predictions (981,319 pairs) and the Task 2 outputs behind Table 3
-match the archived logs exactly. The injected-noise logs and the ablation logs were produced before the guard
-was added; rerunning them under seed 0 changes at most a few edges (for example one broken edge at 20%
-all-edge corruption) and no rounded metric quoted in the paper.
+runs are byte-identical, and every log behind Tables 2–4 was produced (or re-checked) under seed 0: the Task 1
+predictions (981,319 pairs), the Task 2 outputs behind Table 3, and both injected-noise logs behind Table 4
+are reproduced exactly. The ablation logs (`experiments/logs/ablate_*.log`, `experiments/rules_full/abl_*.log`)
+were produced before the guard was added and may differ by a few edges on a rerun.
+
+On Windows, `src/graph` and `src/artifacts` may be directory junctions to a data folder outside the
+repository; switching branches can replace a junction with a plain folder, so recreate it afterwards.
 
 ## Repository layout
 

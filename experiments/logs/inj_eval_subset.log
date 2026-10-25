@@ -1,14 +1,14 @@
 [    0s] nap du lieu ...
-[    7s] train 2913 doc, valid 710 doc
-[    7s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
-[   71s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
+[    6s] train 2913 doc, valid 710 doc
+[    6s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
+[   83s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
 ====================================================================================================================
 BAI 2 TREN NHIEU BOM CA BON LOAI CANH -- tam giac (buoc 3.2), chon theo macro-F1, valid cham mot lan
 ====================================================================================================================
   10% | macro-F1 (mean, 2.00, 0.5) | loi  9.94% ->  1.91% | P  92.5 R  88.4 F1  90.4 | sua 16526 hong 1353 rong +15173 | macro 68.46 -> 84.92
        chi tren 18779 canh sai ban dau: acc 0 -> 88.00% | macro-F1 0 -> 33.60% | canh sach giu dung 99.20%
        BEFO P94.1 R92.4 F93.2 (n=15961)  CONT P68.1 R67.3 F67.7 (n=2509)  SIMU P14.3 R31.5 F19.7 (n=149)  OVER P17.4 R26.5 F21.0 (n=155)  BEGI P0.0 R0.0 F0.0 (n=4)  ENDS P0.0 R0.0 F0.0 (n=1)
-  20% | macro-F1 (mean, 2.00, 0.5) | loi 19.89% ->  4.37% | P  90.0 R  88.5 F1  89.2 | sua 33034 hong 3709 rong +29325 | macro 50.47 -> 72.03
+  20% | macro-F1 (mean, 2.00, 0.5) | loi 19.89% ->  4.37% | P  90.0 R  88.5 F1  89.2 | sua 33034 hong 3710 rong +29324 | macro 50.47 -> 72.03
        chi tren 37579 canh sai ban dau: acc 0 -> 87.91% | macro-F1 0 -> 34.12% | canh sach giu dung 97.55%
        BEFO P93.3 R93.2 F93.2 (n=31956)  CONT P68.0 R62.4 F65.1 (n=5013)  SIMU P10.8 R21.6 F14.4 (n=296)  OVER P18.2 R23.0 F20.3 (n=291)  BEGI P4.2 R21.4 F7.0 (n=14)  ENDS P2.9 R11.1 F4.7 (n=9)
-[ 1467s] xong
+[ 1727s] xong
