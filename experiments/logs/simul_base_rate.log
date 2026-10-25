@@ -1,0 +1,3 @@
+train (all)      all EV->EV  483504  SIMULTANEOUS  4170 = 0.86% | same sentence  44584  SIMULTANEOUS  2392 = 5.37%
+train DISCOVERY  all EV->EV  292719  SIMULTANEOUS  2535 = 0.87% | same sentence  26538  SIMULTANEOUS  1476 = 5.56%
+validation       all EV->EV  109929  SIMULTANEOUS  1062 = 0.97% | same sentence  10488  SIMULTANEOUS   609 = 5.81%
