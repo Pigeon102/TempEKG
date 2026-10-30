@@ -1,0 +1,18 @@
+[    0s] nap du lieu ...
+[    5s] train 2913 doc, valid 710 doc
+[   10s] train con lai 2913 doc (bo 400 doc dau)
+[   10s] dung dieu kien theo tang ...
+[   92s] instance: train 792395, valid 188924
+==============================================================================================================
+BASELINE: logistic regression on the observable layer atoms, per edge kind
+==============================================================================================================
+[  223s] EE: 19485 features, train 388071, tune macro 29.16%
+  EE  macro-F1  28.60%  acc  87.86%  | BEFO 93.6  CONT 46.0  SIMU 19.9  OVER 12.0  BEGI 0.0  ENDS 0.0
+[  237s] ET: 2155 features, train 82459, tune macro 34.19%
+  ET  macro-F1  32.79%  acc  91.69%  | BEFO 95.8  CONT 45.1  SIMU 30.1  OVER 22.2  BEGI 3.5  ENDS 0.0
+[  257s] TE: 2630 features, train 127780, tune macro 28.71%
+  TE  macro-F1  29.56%  acc  78.44%  | BEFO 84.9  CONT 65.5  SIMU 0.0  OVER 27.0  BEGI 0.0  ENDS 0.0
+[  263s] TT: 390 features, train 37716, tune macro 42.30%
+  TT  macro-F1  39.56%  acc  84.54%  | BEFO 90.8  CONT 69.6  SIMU 62.8  OVER 8.5  BEGI 5.8  ENDS 0.0
+  All macro-F1  33.11%  acc  86.19%  | BEFO 92.3  CONT 57.2  SIMU 26.1  OVER 18.6  BEGI 4.4  ENDS 0.0
+[  264s] da luu 981319 du doan -> pred_layered_lr.json; xong

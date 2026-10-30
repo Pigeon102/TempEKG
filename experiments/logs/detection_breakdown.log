@@ -1,0 +1,9 @@
+B -> tam giac | macro    flagged  14004 = hit   9859 (fixed   9381 + wrong->wrong   478) + broken  4145 | P 70.4 R 34.1 F1 45.9
+B | macro                flagged   9997 = hit   6798 (fixed   6664 + wrong->wrong   134) + broken  3199 | P 68.0 R 23.5 F1 34.9
+chi tam giac | macro     flagged   9510 = hit   6456 (fixed   5847 + wrong->wrong   609) + broken  3054 | P 67.9 R 22.3 F1 33.6
+majority label per kind: {'EV->EV': 'BEFORE', 'TX->EV': 'BEFORE', 'EV->TX': 'BEFORE', 'TX->TX': 'BEFORE'}
+majority EV->EV  macro-F1 15.78 acc 89.94 | per-label 94.7 0.0 0.0 0.0 0.0 0.0
+majority EV->TX  macro-F1 15.91 acc 91.31 | per-label 95.5 0.0 0.0 0.0 0.0 0.0
+majority TX->EV  macro-F1 13.51 acc 68.13 | per-label 81.0 0.0 0.0 0.0 0.0 0.0
+majority TX->TX  macro-F1 14.73 acc 79.19 | per-label 88.4 0.0 0.0 0.0 0.0 0.0
+majority All     macro-F1 15.30 acc 84.81 | per-label 91.8 0.0 0.0 0.0 0.0 0.0

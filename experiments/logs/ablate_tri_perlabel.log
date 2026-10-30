@@ -1,0 +1,27 @@
+[    0s] nap du lieu ...
+[    5s] train 2913 doc, valid 710 doc
+[    6s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
+[   53s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
+==================================================================================================================================
+1. DAU RA BAI 1, cross-fit tren valid (nhu dong 'chi tam giac' cua bai2_combo), chon theo macro-F1
+==================================================================================================================================
+  chua sua: macro 30.84%, loi 15.31%
+  pipeline (PMI, beta 10, kenh nhieu, luoi day du) macro  31.36% | loi 15.31% -> 13.83% | sua   5847 pha  3054 rong  +2793 | canh sai: acc  20.2% macro   8.3% | [('mean', 1.0, 0.5), ('mean', 1.0, 0.5)]
+      F1 per label: BEFO 92.3  CONT 53.7  SIMU 25.7  OVER 14.6  BEGI 1.9  ENDS 0.0
+  tan suat tho thay PMI                            macro  29.71% | loi 15.31% -> 13.38% | sua   4871 pha  1238 rong  +3633 | canh sai: acc  16.8% macro   5.0% | [('mean', 0.2, 0.5), ('mean', 0.2, 0.5)]
+      F1 per label: BEFO 92.5  CONT 53.7  SIMU 25.1  OVER 7.0  BEGI 0.0  ENDS 0.0
+  beta = 0 (khong lam tron)                        macro  31.27% | loi 15.31% -> 13.73% | sua   5526 pha  2540 rong  +2986 | canh sai: acc  19.1% macro   7.3% | [('mean', 1.0, 0.5), ('mean', 0.2, 0.5)]
+      F1 per label: BEFO 92.4  CONT 53.8  SIMU 25.8  OVER 14.6  BEGI 1.1  ENDS 0.0
+  beta = 100                                       macro  31.58% | loi 15.31% -> 13.86% | sua   5585 pha  2855 rong  +2730 | canh sai: acc  19.3% macro   8.3% | [('mean', 1.0, 0.5), ('mean', 1.0, 0.5)]
+      F1 per label: BEFO 92.3  CONT 53.9  SIMU 26.0  OVER 14.4  BEGI 2.9  ENDS 0.0
+  alpha = 0 (Bayes thuan)                          macro  28.78% | loi 15.31% -> 14.09% | sua   8084 pha  5791 rong  +2293 | canh sai: acc  28.0% macro  10.4% | [('sum', 0.1, 0.0), ('mean', 2.0, 0.0)]
+      F1 per label: BEFO 92.2  CONT 47.3  SIMU 23.9  OVER 7.9  BEGI 1.4  ENDS 0.0
+  chi cach can sum                                 macro  28.68% | loi 15.31% -> 15.05% | sua   7813 pha  7325 rong   +488 | canh sai: acc  27.0% macro  13.1% | [('sum', 0.1, 0.0), ('sum', 0.3, 0.0)]
+      F1 per label: BEFO 91.7  CONT 49.0  SIMU 19.7  OVER 10.1  BEGI 1.5  ENDS 0.0
+  chi cach can mean                                macro  31.36% | loi 15.31% -> 13.83% | sua   5847 pha  3054 rong  +2793 | canh sai: acc  20.2% macro   8.3% | [('mean', 1.0, 0.5), ('mean', 1.0, 0.5)]
+      F1 per label: BEFO 92.3  CONT 53.7  SIMU 25.7  OVER 14.6  BEGI 1.9  ENDS 0.0
+  khong mo hinh nhieu                              macro  27.47% | loi 15.31% -> 14.91% | sua   8704 pha  7958 rong   +746 | canh sai: acc  30.1% macro  12.6% | [('mean', 2.0, 0.5), ('mean', 2.0, 0.5)]
+      F1 per label: BEFO 91.7  CONT 44.2  SIMU 16.3  OVER 10.7  BEGI 1.9  ENDS 0.0
+  khong tam giac (lambda = 0)                      macro  30.84% | loi 15.31% -> 15.31% | sua      0 pha     0 rong     +0 | canh sai: acc   0.0% macro   0.0% | [('mean', 0.0, 0.5), ('mean', 0.0, 0.5)]
+      F1 per label: BEFO 91.3  CONT 52.9  SIMU 26.0  OVER 14.8  BEGI 0.0  ENDS 0.0
+[ 1726s] xong

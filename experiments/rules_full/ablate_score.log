@@ -9,4 +9,4 @@ cả 1 và 2 điều kiện (pipeline)       confidence thô trên tập xác nh
 cả 1 và 2 điều kiện (pipeline)       confidence thô trên tập khám phá     26.15%   26.09%   84.22%   54719  11017 |  42.4  13.8   9.0
 cả 1 và 2 điều kiện (pipeline)       lift (confidence / tỷ lệ nền)        24.59%   24.05%   84.25%   54719   3161 |  36.7  10.6   5.5
 cả 1 và 2 điều kiện (pipeline)       Wilson, MỘT ngưỡng chung cho mọi nhãn   22.39%   22.74%   88.77%   54719   2109 |  42.5   0.0   0.0
-[   398s] xong
+[   547s] xong

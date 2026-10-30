@@ -29,7 +29,7 @@ HERE = Path(__file__).resolve().parent
 SRC_L = io.open(HERE/"layered_rules.py", encoding="utf-8").read()
 exec(SRC_L[:SRC_L.index("FINAL = {}")])
 SMOKE = os.environ.get("SMOKE") == "1"
-PL = json.load(io.open(ART/("pred_layered%s.json" % os.environ.get("TAG", "")), encoding="utf-8"))
+PL = json.load(io.open(ART/os.environ.get("PL_FILE", "pred_layered%s.json" % os.environ.get("TAG", "")), encoding="utf-8"))   # PL_FILE: repair another classifier
 SYMM = {"SIMULTANEOUS", "BEGINS-ON"}
 def inv_(l): return l if l in SYMM else ("i" + l)
 CAP = 4

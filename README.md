@@ -26,6 +26,13 @@ Validation set: 710 documents, 188,924 temporal edges.
 | Sec. 4.3 (triangle diagnostics) | 75.6% of Task 1 errors and 98.5% of injected errors lie in an unseen configuration | `experiments/logs/triangle_probe.log` |
 | Fig. 2 caption (auditor on injected noise) | auditor → triangle raises the error from 2.44 to 3.53% (10%) and 4.11 to 6.75% (20%) | `experiments/logs/inj_audit.log` |
 | Fig. 3 (worked example) | *United States occupation of Nicaragua*: auditor and triangle repair edge by edge | `experiments/logs/nic_example.log`, `experiments/logs/nic_audit.log` |
+| Table 2 baselines | majority per edge kind 15.30%; logistic regression on the same layer atoms 33.11% | `experiments/logs/detection_breakdown.log`, `experiments/logs/lr_baseline.log` |
+| Table 2 (single-layer vs full) | paired bootstrap over documents: −0.08 points, 95% CI [−0.23, 0.06], p = 0.25 | `experiments/logs/bootstrap_single_vs_full.log` |
+| Table 3 baselines | prior + noise channel only changes no edge; repair of the logistic regression 33.11 → 34.31%, error 13.81 → 11.72% | `experiments/logs/repair_baselines_task1.log`, `experiments/logs/repair_baselines_lr.log`, `experiments/logs/bai2_combo_lr.log` |
+| Table 3 detection | flagged = fixed + wrong→wrong + broken (Audit → triangle: 14,004 = 9,381 + 478 + 4,145) | `experiments/logs/detection_breakdown.log` |
+| Table 5 (ablations) | Task 1 scoring, auditor and triangle repair, with per-label F1 | `experiments/rules_full/ablate_score.log`, `experiments/logs/ablate_audit.log`, `experiments/logs/ablate_tri_perlabel.log` |
+| Algorithm 1 (sweeps) | repair converges in 9–10 sweeps; after sweep 4 only 0.2–0.5% of label changes remain | `experiments/logs/icm_convergence.log` |
+| Task 2 learnt on training data only | full pipeline 30.84 → 31.59%, error 15.31 → 13.47% (not in the paper) | `experiments/logs/bai2_trainside.log` |
 
 ## Data (not in the repository)
 
@@ -75,8 +82,12 @@ Several steps iterate over Python sets, so their order depends on the hash seed.
 re-executes itself with `PYTHONHASHSEED=0` if the variable is not already set. With this guard, two consecutive
 runs are byte-identical, and every log behind Tables 2–4 was produced (or re-checked) under seed 0: the Task 1
 predictions (981,319 pairs), the Task 2 outputs behind Table 3, and both injected-noise logs behind Table 4
-are reproduced exactly. The ablation logs (`experiments/logs/ablate_*.log`, `experiments/rules_full/abl_*.log`)
-were produced before the guard was added and may differ by a few edges on a rerun.
+are reproduced exactly. The ablation logs behind Table 5 (`experiments/rules_full/ablate_score.log`,
+`experiments/logs/ablate_tri_perlabel.log`) were rerun under seed 0 and match the earlier logs; the other ablation
+logs (`experiments/logs/ablate_audit.log`, `experiments/rules_full/abl_*.log`) were produced before the guard was
+added and may differ by a few edges on a rerun. The Task 1 ablation in Table 5 searches thresholds on a finer grid
+than Table 2 (fixed steps plus weight quantiles), hence 27.09 rather than 26.99 for `EV→EV`.
+`experiments/logs/icm_convergence.log` was run on a rented server and copied from its terminal output (see its header).
 
 On Windows, `src/graph` and `src/artifacts` may be directory junctions to a data folder outside the
 repository; switching branches can replace a junction with a plain folder, so recreate it afterwards.

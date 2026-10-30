@@ -1,0 +1,22 @@
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+[    5s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
+[   45s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+[    8s] train con lai 2913 doc (bo 400 doc dau)
+[    8s] dung dieu kien theo tang ...
+[  157s] instance: train 792395, valid 188924
+[  162s] dung cau truc motif ...
+[ 1183s] xong cau truc
+
+[ 1218s] learn on 587 training documents (mine 194, confirm 198, tune 195); test on 710 validation documents
+[ 1664s] configs: aud->tri ('mean', 0.2, 0.5), tri only ('mean', 0.2, 0.5)
+==================================================================================================================================
+TASK 2 LEARNT ON THE TRAINING TUNING PART, SCORED ONCE ON THE VALIDATION SET
+==================================================================================================================================
+  unrepaired             macro-F1 30.84%  error 15.31%
+  auditor only           macro-F1 31.65%  error 15.31% -> 14.13% | P 58.8 R 28.1 F1 38.0 | fixed 7919 broken 5690 net +2229 | BEFO 92.0  CONT 56.2  SIMU 26.0  OVER 15.7  BEGI 0.0  ENDS 0.0
+  auditor -> triangle    macro-F1 31.59%  error 15.31% -> 13.47% | P 62.8 R 32.4 F1 42.7 | fixed 8999 broken 5533 net +3466 | BEFO 92.4  CONT 56.7  SIMU 28.1  OVER 12.3  BEGI 0.0  ENDS 0.0
+  triangle only          macro-F1 30.71%  error 15.31% -> 14.04% | P 83.3 R 11.5 F1 20.2 | fixed 3056 broken 668 net +2388 | BEFO 92.1  CONT 53.7  SIMU 28.1  OVER 10.5  BEGI 0.0  ENDS 0.0
+[ 1664s] xong

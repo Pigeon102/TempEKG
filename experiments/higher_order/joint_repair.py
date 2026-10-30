@@ -32,7 +32,7 @@ exec(SRC[:SRC.index("# ---------------------------------------------------------
 exec(SRC[SRC.index("def prf(pred, gold):"):SRC.index("def show(nm, pred, gold):")])
 SMOKE = os.environ.get("SMOKE") == "1"
 TAG = os.environ.get("TAG", "")
-PL = json.load(io.open(ART/("pred_layered%s.json" % TAG), encoding="utf-8"))
+PL = json.load(io.open(ART/os.environ.get("PL_FILE", "pred_layered%s.json" % TAG), encoding="utf-8"))   # PL_FILE: repair another classifier
 first400 = set()
 if not TAG or os.environ.get("EXCL400"):
     for i, line in enumerate(io.open(GRAPH/"train.jsonl", encoding="utf-8")):

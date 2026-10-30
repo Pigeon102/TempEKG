@@ -344,6 +344,8 @@ sv = [SINGLE.get(id(x), x["p"]) for x in IVA]; ms, pers, as_ = prf(sv, gv)
 print(" GOP, chi pattern tung tang: macro %.2f%% acc %.2f%%" % (100*ms, 100*as_))
 print("      " + "  ".join("%s %.1f" % (r[:4], 100*pers[r][2]) for r in RELS))
 json.dump(SAVE_L, io.open(ART/("pred_layered%s.json" % TAG), "w", encoding="utf-8"))
+if os.environ.get("DUMP_SINGLE"):   # single-layer stage on valid, for the paired bootstrap against the full model
+    json.dump({"%s|%s|%s" % (x["doc"], x["a"], x["b"]): SINGLE.get(id(x), x["p"]) for x in IVA}, io.open(ART/("pred_single%s.json" % TAG), "w", encoding="utf-8"))
 if os.environ.get("DUMP"):
     import pickle
     with open(ART/("layered_dump%s.pkl" % TAG), "wb") as fh: pickle.dump(DUMPD, fh)

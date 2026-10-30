@@ -1,0 +1,12 @@
+[    0s] nap du lieu ...
+[    4s] train 2913 doc, valid 710 doc
+[    5s] thong ke gold: 2326 doc, chinh tham so: 587 doc, valid 710 doc
+[   47s] tam giac: thong ke 6306908, chinh 1463243, valid 1825360
+[   58s] fold 0: gamma 0.5 (tune macro 32.23%)
+[   58s] fold 1: gamma 0.5 (tune macro 33.09%)
+==============================================================================================================
+PRIOR + NOISE CHANNEL ONLY on pred_layered_lr.json
+==============================================================================================================
+  macro-F1 33.11% -> 32.67% | error 13.81% -> 13.72% | P 97.4 R 1.2 F1 2.3 | fixed 183 broken 8 net +175
+  F1 per label: BEFO 92.3  CONT 57.2  SIMU 26.0  OVER 18.4  BEGI 2.0  ENDS 0.0
+[   59s] xong

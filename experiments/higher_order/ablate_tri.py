@@ -111,6 +111,8 @@ def report(name, docs, obs, fin, cfgs):
     m, c, ms, acc = metrics(docs, obs, fin)
     print("  %-48s macro %6.2f%% | loi %5.2f%% -> %5.2f%% | sua %6d pha %5d rong %+6d | canh sai: acc %5.1f%% macro %5.1f%% | %s" % (
         name, 100*m, 100*c["b0"]/c["n"], 100*c["b1"]/c["n"], c["fix"], c["brk"], c["fix"] - c["brk"], 100*acc, 100*ms, cfgs), flush=True)
+    _, per, _ = prf([f for d in docs for f in fin[d["id"]]], [e[2] for d in docs for e in d["edges"]])
+    print("      F1 per label: " + "  ".join("%s %.1f" % (r[:4], 100*per[r][2]) for r in LABS), flush=True)
 
 cls = lambda d: [PL.get("%s|%s|%s" % (d["id"], e[0], e[1]), "BEFORE") for e in d["edges"]]
 which = sys.argv[1:] or ["cls", "inj"]
