@@ -14,4 +14,5 @@ python ../experiments/higher_order/bootstrap_single_vs_full.py > $L/bootstrap_si
 python ../experiments/higher_order/bai2_trainside.py > $L/bai2_trainside.log 2>&1
 python ../experiments/higher_order/icm_convergence.py > $L/icm_convergence.log 2>&1
 PIPE_GRID=1 python ../experiments/rules_full/ablate_score.py > ../experiments/rules_full/ablate_score.log 2>&1
+python ../experiments/higher_order/logic_split.py > $L/logic_split.log 2>&1
 echo ALLDONE

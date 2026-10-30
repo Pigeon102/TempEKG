@@ -32,6 +32,7 @@ Validation set: 710 documents, 188,924 temporal edges.
 | Table 3 detection | flagged = fixed + wrong→wrong + broken (Audit → triangle: 14,004 = 9,381 + 478 + 4,145) | `experiments/logs/detection_breakdown.log` |
 | Table 5 (ablations) | Task 1 scoring, auditor and triangle repair, with per-label F1 | `experiments/rules_full/ablate_score.log`, `experiments/logs/ablate_audit.log`, `experiments/logs/ablate_tri_perlabel.log` |
 | Algorithm 1 (sweeps) | repair converges in 9–10 sweeps; after sweep 4 only 0.2–0.5% of label changes remain | `experiments/logs/icm_convergence.log` |
+| Sec. 6.4 (logically admissible errors) | 75.6% of Task 1 errors lie in a logically conflicting triangle, 24.1% are admissible; the full pipeline restores 41.1% vs 5.8% of them (gold: 0 conflicting triangles) | `experiments/logs/logic_split.log` |
 | Task 2 learnt on training data only | full pipeline 30.84 → 31.59%, error 15.31 → 13.47% (not in the paper) | `experiments/logs/bai2_trainside.log` |
 
 ## Data (not in the repository)

@@ -1,0 +1,16 @@
+==============================================================================================================
+LOGICAL CONFLICTS ON THE VALIDATION GRAPH (triangle path consistency, Allen mapping of Sec. 3.4)
+==============================================================================================================
+  triangles 1825360 | in a logical conflict: gold labels 0, Task 1 labels 78903 (4.32%)
+  wrong Task 1 edges 28916: conflict 21868 (75.6%), admissible 6959 (24.1%), no triangle 89 (0.3%)
+
+  configuration            group          wrong |   fixed    w->w    kept | recovered
+  B -> tam giac | macro    conflict       21868 |    8978     443   12447 |  41.1%
+  B -> tam giac | macro    admissible      6959 |     402      34    6523 |   5.8%
+  B -> tam giac | macro    no triangle       89 |       1       1      87 |   1.1%
+  B | macro                conflict       21868 |    6333     113   15422 |  29.0%
+  B | macro                admissible      6959 |     330      20    6609 |   4.7%
+  B | macro                no triangle       89 |       1       1      87 |   1.1%
+  chi tam giac | macro     conflict       21868 |    5792     558   15518 |  26.5%
+  chi tam giac | macro     admissible      6959 |      55      51    6853 |   0.8%
+  chi tam giac | macro     no triangle       89 |       0       0      89 |   0.0%
