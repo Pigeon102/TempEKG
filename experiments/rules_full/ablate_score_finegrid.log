@@ -1,0 +1,12 @@
+==============================================================================================================
+ABLATION BAI 1 (EV-EV, bo luat toan train): do sau, cach cham diem luat, combiner
+==============================================================================================================
+do sau                               diem luat                            CONF-2    valid      acc    luat    bat | F1 CONT SIMU OVER
+cả 1 và 2 điều kiện (pipeline)       Wilson (pipeline)                    27.01%   27.09%   89.15%   54719   2115 |  42.0  18.1   8.1
+chỉ 1 điều kiện                      Wilson (pipeline)                    26.67%   27.23%   87.73%    6624    301 |  40.7  19.2   9.9
+chỉ 2 điều kiện                      Wilson (pipeline)                    26.87%   27.01%   89.29%   48095   1875 |  41.4  17.7   8.6
+cả 1 và 2 điều kiện (pipeline)       confidence thô trên tập xác nhận     26.04%   26.18%   88.16%   54719   3839 |  39.8  14.4   9.2
+cả 1 và 2 điều kiện (pipeline)       confidence thô trên tập khám phá     26.15%   26.09%   84.22%   54719  11017 |  42.4  13.8   9.0
+cả 1 và 2 điều kiện (pipeline)       lift (confidence / tỷ lệ nền)        24.59%   24.05%   84.25%   54719   3161 |  36.7  10.6   5.5
+cả 1 và 2 điều kiện (pipeline)       Wilson, MỘT ngưỡng chung cho mọi nhãn   22.39%   22.74%   88.77%   54719   2109 |  42.5   0.0   0.0
+[   547s] xong

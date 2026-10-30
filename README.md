@@ -85,8 +85,9 @@ predictions (981,319 pairs), the Task 2 outputs behind Table 3, and both injecte
 are reproduced exactly. The ablation logs behind Table 5 (`experiments/rules_full/ablate_score.log`,
 `experiments/logs/ablate_tri_perlabel.log`) were rerun under seed 0 and match the earlier logs; the other ablation
 logs (`experiments/logs/ablate_audit.log`, `experiments/rules_full/abl_*.log`) were produced before the guard was
-added and may differ by a few edges on a rerun. The Task 1 ablation in Table 5 searches thresholds on a finer grid
-than Table 2 (fixed steps plus weight quantiles), hence 27.09 rather than 26.99 for `EV→EV`.
+added and may differ by a few edges on a rerun. The Task 1 ablation in Table 5 is run with `PIPE_GRID=1`, the
+pipeline's own threshold grid, so its first row equals Table 2 (26.99% for `EV→EV`); lift keeps a quantile grid since
+its weights exceed 1. `ablate_score_finegrid.log` is the earlier run on a finer grid (fixed steps plus quantiles).
 `experiments/logs/icm_convergence.log` was run on a rented server and copied from its terminal output (see its header).
 
 On Windows, `src/graph` and `src/artifacts` may be directory junctions to a data folder outside the

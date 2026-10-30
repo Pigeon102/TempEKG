@@ -78,6 +78,7 @@ def main():
             ws = sorted(W[i] for i in range(len(rules)) if ok[i] and RL[i] == r)
             qs = [ws[int(q*(len(ws)-1))] for q in (0.5, 0.7, 0.8, 0.9, 0.95, 0.98, 0.99, 0.995)] if ws else []
             steps = [0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8] if max(W) <= 1.0001 else []
+            if os.environ.get("PIPE_GRID") and steps: qs = []   # the pipeline's own grid (mine_full.py): fixed steps only
             grids[r] = sorted(set(steps + qs)) + [float("inf")]
         if per_label:
             TH = {r: float("inf") for r in range(len(RELS))}; best = macro(pred(F2, TH), g2)[0]
